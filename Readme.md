@@ -4,6 +4,7 @@ To run the program :
 
 eg : ./ecl example.ecl > example.xml
 
+Similar code using jlex/cup can be generated in java, if required for the project.
 
 ecl.l -> flex file for scanning
 
