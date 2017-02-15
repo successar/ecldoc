@@ -1,10 +1,12 @@
 To run the program :
+
 1) make
-2) ./ecl <ecl-file-name> > <output-xml-file-name>
+
+2) ./ecl ecl-file-name > output-xml-file-name
 
 eg : ./ecl example.ecl > example.xml
 
-Similar code using jlex/cup can be generated in java, if required for the project.
+Similar code using jflex/cup can be found on JAVA branch of this repository.
 
 ecl.l -> flex file for scanning
 
