@@ -1,0 +1,27 @@
+  
+import java_cup.runtime.*;
+
+   
+  
+terminal           EXPORT, END, SHARED;
+terminal String    DOCSTRING, ARGS, START, ATTRIBUTE;
+   
+non terminal String     input, exportt, func, functions;
+
+input ::= functions:f       {: RESULT = f; :}
+          ;
+
+functions ::=                         {: RESULT = ""; :}
+        | func:f1 functions:f2        {: RESULT = f1 + f2; :}
+        ;
+
+
+func ::= exportt:e ARGS:a START:s functions:f END             {: RESULT = e + " <ARGS> " + a + " </ARGS> <START> " + s + " </START> " + f + "</EXPORT>" + "\n"; :}
+        | exportt:e ARGS:a ATTRIBUTE:t                        {: RESULT = e + " <ARGS> " + a + " </ARGS> <ATTR> " + t + "</ATTR> </EXPORT>\n"; :}
+        | SHARED functions END                                {: RESULT = "<SHARED></SHARED>\n"; :}
+        ;
+
+exportt ::= DOCSTRING:d EXPORT                                {: RESULT = "<EXPORT> <COMMENT> " + d + " </COMMENT>\n"; :}
+        | EXPORT                                              {: RESULT = "<EXPORT>" ; :}
+        ;
+
