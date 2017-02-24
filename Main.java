@@ -30,6 +30,7 @@ public class Main {
       Lexer l = new Lexer(new FileReader(argv[0]));
       parser p = new parser(l);
       String result = (String) p.parse().value;      
+      System.out.println("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<?xml-stylesheet type=\"text/xsl\" href=\"htmlstyle.xsl\"?>\n");
       System.out.println(result);
     } catch (Exception e) {
       /* do cleanup here -- possibly rethrow e */

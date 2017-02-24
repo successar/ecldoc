@@ -23,7 +23,7 @@
     * @return the definitive answer.
     
     */
-    EXPORT MyFunction(REAL8 a_number STRING8 a_string) := funcTION
+    EXPORT MyFunction(REAL8 a_number, STRING8 a_string) := funcTION
       
     END ;
     

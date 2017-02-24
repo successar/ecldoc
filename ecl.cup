@@ -8,7 +8,7 @@ terminal String    DOCSTRING, ARGS, START, ATTRIBUTE;
    
 non terminal String     input, exportt, func, functions;
 
-input ::= functions:f       {: RESULT = f; :}
+input ::= functions:f       {: RESULT = "<EXPORTS>\n" + f + "\n</EXPORTS>"; :}
           ;
 
 functions ::=                         {: RESULT = ""; :}
@@ -16,7 +16,7 @@ functions ::=                         {: RESULT = ""; :}
         ;
 
 
-func ::= exportt:e ARGS:a START:s functions:f END             {: RESULT = e + " <ARGS> " + a + " </ARGS> <START> " + s + " </START> " + f + "</EXPORT>" + "\n"; :}
+func ::= exportt:e ARGS:a START:s functions:f END             {: RESULT = e + " <ARGS> " + a + " </ARGS> <START> " + s + " </START> <EXPORTS>" + f + "</EXPORTS></EXPORT>" + "\n"; :}
         | exportt:e ARGS:a ATTRIBUTE:t                        {: RESULT = e + " <ARGS> " + a + " </ARGS> <ATTR> " + t + "</ATTR> </EXPORT>\n"; :}
         | SHARED functions END                                {: RESULT = "<SHARED></SHARED>\n"; :}
         ;
