@@ -1,90 +1,53 @@
 <html>
-<head><title>example</title></head>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>example</title>
+</head>
 <body>
-	<h2>
-		Tree
-	</h2>
-	<ul>
-		<li>
-			<p>
-				MODULE: <a href="#d1" name="n1">MyModule</a>(REAL8 first_number)
-			</p>
-			<ul>
-				<li>
-					<p>
-						FUNCTION: <a href="#d2" name="n2">MyFunction</a>(REAL8 a_number, STRING8 a_string)
-					</p>
-				</li>
-				<li>
-					<p>
-						MODULE: <a href="#d3" name="n3">MyModuleInt</a>(REAL8 first_number)
-					</p>
-					<ul>
-						<li>
-							<p>
-								FUNCTION: <a href="#d4" name="n4">MyFunctionInt</a>(REAL8 a_number, STRING8 a_string)
-							</p>
-						</li>
-						
-					</ul>
-				</li>
-			</ul>
-		</li>
-	</ul>
-	<h2>
-		Descriptions
-	</h2>
-	<hr>
-	<p>
-		MODULE: <a href="#n1" name="d1">MyModule</a>(REAL8 first_number)
-		</p><p>
-
-My module provides a module to perform important calculations.  My comments are not very well
-formatted but the documentation formatter should take care of that
-  <br>
-Parameter: first_number The first number can do many things depending on the context.  Good 
-                        thing the formatter will clean this up
-      <br>                  
-Returns:                The answer you are looking for.
-	</p>
-	<hr>
-	<p>
-		FUNCTION: <a href="#n2" name="d2">MyFunction</a>(REAL8 a_number, STRING8 a_string)
-  </p><p>
-  A very useful function
-  <br>
-  Parameter: a_number the first parameter
-  <br>
-  Parameter: a_string the second parameter
-  <br>
-  Returns:   the definitive answer.
-
-	</p>
-	<hr>
-	<p>
-		MODULE: <a href="#n3" name="d3">MyModuleInt</a>(REAL8 first_number)
-		</p><p>
-
-Second Level Module (nesting = 2)
-  <br>
-Parameter: first_number The first number can do many things depending on the context.  Good 
-                        thing the formatter will clean this up
-      <br>                  
-Returns:                The answer you are looking for.
-	</p>
-	<hr>
-	<p>
-		FUNCTION: <a href="#n4" name="d4">MyFunctionInt</a>(REAL8 a_number, STRING8 a_string)
-  </p><p>
-  Second Level Function (nesting = 3)
-  <br>
-  Parameter: a_number the first parameter
-  <br>
-  Parameter: a_string the second parameter
-  <br>
-  Returns:   the definitive answer.
-
-	</p>
-	<hr>
+<h2>
+<a name="t">Tree</a>
+</h2>
+<ul>
+<li>
+<p>1 <a href="#d1" name="t1"> MODULE </a>: 
+         MyModule(REAL8 first_number) </p>
+<ul>
+<li>
+<p>1.1 <a href="#d1.1" name="t1.1"> FUNCTION </a>: 
+         MyFunction(REAL8 a_number, STRING8 a_string) </p>
+<ul></ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2>
+<a name="d">Description</a>
+</h2>
+<hr>
+<p>1 <a href="#t1" name="d1"> MODULE </a>: 
+       MyModule(REAL8 first_number) </p>
+<p>See 
+      <a href="#d"> 
+        Parent
+      </a>
+</p>
+<p> My module provides a module to perform important calculations. My comments are not very well formatted but the documentation formatter should take care of that. </p>
+<p>@param : 
+       first_number The first number can do many things depending on the context. Good thing the formatter will clean this up </p>
+<p>@return : 
+       The answer you are looking for. </p>
+<hr>
+<p>1.1 <a href="#t1.1" name="d1.1"> FUNCTION </a>: 
+       MyFunction(REAL8 a_number, STRING8 a_string) </p>
+<p>See 
+      <a href="#d1"> 
+        Parent
+      </a>
+</p>
+<p> A very useful function </p>
+<p>@param : 
+       a_number the first parameter </p>
+<p>@return : 
+       the definitive answer. </p>
 </body>
 </html>

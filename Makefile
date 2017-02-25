@@ -16,6 +16,7 @@ direc :
 html :
 	javac ToHTML.java
 	java ToHTML text.xml text.html htmlstyle.xsl
+	java ToHTML example.xml example.html htmlstyle.xsl
 
 cleanexamples :
 	rm text.xml example.xml text.html
