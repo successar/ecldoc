@@ -24,25 +24,25 @@ import java_cup.runtime.*;
     StringBuffer buf = new StringBuffer("");
     String curr = "</DESC>";
 
-    String clean_string(StringBuffer obj, Boolean up) {
+    String clean_string(StringBuffer obj, Boolean up, Boolean angle) {
       String tmp = obj.toString().trim().replaceAll("\\s+", " ");
       if(up) { tmp = tmp.toUpperCase(); }
+      if(angle) { tmp = tmp.replaceAll("<", "&lt;").replaceAll(">", "&gt;"); }
       obj.setLength(0);
       return tmp;
     }
 
-    Boolean debug = true;
+    Boolean debug = false;
     int nesting = 0;
 %}
    
-%xstates ARGS_L, C0, C1, START_L, STRING_L, C2
+%xstates ARGS_L, C0, START_L, STRING_L, ATTR_L
 
-SPECIAL = ":="
-SC   = ";"
 LineTerminator = \r|\n|\r\n
 InputCharacter = [^\r\n]
 EndOfLineComment     = "//" {InputCharacter}* {LineTerminator}?
 STARTsym = ("MODULE"|"RECORD"|"TRANSFORM"|"FUNCTION"|"INTERFACE"|"TYPE"|"MACRO"|"BEGINC++"|"FUNCTIONMACRO")
+id = [A-Za-z_#][A-Za-z_0]+
 
 %%
 
@@ -52,7 +52,6 @@ STARTsym = ("MODULE"|"RECORD"|"TRANSFORM"|"FUNCTION"|"INTERFACE"|"TYPE"|"MACRO"|
 <C0>[ \t\r\n]+ { buf.append(" "); }
 
 <C0>@param { buf.append(curr + "<PARAM>"); curr = "</PARAM>"; }
-
 <C0>@return { buf.append(curr + "<RETURN>"); curr = "</RETURN>"; }
 
 <C0>"*" {}
@@ -61,7 +60,7 @@ STARTsym = ("MODULE"|"RECORD"|"TRANSFORM"|"FUNCTION"|"INTERFACE"|"TYPE"|"MACRO"|
 
 <C0>"*/" {yybegin(YYINITIAL); buf.setLength(0); }
 
-<C0>"*/"/[ \t\r\n]*"EXPORT" {yybegin(YYINITIAL); buf.append(curr);  if (debug) System.out.println(buf); return symbol(sym.DOCSTRING ,clean_string(buf, false)); }
+<C0>"*/"/[ \t\r\n]*"EXPORT" {yybegin(YYINITIAL); buf.append(curr);  if (debug) System.out.println(buf); return symbol(sym.DOCSTRING ,clean_string(buf, false, false)); }
 
 
 "/*" [^*] ~"*/" | "/*" "*"+ "/" {}
@@ -71,27 +70,27 @@ STARTsym = ("MODULE"|"RECORD"|"TRANSFORM"|"FUNCTION"|"INTERFACE"|"TYPE"|"MACRO"|
 
 
 <STRING_L>[^'] {}
-
 <STRING_L>"'" {yybegin(YYINITIAL);}
 
-{SPECIAL} {}
 
-"EXPORT"/[ \t\r\n] { yybegin(ARGS_L); buf.setLength(0);  if (debug) System.out.println("EXPORT"); return symbol(sym.EXPORT); }
+EXPORT  { yybegin(ARGS_L); buf.setLength(0);  if (debug) System.out.println("EXPORT"); return symbol(sym.EXPORT); }
 
-<ARGS_L>[^] { buf.append(yytext()); }
+<ARGS_L>[^;]   { buf.append(yytext()); }
+<ARGS_L>":="   { yybegin(YYINITIAL); yypushback(2); if (debug) System.out.println(buf); return symbol(sym.ARGS, clean_string(buf, false, false)); }
+<ARGS_L>";"    { yybegin(YYINITIAL); if (debug) System.out.println(buf); return symbol(sym.ARGSD, clean_string(buf, false, false)); }
 
-<ARGS_L>{SPECIAL} { yybegin(START_L);  if (debug) System.out.println(buf); return symbol(sym.ARGS, clean_string(buf, false)); }
+":=" { yybegin(START_L); return symbol(sym.ASSIGN); }
 
-<START_L>[ \t\n\r]*{STARTsym}/[ \t\r\n\(,] { yybegin(YYINITIAL); buf.setLength(0); buf.append(yytext());  if (debug) { nesting++; System.out.println(nesting + " STR" + buf); } return symbol(sym.START ,clean_string(buf, true)); }
+END|ENDMACRO|ENDC\+\+     {  if (debug) { System.out.println(nesting + " END"); nesting--; } return symbol(sym.END); }
+{id}    {}
 
-<START_L>[^;] { buf.append(yytext()); }
+<START_L>{STARTsym}/[ \t\r\n\(,\/] { yybegin(YYINITIAL); buf.setLength(0); buf.append(yytext());  if (debug) { nesting++; System.out.println(nesting + " STR" + buf); } return symbol(sym.START ,clean_string(buf, true, false)); }
 
-<START_L>; { yybegin(YYINITIAL);  if (debug) System.out.println("ATT" + buf); return symbol(sym.ATTRIBUTE ,clean_string(buf, false)); }
+<START_L>[ \t\r\n] {}
+<START_L>[^ \t\r\n] { yypushback(1); yybegin(YYINITIAL);  if (debug) System.out.println("ATTR"); return symbol(sym.ATTRIBUTE, "ATTRIBUTE"); }
 
-{SPECIAL}[ \t\n\r]*{STARTsym}/[ \t\r\n\(,] {  if (debug) { nesting++; System.out.println(nesting + " SHA" + yytext()); } return symbol(sym.SHARED); }
+<ATTR_L>[^;] { buf.append(yytext()); }
+<ATTR_L>";" { yybegin(YYINITIAL);  if (debug) System.out.println("ATTR" + buf); return symbol(sym.ATTRIBUTE ,clean_string(buf, false, true)); }
 
-[ \t\r\n]*("END"|"ENDMACRO"|"ENDC++")[ \t\r\n]*{SC} {  if (debug) { System.out.println(nesting + " END"); nesting--; } return symbol(sym.END); }
-
-[ \t\n\r]+         {} 
-
-.          {}
+[ \t\r\n] {}
+. {}

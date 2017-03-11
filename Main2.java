@@ -21,12 +21,8 @@ public class Main2 {
 					writer.close();    
 				}
 			} catch (Exception e) {
-				
-			}
-			if (f.getName().equals("Classify.ecl")) {
-				Scanner in;
-				in = new Scanner(System.in);
-				String s = in.nextLine();
+				e.printStackTrace();
+				System.exit(0);	
 			}
 		}
 
