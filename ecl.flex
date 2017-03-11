@@ -31,7 +31,8 @@ import java_cup.runtime.*;
       return tmp;
     }
 
-    Boolean debug = false;
+    Boolean debug = true;
+    int nesting = 0;
 %}
    
 %xstates ARGS_L, C0, C1, START_L, STRING_L, C2
@@ -77,19 +78,19 @@ STARTsym = ("MODULE"|"RECORD"|"TRANSFORM"|"FUNCTION"|"INTERFACE"|"TYPE"|"MACRO"|
 
 "EXPORT"/[ \t\r\n] { yybegin(ARGS_L); buf.setLength(0);  if (debug) System.out.println("EXPORT"); return symbol(sym.EXPORT); }
 
-<ARGS_L>. { buf.append(yytext()); }
+<ARGS_L>[^] { buf.append(yytext()); }
 
 <ARGS_L>{SPECIAL} { yybegin(START_L);  if (debug) System.out.println(buf); return symbol(sym.ARGS, clean_string(buf, false)); }
 
-<START_L>[ \t\n\r]*{STARTsym}/[ \t\r\n\(,] { yybegin(YYINITIAL); buf.setLength(0); buf.append(yytext());  if (debug) System.out.println("STR" + buf); return symbol(sym.START ,clean_string(buf, true)); }
+<START_L>[ \t\n\r]*{STARTsym}/[ \t\r\n\(,] { yybegin(YYINITIAL); buf.setLength(0); buf.append(yytext());  if (debug) { nesting++; System.out.println(nesting + " STR" + buf); } return symbol(sym.START ,clean_string(buf, true)); }
 
-<START_L>[^;\n] { buf.append(yytext()); }
+<START_L>[^;] { buf.append(yytext()); }
 
-<START_L>(;|\n) { yybegin(YYINITIAL);  if (debug) System.out.println("ATT" + buf); return symbol(sym.ATTRIBUTE ,clean_string(buf, false)); }
+<START_L>; { yybegin(YYINITIAL);  if (debug) System.out.println("ATT" + buf); return symbol(sym.ATTRIBUTE ,clean_string(buf, false)); }
 
-{SPECIAL}[ \t\n\r]*{STARTsym}/[ \t\r\n\(,] {  if (debug) System.out.println("SHA" + yytext()); return symbol(sym.SHARED); }
+{SPECIAL}[ \t\n\r]*{STARTsym}/[ \t\r\n\(,] {  if (debug) { nesting++; System.out.println(nesting + " SHA" + yytext()); } return symbol(sym.SHARED); }
 
-[ \t\r\n]*("END"|"ENDMACRO"|"ENDC++")[ \t\r\n]*{SC} {  if (debug) System.out.println("END"); return symbol(sym.END); }
+[ \t\r\n]*("END"|"ENDMACRO"|"ENDC++")[ \t\r\n]*{SC} {  if (debug) { System.out.println(nesting + " END"); nesting--; } return symbol(sym.END); }
 
 [ \t\n\r]+         {} 
 
