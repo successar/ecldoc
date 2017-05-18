@@ -1,0 +1,173 @@
+<Meta>
+ <Source name="example" sourcePath="example.ecl">
+  <Definition body="37"
+              end="1346"
+              exported="1"
+              line="1"
+              name="Example"
+              type="MODULE">
+   <Definition body="68"
+               end="111"
+               exported="1"
+               line="3"
+               name="rec_1_ex"
+               start="50"
+               type="record">
+    <Field name="f" type="real8"/>
+    <Field name="g" type="real8"/>
+   </Definition>
+   <Definition body="135"
+               end="185"
+               exported="1"
+               line="8"
+               name="rec_2_ex"
+               start="117"
+               type="record">
+    <Field name="h" type="real8"/>
+    <Field name="g" type="real8"/>
+   </Definition>
+   <Definition body="213"
+               end="338"
+               exported="1"
+               line="13"
+               name="interface_ex"
+               start="191"
+               type="MODULE">
+    <Definition body="257"
+                end="256"
+                exported="1"
+                line="14"
+                name="iface_var_1"
+                start="228"
+                type="String"/>
+    <Definition body="291"
+                end="290"
+                exported="1"
+                line="15"
+                name="iface_var_2"
+                start="261"
+                type="String"/>
+    <Definition body="326"
+                end="330"
+                exported="1"
+                line="16"
+                name="iface_var_3"
+                start="295"
+                type="String"/>
+   </Definition>
+   <Definition body="423"
+               end="480"
+               exported="1"
+               line="19"
+               name="function_ex"
+               returntype="Table of rec_1_ex"
+               start="344"
+               type="FUNCTION">
+    <Param name="x" type="Real"/>
+    <Param name="y" type="Real"/>
+    <Param name="d" type="Table of &lt;unnamed&gt;"/>
+   </Definition>
+   <Definition body="520"
+               end="678"
+               exported="1"
+               line="23"
+               name="mod_with_arg_ex"
+               start="486"
+               type="MODULE">
+    <Definition body="546"
+                end="551"
+                exported="1"
+                line="24"
+                name="pi_w"
+                start="532"
+                type="Real"/>
+    <Definition body="607"
+                end="670"
+                exported="1"
+                line="25"
+                name="tranform_ex_in_mod"
+                returntype="rec_1_ex"
+                start="556"
+                type="TRANSFORM">
+     <Param name="rec" type="row of rec_2_ex"/>
+    </Definition>
+    <Param name="a" type="Real"/>
+   </Definition>
+   <Definition body="712"
+               end="856"
+               exported="1"
+               line="31"
+               name="mod_without_arg_ex"
+               start="684"
+               type="MODULE">
+    <Definition body="740"
+                end="745"
+                exported="1"
+                line="32"
+                name="pi_wo"
+                start="725"
+                type="Real"/>
+    <Definition body="813"
+                end="848"
+                exported="1"
+                line="33"
+                name="function_in_mod_ex"
+                returntype="Integer"
+                start="751"
+                type="FUNCTION">
+     <Param name="vars" type="Table of rec_1_ex"/>
+    </Definition>
+   </Definition>
+   <Definition body="906"
+               end="981"
+               line="38"
+               name="tranform_ex"
+               returntype="rec_2_ex"
+               shared="1"
+               start="862"
+               type="TRANSFORM">
+    <Param name="rec" type="row of rec_1_ex"/>
+   </Definition>
+   <Definition body="1023"
+               end="1045"
+               exported="1"
+               line="43"
+               name="cpp_ex"
+               returntype="Real"
+               start="987"
+               type="EMBED">
+    <Param name="varcpp" type="Real"/>
+   </Definition>
+   <Definition body="1083"
+               end="1162"
+               exported="1"
+               line="47"
+               name="function_macro_ex"
+               returntype="Boolean"
+               start="1051"
+               type="MACRO">
+    <Param name="num" type="Integer"/>
+   </Definition>
+   <Definition body="1200"
+               end="1258"
+               exported="1"
+               line="52"
+               name="macro_ex"
+               returntype="&lt;void&gt;"
+               start="1168"
+               type="MACRO">
+    <Param name="num_1" type="Integer"/>
+    <Param name="num_2" type="Integer"/>
+   </Definition>
+   <Definition body="1295"
+               end="1338"
+               exported="1"
+               line="56"
+               name="macro_without_args_ex"
+               returntype="&lt;void&gt;"
+               start="1264"
+               type="MACRO"/>
+   <Param name="arg_module_1" type="Real"/>
+  </Definition>
+ </Source>
+</Meta>
