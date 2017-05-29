@@ -1,3 +1,5 @@
+IMPORT example_1;
+
 /**
   Top Level Module with Args
 */
@@ -39,8 +41,8 @@ EXPORT Example(REAL8 arg_module_1) := MODULE
   	@param d param_3
   	@return Dataset(rec_1_ex)
   */
-  Export DATASET(rec_1_ex) function_ex(Real8 x, REAL8 y, DATASET({Real8 u}) d) := FUNCTION
-  	RETURN DATASET([{1, 2}], rec_1_ex);
+  Export DATASET(example_1.rec_1_ex_1) function_ex(Real8 x, REAL8 y, DATASET({Real8 u}) d) := FUNCTION
+  	RETURN DATASET([{1, 2}], example_1.rec_1_ex_1);
   END;
 
   /**
@@ -53,6 +55,7 @@ EXPORT Example(REAL8 arg_module_1) := MODULE
   		SELF.f := rec.h;
   		SELF.g := rec.g;
   	END;
+    EXPORT pi_v := example_1.function_ex1(pi_w);
   END;
 
   /**
