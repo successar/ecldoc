@@ -1,95 +1,64 @@
-IMPORT example_1;
-
 /**
-  Top Level Module with Args
+* Basic Example with :
+* records, interface, function,
+* modules, transform, embed,
+* macros and functionmacro
 */
-EXPORT Example(REAL8 arg_module_1) := MODULE
 
-  /**
-  	Record Example 1
-  	@param f field_1
-  	@param g field_2
-  */
-  EXPORT rec_1_ex := RECORD
+EXPORT example := MODULE
+  EXPORT rec_1 := RECORD
     REAL8 f;
     REAL8 g;
   END;
 
-  /**
-  	Record Example 1
-  	@param h field_1
-  	@param g field_2
-  */
-  EXPORT rec_2_ex := RECORD
-    REAL8 h := 2.0;
+  EXPORT rec_2 := RECORD
+    UNSIGNED4 a;
+    REAL8 b;
     REAL8 g;
   END;
 
-  /**
-  	Interface Example
-  */
   EXPORT interface_ex := INTERFACE
-  	EXPORT STRING20 iface_var_1;
-  	EXPORT STRING2   iface_var_2;
-  	EXPORT STRING25  iface_var_3 := '';
+  	SHARED UNSIGNED4  iface_v1;
+  	EXPORT STRING25  iface_v3 := '';
   END;
 
-  /**
-  	Function Example 1
-  	@param x param_1
-  	@param y param_2
-  	@param d param_3
-  	@return Dataset(rec_1_ex)
-  */
-  Export DATASET(example_1.rec_1_ex_1) function_ex(Real8 x, REAL8 y, DATASET({Real8 u}) d) := FUNCTION
-  	RETURN DATASET([{1, 2}], example_1.rec_1_ex_1);
+  EXPORT func_1(REAL8 x, STRING25 y) := FUNCTION
+    RETURN 2 * x;
   END;
 
-  /**
-  	Module with Arguments
-  	Transform within Module
-  */
-  Export mod_with_arg_ex(REAL8 a) := MODULE
+  SHARED rec_2 trans_1(rec_1 rec) := TRANSFORM, SKIP(rec.f > 2)
+    SELF.a := rec.f;
+    SELF.b := rec.f + rec.g;
+    SELF.g := rec.g;
+  END;
+
+  EXPORT DATASET(rec_2) func_2(DATASET(rec_1) d) := FUNCTION
+  	RETURN PROJECT(d, trans_1(LEFT));
+  END;
+
+  EXPORT mod_1(REAL8 a) := MODULE
   	EXPORT pi_w := 2.3;
-  	EXPORT rec_1_ex tranform_ex_in_mod(rec_2_ex rec) := TRANSFORM
-  		SELF.f := rec.h;
-  		SELF.g := rec.g;
-  	END;
-    EXPORT pi_v := example_1.function_ex1(pi_w);
   END;
 
-  /**
-  	Module without Args
-  	Function within Module
-  */
-
-  EXPORT mod_without_arg_ex := MODULE
+  EXPORT mod_2 := MODULE
     EXPORT pi_wo := 2.3;
-    EXPORT Unsigned4 function_in_mod_ex(DATASET(rec_1_ex) vars) := FUNCTION
-    	RETURN 4;
-    END;
   END;
 
-  SHARED rec_2_ex tranform_ex(rec_1_ex rec) := TRANSFORM, SKIP(rec.f > 2)
-    SELF.h := rec.f;
-    SELF := rec;
-  END;
 
-  EXPORT REAL8 cpp_ex(REAL8 varcpp) := BEGINC++
+  EXPORT DATA cpp_1(REAL8 varcpp) := BEGINC++
 
   ENDC++;
 
-  EXPORT function_macro_ex(num) := FUNCTIONMACRO
+  EXPORT funcmacro_1(num) := FUNCTIONMACRO
     LOCAL numPlus := num + 1;
     RETURN numPlus;
   ENDMACRO;
 
-  EXPORT macro_ex(num_1, num_2) := MACRO
+  EXPORT macro_1(num_1, num_2) := MACRO
     EXPORT attrname := num_1 + num_2;
   ENDMACRO;
 
-  EXPORT macro_without_args_ex := MACRO
+  EXPORT macro_2 := MACRO
   	EXPORT attr := 2.0;
   ENDMACRO;
-
 END;
