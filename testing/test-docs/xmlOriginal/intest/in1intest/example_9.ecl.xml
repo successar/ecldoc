@@ -1,0 +1,223 @@
+<Meta>
+ <Source name="intest.in1intest.example_9" sourcePath="/media/sarthak/Data/ecldoc/testing/test/intest/in1intest/example_9.ecl">
+  <Import end="7"
+          inherit_type="local"
+          line="1"
+          name="example_8"
+          ref="example_8"
+          start="7">
+   <Type>attribute</Type>
+   <Documentation>
+    <content>Three level Hierarchy Example . Inheritance across Hierarchy . Problems with Type System -- PROJECT Expression does not maintain record typename (rec_2) but do maintain record structure . IE mod_2.v1_m2 should be &lt;Table of rec_2&gt; but shown &lt;Table of unnamed&gt; . &lt;unnamed&gt; has same structure as record &lt;rec_2&gt; .</content>
+   </Documentation>
+   <Return>MODULE</Return>
+  </Import>
+  <Import end="25"
+          inherit_type="local"
+          line="2"
+          name="mod_1"
+          ref="example_8.mod_1"
+          start="25">
+   <Type>attribute</Type>
+   <Return>MODULE</Return>
+  </Import>
+  <Definition body="134"
+              end="151"
+              inherit_type="local"
+              line="9"
+              name="mod_2"
+              start="126">
+   <Type>module</Type>
+   <Parents>
+    <Parent line="17" name="mod_11" ref="example_8.mod_1.mod_11"/>
+   </Parents>
+   <Definition body="473"
+               end="498"
+               exported="1"
+               inherit_type="inherited"
+               line="18"
+               name="v1_m11"
+               start="457">
+    <Type>attribute</Type>
+    <Return>Table of rec_1</Return>
+   </Definition>
+   <Definition body="568"
+               end="594"
+               exported="1"
+               inherit_type="local"
+               line="23"
+               name="rec_2"
+               start="553">
+    <Type>record</Type>
+    <Field name="b">
+     <Type>Real</Type>
+    </Field>
+   </Definition>
+   <Definition body="624"
+               end="684"
+               exported="1"
+               inherit_type="local"
+               line="26"
+               name="v1_m2"
+               start="597">
+    <Type>function</Type>
+    <Params>
+     <Param name="ag_1">
+      <Type>Real</Type>
+     </Param>
+    </Params>
+    <Return>Table of &lt;unnamed&gt;</Return>
+   </Definition>
+   <Documentation>
+    <content>Basic ECL without enclosing module Multilevel imports Example</content>
+   </Documentation>
+  </Definition>
+  <Definition body="161"
+              end="196"
+              inherit_type="local"
+              line="11"
+              name="rec_3"
+              start="153">
+   <Type>record</Type>
+   <Field name="b">
+    <Type>Real</Type>
+   </Field>
+   <Field name="c">
+    <Type>Real</Type>
+   </Field>
+  </Definition>
+  <Definition body="202"
+              end="240"
+              inherit_type="local"
+              line="15"
+              name="a"
+              start="198">
+   <Type>attribute</Type>
+   <Return>Table of rec_1</Return>
+  </Definition>
+  <Definition body="245"
+              end="264"
+              inherit_type="local"
+              line="16"
+              name="b"
+              start="241">
+   <Type>attribute</Type>
+   <Return>Table of &lt;unnamed&gt;</Return>
+  </Definition>
+  <Definition body="269"
+              end="323"
+              inherit_type="local"
+              line="17"
+              name="c"
+              start="265">
+   <Type>attribute</Type>
+   <Return>Table of &lt;unnamed&gt;</Return>
+  </Definition>
+ </Source>
+ <Source name="example_8" sourcePath="/media/sarthak/Data/ecldoc/testing/test/./example_8.ecl">
+  <Definition body="352"
+              end="696"
+              exported="1"
+              inherit_type="local"
+              line="12"
+              name="example_8"
+              start="333">
+   <Type>module</Type>
+   <Parents/>
+   <Definition body="376"
+               end="511"
+               exported="1"
+               inherit_type="local"
+               line="13"
+               name="mod_1"
+               start="361">
+    <Type>module</Type>
+    <Definition body="401"
+                end="427"
+                exported="1"
+                inherit_type="local"
+                line="14"
+                name="rec_1"
+                start="386">
+     <Type>record</Type>
+     <Field name="a">
+      <Type>Real</Type>
+     </Field>
+    </Definition>
+    <Definition body="446"
+                end="505"
+                exported="1"
+                inherit_type="local"
+                line="17"
+                name="mod_11"
+                start="430">
+     <Type>module</Type>
+     <Definition body="473"
+                 end="498"
+                 exported="1"
+                 inherit_type="local"
+                 line="18"
+                 name="v1_m11"
+                 start="457">
+      <Type>attribute</Type>
+      <Return>Table of rec_1</Return>
+     </Definition>
+     <Parents/>
+    </Definition>
+    <Parents/>
+   </Definition>
+   <Definition body="529"
+               end="690"
+               exported="1"
+               inherit_type="local"
+               line="22"
+               name="mod_2"
+               start="514">
+    <Type>module</Type>
+    <Definition body="473"
+                end="498"
+                exported="1"
+                inherit_type="inherited"
+                line="18"
+                name="v1_m11"
+                start="457">
+     <Type>attribute</Type>
+     <Return>Table of rec_1</Return>
+    </Definition>
+    <Definition body="568"
+                end="594"
+                exported="1"
+                inherit_type="local"
+                line="23"
+                name="rec_2"
+                start="553">
+     <Type>record</Type>
+     <Field name="b">
+      <Type>Real</Type>
+     </Field>
+    </Definition>
+    <Definition body="624"
+                end="684"
+                exported="1"
+                inherit_type="local"
+                line="26"
+                name="v1_m2"
+                start="597">
+     <Type>function</Type>
+     <Params>
+      <Param name="ag_1">
+       <Type>Real</Type>
+      </Param>
+     </Params>
+     <Return>Table of &lt;unnamed&gt;</Return>
+    </Definition>
+    <Parents>
+     <Parent line="17" name="mod_11" ref="example_8.mod_1.mod_11"/>
+    </Parents>
+   </Definition>
+   <Documentation>
+    <content>Three level Hierarchy Example . Inheritance across Hierarchy . Problems with Type System -- PROJECT Expression does not maintain record typename (rec_2) but do maintain record structure . IE mod_2.v1_m2 should be &lt;Table of rec_2&gt; but shown &lt;Table of unnamed&gt; . &lt;unnamed&gt; has same structure as record &lt;rec_2&gt; .</content>
+   </Documentation>
+  </Definition>
+ </Source>
+</Meta>

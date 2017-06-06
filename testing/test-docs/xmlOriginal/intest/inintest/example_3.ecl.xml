@@ -1,0 +1,993 @@
+<Meta>
+ <Source name="intest.inintest.example_3" sourcePath="/media/sarthak/Data/ecldoc/testing/test/intest/inintest/example_3.ecl">
+  <Definition body="130"
+              end="222"
+              exported="1"
+              inherit_type="local"
+              line="8"
+              name="Example_3"
+              start="111">
+   <Type>module</Type>
+   <Parents/>
+   <Definition body="154"
+               end="217"
+               exported="1"
+               inherit_type="local"
+               line="9"
+               name="mod_1"
+               start="139">
+    <Type>module</Type>
+    <Definition body="179"
+                end="184"
+                exported="1"
+                inherit_type="local"
+                line="10"
+                name="v1_m1"
+                start="164">
+     <Type>attribute</Type>
+     <Return>Real</Return>
+    </Definition>
+    <Definition body="206"
+                end="211"
+                exported="1"
+                inherit_type="local"
+                line="11"
+                name="v2_m1_ex3"
+                start="187">
+     <Type>attribute</Type>
+     <Return>Real</Return>
+    </Definition>
+    <Parents/>
+   </Definition>
+   <Documentation>
+    <content>Example : Inheritance across files mod_1 in Example_4 inherits mod_1 in Example_3</content>
+   </Documentation>
+  </Definition>
+  <Import end="101"
+          inherit_type="local"
+          line="6"
+          name="Str"
+          ref="std.Str"
+          start="101">
+   <Type>attribute</Type>
+   <Return>MODULE</Return>
+  </Import>
+ </Source>
+ <Source name="std.str" sourcePath="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/Str.ecl">
+  <Import end="750"
+          inherit_type="local"
+          line="20"
+          name="lib_stringlib"
+          ref="lib_stringlib"
+          start="750">
+   <Type>attribute</Type>
+   <Return>MODULE</Return>
+  </Import>
+  <Definition body="264"
+              end="511"
+              inherit_type="local"
+              line="6"
+              name="externals"
+              start="252">
+   <Type>module</Type>
+   <Definition exported="1"
+               inherit_type="local"
+               line="8"
+               name="EncodeBase64">
+    <Type>function</Type>
+    <Params>
+     <Param name="src">
+      <Type>Data</Type>
+     </Param>
+    </Params>
+    <Return>String</Return>
+   </Definition>
+   <Definition exported="1"
+               inherit_type="local"
+               line="9"
+               name="DecodeBase64">
+    <Type>function</Type>
+    <Params>
+     <Param name="src">
+      <Type>String</Type>
+     </Param>
+    </Params>
+    <Return>Data</Return>
+   </Definition>
+   <Parents/>
+  </Definition>
+  <Definition body="528"
+              end="18204"
+              exported="1"
+              inherit_type="local"
+              line="12"
+              name="Str"
+              start="515">
+   <Type>module</Type>
+   <Definition body="1210"
+               end="1274"
+               exported="1"
+               inherit_type="local"
+               line="31"
+               name="CompareIgnoreCase"
+               start="1148">
+    <Type>function</Type>
+    <Params>
+     <Param name="src1">
+      <Type>String</Type>
+     </Param>
+     <Param name="src2">
+      <Type>String</Type>
+     </Param>
+    </Params>
+    <Return>Integer</Return>
+    <Documentation>
+     <content>Compares the two strings case insensitively.  Returns a negative integer, zero, or a positive integer according to whether the first string is less than, equal to, or greater than the second.</content>
+     <see>Str.EqualIgnoreCase</see>
+     <param>src1          The first string to be compared.</param>
+     <param>src2          The second string to be compared.</param>
+    </Documentation>
+   </Definition>
+   <Definition body="1597"
+               end="1632"
+               exported="1"
+               inherit_type="local"
+               line="42"
+               name="EqualIgnoreCase"
+               start="1538">
+    <Type>function</Type>
+    <Params>
+     <Param name="src1">
+      <Type>String</Type>
+     </Param>
+     <Param name="src2">
+      <Type>String</Type>
+     </Param>
+    </Params>
+    <Return>Boolean</Return>
+    <Documentation>
+     <content>Tests whether the two strings are identical ignoring differences in case.</content>
+     <see>Str.CompareIgnoreCase</see>
+     <param>src1          The first string to be compared.</param>
+     <param>src2          The second string to be compared.</param>
+    </Documentation>
+   </Definition>
+   <Definition body="2124"
+               end="2186"
+               exported="1"
+               inherit_type="local"
+               line="54"
+               name="Find"
+               start="2049">
+    <Type>function</Type>
+    <Params>
+     <Param name="src">
+      <Type>String</Type>
+     </Param>
+     <Param name="sought">
+      <Type>String</Type>
+     </Param>
+     <Param name="instance">
+      <Type>Integer</Type>
+     </Param>
+    </Params>
+    <Return>Integer</Return>
+    <Documentation>
+     <content>Returns the character position of the nth match of the search string with the first string. If no match is found the attribute returns 0. If an instance is omitted the position of the first instance is returned.</content>
+     <param>src           The string that is searched</param>
+     <param>sought        The string being sought.</param>
+     <param>instance      Which match instance are we interested in?</param>
+    </Documentation>
+   </Definition>
+   <Definition body="2450"
+               end="2504"
+               exported="1"
+               inherit_type="local"
+               line="64"
+               name="FindCount"
+               start="2394">
+    <Type>function</Type>
+    <Params>
+     <Param name="src">
+      <Type>String</Type>
+     </Param>
+     <Param name="sought">
+      <Type>String</Type>
+     </Param>
+    </Params>
+    <Return>Integer</Return>
+    <Documentation>
+     <content>Returns the number of occurences of the second string within the first string.</content>
+     <param>src           The string that is searched</param>
+     <param>sought        The string being sought.</param>
+    </Documentation>
+   </Definition>
+   <Definition body="2941"
+               end="3018"
+               exported="1"
+               inherit_type="local"
+               line="75"
+               name="WildMatch"
+               start="2864">
+    <Type>function</Type>
+    <Params>
+     <Param name="src">
+      <Type>String</Type>
+     </Param>
+     <Param name="_pattern">
+      <Type>String</Type>
+     </Param>
+     <Param name="ignore_case">
+      <Type>Boolean</Type>
+     </Param>
+    </Params>
+    <Return>Boolean</Return>
+    <Documentation>
+     <content>Tests if the search string matches the pattern. The pattern can contain wildcards &apos;?&apos; (single character) and &apos;*&apos; (multiple character).</content>
+     <param>src           The string that is being tested.</param>
+     <param>pattern       The pattern to match against.</param>
+     <param>ignore_case   Whether to ignore differences in case between characters</param>
+    </Documentation>
+   </Definition>
+   <Definition body="3507"
+               end="3578"
+               exported="1"
+               inherit_type="local"
+               line="87"
+               name="Contains"
+               start="3431">
+    <Type>function</Type>
+    <Params>
+     <Param name="src">
+      <Type>String</Type>
+     </Param>
+     <Param name="_pattern">
+      <Type>String</Type>
+     </Param>
+     <Param name="ignore_case">
+      <Type>Boolean</Type>
+     </Param>
+    </Params>
+    <Return>Boolean</Return>
+    <Documentation>
+     <content>Tests if the search string contains each of the characters in the pattern. If the pattern contains duplicate characters those characters will match once for each occurence in the pattern.</content>
+     <param>src           The string that is being tested.</param>
+     <param>pattern       The pattern to match against.</param>
+     <param>ignore_case   Whether to ignore differences in case between characters</param>
+    </Documentation>
+   </Definition>
+   <Definition body="3915"
+               end="3969"
+               exported="1"
+               inherit_type="local"
+               line="98"
+               name="FilterOut"
+               start="3862">
+    <Type>function</Type>
+    <Params>
+     <Param name="src">
+      <Type>String</Type>
+     </Param>
+     <Param name="filter">
+      <Type>String</Type>
+     </Param>
+    </Params>
+    <Return>String</Return>
+    <Documentation>
+     <content>Returns the first string with all characters within the second string removed.</content>
+     <see>Str.Filter</see>
+     <param>src           The string that is being tested.</param>
+     <param>filter        The string containing the set of characters to be excluded.</param>
+    </Documentation>
+   </Definition>
+   <Definition body="4310"
+               end="4361"
+               exported="1"
+               inherit_type="local"
+               line="108"
+               name="Filter"
+               start="4260">
+    <Type>function</Type>
+    <Params>
+     <Param name="src">
+      <Type>String</Type>
+     </Param>
+     <Param name="filter">
+      <Type>String</Type>
+     </Param>
+    </Params>
+    <Return>String</Return>
+    <Documentation>
+     <content>Returns the first string with all characters not within the second string removed.</content>
+     <see>Str.FilterOut</see>
+     <param>src           The string that is being tested.</param>
+     <param>filter        The string containing the set of characters to be included.</param>
+    </Documentation>
+   </Definition>
+   <Definition body="4937"
+               end="5012"
+               exported="1"
+               inherit_type="local"
+               line="121"
+               name="SubstituteIncluded"
+               start="4853">
+    <Type>function</Type>
+    <Params>
+     <Param name="src">
+      <Type>String</Type>
+     </Param>
+     <Param name="Filter">
+      <Type>String</Type>
+     </Param>
+     <Param name="replace_char">
+      <Type>String</Type>
+     </Param>
+    </Params>
+    <Return>String</Return>
+    <Documentation>
+     <content>Returns the source string with the replacement character substituted for all characters included in the filter string. MORE: Should this be a general string substitution?</content>
+     <see>Std.Str.Translate, Std.Str.SubstituteExcluded</see>
+     <param>src           The string that is being tested.</param>
+     <param>filter        The string containing the set of characters to be included.</param>
+     <param>replace_char  The character to be substituted into the result.</param>
+    </Documentation>
+   </Definition>
+   <Definition body="5573"
+               end="5645"
+               exported="1"
+               inherit_type="local"
+               line="135"
+               name="SubstituteExcluded"
+               start="5489">
+    <Type>function</Type>
+    <Params>
+     <Param name="src">
+      <Type>String</Type>
+     </Param>
+     <Param name="Filter">
+      <Type>String</Type>
+     </Param>
+     <Param name="replace_char">
+      <Type>String</Type>
+     </Param>
+    </Params>
+    <Return>String</Return>
+    <Documentation>
+     <content>Returns the source string with the replacement character substituted for all characters not included in the filter string. MORE: Should this be a general string substitution?</content>
+     <see>Std.Str.SubstituteIncluded</see>
+     <param>src           The string that is being tested.</param>
+     <param>filter        The string containing the set of characters to be included.</param>
+     <param>replace_char  The character to be substituted into the result.</param>
+    </Documentation>
+   </Definition>
+   <Definition body="6309"
+               end="6379"
+               exported="1"
+               inherit_type="local"
+               line="149"
+               name="Translate"
+               start="6236">
+    <Type>function</Type>
+    <Params>
+     <Param name="src">
+      <Type>String</Type>
+     </Param>
+     <Param name="search">
+      <Type>String</Type>
+     </Param>
+     <Param name="replacement">
+      <Type>String</Type>
+     </Param>
+    </Params>
+    <Return>String</Return>
+    <Documentation>
+     <content>Returns the source string with the all characters that match characters in the search string replaced with the character at the corresponding position in the replacement string.</content>
+     <see>Std.Str.SubstituteIncluded</see>
+     <param>src           The string that is being tested.</param>
+     <param>search        The string containing the set of characters to be included.</param>
+     <param>replacement   The string containing the characters to act as replacements.</param>
+    </Documentation>
+   </Definition>
+   <Definition body="6589"
+               end="6637"
+               exported="1"
+               inherit_type="local"
+               line="158"
+               name="ToLowerCase"
+               start="6549">
+    <Type>function</Type>
+    <Params>
+     <Param name="src">
+      <Type>String</Type>
+     </Param>
+    </Params>
+    <Return>String</Return>
+    <Documentation>
+     <content>Returns the argument string with all upper case characters converted to lower case.</content>
+     <param>src           The string that is being converted.</param>
+    </Documentation>
+   </Definition>
+   <Definition body="6846"
+               end="6894"
+               exported="1"
+               inherit_type="local"
+               line="166"
+               name="ToUpperCase"
+               start="6806">
+    <Type>function</Type>
+    <Params>
+     <Param name="src">
+      <Type>String</Type>
+     </Param>
+    </Params>
+    <Return>String</Return>
+    <Documentation>
+     <content>Return the argument string with all lower case characters converted to upper case.</content>
+     <param>src           The string that is being converted.</param>
+    </Documentation>
+   </Definition>
+   <Definition body="7212"
+               end="7262"
+               exported="1"
+               inherit_type="local"
+               line="176"
+               name="ToCapitalCase"
+               start="7170">
+    <Type>function</Type>
+    <Params>
+     <Param name="src">
+      <Type>String</Type>
+     </Param>
+    </Params>
+    <Return>String</Return>
+    <Documentation>
+     <content>Returns the argument string with the first letter of each word in upper case and all other letters left as-is. A contiguous sequence of alphanumeric characters is treated as a word.</content>
+     <param>src           The string that is being converted.</param>
+    </Documentation>
+   </Definition>
+   <Definition body="7577"
+               end="7625"
+               exported="1"
+               inherit_type="local"
+               line="186"
+               name="ToTitleCase"
+               start="7537">
+    <Type>function</Type>
+    <Params>
+     <Param name="src">
+      <Type>String</Type>
+     </Param>
+    </Params>
+    <Return>String</Return>
+    <Documentation>
+     <content>Returns the argument string with the first letter of each word in upper case and all other letters lower case. A contiguous sequence of alphanumeric characters is treated as a word.</content>
+     <param>src           The string that is being converted.</param>
+    </Documentation>
+   </Definition>
+   <Definition body="7872"
+               end="7916"
+               exported="1"
+               inherit_type="local"
+               line="195"
+               name="Reverse"
+               start="7836">
+    <Type>function</Type>
+    <Params>
+     <Param name="src">
+      <Type>String</Type>
+     </Param>
+    </Params>
+    <Return>String</Return>
+    <Documentation>
+     <content>Returns the argument string with all characters in reverse order. Note the argument is not TRIMMED before it is reversed.</content>
+     <param>src           The string that is being reversed.</param>
+    </Documentation>
+   </Definition>
+   <Definition body="8308"
+               end="8380"
+               exported="1"
+               inherit_type="local"
+               line="205"
+               name="FindReplace"
+               start="8233">
+    <Type>function</Type>
+    <Params>
+     <Param name="src">
+      <Type>String</Type>
+     </Param>
+     <Param name="sought">
+      <Type>String</Type>
+     </Param>
+     <Param name="replacement">
+      <Type>String</Type>
+     </Param>
+    </Params>
+    <Return>String</Return>
+    <Documentation>
+     <content>Returns the source string with the replacement string substituted for all instances of the search string.</content>
+     <param>src           The string that is being transformed.</param>
+     <param>sought        The string to be replaced.</param>
+     <param>replacement   The string to be substituted into the result.</param>
+    </Documentation>
+   </Definition>
+   <Definition body="8650"
+               end="8704"
+               exported="1"
+               inherit_type="local"
+               line="215"
+               name="Extract"
+               start="8594">
+    <Type>function</Type>
+    <Params>
+     <Param name="src">
+      <Type>String</Type>
+     </Param>
+     <Param name="instance">
+      <Type>Integer</Type>
+     </Param>
+    </Params>
+    <Return>String</Return>
+    <Documentation>
+     <content>Returns the nth element from a comma separated string.</content>
+     <param>src           The string containing the comma separated list.</param>
+     <param>instance      Which item to select from the list.</param>
+    </Documentation>
+   </Definition>
+   <Definition body="9062"
+               end="9110"
+               exported="1"
+               inherit_type="local"
+               line="225"
+               name="CleanSpaces"
+               start="9022">
+    <Type>function</Type>
+    <Params>
+     <Param name="src">
+      <Type>String</Type>
+     </Param>
+    </Params>
+    <Return>String</Return>
+    <Documentation>
+     <content>Returns the source string with all instances of multiple adjacent space characters (2 or more spaces together) reduced to a single space character.  Leading and trailing spaces are removed, and tab characters are converted to spaces.</content>
+     <param>src           The string to be cleaned.</param>
+    </Documentation>
+   </Definition>
+   <Definition body="9531"
+               end="9568"
+               exported="1"
+               inherit_type="local"
+               line="236"
+               name="StartsWith"
+               start="9476">
+    <Type>function</Type>
+    <Params>
+     <Param name="src">
+      <Type>String</Type>
+     </Param>
+     <Param name="prefix">
+      <Type>String</Type>
+     </Param>
+    </Params>
+    <Return>Boolean</Return>
+    <Documentation>
+     <content>Returns true if the prefix string matches the leading characters in the source string.  Trailing spaces are  stripped from the prefix before matching. // x.myString.StartsWith(&apos;x&apos;) as an alternative syntax would be even better</content>
+     <param>src           The string being searched in.</param>
+     <param>prefix        The prefix to search for.</param>
+    </Documentation>
+   </Definition>
+   <Definition body="9908"
+               end="9964"
+               exported="1"
+               inherit_type="local"
+               line="245"
+               name="EndsWith"
+               start="9855">
+    <Type>function</Type>
+    <Params>
+     <Param name="src">
+      <Type>String</Type>
+     </Param>
+     <Param name="suffix">
+      <Type>String</Type>
+     </Param>
+    </Params>
+    <Return>Boolean</Return>
+    <Documentation>
+     <content>Returns true if the suffix string matches the trailing characters in the source string.  Trailing spaces are  stripped from both strings before matching.</content>
+     <param>src           The string being searched in.</param>
+     <param>suffix        The prefix to search for.</param>
+    </Documentation>
+   </Definition>
+   <Definition body="10300"
+               end="10393"
+               exported="1"
+               inherit_type="local"
+               line="255"
+               name="RemoveSuffix"
+               start="10244">
+    <Type>function</Type>
+    <Params>
+     <Param name="src">
+      <Type>String</Type>
+     </Param>
+     <Param name="suffix">
+      <Type>String</Type>
+     </Param>
+    </Params>
+    <Return>String</Return>
+    <Documentation>
+     <content>Removes the suffix from the search string, if present, and returns the result.  Trailing spaces are  stripped from both strings before matching.</content>
+     <param>src           The string being searched in.</param>
+     <param>suffix        The prefix to search for.</param>
+    </Documentation>
+   </Definition>
+   <Definition body="10737"
+               end="10795"
+               exported="1"
+               inherit_type="local"
+               line="266"
+               name="ExtractMultiple"
+               start="10677">
+    <Type>function</Type>
+    <Params>
+     <Param name="src">
+      <Type>String</Type>
+     </Param>
+     <Param name="mask">
+      <Type>Integer</Type>
+     </Param>
+    </Params>
+    <Return>String</Return>
+    <Documentation>
+     <content>Returns a string containing a list of elements from a comma separated string.</content>
+     <param>src           The string containing the comma separated list.</param>
+     <param>mask          A bitmask of which elements should be included.  Bit 0 is item1, bit1 item 2 etc.</param>
+    </Documentation>
+   </Definition>
+   <Definition body="11288"
+               end="11353"
+               exported="1"
+               inherit_type="local"
+               line="277"
+               name="CountWords"
+               start="11199">
+    <Type>function</Type>
+    <Params>
+     <Param name="src">
+      <Type>String</Type>
+     </Param>
+     <Param name="separator">
+      <Type>String</Type>
+     </Param>
+     <Param name="allow_blank">
+      <Type>Boolean</Type>
+     </Param>
+    </Params>
+    <Return>Integer</Return>
+    <Documentation>
+     <content>Returns the number of words that the string contains.  Words are separated by one or more separator strings. No  spaces are stripped from either string before matching.</content>
+     <param>src           The string being searched in.</param>
+     <param>separator     The string used to separate words</param>
+     <param>allow_blank   Indicates if empty/blank string items are included in the results.</param>
+    </Documentation>
+   </Definition>
+   <Definition body="11850"
+               end="11915"
+               exported="1"
+               inherit_type="local"
+               line="288"
+               name="SplitWords"
+               start="11757">
+    <Type>function</Type>
+    <Params>
+     <Param name="src">
+      <Type>String</Type>
+     </Param>
+     <Param name="separator">
+      <Type>String</Type>
+     </Param>
+     <Param name="allow_blank">
+      <Type>Boolean</Type>
+     </Param>
+    </Params>
+    <Return>Set of String</Return>
+    <Documentation>
+     <content>Returns the list of words extracted from the string.  Words are separated by one or more separator strings. No  spaces are stripped from either string before matching.</content>
+     <param>src           The string being searched in.</param>
+     <param>separator     The string used to separate words</param>
+     <param>allow_blank   Indicates if empty/blank string items are included in the results.</param>
+    </Documentation>
+   </Definition>
+   <Definition body="12300"
+               end="12356"
+               exported="1"
+               inherit_type="local"
+               line="299"
+               name="CombineWords"
+               start="12232">
+    <Type>function</Type>
+    <Params>
+     <Param name="words">
+      <Type>Set of String</Type>
+     </Param>
+     <Param name="separator">
+      <Type>String</Type>
+     </Param>
+    </Params>
+    <Return>String</Return>
+    <Documentation>
+     <content>Returns the list of words extracted from the string.  Words are separated by one or more separator strings. No spaces are stripped from either string before matching.</content>
+     <param>words         The set of strings to be combined.</param>
+     <param>separator     The string used to separate words.</param>
+    </Documentation>
+   </Definition>
+   <Definition body="12799"
+               end="12859"
+               exported="1"
+               inherit_type="local"
+               line="311"
+               name="EditDistance"
+               start="12738">
+    <Type>function</Type>
+    <Params>
+     <Param name="_left">
+      <Type>String</Type>
+     </Param>
+     <Param name="_right">
+      <Type>String</Type>
+     </Param>
+    </Params>
+    <Return>Integer</Return>
+    <Documentation>
+     <content>Returns the minimum edit distance between the two strings.  An insert change or delete counts as a single edit. The two strings are trimmed before comparing.</content>
+     <return>The minimum edit distance between the two strings.</return>
+     <param>_left         The first string to be compared.</param>
+     <param>_right        The second string to be compared.</param>
+    </Documentation>
+   </Definition>
+   <Definition body="13404"
+               end="13484"
+               exported="1"
+               inherit_type="local"
+               line="324"
+               name="EditDistanceWithinRadius"
+               start="13315">
+    <Type>function</Type>
+    <Params>
+     <Param name="_left">
+      <Type>String</Type>
+     </Param>
+     <Param name="_right">
+      <Type>String</Type>
+     </Param>
+     <Param name="radius">
+      <Type>Integer</Type>
+     </Param>
+    </Params>
+    <Return>Boolean</Return>
+    <Documentation>
+     <content>Returns true if the minimum edit distance between the two strings is with a specific range. The two strings are trimmed before comparing.</content>
+     <return>Whether or not the two strings are within the given specified edit distance.</return>
+     <param>_left         The first string to be compared.</param>
+     <param>_right        The second string to be compared.</param>
+     <param>radius        The maximum edit distance that is accepable.</param>
+    </Documentation>
+   </Definition>
+   <Definition body="13761"
+               end="13813"
+               exported="1"
+               inherit_type="local"
+               line="335"
+               name="WordCount"
+               start="13719">
+    <Type>function</Type>
+    <Params>
+     <Param name="text">
+      <Type>String</Type>
+     </Param>
+    </Params>
+    <Return>Integer</Return>
+    <Documentation>
+     <content>Returns the number of words in the string.  Words are separated by one or more spaces.</content>
+     <return>The number of words in the string.</return>
+     <param>text          The string to be broken into words.</param>
+    </Documentation>
+   </Definition>
+   <Definition body="14169"
+               end="14225"
+               exported="1"
+               inherit_type="local"
+               line="346"
+               name="GetNthWord"
+               start="14116">
+    <Type>function</Type>
+    <Params>
+     <Param name="text">
+      <Type>String</Type>
+     </Param>
+     <Param name="n">
+      <Type>Integer</Type>
+     </Param>
+    </Params>
+    <Return>String</Return>
+    <Documentation>
+     <content>Returns the n-th word from the string.  Words are separated by one or more spaces.</content>
+     <return>The number of words in the string.</return>
+     <param>text          The string to be broken into words.</param>
+     <param>n             Which word should be returned from the function.</param>
+    </Documentation>
+   </Definition>
+   <Definition body="14592"
+               end="14647"
+               exported="1"
+               inherit_type="local"
+               line="357"
+               name="ExcludeFirstWord"
+               start="14553">
+    <Type>function</Type>
+    <Params>
+     <Param name="text">
+      <Type>String</Type>
+     </Param>
+    </Params>
+    <Return>String</Return>
+    <Documentation>
+     <content>Returns everything except the first word from the string.  Words are separated by one or more whitespace characters. Whitespace before and after the first word is also removed.</content>
+     <return>The string excluding the first word.</return>
+     <param>text          The string to be broken into words.</param>
+    </Documentation>
+   </Definition>
+   <Definition body="15055"
+               end="15108"
+               exported="1"
+               inherit_type="local"
+               line="367"
+               name="ExcludeLastWord"
+               start="15017">
+    <Type>function</Type>
+    <Params>
+     <Param name="text">
+      <Type>String</Type>
+     </Param>
+    </Params>
+    <Return>String</Return>
+    <Documentation>
+     <content>Returns everything except the last word from the string.  Words are separated by one or more whitespace characters. Whitespace after a word is removed with the word and leading whitespace is removed with the first word.</content>
+     <return>The string excluding the last word.</return>
+     <param>text          The string to be broken into words.</param>
+    </Documentation>
+   </Definition>
+   <Definition body="15600"
+               end="15655"
+               exported="1"
+               inherit_type="local"
+               line="378"
+               name="ExcludeNthWord"
+               start="15550">
+    <Type>function</Type>
+    <Params>
+     <Param name="text">
+      <Type>String</Type>
+     </Param>
+     <Param name="n">
+      <Type>Integer</Type>
+     </Param>
+    </Params>
+    <Return>String</Return>
+    <Documentation>
+     <content>Returns everything except the nth word from the string.  Words are separated by one or more whitespace characters. Whitespace after a word is removed with the word and leading whitespace is removed with the first word.</content>
+     <return>The string excluding the nth word.</return>
+     <param>text          The string to be broken into words.</param>
+     <param>n             Which word should be returned from the function.</param>
+    </Documentation>
+   </Definition>
+   <Definition body="16023"
+               end="16173"
+               exported="1"
+               inherit_type="local"
+               line="388"
+               name="FindWord"
+               start="15945">
+    <Type>function</Type>
+    <Params>
+     <Param name="src">
+      <Type>String</Type>
+     </Param>
+     <Param name="word">
+      <Type>String</Type>
+     </Param>
+     <Param name="ignore_case">
+      <Type>Boolean</Type>
+     </Param>
+    </Params>
+    <Return>Boolean</Return>
+    <Documentation>
+     <content>Tests if the search string contains the supplied word as a whole word.</content>
+     <param>src           The string that is being tested.</param>
+     <param>word          The word to be searched for.</param>
+     <param>ignore_case   Whether to ignore differences in case between characters.</param>
+    </Documentation>
+   </Definition>
+   <Definition body="16478"
+               end="16525"
+               exported="1"
+               inherit_type="local"
+               line="402"
+               name="Repeat"
+               start="16429">
+    <Type>function</Type>
+    <Params>
+     <Param name="text">
+      <Type>String</Type>
+     </Param>
+     <Param name="n">
+      <Type>Integer</Type>
+     </Param>
+    </Params>
+    <Return>String</Return>
+   </Definition>
+   <Definition body="16801"
+               end="16845"
+               exported="1"
+               inherit_type="local"
+               line="411"
+               name="ToHexPairs"
+               start="16762">
+    <Type>function</Type>
+    <Params>
+     <Param name="value">
+      <Type>Data</Type>
+     </Param>
+    </Params>
+    <Return>String</Return>
+   </Definition>
+   <Definition body="17287"
+               end="17335"
+               exported="1"
+               inherit_type="local"
+               line="424"
+               name="FromHexPairs"
+               start="17242">
+    <Type>function</Type>
+    <Params>
+     <Param name="hex_pairs">
+      <Type>String</Type>
+     </Param>
+    </Params>
+    <Return>Data</Return>
+   </Definition>
+   <Definition body="17718"
+               end="17749"
+               exported="1"
+               inherit_type="local"
+               line="437"
+               name="EncodeBase64"
+               start="17677">
+    <Type>function</Type>
+    <Params>
+     <Param name="value">
+      <Type>Data</Type>
+     </Param>
+    </Params>
+    <Return>String</Return>
+   </Definition>
+   <Definition body="18165"
+               end="18196"
+               exported="1"
+               inherit_type="local"
+               line="450"
+               name="DecodeBase64"
+               start="18124">
+    <Type>function</Type>
+    <Params>
+     <Param name="value">
+      <Type>String</Type>
+     </Param>
+    </Params>
+    <Return>Data</Return>
+   </Definition>
+   <Parents/>
+  </Definition>
+ </Source>
+ <Source sourcePath="lib_stringlib"/>
+</Meta>
