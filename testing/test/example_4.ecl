@@ -1,4 +1,4 @@
-IMPORT example_3.mod_1 as mod_1_ex3;
+IMPORT inintest.example_3.mod_1 as mod_1_ex3;
 
 /**
 * Example : Inheritance across files
