@@ -3,7 +3,7 @@ import glob
 import json
 import argparse
 import configparser
-import genXML
+import genXML, genHTML
 
 def doMain() :
     parser = argparse.ArgumentParser(description='Parser for ECLDOC')
@@ -39,6 +39,7 @@ def doMain() :
             os.makedirs(output_root, exist_ok=True)
 
         genXML.genXML(input_root, output_root, ecl_files)
+        genHTML.genHTML(input_root, output_root, ecl_files)
 
 
 if __name__ == '__main__' :

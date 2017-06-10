@@ -11,6 +11,7 @@ class ParseXML(object) :
 		self.xml_root = os.path.join(output_root, 'xml')
 		self.xml_orig_file = os.path.join(output_root, 'xmlOriginal', (ecl_file + '.xml').lower())
 		self.xml_file = os.path.join(self.xml_root, (self.ecl_file + '.xml').lower())
+		self.xml_dir = os.path.dirname(self.xml_file)
 
 	def parse(self) :
 		tree = etree.parse(self.xml_orig_file)
@@ -21,13 +22,14 @@ class ParseXML(object) :
 		for src in root.iter('Source') :
 			attribs = src.attrib
 			srcpath = os.path.realpath(attribs['sourcePath'])
-			attribs['sourcePath'] = srcpath
 
 			if os.path.exists(srcpath) and srcpath.startswith(self.input_root):
+				attribs['sourcePath'] = srcpath
 				relpath = os.path.relpath(srcpath, self.input_root)
 				tgtpath = os.path.join(self.xml_root, (relpath + '.xml').lower())
 				tgtpath = os.path.realpath(tgtpath)
-				attribs['targetPath'] = tgtpath
+				tgtpath = os.path.relpath(tgtpath, self.xml_dir)
+				attribs['target'] = tgtpath
 				if relpath == self.ecl_file :
 					continue
 				else :
@@ -41,8 +43,10 @@ class ParseXML(object) :
 				depend.set('name', attribs['name'])
 				self.depends[tuple(attribs['name'].lower().split('.'))] = depend
 
-			if 'targetPath' in attribs :
-				depend.set('targetPath', attribs['targetPath'])
+			if 'target' in attribs :
+				depend.set('target', attribs['target'])
+			else :
+				depend.set('target', attribs['sourcePath'])
 
 			root.insert(-1, depend)
 
@@ -75,11 +79,17 @@ class ParseXML(object) :
 			sign = self.generateSignature(attribs)
 			defn.insert(-1, sign)
 
+		if 'fullname' in attribs :
+			fullname = attribs['fullname'].lower()
+			best_depend = self.parsePath(fullname)
+			if best_depend is not None and best_depend != self.src :
+				attribs['target'] = best_depend.attrib['target']
+
 		for childdefn in defn.findall('./Definition') :
-			if attribs['inherit_type'] != 'inherited' :
-				self.parseDefinition(childdefn)
-			else :
+			if attribs['inherit_type'] == 'inherited':
 				defn.remove(childdefn)
+			else :
+				self.parseDefinition(childdefn)
 
 		parents = defn.find('./Parents')
 		if parents is not None:
@@ -88,17 +98,15 @@ class ParseXML(object) :
 
 	def generateSignature(self, attribs) :
 		sign = etree.Element('Signature')
-		if attribs['inherit_type'] == 'inherited' :
-			if 'source' in attribs and os.path.exists(attribs['source']):
-				text = open(attribs['source']).read()
-				srcpath = os.path.realpath(attribs['source'])
-				if srcpath.startswith(self.input_root) :
-					relpath = os.path.relpath(srcpath, self.input_root)
-					tgtpath = os.path.join(self.xml_root, (relpath + '.xml').lower())
-					tgtpath = os.path.realpath(tgtpath)
-					attribs['target'] = tgtpath
-		else :
-			text = self.text
+		text = self.text
+		if 'source' in attribs :
+			source = os.path.realpath(attribs['source'])
+			if os.path.exists(source) :
+				text = open(source).read()
+		elif 'fullname' in attribs :
+			best_depend = self.parsePath(attribs['fullname'])
+			if best_depend is not None and best_depend != self.src :
+				text = open(best_depend.attrib['sourcePath']).read()
 
 		sign.text = text[int(attribs['start']):int(attribs['body'])]
 		sign.text = sign.text.replace("EXPORT", "").replace("SHARED", "").replace(";", "").replace(":=", "").strip()
@@ -112,25 +120,24 @@ class ParseXML(object) :
 		attribs = imp.attrib
 		if 'ref' in attribs :
 			refpath = attribs['ref']
+			attribs['ref'] = refpath.lower()
 			best_depend = self.parsePath(refpath)
 			if best_depend is not None :
-				if 'targetPath' in best_depend.attrib :
-					attribs['target'] = best_depend.attrib['targetPath']
-				else :
-					attribs['target'] = best_depend.attrib['sourcePath']
+				attribs['target'] = best_depend.attrib['target']
 			else :
 				attribs['target'] = os.path.join(*([self.xml_root] + refpath.lower().split('.')))
+				attribs['target'] = os.path.relpath(attribs['target'], self.xml_dir)
 
 	def parseParent(self, parent) :
 		attribs = parent.attrib
 		if 'ref' in attribs :
 			refpath = attribs['ref']
+			attribs['ref'] = refpath.lower()
 			best_depend = self.parsePath(refpath)
 			if best_depend is not None:
-				if 'targetPath' in best_depend.attrib :
-					attribs['target'] = best_depend.attrib['targetPath']
-				else :
-					attribs['target'] = best_depend.attrib['sourcePath']
+				attribs['target'] = best_depend.attrib['target']
+			else :
+				attribs['target'] = self.xml_file
 
 
 	def parsePath(self, path) :
