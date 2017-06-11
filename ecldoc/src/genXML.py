@@ -1,7 +1,9 @@
 import os
 import re
+import json
 import subprocess
 from lxml import etree
+from Utils import genPathTree
 
 class ParseXML(object) :
 	def __init__(self, input_root, output_root, ecl_file) :
@@ -54,7 +56,7 @@ class ParseXML(object) :
 		self.parseSource()
 
 		os.makedirs(os.path.dirname(self.xml_file), exist_ok=True)
-		tree.write(self.xml_file)
+		tree.write(self.xml_file, xml_declaration=True, encoding='utf-8')
 
 	def parseSource(self) :
 		attribs = self.src.attrib
@@ -125,7 +127,9 @@ class ParseXML(object) :
 			if best_depend is not None :
 				attribs['target'] = best_depend.attrib['target']
 			else :
-				attribs['target'] = os.path.join(*([self.xml_root] + refpath.lower().split('.')))
+				refpath = refpath.lower().split('.')
+				refpath.append('pkg.toc.xml')
+				attribs['target'] = os.path.join(self.xml_root, *refpath)
 				attribs['target'] = os.path.relpath(attribs['target'], self.xml_dir)
 
 	def parseParent(self, parent) :
@@ -137,7 +141,10 @@ class ParseXML(object) :
 			if best_depend is not None:
 				attribs['target'] = best_depend.attrib['target']
 			else :
-				attribs['target'] = self.xml_file
+				refpath = refpath.lower().split('.')
+				refpath.append('pkg.toc.xml')
+				attribs['target'] = os.path.join(self.xml_root, *refpath)
+				attribs['target'] = os.path.relpath(attribs['target'], self.xml_dir)
 
 
 	def parsePath(self, path) :
@@ -164,7 +171,11 @@ def genXML(input_root, output_root, ecl_files) :
 	xml_root = os.path.join(output_root, 'xml')
 	os.makedirs(xml_root, exist_ok=True)
 
-	print(ecl_files)
+	path_tree = genPathTree(ecl_files, ".xml")
+	json_output = os.path.join(output_root, "index_xml.json")
+	with open(json_output, "w") as index_out :
+		json.dump(path_tree, index_out, indent=4)
+
 	for ecl_file in ecl_files :
 		input_file = os.path.join(input_root, ecl_file)
 		xml_orig_file = os.path.join(xml_orig_root, (ecl_file + '.xml').lower())
@@ -174,7 +185,42 @@ def genXML(input_root, output_root, ecl_files) :
 		os.chdir(input_root)
 		p = subprocess.call(['~/eclcc -M -o ' + xml_orig_file + ' ' + input_file], shell=True)
 		print("File : ", input_file, "Output Code : ", p)
-		ParseXML(input_root, output_root, ecl_file).parse()
+		parser = ParseXML(input_root, output_root, ecl_file)
+		parser.parse()
+
+
+	parent = path_tree['root']
+	root = etree.Element('folder')
+	root.attrib['name'] = 'root'
+	genTOC(parent, root, xml_root)
+	toc_file = os.path.join(xml_root, 'pkg.toc.xml')
+	fp = open(toc_file, 'wb')
+	fp.write(etree.tostring(root))
+	fp.close()
+
+
+def genTOC(parent, root, output_root) :
+	for key in parent :
+		if type(parent[key]) != dict :
+			file = etree.Element('file')
+			file.attrib['name'] = key
+			file.text = parent[key]
+			root.append(file)
+		else :
+			folder = etree.Element('folder')
+			root.append(folder)
+			folder.attrib['name'] = key
+
+			genTOC(parent[key], folder, os.path.join(output_root, key))
+
+			toc_file = os.path.join(output_root, key , 'pkg.toc.xml')
+			fp = open(toc_file, 'wb')
+			fp.write(etree.tostring(folder))
+			fp.close()
+
+
+
+
 
 
 
