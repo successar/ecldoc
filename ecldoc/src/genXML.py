@@ -110,13 +110,38 @@ class ParseXML(object) :
 			if best_depend is not None and best_depend != self.src :
 				text = open(best_depend.attrib['sourcePath']).read()
 
+		name = attribs['name']
+
 		sign.text = text[int(attribs['start']):int(attribs['body'])]
-		sign.text = sign.text.replace("EXPORT", "").replace("SHARED", "").replace(";", "").replace(":=", "").strip()
+		sign.text = re.sub(r'^export', '', sign.text, flags=re.I)
+		sign.text = re.sub(r'^shared', '', sign.text, flags=re.I)
+		sign.text = re.sub(r':=$', '', sign.text, flags=re.I)
+		sign.text = re.sub(r';$', '', sign.text, flags=re.I)
+		sign.text = sign.text.strip()
+		split = re.split(name, sign.text, maxsplit=1, flags=re.I)
+		if len(split) == 2 :
+			preamble, postamble = re.split(name, sign.text, maxsplit=1, flags=re.I)
+		else :
+			preamble, postamble = "", ""
+
+		sign.attrib['pre'] = preamble.strip()
+		sign.attrib['post'] = postamble.strip()
+		sign.attrib['name'] = name.upper()
 		return sign
 
 	def parseDocumentation(self, doc) :
 		for child in doc.iter() :
 			child.text = re.sub(r'\s+', ' ', child.text)
+
+		for p in (doc.findall('./param') + doc.findall('./field')):
+			text = p.text.split(' ')
+			name = etree.Element('name')
+			name.text = text[0]
+			desc = etree.Element('desc')
+			desc.text = " ".join(text[1:])
+			p.append(name)
+			p.append(desc)
+			p.text = ''
 
 	def parseImport(self, imp) :
 		attribs = imp.attrib
@@ -183,8 +208,9 @@ def genXML(input_root, output_root, ecl_files) :
 		# 	continue
 		os.makedirs(os.path.dirname(xml_orig_file), exist_ok=True)
 		os.chdir(input_root)
-		p = subprocess.call(['~/eclcc -M -o ' + xml_orig_file + ' ' + input_file], shell=True)
-		print("File : ", input_file, "Output Code : ", p)
+		#p = subprocess.call(['~/eclcc -M -o ' + xml_orig_file + ' ' + input_file], shell=True)
+		#print("File : ", input_file, "Output Code : ", p)
+		print(input_file)
 		parser = ParseXML(input_root, output_root, ecl_file)
 		parser.parse()
 
@@ -203,7 +229,7 @@ def genTOC(parent, root, output_root) :
 	for key in parent :
 		if type(parent[key]) != dict :
 			file = etree.Element('file')
-			file.attrib['name'] = key
+			file.attrib['name'] = key + '.xml'
 			file.text = parent[key]
 			root.append(file)
 		else :

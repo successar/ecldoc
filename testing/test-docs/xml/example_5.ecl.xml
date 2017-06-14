@@ -5,28 +5,28 @@
    <Type>record</Type>
    <Field name="f"/>
    <Field name="g"/>
-   <Signature>rec_1</Signature><Documentation> <content>Basic ECL file : without enclosing module Demos records, interfcae, functions, modules, embed, transform, macros</content>
+   <Signature pre="" post="" name="REC_1">rec_1</Signature><Documentation> <content>Basic ECL file : without enclosing module Demos records, interfcae, functions, modules, embed, transform, macros</content>
    </Documentation>
   </Definition>
   <Definition body="177" end="226" fullname="rec_2" inherit_type="local" line="11" name="rec_2" source="/media/sarthak/Data/ecldoc/testing/test/example_5.ecl" start="169">
    <Type>record</Type>
    <Field name="a"/>
    <Field name="b"/>
-   <Signature>rec_2</Signature><Field name="g"/>
+   <Signature pre="" post="" name="REC_2">rec_2</Signature><Field name="g"/>
   </Definition>
   <Definition body="243" end="321" fullname="interface_ex" inherit_type="local" line="17" name="interface_ex" source="/media/sarthak/Data/ecldoc/testing/test/example_5.ecl" start="228">
    <Type>interface</Type>
    <Definition body="283" end="282" fullname="interface_ex.iface_v1" inherit_type="local" line="18" name="iface_v1" shared="1" source="/media/sarthak/Data/ecldoc/testing/test/example_5.ecl" start="255">
-    <Signature>UNSIGNED4  iface_v1</Signature><Type>attribute</Type>
+    <Signature pre="UNSIGNED4" post="" name="IFACE_V1">UNSIGNED4  iface_v1</Signature><Type>attribute</Type>
    </Definition>
    <Definition body="312" end="316" exported="1" fullname="interface_ex.iface_v3" inherit_type="local" line="19" name="iface_v3" source="/media/sarthak/Data/ecldoc/testing/test/example_5.ecl" start="284">
-    <Signature>STRING25  iface_v3</Signature><Type>attribute</Type>
+    <Signature pre="STRING25" post="" name="IFACE_V3">STRING25  iface_v3</Signature><Type>attribute</Type>
    </Definition>
-   <Signature>interface_ex</Signature><Parents/>
+   <Signature pre="" post="" name="INTERFACE_EX">interface_ex</Signature><Parents/>
   </Definition>
   <Definition body="353" end="383" fullname="func_1" inherit_type="local" line="22" name="func_1" source="/media/sarthak/Data/ecldoc/testing/test/example_5.ecl" start="323">
    <Type>function</Type>
-   <Signature>func_1(REAL8 x, STRING25 y)</Signature><Params>
+   <Signature pre="" post="(REAL8 x, STRING25 y)" name="FUNC_1">func_1(REAL8 x, STRING25 y)</Signature><Params>
     <Param name="x"/>
     <Param name="y"/>
    </Params>
@@ -36,11 +36,11 @@
    <Params>
     <Param name="rec"/>
    </Params>
-   <Signature>rec_2 trans_1(rec_1 rec)</Signature><Return>rec_2</Return>
+   <Signature pre="rec_2" post="(rec_1 rec)" name="TRANS_1">rec_2 trans_1(rec_1 rec)</Signature><Return>rec_2</Return>
   </Definition>
   <Definition body="553" end="602" fullname="func_2" inherit_type="local" line="32" name="func_2" source="/media/sarthak/Data/ecldoc/testing/test/example_5.ecl" start="511">
    <Type>function</Type>
-   <Signature>DATASET(rec_2) func_2(DATASET(rec_1) d)</Signature><Params>
+   <Signature pre="DATASET(rec_2)" post="(DATASET(rec_1) d)" name="FUNC_2">DATASET(rec_2) func_2(DATASET(rec_1) d)</Signature><Params>
     <Param name="d"/>
    </Params>
   </Definition>
@@ -50,45 +50,45 @@
     <Param name="a"/>
    </Params>
    <Parents/>
-   <Signature>mod_1(REAL8 a)</Signature><Definition body="644" end="649" exported="1" fullname="mod_1.pi_w" inherit_type="local" line="37" name="pi_w" source="/media/sarthak/Data/ecldoc/testing/test/example_5.ecl" start="630">
-    <Signature>pi_w</Signature><Type>attribute</Type>
+   <Signature pre="" post="(REAL8 a)" name="MOD_1">mod_1(REAL8 a)</Signature><Definition body="644" end="649" exported="1" fullname="mod_1.pi_w" inherit_type="local" line="37" name="pi_w" source="/media/sarthak/Data/ecldoc/testing/test/example_5.ecl" start="630">
+    <Signature pre="" post="" name="PI_W">pi_w</Signature><Type>attribute</Type>
    </Definition>
   </Definition>
   <Definition body="664" end="699" fullname="mod_2" inherit_type="local" line="40" name="mod_2" source="/media/sarthak/Data/ecldoc/testing/test/example_5.ecl" start="656">
    <Type>module</Type>
    <Definition body="689" end="694" exported="1" fullname="mod_2.pi_wo" inherit_type="local" line="41" name="pi_wo" source="/media/sarthak/Data/ecldoc/testing/test/example_5.ecl" start="674">
-    <Signature>pi_wo</Signature><Type>attribute</Type>
+    <Signature pre="" post="" name="PI_WO">pi_wo</Signature><Type>attribute</Type>
    </Definition>
-   <Signature>mod_2</Signature><Parents/>
+   <Signature pre="" post="" name="MOD_2">mod_2</Signature><Parents/>
   </Definition>
   <Definition body="729" end="747" fullname="cpp_1" inherit_type="local" line="45" name="cpp_1" source="/media/sarthak/Data/ecldoc/testing/test/example_5.ecl" start="702">
    <Type>embed</Type>
-   <Signature>DATA cpp_1(REAL8 varcpp)</Signature><Params>
+   <Signature pre="DATA" post="(REAL8 varcpp)" name="CPP_1">DATA cpp_1(REAL8 varcpp)</Signature><Params>
     <Param name="varcpp"/>
    </Params>
   </Definition>
   <Definition body="768" end="838" fullname="funcmacro_1" inherit_type="local" line="49" name="funcmacro_1" source="/media/sarthak/Data/ecldoc/testing/test/example_5.ecl" start="749">
    <Type>macro</Type>
-   <Signature>funcmacro_1(num)</Signature><Params>
+   <Signature pre="" post="(num)" name="FUNCMACRO_1">funcmacro_1(num)</Signature><Params>
     <Param name="num"/>
    </Params>
   </Definition>
   <Definition body="864" end="916" fullname="macro_1" inherit_type="local" line="54" name="macro_1" source="/media/sarthak/Data/ecldoc/testing/test/example_5.ecl" start="840">
    <Type>macro</Type>
-   <Signature>macro_1(num_1, num_2)</Signature><Params>
+   <Signature pre="" post="(num_1, num_2)" name="MACRO_1">macro_1(num_1, num_2)</Signature><Params>
     <Param name="num_1"/>
     <Param name="num_2"/>
    </Params>
   </Definition>
   <Definition body="928" end="965" fullname="macro_2" inherit_type="local" line="58" name="macro_2" source="/media/sarthak/Data/ecldoc/testing/test/example_5.ecl" start="918">
    <Type>macro</Type>
-   <Signature>macro_2</Signature><Params/>
+   <Signature pre="" post="" name="MACRO_2">macro_2</Signature><Params/>
   </Definition>
   <Definition body="971" end="990" fullname="a" inherit_type="local" line="62" name="a" source="/media/sarthak/Data/ecldoc/testing/test/example_5.ecl" start="967">
-   <Signature>a</Signature><Type>attribute</Type>
+   <Signature pre="" post="" name="A">a</Signature><Type>attribute</Type>
   </Definition>
   <Definition body="1007" end="1047" fullname="b" inherit_type="local" line="65" name="b" source="/media/sarthak/Data/ecldoc/testing/test/example_5.ecl" start="1003">
-   <Signature>b</Signature><Type>attribute</Type>
+   <Signature pre="" post="" name="B">b</Signature><Type>attribute</Type>
   </Definition>
  </Source>
 </Meta>
