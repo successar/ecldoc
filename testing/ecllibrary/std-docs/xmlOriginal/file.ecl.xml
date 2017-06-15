@@ -1,0 +1,1857 @@
+<Meta>
+ <Source name="File" sourcePath="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl">
+  <Import body="0"
+          end="274"
+          fullname="lib_fileservices"
+          inherit_type="local"
+          line="7"
+          name="lib_fileservices"
+          ref="lib_fileservices"
+          remotescope="1"
+          start="274">
+   <Type>attribute</Type>
+  </Import>
+  <Definition body="258"
+              end="54648"
+              exported="1"
+              fullname="File"
+              inherit_type="local"
+              line="5"
+              name="File"
+              source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+              start="244">
+   <Type>module</Type>
+   <Definition body="655"
+               end="690"
+               exported="1"
+               fullname="file.fsfilenamerecord"
+               inherit_type="local"
+               line="19"
+               name="FsFilenameRecord"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="629">
+    <Type>record</Type>
+    <Field name="name"/>
+    <Field name="size"/>
+    <Field name="modified"/>
+    <Documentation>
+     <content>A record containing information about filename.  Includes name, size and when last modified. export FsFilenameRecord := RECORD string name; integer8 size; string19 modified; END;</content>
+    </Documentation>
+   </Definition>
+   <Definition body="788"
+               end="824"
+               exported="1"
+               fullname="file.fslogicalfilename"
+               inherit_type="local"
+               line="25"
+               name="FsLogicalFileName"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="761">
+    <Type>attribute</Type>
+    <Documentation>
+     <content>An alias for a logical filename that is stored in a row.</content>
+    </Documentation>
+   </Definition>
+   <Definition body="1002"
+               end="1044"
+               exported="1"
+               fullname="file.fslogicalfilenamerecord"
+               inherit_type="local"
+               line="33"
+               name="FsLogicalFileNameRecord"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="969">
+    <Type>record</Type>
+    <Field name="name"/>
+    <Documentation>
+     <field>name          The logical name of the file;</field>
+     <content>A record containing a logical filename. It contains the following fields:</content>
+    </Documentation>
+   </Definition>
+   <Definition body="1615"
+               end="1657"
+               exported="1"
+               fullname="file.fslogicalfileinforecord"
+               inherit_type="local"
+               line="47"
+               name="FsLogicalFileInfoRecord"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="1582">
+    <Type>record</Type>
+    <Field name="name"/>
+    <Field name="superfile"/>
+    <Field name="size"/>
+    <Field name="rowcount"/>
+    <Field name="modified"/>
+    <Field name="owner"/>
+    <Field name="cluster"/>
+    <Documentation>
+     <inherits>Contains all the fields in FsLogicalFileNameRecord)</inherits>
+     <content>A record containing information about a logical file.</content>
+     <field>superfile     Is this a superfile?</field>
+     <field>size          Number of bytes in the file (before compression)</field>
+     <field>rowcount      Number of rows in the file.</field>
+     <modified>Timestamp when the file was last modified;</modified>
+     <cluster>The cluster that this file was created on.</cluster>
+     <owner>The username of the owner who ran the job to create this file.</owner>
+    </Documentation>
+   </Definition>
+   <Definition body="1874"
+               end="1916"
+               exported="1"
+               fullname="file.fslogicalsupersubrecord"
+               inherit_type="local"
+               line="56"
+               name="FsLogicalSuperSubRecord"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="1841">
+    <Type>record</Type>
+    <Field name="supername"/>
+    <Field name="subname"/>
+    <Documentation>
+     <field>supername     The name of the superfile</field>
+     <field>subname       The name of the sub-file</field>
+     <content>A record containing information about a superfile and its contents.</content>
+    </Documentation>
+   </Definition>
+   <Definition body="2930"
+               end="2973"
+               exported="1"
+               fullname="file.fsfilerelationshiprecord"
+               inherit_type="local"
+               line="74"
+               name="FsFileRelationshipRecord"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="2896">
+    <Type>record</Type>
+    <Field name="primaryfile"/>
+    <Field name="secondaryfile"/>
+    <Field name="primaryflds"/>
+    <Field name="secondaryflds"/>
+    <Field name="kind"/>
+    <Field name="cardinality"/>
+    <Field name="payload"/>
+    <Field name="description"/>
+    <Documentation>
+     <field>primaryfile   The logical filename of the primary file</field>
+     <field>secondaryfile The logical filename of the secondary file.</field>
+     <field>primaryflds   The name of the primary key field for the primary file. The value &quot;__fileposition__&quot; indicates the secondary is an INDEX that must use FETCH to access non-keyed fields.</field>
+     <field>secondaryflds The name of the foreign key field relating to the primary file.</field>
+     <field>kind          The type of relationship between the primary and secondary files. Containing either &apos;link&apos; or &apos;view&apos;.</field>
+     <field>cardinality   The cardinality of the relationship.  The format is &lt;primary&gt;:&lt;secondary&gt;. Valid values are &quot;1&quot; or &quot;M&quot;.</field>
+     <field>payload       Indicates whether the primary or secondary are payload INDEXes.</field>
+     <field>description   The description of the relationship.</field>
+     <content>A record containing information about the relationship between two files.</content>
+    </Documentation>
+   </Definition>
+   <Definition body="3110"
+               end="3143"
+               exported="1"
+               fullname="file.recfmv_recsize"
+               inherit_type="local"
+               line="80"
+               name="RECFMV_RECSIZE"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="3086">
+    <Type>attribute</Type>
+    <Documentation>
+     <content>Constant that indicates IBM RECFM V format file.  Can be passed to SprayFixed for the record size.</content>
+    </Documentation>
+   </Definition>
+   <Definition body="3282"
+               end="3316"
+               exported="1"
+               fullname="file.recfmvb_recsize"
+               inherit_type="local"
+               line="86"
+               name="RECFMVB_RECSIZE"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="3257">
+    <Type>attribute</Type>
+    <Documentation>
+     <content>Constant that indicates IBM RECFM VB format file.  Can be passed to SprayFixed for the record size.</content>
+    </Documentation>
+   </Definition>
+   <Definition body="3500"
+               end="3542"
+               exported="1"
+               fullname="file.prefix_variable_recsize"
+               inherit_type="local"
+               line="92"
+               name="PREFIX_VARIABLE_RECSIZE"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="3458">
+    <Type>attribute</Type>
+    <Documentation>
+     <content>Constant that indicates a variable little endian 4 byte length prefixed file.  Can be passed to SprayFixed for the record size.</content>
+    </Documentation>
+   </Definition>
+   <Definition body="3733"
+               end="3785"
+               exported="1"
+               fullname="file.prefix_variable_bigendian_recsize"
+               inherit_type="local"
+               line="98"
+               name="PREFIX_VARIABLE_BIGENDIAN_RECSIZE"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="3681">
+    <Type>attribute</Type>
+    <Documentation>
+     <content>Constant that indicates a variable big endian 4 byte length prefixed file.  Can be passed to SprayFixed for the record size.</content>
+    </Documentation>
+   </Definition>
+   <Definition body="4226"
+               end="4287"
+               exported="1"
+               fullname="file.fileexists"
+               inherit_type="local"
+               line="110"
+               name="FileExists"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="4159">
+    <Type>function</Type>
+    <Documentation>
+     <content>Returns whether the file exists.</content>
+     <return>Whether the file exists.</return>
+     <param>lfn           The logical name of the file.</param>
+     <param>physical      Whether to also check for the physical existence on disk.  Defaults to FALSE.</param>
+    </Documentation>
+    <Params>
+     <Param name="lfn"/>
+     <Param name="physical"/>
+    </Params>
+   </Definition>
+   <Definition body="4601"
+               end="4673"
+               exported="1"
+               fullname="file.deletelogicalfile"
+               inherit_type="local"
+               line="120"
+               name="DeleteLogicalFile"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="4531">
+    <Type>function</Type>
+    <Documentation>
+     <content>Removes the logical file from the system, and deletes from the disk.</content>
+     <param>lfn           The logical name of the file.</param>
+     <param>allowMissing  Whether to suppress an error if the filename does not exist. Defaults to FALSE.</param>
+    </Documentation>
+    <Params>
+     <Param name="lfn"/>
+     <Param name="allowMissing"/>
+    </Params>
+   </Definition>
+   <Definition body="4937"
+               end="4993"
+               exported="1"
+               fullname="file.setreadonly"
+               inherit_type="local"
+               line="129"
+               name="SetReadOnly"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="4884">
+    <Type>function</Type>
+    <Documentation>
+     <content>Changes whether access to a file is read only or not.</content>
+     <param>lfn           The logical name of the file.</param>
+     <param>ro            Whether updates to the file are disallowed.  Defaults to TRUE.</param>
+    </Documentation>
+    <Params>
+     <Param name="lfn"/>
+     <Param name="ro"/>
+    </Params>
+   </Definition>
+   <Definition body="5237"
+               end="5308"
+               exported="1"
+               fullname="file.renamelogicalfile"
+               inherit_type="local"
+               line="139"
+               name="RenameLogicalFile"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="5172">
+    <Type>function</Type>
+    <Documentation>
+     <content>Changes the name of a logical file.</content>
+     <param>oldname       The current name of the file to be renamed.</param>
+     <param>newname       The new logical name of the file.</param>
+    </Documentation>
+    <Params>
+     <Param name="oldname"/>
+     <Param name="newname"/>
+    </Params>
+   </Definition>
+   <Definition body="5870"
+               end="5956"
+               exported="1"
+               fullname="file.foreignlogicalfilename"
+               inherit_type="local"
+               line="151"
+               name="ForeignLogicalFileName"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="5763">
+    <Type>function</Type>
+    <Documentation>
+     <content>Returns a logical filename that can be used to refer to a logical file in a local or remote dali.</content>
+     <param>name          The logical name of the file.</param>
+     <param>foreigndali   The IP address of the foreign dali used to resolve the file.  If blank then the file is resolved locally.  Defaults to blank.</param>
+     <param>abspath       Should a tilde (~) be prepended to the resulting logical file name.  Defaults to FALSE.</param>
+    </Documentation>
+    <Params>
+     <Param name="name"/>
+     <Param name="foreigndali"/>
+     <Param name="abspath"/>
+    </Params>
+   </Definition>
+   <Definition body="6608"
+               end="6692"
+               exported="1"
+               fullname="file.externallogicalfilename"
+               inherit_type="local"
+               line="164"
+               name="ExternalLogicalFileName"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="6507">
+    <Type>function</Type>
+    <Documentation>
+     <content>Returns an encoded logical filename that can be used to refer to a external file.  Examples include directly reading from a landing zone.  Upper case characters and other details are escaped.</content>
+     <return>The encoded logical filename.</return>
+     <param>location      The IP address of the remote machine. &apos;.&apos; can be used for the local machine.</param>
+     <param>path          The path/name of the file on the remote machine.</param>
+     <param>abspath       Should a tilde (~) be prepended to the resulting logical file name.  Defaults to TRUE.</param>
+    </Documentation>
+    <Params>
+     <Param name="location"/>
+     <Param name="path"/>
+     <Param name="abspath"/>
+    </Params>
+   </Definition>
+   <Definition body="7022"
+               end="7081"
+               exported="1"
+               fullname="file.getfiledescription"
+               inherit_type="local"
+               line="174"
+               name="GetFileDescription"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="6969">
+    <Type>function</Type>
+    <Documentation>
+     <content>Returns a string containing the description information associated with the specified filename. This description is set either through ECL watch or by using the FileServices.SetFileDescription function.</content>
+     <param>lfn           The logical name of the file.</param>
+    </Documentation>
+    <Params>
+     <Param name="lfn"/>
+    </Params>
+   </Definition>
+   <Definition body="7343"
+               end="7407"
+               exported="1"
+               fullname="file.setfiledescription"
+               inherit_type="local"
+               line="184"
+               name="SetFileDescription"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="7285">
+    <Type>function</Type>
+    <Documentation>
+     <content>Sets the description associated with the specified filename.</content>
+     <param>lfn           The logical name of the file.</param>
+     <param>val           The description to be associated with the file.</param>
+    </Documentation>
+    <Params>
+     <Param name="lfn"/>
+     <Param name="val"/>
+    </Params>
+   </Definition>
+   <Definition body="8106"
+               end="8188"
+               exported="1"
+               fullname="file.remotedirectory"
+               inherit_type="local"
+               line="196"
+               name="RemoteDirectory"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="7976">
+    <Type>function</Type>
+    <Documentation>
+     <content>Returns a dataset containing a list of files from the specified machineIP and directory.</content>
+     <param>machineIP     The IP address of the remote machine.</param>
+     <param>directory     The path to the directory to read. This must be in the appropriate format for the operating system running on the remote machine.</param>
+     <param>mask          The filemask specifying which files to include in the result. Defaults to &apos;*&apos; (all files).</param>
+     <param>recurse       Whether to include files from subdirectories under the directory. Defaults to FALSE.</param>
+    </Documentation>
+    <Params>
+     <Param name="machineIP"/>
+     <Param name="dir"/>
+     <Param name="mask"/>
+     <Param name="recurse"/>
+    </Params>
+   </Definition>
+   <Definition body="9010"
+               end="9130"
+               exported="1"
+               fullname="file.logicalfilelist"
+               inherit_type="local"
+               line="209"
+               name="LogicalFileList"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="8815">
+    <Type>function</Type>
+    <Documentation>
+     <content>Returns a dataset of information about the logical files known to the system.</content>
+     <param>namepattern   The mask of the files to list. Defaults to &apos;*&apos; (all files).</param>
+     <param>includenormal Whether to include &apos;normal&apos; files. Defaults to TRUE.</param>
+     <param>includesuper  Whether to include SuperFiles. Defaults to FALSE.</param>
+     <param>unknownszero  Whether to set file sizes that are unknown to zero(0) instead of minus-one (-1). Defaults to FALSE.</param>
+     <param>foreigndali   The IP address of the foreign dali used to resolve the file.  If blank then the file is resolved locally.  Defaults to blank.</param>
+    </Documentation>
+    <Params>
+     <Param name="namepattern"/>
+     <Param name="includenormal"/>
+     <Param name="includesuper"/>
+     <Param name="unknownszero"/>
+     <Param name="foreigndali"/>
+    </Params>
+   </Definition>
+   <Definition body="10231"
+               end="10315"
+               exported="1"
+               fullname="file.comparefiles"
+               inherit_type="local"
+               line="228"
+               name="CompareFiles"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="10117">
+    <Type>function</Type>
+    <Documentation>
+     <content>Compares two files, and returns a result indicating how well they match.</content>
+     <return>0 if file1 and file2 match exactly 1 if file1 and file2 contents match, but file1 is newer than file2 -1 if file1 and file2 contents match, but file2 is newer than file1 2 if file1 and file2 contents do not match and file1 is newer than file2 -2 if file1 and file2 contents do not match and file2 is newer than file1</return>
+     <param>file1         The logical name of the first file.</param>
+     <param>file2         The logical name of the second file.</param>
+     <param>logical_only  Whether to only compare logical information in the system datastore (Dali), and ignore physical information on disk. [Default TRUE]</param>
+     <param>use_crcs      Whether to compare physical CRCs of all the parts on disk. This may be slow on large files. Defaults to FALSE.</param>
+    </Documentation>
+    <Params>
+     <Param name="lfn1"/>
+     <Param name="lfn2"/>
+     <Param name="logical_only"/>
+     <Param name="use_crcs"/>
+    </Params>
+   </Definition>
+   <Definition body="11216"
+               end="11276"
+               exported="1"
+               fullname="file.verifyfile"
+               inherit_type="local"
+               line="244"
+               name="VerifyFile"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="11154">
+    <Type>function</Type>
+    <Documentation>
+     <content>Checks the system datastore (Dali) information for the file against the physical parts on disk.</content>
+     <return>&apos;OK&apos; - The file parts match the datastore information &apos;Could not find file: &lt;filename&gt;&apos; - The logical filename was not found &apos;Could not find part file: &lt;partname&gt;&apos; - The partname was not found &apos;Modified time differs for: &lt;partname&gt;&apos; - The partname has a different timestamp &apos;File size differs for: &lt;partname&gt;&apos; - The partname has a file size &apos;File CRC differs for: &lt;partname&gt;&apos; - The partname has a different CRC</return>
+     <param>lfn           The name of the file to check.</param>
+     <param>use_crcs      Whether to compare physical CRCs of all the parts on disk. This may be slow on large files.</param>
+    </Documentation>
+    <Params>
+     <Param name="lfn"/>
+     <Param name="usecrcs"/>
+    </Params>
+   </Definition>
+   <Definition body="12682"
+               end="12827"
+               exported="1"
+               fullname="file.addfilerelationship"
+               inherit_type="local"
+               line="265"
+               name="AddFileRelationship"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="12475">
+    <Type>function</Type>
+    <Documentation>
+     <content>Defines the relationship between two files. These may be DATASETs or INDEXes. Each record in the primary file should be uniquely defined by the primaryfields (ideally), preferably efficiently.  This information is used by the roxie browser to link files together.</content>
+     <param>primary       The logical filename of the primary file.</param>
+     <param>secondary     The logical filename of the secondary file.</param>
+     <param>primaryfields The name of the primary key field for the primary file. The value &quot;__fileposition__&quot; indicates the secondary is an INDEX that must use FETCH to access non-keyed fields.</param>
+     <param>secondaryfields The name of the foreign key field relating to the primary file.</param>
+     <param>relationship  The type of relationship between the primary and secondary files. Containing either &apos;link&apos; or &apos;view&apos;.  Default is &quot;link&quot;.</param>
+     <param>cardinality   The cardinality of the relationship.  The format is &lt;primary&gt;:&lt;secondary&gt;. Valid values are &quot;1&quot; or &quot;M&quot;.</param>
+     <param>payload       Indicates whether the primary or secondary are payload INDEXes.</param>
+     <param>description   The description of the relationship.</param>
+    </Documentation>
+    <Params>
+     <Param name="primary"/>
+     <Param name="secondary"/>
+     <Param name="primaryflds"/>
+     <Param name="secondaryflds"/>
+     <Param name="kind"/>
+     <Param name="cardinality"/>
+     <Param name="payload"/>
+     <Param name="description"/>
+    </Params>
+   </Definition>
+   <Definition body="13616"
+               end="13723"
+               exported="1"
+               fullname="file.filerelationshiplist"
+               inherit_type="local"
+               line="279"
+               name="FileRelationshipList"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="13437">
+    <Type>function</Type>
+    <Documentation>
+     <content>Returns a dataset of relationships.   The return records are structured in the FsFileRelationshipRecord format.</content>
+     <param>primary       The logical filename of the primary file.</param>
+     <param>secondary     The logical filename of the secondary file.&lt;/para&gt;</param>
+     <param>primaryfields The name of the primary key field for the primary file.</param>
+     <param>secondaryfields The name of the foreign key field relating to the primary file.</param>
+     <param>relationship  The type of relationship between the primary and secondary files. Containing either &apos;link&apos; or &apos;view&apos;.  Default is &quot;link&quot;.</param>
+    </Documentation>
+    <Params>
+     <Param name="primary"/>
+     <Param name="secondary"/>
+     <Param name="primflds"/>
+     <Param name="secondaryflds"/>
+     <Param name="kind"/>
+    </Params>
+   </Definition>
+   <Definition body="14407"
+               end="14521"
+               exported="1"
+               fullname="file.removefilerelationship"
+               inherit_type="local"
+               line="293"
+               name="RemoveFileRelationship"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="14256">
+    <Type>function</Type>
+    <Documentation>
+     <content>Removes a relationship between two files.</content>
+     <param>primary       The logical filename of the primary file.</param>
+     <param>secondary     The logical filename of the secondary file.</param>
+     <param>primaryfields The name of the primary key field for the primary file.</param>
+     <param>secondaryfields The name of the foreign key field relating to the primary file.</param>
+     <param>relationship  The type of relationship between the primary and secondary files. Containing either &apos;link&apos; or &apos;view&apos;.  Default is &quot;link&quot;.</param>
+    </Documentation>
+    <Params>
+     <Param name="primary"/>
+     <Param name="secondary"/>
+     <Param name="primaryflds"/>
+     <Param name="secondaryflds"/>
+     <Param name="kind"/>
+    </Params>
+   </Definition>
+   <Definition body="14760"
+               end="14817"
+               exported="1"
+               fullname="file.getcolumnmapping"
+               inherit_type="local"
+               line="302"
+               name="GetColumnMapping"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="14709">
+    <Type>function</Type>
+    <Documentation>
+     <content>Returns the field mappings for the file, in the same format specified for the SetColumnMapping function.</content>
+     <param>lfn           The logical filename of the primary file.</param>
+    </Documentation>
+    <Params>
+     <Param name="lfn"/>
+    </Params>
+   </Definition>
+   <Definition body="15259"
+               end="15325"
+               exported="1"
+               fullname="file.setcolumnmapping"
+               inherit_type="local"
+               line="313"
+               name="SetColumnMapping"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="15199">
+    <Type>function</Type>
+    <Documentation>
+     <content>Defines how the data in the fields of the file mist be transformed between the actual data storage format and the input format used to query that data.  This is used by the user interface of the roxie browser.</content>
+     <param>lfn           The logical filename of the primary file.</param>
+     <param>mapping       A string containing a comma separated list of field mappings.</param>
+    </Documentation>
+    <Params>
+     <Param name="lfn"/>
+     <Param name="mapping"/>
+    </Params>
+   </Definition>
+   <Definition body="15721"
+               end="15780"
+               exported="1"
+               fullname="file.encoderfsquery"
+               inherit_type="local"
+               line="324"
+               name="EncodeRfsQuery"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="15652">
+    <Type>function</Type>
+    <Documentation>
+     <content>Returns a string that can be used in a DATASET declaration to read data from an RFS (Remote File Server) instance (e.g. rfsmysql) on another node.</content>
+     <param>server        A string containing the ip:port address for the remote file server.</param>
+     <param>query         The text of the query to send to the server</param>
+    </Documentation>
+    <Params>
+     <Param name="server"/>
+     <Param name="query"/>
+    </Params>
+   </Definition>
+   <Definition body="16046"
+               end="16106"
+               exported="1"
+               fullname="file.rfsaction"
+               inherit_type="local"
+               line="334"
+               name="RfsAction"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="15992">
+    <Type>function</Type>
+    <Documentation>
+     <content>Sends the query to the rfs server.</content>
+     <param>server        A string containing the ip:port address for the remote file server.</param>
+     <param>query         The text of the query to send to the server</param>
+    </Documentation>
+    <Params>
+     <Param name="server"/>
+     <Param name="query"/>
+    </Params>
+   </Definition>
+   <Definition body="16541"
+               end="16621"
+               exported="1"
+               fullname="file.moveexternalfile"
+               inherit_type="local"
+               line="345"
+               name="MoveExternalFile"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="16457">
+    <Type>function</Type>
+    <Documentation>
+     <content>Moves the single physical file between two locations on the same remote machine. The dafileserv utility program must be running on the location machine.</content>
+     <param>location      The IP address of the remote machine.</param>
+     <param>frompath      The path/name of the file to move.</param>
+     <param>topath        The path/name of the target file.</param>
+    </Documentation>
+    <Params>
+     <Param name="location"/>
+     <Param name="frompath"/>
+     <Param name="topath"/>
+    </Params>
+   </Definition>
+   <Definition body="16953"
+               end="17023"
+               exported="1"
+               fullname="file.deleteexternalfile"
+               inherit_type="local"
+               line="355"
+               name="DeleteExternalFile"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="16889">
+    <Type>function</Type>
+    <Documentation>
+     <content>Removes a single physical file from a remote machine. The dafileserv utility program must be running on the location machine.</content>
+     <param>location      The IP address of the remote machine.</param>
+     <param>path          The path/name of the file to remove.</param>
+    </Documentation>
+    <Params>
+     <Param name="location"/>
+     <Param name="path"/>
+    </Params>
+   </Definition>
+   <Definition body="17371"
+               end="17446"
+               exported="1"
+               fullname="file.createexternaldirectory"
+               inherit_type="local"
+               line="365"
+               name="CreateExternalDirectory"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="17302">
+    <Type>function</Type>
+    <Documentation>
+     <content>Creates the path on the location (if it does not already exist). The dafileserv utility program must be running on the location machine.</content>
+     <param>location      The IP address of the remote machine.</param>
+     <param>path          The path/name of the file to remove.</param>
+    </Documentation>
+    <Params>
+     <Param name="location"/>
+     <Param name="path"/>
+    </Params>
+   </Definition>
+   <Definition body="17736"
+               end="17810"
+               exported="1"
+               fullname="file.getlogicalfileattribute"
+               inherit_type="local"
+               line="374"
+               name="GetLogicalFileAttribute"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="17658">
+    <Type>function</Type>
+    <Documentation>
+     <content>Returns the value of the given attribute for the specified logicalfilename.</content>
+     <param>lfn           The name of the logical file.</param>
+     <param>attrname      The name of the file attribute to return.</param>
+    </Documentation>
+    <Params>
+     <Param name="lfn"/>
+     <Param name="attrname"/>
+    </Params>
+   </Definition>
+   <Definition body="18077"
+               end="18143"
+               exported="1"
+               fullname="file.protectlogicalfile"
+               inherit_type="local"
+               line="383"
+               name="ProtectLogicalFile"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="18014">
+    <Type>function</Type>
+    <Documentation>
+     <content>Toggles protection on and off for the specified logicalfilename.</content>
+     <param>lfn           The name of the logical file.</param>
+     <param>value         TRUE to enable protection, FALSE to disable.</param>
+    </Documentation>
+    <Params>
+     <Param name="lfn"/>
+     <Param name="value"/>
+    </Params>
+   </Definition>
+   <Definition body="18611"
+               end="18667"
+               exported="1"
+               fullname="file.dfuplusexec"
+               inherit_type="local"
+               line="393"
+               name="DfuPlusExec"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="18571">
+    <Type>function</Type>
+    <Documentation>
+     <content>The DfuPlusExec action executes the specified command line just as the DfuPLus.exe program would do. This allows you to have all the functionality of the DfuPLus.exe program available within your ECL code. param cmdline        The DFUPlus.exe command line to execute. The valid arguments are documented in the Client Tools manual, in the section describing the DfuPlus.exe program.</content>
+    </Documentation>
+    <Params>
+     <Param name="cmdline"/>
+    </Params>
+   </Definition>
+   <Definition body="20576"
+               end="20810"
+               exported="1"
+               fullname="file.fsprayfixed"
+               inherit_type="local"
+               line="418"
+               name="fSprayFixed"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="20184">
+    <Type>function</Type>
+    <Documentation>
+     <content>Sprays a file of fixed length records from a single machine and distributes it across the nodes of the destination group.</content>
+     <return>The DFU workunit id for the job.</return>
+     <param>sourceIP      The IP address of the file.</param>
+     <param>sourcePath    The path and name of the file.</param>
+     <param>recordsize    The size (in bytes) of the records in the file.</param>
+     <param>destinationGroup The name of the group to distribute the file across.</param>
+     <param>destinationLogicalName The logical name of the file to create.</param>
+     <param>timeOut       The time in ms to wait for the operation to complete.  A value of 0 causes the call to return immediately. Defaults to no timeout (-1).</param>
+     <param>espServerIpPort The url of the ESP file copying service. Defaults to the value of ws_fs_server in the environment.</param>
+     <param>maxConnections The maximum number of target nodes to write to concurrently.  Defaults to 1.</param>
+     <param>allowOverwrite Is it valid to overwrite an existing file of the same name?  Defaults to FALSE</param>
+     <param>replicate     Whether to replicate the new file. Defaults to FALSE.</param>
+     <param>compress      Whether to compress the new file. Defaults to FALSE.</param>
+     <param>failIfNoSourceFile If TRUE it causes a missing source file to trigger a failure.  Defaults to FALSE.</param>
+     <param>expireDays    Number of days to auto-remove file. Default is -1, not expire.</param>
+    </Documentation>
+    <Params>
+     <Param name="sourceIP"/>
+     <Param name="sourcePath"/>
+     <Param name="recordSize"/>
+     <Param name="destinationGroup"/>
+     <Param name="destinationLogicalName"/>
+     <Param name="timeOut"/>
+     <Param name="espServerIpPort"/>
+     <Param name="maxConnections"/>
+     <Param name="allowOverwrite"/>
+     <Param name="replicate"/>
+     <Param name="compress"/>
+     <Param name="failIfNoSourceFile"/>
+     <Param name="expireDays"/>
+    </Params>
+   </Definition>
+   <Definition body="21290"
+               end="21523"
+               exported="1"
+               fullname="file.sprayfixed"
+               inherit_type="local"
+               line="427"
+               name="SprayFixed"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="20909">
+    <Type>function</Type>
+    <Documentation>
+     <see>fSprayFixed</see>
+     <content>Same as fSprayFixed, but does not return the DFU Workunit ID.</content>
+    </Documentation>
+    <Params>
+     <Param name="sourceIP"/>
+     <Param name="sourcePath"/>
+     <Param name="recordSize"/>
+     <Param name="destinationGroup"/>
+     <Param name="destinationLogicalName"/>
+     <Param name="timeOut"/>
+     <Param name="espServerIpPort"/>
+     <Param name="maxConnections"/>
+     <Param name="allowOverwrite"/>
+     <Param name="replicate"/>
+     <Param name="compress"/>
+     <Param name="failIfNoSourceFile"/>
+     <Param name="expireDays"/>
+    </Params>
+   </Definition>
+   <Definition body="22277"
+               end="22647"
+               exported="1"
+               fullname="file.fsprayvariable"
+               inherit_type="local"
+               line="431"
+               name="fSprayVariable"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="21632">
+    <Type>function</Type>
+    <Params>
+     <Param name="sourceIP"/>
+     <Param name="sourcePath"/>
+     <Param name="sourceMaxRecordSize"/>
+     <Param name="sourceCsvSeparate"/>
+     <Param name="sourceCsvTerminate"/>
+     <Param name="sourceCsvQuote"/>
+     <Param name="destinationGroup"/>
+     <Param name="destinationLogicalName"/>
+     <Param name="timeOut"/>
+     <Param name="espServerIpPort"/>
+     <Param name="maxConnections"/>
+     <Param name="allowOverwrite"/>
+     <Param name="replicate"/>
+     <Param name="compress"/>
+     <Param name="sourceCsvEscape"/>
+     <Param name="failIfNoSourceFile"/>
+     <Param name="recordStructurePresent"/>
+     <Param name="quotedTerminator"/>
+     <Param name="encoding"/>
+     <Param name="expireDays"/>
+    </Params>
+   </Definition>
+   <Definition body="23388"
+               end="23757"
+               exported="1"
+               fullname="file.sprayvariable"
+               inherit_type="local"
+               line="435"
+               name="SprayVariable"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="22754">
+    <Type>function</Type>
+    <Params>
+     <Param name="sourceIP"/>
+     <Param name="sourcePath"/>
+     <Param name="sourceMaxRecordSize"/>
+     <Param name="sourceCsvSeparate"/>
+     <Param name="sourceCsvTerminate"/>
+     <Param name="sourceCsvQuote"/>
+     <Param name="destinationGroup"/>
+     <Param name="destinationLogicalName"/>
+     <Param name="timeOut"/>
+     <Param name="espServerIpPort"/>
+     <Param name="maxConnections"/>
+     <Param name="allowOverwrite"/>
+     <Param name="replicate"/>
+     <Param name="compress"/>
+     <Param name="sourceCsvEscape"/>
+     <Param name="failIfNoSourceFile"/>
+     <Param name="recordStructurePresent"/>
+     <Param name="quotedTerminator"/>
+     <Param name="encoding"/>
+     <Param name="expireDays"/>
+    </Params>
+   </Definition>
+   <Definition body="26492"
+               end="26862"
+               exported="1"
+               fullname="file.fspraydelimited"
+               inherit_type="local"
+               line="465"
+               name="fSprayDelimited"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="25846">
+    <Type>function</Type>
+    <Documentation>
+     <content>Sprays a file of fixed delimited records from a single machine and distributes it across the nodes of the destination group.</content>
+     <return>The DFU workunit id for the job.</return>
+     <param>sourceIP      The IP address of the file.</param>
+     <param>sourcePath    The path and name of the file.</param>
+     <param>sourceCsvSeparate The character sequence which separates fields in the file.</param>
+     <param>sourceCsvTerminate The character sequence which separates records in the file.</param>
+     <param>sourceCsvQuote A string which can be used to delimit fields in the file.</param>
+     <param>sourceMaxRecordSize    The maximum size (in bytes) of the records in the file.</param>
+     <param>destinationGroup The name of the group to distribute the file across.</param>
+     <param>destinationLogicalName The logical name of the file to create.</param>
+     <param>timeOut       The time in ms to wait for the operation to complete.  A value of 0 causes the call to return immediately. Defaults to no timeout (-1).</param>
+     <param>espServerIpPort The url of the ESP file copying service. Defaults to the value of ws_fs_server in the environment.</param>
+     <param>maxConnections The maximum number of target nodes to write to concurrently.  Defaults to 1.</param>
+     <param>allowOverwrite Is it valid to overwrite an existing file of the same name?  Defaults to FALSE</param>
+     <param>replicate     Whether to replicate the new file. Defaults to FALSE.</param>
+     <param>compress      Whether to compress the new file. Defaults to FALSE.</param>
+     <param>sourceCsvEscape A character that is used to escape quote characters.  Defaults to none.</param>
+     <param>failIfNoSourceFile If TRUE it causes a missing source file to trigger a failure.  Defaults to FALSE.</param>
+     <param>recordStructurePresent If TRUE derives the record structure from the header of the file.</param>
+     <param>quotedTerminator Can the terminator character be included in a quoted field.  Defaults to TRUE. If FALSE it allows quicker partitioning of the file (avoiding a complete file scan).</param>
+     <param>expireDays    Number of days to auto-remove file. Default is -1, not expire.</param>
+    </Documentation>
+    <Params>
+     <Param name="sourceIP"/>
+     <Param name="sourcePath"/>
+     <Param name="sourceMaxRecordSize"/>
+     <Param name="sourceCsvSeparate"/>
+     <Param name="sourceCsvTerminate"/>
+     <Param name="sourceCsvQuote"/>
+     <Param name="destinationGroup"/>
+     <Param name="destinationLogicalName"/>
+     <Param name="timeOut"/>
+     <Param name="espServerIpPort"/>
+     <Param name="maxConnections"/>
+     <Param name="allowOverwrite"/>
+     <Param name="replicate"/>
+     <Param name="compress"/>
+     <Param name="sourceCsvEscape"/>
+     <Param name="failIfNoSourceFile"/>
+     <Param name="recordStructurePresent"/>
+     <Param name="quotedTerminator"/>
+     <Param name="encoding"/>
+     <Param name="expireDays"/>
+    </Params>
+   </Definition>
+   <Definition body="27610"
+               end="27979"
+               exported="1"
+               fullname="file.spraydelimited"
+               inherit_type="local"
+               line="474"
+               name="SprayDelimited"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="26969">
+    <Type>function</Type>
+    <Documentation>
+     <see>fSprayDelimited</see>
+     <content>Same as fSprayDelimited, but does not return the DFU Workunit ID.</content>
+    </Documentation>
+    <Params>
+     <Param name="sourceIP"/>
+     <Param name="sourcePath"/>
+     <Param name="sourceMaxRecordSize"/>
+     <Param name="sourceCsvSeparate"/>
+     <Param name="sourceCsvTerminate"/>
+     <Param name="sourceCsvQuote"/>
+     <Param name="destinationGroup"/>
+     <Param name="destinationLogicalName"/>
+     <Param name="timeOut"/>
+     <Param name="espServerIpPort"/>
+     <Param name="maxConnections"/>
+     <Param name="allowOverwrite"/>
+     <Param name="replicate"/>
+     <Param name="compress"/>
+     <Param name="sourceCsvEscape"/>
+     <Param name="failIfNoSourceFile"/>
+     <Param name="recordStructurePresent"/>
+     <Param name="quotedTerminator"/>
+     <Param name="encoding"/>
+     <Param name="expireDays"/>
+    </Params>
+   </Definition>
+   <Definition body="30063"
+               end="30334"
+               exported="1"
+               fullname="file.fsprayxml"
+               inherit_type="local"
+               line="499"
+               name="fSprayXml"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="29602">
+    <Type>function</Type>
+    <Documentation>
+     <content>Sprays an xml file from a single machine and distributes it across the nodes of the destination group.</content>
+     <return>The DFU workunit id for the job.</return>
+     <param>sourceIP      The IP address of the file.</param>
+     <param>sourcePath    The path and name of the file.</param>
+     <param>sourceMaxRecordSize    The maximum size (in bytes) of the records in the file.</param>
+     <param>sourceRowTag  The xml tag that is used to delimit records in the source file.  (This tag cannot recursivly nest.)</param>
+     <param>sourceEncoding The unicode encoding of the file.  (utf8,utf8n,utf16be,utf16le,utf32be,utf32le)</param>
+     <param>destinationGroup The name of the group to distribute the file across.</param>
+     <param>destinationLogicalName The logical name of the file to create.</param>
+     <param>timeOut       The time in ms to wait for the operation to complete.  A value of 0 causes the call to return immediately. Defaults to no timeout (-1).</param>
+     <param>espServerIpPort The url of the ESP file copying service. Defaults to the value of ws_fs_server in the environment.</param>
+     <param>maxConnections The maximum number of target nodes to write to concurrently.  Defaults to 1.</param>
+     <param>allowOverwrite Is it valid to overwrite an existing file of the same name?  Defaults to FALSE</param>
+     <param>replicate     Whether to replicate the new file. Defaults to FALSE.</param>
+     <param>compress      Whether to compress the new file. Defaults to FALSE.</param>
+     <param>failIfNoSourceFile If TRUE it causes a missing source file to trigger a failure.  Defaults to FALSE.</param>
+     <param>expireDays    Number of days to auto-remove file. Default is -1, not expire.</param>
+    </Documentation>
+    <Params>
+     <Param name="sourceIP"/>
+     <Param name="sourcePath"/>
+     <Param name="sourceMaxRecordSize"/>
+     <Param name="sourceRowTag"/>
+     <Param name="sourceEncoding"/>
+     <Param name="destinationGroup"/>
+     <Param name="destinationLogicalName"/>
+     <Param name="timeOut"/>
+     <Param name="espServerIpPort"/>
+     <Param name="maxConnections"/>
+     <Param name="allowOverwrite"/>
+     <Param name="replicate"/>
+     <Param name="compress"/>
+     <Param name="failIfNoSourceFile"/>
+     <Param name="expireDays"/>
+    </Params>
+   </Definition>
+   <Definition body="30879"
+               end="31149"
+               exported="1"
+               fullname="file.sprayxml"
+               inherit_type="local"
+               line="508"
+               name="SprayXml"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="30429">
+    <Type>function</Type>
+    <Documentation>
+     <see>fSprayXml</see>
+     <content>Same as fSprayXml, but does not return the DFU Workunit ID.</content>
+    </Documentation>
+    <Params>
+     <Param name="sourceIP"/>
+     <Param name="sourcePath"/>
+     <Param name="sourceMaxRecordSize"/>
+     <Param name="sourceRowTag"/>
+     <Param name="sourceEncoding"/>
+     <Param name="destinationGroup"/>
+     <Param name="destinationLogicalName"/>
+     <Param name="timeOut"/>
+     <Param name="espServerIpPort"/>
+     <Param name="maxConnections"/>
+     <Param name="allowOverwrite"/>
+     <Param name="replicate"/>
+     <Param name="compress"/>
+     <Param name="failIfNoSourceFile"/>
+     <Param name="expireDays"/>
+    </Params>
+   </Definition>
+   <Definition body="32270"
+               end="32417"
+               exported="1"
+               fullname="file.fdespray"
+               inherit_type="local"
+               line="525"
+               name="fDespray"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="32038">
+    <Type>function</Type>
+    <Documentation>
+     <content>Copies a distributed file from multiple machines, and desprays it to a single file on a single machine.</content>
+     <return>The DFU workunit id for the job.</return>
+     <param>logicalName   The name of the file to despray.</param>
+     <param>destinationIP The IP of the target machine.</param>
+     <param>destinationPath The path of the file to create on the destination machine.</param>
+     <param>timeOut       The time in ms to wait for the operation to complete.  A value of 0 causes the call to return immediately. Defaults to no timeout (-1).</param>
+     <param>espServerIpPort The url of the ESP file copying service. Defaults to the value of ws_fs_server in the environment.</param>
+     <param>maxConnections The maximum number of target nodes to write to concurrently.  Defaults to 1.</param>
+     <param>allowOverwrite Is it valid to overwrite an existing file of the same name?  Defaults to FALSE</param>
+    </Documentation>
+    <Params>
+     <Param name="logicalName"/>
+     <Param name="destinationIP"/>
+     <Param name="destinationPath"/>
+     <Param name="timeOut"/>
+     <Param name="espServerIpPort"/>
+     <Param name="maxConnections"/>
+     <Param name="allowOverwrite"/>
+    </Params>
+   </Definition>
+   <Definition body="32731"
+               end="32877"
+               exported="1"
+               fullname="file.despray"
+               inherit_type="local"
+               line="534"
+               name="Despray"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="32510">
+    <Type>function</Type>
+    <Documentation>
+     <see>fDespray</see>
+     <content>Same as fDespray, but does not return the DFU Workunit ID.</content>
+    </Documentation>
+    <Params>
+     <Param name="logicalName"/>
+     <Param name="destinationIP"/>
+     <Param name="destinationPath"/>
+     <Param name="timeOut"/>
+     <Param name="espServerIpPort"/>
+     <Param name="maxConnections"/>
+     <Param name="allowOverwrite"/>
+    </Params>
+   </Definition>
+   <Definition body="35112"
+               end="35370"
+               exported="1"
+               fullname="file.fcopy"
+               inherit_type="local"
+               line="560"
+               name="fCopy"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="34676">
+    <Type>function</Type>
+    <Documentation>
+     <content>Copies a distributed file to another distributed file.</content>
+     <return>The DFU workunit id for the job.</return>
+     <param>sourceLogicalName The name of the file to despray.</param>
+     <param>destinationGroup The name of the group to distribute the file across.</param>
+     <param>destinationLogicalName The logical name of the file to create.</param>
+     <param>sourceDali    The dali that contains the source file (blank implies same dali).  Defaults to same dali.</param>
+     <param>timeOut       The time in ms to wait for the operation to complete.  A value of 0 causes the call to return immediately. Defaults to no timeout (-1).</param>
+     <param>espServerIpPort The url of the ESP file copying service. Defaults to the value of ws_fs_server in the environment.</param>
+     <param>maxConnections The maximum number of target nodes to write to concurrently.  Defaults to 1.</param>
+     <param>allowOverwrite Is it valid to overwrite an existing file of the same name?  Defaults to FALSE</param>
+     <param>replicate     Should the copied file also be replicated on the destination?  Defaults to FALSE</param>
+     <param>asSuperfile   Should the file be copied as a superfile?  If TRUE and source is a superfile, then the operation creates a superfile on the target, creating sub-files as needed and only overwriting existing sub-files whose content has changed. If FALSE, a single file is created.  Defaults to FALSE.</param>
+     <param>compress      Whether to compress the new file. Defaults to FALSE.</param>
+     <param>forcePush     Should the copy process be executed on the source nodes (push) or on the destination nodes (pull)? Default is to pull.</param>
+     <param>transferBufferSize Overrides the size (in bytes) of the internal buffer used to copy the file.  Default is 64k.</param>
+    </Documentation>
+    <Params>
+     <Param name="sourceLogicalName"/>
+     <Param name="destinationGroup"/>
+     <Param name="destinationLogicalName"/>
+     <Param name="sourceDali"/>
+     <Param name="timeOut"/>
+     <Param name="espServerIpPort"/>
+     <Param name="maxConnections"/>
+     <Param name="allowOverwrite"/>
+     <Param name="replicate"/>
+     <Param name="asSuperfile"/>
+     <Param name="compress"/>
+     <Param name="forcePush"/>
+     <Param name="transferBufferSize"/>
+     <Param name="preserveCompression"/>
+    </Params>
+   </Definition>
+   <Definition body="35882"
+               end="36139"
+               exported="1"
+               fullname="file.copy"
+               inherit_type="local"
+               line="569"
+               name="Copy"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="35457">
+    <Type>function</Type>
+    <Documentation>
+     <see>fCopy</see>
+     <content>Same as fCopy, but does not return the DFU Workunit ID.</content>
+    </Documentation>
+    <Params>
+     <Param name="sourceLogicalName"/>
+     <Param name="destinationGroup"/>
+     <Param name="destinationLogicalName"/>
+     <Param name="sourceDali"/>
+     <Param name="timeOut"/>
+     <Param name="espServerIpPort"/>
+     <Param name="maxConnections"/>
+     <Param name="allowOverwrite"/>
+     <Param name="replicate"/>
+     <Param name="asSuperfile"/>
+     <Param name="compress"/>
+     <Param name="forcePush"/>
+     <Param name="transferBufferSize"/>
+     <Param name="preserveCompression"/>
+    </Params>
+   </Definition>
+   <Definition body="36768"
+               end="36853"
+               exported="1"
+               fullname="file.freplicate"
+               inherit_type="local"
+               line="582"
+               name="fReplicate"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="36644">
+    <Type>function</Type>
+    <Documentation>
+     <content>Ensures the specified file is replicated to its mirror copies.</content>
+     <return>The DFU workunit id for the job.</return>
+     <param>logicalName   The name of the file to replicate.</param>
+     <param>timeOut       The time in ms to wait for the operation to complete.  A value of 0 causes the call to return immediately. Defaults to no timeout (-1).</param>
+     <param>espServerIpPort The url of the ESP file copying service. Defaults to the value of ws_fs_server in the environment.</param>
+    </Documentation>
+    <Params>
+     <Param name="logicalName"/>
+     <Param name="timeOut"/>
+     <Param name="espServerIpPort"/>
+    </Params>
+   </Definition>
+   <Definition body="37064"
+               end="37148"
+               exported="1"
+               fullname="file.replicate"
+               inherit_type="local"
+               line="591"
+               name="Replicate"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="36951">
+    <Type>function</Type>
+    <Documentation>
+     <see>fReplicate</see>
+     <content>Same as fReplicated, but does not return the DFU Workunit ID.</content>
+    </Documentation>
+    <Params>
+     <Param name="logicalName"/>
+     <Param name="timeOut"/>
+     <Param name="espServerIpPort"/>
+    </Params>
+   </Definition>
+   <Definition body="39540"
+               end="39776"
+               exported="1"
+               fullname="file.fremotepull"
+               inherit_type="local"
+               line="619"
+               name="fRemotePull"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="39161">
+    <Type>function</Type>
+    <Documentation>
+     <content>Copies a distributed file to a distributed file on remote system.  Similar to fCopy, except the copy executes remotely.  Since the DFU workunit executes on the remote DFU server, the user name authentication must be the same on both systems, and the user must have rights to copy files on both systems.</content>
+     <return>The DFU workunit id for the job.</return>
+     <param>remoteEspFsURL The url of the remote ESP file copying service.</param>
+     <param>sourceLogicalName The name of the file to despray.</param>
+     <param>destinationGroup The name of the group to distribute the file across.</param>
+     <param>destinationLogicalName The logical name of the file to create.</param>
+     <param>timeOut       The time in ms to wait for the operation to complete.  A value of 0 causes the call to return immediately. Defaults to no timeout (-1).</param>
+     <param>maxConnections The maximum number of target nodes to write to concurrently.  Defaults to 1.</param>
+     <param>allowOverwrite Is it valid to overwrite an existing file of the same name?  Defaults to FALSE</param>
+     <param>replicate     Should the copied file also be replicated on the destination?  Defaults to FALSE</param>
+     <param>asSuperfile   Should the file be copied as a superfile?  If TRUE and source is a superfile, then the operation creates a superfile on the target, creating sub-files as needed and only overwriting existing sub-files whose content has changed. If FALSE a single file is created.  Defaults to FALSE.</param>
+     <param>compress      Whether to compress the new file. Defaults to FALSE.</param>
+     <param>forcePush     Should the copy process should be executed on the source nodes (push) or on the destination nodes (pull)? Default is to pull.</param>
+     <param>transferBufferSize Overrides the size (in bytes) of the internal buffer used to copy the file.  Default is 64k.</param>
+     <param>wrap          Should the fileparts be wrapped when copying to a smaller sized cluster?  The default is FALSE.</param>
+    </Documentation>
+    <Params>
+     <Param name="remoteEspFsURL"/>
+     <Param name="sourceLogicalName"/>
+     <Param name="destinationGroup"/>
+     <Param name="destinationLogicalName"/>
+     <Param name="timeOut"/>
+     <Param name="maxConnections"/>
+     <Param name="allowOverwrite"/>
+     <Param name="Replicate"/>
+     <Param name="asSuperfile"/>
+     <Param name="forcePush"/>
+     <Param name="transferBufferSize"/>
+     <Param name="wrap"/>
+     <Param name="compress"/>
+    </Params>
+   </Definition>
+   <Definition body="40243"
+               end="40478"
+               exported="1"
+               fullname="file.remotepull"
+               inherit_type="local"
+               line="628"
+               name="RemotePull"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="39875">
+    <Type>function</Type>
+    <Documentation>
+     <see>fRemotePull</see>
+     <content>Same as fRemotePull, but does not return the DFU Workunit ID.</content>
+    </Documentation>
+    <Params>
+     <Param name="remoteEspFsURL"/>
+     <Param name="sourceLogicalName"/>
+     <Param name="destinationGroup"/>
+     <Param name="destinationLogicalName"/>
+     <Param name="timeOut"/>
+     <Param name="maxConnections"/>
+     <Param name="allowOverwrite"/>
+     <Param name="Replicate"/>
+     <Param name="asSuperfile"/>
+     <Param name="forcePush"/>
+     <Param name="transferBufferSize"/>
+     <Param name="wrap"/>
+     <Param name="compress"/>
+    </Params>
+   </Definition>
+   <Definition body="41689"
+               end="41795"
+               exported="1"
+               fullname="file.fmonitorlogicalfilename"
+               inherit_type="local"
+               line="646"
+               name="fMonitorLogicalFileName"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="41535">
+    <Type>function</Type>
+    <Documentation>
+     <content>Creates a file monitor job in the DFU Server. If an appropriately named file arrives in this interval it will fire the event with the name of the triggering object as the event subtype (see the EVENT function).</content>
+     <return>The DFU workunit id for the job.</return>
+     <param>eventToFire   The user-defined name of the event to fire when the filename appears. This value is used as the first parameter to the EVENT function.</param>
+     <param>name          The name of the logical file to monitor.  This may contain wildcard characters ( * and ?)</param>
+     <param>shotCount     The number of times to generate the event before the monitoring job completes. A value of -1 indicates the monitoring job continues until manually aborted. The default is 1.</param>
+     <param>espServerIpPort The url of the ESP file copying service. Defaults to the value of ws_fs_server in the environment.</param>
+    </Documentation>
+    <Params>
+     <Param name="eventToFire"/>
+     <Param name="name"/>
+     <Param name="shotCount"/>
+     <Param name="espServerIpPort"/>
+    </Params>
+   </Definition>
+   <Definition body="42061"
+               end="42166"
+               exported="1"
+               fullname="file.monitorlogicalfilename"
+               inherit_type="local"
+               line="655"
+               name="MonitorLogicalFileName"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="41918">
+    <Type>function</Type>
+    <Documentation>
+     <see>fMonitorLogicalFileName</see>
+     <content>Same as fMonitorLogicalFileName, but does not return the DFU Workunit ID.</content>
+    </Documentation>
+    <Params>
+     <Param name="eventToFire"/>
+     <Param name="name"/>
+     <Param name="shotCount"/>
+     <Param name="espServerIpPort"/>
+    </Params>
+   </Definition>
+   <Definition body="43573"
+               end="43685"
+               exported="1"
+               fullname="file.fmonitorfile"
+               inherit_type="local"
+               line="674"
+               name="fMonitorFile"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="43389">
+    <Type>function</Type>
+    <Documentation>
+     <content>Creates a file monitor job in the DFU Server. If an appropriately named file arrives in this interval it will fire the event with the name of the triggering object as the event subtype (see the EVENT function).</content>
+     <return>The DFU workunit id for the job.</return>
+     <param>eventToFire   The user-defined name of the event to fire when the filename appears. This value is used as the first parameter to the EVENT function.</param>
+     <param>ip            The the IP address for the file to monitor. This may be omitted if the filename parameter contains a complete URL.</param>
+     <param>filename      The full path of the file(s) to monitor.  This may contain wildcard characters ( * and ?)</param>
+     <param>subDirs       Whether to include files in sub-directories (when the filename contains wildcards).  Defaults to FALSE.</param>
+     <param>shotCount     The number of times to generate the event before the monitoring job completes. A value of -1 indicates the monitoring job continues until manually aborted. The default is 1.</param>
+     <param>espServerIpPort The url of the ESP file copying service. Defaults to the value of ws_fs_server in the environment.</param>
+    </Documentation>
+    <Params>
+     <Param name="eventToFire"/>
+     <Param name="ip"/>
+     <Param name="filename"/>
+     <Param name="subDirs"/>
+     <Param name="shotCount"/>
+     <Param name="espServerIpPort"/>
+    </Params>
+   </Definition>
+   <Definition body="43959"
+               end="44070"
+               exported="1"
+               fullname="file.monitorfile"
+               inherit_type="local"
+               line="683"
+               name="MonitorFile"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="43786">
+    <Type>function</Type>
+    <Documentation>
+     <see>fMonitorFile</see>
+     <content>Same as fMonitorFile, but does not return the DFU Workunit ID.</content>
+    </Documentation>
+    <Params>
+     <Param name="eventToFire"/>
+     <Param name="ip"/>
+     <Param name="filename"/>
+     <Param name="subdirs"/>
+     <Param name="shotCount"/>
+     <Param name="espServerIpPort"/>
+    </Params>
+   </Definition>
+   <Definition body="44705"
+               end="44788"
+               exported="1"
+               fullname="file.waitdfuworkunit"
+               inherit_type="local"
+               line="696"
+               name="WaitDfuWorkunit"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="44583">
+    <Type>function</Type>
+    <Documentation>
+     <content>Waits for the specified DFU workunit to finish.</content>
+     <return>A string containing the final status string of the DFU workunit.</return>
+     <param>wuid          The dfu wfid to wait for.</param>
+     <param>timeOut       The time in ms to wait for the operation to complete.  A value of 0 causes the call to return immediately. Defaults to no timeout (-1).</param>
+     <param>espServerIpPort The url of the ESP file copying service. Defaults to the value of ws_fs_server in the environment.</param>
+    </Documentation>
+    <Params>
+     <Param name="wuid"/>
+     <Param name="timeOut"/>
+     <Param name="espServerIpPort"/>
+    </Params>
+   </Definition>
+   <Definition body="45104"
+               end="45179"
+               exported="1"
+               fullname="file.abortdfuworkunit"
+               inherit_type="local"
+               line="706"
+               name="AbortDfuWorkunit"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="45012">
+    <Type>function</Type>
+    <Documentation>
+     <content>Aborts the specified DFU workunit.</content>
+     <param>wuid          The dfu wfid to abort.</param>
+     <param>espServerIpPort The url of the ESP file copying service. Defaults to the value of ws_fs_server in the environment.</param>
+    </Documentation>
+    <Params>
+     <Param name="wuid"/>
+     <Param name="espServerIpPort"/>
+    </Params>
+   </Definition>
+   <Definition body="45824"
+               end="45915"
+               exported="1"
+               fullname="file.createsuperfile"
+               inherit_type="local"
+               line="720"
+               name="CreateSuperFile"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="45721">
+    <Type>function</Type>
+    <Documentation>
+     <content>Creates an empty superfile. This function is not included in a superfile transaction.</content>
+     <param>superName     The logical name of the superfile.</param>
+     <param>sequentialParts Whether the sub-files must be sequentially ordered. Default to FALSE.</param>
+     <param>allowExist    Indicating whether to post an error if the superfile already exists. If TRUE, no error is posted. Defaults to FALSE.</param>
+    </Documentation>
+    <Params>
+     <Param name="superName"/>
+     <Param name="sequentialParts"/>
+     <Param name="allowExist"/>
+    </Params>
+   </Definition>
+   <Definition body="46218"
+               end="46280"
+               exported="1"
+               fullname="file.superfileexists"
+               inherit_type="local"
+               line="732"
+               name="SuperFileExists"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="46164">
+    <Type>function</Type>
+    <Documentation>
+     <see>FileExists</see>
+     <return>Whether the file exists.</return>
+     <param>superName     The logical name of the superfile.</param>
+     <content>Checks if the specified filename is present in the Distributed File Utility (DFU) and is a SuperFile.</content>
+    </Documentation>
+    <Params>
+     <Param name="superName"/>
+    </Params>
+   </Definition>
+   <Definition body="46472"
+               end="46545"
+               exported="1"
+               fullname="file.deletesuperfile"
+               inherit_type="local"
+               line="743"
+               name="DeleteSuperFile"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="46401">
+    <Type>function</Type>
+    <Documentation>
+     <content>Deletes the superfile.</content>
+     <see>FileExists</see>
+     <param>superName     The logical name of the superfile.</param>
+    </Documentation>
+    <Params>
+     <Param name="superName"/>
+     <Param name="deletesub"/>
+    </Params>
+   </Definition>
+   <Definition body="46814"
+               end="46881"
+               exported="1"
+               fullname="file.getsuperfilesubcount"
+               inherit_type="local"
+               line="753"
+               name="GetSuperFileSubCount"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="46753">
+    <Type>function</Type>
+    <Documentation>
+     <content>Returns the number of sub-files contained within a superfile.</content>
+     <return>The number of sub-files within the superfile.</return>
+     <param>superName     The logical name of the superfile.</param>
+    </Documentation>
+    <Params>
+     <Param name="superName"/>
+    </Params>
+   </Definition>
+   <Definition body="47362"
+               end="47446"
+               exported="1"
+               fullname="file.getsuperfilesubname"
+               inherit_type="local"
+               line="765"
+               name="GetSuperFileSubName"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="47260">
+    <Type>function</Type>
+    <Documentation>
+     <content>Returns the name of the Nth sub-file within a superfile.</content>
+     <return>The logical name of the selected sub-file.</return>
+     <param>superName     The logical name of the superfile.</param>
+     <param>fileNum       The 1-based position of the sub-file to return the name of.</param>
+     <param>absPath       Whether to prepend &apos;~&apos; to the name of the resulting logical file name.</param>
+    </Documentation>
+    <Params>
+     <Param name="superName"/>
+     <Param name="fileNum"/>
+     <Param name="absPath"/>
+    </Params>
+   </Definition>
+   <Definition body="47794"
+               end="47870"
+               exported="1"
+               fullname="file.findsuperfilesubname"
+               inherit_type="local"
+               line="776"
+               name="FindSuperFileSubName"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="47714">
+    <Type>function</Type>
+    <Documentation>
+     <content>Returns the position of a file within a superfile.</content>
+     <return>The 1-based position of the sub-file within the superfile.</return>
+     <param>superName     The logical name of the superfile.</param>
+     <param>subName       The logical name of the sub-file.</param>
+    </Documentation>
+    <Params>
+     <Param name="superName"/>
+     <Param name="subName"/>
+    </Params>
+   </Definition>
+   <Definition body="48089"
+               end="48152"
+               exported="1"
+               fullname="file.startsuperfiletransaction"
+               inherit_type="local"
+               line="784"
+               name="StartSuperFileTransaction"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="48052">
+    <Type>function</Type>
+    <Documentation>
+     <content>Starts a superfile transaction.  All superfile operations within the transaction will either be executed atomically or rolled back when the transaction is finished.</content>
+    </Documentation>
+    <Params/>
+   </Definition>
+   <Definition body="48773"
+               end="48869"
+               exported="1"
+               fullname="file.addsuperfile"
+               inherit_type="local"
+               line="797"
+               name="AddSuperFile"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="48643">
+    <Type>function</Type>
+    <Documentation>
+     <content>Adds a file to a superfile.</content>
+     <param>superName     The logical name of the superfile.</param>
+     <param>subName       The name of the logical file to add.</param>
+     <param>atPos         The position to add the sub-file, or 0 to append.  Defaults to 0.</param>
+     <param>addContents   Controls whether adding a superfile adds the superfile, or its contents.  Defaults to FALSE (do not expand).</param>
+     <param>strict        Check addContents only if subName is a superfile, and ensure superfiles exist.</param>
+    </Documentation>
+    <Params>
+     <Param name="superName"/>
+     <Param name="subName"/>
+     <Param name="atPos"/>
+     <Param name="addContents"/>
+     <Param name="strict"/>
+    </Params>
+   </Definition>
+   <Definition body="49410"
+               end="49502"
+               exported="1"
+               fullname="file.removesuperfile"
+               inherit_type="local"
+               line="809"
+               name="RemoveSuperFile"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="49296">
+    <Type>function</Type>
+    <Documentation>
+     <content>Removes a sub-file from a superfile.</content>
+     <param>superName     The logical name of the superfile.</param>
+     <param>subName       The name of the sub-file to remove.</param>
+     <param>del           Indicates whether the sub-file should also be removed from the disk.  Defaults to FALSE.</param>
+     <param>removeContents Controls whether the contents of a sub-file which is a superfile should be recursively removed.  Defaults to FALSE.</param>
+    </Documentation>
+    <Params>
+     <Param name="superName"/>
+     <Param name="subName"/>
+     <Param name="del"/>
+     <Param name="removeContents"/>
+    </Params>
+   </Definition>
+   <Definition body="49796"
+               end="49862"
+               exported="1"
+               fullname="file.clearsuperfile"
+               inherit_type="local"
+               line="819"
+               name="ClearSuperFile"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="49732">
+    <Type>function</Type>
+    <Documentation>
+     <content>Removes all sub-files from a superfile.</content>
+     <param>superName     The logical name of the superfile.</param>
+     <param>del           Indicates whether the sub-files should also be removed from the disk.  Defaults to FALSE.</param>
+    </Documentation>
+    <Params>
+     <Param name="superName"/>
+     <Param name="del"/>
+    </Params>
+   </Definition>
+   <Definition body="50141"
+               end="50212"
+               exported="1"
+               fullname="file.removeownedsubfiles"
+               inherit_type="local"
+               line="829"
+               name="RemoveOwnedSubFiles"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="50072">
+    <Type>function</Type>
+    <Documentation>
+     <content>Removes all soley-owned sub-files from a superfile.  If a sub-file is also contained within another superfile then it is retained.</content>
+     <param>superName     The logical name of the superfile.</param>
+    </Documentation>
+    <Params>
+     <Param name="superName"/>
+     <Param name="del"/>
+    </Params>
+   </Definition>
+   <Definition body="50396"
+               end="50500"
+               exported="1"
+               fullname="file.deleteownedsubfiles"
+               inherit_type="local"
+               line="838"
+               name="DeleteOwnedSubFiles"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="50346">
+    <Type>function</Type>
+    <Documentation>
+     <see>RemoveOwnedSubFIles</see>
+     <content>Legacy version of RemoveOwnedSubFiles which was incorrectly named in a previous version.</content>
+    </Documentation>
+    <Params>
+     <Param name="superName"/>
+    </Params>
+   </Definition>
+   <Definition body="50752"
+               end="50825"
+               exported="1"
+               fullname="file.swapsuperfile"
+               inherit_type="local"
+               line="848"
+               name="SwapSuperFile"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="50685">
+    <Type>function</Type>
+    <Documentation>
+     <content>Swap the contents of two superfiles.</content>
+     <param>superName1    The logical name of the first superfile.</param>
+     <param>superName2    The logical name of the second superfile.</param>
+    </Documentation>
+    <Params>
+     <Param name="superName1"/>
+     <Param name="superName2"/>
+    </Params>
+   </Definition>
+   <Definition body="51216"
+               end="51303"
+               exported="1"
+               fullname="file.replacesuperfile"
+               inherit_type="local"
+               line="859"
+               name="ReplaceSuperFile"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="51125">
+    <Type>function</Type>
+    <Documentation>
+     <content>Removes a sub-file from a superfile and replaces it with another.</content>
+     <param>superName     The logical name of the superfile.</param>
+     <param>oldSubFile    The logical name of the sub-file to remove.</param>
+     <param>newSubFile    The logical name of the sub-file to replace within the superfile.</param>
+    </Documentation>
+    <Params>
+     <Param name="superName"/>
+     <Param name="oldSubFile"/>
+     <Param name="newSubFile"/>
+    </Params>
+   </Definition>
+   <Definition body="51565"
+               end="51637"
+               exported="1"
+               fullname="file.finishsuperfiletransaction"
+               inherit_type="local"
+               line="867"
+               name="FinishSuperFileTransaction"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="51505">
+    <Type>function</Type>
+    <Documentation>
+     <content>Finishes a superfile transaction.  This executes all the operations since the matching StartSuperFileTransaction(). If there are any errors, then all of the operations are rolled back.</content>
+    </Documentation>
+    <Params>
+     <Param name="rollback"/>
+    </Params>
+   </Definition>
+   <Definition body="52046"
+               end="52119"
+               exported="1"
+               fullname="file.superfilecontents"
+               inherit_type="local"
+               line="878"
+               name="SuperFileContents"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="51942">
+    <Type>function</Type>
+    <Documentation>
+     <content>Returns the list of sub-files contained within a superfile.</content>
+     <return>A dataset containing the names of the sub-files.</return>
+     <param>superName     The logical name of the superfile.</param>
+     <param>recurse       Should the contents of child-superfiles be expanded.  Default is FALSE.</param>
+    </Documentation>
+    <Params>
+     <Param name="superName"/>
+     <Param name="recurse"/>
+    </Params>
+   </Definition>
+   <Definition body="52417"
+               end="52481"
+               exported="1"
+               fullname="file.logicalfilesuperowners"
+               inherit_type="local"
+               line="888"
+               name="LogicalFileSuperOwners"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="52336">
+    <Type>function</Type>
+    <Documentation>
+     <content>Returns the list of superfiles that a logical file is contained within.</content>
+     <return>A dataset containing the names of the superfiles.</return>
+     <param>name          The name of the logical file.</param>
+    </Documentation>
+    <Params>
+     <Param name="name"/>
+    </Params>
+   </Definition>
+   <Definition body="52747"
+               end="52808"
+               exported="1"
+               fullname="file.logicalfilesupersublist"
+               inherit_type="local"
+               line="897"
+               name="LogicalFileSuperSubList"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="52679">
+    <Type>function</Type>
+    <Documentation>
+     <return>A dataset containing pairs of superName,subName for each component file.</return>
+     <content>Returns the list of all the superfiles in the system and their component sub-files.</content>
+    </Documentation>
+    <Params/>
+   </Definition>
+   <Definition body="54146"
+               end="54257"
+               exported="1"
+               fullname="file.fpromotesuperfilelist"
+               inherit_type="local"
+               line="915"
+               name="fPromoteSuperFileList"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="53979">
+    <Type>function</Type>
+    <Documentation>
+     <content>Moves the sub-files from the first entry in the list of superfiles to the next in the list, repeating the process through the list of superfiles.</content>
+     <return>A string containing a comma separated list of the previous sub-file contents of the emptied superfile.</return>
+     <param>superNames    A set of the names of the superfiles to act on. Any that do not exist will be created. The contents of each superfile will be moved to the next in the list.</param>
+     <param>addHead       A string containing a comma-delimited list of logical file names to add to the first superfile after the promotion process is complete.  Defaults to &apos;&apos;.</param>
+     <param>delTail       Indicates whether to physically delete the contents moved out of the last superfile. The default is FALSE.</param>
+     <param>createOnlyOne Specifies whether to only create a single superfile (truncate the list at the first non-existent superfile). The default is FALSE.</param>
+     <param>reverse       Reverse the order of processing the superfiles list, effectively &apos;demoting&apos; instead of &apos;promoting&apos; the sub-files. The default is FALSE.</param>
+    </Documentation>
+    <Params>
+     <Param name="superNames"/>
+     <Param name="addHead"/>
+     <Param name="delTail"/>
+     <Param name="createOnlyOne"/>
+     <Param name="reverse"/>
+    </Params>
+   </Definition>
+   <Definition body="54532"
+               end="54642"
+               exported="1"
+               fullname="file.promotesuperfilelist"
+               inherit_type="local"
+               line="924"
+               name="PromoteSuperFileList"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
+               start="54376">
+    <Type>function</Type>
+    <Documentation>
+     <see>fPromoteSuperFileList</see>
+     <content>Same as fPromoteSuperFileList, but does not return the DFU Workunit ID.</content>
+    </Documentation>
+    <Params>
+     <Param name="superNames"/>
+     <Param name="addHead"/>
+     <Param name="delTail"/>
+     <Param name="createOnlyOne"/>
+     <Param name="reverse"/>
+    </Params>
+   </Definition>
+   <Parents/>
+  </Definition>
+ </Source>
+ <Source sourcePath="lib_fileservices"/>
+</Meta>

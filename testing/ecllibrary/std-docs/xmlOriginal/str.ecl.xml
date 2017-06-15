@@ -1,0 +1,833 @@
+<Meta>
+ <Source name="str" sourcePath="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl">
+  <Import body="0"
+          end="731"
+          fullname="lib_stringlib"
+          inherit_type="local"
+          line="20"
+          name="lib_stringlib"
+          ref="lib_stringlib"
+          remotescope="1"
+          start="731">
+   <Type>attribute</Type>
+  </Import>
+  <Definition body="260"
+              end="502"
+              inherit_type="local"
+              line="6"
+              name="externals"
+              source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl"
+              start="248">
+   <Type>module</Type>
+   <Definition body="0"
+               end="0"
+               exported="1"
+               fullname="encodebase64"
+               inherit_type="local"
+               line="8"
+               name="EncodeBase64"
+               start="0">
+    <Type>function</Type>
+    <Params>
+     <Param name="src"/>
+    </Params>
+   </Definition>
+   <Definition body="0"
+               end="0"
+               exported="1"
+               fullname="decodebase64"
+               inherit_type="local"
+               line="9"
+               name="DecodeBase64"
+               start="0">
+    <Type>function</Type>
+    <Params>
+     <Param name="src"/>
+    </Params>
+   </Definition>
+   <Parents/>
+  </Definition>
+  <Definition body="517"
+              end="17711"
+              exported="1"
+              fullname="Str"
+              inherit_type="local"
+              line="12"
+              name="Str"
+              source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl"
+              start="504">
+   <Type>module</Type>
+   <Definition body="1178"
+               end="1241"
+               exported="1"
+               fullname="str.compareignorecase"
+               inherit_type="local"
+               line="31"
+               name="CompareIgnoreCase"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl"
+               start="1116">
+    <Type>function</Type>
+    <Documentation>
+     <content>Compares the two strings case insensitively.  Returns a negative integer, zero, or a positive integer according to whether the first string is less than, equal to, or greater than the second.</content>
+     <see>Str.EqualIgnoreCase</see>
+     <param>src1          The first string to be compared.</param>
+     <param>src2          The second string to be compared.</param>
+    </Documentation>
+    <Params>
+     <Param name="src1"/>
+     <Param name="src2"/>
+    </Params>
+   </Definition>
+   <Definition body="1552"
+               end="1587"
+               exported="1"
+               fullname="str.equalignorecase"
+               inherit_type="local"
+               line="42"
+               name="EqualIgnoreCase"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl"
+               start="1493">
+    <Type>function</Type>
+    <Documentation>
+     <content>Tests whether the two strings are identical ignoring differences in case.</content>
+     <see>Str.CompareIgnoreCase</see>
+     <param>src1          The first string to be compared.</param>
+     <param>src2          The second string to be compared.</param>
+    </Documentation>
+    <Params>
+     <Param name="src1"/>
+     <Param name="src2"/>
+    </Params>
+   </Definition>
+   <Definition body="2065"
+               end="2126"
+               exported="1"
+               fullname="str.find"
+               inherit_type="local"
+               line="54"
+               name="Find"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl"
+               start="1990">
+    <Type>function</Type>
+    <Documentation>
+     <content>Returns the character position of the nth match of the search string with the first string. If no match is found the attribute returns 0. If an instance is omitted the position of the first instance is returned.</content>
+     <param>src           The string that is searched</param>
+     <param>sought        The string being sought.</param>
+     <param>instance      Which match instance are we interested in?</param>
+    </Documentation>
+    <Params>
+     <Param name="src"/>
+     <Param name="sought"/>
+     <Param name="instance"/>
+    </Params>
+   </Definition>
+   <Definition body="2379"
+               end="2433"
+               exported="1"
+               fullname="str.findcount"
+               inherit_type="local"
+               line="64"
+               name="FindCount"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl"
+               start="2323">
+    <Type>function</Type>
+    <Documentation>
+     <content>Returns the number of occurences of the second string within the first string.</content>
+     <param>src           The string that is searched</param>
+     <param>sought        The string being sought.</param>
+    </Documentation>
+    <Params>
+     <Param name="src"/>
+     <Param name="sought"/>
+    </Params>
+   </Definition>
+   <Definition body="2857"
+               end="2933"
+               exported="1"
+               fullname="str.wildmatch"
+               inherit_type="local"
+               line="75"
+               name="WildMatch"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl"
+               start="2780">
+    <Type>function</Type>
+    <Documentation>
+     <content>Tests if the search string matches the pattern. The pattern can contain wildcards &apos;?&apos; (single character) and &apos;*&apos; (multiple character).</content>
+     <param>src           The string that is being tested.</param>
+     <param>pattern       The pattern to match against.</param>
+     <param>ignore_case   Whether to ignore differences in case between characters</param>
+    </Documentation>
+    <Params>
+     <Param name="src"/>
+     <Param name="_pattern"/>
+     <Param name="ignore_case"/>
+    </Params>
+   </Definition>
+   <Definition body="3409"
+               end="3479"
+               exported="1"
+               fullname="str.contains"
+               inherit_type="local"
+               line="87"
+               name="Contains"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl"
+               start="3333">
+    <Type>function</Type>
+    <Documentation>
+     <content>Tests if the search string contains each of the characters in the pattern. If the pattern contains duplicate characters those characters will match once for each occurence in the pattern.</content>
+     <param>src           The string that is being tested.</param>
+     <param>pattern       The pattern to match against.</param>
+     <param>ignore_case   Whether to ignore differences in case between characters</param>
+    </Documentation>
+    <Params>
+     <Param name="src"/>
+     <Param name="_pattern"/>
+     <Param name="ignore_case"/>
+    </Params>
+   </Definition>
+   <Definition body="3804"
+               end="3858"
+               exported="1"
+               fullname="str.filterout"
+               inherit_type="local"
+               line="98"
+               name="FilterOut"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl"
+               start="3751">
+    <Type>function</Type>
+    <Documentation>
+     <content>Returns the first string with all characters within the second string removed.</content>
+     <see>Str.Filter</see>
+     <param>src           The string that is being tested.</param>
+     <param>filter        The string containing the set of characters to be excluded.</param>
+    </Documentation>
+    <Params>
+     <Param name="src"/>
+     <Param name="filter"/>
+    </Params>
+   </Definition>
+   <Definition body="4187"
+               end="4238"
+               exported="1"
+               fullname="str.filter"
+               inherit_type="local"
+               line="108"
+               name="Filter"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl"
+               start="4137">
+    <Type>function</Type>
+    <Documentation>
+     <content>Returns the first string with all characters not within the second string removed.</content>
+     <see>Str.FilterOut</see>
+     <param>src           The string that is being tested.</param>
+     <param>filter        The string containing the set of characters to be included.</param>
+    </Documentation>
+    <Params>
+     <Param name="src"/>
+     <Param name="filter"/>
+    </Params>
+   </Definition>
+   <Definition body="4800"
+               end="4874"
+               exported="1"
+               fullname="str.substituteincluded"
+               inherit_type="local"
+               line="121"
+               name="SubstituteIncluded"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl"
+               start="4716">
+    <Type>function</Type>
+    <Documentation>
+     <content>Returns the source string with the replacement character substituted for all characters included in the filter string. MORE: Should this be a general string substitution?</content>
+     <see>Std.Str.Translate, Std.Str.SubstituteExcluded</see>
+     <param>src           The string that is being tested.</param>
+     <param>filter        The string containing the set of characters to be included.</param>
+     <param>replace_char  The character to be substituted into the result.</param>
+    </Documentation>
+    <Params>
+     <Param name="src"/>
+     <Param name="Filter"/>
+     <Param name="replace_char"/>
+    </Params>
+   </Definition>
+   <Definition body="5421"
+               end="5492"
+               exported="1"
+               fullname="str.substituteexcluded"
+               inherit_type="local"
+               line="135"
+               name="SubstituteExcluded"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl"
+               start="5337">
+    <Type>function</Type>
+    <Documentation>
+     <content>Returns the source string with the replacement character substituted for all characters not included in the filter string. MORE: Should this be a general string substitution?</content>
+     <see>Std.Str.SubstituteIncluded</see>
+     <param>src           The string that is being tested.</param>
+     <param>filter        The string containing the set of characters to be included.</param>
+     <param>replace_char  The character to be substituted into the result.</param>
+    </Documentation>
+    <Params>
+     <Param name="src"/>
+     <Param name="Filter"/>
+     <Param name="replace_char"/>
+    </Params>
+   </Definition>
+   <Definition body="6143"
+               end="6212"
+               exported="1"
+               fullname="str.translate"
+               inherit_type="local"
+               line="149"
+               name="Translate"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl"
+               start="6070">
+    <Type>function</Type>
+    <Documentation>
+     <content>Returns the source string with the all characters that match characters in the search string replaced with the character at the corresponding position in the replacement string.</content>
+     <see>Std.Str.SubstituteIncluded</see>
+     <param>src           The string that is being tested.</param>
+     <param>search        The string containing the set of characters to be included.</param>
+     <param>replacement   The string containing the characters to act as replacements.</param>
+    </Documentation>
+    <Params>
+     <Param name="src"/>
+     <Param name="search"/>
+     <Param name="replacement"/>
+    </Params>
+   </Definition>
+   <Definition body="6413"
+               end="6461"
+               exported="1"
+               fullname="str.tolowercase"
+               inherit_type="local"
+               line="158"
+               name="ToLowerCase"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl"
+               start="6373">
+    <Type>function</Type>
+    <Documentation>
+     <content>Returns the argument string with all upper case characters converted to lower case.</content>
+     <param>src           The string that is being converted.</param>
+    </Documentation>
+    <Params>
+     <Param name="src"/>
+    </Params>
+   </Definition>
+   <Definition body="6661"
+               end="6709"
+               exported="1"
+               fullname="str.touppercase"
+               inherit_type="local"
+               line="166"
+               name="ToUpperCase"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl"
+               start="6621">
+    <Type>function</Type>
+    <Documentation>
+     <content>Return the argument string with all lower case characters converted to upper case.</content>
+     <param>src           The string that is being converted.</param>
+    </Documentation>
+    <Params>
+     <Param name="src"/>
+    </Params>
+   </Definition>
+   <Definition body="7016"
+               end="7066"
+               exported="1"
+               fullname="str.tocapitalcase"
+               inherit_type="local"
+               line="176"
+               name="ToCapitalCase"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl"
+               start="6974">
+    <Type>function</Type>
+    <Documentation>
+     <content>Returns the argument string with the first letter of each word in upper case and all other letters left as-is. A contiguous sequence of alphanumeric characters is treated as a word.</content>
+     <param>src           The string that is being converted.</param>
+    </Documentation>
+    <Params>
+     <Param name="src"/>
+    </Params>
+   </Definition>
+   <Definition body="7371"
+               end="7419"
+               exported="1"
+               fullname="str.totitlecase"
+               inherit_type="local"
+               line="186"
+               name="ToTitleCase"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl"
+               start="7331">
+    <Type>function</Type>
+    <Documentation>
+     <content>Returns the argument string with the first letter of each word in upper case and all other letters lower case. A contiguous sequence of alphanumeric characters is treated as a word.</content>
+     <param>src           The string that is being converted.</param>
+    </Documentation>
+    <Params>
+     <Param name="src"/>
+    </Params>
+   </Definition>
+   <Definition body="7656"
+               end="7700"
+               exported="1"
+               fullname="str.reverse"
+               inherit_type="local"
+               line="195"
+               name="Reverse"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl"
+               start="7620">
+    <Type>function</Type>
+    <Documentation>
+     <content>Returns the argument string with all characters in reverse order. Note the argument is not TRIMMED before it is reversed.</content>
+     <param>src           The string that is being reversed.</param>
+    </Documentation>
+    <Params>
+     <Param name="src"/>
+    </Params>
+   </Definition>
+   <Definition body="8081"
+               end="8152"
+               exported="1"
+               fullname="str.findreplace"
+               inherit_type="local"
+               line="205"
+               name="FindReplace"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl"
+               start="8006">
+    <Type>function</Type>
+    <Documentation>
+     <content>Returns the source string with the replacement string substituted for all instances of the search string.</content>
+     <param>src           The string that is being transformed.</param>
+     <param>sought        The string to be replaced.</param>
+     <param>replacement   The string to be substituted into the result.</param>
+    </Documentation>
+    <Params>
+     <Param name="src"/>
+     <Param name="sought"/>
+     <Param name="replacement"/>
+    </Params>
+   </Definition>
+   <Definition body="8412"
+               end="8466"
+               exported="1"
+               fullname="str.extract"
+               inherit_type="local"
+               line="215"
+               name="Extract"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl"
+               start="8356">
+    <Type>function</Type>
+    <Documentation>
+     <content>Returns the nth element from a comma separated string.</content>
+     <param>src           The string containing the comma separated list.</param>
+     <param>instance      Which item to select from the list.</param>
+    </Documentation>
+    <Params>
+     <Param name="src"/>
+     <Param name="instance"/>
+    </Params>
+   </Definition>
+   <Definition body="8813"
+               end="8861"
+               exported="1"
+               fullname="str.cleanspaces"
+               inherit_type="local"
+               line="225"
+               name="CleanSpaces"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl"
+               start="8773">
+    <Type>function</Type>
+    <Documentation>
+     <content>Returns the source string with all instances of multiple adjacent space characters (2 or more spaces together) reduced to a single space character.  Leading and trailing spaces are removed, and tab characters are converted to spaces.</content>
+     <param>src           The string to be cleaned.</param>
+    </Documentation>
+    <Params>
+     <Param name="src"/>
+    </Params>
+   </Definition>
+   <Definition body="9269"
+               end="9306"
+               exported="1"
+               fullname="str.startswith"
+               inherit_type="local"
+               line="236"
+               name="StartsWith"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl"
+               start="9214">
+    <Type>function</Type>
+    <Documentation>
+     <content>Returns true if the prefix string matches the leading characters in the source string.  Trailing spaces are stripped from the prefix before matching. // x.myString.StartsWith(&apos;x&apos;) as an alternative syntax would be even better</content>
+     <param>src           The string being searched in.</param>
+     <param>prefix        The prefix to search for.</param>
+    </Documentation>
+    <Params>
+     <Param name="src"/>
+     <Param name="prefix"/>
+    </Params>
+   </Definition>
+   <Definition body="9635"
+               end="9691"
+               exported="1"
+               fullname="str.endswith"
+               inherit_type="local"
+               line="245"
+               name="EndsWith"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl"
+               start="9582">
+    <Type>function</Type>
+    <Documentation>
+     <content>Returns true if the suffix string matches the trailing characters in the source string.  Trailing spaces are stripped from both strings before matching.</content>
+     <param>src           The string being searched in.</param>
+     <param>suffix        The prefix to search for.</param>
+    </Documentation>
+    <Params>
+     <Param name="src"/>
+     <Param name="suffix"/>
+    </Params>
+   </Definition>
+   <Definition body="10015"
+               end="10107"
+               exported="1"
+               fullname="str.removesuffix"
+               inherit_type="local"
+               line="255"
+               name="RemoveSuffix"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl"
+               start="9959">
+    <Type>function</Type>
+    <Documentation>
+     <content>Removes the suffix from the search string, if present, and returns the result.  Trailing spaces are stripped from both strings before matching.</content>
+     <param>src           The string being searched in.</param>
+     <param>suffix        The prefix to search for.</param>
+    </Documentation>
+    <Params>
+     <Param name="src"/>
+     <Param name="suffix"/>
+    </Params>
+   </Definition>
+   <Definition body="10441"
+               end="10499"
+               exported="1"
+               fullname="str.extractmultiple"
+               inherit_type="local"
+               line="266"
+               name="ExtractMultiple"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl"
+               start="10381">
+    <Type>function</Type>
+    <Documentation>
+     <content>Returns a string containing a list of elements from a comma separated string.</content>
+     <param>src           The string containing the comma separated list.</param>
+     <param>mask          A bitmask of which elements should be included.  Bit 0 is item1, bit1 item 2 etc.</param>
+    </Documentation>
+    <Params>
+     <Param name="src"/>
+     <Param name="mask"/>
+    </Params>
+   </Definition>
+   <Definition body="10979"
+               end="11044"
+               exported="1"
+               fullname="str.countwords"
+               inherit_type="local"
+               line="277"
+               name="CountWords"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl"
+               start="10890">
+    <Type>function</Type>
+    <Documentation>
+     <content>Returns the number of words that the string contains.  Words are separated by one or more separator strings. No spaces are stripped from either string before matching.</content>
+     <param>src           The string being searched in.</param>
+     <param>separator     The string used to separate words</param>
+     <param>allow_blank   Indicates if empty/blank string items are included in the results.</param>
+    </Documentation>
+    <Params>
+     <Param name="src"/>
+     <Param name="separator"/>
+     <Param name="allow_blank"/>
+    </Params>
+   </Definition>
+   <Definition body="11527"
+               end="11592"
+               exported="1"
+               fullname="str.splitwords"
+               inherit_type="local"
+               line="288"
+               name="SplitWords"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl"
+               start="11434">
+    <Type>function</Type>
+    <Documentation>
+     <content>Returns the list of words extracted from the string.  Words are separated by one or more separator strings. No spaces are stripped from either string before matching.</content>
+     <param>src           The string being searched in.</param>
+     <param>separator     The string used to separate words</param>
+     <param>allow_blank   Indicates if empty/blank string items are included in the results.</param>
+    </Documentation>
+    <Params>
+     <Param name="src"/>
+     <Param name="separator"/>
+     <Param name="allow_blank"/>
+    </Params>
+   </Definition>
+   <Definition body="11966"
+               end="12022"
+               exported="1"
+               fullname="str.combinewords"
+               inherit_type="local"
+               line="299"
+               name="CombineWords"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl"
+               start="11898">
+    <Type>function</Type>
+    <Documentation>
+     <content>Returns the list of words extracted from the string.  Words are separated by one or more separator strings. No spaces are stripped from either string before matching.</content>
+     <param>words         The set of strings to be combined.</param>
+     <param>separator     The string used to separate words.</param>
+    </Documentation>
+    <Params>
+     <Param name="words"/>
+     <Param name="separator"/>
+    </Params>
+   </Definition>
+   <Definition body="12452"
+               end="12511"
+               exported="1"
+               fullname="str.editdistance"
+               inherit_type="local"
+               line="311"
+               name="EditDistance"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl"
+               start="12391">
+    <Type>function</Type>
+    <Documentation>
+     <content>Returns the minimum edit distance between the two strings.  An insert change or delete counts as a single edit. The two strings are trimmed before comparing.</content>
+     <return>The minimum edit distance between the two strings.</return>
+     <param>_left         The first string to be compared.</param>
+     <param>_right        The second string to be compared.</param>
+    </Documentation>
+    <Params>
+     <Param name="_left"/>
+     <Param name="_right"/>
+    </Params>
+   </Definition>
+   <Definition body="13043"
+               end="13122"
+               exported="1"
+               fullname="str.editdistancewithinradius"
+               inherit_type="local"
+               line="324"
+               name="EditDistanceWithinRadius"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl"
+               start="12954">
+    <Type>function</Type>
+    <Documentation>
+     <content>Returns true if the minimum edit distance between the two strings is with a specific range. The two strings are trimmed before comparing.</content>
+     <return>Whether or not the two strings are within the given specified edit distance.</return>
+     <param>_left         The first string to be compared.</param>
+     <param>_right        The second string to be compared.</param>
+     <param>radius        The maximum edit distance that is accepable.</param>
+    </Documentation>
+    <Params>
+     <Param name="_left"/>
+     <Param name="_right"/>
+     <Param name="radius"/>
+    </Params>
+   </Definition>
+   <Definition body="13388"
+               end="13439"
+               exported="1"
+               fullname="str.wordcount"
+               inherit_type="local"
+               line="335"
+               name="WordCount"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl"
+               start="13346">
+    <Type>function</Type>
+    <Documentation>
+     <content>Returns the number of words in the string.  Words are separated by one or more spaces.</content>
+     <return>The number of words in the string.</return>
+     <param>text          The string to be broken into words.</param>
+    </Documentation>
+    <Params>
+     <Param name="text"/>
+    </Params>
+   </Definition>
+   <Definition body="13784"
+               end="13839"
+               exported="1"
+               fullname="str.getnthword"
+               inherit_type="local"
+               line="346"
+               name="GetNthWord"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl"
+               start="13731">
+    <Type>function</Type>
+    <Documentation>
+     <content>Returns the n-th word from the string.  Words are separated by one or more spaces.</content>
+     <return>The number of words in the string.</return>
+     <param>text          The string to be broken into words.</param>
+     <param>n             Which word should be returned from the function.</param>
+    </Documentation>
+    <Params>
+     <Param name="text"/>
+     <Param name="n"/>
+    </Params>
+   </Definition>
+   <Definition body="14196"
+               end="14251"
+               exported="1"
+               fullname="str.excludefirstword"
+               inherit_type="local"
+               line="357"
+               name="ExcludeFirstWord"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl"
+               start="14157">
+    <Type>function</Type>
+    <Documentation>
+     <content>Returns everything except the first word from the string.  Words are separated by one or more whitespace characters. Whitespace before and after the first word is also removed.</content>
+     <return>The string excluding the first word.</return>
+     <param>text          The string to be broken into words.</param>
+    </Documentation>
+    <Params>
+     <Param name="text"/>
+    </Params>
+   </Definition>
+   <Definition body="14649"
+               end="14702"
+               exported="1"
+               fullname="str.excludelastword"
+               inherit_type="local"
+               line="367"
+               name="ExcludeLastWord"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl"
+               start="14611">
+    <Type>function</Type>
+    <Documentation>
+     <content>Returns everything except the last word from the string.  Words are separated by one or more whitespace characters. Whitespace after a word is removed with the word and leading whitespace is removed with the first word.</content>
+     <return>The string excluding the last word.</return>
+     <param>text          The string to be broken into words.</param>
+    </Documentation>
+    <Params>
+     <Param name="text"/>
+    </Params>
+   </Definition>
+   <Definition body="15183"
+               end="15238"
+               exported="1"
+               fullname="str.excludenthword"
+               inherit_type="local"
+               line="378"
+               name="ExcludeNthWord"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl"
+               start="15133">
+    <Type>function</Type>
+    <Documentation>
+     <content>Returns everything except the nth word from the string.  Words are separated by one or more whitespace characters. Whitespace after a word is removed with the word and leading whitespace is removed with the first word.</content>
+     <return>The string excluding the nth word.</return>
+     <param>text          The string to be broken into words.</param>
+     <param>n             Which word should be returned from the function.</param>
+    </Documentation>
+    <Params>
+     <Param name="text"/>
+     <Param name="n"/>
+    </Params>
+   </Definition>
+   <Definition body="15596"
+               end="15742"
+               exported="1"
+               fullname="str.findword"
+               inherit_type="local"
+               line="388"
+               name="FindWord"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl"
+               start="15518">
+    <Type>function</Type>
+    <Documentation>
+     <content>Tests if the search string contains the supplied word as a whole word.</content>
+     <param>src           The string that is being tested.</param>
+     <param>word          The word to be searched for.</param>
+     <param>ignore_case   Whether to ignore differences in case between characters.</param>
+    </Documentation>
+    <Params>
+     <Param name="src"/>
+     <Param name="word"/>
+     <Param name="ignore_case"/>
+    </Params>
+   </Definition>
+   <Definition body="16037"
+               end="16084"
+               exported="1"
+               fullname="str.repeat"
+               inherit_type="local"
+               line="402"
+               name="Repeat"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl"
+               start="15988">
+    <Type>function</Type>
+    <Params>
+     <Param name="text"/>
+     <Param name="n"/>
+    </Params>
+   </Definition>
+   <Definition body="16351"
+               end="16395"
+               exported="1"
+               fullname="str.tohexpairs"
+               inherit_type="local"
+               line="411"
+               name="ToHexPairs"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl"
+               start="16312">
+    <Type>function</Type>
+    <Params>
+     <Param name="value"/>
+    </Params>
+   </Definition>
+   <Definition body="16824"
+               end="16872"
+               exported="1"
+               fullname="str.fromhexpairs"
+               inherit_type="local"
+               line="424"
+               name="FromHexPairs"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl"
+               start="16779">
+    <Type>function</Type>
+    <Params>
+     <Param name="hex_pairs"/>
+    </Params>
+   </Definition>
+   <Definition body="17240"
+               end="17271"
+               exported="1"
+               fullname="str.encodebase64"
+               inherit_type="local"
+               line="437"
+               name="EncodeBase64"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl"
+               start="17199">
+    <Type>function</Type>
+    <Params>
+     <Param name="value"/>
+    </Params>
+   </Definition>
+   <Definition body="17674"
+               end="17705"
+               exported="1"
+               fullname="str.decodebase64"
+               inherit_type="local"
+               line="450"
+               name="DecodeBase64"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl"
+               start="17633">
+    <Type>function</Type>
+    <Params>
+     <Param name="value"/>
+    </Params>
+   </Definition>
+   <Parents/>
+  </Definition>
+ </Source>
+ <Source sourcePath="lib_stringlib"/>
+</Meta>

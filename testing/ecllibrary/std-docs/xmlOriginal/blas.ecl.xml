@@ -1,0 +1,507 @@
+<Meta>
+ <Source name="BLAS" sourcePath="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/BLAS.ecl">
+  <Definition body="833"
+              end="11173"
+              exported="1"
+              fullname="BLAS"
+              inherit_type="local"
+              line="19"
+              name="BLAS"
+              source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/BLAS.ecl"
+              start="819">
+   <Type>module</Type>
+   <Definition body="925"
+               end="1427"
+               exported="1"
+               fullname="BLAS.Types"
+               inherit_type="local"
+               line="21"
+               name="Types"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/BLAS.ecl"
+               start="910">
+    <Type>module</Type>
+    <Definition body="959"
+                end="985"
+                exported="1"
+                fullname="blas.types.value_t"
+                inherit_type="local"
+                line="22"
+                name="value_t"
+                source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/BLAS.ecl"
+                start="937">
+     <Type>attribute</Type>
+    </Definition>
+    <Definition body="1025"
+                end="1055"
+                exported="1"
+                fullname="blas.types.dimension_t"
+                inherit_type="local"
+                line="23"
+                name="dimension_t"
+                source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/BLAS.ecl"
+                start="1003">
+     <Type>attribute</Type>
+    </Definition>
+    <Definition body="1095"
+                end="1122"
+                exported="1"
+                fullname="blas.types.matrix_t"
+                inherit_type="local"
+                line="24"
+                name="matrix_t"
+                source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/BLAS.ecl"
+                start="1073">
+     <Type>attribute</Type>
+    </Definition>
+    <Definition body="1167"
+                end="1194"
+                exported="1"
+                inherit_type="local"
+                line="25"
+                name="Triangle"
+                source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/BLAS.ecl"
+                start="1145">
+     <Type>attribute</Type>
+    </Definition>
+    <Definition body="1260"
+                end="1287"
+                exported="1"
+                inherit_type="local"
+                line="26"
+                name="Diagonal"
+                source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/BLAS.ecl"
+                start="1238">
+     <Type>attribute</Type>
+    </Definition>
+    <Definition body="1360"
+                end="1383"
+                exported="1"
+                inherit_type="local"
+                line="27"
+                name="Side"
+                source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/BLAS.ecl"
+                start="1338">
+     <Type>attribute</Type>
+    </Definition>
+    <Parents/>
+   </Definition>
+   <Definition body="1759"
+               end="1762"
+               exported="1"
+               fullname="blas.icellfunc"
+               inherit_type="local"
+               line="37"
+               name="ICellFunc"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/BLAS.ecl"
+               start="1601">
+    <Type>function</Type>
+    <Documentation>
+     <content>Function prototype for Apply2Cell.</content>
+     <return>the updated value</return>
+     <param>v the value</param>
+     <param>r the row ordinal</param>
+     <param>c the column ordinal</param>
+    </Documentation>
+    <Params>
+     <Param name="v"/>
+     <Param name="r"/>
+     <Param name="c"/>
+    </Params>
+   </Definition>
+   <Definition body="2184"
+               end="2494"
+               exported="1"
+               fullname="blas.apply2cells"
+               inherit_type="local"
+               line="49"
+               name="Apply2Cells"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/BLAS.ecl"
+               start="1967">
+    <Type>function</Type>
+    <Documentation>
+     <content>Iterate matrix and apply function to each cell</content>
+     <return>updated matrix</return>
+     <param>m number of rows</param>
+     <param>n number of columns</param>
+     <param>x matrix</param>
+     <param>f function to apply</param>
+    </Documentation>
+    <Params>
+     <Param name="m"/>
+     <Param name="n"/>
+     <Param name="x"/>
+     <Param name="f"/>
+    </Params>
+   </Definition>
+   <Definition body="3005"
+               end="3053"
+               exported="1"
+               fullname="blas.dasum"
+               inherit_type="local"
+               line="73"
+               name="dasum"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/BLAS.ecl"
+               start="2860">
+    <Type>function</Type>
+    <Documentation>
+     <content>Absolute sum, the 1 norm of a vector.</content>
+     <return>the sum of the absolute values</return>
+     <param>m the number of entries</param>
+     <param>x the column major matrix holding the vector</param>
+     <param>incx the increment for x, 1 in the case of an actual vector</param>
+     <param>skipped default is zero, the number of entries stepped over to get to the first entry</param>
+    </Documentation>
+    <Params>
+     <Param name="m"/>
+     <Param name="x"/>
+     <Param name="incx"/>
+     <Param name="skipped"/>
+    </Params>
+   </Definition>
+   <Definition body="3792"
+               end="3869"
+               exported="1"
+               fullname="blas.daxpy"
+               inherit_type="local"
+               line="90"
+               name="daxpy"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/BLAS.ecl"
+               start="3535">
+    <Type>function</Type>
+    <Documentation>
+     <content>alpha*X + Y</content>
+     <return>the updated matrix</return>
+     <param>N number of elements in vector</param>
+     <param>alpha the scalar multiplier</param>
+     <param>X the column major matrix holding the vector X</param>
+     <param>incX the increment or stride for the vector</param>
+     <param>Y the column major matrix holding the vector Y</param>
+     <param>incY the increment or stride of Y</param>
+     <param>x_skipped number of entries skipped to get to the first X</param>
+     <param>y_skipped number of entries skipped to get to the first Y</param>
+    </Documentation>
+    <Params>
+     <Param name="N"/>
+     <Param name="alpha"/>
+     <Param name="X"/>
+     <Param name="incX"/>
+     <Param name="Y"/>
+     <Param name="incY"/>
+     <Param name="x_skipped"/>
+     <Param name="y_skipped"/>
+    </Params>
+   </Definition>
+   <Definition body="4649"
+               end="4731"
+               exported="1"
+               fullname="blas.dgemm"
+               inherit_type="local"
+               line="109"
+               name="dgemm"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/BLAS.ecl"
+               start="4355">
+    <Type>function</Type>
+    <Documentation>
+     <content>alpha*op(A) op(B) + beta*C where op() is transpose</content>
+     <param>transposeA true when transpose of A is used</param>
+     <param>transposeB true when transpose of B is used</param>
+     <param>M number of rows in product</param>
+     <param>N number of columns in product</param>
+     <param>K number of columns/rows for the multiplier/multiplicand</param>
+     <param>alpha scalar used on A</param>
+     <param>A matrix A</param>
+     <param>B matrix B</param>
+     <param>beta scalar for matrix C</param>
+     <param>C matrix C or empty</param>
+    </Documentation>
+    <Params>
+     <Param name="transposeA"/>
+     <Param name="transposeB"/>
+     <Param name="M"/>
+     <Param name="N"/>
+     <Param name="K"/>
+     <Param name="alpha"/>
+     <Param name="A"/>
+     <Param name="B"/>
+     <Param name="beta"/>
+     <Param name="C"/>
+    </Params>
+   </Definition>
+   <Definition body="5134"
+               end="5171"
+               exported="1"
+               fullname="blas.dgetf2"
+               inherit_type="local"
+               line="124"
+               name="dgetf2"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/BLAS.ecl"
+               start="5028">
+    <Type>function</Type>
+    <Documentation>
+     <content>Compute LU Factorization of matrix A.</content>
+     <return>composite matrix of factors, lower triangle has an implied diagonal of ones.  Upper triangle has the diagonal of the composite.</return>
+     <param>m number of rows of A</param>
+     <param>n number of columns of A</param>
+    </Documentation>
+    <Params>
+     <Param name="m"/>
+     <Param name="n"/>
+     <Param name="a"/>
+    </Params>
+   </Definition>
+   <Definition body="5940"
+               end="5986"
+               exported="1"
+               fullname="blas.dpotf2"
+               inherit_type="local"
+               line="143"
+               name="dpotf2"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/BLAS.ecl"
+               start="5790">
+    <Type>function</Type>
+    <Documentation>
+     <content>DPOTF2 computes the Cholesky factorization of a real symmetric positive definite matrix A. The factorization has the form A = U**T * U ,  if UPLO = &apos;U&apos;, or A = L  * L**T,  if UPLO = &apos;L&apos;, where U is an upper triangular matrix and L is lower triangular. This is the unblocked version of the algorithm, calling Level 2 BLAS.</content>
+     <return>the triangular matrix requested.</return>
+     <param>tri indicate whether upper or lower triangle is used</param>
+     <param>r number of rows/columns in the square matrix</param>
+     <param>A the square matrix</param>
+     <param>clear clears the unused triangle</param>
+    </Documentation>
+    <Params>
+     <Param name="tri"/>
+     <Param name="r"/>
+     <Param name="A"/>
+     <Param name="clear"/>
+    </Params>
+   </Definition>
+   <Definition body="6522"
+               end="6577"
+               exported="1"
+               fullname="blas.dscal"
+               inherit_type="local"
+               line="157"
+               name="dscal"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/BLAS.ecl"
+               start="6349">
+    <Type>function</Type>
+    <Documentation>
+     <content>Scale a vector alpha</content>
+     <return>the updated matrix</return>
+     <param>N number of elements in the vector</param>
+     <param>alpha the scaling factor</param>
+     <param>X the column major matrix holding the vector</param>
+     <param>incX the stride to get to the next element in the vector</param>
+     <param>skipped the number of elements skipped to get to the first element</param>
+    </Documentation>
+    <Params>
+     <Param name="N"/>
+     <Param name="alpha"/>
+     <Param name="X"/>
+     <Param name="incX"/>
+     <Param name="skipped"/>
+    </Params>
+   </Definition>
+   <Definition body="7506"
+               end="7582"
+               exported="1"
+               fullname="blas.dsyrk"
+               inherit_type="local"
+               line="177"
+               name="dsyrk"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/BLAS.ecl"
+               start="7237">
+    <Type>function</Type>
+    <Documentation>
+     <content>Implements symmetric rank update C &lt;- alpha A**T A + beta C or c &lt;- alpha A A**T + beta C.  C is N x N.</content>
+     <param>tri update upper or lower triangle</param>
+     <param>transposeA Transpose the A matrix to be NxK</param>
+     <param>N number of rows</param>
+     <param>K number of columns in the update matrix or transpose</param>
+     <param>alpha the alpha scalar</param>
+     <param>A the update matrix, either NxK or KxN</param>
+     <param>beta the beta scalar</param>
+     <param>C the matrix to update</param>
+     <param>clear clear the triangle that is not updated.  BLAS assumes that symmetric matrices have only one of the triangles and this option lets you make that true.</param>
+    </Documentation>
+    <Params>
+     <Param name="tri"/>
+     <Param name="transposeA"/>
+     <Param name="N"/>
+     <Param name="K"/>
+     <Param name="alpha"/>
+     <Param name="A"/>
+     <Param name="beta"/>
+     <Param name="C"/>
+     <Param name="clear"/>
+    </Params>
+   </Definition>
+   <Definition body="8548"
+               end="8628"
+               exported="1"
+               fullname="blas.dtrsm"
+               inherit_type="local"
+               line="199"
+               name="dtrsm"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/BLAS.ecl"
+               start="8258">
+    <Type>function</Type>
+    <Documentation>
+     <content>Triangular matrix solver.  op(A) X = alpha B or X op(A) = alpha B where op is Transpose, X and B is MxN</content>
+     <return>the matrix of coefficients to get B.</return>
+     <param>side side for A, Side.Ax is op(A) X = alpha B</param>
+     <param>tri Says whether A is Upper or Lower triangle</param>
+     <param>transposeA is op(A) the transpose of A</param>
+     <param>diag is the diagonal an implied unit diagonal or supplied</param>
+     <param>M number of rows</param>
+     <param>N number of columns</param>
+     <param>lda the leading dimension of the A matrix, either M or N</param>
+     <param>alpha the scalar multiplier for B</param>
+     <param>A a triangular matrix</param>
+     <param>B the matrix of values for the solve</param>
+    </Documentation>
+    <Params>
+     <Param name="side"/>
+     <Param name="tri"/>
+     <Param name="transposeA"/>
+     <Param name="diag"/>
+     <Param name="M"/>
+     <Param name="N"/>
+     <Param name="lda"/>
+     <Param name="alpha"/>
+     <Param name="A"/>
+     <Param name="B"/>
+    </Params>
+   </Definition>
+   <Definition body="9000"
+               end="9304"
+               exported="1"
+               fullname="blas.extract_diag"
+               inherit_type="local"
+               line="213"
+               name="extract_diag"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/BLAS.ecl"
+               start="8829">
+    <Type>function</Type>
+    <Documentation>
+     <content>Extract the diagonal of he matrix</content>
+     <return>diagonal matrix</return>
+     <param>m number of rows</param>
+     <param>n number of columns</param>
+     <param>x matrix from which to extract the diagonal</param>
+    </Documentation>
+    <Params>
+     <Param name="m"/>
+     <Param name="n"/>
+     <Param name="x"/>
+    </Params>
+   </Definition>
+   <Definition body="9888"
+               end="9939"
+               exported="1"
+               fullname="blas.extract_tri"
+               inherit_type="local"
+               line="236"
+               name="extract_tri"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/BLAS.ecl"
+               start="9695">
+    <Type>function</Type>
+    <Documentation>
+     <content>Extract the upper or lower triangle.  Diagonal can be actual or implied unit diagonal.</content>
+     <return>the triangle</return>
+     <param>m number of rows</param>
+     <param>n number of columns</param>
+     <param>tri Upper or Lower specifier, Triangle.Lower or Triangle.Upper</param>
+     <param>dt Use Diagonal.NotUnitTri or Diagonal.UnitTri</param>
+     <param>a Matrix, usually a composite from factoring</param>
+    </Documentation>
+    <Params>
+     <Param name="m"/>
+     <Param name="n"/>
+     <Param name="tri"/>
+     <Param name="dt"/>
+     <Param name="a"/>
+    </Params>
+   </Definition>
+   <Definition body="10293"
+               end="10333"
+               exported="1"
+               fullname="blas.make_diag"
+               inherit_type="local"
+               line="249"
+               name="make_diag"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/BLAS.ecl"
+               start="10168">
+    <Type>function</Type>
+    <Documentation>
+     <content>Generate a diagonal matrix.</content>
+     <return>a diagonal matrix</return>
+     <param>m number of diagonal entries</param>
+     <param>v option value, defaults to 1</param>
+     <param>X optional input of diagonal values, multiplied by v.</param>
+    </Documentation>
+    <Params>
+     <Param name="m"/>
+     <Param name="v"/>
+     <Param name="X"/>
+    </Params>
+   </Definition>
+   <Definition body="10800"
+               end="10827"
+               exported="1"
+               fullname="blas.make_vector"
+               inherit_type="local"
+               line="268"
+               name="make_vector"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/BLAS.ecl"
+               start="10698">
+    <Type>function</Type>
+    <Documentation>
+     <content>Make a vector of dimension m</content>
+     <return>the vector</return>
+     <param>m number of elements</param>
+     <param>v the values, defaults to 1</param>
+    </Documentation>
+    <Params>
+     <Param name="m"/>
+     <Param name="v"/>
+    </Params>
+   </Definition>
+   <Definition body="11142"
+               end="11168"
+               exported="1"
+               fullname="blas.trace"
+               inherit_type="local"
+               line="279"
+               name="trace"
+               source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/BLAS.ecl"
+               start="11017">
+    <Type>function</Type>
+    <Documentation>
+     <content>The trace of the input matrix</content>
+     <return>the trace (sum of the diagonal entries)</return>
+     <param>m number of rows</param>
+     <param>n number of columns</param>
+     <param>x the matrix</param>
+    </Documentation>
+    <Params>
+     <Param name="m"/>
+     <Param name="n"/>
+     <Param name="x"/>
+    </Params>
+   </Definition>
+   <Parents/>
+  </Definition>
+  <Import body="0"
+          end="790"
+          fullname="lib_eclblas"
+          inherit_type="local"
+          line="17"
+          name="LIB_ECLBLAS"
+          ref="lib_eclblas"
+          remotescope="1"
+          start="790">
+   <Type>attribute</Type>
+  </Import>
+ </Source>
+ <Source sourcePath="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/plugins/lib_eclblas.ecllib"/>
+</Meta>

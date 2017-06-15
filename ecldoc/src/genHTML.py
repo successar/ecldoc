@@ -1,6 +1,8 @@
 import os
 import re
 import json
+import shutil
+
 from jinja2 import Template
 from lxml import etree
 from Utils import genPathTree, getRoot
@@ -44,8 +46,8 @@ class ParseHTML(object) :
 				parents[file] = os.path.join(file, 'pkg.toc.html')
 
 		parent = 'pkg.toc.html'
-
-		render = self.template.render(src=src, files=parents, parent=parent)
+		relpath = os.path.relpath(self.output_root, os.path.dirname(self.html_file))
+		render = self.template.render(src=src, files=parents, parent=parent, output_root=relpath)
 		fp = open(self.html_file, 'w')
 		fp.write(render)
 		fp.close()
@@ -63,17 +65,27 @@ def genHTML(input_root, output_root, ecl_files) :
 
 	for ecl_file in ecl_files :
 		html_file = os.path.join(html_root, (ecl_file + '.html').lower())
+		os.makedirs(os.path.dirname(html_file), exist_ok=True)
 		parser = ParseHTML(input_root, output_root, ecl_file, content_template, path_tree)
 		parser.parse()
 
-	files = genTOC(path_tree['root'], toc_template, html_root)
-	render = toc_template.render(name='root', files=files, parent=os.path.join(html_root, 'pkg.toc.html'))
+	files = genTOC(path_tree['root'], toc_template, html_root, output_root)
+	render = toc_template.render(name='root', files=files,
+									parent=os.path.join(html_root, 'pkg.toc.html'),
+									output_root=os.path.relpath(output_root, html_root))
 	fp = open(os.path.join(html_root, 'pkg.toc.html'), 'w')
 	fp.write(render)
 	fp.close()
 
+	if os.path.exists(os.path.join(output_root, 'css')) :
+		shutil.rmtree(os.path.join(output_root, 'css'))
+	shutil.copytree('/media/sarthak/Data/ecldoc/ecldoc/src/css', os.path.join(output_root, 'css'))
+	if os.path.exists(os.path.join(output_root, 'js')) :
+		shutil.rmtree(os.path.join(output_root, 'js'))
+	shutil.copytree('/media/sarthak/Data/ecldoc/ecldoc/src/js', os.path.join(output_root, 'js'))
 
-def genTOC(parent, template, output_root) :
+
+def genTOC(parent, template, output_root, html_root) :
 	files = []
 	for key in parent :
 		if type(parent[key]) != dict :
@@ -89,8 +101,9 @@ def genTOC(parent, template, output_root) :
 			file['type'] = 'dir'
 			files.append(file)
 
-			childfiles = genTOC(parent[key], template, os.path.join(output_root, key))
-			render = template.render(name=key, files=childfiles, parent=os.path.join(output_root, 'pkg.toc.html'))
+			childfiles = genTOC(parent[key], template, os.path.join(output_root, key), html_root)
+			relpath = os.path.relpath(html_root, os.path.join(output_root, key))
+			render = template.render(name=key, files=childfiles, parent=os.path.join(output_root, 'pkg.toc.html'), output_root=relpath)
 			fp = open(os.path.join(output_root, key, 'pkg.toc.html'), 'w')
 			fp.write(render)
 			fp.close()

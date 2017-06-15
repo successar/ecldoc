@@ -9,7 +9,7 @@
 	<title>{{ src.attrib['name'] }}</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
-	<link href="/media/sarthak/Data/ecldoc/ecldoc/src/css/simple-sidebar.css" rel="stylesheet">
+	<link href="{{ output_root }}/css/simple-sidebar.css" rel="stylesheet">
 
 </head>
 
@@ -56,17 +56,21 @@
 						{% endfor -%}
 					</ul>
 					<h2>Tree</h2>
-					<ul>
+					<ul class="tree">
 						{% for def in src.findall('./Definition') recursive -%}
 						<li id="t-{{ def.attrib['fullname'] }}">
-							<a href="#{{ def.attrib['fullname'] }}" data-toggle="collapse">
-								{{ def.find('./Type').text.upper() }} :
+							{% if def.findall('./Definition') %}
+							<a href="#{{ def.attrib['fullname'] }}" data-toggle="collapse" class="glyphicon glyphicon-folder-open" style="margin-right: 6px;"></a>
+							{% else %}
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							{% endif %}
+							<a href="#d{{ def.attrib['fullname'] }}">
+								 {{ def.find('./Type').text.upper() }} :
 								<span class="sign-pre">{{ def.find('./Signature').attrib['pre'] }}</span>
 								<span class="sign-name">{{ def.find('./Signature').attrib['name'] }}</span>
 								<span class="sign-post">{{ def.find('./Signature').attrib['post'] }}</span>
-							</a> -
-							<a href="#d{{ def.attrib['fullname'] }}">Desc</a>
-							<ul id="{{ def.attrib['fullname'] }}" class="accordian-body collapse">
+							</a>
+							<ul id="{{ def.attrib['fullname'] }}" class="accordian-body tree collapse">
 								{{ loop(def.findall('./Definition')) }}
 							</ul>
 						</li>
@@ -110,7 +114,7 @@
 									<table class="table">
 									{% for tag in def.find('./Documentation').findall('./param') -%}
 										<tr>
-											<td width="20%"><b>{{ tag.find('./name').text }}</b> </td>
+											<td style="width: 20%;"><b>{{ tag.find('./name').text }}</b> </td>
 											<td>{{ tag.find('./desc').text }}</td>
 										</tr>
 									{% endfor -%}

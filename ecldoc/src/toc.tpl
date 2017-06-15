@@ -9,7 +9,7 @@
 	<title>{{ name }}</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
-	<link href="/media/sarthak/Data/ecldoc/ecldoc/src/css/simple-sidebar.css" rel="stylesheet">
+	<link href="{{ output_root }}/css/simple-sidebar.css" rel="stylesheet">
 
 </head>
 
@@ -37,7 +37,7 @@
 					<div class="col-lg-12">
 						<div class="row">
 							<div class="col-lg-4">
-								<a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
+								<a href="#menu-toggle" class="glyphicon glyphicon-menu-hamburger" style="font-size:2.2em;" id="menu-toggle"></a>
 							</div>
 							<div class="col-lg-8">
 								<h1>{{ name }}</h1>

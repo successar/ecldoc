@@ -86,6 +86,8 @@ class ParseXML(object) :
 			best_depend = self.parsePath(fullname)
 			if best_depend is not None and best_depend != self.src :
 				attribs['target'] = best_depend.attrib['target']
+		elif 'name' in attribs :
+			attribs['fullname'] = 'ecldoc-' + attribs['name']
 
 		for childdefn in defn.findall('./Definition') :
 			if attribs['inherit_type'] == 'inherited':
@@ -208,8 +210,8 @@ def genXML(input_root, output_root, ecl_files) :
 		# 	continue
 		os.makedirs(os.path.dirname(xml_orig_file), exist_ok=True)
 		os.chdir(input_root)
-		#p = subprocess.call(['~/eclcc -M -o ' + xml_orig_file + ' ' + input_file], shell=True)
-		#print("File : ", input_file, "Output Code : ", p)
+		p = subprocess.call(['~/eclcc -M -o ' + xml_orig_file + ' ' + input_file], shell=True)
+		print("File : ", input_file, "Output Code : ", p)
 		print(input_file)
 		parser = ParseXML(input_root, output_root, ecl_file)
 		parser.parse()
