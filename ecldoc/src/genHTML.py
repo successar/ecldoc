@@ -17,9 +17,8 @@ class ParseHTML(object) :
 		self.xml_file = os.path.join(self.xml_root, (self.ecl_file + '.xml').lower())
 		self.html_file = os.path.join(self.html_root, (self.ecl_file + '.html').lower())
 		self.template = template
-		parent, parent_path = getRoot(path_tree, ecl_file)
+		parent = getRoot(path_tree, ecl_file)
 		self.parent = parent
-		self.parent_path = parent_path
 
 	def parse(self) :
 		tree = etree.parse(self.xml_file)
@@ -38,16 +37,27 @@ class ParseHTML(object) :
 				fullname = re.sub(r'\.', '-', fullname)
 				attribs['fullname'] = fullname
 
-		parents = {}
-		for file in self.parent :
-			if type(self.parent[file]) != dict :
-				parents[file] = file + '.html'
+		files = []
+		for key in self.parent :
+			if type(self.parent[key]) != dict :
+				file = {}
+				file['name'] = key
+				file['target'] = key + '.html'
+				file['type'] = 'file'
+				files.append(file)
 			else :
-				parents[file] = os.path.join(file, 'pkg.toc.html')
+				file = {}
+				file['name'] = key
+				file['target'] = os.path.join(key, 'pkg.toc.html')
+				file['type'] = 'dir'
+				files.append(file)
 
 		parent = 'pkg.toc.html'
 		relpath = os.path.relpath(self.output_root, os.path.dirname(self.html_file))
-		render = self.template.render(src=src, files=parents, parent=parent, output_root=relpath)
+		render = self.template.render(src=src,
+									files=files,
+									parent=parent,
+									output_root=relpath)
 		fp = open(self.html_file, 'w')
 		fp.write(render)
 		fp.close()
@@ -71,7 +81,7 @@ def genHTML(input_root, output_root, ecl_files) :
 
 	files = genTOC(path_tree['root'], toc_template, html_root, output_root)
 	render = toc_template.render(name='root', files=files,
-									parent=os.path.join(html_root, 'pkg.toc.html'),
+									parent='pkg.toc.html',
 									output_root=os.path.relpath(output_root, html_root))
 	fp = open(os.path.join(html_root, 'pkg.toc.html'), 'w')
 	fp.write(render)
@@ -90,7 +100,7 @@ def genTOC(parent, template, output_root, html_root) :
 	for key in parent :
 		if type(parent[key]) != dict :
 			file = {}
-			file['name'] = key + '.html'
+			file['name'] = key
 			file['target'] = key + '.html'
 			file['type'] = 'file'
 			files.append(file)
@@ -102,8 +112,13 @@ def genTOC(parent, template, output_root, html_root) :
 			files.append(file)
 
 			childfiles = genTOC(parent[key], template, os.path.join(output_root, key), html_root)
+			childfiles = sorted(childfiles, key=lambda x : x['type'])
 			relpath = os.path.relpath(html_root, os.path.join(output_root, key))
-			render = template.render(name=key, files=childfiles, parent=os.path.join(output_root, 'pkg.toc.html'), output_root=relpath)
+			parent_relpath = os.path.relpath(output_root, os.path.join(output_root, key))
+			render = template.render(name=key,
+									files=childfiles,
+									parent=os.path.join(parent_relpath, 'pkg.toc.html'),
+									output_root=relpath)
 			fp = open(os.path.join(output_root, key, 'pkg.toc.html'), 'w')
 			fp.write(render)
 			fp.close()

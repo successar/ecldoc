@@ -1,0 +1,209 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Meta>
+ <Source name="PBblas.trsm" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/trsm.ecl" target="trsm.ecl.xml">
+  <Import body="0" end="251" fullname="PBblas" inherit_type="local" line="5" name="PBblas" ref="pbblas" start="251" target="pkg.toc.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0" end="271" fullname="PBblas.Types" inherit_type="local" line="6" name="Types" ref="pbblas.types" start="271" target="types.ecl.xml">
+   <Type>attribute</Type>
+   <Documentation> <content>Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes.</content>
+   </Documentation>
+  </Import>
+  <Import body="0" end="292" fullname="std.BLAS" inherit_type="local" line="7" name="BLAS" ref="std.blas" start="292" target="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/BLAS.ecl">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0" end="309" fullname="PBblas.internal" inherit_type="local" line="8" name="int" ref="pbblas.internal" remotescope="1" start="309" target="internal/pkg.toc.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0" end="340" fullname="PBblas.internal.Types" inherit_type="local" line="9" name="iTypes" ref="pbblas.internal.types" start="340" target="internal/types.ecl.xml">
+   <Type>attribute</Type>
+   <Documentation> <content>Internal Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes.</content>
+   </Documentation>
+  </Import>
+  <Import body="0" end="368" fullname="PBblas.internal.MatDims" inherit_type="local" line="10" name="MatDims" ref="pbblas.internal.matdims" start="368" target="internal/matdims.ecl.xml">
+   <Type>attribute</Type>
+   <Documentation> <content>Module to calculate matrix dimensions and matrix partition dimensions from matrix cells.</content>
+   </Documentation>
+  </Import>
+  <Import body="0" end="388" fullname="PBblas.internal.Converted" inherit_type="local" line="11" name="Converted" ref="pbblas.internal.converted" start="388" target="internal/converted.ecl.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0" end="410" fullname="std.system.Thorlib" inherit_type="local" line="12" name="Thorlib" ref="std.system.thorlib" start="410" target="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/system/Thorlib.ecl">
+   <Type>attribute</Type>
+  </Import>
+  <Definition body="442" end="457" fullname="pbblas.value_t" inherit_type="local" line="13" name="value_t" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/trsm.ecl" start="430">
+   <Signature pre="" post="" name="value_t">value_t</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="470" end="487" fullname="pbblas.matrix_t" inherit_type="local" line="14" name="matrix_t" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/trsm.ecl" start="458">
+   <Signature pre="" post="" name="matrix_t">matrix_t</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="500" end="516" inherit_type="local" line="15" name="Triangle" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/trsm.ecl" start="488" fullname="ecldoc-Triangle">
+   <Type>attribute</Type>
+   <Signature pre="" post="" name="Triangle">Triangle</Signature><Documentation> <content>Enumeration for Triangle type WARNING: type used in C++ attribute</content>
+   </Documentation>
+  </Definition>
+  <Definition body="529" end="551" fullname="pbblas.lower" inherit_type="local" line="16" name="Lower" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/trsm.ecl" start="517">
+   <Signature pre="" post="" name="Lower">Lower</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="564" end="586" fullname="pbblas.upper" inherit_type="local" line="17" name="Upper" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/trsm.ecl" start="552">
+   <Signature pre="" post="" name="Upper">Upper</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="599" end="615" inherit_type="local" line="18" name="Diagonal" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/trsm.ecl" start="587" fullname="ecldoc-Diagonal">
+   <Type>attribute</Type>
+   <Signature pre="" post="" name="Diagonal">Diagonal</Signature><Documentation> <content>Enumeration for Diagonal type WARNING: type used in C++ attribute</content>
+   </Documentation>
+  </Definition>
+  <Definition body="628" end="640" inherit_type="local" line="19" name="Side" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/trsm.ecl" start="616" fullname="ecldoc-Side">
+   <Type>attribute</Type>
+   <Signature pre="" post="" name="Side">Side</Signature><Documentation> <content>Enumeration for Side type WARNING: type used in C++ attribute</content>
+   </Documentation>
+  </Definition>
+  <Definition body="655" end="675" fullname="pbblas.layout_part" inherit_type="local" line="20" name="Layout_Part" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/trsm.ecl" start="641">
+   <Type>record</Type>
+   <Field name="m_label"/>
+   <Field name="wi_id"/>
+   <Field name="partition_id"/>
+   <Field name="node_id"/>
+   <Field name="m_rows"/>
+   <Field name="m_cols"/>
+   <Field name="row_blocks"/>
+   <Field name="col_blocks"/>
+   <Field name="block_row"/>
+   <Field name="block_col"/>
+   <Field name="part_rows"/>
+   <Field name="part_cols"/>
+   <Field name="first_row"/>
+   <Field name="first_col"/>
+   <Field name="mat_part"/>
+   <Signature pre="" post="" name="Layout_Part">Layout_Part</Signature><Documentation> <field><name>wi_id</name><desc>Work Item Number -- An identifier from 1 to 64K-1 that separates and identifies individual matrixes</desc></field>
+    <field><name>m_label</name><desc>A user provided label indicating to which matrix the dimensions apply, when used to describe a set of related matrixes (e.g., 'A', 'B', and 'C') for the same work item used in an operation. * @field partition_id A unique ID for this partition within the matrix</desc></field>
+    <field><name>partition_id</name><desc>The 1-based id of this partition, unique within a work-item</desc></field>
+    <field><name>node_id</name><desc>The node on which this partition is stored</desc></field>
+    <field><name>m_rows</name><desc>The number of rows in the full matrix</desc></field>
+    <field><name>m_cols</name><desc>The number of columns in the full matrix</desc></field>
+    <field><name>row_blocks</name><desc>The number of row partitions in use</desc></field>
+    <field><name>col_blocks</name><desc>The number of column partitions in use</desc></field>
+    <field><name>block_row</name><desc>The row of this partition within the block partition matrix</desc></field>
+    <field><name>block_col</name><desc>The column of this partition "</desc></field>
+    <field><name>part_rows</name><desc>The number of rows stored within this partition</desc></field>
+    <field><name>part_cols</name><desc>The number of columns stored within this partition</desc></field>
+    <field><name>first_row</name><desc>The first row of the original matrix stored within this partition</desc></field>
+    <field><name>first_col</name><desc>The first column of the original matrix stored within this partition</desc></field>
+    <field><name>mat_part</name><desc>The dense representation of the cells values within this partition (see matrix_t)</desc></field>
+    <see>matrix_t</see>
+    <see>Layout_Cell</see>
+    <see>Std/PBblas/Converted</see>
+    <content>Alternate form for storage of large matrixes as a set of partitions Each partition holds the dense form of a piece of the matrix (see matrix_t) as well as information about its relationship to the larger matrix. The full matrix is then carried as DATASET(Layout_Part). Utility module Converted provides functions for converting a matrix in cell form (see Layout_cell) to partitions and vice versa. This form is primarily used internally to PBblas functions, but can also be used as an intermediate form to avoid repeated conversions from cell form. A work-item id field allows multiple matrixes to be carried in the same dataset. This supports the "myriad" style interface whereby the same operation can be performed on multiple sets of matrixes at once. The m_label field allows for the separation of multiple matrixes with the same wi_id for operations requiring multiple matrixes. This allows multiple work-items with multiple matrixes each to be carried in the same dataset.</content>
+   </Documentation>
+  </Definition>
+  <Definition body="690" end="709" fullname="pbblas.layout_cell" inherit_type="local" line="21" name="Layout_Cell" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/trsm.ecl" start="676">
+   <Type>record</Type>
+   <Field name="wi_id"/>
+   <Field name="x"/>
+   <Field name="y"/>
+   <Field name="v"/>
+   <Signature pre="" post="" name="Layout_Cell">Layout_Cell</Signature><Documentation> <field><name>wi_id</name><desc>Work Item Number -- An identifier from 1 to 64K-1 that separates and identifies individual matrixes</desc></field>
+    <field><name>x</name><desc>1-based row position within the matrix</desc></field>
+    <field><name>y</name><desc>1-based column position within the matrix</desc></field>
+    <field><name>v</name><desc>Real value for the cell</desc></field>
+    <see>matrix_t</see>
+    <see>Std/PBblas/MakeR8Set.ecl</see>
+    <see>Std/PBblas/Converted.ecl WARNING: Used as C++ attribute. Do not change without corresponding changes to MakeR8Set.</see>
+    <content>Layout for Matrix Cell Main representation of Matrix cell at interface to all PBBlas functions. Matrixes are represented as DATASET(Layout_Cell), where each cell describes the row and column position of the cell as well as its value. Only the non-zero cells need to be contained in the dataset in order to describe the matrix since all unspecified cells are considered to have a value of zero. The cell also contains a work-item number that allows multiple separate matrixes to be carried in the same dataset. This supports the "myriad" style interface that allows the same operations to be performed on many different sets of data at once. Note that these matrixes do not have an explicit size. They are sized implicitly, based on the maximum row and column presented in the data. A matrix can be converted to an explicit dense form (see matrix_t) by using the utility module MakeR8Set. This module should only be used for known small matrixes (&lt; 1M cells) or for partitions of a larger matrix. The Converted module provides utility functions to convert to and from a set of partitions (See Layout_parts).</content>
+   </Documentation>
+  </Definition>
+  <Definition body="724" end="744" fullname="pbblas.layout_dims" inherit_type="local" line="22" name="Layout_Dims" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/trsm.ecl" start="710">
+   <Type>record</Type>
+   <Field name="m_label"/>
+   <Field name="wi_id"/>
+   <Field name="m_rows"/>
+   <Field name="m_cols"/>
+   <Field name="block_rows"/>
+   <Field name="block_cols"/>
+   <Field name="row_blocks"/>
+   <Field name="col_blocks"/>
+   <Signature pre="" post="" name="Layout_Dims">Layout_Dims</Signature><Documentation> <field><name>m_label</name><desc>A user provided label indicating to which matrix the dimensions apply, when used to describe a set of related matrixes (e.g., 'A', 'B', and 'C') for the same work item used in an operation.</desc></field>
+    <field><name>m_rows</name><desc>The number of rows in the full matrix</desc></field>
+    <field><name>m_cols</name><desc>The number of colums in the full matrix</desc></field>
+    <field><name>block_rows</name><desc>The number of rows in each partition of the matrix</desc></field>
+    <field><name>block_cols</name><desc>The number of columns in each partition</desc></field>
+    <field><name>row_blocks</name><desc>The number of row partitions in use for the matrix</desc></field>
+    <field><name>col_blocks</name><desc>The number of column partitions in use for the matrix</desc></field>
+    <content>Record format for matrix and matrix partition dimensions. Each record describes A single matrix or matrix partition. Partitions use all of the fields, while a non-partitioned matrix only uses the first two (i.e. m_rows and m_cols).</content>
+   </Documentation>
+  </Definition>
+  <Definition body="761" end="783" fullname="pbblas.layout_target" inherit_type="local" line="23" name="Layout_Target" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/trsm.ecl" start="745">
+   <Type>record</Type>
+   <Field name="t_part_id"/>
+   <Field name="t_node_id"/>
+   <Field name="t_block_row"/>
+   <Field name="t_block_col"/>
+   <Field name="t_term"/>
+   <Field name="m_label"/>
+   <Field name="wi_id"/>
+   <Field name="partition_id"/>
+   <Field name="node_id"/>
+   <Field name="m_rows"/>
+   <Field name="m_cols"/>
+   <Field name="row_blocks"/>
+   <Field name="col_blocks"/>
+   <Field name="block_row"/>
+   <Field name="block_col"/>
+   <Field name="part_rows"/>
+   <Field name="part_cols"/>
+   <Field name="first_row"/>
+   <Field name="first_col"/>
+   <Field name="mat_part"/>
+   <Signature pre="" post="" name="Layout_Target">Layout_Target</Signature><Documentation> <field><name>t_part_id</name><desc>The output partition to which this partition is related</desc></field>
+    <field><name>t_node_id</name><desc>The node on which the output partition is located</desc></field>
+    <field><name>t_block_row</name><desc>The row of the output partition within its partition matrix</desc></field>
+    <field><name>t_block_col</name><desc>The column of the output partition within its partition matrix</desc></field>
+    <field><name>t_term</name><desc>A row/column number used to correlate related input partitions used in calculating the results of the output partition</desc></field>
+    <content>Represents the relationship of a partition to the partition holding the results of a matrix operation. This is used internally to PBblas functions to tie an input partition to its output. It is not relevant to users of PBblas.</content>
+   </Documentation>
+  </Definition>
+  <Definition body="798" end="817" fullname="pbblas.dimension_t" inherit_type="local" line="24" name="dimension_t" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/trsm.ecl" start="784">
+   <Signature pre="" post="" name="dimension_t">dimension_t</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="829" end="844" inherit_type="local" line="25" name="OpType" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/trsm.ecl" start="818" fullname="ecldoc-OpType">
+   <Signature pre="" post="" name="OpType">OpType</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="856" end="859" fullname="pbblas.baseterm" inherit_type="local" line="26" name="BaseTerm" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/trsm.ecl" start="845">
+   <Signature pre="" post="" name="BaseTerm">BaseTerm</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="872" end="875" fullname="pbblas.rightterm" inherit_type="local" line="27" name="RightTerm" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/trsm.ecl" start="860">
+   <Signature pre="" post="" name="RightTerm">RightTerm</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="887" end="890" fullname="pbblas.leftterm" inherit_type="local" line="28" name="LeftTerm" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/trsm.ecl" start="876">
+   <Signature pre="" post="" name="LeftTerm">LeftTerm</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="3422" end="18081" exported="1" fullname="pbblas.trsm" inherit_type="local" line="68" name="trsm" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/trsm.ecl" start="3213">
+   <Type>function</Type>
+   <Documentation> <see>Types.Layout_Cell</see>
+    <see>Types.Triangle</see>
+    <see>Types.Side</see>
+    <return>X solution matrix in Layout_Cell format</return>
+    <param><name>s</name><desc>Types.Side enumeration indicating whether we are solving AX = B or XA = B</desc></param>
+    <param><name>tri</name><desc>Types.Triangle enumeration indicating whether we are solving an Upper or Lower triangle.</desc></param>
+    <param><name>transposeA</name><desc>Boolean indicating whether or not to transpose the A matrix before solving</desc></param>
+    <param><name>diag</name><desc>Types.Diagonal enumeration indicating whether A is a unit matrix or not. This is primarily used after factoring matrixes using getrf (LU factorization). That module produces a factored matrix stored within the same space as the original matrix. Since the diagonal is used by both factors, by convention, the Lower triangle has a unit matrix (diagonal all 1's) while the Upper triangle uses the diagonal cells. Setting this to UnitTri, causes the contents of the diagonal to be ignored, and assumed to be 1. NotUnitTri should be used for most other cases.</desc></param>
+    <param><name>alpha</name><desc>Multiplier to scale A</desc></param>
+    <param><name>A_in</name><desc>The A matrix in Layout_Cell format</desc></param>
+    <param><name>B_in</name><desc>The B matrix in Layout_Cell format</desc></param>
+    <content>Partitioned block parallel triangular matrix solver. Solves for X using: AX = B or XA = B A is is a square triangular matrix, X and B have the same dimensions. A may be an upper triangular matrix (UX = B or XU = B), or a lower triangular matrix (LX = B or XL = B). Allows optional transposing and scaling of A. Partially based upon an approach discussed by MJ DAYDE, IS DUFF, AP CERFACS. A Parallel Block implementation of Level-3 BLAS for MIMD Vector Processors ACM Tran. Mathematical Software, Vol 20, No 2, June 1994 pp 178-193 and other papers about PB-BLAS by Choi and Dongarra This module supports the "Myriad" style interface, allowing many independent problems to be worked on at once. Corresponding A and B matrixes are related by a common work-item identifier (wi_id) within each cell of the matrix. The returned X matrix will contain cells for the same set of work-items as specified for the A and B matrices.</content>
+   </Documentation>
+   <Signature pre="" post="" name="DATASET(Layout_Cell) trsm(Side s, Triangle tri, BOOLEAN transposeA, Diagonal diag,&#10;                value_t alpha,&#10;                DATASET(Layout_Cell) A_in,&#10;                DATASET(Layout_Cell) B_in)">DATASET(Layout_Cell) trsm(Side s, Triangle tri, BOOLEAN transposeA, Diagonal diag,
+                value_t alpha,
+                DATASET(Layout_Cell) A_in,
+                DATASET(Layout_Cell) B_in)</Signature><Params>
+    <Param name="s"/>
+    <Param name="tri"/>
+    <Param name="transposeA"/>
+    <Param name="diag"/>
+    <Param name="alpha"/>
+    <Param name="A_in"/>
+    <Param name="B_in"/>
+   </Params>
+  </Definition>
+ </Source>
+ <Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Types.ecl" name="PBblas.Types" target="types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Types.ecl" name="ML_Core.Types" target="../ml_core/types.ecl.xml"/><Depends sourcePath="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/BLAS.ecl" name="std.BLAS" target="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/BLAS.ecl"/><Depends sourcePath="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/plugins/lib_eclblas.ecllib" target="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/plugins/lib_eclblas.ecllib"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/Types.ecl" name="PBblas.internal.Types" target="internal/types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/MatDims.ecl" name="PBblas.internal.MatDims" target="internal/matdims.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/BlockDimensions.ecl" name="PBblas.internal.BlockDimensions" target="internal/blockdimensions.ecl.xml"/><Depends sourcePath="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/system/Thorlib.ecl" name="std.system.Thorlib" target="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/system/Thorlib.ecl"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/BlockDimensionsMultiply.ecl" name="PBblas.internal.BlockDimensionsMultiply" target="internal/blockdimensionsmultiply.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/BlockDimensionsSolve.ecl" name="PBblas.internal.BlockDimensionsSolve" target="internal/blockdimensionssolve.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/MakeR8Set.ecl" name="PBblas.internal.MakeR8Set" target="internal/maker8set.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/Converted.ecl" name="PBblas.internal.Converted" target="internal/converted.ecl.xml"/></Meta>

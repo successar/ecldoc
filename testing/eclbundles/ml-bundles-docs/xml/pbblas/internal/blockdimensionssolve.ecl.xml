@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Meta>
+ <Source name="PBblas.internal.BlockDimensionsSolve" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/BlockDimensionsSolve.ecl" target="blockdimensionssolve.ecl.xml">
+  <Import body="0" end="250" fullname="PBblas" inherit_type="local" line="4" name="PBblas" ref="pbblas" start="250" target="../pkg.toc.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0" end="272" fullname="PBblas.internal" inherit_type="local" line="5" name="int" ref="pbblas.internal" start="272" target="pkg.toc.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0" end="289" fullname="PBblas.Types" inherit_type="local" line="6" name="Types" ref="pbblas.types" start="289" target="../types.ecl.xml">
+   <Type>attribute</Type>
+   <Documentation> <content>Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes.</content>
+   </Documentation>
+  </Import>
+  <Definition body="319" end="338" fullname="pbblas.internal.dimension_t" inherit_type="local" line="9" name="dimension_t" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/BlockDimensionsSolve.ecl" start="305">
+   <Signature pre="" post="" name="dimension_t">dimension_t</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="2007" end="3584" exported="1" fullname="pbblas.internal.blockdimensionssolve" inherit_type="local" line="39" name="BlockDimensionsSolve" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/BlockDimensionsSolve.ecl" start="1911">
+   <Type>module</Type>
+   <Params>
+    <Param name="N"/>
+    <Param name="M"/>
+    <Param name="max_part_size_or"/>
+    <Param name="nodes_or"/>
+   </Params>
+   <Parents/>
+   <Definition body="2224" end="2290" fullname="pbblas.internal.blockdimensionssolve.max_part_size" inherit_type="local" line="44" name="max_part_size" shared="1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/BlockDimensionsSolve.ecl" start="2201">
+    <Signature pre="" post="" name="max_part_size">max_part_size</Signature><Type>attribute</Type>
+   </Definition>
+   <Definition body="2310" end="2315" fullname="pbblas.internal.blockdimensionssolve.a_cells" inherit_type="local" line="45" name="a_cells" shared="1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/BlockDimensionsSolve.ecl" start="2293">
+    <Signature pre="" post="" name="a_cells">a_cells</Signature><Type>attribute</Type>
+   </Definition>
+   <Definition body="2335" end="2340" fullname="pbblas.internal.blockdimensionssolve.b_cells" inherit_type="local" line="46" name="b_cells" shared="1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/BlockDimensionsSolve.ecl" start="2318">
+    <Signature pre="" post="" name="b_cells">b_cells</Signature><Type>attribute</Type>
+   </Definition>
+   <Definition body="2362" end="2385" exported="1" fullname="pbblas.internal.blockdimensionssolve.min_cells" inherit_type="local" line="47" name="min_cells" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/BlockDimensionsSolve.ecl" start="2343">
+    <Signature pre="" post="" name="min_cells">min_cells</Signature><Type>attribute</Type>
+   </Definition>
+   <Definition body="2407" end="2430" exported="1" fullname="pbblas.internal.blockdimensionssolve.max_cells" inherit_type="local" line="48" name="max_cells" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/BlockDimensionsSolve.ecl" start="2388">
+    <Signature pre="" post="" name="max_cells">max_cells</Signature><Type>attribute</Type>
+   </Definition>
+   <Definition body="2654" end="2667" fullname="pbblas.internal.blockdimensionssolve.pn0" inherit_type="local" line="53" name="PN0" shared="1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/BlockDimensionsSolve.ecl" start="2641">
+    <Type>attribute</Type>
+    <Signature pre="" post="" name="PN0">PN0</Signature><Documentation> <content>The row dimension of the optimal Partition Matrix</content>
+    </Documentation>
+   </Definition>
+   <Definition body="2887" end="2937" fullname="pbblas.internal.blockdimensionssolve.pm0" inherit_type="local" line="57" name="PM0" shared="1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/BlockDimensionsSolve.ecl" start="2874">
+    <Signature pre="" post="" name="PM0">PM0</Signature><Type>attribute</Type>
+   </Definition>
+   <Definition body="3057" end="3062" exported="1" fullname="pbblas.internal.blockdimensionssolve.pn" inherit_type="local" line="62" name="PN" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/BlockDimensionsSolve.ecl" start="3045">
+    <Type>attribute</Type>
+    <Signature pre="" post="" name="PN">PN</Signature><Documentation> <content>The row and column dimension of A's partition matrix and either row or column of B's</content>
+    </Documentation>
+   </Definition>
+   <Definition body="3215" end="3220" exported="1" fullname="pbblas.internal.blockdimensionssolve.pm" inherit_type="local" line="67" name="PM" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/BlockDimensionsSolve.ecl" start="3203">
+    <Type>attribute</Type>
+    <Signature pre="" post="" name="PM">PM</Signature><Documentation> <content>The row or column dimension of B and X(result) matrixes depending on the type of solve (see module description).</content>
+    </Documentation>
+   </Definition>
+   <Definition body="3377" end="3392" exported="1" fullname="pbblas.internal.blockdimensionssolve.ablockdim" inherit_type="local" line="72" name="AblockDim" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/BlockDimensionsSolve.ecl" start="3358">
+    <Type>attribute</Type>
+    <Signature pre="" post="" name="AblockDim">AblockDim</Signature><Documentation> <return>The side dimension of 'A' matrix (a is square)</return>
+     <content>The number of rows and columns in each partition of A</content>
+    </Documentation>
+   </Definition>
+   <Definition body="3564" end="3579" exported="1" fullname="pbblas.internal.blockdimensionssolve.bblockdim" inherit_type="local" line="77" name="BblockDim" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/BlockDimensionsSolve.ecl" start="3545">
+    <Type>attribute</Type>
+    <Signature pre="" post="" name="BblockDim">BblockDim</Signature><Documentation> <content>The number of rows or columns in each partition of B and X (result) depending on the type of solve (see module description).</content>
+    </Documentation>
+   </Definition>
+   <Signature pre="" post="" name="BlockDimensionsSolve(dimension_t N, dimension_t M,&#10;    max_part_size_or=0, nodes_or=0)">BlockDimensionsSolve(dimension_t N, dimension_t M,
+    max_part_size_or=0, nodes_or=0)</Signature><Documentation> <content>Auto-Partitioning for Solve operations Given an input of N and M, describing the dimensions of A (N x N), B (N x M) or (M x N) matrixes, calculate the optimal square (d x d) partitioning for A and rectangular partitioning for B. Calculate the partition matrix dimensions: PN and PM representing the dimensions of the partition matrixes for A and B respectively (P(A): PN x PN, P(B): PM x PN or PN x PM. Note that for solving Ax=B, B will be N x M, and for solving xA = B, B will be M x N. Each of the partition matrixes is subject to the following constraints: 1) Cells per partition &lt;= 1,000,000 2) Partitions should not be empty: At least one row and column in each partition 3) The number of partitions should be a multiple of the number of nodes 4) Partition size as large as possible Note: These constraints are in priority order. (1) should always be met. Others are best effort. Note: This module is used internally to PBblas, and should not be needed by users of PBblas</content>
+    <see>Std/PBblas/BlockDimensions</see>
+    <param><name>N</name><desc>The Row and Column dimension of the A matrix and either the Row or Column dimension of B (depending on the type of solve).</desc></param>
+    <param><name>M</name><desc>The Column or Row dimension of B (depending on the type of solve)</desc></param>
+    <param><name>max_part_size_or</name><desc>Overrides the largest allowed partition size. For advanced use only.</desc></param>
+    <param><name>nodes_or</name><desc>For testing only. Overrides the number of nodes in the cluster. Should never be used in production.</desc></param>
+   </Documentation>
+  </Definition>
+ </Source>
+ <Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Types.ecl" name="PBblas.Types" target="../types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Types.ecl" name="ML_Core.Types" target="../../ml_core/types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/BlockDimensions.ecl" name="PBblas.internal.BlockDimensions" target="blockdimensions.ecl.xml"/><Depends sourcePath="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/system/Thorlib.ecl" name="std.system.Thorlib" target="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/system/Thorlib.ecl"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/Types.ecl" name="PBblas.internal.Types" target="types.ecl.xml"/></Meta>

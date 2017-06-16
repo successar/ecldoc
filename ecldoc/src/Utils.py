@@ -22,6 +22,6 @@ def getRoot(path_tree, ecl_file) :
         parent = parent[node]
         parent_path = os.path.join(parent_path, node)
 
-    return parent, parent_path
+    return parent
 
 

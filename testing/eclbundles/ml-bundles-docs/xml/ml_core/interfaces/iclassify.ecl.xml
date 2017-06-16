@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Meta>
+ <Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Types.ecl" name="ML_Core.Types" target="../types.ecl.xml"/><Source name="ML_Core.Interfaces.IClassify" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Interfaces/IClassify.ecl" target="iclassify.ecl.xml">
+  <Definition body="187" end="1597" exported="1" fullname="ML_Core.Interfaces.IClassify" inherit_type="local" line="8" name="IClassify" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Interfaces/IClassify.ecl" start="168" virtual="1">
+   <Type>module</Type>
+   <Parents/>
+   <Definition body="632" end="631" exported="1" fullname="ml_core.interfaces.iclassify.getmodel" inherit_type="local" line="17" name="GetModel" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Interfaces/IClassify.ecl" start="474">
+    <Type>function</Type>
+    <Documentation> <content>Calculate the model to fit the observation data to the observed classes.</content>
+     <return>the encoded model</return>
+     <param><name>observations</name><desc>the observed explanatory values</desc></param>
+     <param><name>classifications</name><desc>the observed classification used to build the model</desc></param>
+    </Documentation>
+    <Signature pre="" post="" name="DATASET(Types.Layout_Model)&#10;        GetModel(DATASET(Types.NumericField) observations,&#10;                 DATASET(Types.DiscreteField) classifications)">DATASET(Types.Layout_Model)
+        GetModel(DATASET(Types.NumericField) observations,
+                 DATASET(Types.DiscreteField) classifications)</Signature><Params>
+     <Param name="observations"/>
+     <Param name="classifications"/>
+    </Params>
+   </Definition>
+   <Definition body="1052" end="1051" exported="1" fullname="ml_core.interfaces.iclassify.classify" inherit_type="local" line="27" name="Classify" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Interfaces/IClassify.ecl" start="898">
+    <Type>function</Type>
+    <Documentation> <content>Classify the observations using a model.</content>
+     <return>Classification with a confidence value</return>
+     <param><name>model</name><desc>The model, which must be produced by a corresponding getModel function.</desc></param>
+     <param><name>new_observations</name><desc>observations to be classified</desc></param>
+    </Documentation>
+    <Signature pre="" post="" name="DATASET(Types.Classify_Result)&#10;        Classify(DATASET(Types.Layout_Model) model,&#10;                 DATASET(Types.NumericField) new_observations)">DATASET(Types.Classify_Result)
+        Classify(DATASET(Types.Layout_Model) model,
+                 DATASET(Types.NumericField) new_observations)</Signature><Params>
+     <Param name="model"/>
+     <Param name="new_observations"/>
+    </Params>
+   </Definition>
+   <Definition body="1593" end="1592" exported="1" fullname="ml_core.interfaces.iclassify.report" inherit_type="local" line="39" name="Report" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Interfaces/IClassify.ecl" start="1385">
+    <Type>function</Type>
+    <Documentation> <content>Report the confusion matrix for the classifier and training data.</content>
+     <return>the confusion matrix showing correct and incorrect results</return>
+     <param><name>model</name><desc>the encoded model</desc></param>
+     <param><name>observations</name><desc>the explanatory values.</desc></param>
+     <param><name>classifications</name><desc>the classifications associated with the observations</desc></param>
+    </Documentation>
+    <Signature pre="" post="" name="DATASET(Types.Confusion_Detail)&#10;        Report(DATASET(Types.Layout_Model) model,&#10;               DATASET(Types.NumericField) observations,&#10;               DATASET(Types.DiscreteField) classifications)">DATASET(Types.Confusion_Detail)
+        Report(DATASET(Types.Layout_Model) model,
+               DATASET(Types.NumericField) observations,
+               DATASET(Types.DiscreteField) classifications)</Signature><Params>
+     <Param name="model"/>
+     <Param name="observations"/>
+     <Param name="classifications"/>
+    </Params>
+   </Definition>
+   <Signature pre="" post="" name="IClassify">IClassify</Signature><Documentation> <content>Interface definition for Classification. Actual implementation modules will probably take parameters.</content>
+   </Documentation>
+  </Definition>
+  <Import body="0" end="7" fullname="ML_Core" inherit_type="local" line="1" name="ML_Core" ref="ml_core" start="7" target="../pkg.toc.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0" end="30" fullname="ML_Core.Types" inherit_type="local" line="2" name="Types" ref="ml_core.types" start="30" target="../types.ecl.xml">
+   <Type>attribute</Type>
+  </Import>
+ </Source>
+ </Meta>

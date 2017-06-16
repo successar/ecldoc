@@ -1,0 +1,365 @@
+<Meta>
+ <Source name="ML_Core.Interfaces.IClassify" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Interfaces/IClassify.ecl">
+  <Definition body="187"
+              end="1597"
+              exported="1"
+              fullname="ML_Core.Interfaces.IClassify"
+              inherit_type="local"
+              line="8"
+              name="IClassify"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Interfaces/IClassify.ecl"
+              start="168"
+              virtual="1">
+   <Type>module</Type>
+   <Parents/>
+   <Definition body="632"
+               end="631"
+               exported="1"
+               fullname="ml_core.interfaces.iclassify.getmodel"
+               inherit_type="local"
+               line="17"
+               name="GetModel"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Interfaces/IClassify.ecl"
+               start="474">
+    <Type>function</Type>
+    <Documentation>
+     <content>Calculate the model to fit the observation data to the observed classes.</content>
+     <return>the encoded model</return>
+     <param>observations the observed explanatory values</param>
+     <param>classifications the observed classification used to build the model</param>
+    </Documentation>
+    <Params>
+     <Param name="observations"/>
+     <Param name="classifications"/>
+    </Params>
+   </Definition>
+   <Definition body="1052"
+               end="1051"
+               exported="1"
+               fullname="ml_core.interfaces.iclassify.classify"
+               inherit_type="local"
+               line="27"
+               name="Classify"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Interfaces/IClassify.ecl"
+               start="898">
+    <Type>function</Type>
+    <Documentation>
+     <content>Classify the observations using a model.</content>
+     <return>Classification with a confidence value</return>
+     <param>model The model, which must be produced by a corresponding getModel function.</param>
+     <param>new_observations observations to be classified</param>
+    </Documentation>
+    <Params>
+     <Param name="model"/>
+     <Param name="new_observations"/>
+    </Params>
+   </Definition>
+   <Definition body="1593"
+               end="1592"
+               exported="1"
+               fullname="ml_core.interfaces.iclassify.report"
+               inherit_type="local"
+               line="39"
+               name="Report"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Interfaces/IClassify.ecl"
+               start="1385">
+    <Type>function</Type>
+    <Documentation>
+     <content>Report the confusion matrix for the classifier and training data.</content>
+     <return>the confusion matrix showing correct and incorrect results</return>
+     <param>model the encoded model</param>
+     <param>observations the explanatory values.</param>
+     <param>classifications the classifications associated with the observations</param>
+    </Documentation>
+    <Params>
+     <Param name="model"/>
+     <Param name="observations"/>
+     <Param name="classifications"/>
+    </Params>
+   </Definition>
+   <Documentation>
+    <content>Interface definition for Classification.  Actual implementation modules will probably take parameters.</content>
+   </Documentation>
+  </Definition>
+  <Import body="0"
+          end="7"
+          fullname="ML_Core"
+          inherit_type="local"
+          line="1"
+          name="ML_Core"
+          ref="ML_Core"
+          start="7">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0"
+          end="30"
+          fullname="ML_Core.Types"
+          inherit_type="local"
+          line="2"
+          name="Types"
+          ref="ML_Core.Types"
+          start="30">
+   <Type>attribute</Type>
+  </Import>
+ </Source>
+ <Source name="ML_Core.Types" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl">
+  <Definition body="37"
+              end="3074"
+              exported="1"
+              fullname="ML_Core.Types"
+              inherit_type="local"
+              line="2"
+              name="Types"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+              start="22">
+   <Type>module</Type>
+   <Definition body="944"
+               end="955"
+               exported="1"
+               fullname="ml_core.types.t_recordid"
+               inherit_type="local"
+               line="22"
+               name="t_RecordID"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="924">
+    <Type>attribute</Type>
+   </Definition>
+   <Definition body="981"
+               end="992"
+               exported="1"
+               fullname="ml_core.types.t_fieldnumber"
+               inherit_type="local"
+               line="23"
+               name="t_FieldNumber"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="958">
+    <Type>attribute</Type>
+   </Definition>
+   <Definition body="1016"
+               end="1023"
+               exported="1"
+               fullname="ml_core.types.t_fieldreal"
+               inherit_type="local"
+               line="24"
+               name="t_FieldReal"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="995">
+    <Type>attribute</Type>
+   </Definition>
+   <Definition body="1047"
+               end="1057"
+               exported="1"
+               fullname="ml_core.types.t_fieldsign"
+               inherit_type="local"
+               line="25"
+               name="t_FieldSign"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="1026">
+    <Type>attribute</Type>
+   </Definition>
+   <Definition body="1080"
+               end="1090"
+               exported="1"
+               fullname="ml_core.types.t_discrete"
+               inherit_type="local"
+               line="26"
+               name="t_Discrete"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="1060">
+    <Type>attribute</Type>
+   </Definition>
+   <Definition body="1109"
+               end="1120"
+               exported="1"
+               fullname="ml_core.types.t_item"
+               inherit_type="local"
+               line="27"
+               name="t_Item"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="1093">
+    <Type>attribute</Type>
+   </Definition>
+   <Definition body="1188"
+               end="1200"
+               exported="1"
+               fullname="ml_core.types.t_count"
+               inherit_type="local"
+               line="28"
+               name="t_Count"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="1171">
+    <Type>attribute</Type>
+   </Definition>
+   <Definition body="1258"
+               end="1269"
+               exported="1"
+               fullname="ml_core.types.t_work_item"
+               inherit_type="local"
+               line="29"
+               name="t_Work_Item"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="1237">
+    <Type>attribute</Type>
+   </Definition>
+   <Definition body="1391"
+               end="1600"
+               exported="1"
+               fullname="ml_core.types.anyfield"
+               inherit_type="local"
+               line="32"
+               name="AnyField"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="1369">
+    <Type>record</Type>
+    <Field name="wi"/>
+    <Field name="id"/>
+    <Field name="number"/>
+   </Definition>
+   <Definition body="1673"
+               end="1720"
+               exported="1"
+               fullname="ml_core.types.numericfield"
+               inherit_type="local"
+               line="39"
+               name="NumericField"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="1651">
+    <Type>record</Type>
+    <Field name="wi"/>
+    <Field name="id"/>
+    <Field name="number"/>
+    <Field name="value"/>
+   </Definition>
+   <Definition body="1797"
+               end="1843"
+               exported="1"
+               fullname="ml_core.types.discretefield"
+               inherit_type="local"
+               line="44"
+               name="DiscreteField"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="1774">
+    <Type>record</Type>
+    <Field name="wi"/>
+    <Field name="id"/>
+    <Field name="number"/>
+    <Field name="value"/>
+   </Definition>
+   <Definition body="1953"
+               end="2200"
+               exported="1"
+               fullname="ml_core.types.layout_model"
+               inherit_type="local"
+               line="49"
+               name="Layout_Model"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="1931">
+    <Type>record</Type>
+    <Field name="wi"/>
+    <Field name="id"/>
+    <Field name="number"/>
+    <Field name="value"/>
+   </Definition>
+   <Definition body="2261"
+               end="2336"
+               exported="1"
+               fullname="ml_core.types.classify_result"
+               inherit_type="local"
+               line="57"
+               name="Classify_Result"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="2236">
+    <Type>record</Type>
+    <Field name="wi"/>
+    <Field name="id"/>
+    <Field name="number"/>
+    <Field name="value"/>
+    <Field name="conf"/>
+   </Definition>
+   <Definition body="2357"
+               end="2410"
+               exported="1"
+               fullname="ml_core.types.l_result"
+               inherit_type="local"
+               line="60"
+               name="l_result"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="2339">
+    <Type>record</Type>
+    <Field name="wi"/>
+    <Field name="id"/>
+    <Field name="number"/>
+    <Field name="value"/>
+    <Field name="conf"/>
+   </Definition>
+   <Definition body="2440"
+               end="2639"
+               exported="1"
+               fullname="ml_core.types.confusion_detail"
+               inherit_type="local"
+               line="62"
+               name="Confusion_Detail"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="2414">
+    <Type>record</Type>
+    <Field name="wi"/>
+    <Field name="classifier"/>
+    <Field name="actual_class"/>
+    <Field name="predict_class"/>
+    <Field name="occurs"/>
+    <Field name="correct"/>
+   </Definition>
+   <Definition body="2711"
+               end="2782"
+               exported="1"
+               fullname="ml_core.types.itemelement"
+               inherit_type="local"
+               line="72"
+               name="ItemElement"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="2690">
+    <Type>record</Type>
+    <Field name="wi"/>
+    <Field name="value"/>
+    <Field name="id"/>
+   </Definition>
+   <Definition body="2848"
+               end="2858"
+               exported="1"
+               fullname="ml_core.types.t_node"
+               inherit_type="local"
+               line="79"
+               name="t_node"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="2831">
+    <Type>attribute</Type>
+   </Definition>
+   <Definition body="2942"
+               end="2953"
+               exported="1"
+               fullname="ml_core.types.t_level"
+               inherit_type="local"
+               line="80"
+               name="t_level"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="2925">
+    <Type>attribute</Type>
+   </Definition>
+   <Definition body="2995"
+               end="3069"
+               exported="1"
+               fullname="ml_core.types.nodeid"
+               inherit_type="local"
+               line="81"
+               name="NodeID"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="2978">
+    <Type>record</Type>
+    <Field name="wi"/>
+    <Field name="node_id"/>
+    <Field name="level"/>
+   </Definition>
+   <Parents/>
+  </Definition>
+ </Source>
+</Meta>

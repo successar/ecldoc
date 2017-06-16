@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Meta>
+ <Source name="PBblas.test.Converted" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Converted.ecl" target="converted.ecl.xml">
+  <Import body="0" end="7" fullname="PBblas" inherit_type="local" line="1" name="PBblas" ref="pbblas" start="7" target="../pkg.toc.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0" end="29" fullname="PBblas.Types" inherit_type="local" line="2" name="Types" ref="pbblas.types" start="29" target="../types.ecl.xml">
+   <Type>attribute</Type>
+   <Documentation> <content>Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes.</content>
+   </Documentation>
+  </Import>
+  <Import body="0" end="50" fullname="ML_Core.Types" inherit_type="local" line="3" name="MlTypes" ref="ml_core.types" start="50" target="../../ml_core/types.ecl.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0" end="83" fullname="PBblas.test" inherit_type="local" line="4" name="Tests" ref="pbblas.test" start="83" target="pkg.toc.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0" end="102" fullname="PBblas.test.MakeTestMatrix" inherit_type="local" line="5" name="tm" ref="pbblas.test.maketestmatrix" start="102" target="maketestmatrix.ecl.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0" end="137" fullname="PBblas.Converted" inherit_type="local" line="6" name="conv" ref="pbblas.converted" start="137" target="../converted.ecl.xml">
+   <Type>attribute</Type>
+   <Documentation> <content>Module to convert between ML_Core/Types Field layouts (i.e. NumericField and DiscreteField) and PBblas matrix layout (i.e. Layout_Cell)</content>
+   </Documentation>
+  </Import>
+  <Import body="0" end="170" fullname="PBblas.test.DiffReport" inherit_type="local" line="7" name="dr" ref="pbblas.test.diffreport" start="170" target="diffreport.ecl.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Definition body="84" end="103" fullname="pbblas.test.layout_cell" inherit_type="local" line="4" name="Layout_Cell" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/test/MakeTestMatrix.ecl" start="70">
+   <Type>record</Type>
+   <Field name="wi_id"/>
+   <Field name="x"/>
+   <Field name="y"/>
+   <Field name="v"/>
+   <Signature pre="" post="" name="Layout_Cell">Layout_Cell</Signature><Documentation> <field><name>wi_id</name><desc>Work Item Number -- An identifier from 1 to 64K-1 that separates and identifies individual matrixes</desc></field>
+    <field><name>x</name><desc>1-based row position within the matrix</desc></field>
+    <field><name>y</name><desc>1-based column position within the matrix</desc></field>
+    <field><name>v</name><desc>Real value for the cell</desc></field>
+    <see>matrix_t</see>
+    <see>Std/PBblas/MakeR8Set.ecl</see>
+    <see>Std/PBblas/Converted.ecl WARNING: Used as C++ attribute. Do not change without corresponding changes to MakeR8Set.</see>
+    <content>Layout for Matrix Cell Main representation of Matrix cell at interface to all PBBlas functions. Matrixes are represented as DATASET(Layout_Cell), where each cell describes the row and column position of the cell as well as its value. Only the non-zero cells need to be contained in the dataset in order to describe the matrix since all unspecified cells are considered to have a value of zero. The cell also contains a work-item number that allows multiple separate matrixes to be carried in the same dataset. This supports the "myriad" style interface that allows the same operations to be performed on many different sets of data at once. Note that these matrixes do not have an explicit size. They are sized implicitly, based on the maximum row and column presented in the data. A matrix can be converted to an explicit dense form (see matrix_t) by using the utility module MakeR8Set. This module should only be used for known small matrixes (&lt; 1M cells) or for partitions of a larger matrix. The Converted module provides utility functions to convert to and from a set of partitions (See Layout_parts).</content>
+   </Documentation>
+  </Definition>
+  <Definition body="211" end="233" fullname="pbblas.test.numericfield" inherit_type="local" line="9" name="NumericField" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Converted.ecl" start="195">
+   <Type>record</Type>
+   <Field name="wi"/>
+   <Field name="id"/>
+   <Field name="number"/>
+   <Signature pre="" post="" name="NumericField">NumericField</Signature><Field name="value"/>
+  </Definition>
+  <Definition body="250" end="273" fullname="pbblas.test.discretefield" inherit_type="local" line="10" name="DiscreteField" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Converted.ecl" start="234">
+   <Type>record</Type>
+   <Field name="wi"/>
+   <Field name="id"/>
+   <Field name="number"/>
+   <Signature pre="" post="" name="DiscreteField">DiscreteField</Signature><Field name="value"/>
+  </Definition>
+  <Definition body="326" end="341" fullname="pbblas.test.value_t" inherit_type="local" line="12" name="value_t" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Converted.ecl" start="310">
+   <Signature pre="" post="" name="value_t">value_t</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="358" end="377" fullname="pbblas.test.dimension_t" inherit_type="local" line="13" name="dimension_t" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Converted.ecl" start="342">
+   <Signature pre="" post="" name="dimension_t">dimension_t</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="505" end="511" fullname="pbblas.test.n" inherit_type="local" line="21" name="N" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Converted.ecl" start="501">
+   <Type>attribute</Type>
+   <Signature pre="" post="" name="N">N</Signature><Documentation> <content>Test for PBblas.Converted module. Convert to and from ML_Core/Types Field formats and Layout_Cell</content>
+   </Documentation>
+  </Definition>
+  <Definition body="516" end="520" fullname="pbblas.test.m" inherit_type="local" line="22" name="M" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Converted.ecl" start="512">
+   <Signature pre="" post="" name="M">M</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="552" end="583" fullname="pbblas.test.a" inherit_type="local" line="25" name="A" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Converted.ecl" start="548">
+   <Signature pre="" post="" name="A">A</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="626" end="646" fullname="pbblas.test.dn" inherit_type="local" line="28" name="DN" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Converted.ecl" start="621">
+   <Type>attribute</Type>
+   <Signature pre="" post="" name="DN">DN</Signature><Documentation> <see>PBblas/Types.Layout_Cell</see>
+    <see>ML_Core/Types.NumericField</see>
+    <return>NumericField Dataset</return>
+    <param><name>mat</name><desc>Matrix in DATASET(Layout_Cell) format</desc></param>
+    <content>Convert Matrix to NumericField dataset</content>
+   </Documentation>
+  </Definition>
+  <Definition body="689" end="709" fullname="pbblas.test.dd" inherit_type="local" line="30" name="DD" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Converted.ecl" start="684">
+   <Type>attribute</Type>
+   <Signature pre="" post="" name="DD">DD</Signature><Documentation> <see>PBblas/Types.Layout_Cell</see>
+    <see>ML_Core/Types.DiscreteField</see>
+    <return>DiscreteField Dataset</return>
+    <param><name>mat</name><desc>Matrix in DATASET(Layout_Cell) format</desc></param>
+    <content>Convert Matrix to DiscreteField dataset</content>
+   </Documentation>
+  </Definition>
+  <Definition body="761" end="782" fullname="pbblas.test.numacmp" inherit_type="local" line="33" name="numAcmp" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Converted.ecl" start="751">
+   <Type>attribute</Type>
+   <Signature pre="" post="" name="numAcmp">numAcmp</Signature><Documentation> <see>PBblas/Types.Layout_Cell</see>
+    <see>ML_Core/Types.NumericField</see>
+    <return>Matrix in DATASET(Layout_Cell) format</return>
+    <param><name>recs</name><desc>Record Dataset in DATASET(NumericField) format</desc></param>
+    <content>Convert NumericField dataset to Matrix</content>
+   </Documentation>
+  </Definition>
+  <Definition body="835" end="856" fullname="pbblas.test.discacmp" inherit_type="local" line="35" name="discAcmp" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Converted.ecl" start="824">
+   <Type>attribute</Type>
+   <Signature pre="" post="" name="discAcmp">discAcmp</Signature><Documentation> <see>PBblas/Types.Layout_Cell</see>
+    <see>ML_Core/Types.DiscreteField</see>
+    <return>Matrix in DATASET(Layout_Cell) format</return>
+    <param><name>recs</name><desc>Record Dataset in DATASET(DiscreteField) format</desc></param>
+    <content>Convert DiscreteField dataset to Matrix</content>
+   </Documentation>
+  </Definition>
+  <Definition body="1011" end="1021" fullname="pbblas.test.roundit" inherit_type="local" line="39" name="roundIt" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Converted.ecl" start="952">
+   <Type>function</Type>
+   <Signature pre="" post="" name="value_t roundIt(value_t v, dimension_t r, dimension_t c)">value_t roundIt(value_t v, dimension_t r, dimension_t c)</Signature><Params>
+    <Param name="v"/>
+    <Param name="r"/>
+    <Param name="c"/>
+   </Params>
+  </Definition>
+  <Definition body="1030" end="1065" fullname="pbblas.test.disca" inherit_type="local" line="40" name="discA" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Converted.ecl" start="1022">
+   <Type>attribute</Type>
+   <Signature pre="" post="" name="discA">discA</Signature><Documentation> <see>PBblas/IElementFunc</see>
+    <see>PBblas/Types.Layout_Cell</see>
+    <return>A matrix (or multiple matrices) in Layout_Cell form</return>
+    <param><name>X</name><desc>A matrix (or multiple matrices) in Layout_Cell form</desc></param>
+    <param><name>f</name><desc>A function based on the IElementFunc prototype</desc></param>
+    <content>Apply a function to each element of the matrix Use PBblas.IElementFunc as the prototype function. Input and ouput may be a single matrix, or myriad matrixes with different work item ids.</content>
+   </Documentation>
+  </Definition>
+  <Definition body="1134" end="1190" fullname="pbblas.test.test1" inherit_type="local" line="43" name="test1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Converted.ecl" start="1126">
+   <Signature pre="" post="" name="test1">test1</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1199" end="1261" fullname="pbblas.test.test2" inherit_type="local" line="44" name="test2" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Converted.ecl" start="1191">
+   <Signature pre="" post="" name="test2">test2</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1282" end="1297" exported="1" fullname="pbblas.test.converted" inherit_type="local" line="46" name="Converted" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Converted.ecl" start="1263">
+   <Signature pre="" post="" name="Converted">Converted</Signature><Type>attribute</Type>
+  </Definition>
+ </Source>
+ <Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Types.ecl" name="PBblas.Types" target="../types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Types.ecl" name="ML_Core.Types" target="../../ml_core/types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/MakeTestMatrix.ecl" name="PBblas.test.MakeTestMatrix" target="maketestmatrix.ecl.xml"/><Depends sourcePath="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/system/Thorlib.ecl" name="std.system.Thorlib" target="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/system/Thorlib.ecl"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Converted.ecl" name="PBblas.Converted" target="../converted.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/DiffReport.ecl" name="PBblas.test.DiffReport" target="diffreport.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/Types.ecl" name="PBblas.internal.Types" target="../internal/types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/Converted.ecl" name="PBblas.internal.Converted" target="../internal/converted.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/MakeR8Set.ecl" name="PBblas.internal.MakeR8Set" target="../internal/maker8set.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Apply2Elements.ecl" name="PBblas.Apply2Elements" target="../apply2elements.ecl.xml"/><Depends sourcePath="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/BLAS.ecl" name="std.BLAS" target="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/BLAS.ecl"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/IElementFunc.ecl" name="PBblas.IElementFunc" target="../ielementfunc.ecl.xml"/><Depends sourcePath="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/plugins/lib_eclblas.ecllib" target="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/plugins/lib_eclblas.ecllib"/></Meta>

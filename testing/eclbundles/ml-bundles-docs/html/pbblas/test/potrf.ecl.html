@@ -1,0 +1,3752 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
+	<title>PBblas.test.potrf</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
+	<link href="../../../css/simple-sidebar.css" rel="stylesheet">
+
+</head>
+
+<body>
+	<nav class="navbar topbar">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a href="#menu-toggle" id="menu-toggle" class="navbar-brand glyphicon glyphicon-menu-hamburger ham"></a>
+			</div>
+			<div class="navbar-header" style="margin-left: 20px;">
+				<span class="navbar-brand">PBblas.test.potrf</span>
+			</div>
+			<div class="navbar-collapse collapse">
+			<ul class="nav navbar-nav">
+				<li><a href="#ecldoc-section-import" class="topbar">Imports</a></li>
+				<li><a href="#ecldoc-section-tree" class="topbar">Tree</a></li>
+				<li><a href="#ecldoc-section-desc" class="topbar">Descriptions</a></li>
+			</ul>
+			</div>
+		</div>
+	</nav>
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		<div id="sidebar-wrapper">
+			<ul class="sidebar-nav">
+				<li class="sidebar-brand">
+					<a href="pkg.toc.html">
+						Up
+					</a>
+				</li>
+				
+				<li>
+					<a href="scal.ecl.html">scal.ecl</a>
+				</li>
+				
+				<li>
+					<a href="vector2diag.ecl.html">vector2diag.ecl</a>
+				</li>
+				
+				<li>
+					<a href="solve.ecl.html">solve.ecl</a>
+				</li>
+				
+				<li>
+					<a href="matdims.ecl.html">matdims.ecl</a>
+				</li>
+				
+				<li>
+					<a href="converted.ecl.html">converted.ecl</a>
+				</li>
+				
+				<li>
+					<a href="tran.ecl.html">tran.ecl</a>
+				</li>
+				
+				<li>
+					<a href="axpy.ecl.html">axpy.ecl</a>
+				</li>
+				
+				<li>
+					<a href="convertedint.ecl.html">convertedint.ecl</a>
+				</li>
+				
+				<li>
+					<a href="convertedintmyr.ecl.html">convertedintmyr.ecl</a>
+				</li>
+				
+				<li>
+					<a href="diffreport.ecl.html">diffreport.ecl</a>
+				</li>
+				
+				<li>
+					<a href="factor.ecl.html">factor.ecl</a>
+				</li>
+				
+				<li>
+					<a href="apply2elements.ecl.html">apply2elements.ecl</a>
+				</li>
+				
+				<li>
+					<a href="blockdimensions.ecl.html">blockdimensions.ecl</a>
+				</li>
+				
+				<li>
+					<a href="hadamardproduct.ecl.html">hadamardproduct.ecl</a>
+				</li>
+				
+				<li>
+					<a href="getrf.ecl.html">getrf.ecl</a>
+				</li>
+				
+				<li>
+					<a href="multiply.ecl.html">multiply.ecl</a>
+				</li>
+				
+				<li>
+					<a href="blockdimensionssolve.ecl.html">blockdimensionssolve.ecl</a>
+				</li>
+				
+				<li>
+					<a href="maketestmatrix.ecl.html">maketestmatrix.ecl</a>
+				</li>
+				
+				<li>
+					<a href="potrf.ecl.html">potrf.ecl</a>
+				</li>
+				
+				<li>
+					<a href="matutils.ecl.html">matutils.ecl</a>
+				</li>
+				
+				<li>
+					<a href="asum.ecl.html">asum.ecl</a>
+				</li>
+				
+				<li>
+					<a href="blockdimensionsmultiply.ecl.html">blockdimensionsmultiply.ecl</a>
+				</li>
+				
+			</ul>
+		</div>
+
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<section id="ecldoc-section-import">
+					<h3 class="page-header">IMPORTS</h3>
+					<ul class="pagination">
+						<li>
+							<a href="../pkg.toc.html">
+								pbblas
+							</a>
+							</li>
+						<li>
+							<a href="pkg.toc.html">
+								pbblas.test
+							</a>
+							</li>
+						<li>
+							<a href="maketestmatrix.ecl.html">
+								pbblas.test.maketestmatrix
+							</a>
+							</li>
+						<li>
+							<a href="../types.ecl.html">
+								pbblas.types
+							</a>
+							</li>
+						<li>
+							<a href="../internal/pkg.toc.html">
+								pbblas.internal
+							</a>
+							</li>
+						<li>
+							<a href="../internal/types.ecl.html">
+								pbblas.internal.types
+							</a>
+							</li>
+						<li>
+							<a href="diffreport.ecl.html">
+								pbblas.test.diffreport
+							</a>
+							</li>
+						</ul>
+				</section>
+				<section id="ecldoc-section-tree">
+					<h3 class="page-header">DEFINITION TREE</h3>
+					<ul class="tree">
+						<li id="t-pbblas-test-layout_cell">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-layout_cell">
+								RECORD :
+								<span class="sign-pre"></span>
+								<span class="sign-name">Layout_Cell</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-layout_cell" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-ecldoc-tri">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#decldoc-tri">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">tri</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="ecldoc-tri" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-matrix_t">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-matrix_t">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">matrix_t</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-matrix_t" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-max_partition_size_or">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-max_partition_size_or">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">max_partition_size_or</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-max_partition_size_or" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-override">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-override">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">override</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-override" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-n1">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-n1">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">N1</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-n1" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-m1">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-m1">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">M1</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-m1" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-prea1">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-prea1">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">preA1</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-prea1" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-a1">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-a1">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">A1</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-a1" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-u1">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-u1">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">U1</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-u1" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-l1">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-l1">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">L1</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-l1" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-l1u1">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-l1u1">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">L1U1</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-l1u1" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-u1tu1">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-u1tu1">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">U1tU1</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-u1tu1" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-l1l1t">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-l1l1t">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">L1L1t</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-l1l1t" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-u1tl1t">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-u1tl1t">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">U1tL1t</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-u1tl1t" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-test11">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-test11">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">test11</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-test11" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-test12">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-test12">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">test12</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-test12" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-test13">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-test13">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">test13</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-test13" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-test14">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-test14">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">test14</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-test14" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-n2">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-n2">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">N2</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-n2" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-m2">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-m2">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">M2</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-m2" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-prea2">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-prea2">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">preA2</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-prea2" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-a2">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-a2">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">A2</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-a2" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-u2">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-u2">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">U2</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-u2" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-l2">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-l2">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">L2</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-l2" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-l2u2">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-l2u2">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">L2U2</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-l2u2" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-u2tu2">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-u2tu2">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">U2tU2</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-u2tu2" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-l2l2t">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-l2l2t">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">L2L2t</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-l2l2t" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-u2tl2t">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-u2tl2t">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">U2tL2t</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-u2tl2t" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-test21">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-test21">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">test21</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-test21" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-test22">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-test22">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">test22</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-test22" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-test23">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-test23">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">test23</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-test23" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-test24">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-test24">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">test24</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-test24" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-u3">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-u3">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">U3</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-u3" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-l3">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-l3">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">L3</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-l3" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-l3u3">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-l3u3">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">L3U3</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-l3u3" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-u3tu3">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-u3tu3">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">U3tU3</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-u3tu3" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-l3l3t">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-l3l3t">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">L3L3t</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-l3l3t" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-u3tl3t">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-u3tl3t">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">U3tL3t</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-u3tl3t" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-l3u3_1">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-l3u3_1">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">L3U3_1</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-l3u3_1" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-l3u3_2">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-l3u3_2">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">L3U3_2</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-l3u3_2" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-u3tu3_1">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-u3tu3_1">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">U3tU3_1</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-u3tu3_1" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-u3tu3_2">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-u3tu3_2">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">U3tU3_2</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-u3tu3_2" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-l3l3t_1">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-l3l3t_1">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">L3L3t_1</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-l3l3t_1" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-l3l3t_2">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-l3l3t_2">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">L3L3t_2</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-l3l3t_2" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-u3tl3t_1">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-u3tl3t_1">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">U3tL3t_1</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-u3tl3t_1" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-u3tl3t_2">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-u3tl3t_2">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">U3tL3t_2</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-u3tl3t_2" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-test31">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-test31">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">test31</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-test31" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-test32">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-test32">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">test32</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-test32" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-test33">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-test33">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">test33</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-test33" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-test34">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-test34">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">test34</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-test34" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-test35">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-test35">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">test35</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-test35" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-test36">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-test36">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">test36</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-test36" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-test37">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-test37">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">test37</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-test37" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-test38">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-test38">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">test38</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-test38" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-null">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-null">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">null</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-null" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-u4">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-u4">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">U4</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-u4" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-l4">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-l4">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">L4</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-l4" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-test41">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-test41">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">test41</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-test41" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-test42">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-test42">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">test42</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-test42" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-rslt">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-rslt">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">rslt</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-rslt" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-potrf">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-potrf">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">potrf</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-potrf" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						</ul>
+				</section>
+				<section id="ecldoc-section-desc">
+					<h3 class="page-header">DESCRIPTIONS</h3>
+					<div class="panel-group">
+						<div class="panel panel-info" id="dpbblas-test-layout_cell">
+							<div class="panel-heading">
+								<div class="type">
+									RECORD
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">Layout_Cell</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-layout_cell" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Layout for Matrix Cell Main representation of Matrix cell at interface to all PBBlas functions. Matrixes are represented as DATASET(Layout_Cell), where each cell describes the row and column position of the cell as well as its value. Only the non-zero cells need to be contained in the dataset in order to describe the matrix since all unspecified cells are considered to have a value of zero. The cell also contains a work-item number that allows multiple separate matrixes to be carried in the same dataset. This supports the "myriad" style interface that allows the same operations to be performed on many different sets of data at once. Note that these matrixes do not have an explicit size. They are sized implicitly, based on the maximum row and column presented in the data. A matrix can be converted to an explicit dense form (see matrix_t) by using the utility module MakeR8Set. This module should only be used for known small matrixes (< 1M cells) or for partitions of a larger matrix. The Converted module provides utility functions to convert to and from a set of partitions (See Layout_parts).
+									</div>
+								</div>
+								<br/>
+								
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Fields</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td width="20%"><b>wi_id</b> </td>
+												<td>Work Item Number -- An identifier from 1 to 64K-1 that separates and identifies individual matrixes</td>
+											</tr>
+											<tr>
+												<td width="20%"><b>x</b> </td>
+												<td>1-based row position within the matrix</td>
+											</tr>
+											<tr>
+												<td width="20%"><b>y</b> </td>
+												<td>1-based column position within the matrix</td>
+											</tr>
+											<tr>
+												<td width="20%"><b>v</b> </td>
+												<td>Real value for the cell</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								</div>
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-md-1">Also See</div>
+									<div class="col-md-11">
+										<ul>
+											<li><b>matrix_t</b></li>
+											<li><b>Std/PBblas/MakeR8Set.ecl</b></li>
+											<li><b>Std/PBblas/Converted.ecl WARNING: Used as C++ attribute. Do not change without corresponding changes to MakeR8Set.</b></li>
+											</ul>
+									</div>
+								</div>
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="decldoc-tri">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">tri</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-ecldoc-tri" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Enumeration for Triangle type WARNING: type used in C++ attribute
+									</div>
+								</div>
+								<br/>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-matrix_t">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">matrix_t</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-matrix_t" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-max_partition_size_or">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">max_partition_size_or</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-max_partition_size_or" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-override">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">override</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-override" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-n1">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">N1</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-n1" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-m1">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">M1</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-m1" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-prea1">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">preA1</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-prea1" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-a1">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">A1</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-a1" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Extended Parallel Block Matrix Multiplication Module Implements: Result <- alpha * op(A)op(B) + beta * C. op is No Transpose or Transpose. Multiplies two matrixes A and B, with an optional pre-multiply transpose for each Optionally scales the product by the scalar "alpha". Then adds an optional C matrix to the product after scaling C by the scalar "beta". A, B, and C are specified as DATASET(Layout_Cell), as is the Resulting matrix. Layout_Cell describes a sparse matrix stored as a list of x, y, and value. This interface also provides a "Myriad" capability allowing multiple similar operations to be performed on independent sets of matrixes in parallel. This is done by use of the work-item id (wi_id) in each cell of the matrixes. Cells with the same wi_id are considered part of the same matrix. In the myriad form, each input matrix A, B, and (optionally) C can contain many independent matrixes. The wi_ids are matched up such that each operation involves the A, B, and C with the same wi_id. A and B must therefore contain the same set of wi_ids, while C is optional for any wi_id. The same parameters: alpha, beta, transposeA, and transposeB are used for all work-items. The result will contain cells from all provided work-items. Result has same shape as C if provided. Note that matrixes are not explicitly dimensioned. The shape is determined by the highest value of x and y for each work-item.
+									</div>
+								</div>
+								<br/>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>transposeA</b> </td>
+												<td>Boolean indicating whether matrix A should be transposed before multiplying</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>transposeB</b> </td>
+												<td>Same as above but for matrix B</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>alpha</b> </td>
+												<td>Scalar multiplier for alpha * A * B</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>A_in</b> </td>
+												<td>'A' matrix (multiplier) in Layout_Cell format</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>B_in</b> </td>
+												<td>Same as above for the 'B' matrix (multiplicand)</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>C_in</b> </td>
+												<td>Same as above for the 'C' matrix (addend). May be omitted.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>beta</b> </td>
+												<td>A scalar multiplier for beta * C, scales the C matrix before addition. May be omitted.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>Result matrix in Layout_Cell format.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-md-1">Also See</div>
+									<div class="col-md-11">
+										<ul>
+											<li><b>PBblas/Types.Layout_Cell</b></li>
+											</ul>
+									</div>
+								</div>
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-u1">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">U1</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-u1" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Implements Cholesky factorization of A = U**T * U if Triangular.Upper requested or A = L * L**T if Triangualr.Lower is requested. The matrix A must be symmetric positive definite. | A11 A12 | | L11 0 | | L11**T L21**T | | A21 A22 | == | L21 L22 | * | 0 L22 | | L11*L11**T L11*L21**T | == | L21*L11**T L21*L21**T + L22*L22**T | So, use Cholesky on the first block to get L11. L21 = A21*L11**T**-1 which can be found by dtrsm on each column block A22' is A22 - L21*L21**T Based upon PB-BLAS: A set of parallel block basic linear algebra subprograms by Choi and Dongarra This module supports the "Myriad" style interface, allowing many independent problems to be worked on at once. The A matrix can contain multiple matrixes to be factored, indicated by different values for work-item id (wi_id). 
+									</div>
+								</div>
+								<br/>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>tri</b> </td>
+												<td>Types.Triangle enumeration indicating whether we are looking for the Upper or the Lower factor</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>A_in</b> </td>
+												<td>The matrix or matrixes to be factored in Types.Layout_Cell format</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>Triangular matrix in Layout_Cell format</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-md-1">Also See</div>
+									<div class="col-md-11">
+										<ul>
+											<li><b>Std.PBblas.Types.Layout_Cell</b></li>
+											<li><b>Std.PBblas.Types.Triangle</b></li>
+											</ul>
+									</div>
+								</div>
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-l1">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">L1</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-l1" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Implements Cholesky factorization of A = U**T * U if Triangular.Upper requested or A = L * L**T if Triangualr.Lower is requested. The matrix A must be symmetric positive definite. | A11 A12 | | L11 0 | | L11**T L21**T | | A21 A22 | == | L21 L22 | * | 0 L22 | | L11*L11**T L11*L21**T | == | L21*L11**T L21*L21**T + L22*L22**T | So, use Cholesky on the first block to get L11. L21 = A21*L11**T**-1 which can be found by dtrsm on each column block A22' is A22 - L21*L21**T Based upon PB-BLAS: A set of parallel block basic linear algebra subprograms by Choi and Dongarra This module supports the "Myriad" style interface, allowing many independent problems to be worked on at once. The A matrix can contain multiple matrixes to be factored, indicated by different values for work-item id (wi_id). 
+									</div>
+								</div>
+								<br/>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>tri</b> </td>
+												<td>Types.Triangle enumeration indicating whether we are looking for the Upper or the Lower factor</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>A_in</b> </td>
+												<td>The matrix or matrixes to be factored in Types.Layout_Cell format</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>Triangular matrix in Layout_Cell format</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-md-1">Also See</div>
+									<div class="col-md-11">
+										<ul>
+											<li><b>Std.PBblas.Types.Layout_Cell</b></li>
+											<li><b>Std.PBblas.Types.Triangle</b></li>
+											</ul>
+									</div>
+								</div>
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-l1u1">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">L1U1</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-l1u1" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Extended Parallel Block Matrix Multiplication Module Implements: Result <- alpha * op(A)op(B) + beta * C. op is No Transpose or Transpose. Multiplies two matrixes A and B, with an optional pre-multiply transpose for each Optionally scales the product by the scalar "alpha". Then adds an optional C matrix to the product after scaling C by the scalar "beta". A, B, and C are specified as DATASET(Layout_Cell), as is the Resulting matrix. Layout_Cell describes a sparse matrix stored as a list of x, y, and value. This interface also provides a "Myriad" capability allowing multiple similar operations to be performed on independent sets of matrixes in parallel. This is done by use of the work-item id (wi_id) in each cell of the matrixes. Cells with the same wi_id are considered part of the same matrix. In the myriad form, each input matrix A, B, and (optionally) C can contain many independent matrixes. The wi_ids are matched up such that each operation involves the A, B, and C with the same wi_id. A and B must therefore contain the same set of wi_ids, while C is optional for any wi_id. The same parameters: alpha, beta, transposeA, and transposeB are used for all work-items. The result will contain cells from all provided work-items. Result has same shape as C if provided. Note that matrixes are not explicitly dimensioned. The shape is determined by the highest value of x and y for each work-item.
+									</div>
+								</div>
+								<br/>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>transposeA</b> </td>
+												<td>Boolean indicating whether matrix A should be transposed before multiplying</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>transposeB</b> </td>
+												<td>Same as above but for matrix B</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>alpha</b> </td>
+												<td>Scalar multiplier for alpha * A * B</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>A_in</b> </td>
+												<td>'A' matrix (multiplier) in Layout_Cell format</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>B_in</b> </td>
+												<td>Same as above for the 'B' matrix (multiplicand)</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>C_in</b> </td>
+												<td>Same as above for the 'C' matrix (addend). May be omitted.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>beta</b> </td>
+												<td>A scalar multiplier for beta * C, scales the C matrix before addition. May be omitted.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>Result matrix in Layout_Cell format.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-md-1">Also See</div>
+									<div class="col-md-11">
+										<ul>
+											<li><b>PBblas/Types.Layout_Cell</b></li>
+											</ul>
+									</div>
+								</div>
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-u1tu1">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">U1tU1</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-u1tu1" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Extended Parallel Block Matrix Multiplication Module Implements: Result <- alpha * op(A)op(B) + beta * C. op is No Transpose or Transpose. Multiplies two matrixes A and B, with an optional pre-multiply transpose for each Optionally scales the product by the scalar "alpha". Then adds an optional C matrix to the product after scaling C by the scalar "beta". A, B, and C are specified as DATASET(Layout_Cell), as is the Resulting matrix. Layout_Cell describes a sparse matrix stored as a list of x, y, and value. This interface also provides a "Myriad" capability allowing multiple similar operations to be performed on independent sets of matrixes in parallel. This is done by use of the work-item id (wi_id) in each cell of the matrixes. Cells with the same wi_id are considered part of the same matrix. In the myriad form, each input matrix A, B, and (optionally) C can contain many independent matrixes. The wi_ids are matched up such that each operation involves the A, B, and C with the same wi_id. A and B must therefore contain the same set of wi_ids, while C is optional for any wi_id. The same parameters: alpha, beta, transposeA, and transposeB are used for all work-items. The result will contain cells from all provided work-items. Result has same shape as C if provided. Note that matrixes are not explicitly dimensioned. The shape is determined by the highest value of x and y for each work-item.
+									</div>
+								</div>
+								<br/>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>transposeA</b> </td>
+												<td>Boolean indicating whether matrix A should be transposed before multiplying</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>transposeB</b> </td>
+												<td>Same as above but for matrix B</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>alpha</b> </td>
+												<td>Scalar multiplier for alpha * A * B</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>A_in</b> </td>
+												<td>'A' matrix (multiplier) in Layout_Cell format</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>B_in</b> </td>
+												<td>Same as above for the 'B' matrix (multiplicand)</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>C_in</b> </td>
+												<td>Same as above for the 'C' matrix (addend). May be omitted.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>beta</b> </td>
+												<td>A scalar multiplier for beta * C, scales the C matrix before addition. May be omitted.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>Result matrix in Layout_Cell format.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-md-1">Also See</div>
+									<div class="col-md-11">
+										<ul>
+											<li><b>PBblas/Types.Layout_Cell</b></li>
+											</ul>
+									</div>
+								</div>
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-l1l1t">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">L1L1t</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-l1l1t" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Extended Parallel Block Matrix Multiplication Module Implements: Result <- alpha * op(A)op(B) + beta * C. op is No Transpose or Transpose. Multiplies two matrixes A and B, with an optional pre-multiply transpose for each Optionally scales the product by the scalar "alpha". Then adds an optional C matrix to the product after scaling C by the scalar "beta". A, B, and C are specified as DATASET(Layout_Cell), as is the Resulting matrix. Layout_Cell describes a sparse matrix stored as a list of x, y, and value. This interface also provides a "Myriad" capability allowing multiple similar operations to be performed on independent sets of matrixes in parallel. This is done by use of the work-item id (wi_id) in each cell of the matrixes. Cells with the same wi_id are considered part of the same matrix. In the myriad form, each input matrix A, B, and (optionally) C can contain many independent matrixes. The wi_ids are matched up such that each operation involves the A, B, and C with the same wi_id. A and B must therefore contain the same set of wi_ids, while C is optional for any wi_id. The same parameters: alpha, beta, transposeA, and transposeB are used for all work-items. The result will contain cells from all provided work-items. Result has same shape as C if provided. Note that matrixes are not explicitly dimensioned. The shape is determined by the highest value of x and y for each work-item.
+									</div>
+								</div>
+								<br/>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>transposeA</b> </td>
+												<td>Boolean indicating whether matrix A should be transposed before multiplying</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>transposeB</b> </td>
+												<td>Same as above but for matrix B</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>alpha</b> </td>
+												<td>Scalar multiplier for alpha * A * B</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>A_in</b> </td>
+												<td>'A' matrix (multiplier) in Layout_Cell format</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>B_in</b> </td>
+												<td>Same as above for the 'B' matrix (multiplicand)</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>C_in</b> </td>
+												<td>Same as above for the 'C' matrix (addend). May be omitted.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>beta</b> </td>
+												<td>A scalar multiplier for beta * C, scales the C matrix before addition. May be omitted.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>Result matrix in Layout_Cell format.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-md-1">Also See</div>
+									<div class="col-md-11">
+										<ul>
+											<li><b>PBblas/Types.Layout_Cell</b></li>
+											</ul>
+									</div>
+								</div>
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-u1tl1t">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">U1tL1t</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-u1tl1t" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Extended Parallel Block Matrix Multiplication Module Implements: Result <- alpha * op(A)op(B) + beta * C. op is No Transpose or Transpose. Multiplies two matrixes A and B, with an optional pre-multiply transpose for each Optionally scales the product by the scalar "alpha". Then adds an optional C matrix to the product after scaling C by the scalar "beta". A, B, and C are specified as DATASET(Layout_Cell), as is the Resulting matrix. Layout_Cell describes a sparse matrix stored as a list of x, y, and value. This interface also provides a "Myriad" capability allowing multiple similar operations to be performed on independent sets of matrixes in parallel. This is done by use of the work-item id (wi_id) in each cell of the matrixes. Cells with the same wi_id are considered part of the same matrix. In the myriad form, each input matrix A, B, and (optionally) C can contain many independent matrixes. The wi_ids are matched up such that each operation involves the A, B, and C with the same wi_id. A and B must therefore contain the same set of wi_ids, while C is optional for any wi_id. The same parameters: alpha, beta, transposeA, and transposeB are used for all work-items. The result will contain cells from all provided work-items. Result has same shape as C if provided. Note that matrixes are not explicitly dimensioned. The shape is determined by the highest value of x and y for each work-item.
+									</div>
+								</div>
+								<br/>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>transposeA</b> </td>
+												<td>Boolean indicating whether matrix A should be transposed before multiplying</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>transposeB</b> </td>
+												<td>Same as above but for matrix B</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>alpha</b> </td>
+												<td>Scalar multiplier for alpha * A * B</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>A_in</b> </td>
+												<td>'A' matrix (multiplier) in Layout_Cell format</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>B_in</b> </td>
+												<td>Same as above for the 'B' matrix (multiplicand)</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>C_in</b> </td>
+												<td>Same as above for the 'C' matrix (addend). May be omitted.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>beta</b> </td>
+												<td>A scalar multiplier for beta * C, scales the C matrix before addition. May be omitted.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>Result matrix in Layout_Cell format.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-md-1">Also See</div>
+									<div class="col-md-11">
+										<ul>
+											<li><b>PBblas/Types.Layout_Cell</b></li>
+											</ul>
+									</div>
+								</div>
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-test11">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">test11</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-test11" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-test12">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">test12</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-test12" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-test13">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">test13</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-test13" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-test14">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">test14</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-test14" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-n2">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">N2</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-n2" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-m2">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">M2</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-m2" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-prea2">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">preA2</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-prea2" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-a2">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">A2</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-a2" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Extended Parallel Block Matrix Multiplication Module Implements: Result <- alpha * op(A)op(B) + beta * C. op is No Transpose or Transpose. Multiplies two matrixes A and B, with an optional pre-multiply transpose for each Optionally scales the product by the scalar "alpha". Then adds an optional C matrix to the product after scaling C by the scalar "beta". A, B, and C are specified as DATASET(Layout_Cell), as is the Resulting matrix. Layout_Cell describes a sparse matrix stored as a list of x, y, and value. This interface also provides a "Myriad" capability allowing multiple similar operations to be performed on independent sets of matrixes in parallel. This is done by use of the work-item id (wi_id) in each cell of the matrixes. Cells with the same wi_id are considered part of the same matrix. In the myriad form, each input matrix A, B, and (optionally) C can contain many independent matrixes. The wi_ids are matched up such that each operation involves the A, B, and C with the same wi_id. A and B must therefore contain the same set of wi_ids, while C is optional for any wi_id. The same parameters: alpha, beta, transposeA, and transposeB are used for all work-items. The result will contain cells from all provided work-items. Result has same shape as C if provided. Note that matrixes are not explicitly dimensioned. The shape is determined by the highest value of x and y for each work-item.
+									</div>
+								</div>
+								<br/>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>transposeA</b> </td>
+												<td>Boolean indicating whether matrix A should be transposed before multiplying</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>transposeB</b> </td>
+												<td>Same as above but for matrix B</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>alpha</b> </td>
+												<td>Scalar multiplier for alpha * A * B</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>A_in</b> </td>
+												<td>'A' matrix (multiplier) in Layout_Cell format</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>B_in</b> </td>
+												<td>Same as above for the 'B' matrix (multiplicand)</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>C_in</b> </td>
+												<td>Same as above for the 'C' matrix (addend). May be omitted.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>beta</b> </td>
+												<td>A scalar multiplier for beta * C, scales the C matrix before addition. May be omitted.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>Result matrix in Layout_Cell format.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-md-1">Also See</div>
+									<div class="col-md-11">
+										<ul>
+											<li><b>PBblas/Types.Layout_Cell</b></li>
+											</ul>
+									</div>
+								</div>
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-u2">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">U2</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-u2" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Implements Cholesky factorization of A = U**T * U if Triangular.Upper requested or A = L * L**T if Triangualr.Lower is requested. The matrix A must be symmetric positive definite. | A11 A12 | | L11 0 | | L11**T L21**T | | A21 A22 | == | L21 L22 | * | 0 L22 | | L11*L11**T L11*L21**T | == | L21*L11**T L21*L21**T + L22*L22**T | So, use Cholesky on the first block to get L11. L21 = A21*L11**T**-1 which can be found by dtrsm on each column block A22' is A22 - L21*L21**T Based upon PB-BLAS: A set of parallel block basic linear algebra subprograms by Choi and Dongarra This module supports the "Myriad" style interface, allowing many independent problems to be worked on at once. The A matrix can contain multiple matrixes to be factored, indicated by different values for work-item id (wi_id). 
+									</div>
+								</div>
+								<br/>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>tri</b> </td>
+												<td>Types.Triangle enumeration indicating whether we are looking for the Upper or the Lower factor</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>A_in</b> </td>
+												<td>The matrix or matrixes to be factored in Types.Layout_Cell format</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>Triangular matrix in Layout_Cell format</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-md-1">Also See</div>
+									<div class="col-md-11">
+										<ul>
+											<li><b>Std.PBblas.Types.Layout_Cell</b></li>
+											<li><b>Std.PBblas.Types.Triangle</b></li>
+											</ul>
+									</div>
+								</div>
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-l2">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">L2</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-l2" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Implements Cholesky factorization of A = U**T * U if Triangular.Upper requested or A = L * L**T if Triangualr.Lower is requested. The matrix A must be symmetric positive definite. | A11 A12 | | L11 0 | | L11**T L21**T | | A21 A22 | == | L21 L22 | * | 0 L22 | | L11*L11**T L11*L21**T | == | L21*L11**T L21*L21**T + L22*L22**T | So, use Cholesky on the first block to get L11. L21 = A21*L11**T**-1 which can be found by dtrsm on each column block A22' is A22 - L21*L21**T Based upon PB-BLAS: A set of parallel block basic linear algebra subprograms by Choi and Dongarra This module supports the "Myriad" style interface, allowing many independent problems to be worked on at once. The A matrix can contain multiple matrixes to be factored, indicated by different values for work-item id (wi_id). 
+									</div>
+								</div>
+								<br/>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>tri</b> </td>
+												<td>Types.Triangle enumeration indicating whether we are looking for the Upper or the Lower factor</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>A_in</b> </td>
+												<td>The matrix or matrixes to be factored in Types.Layout_Cell format</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>Triangular matrix in Layout_Cell format</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-md-1">Also See</div>
+									<div class="col-md-11">
+										<ul>
+											<li><b>Std.PBblas.Types.Layout_Cell</b></li>
+											<li><b>Std.PBblas.Types.Triangle</b></li>
+											</ul>
+									</div>
+								</div>
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-l2u2">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">L2U2</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-l2u2" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Extended Parallel Block Matrix Multiplication Module Implements: Result <- alpha * op(A)op(B) + beta * C. op is No Transpose or Transpose. Multiplies two matrixes A and B, with an optional pre-multiply transpose for each Optionally scales the product by the scalar "alpha". Then adds an optional C matrix to the product after scaling C by the scalar "beta". A, B, and C are specified as DATASET(Layout_Cell), as is the Resulting matrix. Layout_Cell describes a sparse matrix stored as a list of x, y, and value. This interface also provides a "Myriad" capability allowing multiple similar operations to be performed on independent sets of matrixes in parallel. This is done by use of the work-item id (wi_id) in each cell of the matrixes. Cells with the same wi_id are considered part of the same matrix. In the myriad form, each input matrix A, B, and (optionally) C can contain many independent matrixes. The wi_ids are matched up such that each operation involves the A, B, and C with the same wi_id. A and B must therefore contain the same set of wi_ids, while C is optional for any wi_id. The same parameters: alpha, beta, transposeA, and transposeB are used for all work-items. The result will contain cells from all provided work-items. Result has same shape as C if provided. Note that matrixes are not explicitly dimensioned. The shape is determined by the highest value of x and y for each work-item.
+									</div>
+								</div>
+								<br/>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>transposeA</b> </td>
+												<td>Boolean indicating whether matrix A should be transposed before multiplying</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>transposeB</b> </td>
+												<td>Same as above but for matrix B</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>alpha</b> </td>
+												<td>Scalar multiplier for alpha * A * B</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>A_in</b> </td>
+												<td>'A' matrix (multiplier) in Layout_Cell format</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>B_in</b> </td>
+												<td>Same as above for the 'B' matrix (multiplicand)</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>C_in</b> </td>
+												<td>Same as above for the 'C' matrix (addend). May be omitted.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>beta</b> </td>
+												<td>A scalar multiplier for beta * C, scales the C matrix before addition. May be omitted.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>Result matrix in Layout_Cell format.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-md-1">Also See</div>
+									<div class="col-md-11">
+										<ul>
+											<li><b>PBblas/Types.Layout_Cell</b></li>
+											</ul>
+									</div>
+								</div>
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-u2tu2">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">U2tU2</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-u2tu2" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Extended Parallel Block Matrix Multiplication Module Implements: Result <- alpha * op(A)op(B) + beta * C. op is No Transpose or Transpose. Multiplies two matrixes A and B, with an optional pre-multiply transpose for each Optionally scales the product by the scalar "alpha". Then adds an optional C matrix to the product after scaling C by the scalar "beta". A, B, and C are specified as DATASET(Layout_Cell), as is the Resulting matrix. Layout_Cell describes a sparse matrix stored as a list of x, y, and value. This interface also provides a "Myriad" capability allowing multiple similar operations to be performed on independent sets of matrixes in parallel. This is done by use of the work-item id (wi_id) in each cell of the matrixes. Cells with the same wi_id are considered part of the same matrix. In the myriad form, each input matrix A, B, and (optionally) C can contain many independent matrixes. The wi_ids are matched up such that each operation involves the A, B, and C with the same wi_id. A and B must therefore contain the same set of wi_ids, while C is optional for any wi_id. The same parameters: alpha, beta, transposeA, and transposeB are used for all work-items. The result will contain cells from all provided work-items. Result has same shape as C if provided. Note that matrixes are not explicitly dimensioned. The shape is determined by the highest value of x and y for each work-item.
+									</div>
+								</div>
+								<br/>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>transposeA</b> </td>
+												<td>Boolean indicating whether matrix A should be transposed before multiplying</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>transposeB</b> </td>
+												<td>Same as above but for matrix B</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>alpha</b> </td>
+												<td>Scalar multiplier for alpha * A * B</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>A_in</b> </td>
+												<td>'A' matrix (multiplier) in Layout_Cell format</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>B_in</b> </td>
+												<td>Same as above for the 'B' matrix (multiplicand)</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>C_in</b> </td>
+												<td>Same as above for the 'C' matrix (addend). May be omitted.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>beta</b> </td>
+												<td>A scalar multiplier for beta * C, scales the C matrix before addition. May be omitted.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>Result matrix in Layout_Cell format.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-md-1">Also See</div>
+									<div class="col-md-11">
+										<ul>
+											<li><b>PBblas/Types.Layout_Cell</b></li>
+											</ul>
+									</div>
+								</div>
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-l2l2t">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">L2L2t</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-l2l2t" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Extended Parallel Block Matrix Multiplication Module Implements: Result <- alpha * op(A)op(B) + beta * C. op is No Transpose or Transpose. Multiplies two matrixes A and B, with an optional pre-multiply transpose for each Optionally scales the product by the scalar "alpha". Then adds an optional C matrix to the product after scaling C by the scalar "beta". A, B, and C are specified as DATASET(Layout_Cell), as is the Resulting matrix. Layout_Cell describes a sparse matrix stored as a list of x, y, and value. This interface also provides a "Myriad" capability allowing multiple similar operations to be performed on independent sets of matrixes in parallel. This is done by use of the work-item id (wi_id) in each cell of the matrixes. Cells with the same wi_id are considered part of the same matrix. In the myriad form, each input matrix A, B, and (optionally) C can contain many independent matrixes. The wi_ids are matched up such that each operation involves the A, B, and C with the same wi_id. A and B must therefore contain the same set of wi_ids, while C is optional for any wi_id. The same parameters: alpha, beta, transposeA, and transposeB are used for all work-items. The result will contain cells from all provided work-items. Result has same shape as C if provided. Note that matrixes are not explicitly dimensioned. The shape is determined by the highest value of x and y for each work-item.
+									</div>
+								</div>
+								<br/>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>transposeA</b> </td>
+												<td>Boolean indicating whether matrix A should be transposed before multiplying</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>transposeB</b> </td>
+												<td>Same as above but for matrix B</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>alpha</b> </td>
+												<td>Scalar multiplier for alpha * A * B</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>A_in</b> </td>
+												<td>'A' matrix (multiplier) in Layout_Cell format</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>B_in</b> </td>
+												<td>Same as above for the 'B' matrix (multiplicand)</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>C_in</b> </td>
+												<td>Same as above for the 'C' matrix (addend). May be omitted.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>beta</b> </td>
+												<td>A scalar multiplier for beta * C, scales the C matrix before addition. May be omitted.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>Result matrix in Layout_Cell format.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-md-1">Also See</div>
+									<div class="col-md-11">
+										<ul>
+											<li><b>PBblas/Types.Layout_Cell</b></li>
+											</ul>
+									</div>
+								</div>
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-u2tl2t">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">U2tL2t</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-u2tl2t" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Extended Parallel Block Matrix Multiplication Module Implements: Result <- alpha * op(A)op(B) + beta * C. op is No Transpose or Transpose. Multiplies two matrixes A and B, with an optional pre-multiply transpose for each Optionally scales the product by the scalar "alpha". Then adds an optional C matrix to the product after scaling C by the scalar "beta". A, B, and C are specified as DATASET(Layout_Cell), as is the Resulting matrix. Layout_Cell describes a sparse matrix stored as a list of x, y, and value. This interface also provides a "Myriad" capability allowing multiple similar operations to be performed on independent sets of matrixes in parallel. This is done by use of the work-item id (wi_id) in each cell of the matrixes. Cells with the same wi_id are considered part of the same matrix. In the myriad form, each input matrix A, B, and (optionally) C can contain many independent matrixes. The wi_ids are matched up such that each operation involves the A, B, and C with the same wi_id. A and B must therefore contain the same set of wi_ids, while C is optional for any wi_id. The same parameters: alpha, beta, transposeA, and transposeB are used for all work-items. The result will contain cells from all provided work-items. Result has same shape as C if provided. Note that matrixes are not explicitly dimensioned. The shape is determined by the highest value of x and y for each work-item.
+									</div>
+								</div>
+								<br/>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>transposeA</b> </td>
+												<td>Boolean indicating whether matrix A should be transposed before multiplying</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>transposeB</b> </td>
+												<td>Same as above but for matrix B</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>alpha</b> </td>
+												<td>Scalar multiplier for alpha * A * B</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>A_in</b> </td>
+												<td>'A' matrix (multiplier) in Layout_Cell format</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>B_in</b> </td>
+												<td>Same as above for the 'B' matrix (multiplicand)</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>C_in</b> </td>
+												<td>Same as above for the 'C' matrix (addend). May be omitted.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>beta</b> </td>
+												<td>A scalar multiplier for beta * C, scales the C matrix before addition. May be omitted.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>Result matrix in Layout_Cell format.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-md-1">Also See</div>
+									<div class="col-md-11">
+										<ul>
+											<li><b>PBblas/Types.Layout_Cell</b></li>
+											</ul>
+									</div>
+								</div>
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-test21">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">test21</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-test21" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-test22">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">test22</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-test22" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-test23">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">test23</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-test23" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-test24">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">test24</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-test24" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-u3">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">U3</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-u3" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Implements Cholesky factorization of A = U**T * U if Triangular.Upper requested or A = L * L**T if Triangualr.Lower is requested. The matrix A must be symmetric positive definite. | A11 A12 | | L11 0 | | L11**T L21**T | | A21 A22 | == | L21 L22 | * | 0 L22 | | L11*L11**T L11*L21**T | == | L21*L11**T L21*L21**T + L22*L22**T | So, use Cholesky on the first block to get L11. L21 = A21*L11**T**-1 which can be found by dtrsm on each column block A22' is A22 - L21*L21**T Based upon PB-BLAS: A set of parallel block basic linear algebra subprograms by Choi and Dongarra This module supports the "Myriad" style interface, allowing many independent problems to be worked on at once. The A matrix can contain multiple matrixes to be factored, indicated by different values for work-item id (wi_id). 
+									</div>
+								</div>
+								<br/>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>tri</b> </td>
+												<td>Types.Triangle enumeration indicating whether we are looking for the Upper or the Lower factor</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>A_in</b> </td>
+												<td>The matrix or matrixes to be factored in Types.Layout_Cell format</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>Triangular matrix in Layout_Cell format</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-md-1">Also See</div>
+									<div class="col-md-11">
+										<ul>
+											<li><b>Std.PBblas.Types.Layout_Cell</b></li>
+											<li><b>Std.PBblas.Types.Triangle</b></li>
+											</ul>
+									</div>
+								</div>
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-l3">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">L3</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-l3" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Implements Cholesky factorization of A = U**T * U if Triangular.Upper requested or A = L * L**T if Triangualr.Lower is requested. The matrix A must be symmetric positive definite. | A11 A12 | | L11 0 | | L11**T L21**T | | A21 A22 | == | L21 L22 | * | 0 L22 | | L11*L11**T L11*L21**T | == | L21*L11**T L21*L21**T + L22*L22**T | So, use Cholesky on the first block to get L11. L21 = A21*L11**T**-1 which can be found by dtrsm on each column block A22' is A22 - L21*L21**T Based upon PB-BLAS: A set of parallel block basic linear algebra subprograms by Choi and Dongarra This module supports the "Myriad" style interface, allowing many independent problems to be worked on at once. The A matrix can contain multiple matrixes to be factored, indicated by different values for work-item id (wi_id). 
+									</div>
+								</div>
+								<br/>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>tri</b> </td>
+												<td>Types.Triangle enumeration indicating whether we are looking for the Upper or the Lower factor</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>A_in</b> </td>
+												<td>The matrix or matrixes to be factored in Types.Layout_Cell format</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>Triangular matrix in Layout_Cell format</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-md-1">Also See</div>
+									<div class="col-md-11">
+										<ul>
+											<li><b>Std.PBblas.Types.Layout_Cell</b></li>
+											<li><b>Std.PBblas.Types.Triangle</b></li>
+											</ul>
+									</div>
+								</div>
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-l3u3">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">L3U3</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-l3u3" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Extended Parallel Block Matrix Multiplication Module Implements: Result <- alpha * op(A)op(B) + beta * C. op is No Transpose or Transpose. Multiplies two matrixes A and B, with an optional pre-multiply transpose for each Optionally scales the product by the scalar "alpha". Then adds an optional C matrix to the product after scaling C by the scalar "beta". A, B, and C are specified as DATASET(Layout_Cell), as is the Resulting matrix. Layout_Cell describes a sparse matrix stored as a list of x, y, and value. This interface also provides a "Myriad" capability allowing multiple similar operations to be performed on independent sets of matrixes in parallel. This is done by use of the work-item id (wi_id) in each cell of the matrixes. Cells with the same wi_id are considered part of the same matrix. In the myriad form, each input matrix A, B, and (optionally) C can contain many independent matrixes. The wi_ids are matched up such that each operation involves the A, B, and C with the same wi_id. A and B must therefore contain the same set of wi_ids, while C is optional for any wi_id. The same parameters: alpha, beta, transposeA, and transposeB are used for all work-items. The result will contain cells from all provided work-items. Result has same shape as C if provided. Note that matrixes are not explicitly dimensioned. The shape is determined by the highest value of x and y for each work-item.
+									</div>
+								</div>
+								<br/>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>transposeA</b> </td>
+												<td>Boolean indicating whether matrix A should be transposed before multiplying</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>transposeB</b> </td>
+												<td>Same as above but for matrix B</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>alpha</b> </td>
+												<td>Scalar multiplier for alpha * A * B</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>A_in</b> </td>
+												<td>'A' matrix (multiplier) in Layout_Cell format</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>B_in</b> </td>
+												<td>Same as above for the 'B' matrix (multiplicand)</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>C_in</b> </td>
+												<td>Same as above for the 'C' matrix (addend). May be omitted.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>beta</b> </td>
+												<td>A scalar multiplier for beta * C, scales the C matrix before addition. May be omitted.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>Result matrix in Layout_Cell format.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-md-1">Also See</div>
+									<div class="col-md-11">
+										<ul>
+											<li><b>PBblas/Types.Layout_Cell</b></li>
+											</ul>
+									</div>
+								</div>
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-u3tu3">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">U3tU3</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-u3tu3" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Extended Parallel Block Matrix Multiplication Module Implements: Result <- alpha * op(A)op(B) + beta * C. op is No Transpose or Transpose. Multiplies two matrixes A and B, with an optional pre-multiply transpose for each Optionally scales the product by the scalar "alpha". Then adds an optional C matrix to the product after scaling C by the scalar "beta". A, B, and C are specified as DATASET(Layout_Cell), as is the Resulting matrix. Layout_Cell describes a sparse matrix stored as a list of x, y, and value. This interface also provides a "Myriad" capability allowing multiple similar operations to be performed on independent sets of matrixes in parallel. This is done by use of the work-item id (wi_id) in each cell of the matrixes. Cells with the same wi_id are considered part of the same matrix. In the myriad form, each input matrix A, B, and (optionally) C can contain many independent matrixes. The wi_ids are matched up such that each operation involves the A, B, and C with the same wi_id. A and B must therefore contain the same set of wi_ids, while C is optional for any wi_id. The same parameters: alpha, beta, transposeA, and transposeB are used for all work-items. The result will contain cells from all provided work-items. Result has same shape as C if provided. Note that matrixes are not explicitly dimensioned. The shape is determined by the highest value of x and y for each work-item.
+									</div>
+								</div>
+								<br/>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>transposeA</b> </td>
+												<td>Boolean indicating whether matrix A should be transposed before multiplying</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>transposeB</b> </td>
+												<td>Same as above but for matrix B</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>alpha</b> </td>
+												<td>Scalar multiplier for alpha * A * B</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>A_in</b> </td>
+												<td>'A' matrix (multiplier) in Layout_Cell format</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>B_in</b> </td>
+												<td>Same as above for the 'B' matrix (multiplicand)</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>C_in</b> </td>
+												<td>Same as above for the 'C' matrix (addend). May be omitted.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>beta</b> </td>
+												<td>A scalar multiplier for beta * C, scales the C matrix before addition. May be omitted.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>Result matrix in Layout_Cell format.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-md-1">Also See</div>
+									<div class="col-md-11">
+										<ul>
+											<li><b>PBblas/Types.Layout_Cell</b></li>
+											</ul>
+									</div>
+								</div>
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-l3l3t">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">L3L3t</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-l3l3t" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Extended Parallel Block Matrix Multiplication Module Implements: Result <- alpha * op(A)op(B) + beta * C. op is No Transpose or Transpose. Multiplies two matrixes A and B, with an optional pre-multiply transpose for each Optionally scales the product by the scalar "alpha". Then adds an optional C matrix to the product after scaling C by the scalar "beta". A, B, and C are specified as DATASET(Layout_Cell), as is the Resulting matrix. Layout_Cell describes a sparse matrix stored as a list of x, y, and value. This interface also provides a "Myriad" capability allowing multiple similar operations to be performed on independent sets of matrixes in parallel. This is done by use of the work-item id (wi_id) in each cell of the matrixes. Cells with the same wi_id are considered part of the same matrix. In the myriad form, each input matrix A, B, and (optionally) C can contain many independent matrixes. The wi_ids are matched up such that each operation involves the A, B, and C with the same wi_id. A and B must therefore contain the same set of wi_ids, while C is optional for any wi_id. The same parameters: alpha, beta, transposeA, and transposeB are used for all work-items. The result will contain cells from all provided work-items. Result has same shape as C if provided. Note that matrixes are not explicitly dimensioned. The shape is determined by the highest value of x and y for each work-item.
+									</div>
+								</div>
+								<br/>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>transposeA</b> </td>
+												<td>Boolean indicating whether matrix A should be transposed before multiplying</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>transposeB</b> </td>
+												<td>Same as above but for matrix B</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>alpha</b> </td>
+												<td>Scalar multiplier for alpha * A * B</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>A_in</b> </td>
+												<td>'A' matrix (multiplier) in Layout_Cell format</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>B_in</b> </td>
+												<td>Same as above for the 'B' matrix (multiplicand)</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>C_in</b> </td>
+												<td>Same as above for the 'C' matrix (addend). May be omitted.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>beta</b> </td>
+												<td>A scalar multiplier for beta * C, scales the C matrix before addition. May be omitted.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>Result matrix in Layout_Cell format.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-md-1">Also See</div>
+									<div class="col-md-11">
+										<ul>
+											<li><b>PBblas/Types.Layout_Cell</b></li>
+											</ul>
+									</div>
+								</div>
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-u3tl3t">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">U3tL3t</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-u3tl3t" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Extended Parallel Block Matrix Multiplication Module Implements: Result <- alpha * op(A)op(B) + beta * C. op is No Transpose or Transpose. Multiplies two matrixes A and B, with an optional pre-multiply transpose for each Optionally scales the product by the scalar "alpha". Then adds an optional C matrix to the product after scaling C by the scalar "beta". A, B, and C are specified as DATASET(Layout_Cell), as is the Resulting matrix. Layout_Cell describes a sparse matrix stored as a list of x, y, and value. This interface also provides a "Myriad" capability allowing multiple similar operations to be performed on independent sets of matrixes in parallel. This is done by use of the work-item id (wi_id) in each cell of the matrixes. Cells with the same wi_id are considered part of the same matrix. In the myriad form, each input matrix A, B, and (optionally) C can contain many independent matrixes. The wi_ids are matched up such that each operation involves the A, B, and C with the same wi_id. A and B must therefore contain the same set of wi_ids, while C is optional for any wi_id. The same parameters: alpha, beta, transposeA, and transposeB are used for all work-items. The result will contain cells from all provided work-items. Result has same shape as C if provided. Note that matrixes are not explicitly dimensioned. The shape is determined by the highest value of x and y for each work-item.
+									</div>
+								</div>
+								<br/>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>transposeA</b> </td>
+												<td>Boolean indicating whether matrix A should be transposed before multiplying</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>transposeB</b> </td>
+												<td>Same as above but for matrix B</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>alpha</b> </td>
+												<td>Scalar multiplier for alpha * A * B</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>A_in</b> </td>
+												<td>'A' matrix (multiplier) in Layout_Cell format</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>B_in</b> </td>
+												<td>Same as above for the 'B' matrix (multiplicand)</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>C_in</b> </td>
+												<td>Same as above for the 'C' matrix (addend). May be omitted.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>beta</b> </td>
+												<td>A scalar multiplier for beta * C, scales the C matrix before addition. May be omitted.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>Result matrix in Layout_Cell format.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-md-1">Also See</div>
+									<div class="col-md-11">
+										<ul>
+											<li><b>PBblas/Types.Layout_Cell</b></li>
+											</ul>
+									</div>
+								</div>
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-l3u3_1">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">L3U3_1</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-l3u3_1" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-l3u3_2">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">L3U3_2</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-l3u3_2" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-u3tu3_1">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">U3tU3_1</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-u3tu3_1" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-u3tu3_2">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">U3tU3_2</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-u3tu3_2" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-l3l3t_1">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">L3L3t_1</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-l3l3t_1" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-l3l3t_2">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">L3L3t_2</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-l3l3t_2" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-u3tl3t_1">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">U3tL3t_1</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-u3tl3t_1" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-u3tl3t_2">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">U3tL3t_2</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-u3tl3t_2" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-test31">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">test31</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-test31" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-test32">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">test32</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-test32" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-test33">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">test33</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-test33" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-test34">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">test34</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-test34" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-test35">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">test35</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-test35" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-test36">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">test36</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-test36" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-test37">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">test37</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-test37" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-test38">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">test38</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-test38" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-null">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">null</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-null" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-u4">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">U4</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-u4" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Implements Cholesky factorization of A = U**T * U if Triangular.Upper requested or A = L * L**T if Triangualr.Lower is requested. The matrix A must be symmetric positive definite. | A11 A12 | | L11 0 | | L11**T L21**T | | A21 A22 | == | L21 L22 | * | 0 L22 | | L11*L11**T L11*L21**T | == | L21*L11**T L21*L21**T + L22*L22**T | So, use Cholesky on the first block to get L11. L21 = A21*L11**T**-1 which can be found by dtrsm on each column block A22' is A22 - L21*L21**T Based upon PB-BLAS: A set of parallel block basic linear algebra subprograms by Choi and Dongarra This module supports the "Myriad" style interface, allowing many independent problems to be worked on at once. The A matrix can contain multiple matrixes to be factored, indicated by different values for work-item id (wi_id). 
+									</div>
+								</div>
+								<br/>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>tri</b> </td>
+												<td>Types.Triangle enumeration indicating whether we are looking for the Upper or the Lower factor</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>A_in</b> </td>
+												<td>The matrix or matrixes to be factored in Types.Layout_Cell format</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>Triangular matrix in Layout_Cell format</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-md-1">Also See</div>
+									<div class="col-md-11">
+										<ul>
+											<li><b>Std.PBblas.Types.Layout_Cell</b></li>
+											<li><b>Std.PBblas.Types.Triangle</b></li>
+											</ul>
+									</div>
+								</div>
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-l4">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">L4</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-l4" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Implements Cholesky factorization of A = U**T * U if Triangular.Upper requested or A = L * L**T if Triangualr.Lower is requested. The matrix A must be symmetric positive definite. | A11 A12 | | L11 0 | | L11**T L21**T | | A21 A22 | == | L21 L22 | * | 0 L22 | | L11*L11**T L11*L21**T | == | L21*L11**T L21*L21**T + L22*L22**T | So, use Cholesky on the first block to get L11. L21 = A21*L11**T**-1 which can be found by dtrsm on each column block A22' is A22 - L21*L21**T Based upon PB-BLAS: A set of parallel block basic linear algebra subprograms by Choi and Dongarra This module supports the "Myriad" style interface, allowing many independent problems to be worked on at once. The A matrix can contain multiple matrixes to be factored, indicated by different values for work-item id (wi_id). 
+									</div>
+								</div>
+								<br/>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>tri</b> </td>
+												<td>Types.Triangle enumeration indicating whether we are looking for the Upper or the Lower factor</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>A_in</b> </td>
+												<td>The matrix or matrixes to be factored in Types.Layout_Cell format</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>Triangular matrix in Layout_Cell format</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-md-1">Also See</div>
+									<div class="col-md-11">
+										<ul>
+											<li><b>Std.PBblas.Types.Layout_Cell</b></li>
+											<li><b>Std.PBblas.Types.Triangle</b></li>
+											</ul>
+									</div>
+								</div>
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-test41">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">test41</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-test41" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-test42">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">test42</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-test42" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-rslt">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">rslt</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-rslt" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-potrf">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">potrf</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-potrf" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						</div>
+				</section>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+		$("#menu-toggle").click(function(e) {
+			e.preventDefault();
+			$("#wrapper").toggleClass("toggled");
+		});
+	</script>
+	<script>
+		$(document).ready(function(){
+			$('.tree-link').click(function(e) {
+				var loc = $(this).attr('href');
+				$(loc).parents().collapse('show');
+				return true;
+			});
+		});
+	</script>
+</body>
+</html>

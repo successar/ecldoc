@@ -1,0 +1,219 @@
+<Meta>
+ <Source name="LogisticRegression.Distributions" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Distributions.ecl">
+  <Definition body="151"
+              end="13981"
+              exported="1"
+              fullname="LogisticRegression.Distributions"
+              inherit_type="local"
+              line="5"
+              name="Distributions"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Distributions.ecl"
+              start="128">
+   <Type>module</Type>
+   <Definition body="597"
+               end="1071"
+               exported="1"
+               fullname="logisticregression.distributions.normal_cdf"
+               inherit_type="local"
+               line="15"
+               name="Normal_CDF"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Distributions.ecl"
+               start="562">
+    <Type>function</Type>
+    <Documentation>
+     <content>Cumulative Distribution of the standard normal distribution, the probability that a normal random variable will be smaller than x standard deviations above or below the mean. Taken from C/C++ Mathematical Algorithms for Scientists and Engineers, n. Shammas, McGraw-Hill, 1995</content>
+     <returns>probability of exceeding x.</returns>
+     <param>x the number of standard deviations</param>
+    </Documentation>
+    <Params>
+     <Param name="x"/>
+    </Params>
+   </Definition>
+   <Definition body="1374"
+               end="2008"
+               exported="1"
+               fullname="logisticregression.distributions.normal_ppf"
+               inherit_type="local"
+               line="40"
+               name="Normal_PPF"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Distributions.ecl"
+               start="1339">
+    <Type>function</Type>
+    <Documentation>
+     <content>Normal Distribution Percentage Point Function. Translated from C/C++ Mathematical Algorithms for Scientists and Engineers, N. Shammas, McGraw-Hill, 1995</content>
+     <returns>number of standard deviations from the mean</returns>
+     <param>x probability</param>
+    </Documentation>
+    <Params>
+     <Param name="x"/>
+    </Params>
+   </Definition>
+   <Definition body="2801"
+               end="4681"
+               exported="1"
+               fullname="logisticregression.distributions.t_cdf"
+               inherit_type="local"
+               line="83"
+               name="T_CDF"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Distributions.ecl"
+               start="2761">
+    <Type>function</Type>
+    <Documentation>
+     <content>Students t distribution integral evaluated between negative infinity and x. Translated from NIST SEL DATAPAC Fortran TCDF.f source</content>
+     <returns>the probability that a value will be less than the specified value</returns>
+     <param>x value of the evaluation</param>
+     <param>df degrees of freedom</param>
+    </Documentation>
+    <Params>
+     <Param name="x"/>
+     <Param name="df"/>
+    </Params>
+   </Definition>
+   <Definition body="6884"
+               end="8701"
+               exported="1"
+               fullname="logisticregression.distributions.t_ppf"
+               inherit_type="local"
+               line="212"
+               name="T_PPF"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Distributions.ecl"
+               start="6844">
+    <Type>function</Type>
+    <Documentation>
+     <content>Percentage point function for the T distribution. Translated from NIST SEL DATAPAC Fortran TPPF.f source</content>
+    </Documentation>
+    <Params>
+     <Param name="x"/>
+     <Param name="df"/>
+    </Params>
+   </Definition>
+   <Definition body="9470"
+               end="11413"
+               exported="1"
+               fullname="logisticregression.distributions.chi2_cdf"
+               inherit_type="local"
+               line="290"
+               name="Chi2_CDF"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Distributions.ecl"
+               start="9427">
+    <Type>function</Type>
+    <Documentation>
+     <content>The cumulative distribution function for the Chi Square distribution. the CDF for the specfied degrees of freedom. Translated from the NIST SEL DATAPAC Fortran subroutine CHSCDF.</content>
+    </Documentation>
+    <Params>
+     <Param name="x"/>
+     <Param name="df"/>
+    </Params>
+   </Definition>
+   <Definition body="13680"
+               end="13976"
+               exported="1"
+               fullname="logisticregression.distributions.chi2_ppf"
+               inherit_type="local"
+               line="399"
+               name="Chi2_PPF"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Distributions.ecl"
+               start="13637">
+    <Type>function</Type>
+    <Documentation>
+     <content>The Chi Squared PPF function. Translated from the NIST SEL DATAPAC Fortran subroutine CHSPPF.</content>
+    </Documentation>
+    <Params>
+     <Param name="x"/>
+     <Param name="df"/>
+    </Params>
+   </Definition>
+   <Parents/>
+  </Definition>
+  <Import body="0"
+          end="65"
+          fullname="ML_Core.Constants"
+          inherit_type="local"
+          line="2"
+          name="Core_Const"
+          ref="ML_Core.Constants"
+          start="65">
+   <Type>attribute</Type>
+   <Documentation>
+    <content>Useful constants</content>
+   </Documentation>
+  </Import>
+  <Import body="0"
+          end="105"
+          fullname="ML_Core.Math"
+          inherit_type="local"
+          line="3"
+          name="Math"
+          ref="ML_Core.Math"
+          remotescope="1"
+          start="105">
+   <Type>attribute</Type>
+  </Import>
+ </Source>
+ <Source name="ML_Core.Constants" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Constants.ecl">
+  <Definition body="47"
+              end="224"
+              exported="1"
+              fullname="ML_Core.Constants"
+              inherit_type="local"
+              line="4"
+              name="Constants"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Constants.ecl"
+              start="28">
+   <Type>module</Type>
+   <Parents/>
+   <Definition body="98"
+               end="127"
+               exported="1"
+               fullname="ml_core.constants.pi"
+               inherit_type="local"
+               line="8"
+               name="Pi"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Constants.ecl"
+               start="86">
+    <Type>attribute</Type>
+    <Documentation>
+     <content>Constant PI</content>
+    </Documentation>
+   </Definition>
+   <Definition body="189"
+               end="218"
+               exported="1"
+               fullname="ml_core.constants.root_2"
+               inherit_type="local"
+               line="12"
+               name="Root_2"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Constants.ecl"
+               start="173">
+    <Type>attribute</Type>
+    <Documentation>
+     <content>Constant square root of 2</content>
+    </Documentation>
+   </Definition>
+   <Documentation>
+    <content>Useful constants</content>
+   </Documentation>
+  </Definition>
+ </Source>
+ <Source name="ML_Core.Math.DoubleFac" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Math/DoubleFac.ecl">
+  <Definition body="474"
+              end="642"
+              exported="1"
+              fullname="ml_core.math.doublefac"
+              inherit_type="local"
+              line="11"
+              name="DoubleFac"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Math/DoubleFac.ecl"
+              start="437">
+   <Type>embed</Type>
+   <Documentation>
+    <content>The &apos;double&apos; factorial is defined for ODD n and is the product of all the odd numbers up to and including that number. We are extending the meaning to even numbers to mean the product of the even numbers up to and including that number. Thus DoubleFac(8) = 8*6*4*2 We also defend against i &lt; 2 (returning 1.0)</content>
+    <return>the factorial of the sequence, declining by 2</return>
+    <param>i the value used in the calculation</param>
+   </Documentation>
+   <Params>
+    <Param name="i"/>
+   </Params>
+  </Definition>
+ </Source>
+</Meta>

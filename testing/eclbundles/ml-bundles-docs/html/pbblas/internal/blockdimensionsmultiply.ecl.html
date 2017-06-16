@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
+	<title>PBblas.internal.BlockDimensionsMultiply</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
+	<link href="../../../css/simple-sidebar.css" rel="stylesheet">
+
+</head>
+
+<body>
+	<nav class="navbar topbar">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a href="#menu-toggle" id="menu-toggle" class="navbar-brand glyphicon glyphicon-menu-hamburger ham"></a>
+			</div>
+			<div class="navbar-header" style="margin-left: 20px;">
+				<span class="navbar-brand">PBblas.internal.BlockDimensionsMultiply</span>
+			</div>
+			<div class="navbar-collapse collapse">
+			<ul class="nav navbar-nav">
+				<li><a href="#ecldoc-section-import" class="topbar">Imports</a></li>
+				<li><a href="#ecldoc-section-tree" class="topbar">Tree</a></li>
+				<li><a href="#ecldoc-section-desc" class="topbar">Descriptions</a></li>
+			</ul>
+			</div>
+		</div>
+	</nav>
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		<div id="sidebar-wrapper">
+			<ul class="sidebar-nav">
+				<li class="sidebar-brand">
+					<a href="pkg.toc.html">
+						Up
+					</a>
+				</li>
+				
+				<li>
+					<a href="blockdimensionssolve.ecl.html">blockdimensionssolve.ecl</a>
+				</li>
+				
+				<li>
+					<a href="fromr8set.ecl.html">fromr8set.ecl</a>
+				</li>
+				
+				<li>
+					<a href="blockdimensions.ecl.html">blockdimensions.ecl</a>
+				</li>
+				
+				<li>
+					<a href="matdims.ecl.html">matdims.ecl</a>
+				</li>
+				
+				<li>
+					<a href="converted.ecl.html">converted.ecl</a>
+				</li>
+				
+				<li>
+					<a href="blockdimensionsmultiply.ecl.html">blockdimensionsmultiply.ecl</a>
+				</li>
+				
+				<li>
+					<a href="maker8set.ecl.html">maker8set.ecl</a>
+				</li>
+				
+				<li>
+					<a href="types.ecl.html">types.ecl</a>
+				</li>
+				
+			</ul>
+		</div>
+
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<section id="ecldoc-section-import">
+					<h3 class="page-header">IMPORTS</h3>
+					<ul class="pagination">
+						<li>
+							<a href="../pkg.toc.html">
+								pbblas
+							</a>
+							</li>
+						<li>
+							<a href="pkg.toc.html">
+								pbblas.internal
+							</a>
+							</li>
+						<li>
+							<a href="../types.ecl.html">
+								pbblas.types
+							</a>
+							</li>
+						<li>
+							<a href="types.ecl.html">
+								pbblas.internal.types
+							</a>
+							</li>
+						</ul>
+				</section>
+				<section id="ecldoc-section-tree">
+					<h3 class="page-header">DEFINITION TREE</h3>
+					<ul class="tree">
+						<li id="t-pbblas-internal-dimension_t">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-internal-dimension_t">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">dimension_t</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-internal-dimension_t" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-internal-blockdimensionsmultiply">
+							
+							<a href="#pbblas-internal-blockdimensionsmultiply" data-toggle="collapse" class="glyphicon glyphicon-folder-open" style="margin-right: 6px;"></a>
+							
+							<a href="#dpbblas-internal-blockdimensionsmultiply">
+								MODULE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">BlockDimensionsMultiply(dimension_t N, dimension_t M, dimension_t P, 
+	  max_part_size_or=0, nodes_or=0)</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-internal-blockdimensionsmultiply" class="accordian-body tree collapse">
+								<li id="t-pbblas-internal-blockdimensionsmultiply-max_part_size">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-internal-blockdimensionsmultiply-max_part_size">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">max_part_size</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-internal-blockdimensionsmultiply-max_part_size" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-internal-blockdimensionsmultiply-a_cells">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-internal-blockdimensionsmultiply-a_cells">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">a_cells</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-internal-blockdimensionsmultiply-a_cells" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-internal-blockdimensionsmultiply-b_cells">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-internal-blockdimensionsmultiply-b_cells">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">b_cells</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-internal-blockdimensionsmultiply-b_cells" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-internal-blockdimensionsmultiply-c_cells">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-internal-blockdimensionsmultiply-c_cells">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">c_cells</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-internal-blockdimensionsmultiply-c_cells" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-internal-blockdimensionsmultiply-min_cells">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-internal-blockdimensionsmultiply-min_cells">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">min_cells</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-internal-blockdimensionsmultiply-min_cells" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-internal-blockdimensionsmultiply-max_cells">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-internal-blockdimensionsmultiply-max_cells">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">max_cells</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-internal-blockdimensionsmultiply-max_cells" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-internal-blockdimensionsmultiply-a_first">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-internal-blockdimensionsmultiply-a_first">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">SET OF dimension_t A_first</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-internal-blockdimensionsmultiply-a_first" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-internal-blockdimensionsmultiply-b_first">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-internal-blockdimensionsmultiply-b_first">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">SET OF dimension_t B_first</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-internal-blockdimensionsmultiply-b_first" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-internal-blockdimensionsmultiply-c_first">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-internal-blockdimensionsmultiply-c_first">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">SET OF dimension_t C_first</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-internal-blockdimensionsmultiply-c_first" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-internal-blockdimensionsmultiply-solution">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-internal-blockdimensionsmultiply-solution">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">solution</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-internal-blockdimensionsmultiply-solution" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-internal-blockdimensionsmultiply-pn">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-internal-blockdimensionsmultiply-pn">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">PN</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-internal-blockdimensionsmultiply-pn" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-internal-blockdimensionsmultiply-pm">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-internal-blockdimensionsmultiply-pm">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">PM</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-internal-blockdimensionsmultiply-pm" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-internal-blockdimensionsmultiply-pp">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-internal-blockdimensionsmultiply-pp">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">PP</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-internal-blockdimensionsmultiply-pp" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-internal-blockdimensionsmultiply-ablockrows">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-internal-blockdimensionsmultiply-ablockrows">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">AblockRows</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-internal-blockdimensionsmultiply-ablockrows" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-internal-blockdimensionsmultiply-ablockcols">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-internal-blockdimensionsmultiply-ablockcols">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">AblockCols</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-internal-blockdimensionsmultiply-ablockcols" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-internal-blockdimensionsmultiply-bblockcols">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-internal-blockdimensionsmultiply-bblockcols">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">BblockCols</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-internal-blockdimensionsmultiply-bblockcols" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-internal-blockdimensionsmultiply-partitioning">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-internal-blockdimensionsmultiply-partitioning">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">iTypes.PartitionType Partitioning</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-internal-blockdimensionsmultiply-partitioning" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						
+							</ul>
+						</li>
+						</ul>
+				</section>
+				<section id="ecldoc-section-desc">
+					<h3 class="page-header">DESCRIPTIONS</h3>
+					<div class="panel-group">
+						<div class="panel panel-info" id="dpbblas-internal-dimension_t">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">dimension_t</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-internal-dimension_t" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-internal-blockdimensionsmultiply">
+							<div class="panel-heading">
+								<div class="type">
+									MODULE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">BlockDimensionsMultiply(dimension_t N, dimension_t M, dimension_t P, 
+	  max_part_size_or=0, nodes_or=0)</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-internal-blockdimensionsmultiply" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Auto-Partitioning for Multiply operations Given an input of N, M, and P, describing the dimensions of A (N x M), B (M x P), and C (N x P) matrixes, calculate the optimal square (d x d), row (d x 1), or column (1 x d) partition matrix dimensions: PN, PM, and PP, representing the dimensions of the three partition matrixes for A, B, and C respectively (P(A): PN x PM, P(B): PM x PP, P(C): PN x PP). Each of the partition matrixes is subject to the following constraints: 1) Cells per partition <= 1,000,000 2) Partitions should not be empty: At least one row and column in each partition 3) The number of partitions should be a multiple of the number of nodes 4) Partition size as large as possible Note: These constraints are in priority order. (1) should always be met. Others are best effort. Note: This module is used internally to PBblas, and should not be needed by users of PBblas
+									</div>
+								</div>
+								<br/>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>N</b> </td>
+												<td>The Row dimension of the A matrix (multiplier) and the C (addend) and Result matrixes</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>M</b> </td>
+												<td>The Column dimension of the A matrix and the Row dimension of the B matrix (multiplicand)</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>P</b> </td>
+												<td>The Column dimension of the B matrix and of the C and Result matrixes</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>max_part_size_or</b> </td>
+												<td>Overrides the largest allowed partition size. For advanced use only.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>nodes_or</b> </td>
+												<td>For testing only. Overrides the number of nodes in the cluster. Should never be used in production.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-md-1">Also See</div>
+									<div class="col-md-11">
+										<ul>
+											<li><b>Std/PBblas/BlockDimensions</b></li>
+											</ul>
+									</div>
+								</div>
+								</div>
+						</div>
+						<div class="panel panel-info" id="dpbblas-internal-blockdimensionsmultiply-max_part_size">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">max_part_size</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-internal-blockdimensionsmultiply-max_part_size" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-internal-blockdimensionsmultiply-a_cells">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">a_cells</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-internal-blockdimensionsmultiply-a_cells" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-internal-blockdimensionsmultiply-b_cells">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">b_cells</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-internal-blockdimensionsmultiply-b_cells" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-internal-blockdimensionsmultiply-c_cells">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">c_cells</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-internal-blockdimensionsmultiply-c_cells" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-internal-blockdimensionsmultiply-min_cells">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">min_cells</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-internal-blockdimensionsmultiply-min_cells" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-internal-blockdimensionsmultiply-max_cells">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">max_cells</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-internal-blockdimensionsmultiply-max_cells" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-internal-blockdimensionsmultiply-a_first">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">SET OF dimension_t A_first</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-internal-blockdimensionsmultiply-a_first" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-internal-blockdimensionsmultiply-b_first">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">SET OF dimension_t B_first</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-internal-blockdimensionsmultiply-b_first" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-internal-blockdimensionsmultiply-c_first">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">SET OF dimension_t C_first</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-internal-blockdimensionsmultiply-c_first" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-internal-blockdimensionsmultiply-solution">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">solution</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-internal-blockdimensionsmultiply-solution" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-internal-blockdimensionsmultiply-pn">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">PN</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-internal-blockdimensionsmultiply-pn" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										The row dimension of A's partition matrix and of the C and result partition matrixes
+									</div>
+								</div>
+								<br/>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-internal-blockdimensionsmultiply-pm">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">PM</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-internal-blockdimensionsmultiply-pm" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										The column dimension of A's partition matrix and the row dimension of B's partition matrix
+									</div>
+								</div>
+								<br/>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-internal-blockdimensionsmultiply-pp">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">PP</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-internal-blockdimensionsmultiply-pp" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										The column dimension of B's partition matrix and of the C and result partition matrixes
+									</div>
+								</div>
+								<br/>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-internal-blockdimensionsmultiply-ablockrows">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">AblockRows</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-internal-blockdimensionsmultiply-ablockrows" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										The number of rows in each partition of A, C and result matrixes
+									</div>
+								</div>
+								<br/>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-internal-blockdimensionsmultiply-ablockcols">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">AblockCols</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-internal-blockdimensionsmultiply-ablockcols" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										The number of columns in each partition of A, and the number of rows in each partition of B matrix
+									</div>
+								</div>
+								<br/>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-internal-blockdimensionsmultiply-bblockcols">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">BblockCols</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-internal-blockdimensionsmultiply-bblockcols" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										The number of columns in each partition of B, C, and result matrixes
+									</div>
+								</div>
+								<br/>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-internal-blockdimensionsmultiply-partitioning">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">iTypes.PartitionType Partitioning</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-internal-blockdimensionsmultiply-partitioning" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										The type of partitioning used. See Types.PartitionType
+									</div>
+								</div>
+								<br/>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-md-1">Also See</div>
+									<div class="col-md-11">
+										<ul>
+											<li><b>Std/PBblas/Types.ecl</b></li>
+											</ul>
+									</div>
+								</div>
+								</div>
+						</div>
+						
+						
+						</div>
+				</section>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+		$("#menu-toggle").click(function(e) {
+			e.preventDefault();
+			$("#wrapper").toggleClass("toggled");
+		});
+	</script>
+	<script>
+		$(document).ready(function(){
+			$('.tree-link').click(function(e) {
+				var loc = $(this).attr('href');
+				$(loc).parents().collapse('show');
+				return true;
+			});
+		});
+	</script>
+</body>
+</html>

@@ -11,18 +11,18 @@
     <Field name="name"/>
     <Field name="size"/>
     <Field name="modified"/>
-    <Signature pre="" post="" name="FSFILENAMERECORD">FsFilenameRecord</Signature><Documentation> <content>A record containing information about filename. Includes name, size and when last modified. export FsFilenameRecord := RECORD string name; integer8 size; string19 modified; END;</content>
+    <Signature pre="" post="" name="FsFilenameRecord">FsFilenameRecord</Signature><Documentation> <content>A record containing information about filename. Includes name, size and when last modified. export FsFilenameRecord := RECORD string name; integer8 size; string19 modified; END;</content>
     </Documentation>
    </Definition>
    <Definition body="788" end="824" exported="1" fullname="file.fslogicalfilename" inherit_type="local" line="25" name="FsLogicalFileName" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl" start="761">
     <Type>attribute</Type>
-    <Signature pre="" post="" name="FSLOGICALFILENAME">FsLogicalFileName</Signature><Documentation> <content>An alias for a logical filename that is stored in a row.</content>
+    <Signature pre="" post="" name="FsLogicalFileName">FsLogicalFileName</Signature><Documentation> <content>An alias for a logical filename that is stored in a row.</content>
     </Documentation>
    </Definition>
    <Definition body="1002" end="1044" exported="1" fullname="file.fslogicalfilenamerecord" inherit_type="local" line="33" name="FsLogicalFileNameRecord" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl" start="969">
     <Type>record</Type>
     <Field name="name"/>
-    <Signature pre="" post="" name="FSLOGICALFILENAMERECORD">FsLogicalFileNameRecord</Signature><Documentation> <field><name>name</name><desc>The logical name of the file;</desc></field>
+    <Signature pre="" post="" name="FsLogicalFileNameRecord">FsLogicalFileNameRecord</Signature><Documentation> <field><name>name</name><desc>The logical name of the file;</desc></field>
      <content>A record containing a logical filename. It contains the following fields:</content>
     </Documentation>
    </Definition>
@@ -35,7 +35,7 @@
     <Field name="modified"/>
     <Field name="owner"/>
     <Field name="cluster"/>
-    <Signature pre="" post="" name="FSLOGICALFILEINFORECORD">FsLogicalFileInfoRecord</Signature><Documentation> <inherits>Contains all the fields in FsLogicalFileNameRecord)</inherits>
+    <Signature pre="" post="" name="FsLogicalFileInfoRecord">FsLogicalFileInfoRecord</Signature><Documentation> <inherits>Contains all the fields in FsLogicalFileNameRecord)</inherits>
      <content>A record containing information about a logical file.</content>
      <field><name>superfile</name><desc>Is this a superfile?</desc></field>
      <field><name>size</name><desc>Number of bytes in the file (before compression)</desc></field>
@@ -49,7 +49,7 @@
     <Type>record</Type>
     <Field name="supername"/>
     <Field name="subname"/>
-    <Signature pre="" post="" name="FSLOGICALSUPERSUBRECORD">FsLogicalSuperSubRecord</Signature><Documentation> <field><name>supername</name><desc>The name of the superfile</desc></field>
+    <Signature pre="" post="" name="FsLogicalSuperSubRecord">FsLogicalSuperSubRecord</Signature><Documentation> <field><name>supername</name><desc>The name of the superfile</desc></field>
      <field><name>subname</name><desc>The name of the sub-file</desc></field>
      <content>A record containing information about a superfile and its contents.</content>
     </Documentation>
@@ -64,7 +64,7 @@
     <Field name="cardinality"/>
     <Field name="payload"/>
     <Field name="description"/>
-    <Signature pre="" post="" name="FSFILERELATIONSHIPRECORD">FsFileRelationshipRecord</Signature><Documentation> <field><name>primaryfile</name><desc>The logical filename of the primary file</desc></field>
+    <Signature pre="" post="" name="FsFileRelationshipRecord">FsFileRelationshipRecord</Signature><Documentation> <field><name>primaryfile</name><desc>The logical filename of the primary file</desc></field>
      <field><name>secondaryfile</name><desc>The logical filename of the secondary file.</desc></field>
      <field><name>primaryflds</name><desc>The name of the primary key field for the primary file. The value "__fileposition__" indicates the secondary is an INDEX that must use FETCH to access non-keyed fields.</desc></field>
      <field><name>secondaryflds</name><desc>The name of the foreign key field relating to the primary file.</desc></field>
@@ -87,12 +87,12 @@
    </Definition>
    <Definition body="3500" end="3542" exported="1" fullname="file.prefix_variable_recsize" inherit_type="local" line="92" name="PREFIX_VARIABLE_RECSIZE" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl" start="3458">
     <Type>attribute</Type>
-    <Signature pre="INTEGER4" post="" name="PREFIX_VARIABLE_RECSIZE">INTEGER4 PREFIX_VARIABLE_RECSIZE</Signature><Documentation> <content>Constant that indicates a variable little endian 4 byte length prefixed file. Can be passed to SprayFixed for the record size.</content>
+    <Signature pre="" post="" name="INTEGER4 PREFIX_VARIABLE_RECSIZE">INTEGER4 PREFIX_VARIABLE_RECSIZE</Signature><Documentation> <content>Constant that indicates a variable little endian 4 byte length prefixed file. Can be passed to SprayFixed for the record size.</content>
     </Documentation>
    </Definition>
    <Definition body="3733" end="3785" exported="1" fullname="file.prefix_variable_bigendian_recsize" inherit_type="local" line="98" name="PREFIX_VARIABLE_BIGENDIAN_RECSIZE" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl" start="3681">
     <Type>attribute</Type>
-    <Signature pre="INTEGER4" post="" name="PREFIX_VARIABLE_BIGENDIAN_RECSIZE">INTEGER4 PREFIX_VARIABLE_BIGENDIAN_RECSIZE</Signature><Documentation> <content>Constant that indicates a variable big endian 4 byte length prefixed file. Can be passed to SprayFixed for the record size.</content>
+    <Signature pre="" post="" name="INTEGER4 PREFIX_VARIABLE_BIGENDIAN_RECSIZE">INTEGER4 PREFIX_VARIABLE_BIGENDIAN_RECSIZE</Signature><Documentation> <content>Constant that indicates a variable big endian 4 byte length prefixed file. Can be passed to SprayFixed for the record size.</content>
     </Documentation>
    </Definition>
    <Definition body="4226" end="4287" exported="1" fullname="file.fileexists" inherit_type="local" line="110" name="FileExists" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl" start="4159">
@@ -102,7 +102,7 @@
      <param><name>lfn</name><desc>The logical name of the file.</desc></param>
      <param><name>physical</name><desc>Whether to also check for the physical existence on disk. Defaults to FALSE.</desc></param>
     </Documentation>
-    <Signature pre="boolean" post="(varstring lfn, boolean physical=FALSE)" name="FILEEXISTS">boolean FileExists(varstring lfn, boolean physical=FALSE)</Signature><Params>
+    <Signature pre="" post="" name="boolean FileExists(varstring lfn, boolean physical=FALSE)">boolean FileExists(varstring lfn, boolean physical=FALSE)</Signature><Params>
      <Param name="lfn"/>
      <Param name="physical"/>
     </Params>
@@ -113,7 +113,7 @@
      <param><name>lfn</name><desc>The logical name of the file.</desc></param>
      <param><name>allowMissing</name><desc>Whether to suppress an error if the filename does not exist. Defaults to FALSE.</desc></param>
     </Documentation>
-    <Signature pre="" post="(varstring lfn, boolean allowMissing=FALSE)" name="DELETELOGICALFILE">DeleteLogicalFile(varstring lfn, boolean allowMissing=FALSE)</Signature><Params>
+    <Signature pre="" post="" name="DeleteLogicalFile(varstring lfn, boolean allowMissing=FALSE)">DeleteLogicalFile(varstring lfn, boolean allowMissing=FALSE)</Signature><Params>
      <Param name="lfn"/>
      <Param name="allowMissing"/>
     </Params>
@@ -124,7 +124,7 @@
      <param><name>lfn</name><desc>The logical name of the file.</desc></param>
      <param><name>ro</name><desc>Whether updates to the file are disallowed. Defaults to TRUE.</desc></param>
     </Documentation>
-    <Signature pre="" post="(varstring lfn, boolean ro=TRUE)" name="SETREADONLY">SetReadOnly(varstring lfn, boolean ro=TRUE)</Signature><Params>
+    <Signature pre="" post="" name="SetReadOnly(varstring lfn, boolean ro=TRUE)">SetReadOnly(varstring lfn, boolean ro=TRUE)</Signature><Params>
      <Param name="lfn"/>
      <Param name="ro"/>
     </Params>
@@ -135,7 +135,7 @@
      <param><name>oldname</name><desc>The current name of the file to be renamed.</desc></param>
      <param><name>newname</name><desc>The new logical name of the file.</desc></param>
     </Documentation>
-    <Signature pre="" post="(varstring oldname, varstring newname)" name="RENAMELOGICALFILE">RenameLogicalFile(varstring oldname, varstring newname)</Signature><Params>
+    <Signature pre="" post="" name="RenameLogicalFile(varstring oldname, varstring newname)">RenameLogicalFile(varstring oldname, varstring newname)</Signature><Params>
      <Param name="oldname"/>
      <Param name="newname"/>
     </Params>
@@ -147,7 +147,7 @@
      <param><name>foreigndali</name><desc>The IP address of the foreign dali used to resolve the file. If blank then the file is resolved locally. Defaults to blank.</desc></param>
      <param><name>abspath</name><desc>Should a tilde (~) be prepended to the resulting logical file name. Defaults to FALSE.</desc></param>
     </Documentation>
-    <Signature pre="varstring" post="(varstring name, varstring foreigndali='', boolean abspath=FALSE)" name="FOREIGNLOGICALFILENAME">varstring ForeignLogicalFileName(varstring name, varstring foreigndali='', boolean abspath=FALSE)</Signature><Params>
+    <Signature pre="" post="" name="varstring ForeignLogicalFileName(varstring name, varstring foreigndali='', boolean abspath=FALSE)">varstring ForeignLogicalFileName(varstring name, varstring foreigndali='', boolean abspath=FALSE)</Signature><Params>
      <Param name="name"/>
      <Param name="foreigndali"/>
      <Param name="abspath"/>
@@ -161,7 +161,7 @@
      <param><name>path</name><desc>The path/name of the file on the remote machine.</desc></param>
      <param><name>abspath</name><desc>Should a tilde (~) be prepended to the resulting logical file name. Defaults to TRUE.</desc></param>
     </Documentation>
-    <Signature pre="varstring" post="(varstring location, varstring path, boolean abspath=TRUE)" name="EXTERNALLOGICALFILENAME">varstring ExternalLogicalFileName(varstring location, varstring path, boolean abspath=TRUE)</Signature><Params>
+    <Signature pre="" post="" name="varstring ExternalLogicalFileName(varstring location, varstring path, boolean abspath=TRUE)">varstring ExternalLogicalFileName(varstring location, varstring path, boolean abspath=TRUE)</Signature><Params>
      <Param name="location"/>
      <Param name="path"/>
      <Param name="abspath"/>
@@ -172,7 +172,7 @@
     <Documentation> <content>Returns a string containing the description information associated with the specified filename. This description is set either through ECL watch or by using the FileServices.SetFileDescription function.</content>
      <param><name>lfn</name><desc>The logical name of the file.</desc></param>
     </Documentation>
-    <Signature pre="varstring" post="(varstring lfn)" name="GETFILEDESCRIPTION">varstring GetFileDescription(varstring lfn)</Signature><Params>
+    <Signature pre="" post="" name="varstring GetFileDescription(varstring lfn)">varstring GetFileDescription(varstring lfn)</Signature><Params>
      <Param name="lfn"/>
     </Params>
    </Definition>
@@ -182,7 +182,7 @@
      <param><name>lfn</name><desc>The logical name of the file.</desc></param>
      <param><name>val</name><desc>The description to be associated with the file.</desc></param>
     </Documentation>
-    <Signature pre="" post="(varstring lfn, varstring val)" name="SETFILEDESCRIPTION">SetFileDescription(varstring lfn, varstring val)</Signature><Params>
+    <Signature pre="" post="" name="SetFileDescription(varstring lfn, varstring val)">SetFileDescription(varstring lfn, varstring val)</Signature><Params>
      <Param name="lfn"/>
      <Param name="val"/>
     </Params>
@@ -195,7 +195,7 @@
      <param><name>mask</name><desc>The filemask specifying which files to include in the result. Defaults to '*' (all files).</desc></param>
      <param><name>recurse</name><desc>Whether to include files from subdirectories under the directory. Defaults to FALSE.</desc></param>
     </Documentation>
-    <Signature pre="dataset(FsFilenameRecord)" post="(varstring machineIP, varstring dir, varstring mask='*', boolean recurse=FALSE)" name="REMOTEDIRECTORY">dataset(FsFilenameRecord) RemoteDirectory(varstring machineIP, varstring dir, varstring mask='*', boolean recurse=FALSE)</Signature><Params>
+    <Signature pre="" post="" name="dataset(FsFilenameRecord) RemoteDirectory(varstring machineIP, varstring dir, varstring mask='*', boolean recurse=FALSE)">dataset(FsFilenameRecord) RemoteDirectory(varstring machineIP, varstring dir, varstring mask='*', boolean recurse=FALSE)</Signature><Params>
      <Param name="machineIP"/>
      <Param name="dir"/>
      <Param name="mask"/>
@@ -211,7 +211,7 @@
      <param><name>unknownszero</name><desc>Whether to set file sizes that are unknown to zero(0) instead of minus-one (-1). Defaults to FALSE.</desc></param>
      <param><name>foreigndali</name><desc>The IP address of the foreign dali used to resolve the file. If blank then the file is resolved locally. Defaults to blank.</desc></param>
     </Documentation>
-    <Signature pre="dataset(FsLogicalFileInfoRecord)" post="(varstring namepattern='*', boolean includenormal=TRUE, boolean includesuper=FALSE, boolean unknownszero=FALSE, varstring foreigndali='')" name="LOGICALFILELIST">dataset(FsLogicalFileInfoRecord) LogicalFileList(varstring namepattern='*', boolean includenormal=TRUE, boolean includesuper=FALSE, boolean unknownszero=FALSE, varstring foreigndali='')</Signature><Params>
+    <Signature pre="" post="" name="dataset(FsLogicalFileInfoRecord) LogicalFileList(varstring namepattern='*', boolean includenormal=TRUE, boolean includesuper=FALSE, boolean unknownszero=FALSE, varstring foreigndali='')">dataset(FsLogicalFileInfoRecord) LogicalFileList(varstring namepattern='*', boolean includenormal=TRUE, boolean includesuper=FALSE, boolean unknownszero=FALSE, varstring foreigndali='')</Signature><Params>
      <Param name="namepattern"/>
      <Param name="includenormal"/>
      <Param name="includesuper"/>
@@ -228,7 +228,7 @@
      <param><name>logical_only</name><desc>Whether to only compare logical information in the system datastore (Dali), and ignore physical information on disk. [Default TRUE]</desc></param>
      <param><name>use_crcs</name><desc>Whether to compare physical CRCs of all the parts on disk. This may be slow on large files. Defaults to FALSE.</desc></param>
     </Documentation>
-    <Signature pre="INTEGER4" post="(varstring lfn1, varstring lfn2, boolean logical_only=TRUE, boolean use_crcs=FALSE)" name="COMPAREFILES">INTEGER4 CompareFiles(varstring lfn1, varstring lfn2, boolean logical_only=TRUE, boolean use_crcs=FALSE)</Signature><Params>
+    <Signature pre="" post="" name="INTEGER4 CompareFiles(varstring lfn1, varstring lfn2, boolean logical_only=TRUE, boolean use_crcs=FALSE)">INTEGER4 CompareFiles(varstring lfn1, varstring lfn2, boolean logical_only=TRUE, boolean use_crcs=FALSE)</Signature><Params>
      <Param name="lfn1"/>
      <Param name="lfn2"/>
      <Param name="logical_only"/>
@@ -242,7 +242,7 @@
      <param><name>lfn</name><desc>The name of the file to check.</desc></param>
      <param><name>use_crcs</name><desc>Whether to compare physical CRCs of all the parts on disk. This may be slow on large files.</desc></param>
     </Documentation>
-    <Signature pre="varstring" post="(varstring lfn, boolean usecrcs)" name="VERIFYFILE">varstring VerifyFile(varstring lfn, boolean usecrcs)</Signature><Params>
+    <Signature pre="" post="" name="varstring VerifyFile(varstring lfn, boolean usecrcs)">varstring VerifyFile(varstring lfn, boolean usecrcs)</Signature><Params>
      <Param name="lfn"/>
      <Param name="usecrcs"/>
     </Params>
@@ -259,7 +259,7 @@
      <param><name>payload</name><desc>Indicates whether the primary or secondary are payload INDEXes.</desc></param>
      <param><name>description</name><desc>The description of the relationship.</desc></param>
     </Documentation>
-    <Signature pre="" post="(varstring primary, varstring secondary, varstring primaryflds,  varstring secondaryflds, varstring kind='link', varstring cardinality, boolean payload, varstring description='')" name="ADDFILERELATIONSHIP">AddFileRelationship(varstring primary, varstring secondary, varstring primaryflds,  varstring secondaryflds, varstring kind='link', varstring cardinality, boolean payload, varstring description='')</Signature><Params>
+    <Signature pre="" post="" name="AddFileRelationship(varstring primary, varstring secondary, varstring primaryflds,  varstring secondaryflds, varstring kind='link', varstring cardinality, boolean payload, varstring description='')">AddFileRelationship(varstring primary, varstring secondary, varstring primaryflds,  varstring secondaryflds, varstring kind='link', varstring cardinality, boolean payload, varstring description='')</Signature><Params>
      <Param name="primary"/>
      <Param name="secondary"/>
      <Param name="primaryflds"/>
@@ -279,7 +279,7 @@
      <param><name>secondaryfields</name><desc>The name of the foreign key field relating to the primary file.</desc></param>
      <param><name>relationship</name><desc>The type of relationship between the primary and secondary files. Containing either 'link' or 'view'. Default is "link".</desc></param>
     </Documentation>
-    <Signature pre="dataset(FsFileRelationshipRecord)" post="(varstring primary, varstring secondary, varstring primflds='', varstring secondaryflds='',  varstring kind='link')" name="FILERELATIONSHIPLIST">dataset(FsFileRelationshipRecord) FileRelationshipList(varstring primary, varstring secondary, varstring primflds='', varstring secondaryflds='',  varstring kind='link')</Signature><Params>
+    <Signature pre="" post="" name="dataset(FsFileRelationshipRecord) FileRelationshipList(varstring primary, varstring secondary, varstring primflds='', varstring secondaryflds='',  varstring kind='link')">dataset(FsFileRelationshipRecord) FileRelationshipList(varstring primary, varstring secondary, varstring primflds='', varstring secondaryflds='',  varstring kind='link')</Signature><Params>
      <Param name="primary"/>
      <Param name="secondary"/>
      <Param name="primflds"/>
@@ -296,7 +296,7 @@
      <param><name>secondaryfields</name><desc>The name of the foreign key field relating to the primary file.</desc></param>
      <param><name>relationship</name><desc>The type of relationship between the primary and secondary files. Containing either 'link' or 'view'. Default is "link".</desc></param>
     </Documentation>
-    <Signature pre="" post="(varstring primary,  varstring secondary, varstring primaryflds='', varstring secondaryflds='',  varstring kind='link')" name="REMOVEFILERELATIONSHIP">RemoveFileRelationship(varstring primary,  varstring secondary, varstring primaryflds='', varstring secondaryflds='',  varstring kind='link')</Signature><Params>
+    <Signature pre="" post="" name="RemoveFileRelationship(varstring primary,  varstring secondary, varstring primaryflds='', varstring secondaryflds='',  varstring kind='link')">RemoveFileRelationship(varstring primary,  varstring secondary, varstring primaryflds='', varstring secondaryflds='',  varstring kind='link')</Signature><Params>
      <Param name="primary"/>
      <Param name="secondary"/>
      <Param name="primaryflds"/>
@@ -309,7 +309,7 @@
     <Documentation> <content>Returns the field mappings for the file, in the same format specified for the SetColumnMapping function.</content>
      <param><name>lfn</name><desc>The logical filename of the primary file.</desc></param>
     </Documentation>
-    <Signature pre="varstring" post="(varstring lfn)" name="GETCOLUMNMAPPING">varstring GetColumnMapping(varstring lfn)</Signature><Params>
+    <Signature pre="" post="" name="varstring GetColumnMapping(varstring lfn)">varstring GetColumnMapping(varstring lfn)</Signature><Params>
      <Param name="lfn"/>
     </Params>
    </Definition>
@@ -319,7 +319,7 @@
      <param><name>lfn</name><desc>The logical filename of the primary file.</desc></param>
      <param><name>mapping</name><desc>A string containing a comma separated list of field mappings.</desc></param>
     </Documentation>
-    <Signature pre="" post="(varstring lfn, varstring mapping)" name="SETCOLUMNMAPPING">SetColumnMapping(varstring lfn, varstring mapping)</Signature><Params>
+    <Signature pre="" post="" name="SetColumnMapping(varstring lfn, varstring mapping)">SetColumnMapping(varstring lfn, varstring mapping)</Signature><Params>
      <Param name="lfn"/>
      <Param name="mapping"/>
     </Params>
@@ -330,7 +330,7 @@
      <param><name>server</name><desc>A string containing the ip:port address for the remote file server.</desc></param>
      <param><name>query</name><desc>The text of the query to send to the server</desc></param>
     </Documentation>
-    <Signature pre="varstring" post="(varstring server, varstring query)" name="ENCODERFSQUERY">varstring EncodeRfsQuery(varstring server, varstring query)</Signature><Params>
+    <Signature pre="" post="" name="varstring EncodeRfsQuery(varstring server, varstring query)">varstring EncodeRfsQuery(varstring server, varstring query)</Signature><Params>
      <Param name="server"/>
      <Param name="query"/>
     </Params>
@@ -341,7 +341,7 @@
      <param><name>server</name><desc>A string containing the ip:port address for the remote file server.</desc></param>
      <param><name>query</name><desc>The text of the query to send to the server</desc></param>
     </Documentation>
-    <Signature pre="" post="(varstring server, varstring query)" name="RFSACTION">RfsAction(varstring server, varstring query)</Signature><Params>
+    <Signature pre="" post="" name="RfsAction(varstring server, varstring query)">RfsAction(varstring server, varstring query)</Signature><Params>
      <Param name="server"/>
      <Param name="query"/>
     </Params>
@@ -353,7 +353,7 @@
      <param><name>frompath</name><desc>The path/name of the file to move.</desc></param>
      <param><name>topath</name><desc>The path/name of the target file.</desc></param>
     </Documentation>
-    <Signature pre="" post="(varstring location, varstring frompath, varstring topath)" name="MOVEEXTERNALFILE">MoveExternalFile(varstring location, varstring frompath, varstring topath)</Signature><Params>
+    <Signature pre="" post="" name="MoveExternalFile(varstring location, varstring frompath, varstring topath)">MoveExternalFile(varstring location, varstring frompath, varstring topath)</Signature><Params>
      <Param name="location"/>
      <Param name="frompath"/>
      <Param name="topath"/>
@@ -365,7 +365,7 @@
      <param><name>location</name><desc>The IP address of the remote machine.</desc></param>
      <param><name>path</name><desc>The path/name of the file to remove.</desc></param>
     </Documentation>
-    <Signature pre="" post="(varstring location, varstring path)" name="DELETEEXTERNALFILE">DeleteExternalFile(varstring location, varstring path)</Signature><Params>
+    <Signature pre="" post="" name="DeleteExternalFile(varstring location, varstring path)">DeleteExternalFile(varstring location, varstring path)</Signature><Params>
      <Param name="location"/>
      <Param name="path"/>
     </Params>
@@ -376,7 +376,7 @@
      <param><name>location</name><desc>The IP address of the remote machine.</desc></param>
      <param><name>path</name><desc>The path/name of the file to remove.</desc></param>
     </Documentation>
-    <Signature pre="" post="(varstring location, varstring path)" name="CREATEEXTERNALDIRECTORY">CreateExternalDirectory(varstring location, varstring path)</Signature><Params>
+    <Signature pre="" post="" name="CreateExternalDirectory(varstring location, varstring path)">CreateExternalDirectory(varstring location, varstring path)</Signature><Params>
      <Param name="location"/>
      <Param name="path"/>
     </Params>
@@ -387,7 +387,7 @@
      <param><name>lfn</name><desc>The name of the logical file.</desc></param>
      <param><name>attrname</name><desc>The name of the file attribute to return.</desc></param>
     </Documentation>
-    <Signature pre="varstring" post="(varstring lfn, varstring attrname)" name="GETLOGICALFILEATTRIBUTE">varstring GetLogicalFileAttribute(varstring lfn, varstring attrname)</Signature><Params>
+    <Signature pre="" post="" name="varstring GetLogicalFileAttribute(varstring lfn, varstring attrname)">varstring GetLogicalFileAttribute(varstring lfn, varstring attrname)</Signature><Params>
      <Param name="lfn"/>
      <Param name="attrname"/>
     </Params>
@@ -398,7 +398,7 @@
      <param><name>lfn</name><desc>The name of the logical file.</desc></param>
      <param><name>value</name><desc>TRUE to enable protection, FALSE to disable.</desc></param>
     </Documentation>
-    <Signature pre="" post="(varstring lfn, boolean value=TRUE)" name="PROTECTLOGICALFILE">ProtectLogicalFile(varstring lfn, boolean value=TRUE)</Signature><Params>
+    <Signature pre="" post="" name="ProtectLogicalFile(varstring lfn, boolean value=TRUE)">ProtectLogicalFile(varstring lfn, boolean value=TRUE)</Signature><Params>
      <Param name="lfn"/>
      <Param name="value"/>
     </Params>
@@ -407,7 +407,7 @@
     <Type>function</Type>
     <Documentation> <content>The DfuPlusExec action executes the specified command line just as the DfuPLus.exe program would do. This allows you to have all the functionality of the DfuPLus.exe program available within your ECL code. param cmdline The DFUPlus.exe command line to execute. The valid arguments are documented in the Client Tools manual, in the section describing the DfuPlus.exe program.</content>
     </Documentation>
-    <Signature pre="" post="(varstring cmdline)" name="DFUPLUSEXEC">DfuPlusExec(varstring cmdline)</Signature><Params>
+    <Signature pre="" post="" name="DfuPlusExec(varstring cmdline)">DfuPlusExec(varstring cmdline)</Signature><Params>
      <Param name="cmdline"/>
     </Params>
    </Definition>
@@ -429,7 +429,7 @@
      <param><name>failIfNoSourceFile</name><desc>If TRUE it causes a missing source file to trigger a failure. Defaults to FALSE.</desc></param>
      <param><name>expireDays</name><desc>Number of days to auto-remove file. Default is -1, not expire.</desc></param>
     </Documentation>
-    <Signature pre="varstring" post="(varstring sourceIP, varstring sourcePath, integer4 recordSize, varstring destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, boolean failIfNoSourceFile=FALSE, integer4 expireDays=-1)" name="FSPRAYFIXED">varstring fSprayFixed(varstring sourceIP, varstring sourcePath, integer4 recordSize, varstring destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, boolean failIfNoSourceFile=FALSE, integer4 expireDays=-1)</Signature><Params>
+    <Signature pre="" post="" name="varstring fSprayFixed(varstring sourceIP, varstring sourcePath, integer4 recordSize, varstring destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, boolean failIfNoSourceFile=FALSE, integer4 expireDays=-1)">varstring fSprayFixed(varstring sourceIP, varstring sourcePath, integer4 recordSize, varstring destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, boolean failIfNoSourceFile=FALSE, integer4 expireDays=-1)</Signature><Params>
      <Param name="sourceIP"/>
      <Param name="sourcePath"/>
      <Param name="recordSize"/>
@@ -450,7 +450,7 @@
     <Documentation> <see>fSprayFixed</see>
      <content>Same as fSprayFixed, but does not return the DFU Workunit ID.</content>
     </Documentation>
-    <Signature pre="" post="(varstring sourceIP, varstring sourcePath, integer4 recordSize, varstring destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, boolean failIfNoSourceFile=FALSE, integer4 expireDays=-1)" name="SPRAYFIXED">SprayFixed(varstring sourceIP, varstring sourcePath, integer4 recordSize, varstring destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, boolean failIfNoSourceFile=FALSE, integer4 expireDays=-1)</Signature><Params>
+    <Signature pre="" post="" name="SprayFixed(varstring sourceIP, varstring sourcePath, integer4 recordSize, varstring destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, boolean failIfNoSourceFile=FALSE, integer4 expireDays=-1)">SprayFixed(varstring sourceIP, varstring sourcePath, integer4 recordSize, varstring destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, boolean failIfNoSourceFile=FALSE, integer4 expireDays=-1)</Signature><Params>
      <Param name="sourceIP"/>
      <Param name="sourcePath"/>
      <Param name="recordSize"/>
@@ -468,7 +468,7 @@
    </Definition>
    <Definition body="22277" end="22647" exported="1" fullname="file.fsprayvariable" inherit_type="local" line="431" name="fSprayVariable" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl" start="21632">
     <Type>function</Type>
-    <Signature pre="varstring" post="(varstring sourceIP, varstring sourcePath, integer4 sourceMaxRecordSize=8192, varstring sourceCsvSeparate='\\,', varstring sourceCsvTerminate='\\n,\\r\\n', varstring sourceCsvQuote='\&quot;', varstring destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, varstring sourceCsvEscape='', boolean failIfNoSourceFile=FALSE, boolean recordStructurePresent=FALSE, boolean quotedTerminator=TRUE, varstring encoding='ascii', integer4 expireDays=-1)" name="FSPRAYVARIABLE">varstring fSprayVariable(varstring sourceIP, varstring sourcePath, integer4 sourceMaxRecordSize=8192, varstring sourceCsvSeparate='\\,', varstring sourceCsvTerminate='\\n,\\r\\n', varstring sourceCsvQuote='\"', varstring destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, varstring sourceCsvEscape='', boolean failIfNoSourceFile=FALSE, boolean recordStructurePresent=FALSE, boolean quotedTerminator=TRUE, varstring encoding='ascii', integer4 expireDays=-1)</Signature><Params>
+    <Signature pre="" post="" name="varstring fSprayVariable(varstring sourceIP, varstring sourcePath, integer4 sourceMaxRecordSize=8192, varstring sourceCsvSeparate='\\,', varstring sourceCsvTerminate='\\n,\\r\\n', varstring sourceCsvQuote='\&quot;', varstring destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, varstring sourceCsvEscape='', boolean failIfNoSourceFile=FALSE, boolean recordStructurePresent=FALSE, boolean quotedTerminator=TRUE, varstring encoding='ascii', integer4 expireDays=-1)">varstring fSprayVariable(varstring sourceIP, varstring sourcePath, integer4 sourceMaxRecordSize=8192, varstring sourceCsvSeparate='\\,', varstring sourceCsvTerminate='\\n,\\r\\n', varstring sourceCsvQuote='\"', varstring destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, varstring sourceCsvEscape='', boolean failIfNoSourceFile=FALSE, boolean recordStructurePresent=FALSE, boolean quotedTerminator=TRUE, varstring encoding='ascii', integer4 expireDays=-1)</Signature><Params>
      <Param name="sourceIP"/>
      <Param name="sourcePath"/>
      <Param name="sourceMaxRecordSize"/>
@@ -493,7 +493,7 @@
    </Definition>
    <Definition body="23388" end="23757" exported="1" fullname="file.sprayvariable" inherit_type="local" line="435" name="SprayVariable" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl" start="22754">
     <Type>function</Type>
-    <Signature pre="" post="(varstring sourceIP, varstring sourcePath, integer4 sourceMaxRecordSize=8192, varstring sourceCsvSeparate='\\,', varstring sourceCsvTerminate='\\n,\\r\\n', varstring sourceCsvQuote='\&quot;', varstring destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, varstring sourceCsvEscape='', boolean failIfNoSourceFile=FALSE, boolean recordStructurePresent=FALSE, boolean quotedTerminator=TRUE, varstring encoding='ascii', integer4 expireDays=-1)" name="SPRAYVARIABLE">SprayVariable(varstring sourceIP, varstring sourcePath, integer4 sourceMaxRecordSize=8192, varstring sourceCsvSeparate='\\,', varstring sourceCsvTerminate='\\n,\\r\\n', varstring sourceCsvQuote='\"', varstring destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, varstring sourceCsvEscape='', boolean failIfNoSourceFile=FALSE, boolean recordStructurePresent=FALSE, boolean quotedTerminator=TRUE, varstring encoding='ascii', integer4 expireDays=-1)</Signature><Params>
+    <Signature pre="" post="" name="SprayVariable(varstring sourceIP, varstring sourcePath, integer4 sourceMaxRecordSize=8192, varstring sourceCsvSeparate='\\,', varstring sourceCsvTerminate='\\n,\\r\\n', varstring sourceCsvQuote='\&quot;', varstring destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, varstring sourceCsvEscape='', boolean failIfNoSourceFile=FALSE, boolean recordStructurePresent=FALSE, boolean quotedTerminator=TRUE, varstring encoding='ascii', integer4 expireDays=-1)">SprayVariable(varstring sourceIP, varstring sourcePath, integer4 sourceMaxRecordSize=8192, varstring sourceCsvSeparate='\\,', varstring sourceCsvTerminate='\\n,\\r\\n', varstring sourceCsvQuote='\"', varstring destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, varstring sourceCsvEscape='', boolean failIfNoSourceFile=FALSE, boolean recordStructurePresent=FALSE, boolean quotedTerminator=TRUE, varstring encoding='ascii', integer4 expireDays=-1)</Signature><Params>
      <Param name="sourceIP"/>
      <Param name="sourcePath"/>
      <Param name="sourceMaxRecordSize"/>
@@ -540,7 +540,7 @@
      <param><name>quotedTerminator</name><desc>Can the terminator character be included in a quoted field. Defaults to TRUE. If FALSE it allows quicker partitioning of the file (avoiding a complete file scan).</desc></param>
      <param><name>expireDays</name><desc>Number of days to auto-remove file. Default is -1, not expire.</desc></param>
     </Documentation>
-    <Signature pre="varstring" post="(varstring sourceIP, varstring sourcePath, integer4 sourceMaxRecordSize=8192, varstring sourceCsvSeparate='\\,', varstring sourceCsvTerminate='\\n,\\r\\n', varstring sourceCsvQuote='\&quot;', varstring destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, varstring sourceCsvEscape='', boolean failIfNoSourceFile=FALSE, boolean recordStructurePresent=FALSE, boolean quotedTerminator=TRUE, varstring encoding='ascii', integer4 expireDays=-1)" name="FSPRAYDELIMITED">varstring fSprayDelimited(varstring sourceIP, varstring sourcePath, integer4 sourceMaxRecordSize=8192, varstring sourceCsvSeparate='\\,', varstring sourceCsvTerminate='\\n,\\r\\n', varstring sourceCsvQuote='\"', varstring destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, varstring sourceCsvEscape='', boolean failIfNoSourceFile=FALSE, boolean recordStructurePresent=FALSE, boolean quotedTerminator=TRUE, varstring encoding='ascii', integer4 expireDays=-1)</Signature><Params>
+    <Signature pre="" post="" name="varstring fSprayDelimited(varstring sourceIP, varstring sourcePath, integer4 sourceMaxRecordSize=8192, varstring sourceCsvSeparate='\\,', varstring sourceCsvTerminate='\\n,\\r\\n', varstring sourceCsvQuote='\&quot;', varstring destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, varstring sourceCsvEscape='', boolean failIfNoSourceFile=FALSE, boolean recordStructurePresent=FALSE, boolean quotedTerminator=TRUE, varstring encoding='ascii', integer4 expireDays=-1)">varstring fSprayDelimited(varstring sourceIP, varstring sourcePath, integer4 sourceMaxRecordSize=8192, varstring sourceCsvSeparate='\\,', varstring sourceCsvTerminate='\\n,\\r\\n', varstring sourceCsvQuote='\"', varstring destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, varstring sourceCsvEscape='', boolean failIfNoSourceFile=FALSE, boolean recordStructurePresent=FALSE, boolean quotedTerminator=TRUE, varstring encoding='ascii', integer4 expireDays=-1)</Signature><Params>
      <Param name="sourceIP"/>
      <Param name="sourcePath"/>
      <Param name="sourceMaxRecordSize"/>
@@ -568,7 +568,7 @@
     <Documentation> <see>fSprayDelimited</see>
      <content>Same as fSprayDelimited, but does not return the DFU Workunit ID.</content>
     </Documentation>
-    <Signature pre="" post="(varstring sourceIP, varstring sourcePath, integer4 sourceMaxRecordSize=8192, varstring sourceCsvSeparate='\\,', varstring sourceCsvTerminate='\\n,\\r\\n', varstring sourceCsvQuote='\&quot;', varstring destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, varstring sourceCsvEscape='', boolean failIfNoSourceFile=FALSE, boolean recordStructurePresent=FALSE, boolean quotedTerminator=TRUE, const varstring encoding='ascii', integer4 expireDays=-1)" name="SPRAYDELIMITED">SprayDelimited(varstring sourceIP, varstring sourcePath, integer4 sourceMaxRecordSize=8192, varstring sourceCsvSeparate='\\,', varstring sourceCsvTerminate='\\n,\\r\\n', varstring sourceCsvQuote='\"', varstring destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, varstring sourceCsvEscape='', boolean failIfNoSourceFile=FALSE, boolean recordStructurePresent=FALSE, boolean quotedTerminator=TRUE, const varstring encoding='ascii', integer4 expireDays=-1)</Signature><Params>
+    <Signature pre="" post="" name="SprayDelimited(varstring sourceIP, varstring sourcePath, integer4 sourceMaxRecordSize=8192, varstring sourceCsvSeparate='\\,', varstring sourceCsvTerminate='\\n,\\r\\n', varstring sourceCsvQuote='\&quot;', varstring destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, varstring sourceCsvEscape='', boolean failIfNoSourceFile=FALSE, boolean recordStructurePresent=FALSE, boolean quotedTerminator=TRUE, const varstring encoding='ascii', integer4 expireDays=-1)">SprayDelimited(varstring sourceIP, varstring sourcePath, integer4 sourceMaxRecordSize=8192, varstring sourceCsvSeparate='\\,', varstring sourceCsvTerminate='\\n,\\r\\n', varstring sourceCsvQuote='\"', varstring destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, varstring sourceCsvEscape='', boolean failIfNoSourceFile=FALSE, boolean recordStructurePresent=FALSE, boolean quotedTerminator=TRUE, const varstring encoding='ascii', integer4 expireDays=-1)</Signature><Params>
      <Param name="sourceIP"/>
      <Param name="sourcePath"/>
      <Param name="sourceMaxRecordSize"/>
@@ -611,7 +611,7 @@
      <param><name>failIfNoSourceFile</name><desc>If TRUE it causes a missing source file to trigger a failure. Defaults to FALSE.</desc></param>
      <param><name>expireDays</name><desc>Number of days to auto-remove file. Default is -1, not expire.</desc></param>
     </Documentation>
-    <Signature pre="varstring" post="(varstring sourceIP, varstring sourcePath, integer4 sourceMaxRecordSize=8192, varstring sourceRowTag, varstring sourceEncoding='utf8', varstring destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, boolean failIfNoSourceFile=FALSE, integer4 expireDays=-1)" name="FSPRAYXML">varstring fSprayXml(varstring sourceIP, varstring sourcePath, integer4 sourceMaxRecordSize=8192, varstring sourceRowTag, varstring sourceEncoding='utf8', varstring destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, boolean failIfNoSourceFile=FALSE, integer4 expireDays=-1)</Signature><Params>
+    <Signature pre="" post="" name="varstring fSprayXml(varstring sourceIP, varstring sourcePath, integer4 sourceMaxRecordSize=8192, varstring sourceRowTag, varstring sourceEncoding='utf8', varstring destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, boolean failIfNoSourceFile=FALSE, integer4 expireDays=-1)">varstring fSprayXml(varstring sourceIP, varstring sourcePath, integer4 sourceMaxRecordSize=8192, varstring sourceRowTag, varstring sourceEncoding='utf8', varstring destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, boolean failIfNoSourceFile=FALSE, integer4 expireDays=-1)</Signature><Params>
      <Param name="sourceIP"/>
      <Param name="sourcePath"/>
      <Param name="sourceMaxRecordSize"/>
@@ -634,7 +634,7 @@
     <Documentation> <see>fSprayXml</see>
      <content>Same as fSprayXml, but does not return the DFU Workunit ID.</content>
     </Documentation>
-    <Signature pre="" post="(varstring sourceIP, varstring sourcePath, integer4 sourceMaxRecordSize=8192, varstring sourceRowTag, varstring sourceEncoding='utf8', varstring destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, boolean failIfNoSourceFile=FALSE, integer4 expireDays=-1)" name="SPRAYXML">SprayXml(varstring sourceIP, varstring sourcePath, integer4 sourceMaxRecordSize=8192, varstring sourceRowTag, varstring sourceEncoding='utf8', varstring destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, boolean failIfNoSourceFile=FALSE, integer4 expireDays=-1)</Signature><Params>
+    <Signature pre="" post="" name="SprayXml(varstring sourceIP, varstring sourcePath, integer4 sourceMaxRecordSize=8192, varstring sourceRowTag, varstring sourceEncoding='utf8', varstring destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, boolean failIfNoSourceFile=FALSE, integer4 expireDays=-1)">SprayXml(varstring sourceIP, varstring sourcePath, integer4 sourceMaxRecordSize=8192, varstring sourceRowTag, varstring sourceEncoding='utf8', varstring destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, boolean failIfNoSourceFile=FALSE, integer4 expireDays=-1)</Signature><Params>
      <Param name="sourceIP"/>
      <Param name="sourcePath"/>
      <Param name="sourceMaxRecordSize"/>
@@ -664,7 +664,7 @@
      <param><name>maxConnections</name><desc>The maximum number of target nodes to write to concurrently. Defaults to 1.</desc></param>
      <param><name>allowOverwrite</name><desc>Is it valid to overwrite an existing file of the same name? Defaults to FALSE</desc></param>
     </Documentation>
-    <Signature pre="varstring" post="(varstring logicalName, varstring destinationIP, varstring destinationPath, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE)" name="FDESPRAY">varstring fDespray(varstring logicalName, varstring destinationIP, varstring destinationPath, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE)</Signature><Params>
+    <Signature pre="" post="" name="varstring fDespray(varstring logicalName, varstring destinationIP, varstring destinationPath, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE)">varstring fDespray(varstring logicalName, varstring destinationIP, varstring destinationPath, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE)</Signature><Params>
      <Param name="logicalName"/>
      <Param name="destinationIP"/>
      <Param name="destinationPath"/>
@@ -679,7 +679,7 @@
     <Documentation> <see>fDespray</see>
      <content>Same as fDespray, but does not return the DFU Workunit ID.</content>
     </Documentation>
-    <Signature pre="" post="(varstring logicalName, varstring destinationIP, varstring destinationPath, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE)" name="DESPRAY">Despray(varstring logicalName, varstring destinationIP, varstring destinationPath, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE)</Signature><Params>
+    <Signature pre="" post="" name="Despray(varstring logicalName, varstring destinationIP, varstring destinationPath, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE)">Despray(varstring logicalName, varstring destinationIP, varstring destinationPath, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE)</Signature><Params>
      <Param name="logicalName"/>
      <Param name="destinationIP"/>
      <Param name="destinationPath"/>
@@ -707,7 +707,7 @@
      <param><name>forcePush</name><desc>Should the copy process be executed on the source nodes (push) or on the destination nodes (pull)? Default is to pull.</desc></param>
      <param><name>transferBufferSize</name><desc>Overrides the size (in bytes) of the internal buffer used to copy the file. Default is 64k.</desc></param>
     </Documentation>
-    <Signature pre="varstring" post="(varstring sourceLogicalName, varstring destinationGroup, varstring destinationLogicalName, varstring sourceDali='', integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean asSuperfile=FALSE, boolean compress=FALSE, boolean forcePush=FALSE, integer4 transferBufferSize=0, boolean preserveCompression=TRUE)" name="FCOPY">varstring fCopy(varstring sourceLogicalName, varstring destinationGroup, varstring destinationLogicalName, varstring sourceDali='', integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean asSuperfile=FALSE, boolean compress=FALSE, boolean forcePush=FALSE, integer4 transferBufferSize=0, boolean preserveCompression=TRUE)</Signature><Params>
+    <Signature pre="" post="" name="varstring fCopy(varstring sourceLogicalName, varstring destinationGroup, varstring destinationLogicalName, varstring sourceDali='', integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean asSuperfile=FALSE, boolean compress=FALSE, boolean forcePush=FALSE, integer4 transferBufferSize=0, boolean preserveCompression=TRUE)">varstring fCopy(varstring sourceLogicalName, varstring destinationGroup, varstring destinationLogicalName, varstring sourceDali='', integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean asSuperfile=FALSE, boolean compress=FALSE, boolean forcePush=FALSE, integer4 transferBufferSize=0, boolean preserveCompression=TRUE)</Signature><Params>
      <Param name="sourceLogicalName"/>
      <Param name="destinationGroup"/>
      <Param name="destinationLogicalName"/>
@@ -729,7 +729,7 @@
     <Documentation> <see>fCopy</see>
      <content>Same as fCopy, but does not return the DFU Workunit ID.</content>
     </Documentation>
-    <Signature pre="" post="(varstring sourceLogicalName, varstring destinationGroup, varstring destinationLogicalName, varstring sourceDali='', integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean asSuperfile=FALSE, boolean compress=FALSE, boolean forcePush=FALSE, integer4 transferBufferSize=0, boolean preserveCompression=TRUE)" name="COPY">Copy(varstring sourceLogicalName, varstring destinationGroup, varstring destinationLogicalName, varstring sourceDali='', integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean asSuperfile=FALSE, boolean compress=FALSE, boolean forcePush=FALSE, integer4 transferBufferSize=0, boolean preserveCompression=TRUE)</Signature><Params>
+    <Signature pre="" post="" name="Copy(varstring sourceLogicalName, varstring destinationGroup, varstring destinationLogicalName, varstring sourceDali='', integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean asSuperfile=FALSE, boolean compress=FALSE, boolean forcePush=FALSE, integer4 transferBufferSize=0, boolean preserveCompression=TRUE)">Copy(varstring sourceLogicalName, varstring destinationGroup, varstring destinationLogicalName, varstring sourceDali='', integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean asSuperfile=FALSE, boolean compress=FALSE, boolean forcePush=FALSE, integer4 transferBufferSize=0, boolean preserveCompression=TRUE)</Signature><Params>
      <Param name="sourceLogicalName"/>
      <Param name="destinationGroup"/>
      <Param name="destinationLogicalName"/>
@@ -754,7 +754,7 @@
      <param><name>timeOut</name><desc>The time in ms to wait for the operation to complete. A value of 0 causes the call to return immediately. Defaults to no timeout (-1).</desc></param>
      <param><name>espServerIpPort</name><desc>The url of the ESP file copying service. Defaults to the value of ws_fs_server in the environment.</desc></param>
     </Documentation>
-    <Signature pre="varstring" post="(varstring logicalName, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'))" name="FREPLICATE">varstring fReplicate(varstring logicalName, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'))</Signature><Params>
+    <Signature pre="" post="" name="varstring fReplicate(varstring logicalName, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'))">varstring fReplicate(varstring logicalName, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'))</Signature><Params>
      <Param name="logicalName"/>
      <Param name="timeOut"/>
      <Param name="espServerIpPort"/>
@@ -765,7 +765,7 @@
     <Documentation> <see>fReplicate</see>
      <content>Same as fReplicated, but does not return the DFU Workunit ID.</content>
     </Documentation>
-    <Signature pre="" post="(varstring logicalName, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'))" name="REPLICATE">Replicate(varstring logicalName, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'))</Signature><Params>
+    <Signature pre="" post="" name="Replicate(varstring logicalName, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'))">Replicate(varstring logicalName, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'))</Signature><Params>
      <Param name="logicalName"/>
      <Param name="timeOut"/>
      <Param name="espServerIpPort"/>
@@ -789,7 +789,7 @@
      <param><name>transferBufferSize</name><desc>Overrides the size (in bytes) of the internal buffer used to copy the file. Default is 64k.</desc></param>
      <param><name>wrap</name><desc>Should the fileparts be wrapped when copying to a smaller sized cluster? The default is FALSE.</desc></param>
     </Documentation>
-    <Signature pre="varstring" post="(varstring remoteEspFsURL, varstring sourceLogicalName, varstring destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean asSuperfile=FALSE, boolean forcePush=FALSE, integer4 transferBufferSize=0, boolean wrap=FALSE, boolean compress=FALSE)" name="FREMOTEPULL">varstring fRemotePull(varstring remoteEspFsURL, varstring sourceLogicalName, varstring destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean asSuperfile=FALSE, boolean forcePush=FALSE, integer4 transferBufferSize=0, boolean wrap=FALSE, boolean compress=FALSE)</Signature><Params>
+    <Signature pre="" post="" name="varstring fRemotePull(varstring remoteEspFsURL, varstring sourceLogicalName, varstring destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean asSuperfile=FALSE, boolean forcePush=FALSE, integer4 transferBufferSize=0, boolean wrap=FALSE, boolean compress=FALSE)">varstring fRemotePull(varstring remoteEspFsURL, varstring sourceLogicalName, varstring destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean asSuperfile=FALSE, boolean forcePush=FALSE, integer4 transferBufferSize=0, boolean wrap=FALSE, boolean compress=FALSE)</Signature><Params>
      <Param name="remoteEspFsURL"/>
      <Param name="sourceLogicalName"/>
      <Param name="destinationGroup"/>
@@ -810,7 +810,7 @@
     <Documentation> <see>fRemotePull</see>
      <content>Same as fRemotePull, but does not return the DFU Workunit ID.</content>
     </Documentation>
-    <Signature pre="" post="(varstring remoteEspFsURL, varstring sourceLogicalName, varstring destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean asSuperfile=FALSE, boolean forcePush=FALSE, integer4 transferBufferSize=0, boolean wrap=FALSE, boolean compress=FALSE)" name="REMOTEPULL">RemotePull(varstring remoteEspFsURL, varstring sourceLogicalName, varstring destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean asSuperfile=FALSE, boolean forcePush=FALSE, integer4 transferBufferSize=0, boolean wrap=FALSE, boolean compress=FALSE)</Signature><Params>
+    <Signature pre="" post="" name="RemotePull(varstring remoteEspFsURL, varstring sourceLogicalName, varstring destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean asSuperfile=FALSE, boolean forcePush=FALSE, integer4 transferBufferSize=0, boolean wrap=FALSE, boolean compress=FALSE)">RemotePull(varstring remoteEspFsURL, varstring sourceLogicalName, varstring destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean asSuperfile=FALSE, boolean forcePush=FALSE, integer4 transferBufferSize=0, boolean wrap=FALSE, boolean compress=FALSE)</Signature><Params>
      <Param name="remoteEspFsURL"/>
      <Param name="sourceLogicalName"/>
      <Param name="destinationGroup"/>
@@ -835,7 +835,7 @@
      <param><name>shotCount</name><desc>The number of times to generate the event before the monitoring job completes. A value of -1 indicates the monitoring job continues until manually aborted. The default is 1.</desc></param>
      <param><name>espServerIpPort</name><desc>The url of the ESP file copying service. Defaults to the value of ws_fs_server in the environment.</desc></param>
     </Documentation>
-    <Signature pre="varstring" post="(varstring eventToFire, varstring name, integer4 shotCount=1, varstring espServerIpPort=GETENV('ws_fs_server'))" name="FMONITORLOGICALFILENAME">varstring fMonitorLogicalFileName(varstring eventToFire, varstring name, integer4 shotCount=1, varstring espServerIpPort=GETENV('ws_fs_server'))</Signature><Params>
+    <Signature pre="" post="" name="varstring fMonitorLogicalFileName(varstring eventToFire, varstring name, integer4 shotCount=1, varstring espServerIpPort=GETENV('ws_fs_server'))">varstring fMonitorLogicalFileName(varstring eventToFire, varstring name, integer4 shotCount=1, varstring espServerIpPort=GETENV('ws_fs_server'))</Signature><Params>
      <Param name="eventToFire"/>
      <Param name="name"/>
      <Param name="shotCount"/>
@@ -847,7 +847,7 @@
     <Documentation> <see>fMonitorLogicalFileName</see>
      <content>Same as fMonitorLogicalFileName, but does not return the DFU Workunit ID.</content>
     </Documentation>
-    <Signature pre="" post="(varstring eventToFire, varstring name, integer4 shotCount=1, varstring espServerIpPort=GETENV('ws_fs_server'))" name="MONITORLOGICALFILENAME">MonitorLogicalFileName(varstring eventToFire, varstring name, integer4 shotCount=1, varstring espServerIpPort=GETENV('ws_fs_server'))</Signature><Params>
+    <Signature pre="" post="" name="MonitorLogicalFileName(varstring eventToFire, varstring name, integer4 shotCount=1, varstring espServerIpPort=GETENV('ws_fs_server'))">MonitorLogicalFileName(varstring eventToFire, varstring name, integer4 shotCount=1, varstring espServerIpPort=GETENV('ws_fs_server'))</Signature><Params>
      <Param name="eventToFire"/>
      <Param name="name"/>
      <Param name="shotCount"/>
@@ -865,7 +865,7 @@
      <param><name>shotCount</name><desc>The number of times to generate the event before the monitoring job completes. A value of -1 indicates the monitoring job continues until manually aborted. The default is 1.</desc></param>
      <param><name>espServerIpPort</name><desc>The url of the ESP file copying service. Defaults to the value of ws_fs_server in the environment.</desc></param>
     </Documentation>
-    <Signature pre="varstring" post="(varstring eventToFire, varstring ip, varstring filename, boolean subDirs=FALSE, integer4 shotCount=1, varstring espServerIpPort=GETENV('ws_fs_server'))" name="FMONITORFILE">varstring fMonitorFile(varstring eventToFire, varstring ip, varstring filename, boolean subDirs=FALSE, integer4 shotCount=1, varstring espServerIpPort=GETENV('ws_fs_server'))</Signature><Params>
+    <Signature pre="" post="" name="varstring fMonitorFile(varstring eventToFire, varstring ip, varstring filename, boolean subDirs=FALSE, integer4 shotCount=1, varstring espServerIpPort=GETENV('ws_fs_server'))">varstring fMonitorFile(varstring eventToFire, varstring ip, varstring filename, boolean subDirs=FALSE, integer4 shotCount=1, varstring espServerIpPort=GETENV('ws_fs_server'))</Signature><Params>
      <Param name="eventToFire"/>
      <Param name="ip"/>
      <Param name="filename"/>
@@ -879,7 +879,7 @@
     <Documentation> <see>fMonitorFile</see>
      <content>Same as fMonitorFile, but does not return the DFU Workunit ID.</content>
     </Documentation>
-    <Signature pre="" post="(varstring eventToFire, varstring ip, varstring filename, boolean subdirs=FALSE, integer4 shotCount=1, varstring espServerIpPort=GETENV('ws_fs_server'))" name="MONITORFILE">MonitorFile(varstring eventToFire, varstring ip, varstring filename, boolean subdirs=FALSE, integer4 shotCount=1, varstring espServerIpPort=GETENV('ws_fs_server'))</Signature><Params>
+    <Signature pre="" post="" name="MonitorFile(varstring eventToFire, varstring ip, varstring filename, boolean subdirs=FALSE, integer4 shotCount=1, varstring espServerIpPort=GETENV('ws_fs_server'))">MonitorFile(varstring eventToFire, varstring ip, varstring filename, boolean subdirs=FALSE, integer4 shotCount=1, varstring espServerIpPort=GETENV('ws_fs_server'))</Signature><Params>
      <Param name="eventToFire"/>
      <Param name="ip"/>
      <Param name="filename"/>
@@ -896,7 +896,7 @@
      <param><name>timeOut</name><desc>The time in ms to wait for the operation to complete. A value of 0 causes the call to return immediately. Defaults to no timeout (-1).</desc></param>
      <param><name>espServerIpPort</name><desc>The url of the ESP file copying service. Defaults to the value of ws_fs_server in the environment.</desc></param>
     </Documentation>
-    <Signature pre="varstring" post="(varstring wuid, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'))" name="WAITDFUWORKUNIT">varstring WaitDfuWorkunit(varstring wuid, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'))</Signature><Params>
+    <Signature pre="" post="" name="varstring WaitDfuWorkunit(varstring wuid, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'))">varstring WaitDfuWorkunit(varstring wuid, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'))</Signature><Params>
      <Param name="wuid"/>
      <Param name="timeOut"/>
      <Param name="espServerIpPort"/>
@@ -908,7 +908,7 @@
      <param><name>wuid</name><desc>The dfu wfid to abort.</desc></param>
      <param><name>espServerIpPort</name><desc>The url of the ESP file copying service. Defaults to the value of ws_fs_server in the environment.</desc></param>
     </Documentation>
-    <Signature pre="" post="(varstring wuid, varstring espServerIpPort=GETENV('ws_fs_server'))" name="ABORTDFUWORKUNIT">AbortDfuWorkunit(varstring wuid, varstring espServerIpPort=GETENV('ws_fs_server'))</Signature><Params>
+    <Signature pre="" post="" name="AbortDfuWorkunit(varstring wuid, varstring espServerIpPort=GETENV('ws_fs_server'))">AbortDfuWorkunit(varstring wuid, varstring espServerIpPort=GETENV('ws_fs_server'))</Signature><Params>
      <Param name="wuid"/>
      <Param name="espServerIpPort"/>
     </Params>
@@ -920,7 +920,7 @@
      <param><name>sequentialParts</name><desc>Whether the sub-files must be sequentially ordered. Default to FALSE.</desc></param>
      <param><name>allowExist</name><desc>Indicating whether to post an error if the superfile already exists. If TRUE, no error is posted. Defaults to FALSE.</desc></param>
     </Documentation>
-    <Signature pre="" post="(varstring superName, boolean sequentialParts=FALSE, boolean allowExist=FALSE)" name="CREATESUPERFILE">CreateSuperFile(varstring superName, boolean sequentialParts=FALSE, boolean allowExist=FALSE)</Signature><Params>
+    <Signature pre="" post="" name="CreateSuperFile(varstring superName, boolean sequentialParts=FALSE, boolean allowExist=FALSE)">CreateSuperFile(varstring superName, boolean sequentialParts=FALSE, boolean allowExist=FALSE)</Signature><Params>
      <Param name="superName"/>
      <Param name="sequentialParts"/>
      <Param name="allowExist"/>
@@ -933,7 +933,7 @@
      <param><name>superName</name><desc>The logical name of the superfile.</desc></param>
      <content>Checks if the specified filename is present in the Distributed File Utility (DFU) and is a SuperFile.</content>
     </Documentation>
-    <Signature pre="boolean" post="(varstring superName)" name="SUPERFILEEXISTS">boolean SuperFileExists(varstring superName)</Signature><Params>
+    <Signature pre="" post="" name="boolean SuperFileExists(varstring superName)">boolean SuperFileExists(varstring superName)</Signature><Params>
      <Param name="superName"/>
     </Params>
    </Definition>
@@ -943,7 +943,7 @@
      <see>FileExists</see>
      <param><name>superName</name><desc>The logical name of the superfile.</desc></param>
     </Documentation>
-    <Signature pre="" post="(varstring superName, boolean deletesub=FALSE)" name="DELETESUPERFILE">DeleteSuperFile(varstring superName, boolean deletesub=FALSE)</Signature><Params>
+    <Signature pre="" post="" name="DeleteSuperFile(varstring superName, boolean deletesub=FALSE)">DeleteSuperFile(varstring superName, boolean deletesub=FALSE)</Signature><Params>
      <Param name="superName"/>
      <Param name="deletesub"/>
     </Params>
@@ -954,7 +954,7 @@
      <return>The number of sub-files within the superfile.</return>
      <param><name>superName</name><desc>The logical name of the superfile.</desc></param>
     </Documentation>
-    <Signature pre="unsigned4" post="(varstring superName)" name="GETSUPERFILESUBCOUNT">unsigned4 GetSuperFileSubCount(varstring superName)</Signature><Params>
+    <Signature pre="" post="" name="unsigned4 GetSuperFileSubCount(varstring superName)">unsigned4 GetSuperFileSubCount(varstring superName)</Signature><Params>
      <Param name="superName"/>
     </Params>
    </Definition>
@@ -966,7 +966,7 @@
      <param><name>fileNum</name><desc>The 1-based position of the sub-file to return the name of.</desc></param>
      <param><name>absPath</name><desc>Whether to prepend '~' to the name of the resulting logical file name.</desc></param>
     </Documentation>
-    <Signature pre="varstring" post="(varstring superName, unsigned4 fileNum, boolean absPath=FALSE)" name="GETSUPERFILESUBNAME">varstring GetSuperFileSubName(varstring superName, unsigned4 fileNum, boolean absPath=FALSE)</Signature><Params>
+    <Signature pre="" post="" name="varstring GetSuperFileSubName(varstring superName, unsigned4 fileNum, boolean absPath=FALSE)">varstring GetSuperFileSubName(varstring superName, unsigned4 fileNum, boolean absPath=FALSE)</Signature><Params>
      <Param name="superName"/>
      <Param name="fileNum"/>
      <Param name="absPath"/>
@@ -979,7 +979,7 @@
      <param><name>superName</name><desc>The logical name of the superfile.</desc></param>
      <param><name>subName</name><desc>The logical name of the sub-file.</desc></param>
     </Documentation>
-    <Signature pre="unsigned4" post="(varstring superName, varstring subName)" name="FINDSUPERFILESUBNAME">unsigned4 FindSuperFileSubName(varstring superName, varstring subName)</Signature><Params>
+    <Signature pre="" post="" name="unsigned4 FindSuperFileSubName(varstring superName, varstring subName)">unsigned4 FindSuperFileSubName(varstring superName, varstring subName)</Signature><Params>
      <Param name="superName"/>
      <Param name="subName"/>
     </Params>
@@ -988,7 +988,7 @@
     <Type>function</Type>
     <Documentation> <content>Starts a superfile transaction. All superfile operations within the transaction will either be executed atomically or rolled back when the transaction is finished.</content>
     </Documentation>
-    <Signature pre="" post="()" name="STARTSUPERFILETRANSACTION">StartSuperFileTransaction()</Signature><Params/>
+    <Signature pre="" post="" name="StartSuperFileTransaction()">StartSuperFileTransaction()</Signature><Params/>
    </Definition>
    <Definition body="48773" end="48869" exported="1" fullname="file.addsuperfile" inherit_type="local" line="797" name="AddSuperFile" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl" start="48643">
     <Type>function</Type>
@@ -999,7 +999,7 @@
      <param><name>addContents</name><desc>Controls whether adding a superfile adds the superfile, or its contents. Defaults to FALSE (do not expand).</desc></param>
      <param><name>strict</name><desc>Check addContents only if subName is a superfile, and ensure superfiles exist.</desc></param>
     </Documentation>
-    <Signature pre="" post="(varstring superName, varstring subName, unsigned4 atPos=0, boolean addContents=FALSE, boolean strict=FALSE)" name="ADDSUPERFILE">AddSuperFile(varstring superName, varstring subName, unsigned4 atPos=0, boolean addContents=FALSE, boolean strict=FALSE)</Signature><Params>
+    <Signature pre="" post="" name="AddSuperFile(varstring superName, varstring subName, unsigned4 atPos=0, boolean addContents=FALSE, boolean strict=FALSE)">AddSuperFile(varstring superName, varstring subName, unsigned4 atPos=0, boolean addContents=FALSE, boolean strict=FALSE)</Signature><Params>
      <Param name="superName"/>
      <Param name="subName"/>
      <Param name="atPos"/>
@@ -1015,7 +1015,7 @@
      <param><name>del</name><desc>Indicates whether the sub-file should also be removed from the disk. Defaults to FALSE.</desc></param>
      <param><name>removeContents</name><desc>Controls whether the contents of a sub-file which is a superfile should be recursively removed. Defaults to FALSE.</desc></param>
     </Documentation>
-    <Signature pre="" post="(varstring superName, varstring subName, boolean del=FALSE, boolean removeContents=FALSE)" name="REMOVESUPERFILE">RemoveSuperFile(varstring superName, varstring subName, boolean del=FALSE, boolean removeContents=FALSE)</Signature><Params>
+    <Signature pre="" post="" name="RemoveSuperFile(varstring superName, varstring subName, boolean del=FALSE, boolean removeContents=FALSE)">RemoveSuperFile(varstring superName, varstring subName, boolean del=FALSE, boolean removeContents=FALSE)</Signature><Params>
      <Param name="superName"/>
      <Param name="subName"/>
      <Param name="del"/>
@@ -1028,7 +1028,7 @@
      <param><name>superName</name><desc>The logical name of the superfile.</desc></param>
      <param><name>del</name><desc>Indicates whether the sub-files should also be removed from the disk. Defaults to FALSE.</desc></param>
     </Documentation>
-    <Signature pre="" post="(varstring superName, boolean del=FALSE)" name="CLEARSUPERFILE">ClearSuperFile(varstring superName, boolean del=FALSE)</Signature><Params>
+    <Signature pre="" post="" name="ClearSuperFile(varstring superName, boolean del=FALSE)">ClearSuperFile(varstring superName, boolean del=FALSE)</Signature><Params>
      <Param name="superName"/>
      <Param name="del"/>
     </Params>
@@ -1038,7 +1038,7 @@
     <Documentation> <content>Removes all soley-owned sub-files from a superfile. If a sub-file is also contained within another superfile then it is retained.</content>
      <param><name>superName</name><desc>The logical name of the superfile.</desc></param>
     </Documentation>
-    <Signature pre="" post="(varstring superName, boolean del=FALSE)" name="REMOVEOWNEDSUBFILES">RemoveOwnedSubFiles(varstring superName, boolean del=FALSE)</Signature><Params>
+    <Signature pre="" post="" name="RemoveOwnedSubFiles(varstring superName, boolean del=FALSE)">RemoveOwnedSubFiles(varstring superName, boolean del=FALSE)</Signature><Params>
      <Param name="superName"/>
      <Param name="del"/>
     </Params>
@@ -1048,7 +1048,7 @@
     <Documentation> <see>RemoveOwnedSubFIles</see>
      <content>Legacy version of RemoveOwnedSubFiles which was incorrectly named in a previous version.</content>
     </Documentation>
-    <Signature pre="" post="(varstring superName)" name="DELETEOWNEDSUBFILES">DeleteOwnedSubFiles(varstring superName)</Signature><Params>
+    <Signature pre="" post="" name="DeleteOwnedSubFiles(varstring superName)">DeleteOwnedSubFiles(varstring superName)</Signature><Params>
      <Param name="superName"/>
     </Params>
    </Definition>
@@ -1058,7 +1058,7 @@
      <param><name>superName1</name><desc>The logical name of the first superfile.</desc></param>
      <param><name>superName2</name><desc>The logical name of the second superfile.</desc></param>
     </Documentation>
-    <Signature pre="" post="(varstring superName1, varstring superName2)" name="SWAPSUPERFILE">SwapSuperFile(varstring superName1, varstring superName2)</Signature><Params>
+    <Signature pre="" post="" name="SwapSuperFile(varstring superName1, varstring superName2)">SwapSuperFile(varstring superName1, varstring superName2)</Signature><Params>
      <Param name="superName1"/>
      <Param name="superName2"/>
     </Params>
@@ -1070,7 +1070,7 @@
      <param><name>oldSubFile</name><desc>The logical name of the sub-file to remove.</desc></param>
      <param><name>newSubFile</name><desc>The logical name of the sub-file to replace within the superfile.</desc></param>
     </Documentation>
-    <Signature pre="" post="(varstring superName, varstring oldSubFile, varstring newSubFile)" name="REPLACESUPERFILE">ReplaceSuperFile(varstring superName, varstring oldSubFile, varstring newSubFile)</Signature><Params>
+    <Signature pre="" post="" name="ReplaceSuperFile(varstring superName, varstring oldSubFile, varstring newSubFile)">ReplaceSuperFile(varstring superName, varstring oldSubFile, varstring newSubFile)</Signature><Params>
      <Param name="superName"/>
      <Param name="oldSubFile"/>
      <Param name="newSubFile"/>
@@ -1080,7 +1080,7 @@
     <Type>function</Type>
     <Documentation> <content>Finishes a superfile transaction. This executes all the operations since the matching StartSuperFileTransaction(). If there are any errors, then all of the operations are rolled back.</content>
     </Documentation>
-    <Signature pre="" post="(boolean rollback=FALSE)" name="FINISHSUPERFILETRANSACTION">FinishSuperFileTransaction(boolean rollback=FALSE)</Signature><Params>
+    <Signature pre="" post="" name="FinishSuperFileTransaction(boolean rollback=FALSE)">FinishSuperFileTransaction(boolean rollback=FALSE)</Signature><Params>
      <Param name="rollback"/>
     </Params>
    </Definition>
@@ -1091,7 +1091,7 @@
      <param><name>superName</name><desc>The logical name of the superfile.</desc></param>
      <param><name>recurse</name><desc>Should the contents of child-superfiles be expanded. Default is FALSE.</desc></param>
     </Documentation>
-    <Signature pre="dataset(FsLogicalFileNameRecord)" post="(varstring superName, boolean recurse=FALSE)" name="SUPERFILECONTENTS">dataset(FsLogicalFileNameRecord) SuperFileContents(varstring superName, boolean recurse=FALSE)</Signature><Params>
+    <Signature pre="" post="" name="dataset(FsLogicalFileNameRecord) SuperFileContents(varstring superName, boolean recurse=FALSE)">dataset(FsLogicalFileNameRecord) SuperFileContents(varstring superName, boolean recurse=FALSE)</Signature><Params>
      <Param name="superName"/>
      <Param name="recurse"/>
     </Params>
@@ -1102,7 +1102,7 @@
      <return>A dataset containing the names of the superfiles.</return>
      <param><name>name</name><desc>The name of the logical file.</desc></param>
     </Documentation>
-    <Signature pre="dataset(FsLogicalFileNameRecord)" post="(varstring name)" name="LOGICALFILESUPEROWNERS">dataset(FsLogicalFileNameRecord) LogicalFileSuperOwners(varstring name)</Signature><Params>
+    <Signature pre="" post="" name="dataset(FsLogicalFileNameRecord) LogicalFileSuperOwners(varstring name)">dataset(FsLogicalFileNameRecord) LogicalFileSuperOwners(varstring name)</Signature><Params>
      <Param name="name"/>
     </Params>
    </Definition>
@@ -1111,7 +1111,7 @@
     <Documentation> <return>A dataset containing pairs of superName,subName for each component file.</return>
      <content>Returns the list of all the superfiles in the system and their component sub-files.</content>
     </Documentation>
-    <Signature pre="dataset(FsLogicalSuperSubRecord)" post="()" name="LOGICALFILESUPERSUBLIST">dataset(FsLogicalSuperSubRecord) LogicalFileSuperSubList()</Signature><Params/>
+    <Signature pre="" post="" name="dataset(FsLogicalSuperSubRecord) LogicalFileSuperSubList()">dataset(FsLogicalSuperSubRecord) LogicalFileSuperSubList()</Signature><Params/>
    </Definition>
    <Definition body="54146" end="54257" exported="1" fullname="file.fpromotesuperfilelist" inherit_type="local" line="915" name="fPromoteSuperFileList" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl" start="53979">
     <Type>function</Type>
@@ -1123,7 +1123,7 @@
      <param><name>createOnlyOne</name><desc>Specifies whether to only create a single superfile (truncate the list at the first non-existent superfile). The default is FALSE.</desc></param>
      <param><name>reverse</name><desc>Reverse the order of processing the superfiles list, effectively 'demoting' instead of 'promoting' the sub-files. The default is FALSE.</desc></param>
     </Documentation>
-    <Signature pre="varstring" post="(set of varstring superNames, varstring addHead='', boolean delTail=FALSE, boolean createOnlyOne=FALSE, boolean reverse=FALSE)" name="FPROMOTESUPERFILELIST">varstring fPromoteSuperFileList(set of varstring superNames, varstring addHead='', boolean delTail=FALSE, boolean createOnlyOne=FALSE, boolean reverse=FALSE)</Signature><Params>
+    <Signature pre="" post="" name="varstring fPromoteSuperFileList(set of varstring superNames, varstring addHead='', boolean delTail=FALSE, boolean createOnlyOne=FALSE, boolean reverse=FALSE)">varstring fPromoteSuperFileList(set of varstring superNames, varstring addHead='', boolean delTail=FALSE, boolean createOnlyOne=FALSE, boolean reverse=FALSE)</Signature><Params>
      <Param name="superNames"/>
      <Param name="addHead"/>
      <Param name="delTail"/>
@@ -1136,7 +1136,7 @@
     <Documentation> <see>fPromoteSuperFileList</see>
      <content>Same as fPromoteSuperFileList, but does not return the DFU Workunit ID.</content>
     </Documentation>
-    <Signature pre="" post="(set of varstring superNames, varstring addHead='', boolean delTail=FALSE, boolean createOnlyOne=FALSE, boolean reverse=FALSE)" name="PROMOTESUPERFILELIST">PromoteSuperFileList(set of varstring superNames, varstring addHead='', boolean delTail=FALSE, boolean createOnlyOne=FALSE, boolean reverse=FALSE)</Signature><Params>
+    <Signature pre="" post="" name="PromoteSuperFileList(set of varstring superNames, varstring addHead='', boolean delTail=FALSE, boolean createOnlyOne=FALSE, boolean reverse=FALSE)">PromoteSuperFileList(set of varstring superNames, varstring addHead='', boolean delTail=FALSE, boolean createOnlyOne=FALSE, boolean reverse=FALSE)</Signature><Params>
      <Param name="superNames"/>
      <Param name="addHead"/>
      <Param name="delTail"/>
@@ -1144,7 +1144,7 @@
      <Param name="reverse"/>
     </Params>
    </Definition>
-   <Signature pre="" post="" name="FILE">File</Signature><Parents/>
+   <Signature pre="" post="" name="File">File</Signature><Parents/>
   </Definition>
  </Source>
  </Meta>

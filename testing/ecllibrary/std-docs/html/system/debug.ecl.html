@@ -14,6 +14,23 @@
 </head>
 
 <body>
+	<nav class="navbar topbar">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a href="#menu-toggle" id="menu-toggle" class="navbar-brand glyphicon glyphicon-menu-hamburger ham"></a>
+			</div>
+			<div class="navbar-header" style="margin-left: 20px;">
+				<span class="navbar-brand">system.Debug</span>
+			</div>
+			<div class="navbar-collapse collapse">
+			<ul class="nav navbar-nav">
+				<li><a href="#ecldoc-section-import" class="topbar">Imports</a></li>
+				<li><a href="#ecldoc-section-tree" class="topbar">Tree</a></li>
+				<li><a href="#ecldoc-section-desc" class="topbar">Descriptions</a></li>
+			</ul>
+			</div>
+		</div>
+	</nav>
 	<div id="wrapper">
 
 		<!-- Sidebar -->
@@ -26,11 +43,11 @@
 				</li>
 				
 				<li>
-					<a href="workunit.ecl.html">workunit.ecl</a>
+					<a href="thorlib.ecl.html">thorlib.ecl</a>
 				</li>
 				
 				<li>
-					<a href="log.ecl.html">log.ecl</a>
+					<a href="workunit.ecl.html">workunit.ecl</a>
 				</li>
 				
 				<li>
@@ -38,11 +55,7 @@
 				</li>
 				
 				<li>
-					<a href="util.ecl.html">util.ecl</a>
-				</li>
-				
-				<li>
-					<a href="thorlib.ecl.html">thorlib.ecl</a>
+					<a href="email.ecl.html">email.ecl</a>
 				</li>
 				
 				<li>
@@ -50,7 +63,11 @@
 				</li>
 				
 				<li>
-					<a href="email.ecl.html">email.ecl</a>
+					<a href="util.ecl.html">util.ecl</a>
+				</li>
+				
+				<li>
+					<a href="log.ecl.html">log.ecl</a>
 				</li>
 				
 			</ul>
@@ -58,33 +75,27 @@
 
 		<div id="page-content-wrapper">
 			<div class="container-fluid">
-				<div class="row">
-					<div class="col-lg-4">
-						<a href="#menu-toggle" class="glyphicon glyphicon-menu-hamburger" style="font-size:2.2em;" id="menu-toggle"></a>
-					</div>
-					<div class="col-lg-8">
-						<span class="title">system.Debug</span>
-					</div>
-				</div>
-				<div class="row">
-					<h2>Imports	</h2>
-					<ul>
+				<section id="ecldoc-section-import">
+					<h3 class="page-header">IMPORTS</h3>
+					<ul class="pagination">
 						<li>
 							<a href="../lib_parselib/pkg.toc.html">
 								lib_parselib
 							</a>
 							</li>
 						</ul>
-					<h2>Tree</h2>
+				</section>
+				<section id="ecldoc-section-tree">
+					<h3 class="page-header">DEFINITION TREE</h3>
 					<ul class="tree">
 						<li id="t-ecldoc-rtl">
 							
 							<a href="#ecldoc-rtl" data-toggle="collapse" class="glyphicon glyphicon-folder-open" style="margin-right: 6px;"></a>
 							
 							<a href="#decldoc-rtl">
-								 MODULE :
+								MODULE :
 								<span class="sign-pre"></span>
-								<span class="sign-name">RTL</span>
+								<span class="sign-name">rtl</span>
 								<span class="sign-post"></span>
 							</a>
 							<ul id="ecldoc-rtl" class="accordian-body tree collapse">
@@ -93,9 +104,9 @@
 							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
 							
 							<a href="#dmstick">
-								 FUNCTION :
+								FUNCTION :
 								<span class="sign-pre"></span>
-								<span class="sign-name">MSTICK</span>
+								<span class="sign-name">msTick</span>
 								<span class="sign-post"></span>
 							</a>
 							<ul id="mstick" class="accordian-body tree collapse">
@@ -107,9 +118,9 @@
 							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
 							
 							<a href="#dsleep">
-								 FUNCTION :
+								FUNCTION :
 								<span class="sign-pre"></span>
-								<span class="sign-name">SLEEP</span>
+								<span class="sign-name">sleep</span>
 								<span class="sign-post"></span>
 							</a>
 							<ul id="sleep" class="accordian-body tree collapse">
@@ -120,8 +131,9 @@
 							</ul>
 						</li>
 						</ul>
-					<hr/>
-					<h2>Descriptions</h2>
+				</section>
+				<section id="ecldoc-section-desc">
+					<h3 class="page-header">DESCRIPTIONS</h3>
 					<div class="panel-group">
 						<div class="panel panel-info" id="decldoc-rtl">
 							<div class="panel-heading">
@@ -130,7 +142,7 @@
 								</div>
 								<div class="sign">
 									<span class="sign-pre"></span>
-									<span class="sign-name">RTL</span>
+									<span class="sign-name">rtl</span>
 									<span class="sign-post"></span>
 								</div>
 								<div class="btns">
@@ -151,7 +163,7 @@
 								</div>
 								<div class="sign">
 									<span class="sign-pre"></span>
-									<span class="sign-name">MSTICK</span>
+									<span class="sign-name">msTick</span>
 									<span class="sign-post"></span>
 								</div>
 								<div class="btns">
@@ -173,7 +185,7 @@
 								</div>
 								<div class="sign">
 									<span class="sign-pre"></span>
-									<span class="sign-name">SLEEP</span>
+									<span class="sign-name">sleep</span>
 									<span class="sign-post"></span>
 								</div>
 								<div class="btns">
@@ -190,10 +202,9 @@
 						
 						
 						</div>
-				</div>
+				</section>
 			</div>
 		</div>
-
 	</div>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>

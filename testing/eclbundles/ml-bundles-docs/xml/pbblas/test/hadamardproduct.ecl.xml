@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Meta>
+ <Source name="PBblas.test.HadamardProduct" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/HadamardProduct.ecl" target="hadamardproduct.ecl.xml">
+  <Import body="0" end="250" fullname="PBblas.test" inherit_type="local" line="4" name="Tests" ref="pbblas.test" start="250" target="pkg.toc.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0" end="269" fullname="PBblas" inherit_type="local" line="5" name="PBblas" ref="pbblas" start="269" target="../pkg.toc.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0" end="291" fullname="PBblas.internal" inherit_type="local" line="6" name="int" ref="pbblas.internal" remotescope="1" start="291" target="../internal/pkg.toc.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0" end="322" fullname="PBblas.internal.MatDims" inherit_type="local" line="7" name="md" ref="pbblas.internal.matdims" start="322" target="../internal/matdims.ecl.xml">
+   <Type>attribute</Type>
+   <Documentation> <content>Module to calculate matrix dimensions and matrix partition dimensions from matrix cells.</content>
+   </Documentation>
+  </Import>
+  <Import body="0" end="348" fullname="PBblas.Types" inherit_type="local" line="8" name="Types" ref="pbblas.types" start="348" target="../types.ecl.xml">
+   <Type>attribute</Type>
+   <Documentation> <content>Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes.</content>
+   </Documentation>
+  </Import>
+  <Import body="0" end="369" fullname="PBblas.test.MakeTestMatrix" inherit_type="local" line="9" name="tm" ref="pbblas.test.maketestmatrix" start="369" target="maketestmatrix.ecl.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0" end="404" fullname="PBblas.test.DiffReport" inherit_type="local" line="10" name="dr" ref="pbblas.test.diffreport" start="404" target="diffreport.ecl.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Definition body="84" end="103" fullname="pbblas.test.layout_cell" inherit_type="local" line="4" name="Layout_Cell" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/test/MakeTestMatrix.ecl" start="70">
+   <Type>record</Type>
+   <Field name="wi_id"/>
+   <Field name="x"/>
+   <Field name="y"/>
+   <Field name="v"/>
+   <Signature pre="" post="" name="Layout_Cell">Layout_Cell</Signature><Documentation> <field><name>wi_id</name><desc>Work Item Number -- An identifier from 1 to 64K-1 that separates and identifies individual matrixes</desc></field>
+    <field><name>x</name><desc>1-based row position within the matrix</desc></field>
+    <field><name>y</name><desc>1-based column position within the matrix</desc></field>
+    <field><name>v</name><desc>Real value for the cell</desc></field>
+    <see>matrix_t</see>
+    <see>Std/PBblas/MakeR8Set.ecl</see>
+    <see>Std/PBblas/Converted.ecl WARNING: Used as C++ attribute. Do not change without corresponding changes to MakeR8Set.</see>
+    <content>Layout for Matrix Cell Main representation of Matrix cell at interface to all PBBlas functions. Matrixes are represented as DATASET(Layout_Cell), where each cell describes the row and column position of the cell as well as its value. Only the non-zero cells need to be contained in the dataset in order to describe the matrix since all unspecified cells are considered to have a value of zero. The cell also contains a work-item number that allows multiple separate matrixes to be carried in the same dataset. This supports the "myriad" style interface that allows the same operations to be performed on many different sets of data at once. Note that these matrixes do not have an explicit size. They are sized implicitly, based on the maximum row and column presented in the data. A matrix can be converted to an explicit dense form (see matrix_t) by using the utility module MakeR8Set. This module should only be used for known small matrixes (&lt; 1M cells) or for partitions of a larger matrix. The Converted module provides utility functions to convert to and from a set of partitions (See Layout_parts).</content>
+   </Documentation>
+  </Definition>
+  <Definition body="483" end="489" fullname="pbblas.test.max_part_size_or" inherit_type="local" line="14" name="max_part_size_or" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/HadamardProduct.ecl" start="464">
+   <Signature pre="" post="" name="max_part_size_or">max_part_size_or</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="501" end="505" fullname="pbblas.test.nodes_or" inherit_type="local" line="15" name="nodes_or" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/HadamardProduct.ecl" start="490">
+   <Signature pre="" post="" name="nodes_or">nodes_or</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="511" end="516" fullname="pbblas.test.n1" inherit_type="local" line="16" name="N1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/HadamardProduct.ecl" start="506">
+   <Signature pre="" post="" name="N1">N1</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="522" end="527" fullname="pbblas.test.m1" inherit_type="local" line="17" name="M1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/HadamardProduct.ecl" start="517">
+   <Signature pre="" post="" name="M1">M1</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="536" end="562" fullname="pbblas.test.mat1" inherit_type="local" line="19" name="mat1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/HadamardProduct.ecl" start="529">
+   <Signature pre="" post="" name="mat1">mat1</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="570" end="596" fullname="pbblas.test.mat2" inherit_type="local" line="20" name="mat2" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/HadamardProduct.ecl" start="563">
+   <Signature pre="" post="" name="mat2">mat2</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="609" end="618" fullname="pbblas.test.mat1_size" inherit_type="local" line="21" name="mat1_size" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/HadamardProduct.ecl" start="597">
+   <Signature pre="" post="" name="mat1_size">mat1_size</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="631" end="640" fullname="pbblas.test.mat2_size" inherit_type="local" line="22" name="mat2_size" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/HadamardProduct.ecl" start="619">
+   <Signature pre="" post="" name="mat2_size">mat2_size</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="738" end="784" fullname="pbblas.test.newmat" inherit_type="local" line="25" name="newmat" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/HadamardProduct.ecl" start="729">
+   <Type>attribute</Type>
+   <Signature pre="" post="" name="newmat">newmat</Signature><Documentation> <see>PBblas/Types.Layout_Cell</see>
+    <return>A matrix (or multiple matrices) in Layout_Cell form</return>
+    <param><name>X</name><desc>A matrix (or multiple matrices) in Layout_Cell form</desc></param>
+    <param><name>Y</name><desc>A matrix (or multiple matrices) in Layout_Cell form</desc></param>
+    <content>Element-wise multiplication of X * Y. Supports the "myriad" style interface -- X and Y may contain multiple separate matrixes. Each X will be multiplied by the Y with the same work-item id. Note: This performs element-wise multiplication. For dot-product matrix multiplication, use PBblas.gemm.</content>
+   </Documentation>
+  </Definition>
+  <Definition body="904" end="935" fullname="pbblas.test.newmat2" inherit_type="local" line="29" name="newmat2" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/HadamardProduct.ecl" start="894">
+   <Signature pre="" post="" name="newmat2">newmat2</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="974" end="1069" fullname="pbblas.test.square" inherit_type="local" line="31" name="square" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/HadamardProduct.ecl" start="937">
+   <Type>transform</Type>
+   <Params>
+    <Param name="lr"/>
+   </Params>
+   <Signature pre="" post="" name="Layout_Cell square(Layout_Cell lr)">Layout_Cell square(Layout_Cell lr)</Signature><Return>layout_cell</Return>
+  </Definition>
+  <Definition body="1085" end="1114" fullname="pbblas.test.mat2squared" inherit_type="local" line="39" name="mat2squared" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/HadamardProduct.ecl" start="1071">
+   <Signature pre="" post="" name="mat2squared">mat2squared</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1125" end="1190" fullname="pbblas.test.result" inherit_type="local" line="41" name="result" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/HadamardProduct.ecl" start="1116">
+   <Signature pre="" post="" name="result">result</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1217" end="1225" exported="1" fullname="pbblas.test.hadamardproduct" inherit_type="local" line="43" name="HadamardProduct" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/HadamardProduct.ecl" start="1192">
+   <Signature pre="" post="" name="HadamardProduct">HadamardProduct</Signature><Type>attribute</Type>
+  </Definition>
+ </Source>
+ <Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/MatDims.ecl" name="PBblas.internal.MatDims" target="../internal/matdims.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Types.ecl" name="PBblas.Types" target="../types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Types.ecl" name="ML_Core.Types" target="../../ml_core/types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/Types.ecl" name="PBblas.internal.Types" target="../internal/types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/BlockDimensions.ecl" name="PBblas.internal.BlockDimensions" target="../internal/blockdimensions.ecl.xml"/><Depends sourcePath="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/system/Thorlib.ecl" name="std.system.Thorlib" target="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/system/Thorlib.ecl"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/BlockDimensionsMultiply.ecl" name="PBblas.internal.BlockDimensionsMultiply" target="../internal/blockdimensionsmultiply.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/BlockDimensionsSolve.ecl" name="PBblas.internal.BlockDimensionsSolve" target="../internal/blockdimensionssolve.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/MakeTestMatrix.ecl" name="PBblas.test.MakeTestMatrix" target="maketestmatrix.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/DiffReport.ecl" name="PBblas.test.DiffReport" target="diffreport.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/Converted.ecl" name="PBblas.internal.Converted" target="../internal/converted.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/MakeR8Set.ecl" name="PBblas.internal.MakeR8Set" target="../internal/maker8set.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/HadamardProduct.ecl" name="PBblas.HadamardProduct" target="../hadamardproduct.ecl.xml"/><Depends sourcePath="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/plugins/lib_eclblas.ecllib" target="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/plugins/lib_eclblas.ecllib"/><Depends sourcePath="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/BLAS.ecl" name="std.BLAS" target="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/BLAS.ecl"/></Meta>

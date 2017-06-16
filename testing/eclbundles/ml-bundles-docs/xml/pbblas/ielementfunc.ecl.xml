@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Meta>
+ <Source name="PBblas.IElementFunc" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/IElementFunc.ecl" target="ielementfunc.ecl.xml">
+  <Import body="0" end="251" fullname="PBblas" inherit_type="local" line="5" name="PBBlas" ref="pbblas" start="251" target="pkg.toc.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Definition body="274" end="296" fullname="pbblas.value_t" inherit_type="local" line="6" name="value_t" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/IElementFunc.ecl" start="264">
+   <Signature pre="" post="" name="value_t">value_t</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="311" end="337" fullname="pbblas.dimension_t" inherit_type="local" line="7" name="dimension_t" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/IElementFunc.ecl" start="297">
+   <Signature pre="" post="" name="dimension_t">dimension_t</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="731" end="734" exported="1" fullname="pbblas.ielementfunc" inherit_type="local" line="21" name="IElementFunc" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/IElementFunc.ecl" start="660">
+   <Type>function</Type>
+   <Documentation> <see>PBblas/Apply2Elements</see>
+    <return>Output value</return>
+    <param><name>v</name><desc>Input value</desc></param>
+    <param><name>r</name><desc>Row number (1 based)</desc></param>
+    <param><name>c</name><desc>Column number (1 based)</desc></param>
+    <content>Function prototype for a function to apply to each element of the distributed matrix Base your function on this prototype:</content>
+   </Documentation>
+   <Signature pre="" post="" name="value_t IElementFunc(value_t v, dimension_t r, dimension_t c)">value_t IElementFunc(value_t v, dimension_t r, dimension_t c)</Signature><Params>
+    <Param name="v"/>
+    <Param name="r"/>
+    <Param name="c"/>
+   </Params>
+  </Definition>
+ </Source>
+ <Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Types.ecl" name="ML_Core.Types" target="../ml_core/types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Types.ecl" name="PBblas.Types" target="types.ecl.xml"/></Meta>

@@ -1,0 +1,29 @@
+<Meta>
+ <Source name="ML_Core.Utils.SequenceInField" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Utils/SequenceInField.ecl">
+  <Definition body="770"
+              end="2150"
+              exported="1"
+              fullname="ml_core.utils.sequenceinfield"
+              inherit_type="local"
+              line="16"
+              name="SequenceInField"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Utils/SequenceInField.ecl"
+              start="712">
+   <Type>macro</Type>
+   <Documentation>
+    <content>Given a file which is sorted by the work item identifier and INFIELD (and possibly other values), add sequence numbers within the range of each infield. Slighly elaborate code is to avoid having to partition the data to one value of infield per node and to work with very large numbers of records where a global count project would be inappropriate. This is useful for assigning rank positions with the groupings.</content>
+    <return>a file of the same type with sequence numbers applied</return>
+    <param>infile the input file, any type</param>
+    <param>infield field name of grouping field</param>
+    <param>seq name of the field to receive the sequence number</param>
+    <param>wi_name work item field name, default is wi</param>
+   </Documentation>
+   <Params>
+    <Param name="infile"/>
+    <Param name="infield"/>
+    <Param name="seq"/>
+    <Param name="wi_name"/>
+   </Params>
+  </Definition>
+ </Source>
+</Meta>

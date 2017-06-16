@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Meta>
+ <Source name="LogisticRegression.LogitScore" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/LogitScore.ecl" target="logitscore.ecl.xml">
+  <Import body="0" end="7" fullname="LogisticRegression" inherit_type="local" line="1" name="LR" ref="logisticregression" start="7" target="pkg.toc.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0" end="23" fullname="LogisticRegression.Types" inherit_type="local" line="2" name="Types" ref="logisticregression.types" start="23" target="types.ecl.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0" end="40" fullname="ML_Core.Types" inherit_type="local" line="3" name="Core_Types" ref="ml_core.types" start="40" target="../ml_core/types.ecl.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Definition body="95" end="120" fullname="logisticregression.numericfield" inherit_type="local" line="6" name="NumericField" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/LogitScore.ecl" start="80">
+   <Type>record</Type>
+   <Field name="wi"/>
+   <Field name="id"/>
+   <Field name="number"/>
+   <Signature pre="" post="" name="NumericField">NumericField</Signature><Field name="value"/>
+  </Definition>
+  <Definition body="138" end="160" fullname="logisticregression.raw_prediction" inherit_type="local" line="7" name="Raw_Prediction" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/LogitScore.ecl" start="121">
+   <Type>record</Type>
+   <Field name="wi"/>
+   <Field name="id"/>
+   <Field name="number"/>
+   <Signature pre="" post="" name="Raw_Prediction">Raw_Prediction</Signature><Field name="raw"/>
+  </Definition>
+  <Definition body="174" end="192" fullname="logisticregression.model_coef" inherit_type="local" line="8" name="Model_Coef" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/LogitScore.ecl" start="161">
+   <Type>record</Type>
+   <Field name="wi"/>
+   <Field name="ind_col"/>
+   <Field name="dep_nom"/>
+   <Field name="w"/>
+   <Signature pre="" post="" name="Model_Coef">Model_Coef</Signature><Field name="SE"/>
+  </Definition>
+  <Definition body="541" end="1688" exported="1" fullname="logisticregression.logitscore" inherit_type="local" line="17" name="LogitScore" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/LogitScore.ecl" start="412">
+   <Type>function</Type>
+   <Documentation> <content>Calculate the score using the logit function and the the supplied beta coefficients.</content>
+    <return>the raw prediction value</return>
+    <param><name>coef</name><desc>the model beta coefficients</desc></param>
+    <param><name>independents</name><desc>the observations</desc></param>
+   </Documentation>
+   <Signature pre="" post="" name="DATASET(Raw_Prediction)&#10;      LogitScore(DATASET(Model_Coef) coef,&#10;                 DATASET(NumericField) independents)">DATASET(Raw_Prediction)
+      LogitScore(DATASET(Model_Coef) coef,
+                 DATASET(NumericField) independents)</Signature><Params>
+    <Param name="coef"/>
+    <Param name="independents"/>
+   </Params>
+  </Definition>
+ </Source>
+ <Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Types.ecl" name="ML_Core.Types" target="../ml_core/types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Types.ecl" name="LogisticRegression.Types" target="types.ecl.xml"/></Meta>

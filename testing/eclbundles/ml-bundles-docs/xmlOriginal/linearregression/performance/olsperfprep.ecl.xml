@@ -1,0 +1,1681 @@
+<Meta>
+ <Source name="LinearRegression.performance.OLSPerfPrep" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfPrep.ecl">
+  <Import body="0"
+          end="250"
+          fullname="LinearRegression"
+          inherit_type="local"
+          line="4"
+          name="LROLS"
+          ref="LinearRegression"
+          start="250">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0"
+          end="271"
+          fullname="ML_Core"
+          inherit_type="local"
+          line="5"
+          name="ML_Core"
+          ref="ML_Core"
+          remotescope="1"
+          start="271">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0"
+          end="287"
+          fullname="ML_Core.Types"
+          inherit_type="local"
+          line="6"
+          name="mlTypes"
+          ref="ML_Core.Types"
+          start="287">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0"
+          end="320"
+          fullname="PBblas"
+          inherit_type="local"
+          line="7"
+          name="PBblas"
+          ref="PBblas"
+          remotescope="1"
+          start="320">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0"
+          end="335"
+          fullname="PBblas.test.MakeTestMatrix"
+          inherit_type="local"
+          line="8"
+          name="tm"
+          ref="PBblas.test.MakeTestMatrix"
+          start="335">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0"
+          end="376"
+          fullname="PBblas.Types"
+          inherit_type="local"
+          line="9"
+          name="pbbTypes"
+          ref="PBblas.Types"
+          start="376">
+   <Type>attribute</Type>
+   <Documentation>
+    <content>Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes.</content>
+   </Documentation>
+  </Import>
+  <Import body="0"
+          end="409"
+          fullname="PBblas.Converted"
+          inherit_type="local"
+          line="10"
+          name="pbbConverted"
+          ref="PBblas.Converted"
+          start="409">
+   <Type>attribute</Type>
+   <Documentation>
+    <content>Module to convert between ML_Core/Types Field layouts (i.e. NumericField and DiscreteField) and PBblas matrix layout (i.e. Layout_Cell)</content>
+   </Documentation>
+  </Import>
+  <Definition body="457"
+              end="479"
+              fullname="linearregression.performance.layout_cell"
+              inherit_type="local"
+              line="11"
+              name="Layout_Cell"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfPrep.ecl"
+              start="443">
+   <Type>record</Type>
+   <Field name="wi_id"/>
+   <Field name="x"/>
+   <Field name="y"/>
+   <Field name="v"/>
+   <Documentation>
+    <field>wi_id  Work Item Number -- An identifier from 1 to 64K-1 that separates and identifies individual matrixes</field>
+    <field>x	    1-based row position within the matrix</field>
+    <field>y	    1-based column position within the matrix</field>
+    <field>v	    Real value for the cell</field>
+    <see>matrix_t</see>
+    <see>Std/PBblas/MakeR8Set.ecl</see>
+    <see>Std/PBblas/Converted.ecl WARNING: Used as C++ attribute.  Do not change without corresponding changes to MakeR8Set.</see>
+    <content>Layout for Matrix Cell Main representation of Matrix cell at interface to all PBBlas functions. Matrixes are represented as DATASET(Layout_Cell), where each cell describes the row and column position of the cell as well as its value. Only the non-zero cells need to be contained in the dataset in order to describe the matrix since all unspecified cells are considered to have a value of zero. The cell also contains a work-item number that allows multiple separate matrixes to be carried in the same dataset.  This supports the &quot;myriad&quot; style interface that allows the same operations to be performed on many different sets of data at once. Note that these matrixes do not have an explicit size.  They are sized implicitly, based on the maximum row and column presented in the data. A matrix can be converted to an explicit dense form (see matrix_t) by  using the utility module MakeR8Set. This module should only be used for known small matrixes (&lt; 1M cells) or for partitions of a larger matrix. The Converted module provides utility functions to convert to and from a set of partitions (See Layout_parts).</content>
+   </Documentation>
+  </Definition>
+  <Definition body="495"
+              end="517"
+              fullname="linearregression.performance.numericfield"
+              inherit_type="local"
+              line="12"
+              name="NumericField"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfPrep.ecl"
+              start="480">
+   <Type>record</Type>
+   <Field name="wi"/>
+   <Field name="id"/>
+   <Field name="number"/>
+   <Field name="value"/>
+  </Definition>
+  <Definition body="526"
+              end="540"
+              fullname="linearregression.performance.two31"
+              inherit_type="local"
+              line="13"
+              name="two31"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfPrep.ecl"
+              start="518">
+   <Type>attribute</Type>
+  </Definition>
+  <Definition body="554"
+              end="622"
+              fullname="linearregression.performance.noise"
+              inherit_type="local"
+              line="14"
+              name="Noise"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfPrep.ecl"
+              start="541">
+   <Type>attribute</Type>
+  </Definition>
+  <Definition body="636"
+              end="738"
+              fullname="linearregression.performance.test_rslt"
+              inherit_type="local"
+              line="19"
+              name="test_rslt"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfPrep.ecl"
+              start="624">
+   <Type>record</Type>
+   <Field name="TestName"/>
+   <Field name="X"/>
+   <Field name="Y"/>
+   <Field name="projY"/>
+   <Field name="diff"/>
+   <Field name="pctErr"/>
+  </Definition>
+  <Definition body="781"
+              end="926"
+              fullname="linearregression.performance.compx"
+              inherit_type="local"
+              line="30"
+              name="compX"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfPrep.ecl"
+              start="773">
+   <Type>record</Type>
+   <Field name="wi"/>
+   <Field name="id"/>
+   <Field name="X1"/>
+   <Field name="X2"/>
+   <Field name="X3"/>
+   <Field name="X4"/>
+   <Field name="X5"/>
+   <Field name="X6"/>
+   <Field name="X7"/>
+   <Field name="X8"/>
+   <Field name="X9"/>
+   <Field name="X10"/>
+  </Definition>
+  <Definition body="1009"
+              end="1480"
+              fullname="linearregression.performance.makecomposite"
+              inherit_type="local"
+              line="45"
+              name="makeComposite"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfPrep.ecl"
+              start="928">
+   <Type>transform</Type>
+   <Params>
+    <Param name="l"/>
+    <Param name="r"/>
+    <Param name="test_size"/>
+   </Params>
+   <Return>compx</Return>
+  </Definition>
+  <Definition body="1487"
+              end="1493"
+              fullname="linearregression.performance.a1"
+              inherit_type="local"
+              line="60"
+              name="A1"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfPrep.ecl"
+              start="1482">
+   <Type>attribute</Type>
+  </Definition>
+  <Definition body="1499"
+              end="1507"
+              fullname="linearregression.performance.a2"
+              inherit_type="local"
+              line="61"
+              name="A2"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfPrep.ecl"
+              start="1494">
+   <Type>attribute</Type>
+  </Definition>
+  <Definition body="1513"
+              end="1520"
+              fullname="linearregression.performance.a3"
+              inherit_type="local"
+              line="62"
+              name="A3"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfPrep.ecl"
+              start="1508">
+   <Type>attribute</Type>
+  </Definition>
+  <Definition body="1526"
+              end="1533"
+              fullname="linearregression.performance.a4"
+              inherit_type="local"
+              line="63"
+              name="A4"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfPrep.ecl"
+              start="1521">
+   <Type>attribute</Type>
+  </Definition>
+  <Definition body="1539"
+              end="1546"
+              fullname="linearregression.performance.a5"
+              inherit_type="local"
+              line="64"
+              name="A5"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfPrep.ecl"
+              start="1534">
+   <Type>attribute</Type>
+  </Definition>
+  <Definition body="1552"
+              end="1559"
+              fullname="linearregression.performance.a6"
+              inherit_type="local"
+              line="65"
+              name="A6"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfPrep.ecl"
+              start="1547">
+   <Type>attribute</Type>
+  </Definition>
+  <Definition body="1565"
+              end="1572"
+              fullname="linearregression.performance.a7"
+              inherit_type="local"
+              line="66"
+              name="A7"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfPrep.ecl"
+              start="1560">
+   <Type>attribute</Type>
+  </Definition>
+  <Definition body="1578"
+              end="1583"
+              fullname="linearregression.performance.a8"
+              inherit_type="local"
+              line="67"
+              name="A8"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfPrep.ecl"
+              start="1573">
+   <Type>attribute</Type>
+  </Definition>
+  <Definition body="1589"
+              end="1595"
+              fullname="linearregression.performance.a9"
+              inherit_type="local"
+              line="68"
+              name="A9"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfPrep.ecl"
+              start="1584">
+   <Type>attribute</Type>
+  </Definition>
+  <Definition body="1602"
+              end="1609"
+              fullname="linearregression.performance.a10"
+              inherit_type="local"
+              line="69"
+              name="A10"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfPrep.ecl"
+              start="1596">
+   <Type>attribute</Type>
+  </Definition>
+  <Definition body="1615"
+              end="1623"
+              fullname="linearregression.performance.b"
+              inherit_type="local"
+              line="71"
+              name="B"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfPrep.ecl"
+              start="1611">
+   <Type>attribute</Type>
+  </Definition>
+  <Definition body="1631"
+              end="1639"
+              fullname="linearregression.performance.n_s"
+              inherit_type="local"
+              line="73"
+              name="N_s"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfPrep.ecl"
+              start="1625">
+   <Type>attribute</Type>
+  </Definition>
+  <Definition body="1646"
+              end="1656"
+              fullname="linearregression.performance.n_m"
+              inherit_type="local"
+              line="74"
+              name="N_m"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfPrep.ecl"
+              start="1640">
+   <Type>attribute</Type>
+  </Definition>
+  <Definition body="1663"
+              end="1674"
+              fullname="linearregression.performance.n_l"
+              inherit_type="local"
+              line="75"
+              name="N_l"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfPrep.ecl"
+              start="1657">
+   <Type>attribute</Type>
+  </Definition>
+  <Definition body="1681"
+              end="1684"
+              fullname="linearregression.performance.m_s"
+              inherit_type="local"
+              line="76"
+              name="M_s"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfPrep.ecl"
+              start="1675">
+   <Type>attribute</Type>
+  </Definition>
+  <Definition body="1770"
+              end="1773"
+              fullname="linearregression.performance.m_m"
+              inherit_type="local"
+              line="77"
+              name="M_m"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfPrep.ecl"
+              start="1764">
+   <Type>attribute</Type>
+  </Definition>
+  <Definition body="1780"
+              end="1784"
+              fullname="linearregression.performance.m_l"
+              inherit_type="local"
+              line="78"
+              name="M_l"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfPrep.ecl"
+              start="1774">
+   <Type>attribute</Type>
+  </Definition>
+  <Definition body="1815"
+              end="2129"
+              fullname="linearregression.performance.makey"
+              inherit_type="local"
+              line="80"
+              name="makeY"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfPrep.ecl"
+              start="1786">
+   <Type>transform</Type>
+   <Params>
+    <Param name="X"/>
+   </Params>
+   <Return>layout_cell</Return>
+  </Definition>
+  <Definition body="2163"
+              end="2198"
+              fullname="linearregression.performance.mx_s"
+              inherit_type="local"
+              line="98"
+              name="mX_s"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfPrep.ecl"
+              start="2156">
+   <Type>attribute</Type>
+  </Definition>
+  <Definition body="2206"
+              end="2228"
+              fullname="linearregression.performance.sx_s"
+              inherit_type="local"
+              line="99"
+              name="sX_s"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfPrep.ecl"
+              start="2199">
+   <Type>attribute</Type>
+  </Definition>
+  <Definition body="2236"
+              end="2259"
+              fullname="linearregression.performance.gx_s"
+              inherit_type="local"
+              line="100"
+              name="gX_s"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfPrep.ecl"
+              start="2229">
+   <Type>attribute</Type>
+  </Definition>
+  <Definition body="2267"
+              end="2325"
+              fullname="linearregression.performance.cx_s"
+              inherit_type="local"
+              line="101"
+              name="cX_s"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfPrep.ecl"
+              start="2260">
+   <Type>attribute</Type>
+  </Definition>
+  <Definition body="2333"
+              end="2361"
+              fullname="linearregression.performance.my_s"
+              inherit_type="local"
+              line="102"
+              name="mY_s"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfPrep.ecl"
+              start="2326">
+   <Type>attribute</Type>
+  </Definition>
+  <Definition body="2368"
+              end="2399"
+              fullname="linearregression.performance.x_s"
+              inherit_type="local"
+              line="103"
+              name="X_s"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfPrep.ecl"
+              start="2362">
+   <Type>attribute</Type>
+   <Documentation>
+    <see>PBblas/Types.Layout_Cell</see>
+    <see>ML_Core/Types.NumericField</see>
+    <return>NumericField Dataset</return>
+    <param>mat  Matrix in DATASET(Layout_Cell) format</param>
+    <content>Convert Matrix to NumericField dataset</content>
+   </Documentation>
+  </Definition>
+  <Definition body="2406"
+              end="2437"
+              fullname="linearregression.performance.y_s"
+              inherit_type="local"
+              line="104"
+              name="Y_s"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfPrep.ecl"
+              start="2400">
+   <Type>attribute</Type>
+   <Documentation>
+    <see>PBblas/Types.Layout_Cell</see>
+    <see>ML_Core/Types.NumericField</see>
+    <return>NumericField Dataset</return>
+    <param>mat  Matrix in DATASET(Layout_Cell) format</param>
+    <content>Convert Matrix to NumericField dataset</content>
+   </Documentation>
+  </Definition>
+  <Definition body="2560"
+              end="2595"
+              fullname="linearregression.performance.mx_m"
+              inherit_type="local"
+              line="109"
+              name="mX_m"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfPrep.ecl"
+              start="2553">
+   <Type>attribute</Type>
+  </Definition>
+  <Definition body="2603"
+              end="2625"
+              fullname="linearregression.performance.sx_m"
+              inherit_type="local"
+              line="110"
+              name="sX_m"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfPrep.ecl"
+              start="2596">
+   <Type>attribute</Type>
+  </Definition>
+  <Definition body="2633"
+              end="2656"
+              fullname="linearregression.performance.gx_m"
+              inherit_type="local"
+              line="111"
+              name="gX_m"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfPrep.ecl"
+              start="2626">
+   <Type>attribute</Type>
+  </Definition>
+  <Definition body="2664"
+              end="2722"
+              fullname="linearregression.performance.cx_m"
+              inherit_type="local"
+              line="112"
+              name="cX_m"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfPrep.ecl"
+              start="2657">
+   <Type>attribute</Type>
+  </Definition>
+  <Definition body="2730"
+              end="2758"
+              fullname="linearregression.performance.my_m"
+              inherit_type="local"
+              line="113"
+              name="mY_m"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfPrep.ecl"
+              start="2723">
+   <Type>attribute</Type>
+  </Definition>
+  <Definition body="2765"
+              end="2796"
+              fullname="linearregression.performance.x_m"
+              inherit_type="local"
+              line="114"
+              name="X_m"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfPrep.ecl"
+              start="2759">
+   <Type>attribute</Type>
+   <Documentation>
+    <see>PBblas/Types.Layout_Cell</see>
+    <see>ML_Core/Types.NumericField</see>
+    <return>NumericField Dataset</return>
+    <param>mat  Matrix in DATASET(Layout_Cell) format</param>
+    <content>Convert Matrix to NumericField dataset</content>
+   </Documentation>
+  </Definition>
+  <Definition body="2803"
+              end="2834"
+              fullname="linearregression.performance.y_m"
+              inherit_type="local"
+              line="115"
+              name="Y_m"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfPrep.ecl"
+              start="2797">
+   <Type>attribute</Type>
+   <Documentation>
+    <see>PBblas/Types.Layout_Cell</see>
+    <see>ML_Core/Types.NumericField</see>
+    <return>NumericField Dataset</return>
+    <param>mat  Matrix in DATASET(Layout_Cell) format</param>
+    <content>Convert Matrix to NumericField dataset</content>
+   </Documentation>
+  </Definition>
+  <Definition body="2956"
+              end="2991"
+              fullname="linearregression.performance.mx_l"
+              inherit_type="local"
+              line="120"
+              name="mX_l"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfPrep.ecl"
+              start="2949">
+   <Type>attribute</Type>
+  </Definition>
+  <Definition body="2999"
+              end="3021"
+              fullname="linearregression.performance.sx_l"
+              inherit_type="local"
+              line="121"
+              name="sX_l"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfPrep.ecl"
+              start="2992">
+   <Type>attribute</Type>
+  </Definition>
+  <Definition body="3029"
+              end="3052"
+              fullname="linearregression.performance.gx_l"
+              inherit_type="local"
+              line="122"
+              name="gX_l"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfPrep.ecl"
+              start="3022">
+   <Type>attribute</Type>
+  </Definition>
+  <Definition body="3060"
+              end="3118"
+              fullname="linearregression.performance.cx_l"
+              inherit_type="local"
+              line="123"
+              name="cX_l"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfPrep.ecl"
+              start="3053">
+   <Type>attribute</Type>
+  </Definition>
+  <Definition body="3126"
+              end="3154"
+              fullname="linearregression.performance.my_l"
+              inherit_type="local"
+              line="124"
+              name="mY_l"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfPrep.ecl"
+              start="3119">
+   <Type>attribute</Type>
+  </Definition>
+  <Definition body="3161"
+              end="3192"
+              fullname="linearregression.performance.x_l"
+              inherit_type="local"
+              line="125"
+              name="X_l"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfPrep.ecl"
+              start="3155">
+   <Type>attribute</Type>
+   <Documentation>
+    <see>PBblas/Types.Layout_Cell</see>
+    <see>ML_Core/Types.NumericField</see>
+    <return>NumericField Dataset</return>
+    <param>mat  Matrix in DATASET(Layout_Cell) format</param>
+    <content>Convert Matrix to NumericField dataset</content>
+   </Documentation>
+  </Definition>
+  <Definition body="3199"
+              end="3230"
+              fullname="linearregression.performance.y_l"
+              inherit_type="local"
+              line="126"
+              name="Y_l"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfPrep.ecl"
+              start="3193">
+   <Type>attribute</Type>
+   <Documentation>
+    <see>PBblas/Types.Layout_Cell</see>
+    <see>ML_Core/Types.NumericField</see>
+    <return>NumericField Dataset</return>
+    <param>mat  Matrix in DATASET(Layout_Cell) format</param>
+    <content>Convert Matrix to NumericField dataset</content>
+   </Documentation>
+  </Definition>
+ </Source>
+ <Source name="ML_Core.Types" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl">
+  <Definition body="37"
+              end="3074"
+              exported="1"
+              fullname="ML_Core.Types"
+              inherit_type="local"
+              line="2"
+              name="Types"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+              start="22">
+   <Type>module</Type>
+   <Definition body="944"
+               end="955"
+               exported="1"
+               fullname="ml_core.types.t_recordid"
+               inherit_type="local"
+               line="22"
+               name="t_RecordID"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="924">
+    <Type>attribute</Type>
+   </Definition>
+   <Definition body="981"
+               end="992"
+               exported="1"
+               fullname="ml_core.types.t_fieldnumber"
+               inherit_type="local"
+               line="23"
+               name="t_FieldNumber"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="958">
+    <Type>attribute</Type>
+   </Definition>
+   <Definition body="1016"
+               end="1023"
+               exported="1"
+               fullname="ml_core.types.t_fieldreal"
+               inherit_type="local"
+               line="24"
+               name="t_FieldReal"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="995">
+    <Type>attribute</Type>
+   </Definition>
+   <Definition body="1047"
+               end="1057"
+               exported="1"
+               fullname="ml_core.types.t_fieldsign"
+               inherit_type="local"
+               line="25"
+               name="t_FieldSign"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="1026">
+    <Type>attribute</Type>
+   </Definition>
+   <Definition body="1080"
+               end="1090"
+               exported="1"
+               fullname="ml_core.types.t_discrete"
+               inherit_type="local"
+               line="26"
+               name="t_Discrete"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="1060">
+    <Type>attribute</Type>
+   </Definition>
+   <Definition body="1109"
+               end="1120"
+               exported="1"
+               fullname="ml_core.types.t_item"
+               inherit_type="local"
+               line="27"
+               name="t_Item"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="1093">
+    <Type>attribute</Type>
+   </Definition>
+   <Definition body="1188"
+               end="1200"
+               exported="1"
+               fullname="ml_core.types.t_count"
+               inherit_type="local"
+               line="28"
+               name="t_Count"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="1171">
+    <Type>attribute</Type>
+   </Definition>
+   <Definition body="1258"
+               end="1269"
+               exported="1"
+               fullname="ml_core.types.t_work_item"
+               inherit_type="local"
+               line="29"
+               name="t_Work_Item"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="1237">
+    <Type>attribute</Type>
+   </Definition>
+   <Definition body="1391"
+               end="1600"
+               exported="1"
+               fullname="ml_core.types.anyfield"
+               inherit_type="local"
+               line="32"
+               name="AnyField"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="1369">
+    <Type>record</Type>
+    <Field name="wi"/>
+    <Field name="id"/>
+    <Field name="number"/>
+   </Definition>
+   <Definition body="1673"
+               end="1720"
+               exported="1"
+               fullname="ml_core.types.numericfield"
+               inherit_type="local"
+               line="39"
+               name="NumericField"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="1651">
+    <Type>record</Type>
+    <Field name="wi"/>
+    <Field name="id"/>
+    <Field name="number"/>
+    <Field name="value"/>
+   </Definition>
+   <Definition body="1797"
+               end="1843"
+               exported="1"
+               fullname="ml_core.types.discretefield"
+               inherit_type="local"
+               line="44"
+               name="DiscreteField"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="1774">
+    <Type>record</Type>
+    <Field name="wi"/>
+    <Field name="id"/>
+    <Field name="number"/>
+    <Field name="value"/>
+   </Definition>
+   <Definition body="1953"
+               end="2200"
+               exported="1"
+               fullname="ml_core.types.layout_model"
+               inherit_type="local"
+               line="49"
+               name="Layout_Model"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="1931">
+    <Type>record</Type>
+    <Field name="wi"/>
+    <Field name="id"/>
+    <Field name="number"/>
+    <Field name="value"/>
+   </Definition>
+   <Definition body="2261"
+               end="2336"
+               exported="1"
+               fullname="ml_core.types.classify_result"
+               inherit_type="local"
+               line="57"
+               name="Classify_Result"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="2236">
+    <Type>record</Type>
+    <Field name="wi"/>
+    <Field name="id"/>
+    <Field name="number"/>
+    <Field name="value"/>
+    <Field name="conf"/>
+   </Definition>
+   <Definition body="2357"
+               end="2410"
+               exported="1"
+               fullname="ml_core.types.l_result"
+               inherit_type="local"
+               line="60"
+               name="l_result"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="2339">
+    <Type>record</Type>
+    <Field name="wi"/>
+    <Field name="id"/>
+    <Field name="number"/>
+    <Field name="value"/>
+    <Field name="conf"/>
+   </Definition>
+   <Definition body="2440"
+               end="2639"
+               exported="1"
+               fullname="ml_core.types.confusion_detail"
+               inherit_type="local"
+               line="62"
+               name="Confusion_Detail"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="2414">
+    <Type>record</Type>
+    <Field name="wi"/>
+    <Field name="classifier"/>
+    <Field name="actual_class"/>
+    <Field name="predict_class"/>
+    <Field name="occurs"/>
+    <Field name="correct"/>
+   </Definition>
+   <Definition body="2711"
+               end="2782"
+               exported="1"
+               fullname="ml_core.types.itemelement"
+               inherit_type="local"
+               line="72"
+               name="ItemElement"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="2690">
+    <Type>record</Type>
+    <Field name="wi"/>
+    <Field name="value"/>
+    <Field name="id"/>
+   </Definition>
+   <Definition body="2848"
+               end="2858"
+               exported="1"
+               fullname="ml_core.types.t_node"
+               inherit_type="local"
+               line="79"
+               name="t_node"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="2831">
+    <Type>attribute</Type>
+   </Definition>
+   <Definition body="2942"
+               end="2953"
+               exported="1"
+               fullname="ml_core.types.t_level"
+               inherit_type="local"
+               line="80"
+               name="t_level"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="2925">
+    <Type>attribute</Type>
+   </Definition>
+   <Definition body="2995"
+               end="3069"
+               exported="1"
+               fullname="ml_core.types.nodeid"
+               inherit_type="local"
+               line="81"
+               name="NodeID"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="2978">
+    <Type>record</Type>
+    <Field name="wi"/>
+    <Field name="node_id"/>
+    <Field name="level"/>
+   </Definition>
+   <Parents/>
+  </Definition>
+ </Source>
+ <Source name="PBblas.test.MakeTestMatrix" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/test/MakeTestMatrix.ecl">
+  <Import body="0"
+          end="7"
+          fullname="PBblas"
+          inherit_type="local"
+          line="1"
+          name="PBblas"
+          ref="PBblas"
+          remotescope="1"
+          start="7">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0"
+          end="29"
+          fullname="PBblas.Types"
+          inherit_type="local"
+          line="2"
+          name="Types"
+          ref="PBblas.Types"
+          start="29">
+   <Type>attribute</Type>
+   <Documentation>
+    <content>Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes.</content>
+   </Documentation>
+  </Import>
+  <Import body="0"
+          end="50"
+          fullname="std.system.Thorlib"
+          inherit_type="local"
+          line="3"
+          name="Thorlib"
+          ref="std.system.Thorlib"
+          start="50">
+   <Type>attribute</Type>
+  </Import>
+  <Definition body="84"
+              end="103"
+              fullname="pbblas.test.layout_cell"
+              inherit_type="local"
+              line="4"
+              name="Layout_Cell"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/test/MakeTestMatrix.ecl"
+              start="70">
+   <Type>record</Type>
+   <Field name="wi_id"/>
+   <Field name="x"/>
+   <Field name="y"/>
+   <Field name="v"/>
+   <Documentation>
+    <field>wi_id  Work Item Number -- An identifier from 1 to 64K-1 that separates and identifies individual matrixes</field>
+    <field>x	    1-based row position within the matrix</field>
+    <field>y	    1-based column position within the matrix</field>
+    <field>v	    Real value for the cell</field>
+    <see>matrix_t</see>
+    <see>Std/PBblas/MakeR8Set.ecl</see>
+    <see>Std/PBblas/Converted.ecl WARNING: Used as C++ attribute.  Do not change without corresponding changes to MakeR8Set.</see>
+    <content>Layout for Matrix Cell Main representation of Matrix cell at interface to all PBBlas functions. Matrixes are represented as DATASET(Layout_Cell), where each cell describes the row and column position of the cell as well as its value. Only the non-zero cells need to be contained in the dataset in order to describe the matrix since all unspecified cells are considered to have a value of zero. The cell also contains a work-item number that allows multiple separate matrixes to be carried in the same dataset.  This supports the &quot;myriad&quot; style interface that allows the same operations to be performed on many different sets of data at once. Note that these matrixes do not have an explicit size.  They are sized implicitly, based on the maximum row and column presented in the data. A matrix can be converted to an explicit dense form (see matrix_t) by  using the utility module MakeR8Set. This module should only be used for known small matrixes (&lt; 1M cells) or for partitions of a larger matrix. The Converted module provides utility functions to convert to and from a set of partitions (See Layout_parts).</content>
+   </Documentation>
+  </Definition>
+  <Definition body="151"
+              end="3332"
+              exported="1"
+              fullname="PBblas.test.MakeTestMatrix"
+              inherit_type="local"
+              line="7"
+              name="MakeTestMatrix"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/test/MakeTestMatrix.ecl"
+              start="127">
+   <Type>module</Type>
+   <Definition body="208"
+               end="226"
+               fullname="pbblas.test.maketestmatrix.rmax"
+               inherit_type="local"
+               line="9"
+               name="rmax"
+               shared="1"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/test/MakeTestMatrix.ecl"
+               start="185">
+    <Type>attribute</Type>
+   </Definition>
+   <Definition body="281"
+               end="286"
+               fullname="pbblas.test.maketestmatrix.modulus"
+               inherit_type="local"
+               line="10"
+               name="modulus"
+               shared="1"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/test/MakeTestMatrix.ecl"
+               start="264">
+    <Type>attribute</Type>
+   </Definition>
+   <Definition body="388"
+               end="418"
+               fullname="pbblas.test.maketestmatrix.w_rec"
+               inherit_type="local"
+               line="11"
+               name="W_Rec"
+               shared="1"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/test/MakeTestMatrix.ecl"
+               start="373">
+    <Type>record</Type>
+    <Field name="x"/>
+   </Definition>
+   <Definition body="433"
+               end="456"
+               fullname="pbblas.test.maketestmatrix.w0"
+               inherit_type="local"
+               line="14"
+               name="W0"
+               shared="1"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/test/MakeTestMatrix.ecl"
+               start="421">
+    <Type>attribute</Type>
+   </Definition>
+   <Definition body="474"
+               end="491"
+               fullname="pbblas.test.maketestmatrix.nodes"
+               inherit_type="local"
+               line="15"
+               name="nodes"
+               shared="1"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/test/MakeTestMatrix.ecl"
+               start="459">
+    <Type>attribute</Type>
+   </Definition>
+   <Definition body="506"
+               end="579"
+               fullname="pbblas.test.maketestmatrix.w1"
+               inherit_type="local"
+               line="16"
+               name="W1"
+               shared="1"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/test/MakeTestMatrix.ecl"
+               start="494">
+    <Type>attribute</Type>
+   </Definition>
+   <Definition body="594"
+               end="613"
+               fullname="pbblas.test.maketestmatrix.w2"
+               inherit_type="local"
+               line="17"
+               name="W2"
+               shared="1"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/test/MakeTestMatrix.ecl"
+               start="582">
+    <Type>attribute</Type>
+   </Definition>
+   <Definition body="630"
+               end="646"
+               fullname="pbblas.test.maketestmatrix.node"
+               inherit_type="local"
+               line="18"
+               name="node"
+               shared="1"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/test/MakeTestMatrix.ecl"
+               start="616">
+    <Type>attribute</Type>
+   </Definition>
+   <Definition body="747"
+               end="1183"
+               fullname="pbblas.test.maketestmatrix.gen"
+               inherit_type="local"
+               line="20"
+               name="gen"
+               shared="1"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/test/MakeTestMatrix.ecl"
+               start="650">
+    <Type>transform</Type>
+    <Params>
+     <Param name="c"/>
+     <Param name="NumRows"/>
+     <Param name="v"/>
+     <Param name="density"/>
+     <Param name="wi_id"/>
+    </Params>
+    <Return>layout_cell</Return>
+   </Definition>
+   <Definition body="1235"
+               end="1285"
+               fullname="pbblas.test.maketestmatrix.f_a"
+               inherit_type="local"
+               line="30"
+               name="F_A"
+               shared="1"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/test/MakeTestMatrix.ecl"
+               start="1203">
+    <Type>function</Type>
+    <Params>
+     <Param name="c"/>
+    </Params>
+   </Definition>
+   <Definition body="1365"
+               end="1837"
+               exported="1"
+               fullname="pbblas.test.maketestmatrix.matrix"
+               inherit_type="local"
+               line="32"
+               name="Matrix"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/test/MakeTestMatrix.ecl"
+               start="1289">
+    <Type>function</Type>
+    <Params>
+     <Param name="N"/>
+     <Param name="M"/>
+     <Param name="density"/>
+     <Param name="wi_id"/>
+    </Params>
+   </Definition>
+   <Definition body="1946"
+               end="2106"
+               exported="1"
+               fullname="pbblas.test.maketestmatrix.matrixpersist"
+               inherit_type="local"
+               line="44"
+               name="MatrixPersist"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/test/MakeTestMatrix.ecl"
+               start="1841">
+    <Type>function</Type>
+    <Params>
+     <Param name="N"/>
+     <Param name="M"/>
+     <Param name="density"/>
+     <Param name="wi_id"/>
+     <Param name="test_id"/>
+    </Params>
+   </Definition>
+   <Definition body="2227"
+               end="2516"
+               fullname="pbblas.test.maketestmatrix.genrandom"
+               inherit_type="local"
+               line="52"
+               name="genRandom"
+               shared="1"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/test/MakeTestMatrix.ecl"
+               start="2134">
+    <Type>transform</Type>
+    <Params>
+     <Param name="c"/>
+     <Param name="NumRows"/>
+     <Param name="density"/>
+     <Param name="wi_id"/>
+    </Params>
+    <Return>layout_cell</Return>
+   </Definition>
+   <Definition body="2602"
+               end="3051"
+               exported="1"
+               fullname="pbblas.test.maketestmatrix.randommatrix"
+               inherit_type="local"
+               line="61"
+               name="RandomMatrix"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/test/MakeTestMatrix.ecl"
+               start="2520">
+    <Type>function</Type>
+    <Params>
+     <Param name="N"/>
+     <Param name="M"/>
+     <Param name="density"/>
+     <Param name="wi_id"/>
+    </Params>
+   </Definition>
+   <Definition body="3160"
+               end="3327"
+               exported="1"
+               fullname="pbblas.test.maketestmatrix.randompersist"
+               inherit_type="local"
+               line="73"
+               name="RandomPersist"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/test/MakeTestMatrix.ecl"
+               start="3055">
+    <Type>function</Type>
+    <Params>
+     <Param name="N"/>
+     <Param name="M"/>
+     <Param name="density"/>
+     <Param name="wi_id"/>
+     <Param name="test_id"/>
+    </Params>
+   </Definition>
+   <Parents/>
+  </Definition>
+ </Source>
+ <Source name="PBblas.Types" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/Types.ecl">
+  <Definition body="516"
+              end="4363"
+              exported="1"
+              fullname="PBblas.Types"
+              inherit_type="local"
+              line="11"
+              name="Types"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/Types.ecl"
+              start="501">
+   <Type>module</Type>
+   <Parents/>
+   <Definition body="692"
+               end="703"
+               exported="1"
+               fullname="pbblas.types.dimension_t"
+               inherit_type="local"
+               line="16"
+               name="dimension_t"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/Types.ecl"
+               start="670">
+    <Type>attribute</Type>
+    <Documentation>
+     <content>Type for matrix dimensions.  Uses UNSIGNED four as matrixes are not designed to support more than 4 B rows or columns.</content>
+    </Documentation>
+   </Definition>
+   <Definition body="851"
+               end="862"
+               exported="1"
+               fullname="pbblas.types.partition_t"
+               inherit_type="local"
+               line="20"
+               name="partition_t"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/Types.ecl"
+               start="829">
+    <Type>attribute</Type>
+    <Documentation>
+     <content>Type for partition id -- only supports up to 64K partitions</content>
+    </Documentation>
+   </Definition>
+   <Definition body="967"
+               end="988"
+               exported="1"
+               fullname="pbblas.types.work_item_t"
+               inherit_type="local"
+               line="24"
+               name="work_item_t"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/Types.ecl"
+               start="945">
+    <Type>attribute</Type>
+    <Documentation>
+     <content>Type for work-item id -- only supports up to 64K work items</content>
+    </Documentation>
+   </Definition>
+   <Definition body="1109"
+               end="1116"
+               exported="1"
+               fullname="pbblas.types.value_t"
+               inherit_type="local"
+               line="30"
+               name="value_t"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/Types.ecl"
+               start="1087">
+    <Type>attribute</Type>
+    <Documentation>
+     <content>Type for matrix cell values WARNING: type used in C++ attribute</content>
+    </Documentation>
+   </Definition>
+   <Definition body="1272"
+               end="1281"
+               exported="1"
+               fullname="pbblas.types.m_label_t"
+               inherit_type="local"
+               line="35"
+               name="m_label_t"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/Types.ecl"
+               start="1250">
+    <Type>attribute</Type>
+    <Documentation>
+     <content>Type for matrix label.  Used for Matrix dimensions (see Layout_Dims) and for partitions (see Layout_Part)</content>
+    </Documentation>
+   </Definition>
+   <Definition body="1404"
+               end="1439"
+               exported="1"
+               inherit_type="local"
+               line="41"
+               name="Triangle"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/Types.ecl"
+               start="1382">
+    <Type>attribute</Type>
+    <Documentation>
+     <content>Enumeration for Triangle type WARNING: type used in C++ attribute</content>
+    </Documentation>
+   </Definition>
+   <Definition body="1564"
+               end="1606"
+               exported="1"
+               inherit_type="local"
+               line="47"
+               name="Diagonal"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/Types.ecl"
+               start="1542">
+    <Type>attribute</Type>
+    <Documentation>
+     <content>Enumeration for Diagonal type WARNING: type used in C++ attribute</content>
+    </Documentation>
+   </Definition>
+   <Definition body="1729"
+               end="1758"
+               exported="1"
+               inherit_type="local"
+               line="53"
+               name="Side"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/Types.ecl"
+               start="1707">
+    <Type>attribute</Type>
+    <Documentation>
+     <content>Enumeration for Side type WARNING: type used in C++ attribute</content>
+    </Documentation>
+   </Definition>
+   <Definition body="1893"
+               end="1904"
+               exported="1"
+               fullname="pbblas.types.t_mu_no"
+               inherit_type="local"
+               line="60"
+               name="t_mu_no"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/Types.ecl"
+               start="1871">
+    <Type>attribute</Type>
+    <Documentation>
+     <content>Type for matrix universe number Allow up to 64k matrices in one universe</content>
+    </Documentation>
+   </Definition>
+   <Definition body="3736"
+               end="3974"
+               exported="1"
+               fullname="pbblas.types.layout_cell"
+               inherit_type="local"
+               line="94"
+               name="Layout_Cell"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/Types.ecl"
+               start="3714">
+    <Type>record</Type>
+    <Field name="wi_id"/>
+    <Field name="x"/>
+    <Field name="y"/>
+    <Field name="v"/>
+    <Documentation>
+     <field>wi_id  Work Item Number -- An identifier from 1 to 64K-1 that separates and identifies individual matrixes</field>
+     <field>x	    1-based row position within the matrix</field>
+     <field>y	    1-based column position within the matrix</field>
+     <field>v	    Real value for the cell</field>
+     <see>matrix_t</see>
+     <see>Std/PBblas/MakeR8Set.ecl</see>
+     <see>Std/PBblas/Converted.ecl WARNING: Used as C++ attribute.  Do not change without corresponding changes to MakeR8Set.</see>
+     <content>Layout for Matrix Cell Main representation of Matrix cell at interface to all PBBlas functions. Matrixes are represented as DATASET(Layout_Cell), where each cell describes the row and column position of the cell as well as its value. Only the non-zero cells need to be contained in the dataset in order to describe the matrix since all unspecified cells are considered to have a value of zero. The cell also contains a work-item number that allows multiple separate matrixes to be carried in the same dataset.  This supports the &quot;myriad&quot; style interface that allows the same operations to be performed on many different sets of data at once. Note that these matrixes do not have an explicit size.  They are sized implicitly, based on the maximum row and column presented in the data. A matrix can be converted to an explicit dense form (see matrix_t) by  using the utility module MakeR8Set. This module should only be used for known small matrixes (&lt; 1M cells) or for partitions of a larger matrix. The Converted module provides utility functions to convert to and from a set of partitions (See Layout_parts).</content>
+    </Documentation>
+   </Definition>
+   <Definition body="4234"
+               end="4358"
+               exported="1"
+               fullname="pbblas.types.layout_norm"
+               inherit_type="local"
+               line="108"
+               name="Layout_Norm"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/Types.ecl"
+               start="4213">
+    <Type>record</Type>
+    <Field name="wi_id"/>
+    <Field name="v"/>
+    <Documentation>
+     <field>wi_id  Work Item Number -- An identifier from 1 to 64K-1 that separates and identifies individual matrixes</field>
+     <field>v	    Real value for the norm</field>
+     <content>Layout for Norm results.</content>
+    </Documentation>
+   </Definition>
+   <Documentation>
+    <content>Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes.</content>
+   </Documentation>
+  </Definition>
+  <Import body="0"
+          end="248"
+          fullname="ML_Core"
+          inherit_type="local"
+          line="4"
+          name="ML_Core"
+          ref="ML_Core"
+          remotescope="1"
+          start="248">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0"
+          end="264"
+          fullname="ML_Core.Types"
+          inherit_type="local"
+          line="5"
+          name="MlTypes"
+          ref="ML_Core.Types"
+          start="264">
+   <Type>attribute</Type>
+  </Import>
+ </Source>
+ <Source name="std.system.Thorlib" sourcePath="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/system/Thorlib.ecl">
+  <Definition body="464"
+              end="1191"
+              inherit_type="local"
+              line="11"
+              name="externals"
+              source="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/system/Thorlib.ecl"
+              start="452">
+   <Type>module</Type>
+   <Definition body="0"
+               end="0"
+               exported="1"
+               fullname="node"
+               inherit_type="local"
+               line="13"
+               name="node"
+               start="0">
+    <Type>function</Type>
+    <Params/>
+   </Definition>
+   <Definition body="0"
+               end="0"
+               exported="1"
+               fullname="nodes"
+               inherit_type="local"
+               line="14"
+               name="nodes"
+               start="0">
+    <Type>function</Type>
+    <Params/>
+   </Definition>
+   <Definition body="0"
+               end="0"
+               exported="1"
+               fullname="l2p"
+               inherit_type="local"
+               line="15"
+               name="l2p"
+               start="0">
+    <Type>function</Type>
+    <Params>
+     <Param name="name"/>
+     <Param name="create"/>
+    </Params>
+   </Definition>
+   <Definition body="0"
+               end="0"
+               exported="1"
+               fullname="getfileoffset"
+               inherit_type="local"
+               line="16"
+               name="getFileOffset"
+               start="0">
+    <Type>function</Type>
+    <Params>
+     <Param name="lfname"/>
+    </Params>
+   </Definition>
+   <Definition body="0"
+               end="0"
+               exported="1"
+               fullname="daliserver"
+               inherit_type="local"
+               line="17"
+               name="daliServer"
+               start="0">
+    <Type>function</Type>
+    <Params/>
+   </Definition>
+   <Definition body="0"
+               end="0"
+               exported="1"
+               fullname="cluster"
+               inherit_type="local"
+               line="18"
+               name="cluster"
+               start="0">
+    <Type>function</Type>
+    <Params/>
+   </Definition>
+   <Definition body="0"
+               end="0"
+               exported="1"
+               fullname="getexpandlogicalname"
+               inherit_type="local"
+               line="19"
+               name="getExpandLogicalName"
+               start="0">
+    <Type>function</Type>
+    <Params>
+     <Param name="name"/>
+    </Params>
+   </Definition>
+   <Definition body="0"
+               end="0"
+               exported="1"
+               fullname="group"
+               inherit_type="local"
+               line="20"
+               name="group"
+               start="0">
+    <Type>function</Type>
+    <Params/>
+   </Definition>
+   <Definition body="0"
+               end="0"
+               exported="1"
+               fullname="platform"
+               inherit_type="local"
+               line="21"
+               name="platform"
+               start="0">
+    <Type>function</Type>
+    <Params/>
+   </Definition>
+   <Parents/>
+  </Definition>
+ </Source>
+ <Source name="PBblas.Converted" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/Converted.ecl">
+  <Import body="0"
+          end="7"
+          fullname="PBblas"
+          inherit_type="local"
+          line="1"
+          name="PBblas"
+          ref="PBblas"
+          remotescope="1"
+          start="7">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0"
+          end="27"
+          fullname="PBblas.Types"
+          inherit_type="local"
+          line="2"
+          name="Types"
+          ref="PBblas.Types"
+          start="27">
+   <Type>attribute</Type>
+   <Documentation>
+    <content>Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes.</content>
+   </Documentation>
+  </Import>
+  <Import body="0"
+          end="48"
+          fullname="ML_Core.Types"
+          inherit_type="local"
+          line="3"
+          name="MlTypes"
+          ref="ML_Core.Types"
+          start="48">
+   <Type>attribute</Type>
+  </Import>
+  <Definition body="89"
+              end="111"
+              fullname="pbblas.numericfield"
+              inherit_type="local"
+              line="4"
+              name="NumericField"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/Converted.ecl"
+              start="74">
+   <Type>record</Type>
+   <Field name="wi"/>
+   <Field name="id"/>
+   <Field name="number"/>
+   <Field name="value"/>
+  </Definition>
+  <Definition body="128"
+              end="151"
+              fullname="pbblas.discretefield"
+              inherit_type="local"
+              line="5"
+              name="DiscreteField"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/Converted.ecl"
+              start="112">
+   <Type>record</Type>
+   <Field name="wi"/>
+   <Field name="id"/>
+   <Field name="number"/>
+   <Field name="value"/>
+  </Definition>
+  <Definition body="167"
+              end="186"
+              fullname="pbblas.layout_cell"
+              inherit_type="local"
+              line="6"
+              name="Layout_Cell"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/Converted.ecl"
+              start="152">
+   <Type>record</Type>
+   <Field name="wi_id"/>
+   <Field name="x"/>
+   <Field name="y"/>
+   <Field name="v"/>
+   <Documentation>
+    <field>wi_id  Work Item Number -- An identifier from 1 to 64K-1 that separates and identifies individual matrixes</field>
+    <field>x	    1-based row position within the matrix</field>
+    <field>y	    1-based column position within the matrix</field>
+    <field>v	    Real value for the cell</field>
+    <see>matrix_t</see>
+    <see>Std/PBblas/MakeR8Set.ecl</see>
+    <see>Std/PBblas/Converted.ecl WARNING: Used as C++ attribute.  Do not change without corresponding changes to MakeR8Set.</see>
+    <content>Layout for Matrix Cell Main representation of Matrix cell at interface to all PBBlas functions. Matrixes are represented as DATASET(Layout_Cell), where each cell describes the row and column position of the cell as well as its value. Only the non-zero cells need to be contained in the dataset in order to describe the matrix since all unspecified cells are considered to have a value of zero. The cell also contains a work-item number that allows multiple separate matrixes to be carried in the same dataset.  This supports the &quot;myriad&quot; style interface that allows the same operations to be performed on many different sets of data at once. Note that these matrixes do not have an explicit size.  They are sized implicitly, based on the maximum row and column presented in the data. A matrix can be converted to an explicit dense form (see matrix_t) by  using the utility module MakeR8Set. This module should only be used for known small matrixes (&lt; 1M cells) or for partitions of a larger matrix. The Converted module provides utility functions to convert to and from a set of partitions (See Layout_parts).</content>
+   </Documentation>
+  </Definition>
+  <Definition body="360"
+              end="2759"
+              exported="1"
+              fullname="PBblas.Converted"
+              inherit_type="local"
+              line="12"
+              name="Converted"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/Converted.ecl"
+              start="341">
+   <Type>module</Type>
+   <Parents/>
+   <Definition body="726"
+               end="975"
+               exported="1"
+               fullname="pbblas.converted.nftomatrix"
+               inherit_type="local"
+               line="22"
+               name="NFToMatrix"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/Converted.ecl"
+               start="657">
+    <Type>function</Type>
+    <Documentation>
+     <see>PBblas/Types.Layout_Cell</see>
+     <see>ML_Core/Types.NumericField</see>
+     <return>Matrix in DATASET(Layout_Cell) format</return>
+     <param>recs  Record Dataset in DATASET(NumericField) format</param>
+     <content>Convert NumericField dataset to Matrix</content>
+    </Documentation>
+    <Params>
+     <Param name="recs"/>
+    </Params>
+   </Definition>
+   <Definition body="1338"
+               end="1588"
+               exported="1"
+               fullname="pbblas.converted.dftomatrix"
+               inherit_type="local"
+               line="41"
+               name="DFToMatrix"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/Converted.ecl"
+               start="1268">
+    <Type>function</Type>
+    <Documentation>
+     <see>PBblas/Types.Layout_Cell</see>
+     <see>ML_Core/Types.DiscreteField</see>
+     <return>Matrix in DATASET(Layout_Cell) format</return>
+     <param>recs  Record Dataset in DATASET(DiscreteField) format</param>
+     <content>Convert DiscreteField dataset to Matrix</content>
+    </Documentation>
+    <Params>
+     <Param name="recs"/>
+    </Params>
+   </Definition>
+   <Definition body="1910"
+               end="2165"
+               exported="1"
+               fullname="pbblas.converted.matrixtonf"
+               inherit_type="local"
+               line="59"
+               name="MatrixToNF"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/Converted.ecl"
+               start="1842">
+    <Type>function</Type>
+    <Documentation>
+     <see>PBblas/Types.Layout_Cell</see>
+     <see>ML_Core/Types.NumericField</see>
+     <return>NumericField Dataset</return>
+     <param>mat  Matrix in DATASET(Layout_Cell) format</param>
+     <content>Convert Matrix to NumericField dataset</content>
+    </Documentation>
+    <Params>
+     <Param name="mat"/>
+    </Params>
+   </Definition>
+   <Definition body="2491"
+               end="2754"
+               exported="1"
+               fullname="pbblas.converted.matrixtodf"
+               inherit_type="local"
+               line="77"
+               name="MatrixToDF"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/Converted.ecl"
+               start="2422">
+    <Type>function</Type>
+    <Documentation>
+     <see>PBblas/Types.Layout_Cell</see>
+     <see>ML_Core/Types.DiscreteField</see>
+     <return>DiscreteField Dataset</return>
+     <param>mat  Matrix in DATASET(Layout_Cell) format</param>
+     <content>Convert Matrix to DiscreteField dataset</content>
+    </Documentation>
+    <Params>
+     <Param name="mat"/>
+    </Params>
+   </Definition>
+   <Documentation>
+    <content>Module to convert between ML_Core/Types Field layouts (i.e. NumericField and DiscreteField) and PBblas matrix layout (i.e. Layout_Cell)</content>
+   </Documentation>
+  </Definition>
+ </Source>
+</Meta>

@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Meta>
+ <Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Types.ecl" name="ML_Core.Types" target="../types.ecl.xml"/><Source name="ML_Core.Interfaces.IRegression" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Interfaces/IRegression.ecl" target="iregression.ecl.xml">
+  <Import body="0" end="250" fullname="ML_Core" inherit_type="local" line="4" name="Core" ref="ml_core" start="250" target="../pkg.toc.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0" end="270" fullname="ML_Core.Types" inherit_type="local" line="5" name="Types" ref="ml_core.types" start="270" target="../types.ecl.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Definition body="333" end="349" fullname="ml_core.interfaces.anyfield" inherit_type="local" line="8" name="AnyField" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Interfaces/IRegression.ecl" start="318">
+   <Type>record</Type>
+   <Field name="wi"/>
+   <Field name="id"/>
+   <Signature pre="" post="" name="AnyField">AnyField</Signature><Field name="number"/>
+  </Definition>
+  <Definition body="365" end="385" fullname="ml_core.interfaces.numericfield" inherit_type="local" line="9" name="NumericField" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Interfaces/IRegression.ecl" start="350">
+   <Type>record</Type>
+   <Field name="wi"/>
+   <Field name="id"/>
+   <Field name="number"/>
+   <Signature pre="" post="" name="NumericField">NumericField</Signature><Field name="value"/>
+  </Definition>
+  <Definition body="401" end="421" fullname="ml_core.interfaces.layout_model" inherit_type="local" line="10" name="Layout_Model" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Interfaces/IRegression.ecl" start="386">
+   <Type>record</Type>
+   <Field name="wi"/>
+   <Field name="id"/>
+   <Field name="number"/>
+   <Signature pre="" post="" name="Layout_Model">Layout_Model</Signature><Field name="value"/>
+  </Definition>
+  <Definition body="437" end="456" fullname="ml_core.interfaces.t_work_item" inherit_type="local" line="11" name="t_work_item" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Interfaces/IRegression.ecl" start="422">
+   <Signature pre="" post="" name="t_work_item">t_work_item</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="472" end="490" fullname="ml_core.interfaces.t_recordid" inherit_type="local" line="12" name="t_RecordID" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Interfaces/IRegression.ecl" start="457">
+   <Signature pre="" post="" name="t_RecordID">t_RecordID</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="507" end="528" fullname="ml_core.interfaces.t_fieldnumber" inherit_type="local" line="13" name="t_FieldNumber" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Interfaces/IRegression.ecl" start="491">
+   <Signature pre="" post="" name="t_FieldNumber">t_FieldNumber</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="545" end="564" fullname="ml_core.interfaces.t_fieldreal" inherit_type="local" line="14" name="t_FieldReal" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Interfaces/IRegression.ecl" start="529">
+   <Signature pre="" post="" name="t_FieldReal">t_FieldReal</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="578" end="605" fullname="ml_core.interfaces.null_model" inherit_type="local" line="15" name="null_model" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Interfaces/IRegression.ecl" start="565">
+   <Signature pre="" post="" name="null_model">null_model</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="619" end="646" fullname="ml_core.interfaces.empty_data" inherit_type="local" line="16" name="empty_data" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Interfaces/IRegression.ecl" start="606">
+   <Signature pre="" post="" name="empty_data">empty_data</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1573" end="2354" exported="1" fullname="ml_core.interfaces.iregression" inherit_type="local" line="37" name="IRegression" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Interfaces/IRegression.ecl" start="1461" virtual="1">
+   <Type>module</Type>
+   <Params>
+    <Param name="X"/>
+    <Param name="Y"/>
+   </Params>
+   <Parents/>
+   <Definition body="1875" end="1874" exported="1" fullname="ml_core.interfaces.iregression.getmodel" inherit_type="local" line="47" name="GetModel" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Interfaces/IRegression.ecl" start="1836">
+    <Type>attribute</Type>
+    <Signature pre="" post="" name="DATASET(Layout_Model) GetModel">DATASET(Layout_Model) GetModel</Signature><Documentation> <return>DATASET(LayoutModel) describing the learned model parameters</return>
+     <content>Calculate and return the 'learned' model The model may be persisted and later used to make predictions using 'Predict' below.</content>
+    </Documentation>
+   </Definition>
+   <Definition body="2349" end="2348" exported="1" fullname="ml_core.interfaces.iregression.predict" inherit_type="local" line="56" name="Predict" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Interfaces/IRegression.ecl" start="2215">
+    <Type>function</Type>
+    <Documentation> <content>Predict the output variable(s) based on a previously learned model</content>
+     <return>DATASET(NumericField) containing one entry per observation (i.e. id) in newX. This represents the predicted values for Y.</return>
+     <param><name>newX</name><desc>DATASET(NumericField) containing the X values to b predicted.</desc></param>
+    </Documentation>
+    <Signature pre="" post="" name="DATASET(NumericField) Predict(DATASET(NumericField) newX,&#10;                                       DATASET(Layout_Model) model)">DATASET(NumericField) Predict(DATASET(NumericField) newX,
+                                       DATASET(Layout_Model) model)</Signature><Params>
+     <Param name="newX"/>
+     <Param name="model"/>
+    </Params>
+   </Definition>
+   <Signature pre="" post="" name="IRegression(DATASET(NumericField) X=empty_data,&#10;                   DATASET(NumericField) Y=empty_data)">IRegression(DATASET(NumericField) X=empty_data,
+                   DATASET(NumericField) Y=empty_data)</Signature><Documentation> <content>Interface Definition for Regression Modules Regression learns a function that maps a set of input data to one or more output variables. The resulting learned function is known as the model. That model can then be used repetitively to predict (i.e. estimate) the output value(s) based on new input data.</content>
+    <param><name>X</name><desc>The independent data in DATASET(NumericField) format. Each statistical unit (e.g. record) is identified by 'id', and each feature is identified by field number (i.e. 'number').</desc></param>
+    <param><name>Y</name><desc>The dependent variable(s) in DATASET(NumericField) format. Each statistical unit (e.g. record) is identified by 'id', and each feature is identified by field number (i.e. 'number').</desc></param>
+   </Documentation>
+  </Definition>
+ </Source>
+ </Meta>

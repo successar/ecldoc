@@ -1,0 +1,185 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Meta>
+ <Source name="PBblas.test.axpy" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/axpy.ecl" target="axpy.ecl.xml">
+  <Import body="0" end="250" fullname="PBblas.test" inherit_type="local" line="4" name="Tests" ref="pbblas.test" start="250" target="pkg.toc.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0" end="269" fullname="PBblas" inherit_type="local" line="5" name="PBblas" ref="pbblas" start="269" target="../pkg.toc.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0" end="291" fullname="PBblas.internal" inherit_type="local" line="6" name="int" ref="pbblas.internal" remotescope="1" start="291" target="../internal/pkg.toc.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0" end="322" fullname="PBblas.internal.MatDims" inherit_type="local" line="7" name="MatDims" ref="pbblas.internal.matdims" start="322" target="../internal/matdims.ecl.xml">
+   <Type>attribute</Type>
+   <Documentation> <content>Module to calculate matrix dimensions and matrix partition dimensions from matrix cells.</content>
+   </Documentation>
+  </Import>
+  <Import body="0" end="342" fullname="PBblas.Types" inherit_type="local" line="8" name="Types" ref="pbblas.types" start="342" target="../types.ecl.xml">
+   <Type>attribute</Type>
+   <Documentation> <content>Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes.</content>
+   </Documentation>
+  </Import>
+  <Import body="0" end="363" fullname="PBblas.test.MakeTestMatrix" inherit_type="local" line="9" name="tm" ref="pbblas.test.maketestmatrix" start="363" target="maketestmatrix.ecl.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0" end="398" fullname="PBblas.test.DiffReport" inherit_type="local" line="10" name="dr" ref="pbblas.test.diffreport" start="398" target="diffreport.ecl.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Definition body="84" end="103" fullname="pbblas.test.layout_cell" inherit_type="local" line="4" name="Layout_Cell" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/test/MakeTestMatrix.ecl" start="70">
+   <Type>record</Type>
+   <Field name="wi_id"/>
+   <Field name="x"/>
+   <Field name="y"/>
+   <Field name="v"/>
+   <Signature pre="" post="" name="Layout_Cell">Layout_Cell</Signature><Documentation> <field><name>wi_id</name><desc>Work Item Number -- An identifier from 1 to 64K-1 that separates and identifies individual matrixes</desc></field>
+    <field><name>x</name><desc>1-based row position within the matrix</desc></field>
+    <field><name>y</name><desc>1-based column position within the matrix</desc></field>
+    <field><name>v</name><desc>Real value for the cell</desc></field>
+    <see>matrix_t</see>
+    <see>Std/PBblas/MakeR8Set.ecl</see>
+    <see>Std/PBblas/Converted.ecl WARNING: Used as C++ attribute. Do not change without corresponding changes to MakeR8Set.</see>
+    <content>Layout for Matrix Cell Main representation of Matrix cell at interface to all PBBlas functions. Matrixes are represented as DATASET(Layout_Cell), where each cell describes the row and column position of the cell as well as its value. Only the non-zero cells need to be contained in the dataset in order to describe the matrix since all unspecified cells are considered to have a value of zero. The cell also contains a work-item number that allows multiple separate matrixes to be carried in the same dataset. This supports the "myriad" style interface that allows the same operations to be performed on many different sets of data at once. Note that these matrixes do not have an explicit size. They are sized implicitly, based on the maximum row and column presented in the data. A matrix can be converted to an explicit dense form (see matrix_t) by using the utility module MakeR8Set. This module should only be used for known small matrixes (&lt; 1M cells) or for partitions of a larger matrix. The Converted module provides utility functions to convert to and from a set of partitions (See Layout_parts).</content>
+   </Documentation>
+  </Definition>
+  <Definition body="469" end="539" fullname="pbblas.test.test_rec" inherit_type="local" line="14" name="test_rec" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/axpy.ecl" start="458">
+   <Type>record</Type>
+   <Field name="test"/>
+   <Field name="errors"/>
+   <Signature pre="" post="" name="test_rec">test_rec</Signature><Field name="details"/>
+  </Definition>
+  <Definition body="546" end="551" fullname="pbblas.test.n1" inherit_type="local" line="20" name="N1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/axpy.ecl" start="541">
+   <Signature pre="" post="" name="N1">N1</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="557" end="562" fullname="pbblas.test.m1" inherit_type="local" line="21" name="M1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/axpy.ecl" start="552">
+   <Signature pre="" post="" name="M1">M1</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="571" end="598" fullname="pbblas.test.amat1" inherit_type="local" line="22" name="Amat1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/axpy.ecl" start="563">
+   <Signature pre="" post="" name="Amat1">Amat1</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="607" end="634" fullname="pbblas.test.amat2" inherit_type="local" line="23" name="Amat2" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/axpy.ecl" start="599">
+   <Signature pre="" post="" name="Amat2">Amat2</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="643" end="670" fullname="pbblas.test.cmat1" inherit_type="local" line="24" name="Cmat1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/axpy.ecl" start="635">
+   <Signature pre="" post="" name="Cmat1">Cmat1</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="679" end="706" fullname="pbblas.test.cmat2" inherit_type="local" line="25" name="Cmat2" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/axpy.ecl" start="671">
+   <Signature pre="" post="" name="Cmat2">Cmat2</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="715" end="720" fullname="pbblas.test.alpha" inherit_type="local" line="26" name="alpha" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/axpy.ecl" start="707">
+   <Signature pre="" post="" name="alpha">alpha</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="733" end="779" fullname="pbblas.test.newmat" inherit_type="local" line="30" name="newmat" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/axpy.ecl" start="724">
+   <Type>attribute</Type>
+   <Signature pre="" post="" name="newmat">newmat</Signature><Documentation> <see>PBblas/Types.layout_cell</see>
+    <return>Matrix in DATASET(Layout_Cell) form</return>
+    <param><name>alpha</name><desc>Scalar multiplier for the X matrix</desc></param>
+    <param><name>X</name><desc>X matrix in DATASET(Layout_Cell) form</desc></param>
+    <param><name>Y</name><desc>Y matrix in DATASET(Layout_Call) form</desc></param>
+    <content>Implements alpha*X + Y X and Y must have same shape</content>
+   </Documentation>
+  </Definition>
+  <Definition body="787" end="806" fullname="pbblas.test.new1" inherit_type="local" line="31" name="new1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/axpy.ecl" start="780">
+   <Signature pre="" post="" name="new1">new1</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="814" end="833" fullname="pbblas.test.new2" inherit_type="local" line="32" name="new2" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/axpy.ecl" start="807">
+   <Signature pre="" post="" name="new2">new2</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="884" end="912" fullname="pbblas.test.dims_1" inherit_type="local" line="35" name="dims_1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/axpy.ecl" start="875">
+   <Signature pre="" post="" name="dims_1">dims_1</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="922" end="950" fullname="pbblas.test.dims_2" inherit_type="local" line="36" name="dims_2" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/axpy.ecl" start="913">
+   <Signature pre="" post="" name="dims_2">dims_2</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="961" end="1015" fullname="pbblas.test.err1_1" inherit_type="local" line="38" name="err1_1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/axpy.ecl" start="952">
+   <Signature pre="" post="" name="err1_1">err1_1</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1025" end="1079" fullname="pbblas.test.err1_2" inherit_type="local" line="39" name="err1_2" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/axpy.ecl" start="1016">
+   <Signature pre="" post="" name="err1_2">err1_2</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1089" end="1199" fullname="pbblas.test.test1" inherit_type="local" line="41" name="test1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/axpy.ecl" start="1081">
+   <Signature pre="" post="" name="test1">test1</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1265" end="1269" fullname="pbblas.test.tp1_x" inherit_type="local" line="46" name="tp1_x" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/axpy.ecl" start="1257">
+   <Signature pre="" post="" name="tp1_x">tp1_x</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1278" end="1282" fullname="pbblas.test.tp1_y" inherit_type="local" line="47" name="tp1_y" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/axpy.ecl" start="1270">
+   <Signature pre="" post="" name="tp1_y">tp1_y</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1291" end="1295" fullname="pbblas.test.tp2_x" inherit_type="local" line="48" name="tp2_x" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/axpy.ecl" start="1283">
+   <Signature pre="" post="" name="tp2_x">tp2_x</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1304" end="1308" fullname="pbblas.test.tp2_y" inherit_type="local" line="49" name="tp2_y" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/axpy.ecl" start="1296">
+   <Signature pre="" post="" name="tp2_y">tp2_y</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1320" end="1353" fullname="pbblas.test.aval1_1" inherit_type="local" line="50" name="Aval1_1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/axpy.ecl" start="1309">
+   <Signature pre="" post="" name="Aval1_1">Aval1_1</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1365" end="1398" fullname="pbblas.test.cval1_1" inherit_type="local" line="51" name="Cval1_1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/axpy.ecl" start="1354">
+   <Signature pre="" post="" name="Cval1_1">Cval1_1</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1410" end="1443" fullname="pbblas.test.aval1_2" inherit_type="local" line="52" name="Aval1_2" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/axpy.ecl" start="1399">
+   <Signature pre="" post="" name="Aval1_2">Aval1_2</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1455" end="1488" fullname="pbblas.test.cval1_2" inherit_type="local" line="53" name="Cval1_2" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/axpy.ecl" start="1444">
+   <Signature pre="" post="" name="Cval1_2">Cval1_2</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1500" end="1533" fullname="pbblas.test.aval2_1" inherit_type="local" line="54" name="Aval2_1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/axpy.ecl" start="1489">
+   <Signature pre="" post="" name="Aval2_1">Aval2_1</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1545" end="1578" fullname="pbblas.test.cval2_1" inherit_type="local" line="55" name="Cval2_1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/axpy.ecl" start="1534">
+   <Signature pre="" post="" name="Cval2_1">Cval2_1</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1590" end="1623" fullname="pbblas.test.aval2_2" inherit_type="local" line="56" name="Aval2_2" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/axpy.ecl" start="1579">
+   <Signature pre="" post="" name="Aval2_2">Aval2_2</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1635" end="1668" fullname="pbblas.test.cval2_2" inherit_type="local" line="57" name="Cval2_2" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/axpy.ecl" start="1624">
+   <Signature pre="" post="" name="Cval2_2">Cval2_2</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1682" end="1709" fullname="pbblas.test.expect1_1" inherit_type="local" line="59" name="expect1_1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/axpy.ecl" start="1670">
+   <Signature pre="" post="" name="expect1_1">expect1_1</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1722" end="1749" fullname="pbblas.test.expect1_2" inherit_type="local" line="60" name="expect1_2" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/axpy.ecl" start="1710">
+   <Signature pre="" post="" name="expect1_2">expect1_2</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1762" end="1789" fullname="pbblas.test.expect2_1" inherit_type="local" line="61" name="expect2_1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/axpy.ecl" start="1750">
+   <Signature pre="" post="" name="expect2_1">expect2_1</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1802" end="1829" fullname="pbblas.test.expect2_2" inherit_type="local" line="62" name="expect2_2" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/axpy.ecl" start="1790">
+   <Signature pre="" post="" name="expect2_2">expect2_2</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1842" end="1874" fullname="pbblas.test.result1_1" inherit_type="local" line="63" name="result1_1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/axpy.ecl" start="1830">
+   <Signature pre="" post="" name="result1_1">result1_1</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1887" end="1919" fullname="pbblas.test.result1_2" inherit_type="local" line="64" name="result1_2" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/axpy.ecl" start="1875">
+   <Signature pre="" post="" name="result1_2">result1_2</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1932" end="1964" fullname="pbblas.test.result2_1" inherit_type="local" line="65" name="result2_1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/axpy.ecl" start="1920">
+   <Signature pre="" post="" name="result2_1">result2_1</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1977" end="2009" fullname="pbblas.test.result2_2" inherit_type="local" line="66" name="result2_2" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/axpy.ecl" start="1965">
+   <Signature pre="" post="" name="result2_2">result2_2</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="2024" end="2058" fullname="pbblas.test.err2_1_1" inherit_type="local" line="67" name="err2_1_1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/axpy.ecl" start="2010">
+   <Signature pre="" post="" name="err2_1_1">err2_1_1</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="2073" end="2107" fullname="pbblas.test.err2_1_2" inherit_type="local" line="68" name="err2_1_2" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/axpy.ecl" start="2059">
+   <Signature pre="" post="" name="err2_1_2">err2_1_2</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="2122" end="2156" fullname="pbblas.test.err2_2_1" inherit_type="local" line="69" name="err2_2_1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/axpy.ecl" start="2108">
+   <Signature pre="" post="" name="err2_2_1">err2_2_1</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="2171" end="2205" fullname="pbblas.test.err2_2_2" inherit_type="local" line="70" name="err2_2_2" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/axpy.ecl" start="2157">
+   <Signature pre="" post="" name="err2_2_2">err2_2_2</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="2214" end="2522" fullname="pbblas.test.test2" inherit_type="local" line="71" name="test2" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/axpy.ecl" start="2206">
+   <Signature pre="" post="" name="test2">test2</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="2533" end="2548" fullname="pbblas.test.result" inherit_type="local" line="76" name="result" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/axpy.ecl" start="2524">
+   <Signature pre="" post="" name="result">result</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="2564" end="2572" exported="1" fullname="pbblas.test.axpy" inherit_type="local" line="78" name="axpy" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/axpy.ecl" start="2550">
+   <Signature pre="" post="" name="axpy">axpy</Signature><Type>attribute</Type>
+  </Definition>
+ </Source>
+ <Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/MatDims.ecl" name="PBblas.internal.MatDims" target="../internal/matdims.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Types.ecl" name="PBblas.Types" target="../types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Types.ecl" name="ML_Core.Types" target="../../ml_core/types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/Types.ecl" name="PBblas.internal.Types" target="../internal/types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/BlockDimensions.ecl" name="PBblas.internal.BlockDimensions" target="../internal/blockdimensions.ecl.xml"/><Depends sourcePath="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/system/Thorlib.ecl" name="std.system.Thorlib" target="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/system/Thorlib.ecl"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/BlockDimensionsMultiply.ecl" name="PBblas.internal.BlockDimensionsMultiply" target="../internal/blockdimensionsmultiply.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/BlockDimensionsSolve.ecl" name="PBblas.internal.BlockDimensionsSolve" target="../internal/blockdimensionssolve.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/MakeTestMatrix.ecl" name="PBblas.test.MakeTestMatrix" target="maketestmatrix.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/DiffReport.ecl" name="PBblas.test.DiffReport" target="diffreport.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/Converted.ecl" name="PBblas.internal.Converted" target="../internal/converted.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/axpy.ecl" name="PBblas.axpy" target="../axpy.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/MakeR8Set.ecl" name="PBblas.internal.MakeR8Set" target="../internal/maker8set.ecl.xml"/></Meta>

@@ -1,0 +1,3918 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
+	<title>PBblas.test.MatDims</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
+	<link href="../../../css/simple-sidebar.css" rel="stylesheet">
+
+</head>
+
+<body>
+	<nav class="navbar topbar">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a href="#menu-toggle" id="menu-toggle" class="navbar-brand glyphicon glyphicon-menu-hamburger ham"></a>
+			</div>
+			<div class="navbar-header" style="margin-left: 20px;">
+				<span class="navbar-brand">PBblas.test.MatDims</span>
+			</div>
+			<div class="navbar-collapse collapse">
+			<ul class="nav navbar-nav">
+				<li><a href="#ecldoc-section-import" class="topbar">Imports</a></li>
+				<li><a href="#ecldoc-section-tree" class="topbar">Tree</a></li>
+				<li><a href="#ecldoc-section-desc" class="topbar">Descriptions</a></li>
+			</ul>
+			</div>
+		</div>
+	</nav>
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		<div id="sidebar-wrapper">
+			<ul class="sidebar-nav">
+				<li class="sidebar-brand">
+					<a href="pkg.toc.html">
+						Up
+					</a>
+				</li>
+				
+				<li>
+					<a href="scal.ecl.html">scal.ecl</a>
+				</li>
+				
+				<li>
+					<a href="vector2diag.ecl.html">vector2diag.ecl</a>
+				</li>
+				
+				<li>
+					<a href="solve.ecl.html">solve.ecl</a>
+				</li>
+				
+				<li>
+					<a href="matdims.ecl.html">matdims.ecl</a>
+				</li>
+				
+				<li>
+					<a href="converted.ecl.html">converted.ecl</a>
+				</li>
+				
+				<li>
+					<a href="tran.ecl.html">tran.ecl</a>
+				</li>
+				
+				<li>
+					<a href="axpy.ecl.html">axpy.ecl</a>
+				</li>
+				
+				<li>
+					<a href="convertedint.ecl.html">convertedint.ecl</a>
+				</li>
+				
+				<li>
+					<a href="convertedintmyr.ecl.html">convertedintmyr.ecl</a>
+				</li>
+				
+				<li>
+					<a href="diffreport.ecl.html">diffreport.ecl</a>
+				</li>
+				
+				<li>
+					<a href="factor.ecl.html">factor.ecl</a>
+				</li>
+				
+				<li>
+					<a href="apply2elements.ecl.html">apply2elements.ecl</a>
+				</li>
+				
+				<li>
+					<a href="blockdimensions.ecl.html">blockdimensions.ecl</a>
+				</li>
+				
+				<li>
+					<a href="hadamardproduct.ecl.html">hadamardproduct.ecl</a>
+				</li>
+				
+				<li>
+					<a href="getrf.ecl.html">getrf.ecl</a>
+				</li>
+				
+				<li>
+					<a href="multiply.ecl.html">multiply.ecl</a>
+				</li>
+				
+				<li>
+					<a href="blockdimensionssolve.ecl.html">blockdimensionssolve.ecl</a>
+				</li>
+				
+				<li>
+					<a href="maketestmatrix.ecl.html">maketestmatrix.ecl</a>
+				</li>
+				
+				<li>
+					<a href="potrf.ecl.html">potrf.ecl</a>
+				</li>
+				
+				<li>
+					<a href="matutils.ecl.html">matutils.ecl</a>
+				</li>
+				
+				<li>
+					<a href="asum.ecl.html">asum.ecl</a>
+				</li>
+				
+				<li>
+					<a href="blockdimensionsmultiply.ecl.html">blockdimensionsmultiply.ecl</a>
+				</li>
+				
+			</ul>
+		</div>
+
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<section id="ecldoc-section-import">
+					<h3 class="page-header">IMPORTS</h3>
+					<ul class="pagination">
+						<li>
+							<a href="../pkg.toc.html">
+								pbblas
+							</a>
+							</li>
+						<li>
+							<a href="pkg.toc.html">
+								pbblas.test
+							</a>
+							</li>
+						<li>
+							<a href="../internal/pkg.toc.html">
+								pbblas.internal
+							</a>
+							</li>
+						<li>
+							<a href="../internal/matdims.ecl.html">
+								pbblas.internal.matdims
+							</a>
+							</li>
+						<li>
+							<a href="../types.ecl.html">
+								pbblas.types
+							</a>
+							</li>
+						<li>
+							<a href="../internal/types.ecl.html">
+								pbblas.internal.types
+							</a>
+							</li>
+						<li>
+							<a href="maketestmatrix.ecl.html">
+								pbblas.test.maketestmatrix
+							</a>
+							</li>
+						</ul>
+				</section>
+				<section id="ecldoc-section-tree">
+					<h3 class="page-header">DEFINITION TREE</h3>
+					<ul class="tree">
+						<li id="t-ecldoc-OpType">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#decldoc-OpType">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">OpType</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="ecldoc-OpType" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-test_rec">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-test_rec">
+								RECORD :
+								<span class="sign-pre"></span>
+								<span class="sign-name">test_rec</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-test_rec" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-max_part_size_or">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-max_part_size_or">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">max_part_size_or</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-max_part_size_or" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-nodes_or">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-nodes_or">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">nodes_or</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-nodes_or" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-override1">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-override1">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">override1</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-override1" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-override2">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-override2">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">override2</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-override2" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-override">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-override">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">override</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-override" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-n1">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-n1">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">N1</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-n1" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-m1">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-m1">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">M1</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-m1" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-mat1">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-mat1">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">mat1</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-mat1" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-mat2">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-mat2">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">mat2</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-mat2" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-mat1_size">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-mat1_size">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">mat1_size</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-mat1_size" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-mat2_size">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-mat2_size">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">mat2_size</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-mat2_size" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-dims1">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-dims1">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">dims1</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-dims1" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-dims1_1">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-dims1_1">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">dims1_1</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-dims1_1" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-dims1_2">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-dims1_2">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">dims1_2</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-dims1_2" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-errs1_1">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-errs1_1">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">errs1_1</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-errs1_1" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-errs1_2">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-errs1_2">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">errs1_2</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-errs1_2" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-errs1">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-errs1">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">errs1</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-errs1" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-test1">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-test1">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">test1</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-test1" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-pdims2">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-pdims2">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">pdims2</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-pdims2" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-pdims2_1">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-pdims2_1">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">pdims2_1</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-pdims2_1" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-pdims2_2">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-pdims2_2">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">pdims2_2</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-pdims2_2" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-block_size2_1">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-block_size2_1">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">block_size2_1</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-block_size2_1" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-block_size2_2">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-block_size2_2">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">block_size2_2</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-block_size2_2" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-mat_size2_1">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-mat_size2_1">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">mat_size2_1</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-mat_size2_1" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-mat_size2_2">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-mat_size2_2">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">mat_size2_2</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-mat_size2_2" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-errs2_1">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-errs2_1">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">errs2_1</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-errs2_1" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-errs2_2">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-errs2_2">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">errs2_2</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-errs2_2" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-test2">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-test2">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">test2</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-test2" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-pdims3">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-pdims3">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">pdims3</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-pdims3" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-pdims3_1">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-pdims3_1">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">pdims3_1</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-pdims3_1" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-pdims3_2">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-pdims3_2">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">pdims3_2</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-pdims3_2" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-block_size3_1">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-block_size3_1">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">block_size3_1</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-block_size3_1" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-block_size3_2">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-block_size3_2">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">block_size3_2</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-block_size3_2" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-mat_size3_1">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-mat_size3_1">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">mat_size3_1</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-mat_size3_1" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-mat_size3_2">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-mat_size3_2">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">mat_size3_2</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-mat_size3_2" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-errs3_1">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-errs3_1">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">errs3_1</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-errs3_1" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-errs3_2">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-errs3_2">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">errs3_2</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-errs3_2" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-test3">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-test3">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">test3</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-test3" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-amat1">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-amat1">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">amat1</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-amat1" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-amat2">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-amat2">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">amat2</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-amat2" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-bmat1">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-bmat1">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">bmat1</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-bmat1" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-bmat2">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-bmat2">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">bmat2</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-bmat2" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-cmat1">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-cmat1">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">cmat1</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-cmat1" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-cmat2">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-cmat2">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">cmat2</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-cmat2" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-adims">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-adims">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">adims</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-adims" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-bdims">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-bdims">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">bdims</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-bdims" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-cdims">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-cdims">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">cdims</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-cdims" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-pdims4">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-pdims4">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">pdims4</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-pdims4" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-pdims4a">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-pdims4a">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">pdims4a</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-pdims4a" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-pdims4b">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-pdims4b">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">pdims4b</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-pdims4b" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-pdims4c">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-pdims4c">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">pdims4c</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-pdims4c" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-pdims4a1">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-pdims4a1">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">pdims4a1</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-pdims4a1" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-pdims4b1">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-pdims4b1">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">pdims4b1</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-pdims4b1" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-pdims4c1">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-pdims4c1">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">pdims4c1</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-pdims4c1" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-errs4_1">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-errs4_1">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">errs4_1</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-errs4_1" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-test4">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-test4">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">test4</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-test4" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-pdims5">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-pdims5">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">pdims5</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-pdims5" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-pdims5a">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-pdims5a">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">pdims5a</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-pdims5a" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-pdims5b">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-pdims5b">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">pdims5b</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-pdims5b" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-pdims5a1">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-pdims5a1">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">pdims5a1</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-pdims5a1" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-pdims5b1">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-pdims5b1">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">pdims5b1</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-pdims5b1" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-asize51">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-asize51">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">Asize51</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-asize51" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-bsize51">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-bsize51">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">Bsize51</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-bsize51" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-errs5_1">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-errs5_1">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">errs5_1</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-errs5_1" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-test5">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-test5">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">test5</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-test5" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-pdims6">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-pdims6">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">pdims6</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-pdims6" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-pdims6a">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-pdims6a">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">pdims6a</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-pdims6a" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-pdims6b">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-pdims6b">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">pdims6b</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-pdims6b" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-pdims6a1">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-pdims6a1">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">pdims6a1</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-pdims6a1" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-pdims6b1">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-pdims6b1">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">pdims6b1</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-pdims6b1" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-asize61">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-asize61">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">Asize61</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-asize61" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-bsize61">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-bsize61">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">Bsize61</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-bsize61" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-errs6_1">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-errs6_1">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">errs6_1</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-errs6_1" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-test6">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-test6">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">test6</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-test6" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-pdims7">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-pdims7">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">pdims7</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-pdims7" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-pdims7a">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-pdims7a">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">pdims7a</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-pdims7a" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-pdims7a1">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-pdims7a1">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">pdims7a1</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-pdims7a1" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-errs7_1">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-errs7_1">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">errs7_1</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-errs7_1" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-test7">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-test7">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">test7</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-test7" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-pdims8">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-pdims8">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">pdims8</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-pdims8" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-pdims8a">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-pdims8a">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">pdims8a</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-pdims8a" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-pdims8b">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-pdims8b">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">pdims8b</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-pdims8b" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-pdims8a1">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-pdims8a1">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">pdims8a1</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-pdims8a1" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-pdims8b1">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-pdims8b1">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">pdims8b1</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-pdims8b1" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-errs8_1">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-errs8_1">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">errs8_1</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-errs8_1" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-test8">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-test8">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">test8</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-test8" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-matdims">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-matdims">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">MatDims</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-matdims" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						</ul>
+				</section>
+				<section id="ecldoc-section-desc">
+					<h3 class="page-header">DESCRIPTIONS</h3>
+					<div class="panel-group">
+						<div class="panel panel-info" id="decldoc-OpType">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">OpType</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-ecldoc-OpType" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-test_rec">
+							<div class="panel-heading">
+								<div class="type">
+									RECORD
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">test_rec</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-test_rec" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-max_part_size_or">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">max_part_size_or</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-max_part_size_or" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-nodes_or">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">nodes_or</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-nodes_or" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-override1">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">override1</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-override1" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-override2">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">override2</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-override2" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-override">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">override</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-override" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-n1">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">N1</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-n1" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-m1">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">M1</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-m1" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-mat1">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">mat1</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-mat1" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-mat2">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">mat2</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-mat2" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-mat1_size">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">mat1_size</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-mat1_size" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-mat2_size">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">mat2_size</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-mat2_size" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-dims1">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">dims1</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-dims1" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Get basic matrix dimensions (m_rows, m_cols) from a dataset of cells (Layout_Cell). Multiple matrices can be included in the dataset separated by wi_id. One record of Layout_Dims will be produced for each matrix in the input set. 
+									</div>
+								</div>
+								<br/>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>cells</b> </td>
+												<td>dataset of Layout_Cell containing the matrixes to be dimensioned</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>m_label</b> </td>
+												<td>a single text label to be attached to the dimensions so that this set of dimensions can be distinguished from another set used by the same operation (e.g. 'A', 'B', or 'C')</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>DATASET(Layout_Dims), one record per work item</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-md-1">Also See</div>
+									<div class="col-md-11">
+										<ul>
+											<li><b>Std/PBblas/Types.Layout_Cell</b></li>
+											<li><b>Std/PBblas/Types.Layout_Dims</b></li>
+											</ul>
+									</div>
+								</div>
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-dims1_1">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">dims1_1</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-dims1_1" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-dims1_2">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">dims1_2</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-dims1_2" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-errs1_1">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">errs1_1</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-errs1_1" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-errs1_2">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">errs1_2</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-errs1_2" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-errs1">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">errs1</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-errs1" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-test1">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">test1</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-test1" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-pdims2">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">pdims2</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-pdims2" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Determine optimal partitioning scheme for one or more matrixes based on the dimensions provided.
+									</div>
+								</div>
+								<br/>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>dims</b> </td>
+												<td>DATASET(Layout_Dims), typically output from FromCells above</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>DATASET(Layout_Dims), with partition info filled in</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-md-1">Also See</div>
+									<div class="col-md-11">
+										<ul>
+											<li><b>Std/PBblas/Types.Layout_Dims</b></li>
+											</ul>
+									</div>
+								</div>
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-pdims2_1">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">pdims2_1</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-pdims2_1" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-pdims2_2">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">pdims2_2</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-pdims2_2" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-block_size2_1">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">block_size2_1</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-block_size2_1" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-block_size2_2">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">block_size2_2</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-block_size2_2" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-mat_size2_1">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">mat_size2_1</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-mat_size2_1" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-mat_size2_2">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">mat_size2_2</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-mat_size2_2" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-errs2_1">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">errs2_1</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-errs2_1" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-errs2_2">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">errs2_2</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-errs2_2" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-test2">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">test2</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-test2" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-pdims3">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">pdims3</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-pdims3" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Generate a partitioning scheme from a set of matrices in cell form. Essentially a shortcut for FromCells followed by PartitionedFromDims
+									</div>
+								</div>
+								<br/>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>cells</b> </td>
+												<td>DATASET(Layout_Cell) representing one or more matrixes</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>m_label</b> </td>
+												<td>a single text label to be attached to the dimensions so that this set of dimensions can be distinguished from another set used by the same operation (e.g. 'A', 'B', or 'C')</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>DATASET(Layout_Dims) with partition info filled in</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-md-1">Also See</div>
+									<div class="col-md-11">
+										<ul>
+											<li><b>Std/PBblas/Types.Layout_Dims</b></li>
+											<li><b>Std/PBblas/Types.Layout_Cell</b></li>
+											<li><b>FromCells</b></li>
+											<li><b>PartitionedFromDims</b></li>
+											</ul>
+									</div>
+								</div>
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-pdims3_1">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">pdims3_1</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-pdims3_1" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-pdims3_2">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">pdims3_2</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-pdims3_2" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-block_size3_1">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">block_size3_1</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-block_size3_1" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-block_size3_2">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">block_size3_2</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-block_size3_2" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-mat_size3_1">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">mat_size3_1</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-mat_size3_1" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-mat_size3_2">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">mat_size3_2</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-mat_size3_2" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-errs3_1">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">errs3_1</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-errs3_1" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-errs3_2">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">errs3_2</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-errs3_2" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-test3">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">test3</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-test3" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-amat1">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">amat1</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-amat1" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-amat2">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">amat2</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-amat2" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-bmat1">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">bmat1</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-bmat1" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-bmat2">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">bmat2</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-bmat2" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-cmat1">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">cmat1</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-cmat1" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-cmat2">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">cmat2</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-cmat2" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-adims">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">adims</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-adims" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Get basic matrix dimensions (m_rows, m_cols) from a dataset of cells (Layout_Cell). Multiple matrices can be included in the dataset separated by wi_id. One record of Layout_Dims will be produced for each matrix in the input set. 
+									</div>
+								</div>
+								<br/>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>cells</b> </td>
+												<td>dataset of Layout_Cell containing the matrixes to be dimensioned</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>m_label</b> </td>
+												<td>a single text label to be attached to the dimensions so that this set of dimensions can be distinguished from another set used by the same operation (e.g. 'A', 'B', or 'C')</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>DATASET(Layout_Dims), one record per work item</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-md-1">Also See</div>
+									<div class="col-md-11">
+										<ul>
+											<li><b>Std/PBblas/Types.Layout_Cell</b></li>
+											<li><b>Std/PBblas/Types.Layout_Dims</b></li>
+											</ul>
+									</div>
+								</div>
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-bdims">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">bdims</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-bdims" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Get basic matrix dimensions (m_rows, m_cols) from a dataset of cells (Layout_Cell). Multiple matrices can be included in the dataset separated by wi_id. One record of Layout_Dims will be produced for each matrix in the input set. 
+									</div>
+								</div>
+								<br/>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>cells</b> </td>
+												<td>dataset of Layout_Cell containing the matrixes to be dimensioned</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>m_label</b> </td>
+												<td>a single text label to be attached to the dimensions so that this set of dimensions can be distinguished from another set used by the same operation (e.g. 'A', 'B', or 'C')</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>DATASET(Layout_Dims), one record per work item</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-md-1">Also See</div>
+									<div class="col-md-11">
+										<ul>
+											<li><b>Std/PBblas/Types.Layout_Cell</b></li>
+											<li><b>Std/PBblas/Types.Layout_Dims</b></li>
+											</ul>
+									</div>
+								</div>
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-cdims">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">cdims</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-cdims" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Get basic matrix dimensions (m_rows, m_cols) from a dataset of cells (Layout_Cell). Multiple matrices can be included in the dataset separated by wi_id. One record of Layout_Dims will be produced for each matrix in the input set. 
+									</div>
+								</div>
+								<br/>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>cells</b> </td>
+												<td>dataset of Layout_Cell containing the matrixes to be dimensioned</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>m_label</b> </td>
+												<td>a single text label to be attached to the dimensions so that this set of dimensions can be distinguished from another set used by the same operation (e.g. 'A', 'B', or 'C')</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>DATASET(Layout_Dims), one record per work item</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-md-1">Also See</div>
+									<div class="col-md-11">
+										<ul>
+											<li><b>Std/PBblas/Types.Layout_Cell</b></li>
+											<li><b>Std/PBblas/Types.Layout_Dims</b></li>
+											</ul>
+									</div>
+								</div>
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-pdims4">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">pdims4</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-pdims4" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Determines an optimal partitioning scheme for a set of matrixes involved in a given operation. This handles interlocking dimensions such as those involved in a multiplication operation. Note that calling this function with OpType.single is equivalent to calling PartitionedFromDims above. The input dimensions include dimensions from different work-items (separated by wi_id) as well as dimensions from separate matrixes (e.g. A, B, and C/result) within a work-item (separated by m_label). Each operation-type may have a different expected set of m_labels and will perform its interlock calculations accordingly.
+									</div>
+								</div>
+								<br/>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>op</b> </td>
+												<td>The operation requiring partitioning. See Types.OpType</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>dims</b> </td>
+												<td>DATASET(Layout_Dims) typically returned by FromCells above</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>DATASET(Layout_Dims) with patition info filled in. This will contain one entry per work item, per matrix label.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-md-1">Also See</div>
+									<div class="col-md-11">
+										<ul>
+											<li><b>Std/PBblas/Types.Layout_Dims</b></li>
+											<li><b>Std/PBblas/Types.OpType</b></li>
+											<li><b>FromCells</b></li>
+											<li><b>PartitionedFromDims</b></li>
+											</ul>
+									</div>
+								</div>
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-pdims4a">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">pdims4a</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-pdims4a" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-pdims4b">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">pdims4b</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-pdims4b" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-pdims4c">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">pdims4c</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-pdims4c" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-pdims4a1">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">pdims4a1</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-pdims4a1" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-pdims4b1">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">pdims4b1</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-pdims4b1" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-pdims4c1">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">pdims4c1</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-pdims4c1" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-errs4_1">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">errs4_1</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-errs4_1" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-test4">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">test4</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-test4" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-pdims5">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">pdims5</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-pdims5" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Determines an optimal partitioning scheme for a set of matrixes involved in a given operation. This handles interlocking dimensions such as those involved in a multiplication operation. Note that calling this function with OpType.single is equivalent to calling PartitionedFromDims above. The input dimensions include dimensions from different work-items (separated by wi_id) as well as dimensions from separate matrixes (e.g. A, B, and C/result) within a work-item (separated by m_label). Each operation-type may have a different expected set of m_labels and will perform its interlock calculations accordingly.
+									</div>
+								</div>
+								<br/>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>op</b> </td>
+												<td>The operation requiring partitioning. See Types.OpType</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>dims</b> </td>
+												<td>DATASET(Layout_Dims) typically returned by FromCells above</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>DATASET(Layout_Dims) with patition info filled in. This will contain one entry per work item, per matrix label.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-md-1">Also See</div>
+									<div class="col-md-11">
+										<ul>
+											<li><b>Std/PBblas/Types.Layout_Dims</b></li>
+											<li><b>Std/PBblas/Types.OpType</b></li>
+											<li><b>FromCells</b></li>
+											<li><b>PartitionedFromDims</b></li>
+											</ul>
+									</div>
+								</div>
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-pdims5a">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">pdims5a</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-pdims5a" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-pdims5b">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">pdims5b</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-pdims5b" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-pdims5a1">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">pdims5a1</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-pdims5a1" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-pdims5b1">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">pdims5b1</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-pdims5b1" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-asize51">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">Asize51</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-asize51" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-bsize51">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">Bsize51</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-bsize51" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-errs5_1">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">errs5_1</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-errs5_1" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-test5">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">test5</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-test5" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-pdims6">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">pdims6</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-pdims6" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Determines an optimal partitioning scheme for a set of matrixes involved in a given operation. This handles interlocking dimensions such as those involved in a multiplication operation. Note that calling this function with OpType.single is equivalent to calling PartitionedFromDims above. The input dimensions include dimensions from different work-items (separated by wi_id) as well as dimensions from separate matrixes (e.g. A, B, and C/result) within a work-item (separated by m_label). Each operation-type may have a different expected set of m_labels and will perform its interlock calculations accordingly.
+									</div>
+								</div>
+								<br/>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>op</b> </td>
+												<td>The operation requiring partitioning. See Types.OpType</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>dims</b> </td>
+												<td>DATASET(Layout_Dims) typically returned by FromCells above</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>DATASET(Layout_Dims) with patition info filled in. This will contain one entry per work item, per matrix label.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-md-1">Also See</div>
+									<div class="col-md-11">
+										<ul>
+											<li><b>Std/PBblas/Types.Layout_Dims</b></li>
+											<li><b>Std/PBblas/Types.OpType</b></li>
+											<li><b>FromCells</b></li>
+											<li><b>PartitionedFromDims</b></li>
+											</ul>
+									</div>
+								</div>
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-pdims6a">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">pdims6a</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-pdims6a" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-pdims6b">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">pdims6b</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-pdims6b" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-pdims6a1">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">pdims6a1</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-pdims6a1" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-pdims6b1">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">pdims6b1</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-pdims6b1" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-asize61">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">Asize61</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-asize61" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-bsize61">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">Bsize61</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-bsize61" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-errs6_1">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">errs6_1</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-errs6_1" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-test6">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">test6</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-test6" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-pdims7">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">pdims7</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-pdims7" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Determines an optimal partitioning scheme for a set of matrixes involved in a given operation. This handles interlocking dimensions such as those involved in a multiplication operation. Note that calling this function with OpType.single is equivalent to calling PartitionedFromDims above. The input dimensions include dimensions from different work-items (separated by wi_id) as well as dimensions from separate matrixes (e.g. A, B, and C/result) within a work-item (separated by m_label). Each operation-type may have a different expected set of m_labels and will perform its interlock calculations accordingly.
+									</div>
+								</div>
+								<br/>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>op</b> </td>
+												<td>The operation requiring partitioning. See Types.OpType</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>dims</b> </td>
+												<td>DATASET(Layout_Dims) typically returned by FromCells above</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>DATASET(Layout_Dims) with patition info filled in. This will contain one entry per work item, per matrix label.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-md-1">Also See</div>
+									<div class="col-md-11">
+										<ul>
+											<li><b>Std/PBblas/Types.Layout_Dims</b></li>
+											<li><b>Std/PBblas/Types.OpType</b></li>
+											<li><b>FromCells</b></li>
+											<li><b>PartitionedFromDims</b></li>
+											</ul>
+									</div>
+								</div>
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-pdims7a">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">pdims7a</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-pdims7a" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-pdims7a1">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">pdims7a1</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-pdims7a1" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-errs7_1">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">errs7_1</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-errs7_1" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-test7">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">test7</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-test7" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-pdims8">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">pdims8</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-pdims8" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Determines an optimal partitioning scheme for a set of matrixes involved in a given operation. This handles interlocking dimensions such as those involved in a multiplication operation. Note that calling this function with OpType.single is equivalent to calling PartitionedFromDims above. The input dimensions include dimensions from different work-items (separated by wi_id) as well as dimensions from separate matrixes (e.g. A, B, and C/result) within a work-item (separated by m_label). Each operation-type may have a different expected set of m_labels and will perform its interlock calculations accordingly.
+									</div>
+								</div>
+								<br/>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>op</b> </td>
+												<td>The operation requiring partitioning. See Types.OpType</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>dims</b> </td>
+												<td>DATASET(Layout_Dims) typically returned by FromCells above</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>DATASET(Layout_Dims) with patition info filled in. This will contain one entry per work item, per matrix label.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-md-1">Also See</div>
+									<div class="col-md-11">
+										<ul>
+											<li><b>Std/PBblas/Types.Layout_Dims</b></li>
+											<li><b>Std/PBblas/Types.OpType</b></li>
+											<li><b>FromCells</b></li>
+											<li><b>PartitionedFromDims</b></li>
+											</ul>
+									</div>
+								</div>
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-pdims8a">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">pdims8a</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-pdims8a" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-pdims8b">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">pdims8b</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-pdims8b" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-pdims8a1">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">pdims8a1</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-pdims8a1" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-pdims8b1">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">pdims8b1</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-pdims8b1" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-errs8_1">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">errs8_1</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-errs8_1" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-test8">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">test8</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-test8" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-matdims">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">MatDims</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-matdims" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						</div>
+				</section>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+		$("#menu-toggle").click(function(e) {
+			e.preventDefault();
+			$("#wrapper").toggleClass("toggled");
+		});
+	</script>
+	<script>
+		$(document).ready(function(){
+			$('.tree-link').click(function(e) {
+				var loc = $(this).attr('href');
+				$(loc).parents().collapse('show');
+				return true;
+			});
+		});
+	</script>
+</body>
+</html>

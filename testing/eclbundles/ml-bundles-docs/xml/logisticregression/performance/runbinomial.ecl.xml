@@ -1,0 +1,253 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Meta>
+ <Source name="LogisticRegression.performance.RunBinomial" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/performance/RunBinomial.ecl" target="runbinomial.ecl.xml">
+  <Import body="0" end="164" fullname="LogisticRegression" inherit_type="local" line="5" name="LR" ref="logisticregression" start="164" target="../pkg.toc.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0" end="182" fullname="ML_Core.Types" inherit_type="local" line="6" name="Core_Types" ref="ml_core.types" start="182" target="../../ml_core/types.ecl.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Definition body="75" end="79" fullname="logisticregression.performance.num_work_items" inherit_type="local" line="2" name="num_work_items" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/performance/RunBinomial.ecl" start="58">
+   <Signature pre="" post="" name="num_work_items">num_work_items</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="91" end="98" fullname="logisticregression.performance.avg_size" inherit_type="local" line="3" name="avg_size" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/performance/RunBinomial.ecl" start="80">
+   <Signature pre="" post="" name="avg_size">avg_size</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="226" end="251" fullname="logisticregression.performance.numericfield" inherit_type="local" line="7" name="NumericField" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/performance/RunBinomial.ecl" start="211">
+   <Type>record</Type>
+   <Field name="wi"/>
+   <Field name="id"/>
+   <Field name="number"/>
+   <Signature pre="" post="" name="NumericField">NumericField</Signature><Field name="value"/>
+  </Definition>
+  <Definition body="268" end="294" fullname="logisticregression.performance.discretefield" inherit_type="local" line="8" name="DiscreteField" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/performance/RunBinomial.ecl" start="252">
+   <Type>record</Type>
+   <Field name="wi"/>
+   <Field name="id"/>
+   <Field name="number"/>
+   <Signature pre="" post="" name="DiscreteField">DiscreteField</Signature><Field name="value"/>
+  </Definition>
+  <Definition body="301" end="334" fullname="logisticregression.performance.lcl" inherit_type="local" line="9" name="lcl" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/performance/RunBinomial.ecl" start="295">
+   <Signature pre="" post="" name="lcl">lcl</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="341" end="375" fullname="logisticregression.performance.gbl" inherit_type="local" line="10" name="gbl" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/performance/RunBinomial.ecl" start="335">
+   <Signature pre="" post="" name="gbl">gbl</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="390" end="590" fullname="logisticregression.performance.model_seed" inherit_type="local" line="12" name="Model_Seed" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/performance/RunBinomial.ecl" start="377">
+   <Type>record</Type>
+   <Field name="f1_yes"/>
+   <Field name="f1_no"/>
+   <Field name="f1_rng"/>
+   <Field name="f2_yes"/>
+   <Field name="f2_no"/>
+   <Field name="f2_rng"/>
+   <Field name="f3_yes"/>
+   <Field name="f3_no"/>
+   <Field name="f3_rng"/>
+   <Field name="f4_yes"/>
+   <Field name="f4_no"/>
+   <Signature pre="" post="" name="Model_Seed">Model_Seed</Signature><Field name="f4_rng"/>
+  </Definition>
+  <Definition body="605" end="713" fullname="logisticregression.performance.observation" inherit_type="local" line="26" name="Observation" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/performance/RunBinomial.ecl" start="591">
+   <Type>record</Type>
+   <Field name="wi"/>
+   <Field name="id"/>
+   <Field name="resp"/>
+   <Field name="f1"/>
+   <Field name="f2"/>
+   <Field name="f3"/>
+   <Signature pre="" post="" name="Observation">Observation</Signature><Field name="f4"/>
+  </Definition>
+  <Definition body="722" end="905" fullname="logisticregression.performance.seeds" inherit_type="local" line="35" name="seeds" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/performance/RunBinomial.ecl" start="714">
+   <Signature pre="" post="" name="seeds">seeds</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="918" end="957" fullname="logisticregression.performance.enum_seed" inherit_type="local" line="38" name="Enum_Seed" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/performance/RunBinomial.ecl" start="906">
+   <Type>record</Type>
+   <Field name="f1_yes"/>
+   <Field name="f1_no"/>
+   <Field name="f1_rng"/>
+   <Field name="f2_yes"/>
+   <Field name="f2_no"/>
+   <Field name="f2_rng"/>
+   <Field name="f3_yes"/>
+   <Field name="f3_no"/>
+   <Field name="f3_rng"/>
+   <Field name="f4_yes"/>
+   <Field name="f4_no"/>
+   <Field name="f4_rng"/>
+   <Signature pre="" post="" name="Enum_Seed">Enum_Seed</Signature><Field name="id"/>
+  </Definition>
+  <Definition body="968" end="1036" fullname="logisticregression.performance.e_seeds" inherit_type="local" line="41" name="e_seeds" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/performance/RunBinomial.ecl" start="958">
+   <Signature pre="" post="" name="e_seeds">e_seeds</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1044" end="1122" fullname="logisticregression.performance.base" inherit_type="local" line="42" name="Base" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/performance/RunBinomial.ecl" start="1037">
+   <Type>record</Type>
+   <Field name="wi"/>
+   <Field name="size"/>
+   <Field name="seed"/>
+   <Field name="f1_yes"/>
+   <Field name="f1_no"/>
+   <Field name="f1_rng"/>
+   <Field name="f2_yes"/>
+   <Field name="f2_no"/>
+   <Field name="f2_rng"/>
+   <Field name="f3_yes"/>
+   <Field name="f3_no"/>
+   <Field name="f3_rng"/>
+   <Field name="f4_yes"/>
+   <Field name="f4_no"/>
+   <Signature pre="" post="" name="Base">Base</Signature><Field name="f4_rng"/>
+  </Definition>
+  <Definition body="1152" end="1315" fullname="logisticregression.performance.make_base" inherit_type="local" line="48" name="make_base" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/performance/RunBinomial.ecl" start="1123">
+   <Type>transform</Type>
+   <Params>
+    <Param name="c"/>
+   </Params>
+   <Signature pre="" post="" name="Base make_base(UNSIGNED c)">Base make_base(UNSIGNED c)</Signature><Return>base</Return>
+  </Definition>
+  <Definition body="1324" end="1385" fullname="logisticregression.performance.bases" inherit_type="local" line="54" name="bases" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/performance/RunBinomial.ecl" start="1316">
+   <Signature pre="" post="" name="bases">bases</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1428" end="1471" fullname="logisticregression.performance.extend_base" inherit_type="local" line="55" name="extend_base" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/performance/RunBinomial.ecl" start="1386">
+   <Type>transform</Type>
+   <Params>
+    <Param name="br"/>
+    <Param name="es"/>
+   </Params>
+   <Signature pre="" post="" name="Base extend_base(Base br, Enum_Seed es)">Base extend_base(Base br, Enum_Seed es)</Signature><Return>base</Return>
+  </Definition>
+  <Definition body="1483" end="1601" fullname="logisticregression.performance.ex_bases" inherit_type="local" line="59" name="ex_bases" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/performance/RunBinomial.ecl" start="1472">
+   <Signature pre="" post="" name="ex_bases">ex_bases</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1626" end="1658" fullname="logisticregression.performance.delta" inherit_type="local" line="62" name="delta" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/performance/RunBinomial.ecl" start="1603">
+   <Type>function</Type>
+   <Signature pre="" post="" name="REAL8 delta(REAL8 y)">REAL8 delta(REAL8 y)</Signature><Params>
+    <Param name="y"/>
+   </Params>
+  </Definition>
+  <Definition body="1703" end="2030" fullname="logisticregression.performance.make_obs" inherit_type="local" line="63" name="make_obs" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/performance/RunBinomial.ecl" start="1659">
+   <Type>transform</Type>
+   <Params>
+    <Param name="br"/>
+    <Param name="c"/>
+   </Params>
+   <Signature pre="" post="" name="Observation make_obs(Base br, UNSIGNED c)">Observation make_obs(Base br, UNSIGNED c)</Signature><Return>observation</Return>
+  </Definition>
+  <Definition body="2037" end="2094" fullname="logisticregression.performance.obs" inherit_type="local" line="72" name="obs" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/performance/RunBinomial.ecl" start="2031">
+   <Signature pre="" post="" name="obs">obs</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="2101" end="2479" fullname="logisticregression.performance.t0" inherit_type="local" line="74" name="t0" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/performance/RunBinomial.ecl" start="2096">
+   <Signature pre="" post="" name="t0">t0</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="2521" end="2595" fullname="logisticregression.performance.get_resp" inherit_type="local" line="80" name="get_resp" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/performance/RunBinomial.ecl" start="2480">
+   <Type>transform</Type>
+   <Params>
+    <Param name="ob"/>
+   </Params>
+   <Signature pre="" post="" name="DiscreteField get_resp(Observation ob)">DiscreteField get_resp(Observation ob)</Signature><Return>discretefield</Return>
+  </Definition>
+  <Definition body="2608" end="2638" fullname="logisticregression.performance.resp_data" inherit_type="local" line="85" name="resp_data" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/performance/RunBinomial.ecl" start="2596">
+   <Signature pre="" post="" name="resp_data">resp_data</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="2691" end="2795" fullname="logisticregression.performance.get_ind" inherit_type="local" line="87" name="get_ind" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/performance/RunBinomial.ecl" start="2640">
+   <Type>transform</Type>
+   <Params>
+    <Param name="ob"/>
+    <Param name="c"/>
+   </Params>
+   <Signature pre="" post="" name="NumericField get_ind(Observation ob, UNSIGNED c)">NumericField get_ind(Observation ob, UNSIGNED c)</Signature><Return>numericfield</Return>
+  </Definition>
+  <Definition body="2807" end="2850" fullname="logisticregression.performance.ind_data" inherit_type="local" line="92" name="ind_data" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/performance/RunBinomial.ecl" start="2796">
+   <Signature pre="" post="" name="ind_data">ind_data</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="2873" end="2906" fullname="LogisticRegression.BinomialLogisticRegression" inherit_type="local" line="94" name="LR_module" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/performance/RunBinomial.ecl" start="2861" target="../binomiallogisticregression.ecl.xml">
+   <Type>module</Type>
+   <Parents>
+    <Parent line="8" name="IClassify" ref="ml_core.interfaces.iclassify" target="../../ml_core/interfaces/iclassify.ecl.xml"/>
+   </Parents>
+   <Definition body="1073" end="1148" exported="1" fullname="logisticregression.binomiallogisticregression.getmodel" inherit_type="override" line="26" name="GetModel" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LogisticRegression/BinomialLogisticRegression.ecl" start="910" target="../binomiallogisticregression.ecl.xml">
+    <Type>function</Type>
+    <Documentation> <content>Calculate the model to fit the observation data to the observed classes.</content>
+     <return>the encoded model</return>
+     <param><name>observations</name><desc>the observed explanatory values</desc></param>
+     <param><name>classifications</name><desc>the observed classification used to build the model</desc></param>
+    </Documentation>
+    <Signature pre="" post="" name="DATASET(Types.Layout_Model)&#10;        GetModel(DATASET(Types.NumericField) observations,&#10;                 DATASET(Types.DiscreteField) classifications)">DATASET(Types.Layout_Model)
+        GetModel(DATASET(Types.NumericField) observations,
+                 DATASET(Types.DiscreteField) classifications)</Signature><Params>
+     <Param name="observations"/>
+     <Param name="classifications"/>
+    </Params>
+   </Definition>
+   <Definition body="1574" end="1632" exported="1" fullname="logisticregression.binomiallogisticregression.classify" inherit_type="override" line="37" name="Classify" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LogisticRegression/BinomialLogisticRegression.ecl" start="1415" target="../binomiallogisticregression.ecl.xml">
+    <Type>function</Type>
+    <Documentation> <content>Classify the observations using a model.</content>
+     <return>Classification with a confidence value</return>
+     <param><name>model</name><desc>The model, which must be produced by a corresponding getModel function.</desc></param>
+     <param><name>new_observations</name><desc>observations to be classified</desc></param>
+    </Documentation>
+    <Signature pre="" post="" name="DATASET(Types.Classify_Result)&#10;        Classify(DATASET(Types.Layout_Model) model,&#10;                 DATASET(Types.NumericField) new_observations)">DATASET(Types.Classify_Result)
+        Classify(DATASET(Types.Layout_Model) model,
+                 DATASET(Types.NumericField) new_observations)</Signature><Params>
+     <Param name="model"/>
+     <Param name="new_observations"/>
+    </Params>
+   </Definition>
+   <Definition body="2179" end="2283" exported="1" fullname="logisticregression.binomiallogisticregression.report" inherit_type="override" line="50" name="Report" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LogisticRegression/BinomialLogisticRegression.ecl" start="1966" target="../binomiallogisticregression.ecl.xml">
+    <Type>function</Type>
+    <Documentation> <content>Report the confusion matrix for the classifier and training data.</content>
+     <return>the confusion matrix showing correct and incorrect results</return>
+     <param><name>model</name><desc>the encoded model</desc></param>
+     <param><name>observations</name><desc>the explanatory values.</desc></param>
+     <param><name>classifications</name><desc>the classifications associated with the observations</desc></param>
+    </Documentation>
+    <Signature pre="" post="" name="DATASET(Types.Confusion_Detail)&#10;        Report(DATASET(Types.Layout_Model) model,&#10;               DATASET(Types.NumericField) observations,&#10;               DATASET(Types.DiscreteField) classifications)">DATASET(Types.Confusion_Detail)
+        Report(DATASET(Types.Layout_Model) model,
+               DATASET(Types.NumericField) observations,
+               DATASET(Types.DiscreteField) classifications)</Signature><Params>
+     <Param name="model"/>
+     <Param name="observations"/>
+     <Param name="classifications"/>
+    </Params>
+   </Definition>
+   <Signature pre="" post="" name="LR_module">LR_module</Signature><Documentation> <content>Binomial logistic regression using iteratively re-weighted least squares.</content>
+    <param><name>max_iter</name><desc>maximum number of iterations to try</desc></param>
+    <param><name>epsilon</name><desc>the minimum change in the Beta value estimate to continue</desc></param>
+    <param><name>ridge</name><desc>a value to populate a diagonal matrix that is added to a matrix help assure that the matrix is invertible.</desc></param>
+   </Documentation>
+  </Definition>
+  <Definition body="2913" end="2954" fullname="logisticregression.performance.mod" inherit_type="local" line="95" name="mod" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/performance/RunBinomial.ecl" start="2907">
+   <Type>attribute</Type>
+   <Signature pre="" post="" name="mod">mod</Signature><Documentation> <content>Calculate the model to fit the observation data to the observed classes.</content>
+    <return>the encoded model</return>
+    <param><name>observations</name><desc>the observed explanatory values</desc></param>
+    <param><name>classifications</name><desc>the observed classification used to build the model</desc></param>
+   </Documentation>
+  </Definition>
+  <Definition body="2965" end="2988" fullname="logisticregression.performance.reports" inherit_type="local" line="96" name="reports" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/performance/RunBinomial.ecl" start="2955">
+   <Type>attribute</Type>
+   <Signature pre="" post="" name="reports">reports</Signature><Documentation> <content>Extract Report records from model</content>
+    <return>the model report dataset</return>
+    <param><name>mod_ds</name><desc>the model dataset</desc></param>
+   </Documentation>
+  </Definition>
+  <Definition body="3003" end="3055" fullname="logisticregression.performance.rpt_samples" inherit_type="local" line="97" name="rpt_samples" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/performance/RunBinomial.ecl" start="2989">
+   <Signature pre="" post="" name="rpt_samples">rpt_samples</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="3070" end="3098" fullname="logisticregression.performance.bad_reports" inherit_type="local" line="98" name="bad_reports" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/performance/RunBinomial.ecl" start="3056">
+   <Signature pre="" post="" name="bad_reports">bad_reports</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="3105" end="3158" fullname="logisticregression.performance.bad" inherit_type="local" line="99" name="bad" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/performance/RunBinomial.ecl" start="3099">
+   <Signature pre="" post="" name="bad">bad</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="3167" end="3742" fullname="logisticregression.performance.f_tab" inherit_type="local" line="100" name="f_tab" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/performance/RunBinomial.ecl" start="3159">
+   <Signature pre="" post="" name="f_tab">f_tab</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="3752" end="3787" fullname="logisticregression.performance.f_stat" inherit_type="local" line="110" name="f_stat" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/performance/RunBinomial.ecl" start="3743">
+   <Signature pre="" post="" name="f_stat">f_stat</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="3809" end="3845" exported="1" fullname="logisticregression.performance.runbinomial" inherit_type="local" line="111" name="RunBinomial" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/performance/RunBinomial.ecl" start="3788">
+   <Signature pre="" post="" name="RunBinomial">RunBinomial</Signature><Type>attribute</Type>
+  </Definition>
+ </Source>
+ <Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Types.ecl" name="ML_Core.Types" target="../../ml_core/types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Constants.ecl" name="LogisticRegression.Constants" target="../constants.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/BinomialLogisticRegression.ecl" name="LogisticRegression.BinomialLogisticRegression" target="../binomiallogisticregression.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Interfaces/IClassify.ecl" name="ML_Core.Interfaces.IClassify" target="../../ml_core/interfaces/iclassify.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/IRLS/GetModel.ecl" name="LogisticRegression.IRLS.GetModel" target="../irls/getmodel.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Types.ecl" name="LogisticRegression.Types" target="../types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/DataStats.ecl" name="LogisticRegression.DataStats" target="../datastats.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/IRLS/GetModel_local.ecl" name="LogisticRegression.IRLS.getModel_local" target="../irls/getmodel_local.ecl.xml"/><Depends sourcePath="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/BLAS.ecl" name="std.BLAS" target="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/BLAS.ecl"/><Depends sourcePath="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/plugins/lib_eclblas.ecllib" target="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/plugins/lib_eclblas.ecllib"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/dimm.ecl" name="LogisticRegression.dimm" target="../dimm.ecl.xml"/><Depends sourcePath="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/system/Thorlib.ecl" name="std.system.thorlib" target="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/system/Thorlib.ecl"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/IRLS/GetModel_global.ecl" name="LogisticRegression.IRLS.getModel_global" target="../irls/getmodel_global.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Types.ecl" name="PBblas.Types" target="../../pbblas/types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Converted.ecl" name="PBblas.Converted" target="../../pbblas/converted.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/MatUtils.ecl" name="PBblas.MatUtils" target="../../pbblas/matutils.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/Types.ecl" name="PBblas.internal.Types" target="../../pbblas/internal/types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/MatDims.ecl" name="PBblas.internal.MatDims" target="../../pbblas/internal/matdims.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/BlockDimensions.ecl" name="PBblas.internal.BlockDimensions" target="../../pbblas/internal/blockdimensions.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/BlockDimensionsMultiply.ecl" name="PBblas.internal.BlockDimensionsMultiply" target="../../pbblas/internal/blockdimensionsmultiply.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/BlockDimensionsSolve.ecl" name="PBblas.internal.BlockDimensionsSolve" target="../../pbblas/internal/blockdimensionssolve.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/gemm.ecl" name="PBblas.gemm" target="../../pbblas/gemm.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/Converted.ecl" name="PBblas.internal.Converted" target="../../pbblas/internal/converted.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/MakeR8Set.ecl" name="PBblas.internal.MakeR8Set" target="../../pbblas/internal/maker8set.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/getrf.ecl" name="PBblas.getrf" target="../../pbblas/getrf.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/trsm.ecl" name="PBblas.trsm" target="../../pbblas/trsm.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Vector2Diag.ecl" name="PBblas.Vector2Diag" target="../../pbblas/vector2diag.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Constants.ecl" name="PBblas.Constants" target="../../pbblas/constants.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Apply2Elements.ecl" name="PBblas.Apply2Elements" target="../../pbblas/apply2elements.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/IElementFunc.ecl" name="PBblas.IElementFunc" target="../../pbblas/ielementfunc.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/axpy.ecl" name="PBblas.axpy" target="../../pbblas/axpy.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/asum.ecl" name="PBblas.asum" target="../../pbblas/asum.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/LogitPredict.ecl" name="LogisticRegression.LogitPredict" target="../logitpredict.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/LogitScore.ecl" name="LogisticRegression.LogitScore" target="../logitscore.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/ExtractBeta.ecl" name="LogisticRegression.ExtractBeta" target="../extractbeta.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/ExtractReport.ecl" name="LogisticRegression.ExtractReport" target="../extractreport.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Confusion.ecl" name="LogisticRegression.Confusion" target="../confusion.ecl.xml"/></Meta>

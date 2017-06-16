@@ -1,0 +1,1777 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
+	<title>LogisticRegression.IRLS.GetModel_local</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
+	<link href="../../../css/simple-sidebar.css" rel="stylesheet">
+
+</head>
+
+<body>
+	<nav class="navbar topbar">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a href="#menu-toggle" id="menu-toggle" class="navbar-brand glyphicon glyphicon-menu-hamburger ham"></a>
+			</div>
+			<div class="navbar-header" style="margin-left: 20px;">
+				<span class="navbar-brand">LogisticRegression.IRLS.GetModel_local</span>
+			</div>
+			<div class="navbar-collapse collapse">
+			<ul class="nav navbar-nav">
+				<li><a href="#ecldoc-section-import" class="topbar">Imports</a></li>
+				<li><a href="#ecldoc-section-tree" class="topbar">Tree</a></li>
+				<li><a href="#ecldoc-section-desc" class="topbar">Descriptions</a></li>
+			</ul>
+			</div>
+		</div>
+	</nav>
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		<div id="sidebar-wrapper">
+			<ul class="sidebar-nav">
+				<li class="sidebar-brand">
+					<a href="pkg.toc.html">
+						Up
+					</a>
+				</li>
+				
+				<li>
+					<a href="getmodel.ecl.html">getmodel.ecl</a>
+				</li>
+				
+				<li>
+					<a href="getmodel_local.ecl.html">getmodel_local.ecl</a>
+				</li>
+				
+				<li>
+					<a href="getmodel_global.ecl.html">getmodel_global.ecl</a>
+				</li>
+				
+			</ul>
+		</div>
+
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<section id="ecldoc-section-import">
+					<h3 class="page-header">IMPORTS</h3>
+					<ul class="pagination">
+						<li>
+							<a href="../../ml_core/pkg.toc.html">
+								ml_core
+							</a>
+							</li>
+						<li>
+							<a href="../../ml_core/types.ecl.html">
+								ml_core.types
+							</a>
+							</li>
+						<li>
+							<a href="../pkg.toc.html">
+								logisticregression
+							</a>
+							</li>
+						<li>
+							<a href="../constants.ecl.html">
+								logisticregression.constants
+							</a>
+							</li>
+						<li>
+							<a href="../types.ecl.html">
+								logisticregression.types
+							</a>
+							</li>
+						<li>
+							<a href="pkg.toc.html">
+								logisticregression.irls
+							</a>
+							</li>
+						<li>
+							<a href="../../std/pkg.toc.html">
+								std
+							</a>
+							</li>
+						<li>
+							<a href="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/BLAS.ecl">
+								std.blas
+							</a>
+							</li>
+						</ul>
+				</section>
+				<section id="ecldoc-section-tree">
+					<h3 class="page-header">DEFINITION TREE</h3>
+					<ul class="tree">
+						<li id="t-logisticregression-irls-numericfield">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dlogisticregression-irls-numericfield">
+								RECORD :
+								<span class="sign-pre"></span>
+								<span class="sign-name">NumericField</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="logisticregression-irls-numericfield" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-logisticregression-irls-discretefield">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dlogisticregression-irls-discretefield">
+								RECORD :
+								<span class="sign-pre"></span>
+								<span class="sign-name">DiscreteField</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="logisticregression-irls-discretefield" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-logisticregression-irls-layout_model">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dlogisticregression-irls-layout_model">
+								RECORD :
+								<span class="sign-pre"></span>
+								<span class="sign-name">Layout_Model</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="logisticregression-irls-layout_model" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-logisticregression-irls-t_work_item">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dlogisticregression-irls-t_work_item">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">t_work_item</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="logisticregression-irls-t_work_item" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-logisticregression-irls-t_recordid">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dlogisticregression-irls-t_recordid">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">t_RecordID</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="logisticregression-irls-t_recordid" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-logisticregression-irls-t_fieldnumber">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dlogisticregression-irls-t_fieldnumber">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">t_FieldNumber</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="logisticregression-irls-t_fieldnumber" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-logisticregression-irls-t_fieldreal">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dlogisticregression-irls-t_fieldreal">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">t_FieldReal</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="logisticregression-irls-t_fieldreal" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-logisticregression-irls-value_t">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dlogisticregression-irls-value_t">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">value_t</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="logisticregression-irls-value_t" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-logisticregression-irls-dimension_t">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dlogisticregression-irls-dimension_t">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">dimension_t</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="logisticregression-irls-dimension_t" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-logisticregression-irls-matrix_t">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dlogisticregression-irls-matrix_t">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">matrix_t</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="logisticregression-irls-matrix_t" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-ecldoc-triangle">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#decldoc-triangle">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">triangle</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="ecldoc-triangle" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-ecldoc-diagonal">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#decldoc-diagonal">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">diagonal</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="ecldoc-diagonal" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-ecldoc-side">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#decldoc-side">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">side</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="ecldoc-side" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-logisticregression-irls-gemm">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dlogisticregression-irls-gemm">
+								FUNCTION :
+								<span class="sign-pre"></span>
+								<span class="sign-name">gemm</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="logisticregression-irls-gemm" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-logisticregression-irls-trsm">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dlogisticregression-irls-trsm">
+								FUNCTION :
+								<span class="sign-pre"></span>
+								<span class="sign-name">trsm</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="logisticregression-irls-trsm" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-logisticregression-irls-getf2">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dlogisticregression-irls-getf2">
+								FUNCTION :
+								<span class="sign-pre"></span>
+								<span class="sign-name">getf2</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="logisticregression-irls-getf2" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-logisticregression-irls-axpy">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dlogisticregression-irls-axpy">
+								FUNCTION :
+								<span class="sign-pre"></span>
+								<span class="sign-name">axpy</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="logisticregression-irls-axpy" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-logisticregression-irls-apply2cells">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dlogisticregression-irls-apply2cells">
+								FUNCTION :
+								<span class="sign-pre"></span>
+								<span class="sign-name">Apply2Cells</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="logisticregression-irls-apply2cells" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-logisticregression-irls-make_diag">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dlogisticregression-irls-make_diag">
+								FUNCTION :
+								<span class="sign-pre"></span>
+								<span class="sign-name">make_diag</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="logisticregression-irls-make_diag" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-logisticregression-irls-dimm">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dlogisticregression-irls-dimm">
+								EMBED :
+								<span class="sign-pre"></span>
+								<span class="sign-name">dimm</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="logisticregression-irls-dimm" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-logisticregression-irls-make_vector">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dlogisticregression-irls-make_vector">
+								FUNCTION :
+								<span class="sign-pre"></span>
+								<span class="sign-name">make_vector</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="logisticregression-irls-make_vector" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-logisticregression-irls-extract_diag">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dlogisticregression-irls-extract_diag">
+								FUNCTION :
+								<span class="sign-pre"></span>
+								<span class="sign-name">extract_diag</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="logisticregression-irls-extract_diag" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-logisticregression-irls-t_part">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dlogisticregression-irls-t_part">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">t_part</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="logisticregression-irls-t_part" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-logisticregression-irls-part">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dlogisticregression-irls-part">
+								RECORD :
+								<span class="sign-pre"></span>
+								<span class="sign-name">Part</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="logisticregression-irls-part" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-logisticregression-irls-ext_numericfield">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dlogisticregression-irls-ext_numericfield">
+								RECORD :
+								<span class="sign-pre"></span>
+								<span class="sign-name">Ext_NumericField</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="logisticregression-irls-ext_numericfield" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-logisticregression-irls-bernoulli_ev">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dlogisticregression-irls-bernoulli_ev">
+								FUNCTION :
+								<span class="sign-pre"></span>
+								<span class="sign-name">REAL8 Bernoulli_EV(REAL8 v)</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="logisticregression-irls-bernoulli_ev" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-logisticregression-irls-u_i">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dlogisticregression-irls-u_i">
+								FUNCTION :
+								<span class="sign-pre"></span>
+								<span class="sign-name">value_t u_i(value_t v,
+            dimension_t r,
+            dimension_t c)</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="logisticregression-irls-u_i" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-logisticregression-irls-w_i">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dlogisticregression-irls-w_i">
+								FUNCTION :
+								<span class="sign-pre"></span>
+								<span class="sign-name">value_t w_i(value_t v,
+            dimension_t r,
+            dimension_t c)</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="logisticregression-irls-w_i" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-logisticregression-irls-abs_v">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dlogisticregression-irls-abs_v">
+								FUNCTION :
+								<span class="sign-pre"></span>
+								<span class="sign-name">value_t abs_v(value_t v,
+              dimension_t r,
+              dimension_t c)</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="logisticregression-irls-abs_v" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-logisticregression-irls-sig_v">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dlogisticregression-irls-sig_v">
+								FUNCTION :
+								<span class="sign-pre"></span>
+								<span class="sign-name">value_t sig_v(value_t v,
+              dimension_t r,
+              dimension_t c)</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="logisticregression-irls-sig_v" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-logisticregression-irls-getmodel_local">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dlogisticregression-irls-getmodel_local">
+								FUNCTION :
+								<span class="sign-pre"></span>
+								<span class="sign-name">DATASET(Layout_Model)
+       GetModel_local(DATASET(NumericField) independents,
+               DATASET(DiscreteField) dependents,
+               UNSIGNED2 max_iter=200,
+               REAL8 epsilon=Constants.default_epsilon,
+               REAL8 ridge=Constants.default_ridge)</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="logisticregression-irls-getmodel_local" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						</ul>
+				</section>
+				<section id="ecldoc-section-desc">
+					<h3 class="page-header">DESCRIPTIONS</h3>
+					<div class="panel-group">
+						<div class="panel panel-info" id="dlogisticregression-irls-numericfield">
+							<div class="panel-heading">
+								<div class="type">
+									RECORD
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">NumericField</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-logisticregression-irls-numericfield" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dlogisticregression-irls-discretefield">
+							<div class="panel-heading">
+								<div class="type">
+									RECORD
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">DiscreteField</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-logisticregression-irls-discretefield" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dlogisticregression-irls-layout_model">
+							<div class="panel-heading">
+								<div class="type">
+									RECORD
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">Layout_Model</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-logisticregression-irls-layout_model" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dlogisticregression-irls-t_work_item">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">t_work_item</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-logisticregression-irls-t_work_item" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dlogisticregression-irls-t_recordid">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">t_RecordID</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-logisticregression-irls-t_recordid" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dlogisticregression-irls-t_fieldnumber">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">t_FieldNumber</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-logisticregression-irls-t_fieldnumber" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dlogisticregression-irls-t_fieldreal">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">t_FieldReal</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-logisticregression-irls-t_fieldreal" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dlogisticregression-irls-value_t">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">value_t</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-logisticregression-irls-value_t" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dlogisticregression-irls-dimension_t">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">dimension_t</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-logisticregression-irls-dimension_t" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dlogisticregression-irls-matrix_t">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">matrix_t</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-logisticregression-irls-matrix_t" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="decldoc-triangle">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">triangle</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-ecldoc-triangle" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="decldoc-diagonal">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">diagonal</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-ecldoc-diagonal" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="decldoc-side">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">side</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-ecldoc-side" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dlogisticregression-irls-gemm">
+							<div class="panel-heading">
+								<div class="type">
+									FUNCTION
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">gemm</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-logisticregression-irls-gemm" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										alpha*op(A) op(B) + beta*C where op() is transpose
+									</div>
+								</div>
+								<br/>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>transposeA</b> </td>
+												<td>true when transpose of A is used</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>transposeB</b> </td>
+												<td>true when transpose of B is used</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>M</b> </td>
+												<td>number of rows in product</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>N</b> </td>
+												<td>number of columns in product</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>K</b> </td>
+												<td>number of columns/rows for the multiplier/multiplicand</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>alpha</b> </td>
+												<td>scalar used on A</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>A</b> </td>
+												<td>matrix A</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>B</b> </td>
+												<td>matrix B</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>beta</b> </td>
+												<td>scalar for matrix C</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>C</b> </td>
+												<td>matrix C or empty</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dlogisticregression-irls-trsm">
+							<div class="panel-heading">
+								<div class="type">
+									FUNCTION
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">trsm</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-logisticregression-irls-trsm" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Triangular matrix solver. op(A) X = alpha B or X op(A) = alpha B where op is Transpose, X and B is MxN
+									</div>
+								</div>
+								<br/>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>side</b> </td>
+												<td>side for A, Side.Ax is op(A) X = alpha B</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>tri</b> </td>
+												<td>Says whether A is Upper or Lower triangle</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>transposeA</b> </td>
+												<td>is op(A) the transpose of A</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>diag</b> </td>
+												<td>is the diagonal an implied unit diagonal or supplied</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>M</b> </td>
+												<td>number of rows</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>N</b> </td>
+												<td>number of columns</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>lda</b> </td>
+												<td>the leading dimension of the A matrix, either M or N</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>alpha</b> </td>
+												<td>the scalar multiplier for B</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>A</b> </td>
+												<td>a triangular matrix</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>B</b> </td>
+												<td>the matrix of values for the solve</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>the matrix of coefficients to get B.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dlogisticregression-irls-getf2">
+							<div class="panel-heading">
+								<div class="type">
+									FUNCTION
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">getf2</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-logisticregression-irls-getf2" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Compute LU Factorization of matrix A.
+									</div>
+								</div>
+								<br/>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>m</b> </td>
+												<td>number of rows of A</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>n</b> </td>
+												<td>number of columns of A</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>composite matrix of factors, lower triangle has an implied diagonal of ones. Upper triangle has the diagonal of the composite.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dlogisticregression-irls-axpy">
+							<div class="panel-heading">
+								<div class="type">
+									FUNCTION
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">axpy</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-logisticregression-irls-axpy" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										alpha*X + Y
+									</div>
+								</div>
+								<br/>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>N</b> </td>
+												<td>number of elements in vector</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>alpha</b> </td>
+												<td>the scalar multiplier</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>X</b> </td>
+												<td>the column major matrix holding the vector X</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>incX</b> </td>
+												<td>the increment or stride for the vector</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>Y</b> </td>
+												<td>the column major matrix holding the vector Y</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>incY</b> </td>
+												<td>the increment or stride of Y</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>x_skipped</b> </td>
+												<td>number of entries skipped to get to the first X</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>y_skipped</b> </td>
+												<td>number of entries skipped to get to the first Y</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>the updated matrix</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dlogisticregression-irls-apply2cells">
+							<div class="panel-heading">
+								<div class="type">
+									FUNCTION
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">Apply2Cells</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-logisticregression-irls-apply2cells" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Iterate matrix and apply function to each cell
+									</div>
+								</div>
+								<br/>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>m</b> </td>
+												<td>number of rows</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>n</b> </td>
+												<td>number of columns</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>x</b> </td>
+												<td>matrix</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>f</b> </td>
+												<td>function to apply</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>updated matrix</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dlogisticregression-irls-make_diag">
+							<div class="panel-heading">
+								<div class="type">
+									FUNCTION
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">make_diag</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-logisticregression-irls-make_diag" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Generate a diagonal matrix.
+									</div>
+								</div>
+								<br/>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>m</b> </td>
+												<td>number of diagonal entries</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>v</b> </td>
+												<td>option value, defaults to 1</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>X</b> </td>
+												<td>optional input of diagonal values, multiplied by v.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>a diagonal matrix</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dlogisticregression-irls-dimm">
+							<div class="panel-heading">
+								<div class="type">
+									EMBED
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">dimm</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-logisticregression-irls-dimm" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Matrix multiply when either A or B is a diagonal and is passed as a vector. alpha*op(A) op(B) + beta*C where op() is transpose
+									</div>
+								</div>
+								<br/>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>transposeA</b> </td>
+												<td>true when transpose of A is used</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>transposeB</b> </td>
+												<td>true when transpose of B is used</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>diagonalA</b> </td>
+												<td>true when A is the diagonal matrix</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>diagonalB</b> </td>
+												<td>true when B is the diagonal matrix</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>m</b> </td>
+												<td>number of rows in product</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>n</b> </td>
+												<td>number of columns in product</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>k</b> </td>
+												<td>number of columns/rows for the multiplier/multiplicand</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>alpha</b> </td>
+												<td>scalar used on A</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>A</b> </td>
+												<td>matrix A</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>B</b> </td>
+												<td>matrix B</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>beta</b> </td>
+												<td>scalar for matrix C</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>C</b> </td>
+												<td>matrix C or empty</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dlogisticregression-irls-make_vector">
+							<div class="panel-heading">
+								<div class="type">
+									FUNCTION
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">make_vector</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-logisticregression-irls-make_vector" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Make a vector of dimension m
+									</div>
+								</div>
+								<br/>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>m</b> </td>
+												<td>number of elements</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>v</b> </td>
+												<td>the values, defaults to 1</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>the vector</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dlogisticregression-irls-extract_diag">
+							<div class="panel-heading">
+								<div class="type">
+									FUNCTION
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">extract_diag</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-logisticregression-irls-extract_diag" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Extract the diagonal of he matrix
+									</div>
+								</div>
+								<br/>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>m</b> </td>
+												<td>number of rows</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>n</b> </td>
+												<td>number of columns</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>x</b> </td>
+												<td>matrix from which to extract the diagonal</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>diagonal matrix</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dlogisticregression-irls-t_part">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">t_part</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-logisticregression-irls-t_part" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dlogisticregression-irls-part">
+							<div class="panel-heading">
+								<div class="type">
+									RECORD
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">Part</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-logisticregression-irls-part" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dlogisticregression-irls-ext_numericfield">
+							<div class="panel-heading">
+								<div class="type">
+									RECORD
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">Ext_NumericField</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-logisticregression-irls-ext_numericfield" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dlogisticregression-irls-bernoulli_ev">
+							<div class="panel-heading">
+								<div class="type">
+									FUNCTION
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">REAL8 Bernoulli_EV(REAL8 v)</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-logisticregression-irls-bernoulli_ev" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dlogisticregression-irls-u_i">
+							<div class="panel-heading">
+								<div class="type">
+									FUNCTION
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">value_t u_i(value_t v,
+            dimension_t r,
+            dimension_t c)</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-logisticregression-irls-u_i" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dlogisticregression-irls-w_i">
+							<div class="panel-heading">
+								<div class="type">
+									FUNCTION
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">value_t w_i(value_t v,
+            dimension_t r,
+            dimension_t c)</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-logisticregression-irls-w_i" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dlogisticregression-irls-abs_v">
+							<div class="panel-heading">
+								<div class="type">
+									FUNCTION
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">value_t abs_v(value_t v,
+              dimension_t r,
+              dimension_t c)</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-logisticregression-irls-abs_v" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dlogisticregression-irls-sig_v">
+							<div class="panel-heading">
+								<div class="type">
+									FUNCTION
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">value_t sig_v(value_t v,
+              dimension_t r,
+              dimension_t c)</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-logisticregression-irls-sig_v" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dlogisticregression-irls-getmodel_local">
+							<div class="panel-heading">
+								<div class="type">
+									FUNCTION
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">DATASET(Layout_Model)
+       GetModel_local(DATASET(NumericField) independents,
+               DATASET(DiscreteField) dependents,
+               UNSIGNED2 max_iter=200,
+               REAL8 epsilon=Constants.default_epsilon,
+               REAL8 ridge=Constants.default_ridge)</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-logisticregression-irls-getmodel_local" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Internal function to determine values for the model co-efficients and selected stats from building the model.
+									</div>
+								</div>
+								<br/>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>independents</b> </td>
+												<td>the independent values</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>dependents</b> </td>
+												<td>the dependent values.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>max_iter</b> </td>
+												<td>maximum number of iterations to try</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>epsilon</b> </td>
+												<td>the minimum change in the Beta value estimate to continue</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>ridge</b> </td>
+												<td>a value to populate a diagonal matrix that is added to a matrix help assure that the matrix is invertible.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>coefficient matrix plus model building stats</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						</div>
+				</section>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+		$("#menu-toggle").click(function(e) {
+			e.preventDefault();
+			$("#wrapper").toggleClass("toggled");
+		});
+	</script>
+	<script>
+		$(document).ready(function(){
+			$('.tree-link').click(function(e) {
+				var loc = $(this).attr('href');
+				$(loc).parents().collapse('show');
+				return true;
+			});
+		});
+	</script>
+</body>
+</html>

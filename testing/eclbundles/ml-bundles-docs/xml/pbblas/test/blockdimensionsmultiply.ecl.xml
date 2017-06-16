@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Meta>
+ <Source name="PBblas.test.BlockDimensionsMultiply" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/BlockDimensionsMultiply.ecl" target="blockdimensionsmultiply.ecl.xml">
+  <Import body="0" end="251" fullname="PBblas" inherit_type="local" line="5" name="PBblas" ref="pbblas" start="251" target="../pkg.toc.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0" end="273" fullname="PBblas.internal" inherit_type="local" line="6" name="int" ref="pbblas.internal" remotescope="1" start="273" target="../internal/pkg.toc.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0" end="304" fullname="PBblas.Types" inherit_type="local" line="7" name="Types" ref="pbblas.types" start="304" target="../types.ecl.xml">
+   <Type>attribute</Type>
+   <Documentation> <content>Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes.</content>
+   </Documentation>
+  </Import>
+  <Import body="0" end="325" fullname="PBblas.internal.Types" inherit_type="local" line="8" name="iTypes" ref="pbblas.internal.types" start="325" target="../internal/types.ecl.xml">
+   <Type>attribute</Type>
+   <Documentation> <content>Internal Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes.</content>
+   </Documentation>
+  </Import>
+  <Definition body="360" end="369" fullname="pbblas.test.max_block" inherit_type="local" line="11" name="max_block" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/BlockDimensionsMultiply.ecl" start="348">
+   <Signature pre="" post="" name="max_block">max_block</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="382" end="390" fullname="pbblas.test.min_block" inherit_type="local" line="12" name="min_block" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/BlockDimensionsMultiply.ecl" start="370">
+   <Signature pre="" post="" name="min_block">min_block</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="403" end="441" fullname="pbblas.test.test_rec" inherit_type="local" line="14" name="test_rec" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/BlockDimensionsMultiply.ecl" start="392">
+   <Type>record</Type>
+   <Field name="N"/>
+   <Field name="M"/>
+   <Signature pre="" post="" name="test_rec">test_rec</Signature><Field name="P"/>
+  </Definition>
+  <Definition body="459" end="462" fullname="pbblas.test.nodes" inherit_type="local" line="15" name="nodes" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/BlockDimensionsMultiply.ecl" start="442">
+   <Signature pre="" post="" name="UNSIGNED nodes">UNSIGNED nodes</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="477" end="546" fullname="pbblas.test.node_counts" inherit_type="local" line="16" name="node_counts" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/BlockDimensionsMultiply.ecl" start="463">
+   <Signature pre="" post="" name="node_counts">node_counts</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="698" end="1311" fullname="pbblas.test.test_cases" inherit_type="local" line="26" name="test_cases" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/BlockDimensionsMultiply.ecl" start="685">
+   <Signature pre="" post="" name="test_cases">test_cases</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1328" end="1368" fullname="pbblas.test.ext_test_rec" inherit_type="local" line="54" name="ext_test_rec" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/BlockDimensionsMultiply.ecl" start="1313">
+   <Type>record</Type>
+   <Field name="N"/>
+   <Field name="M"/>
+   <Field name="P"/>
+   <Signature pre="" post="" name="ext_test_rec">ext_test_rec</Signature><Field name="nodes"/>
+  </Definition>
+  <Definition body="1449" end="1507" fullname="pbblas.test.extend_test_cases" inherit_type="local" line="58" name="extend_test_cases" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/BlockDimensionsMultiply.ecl" start="1370">
+   <Type>transform</Type>
+   <Params>
+    <Param name="l"/>
+    <Param name="r"/>
+   </Params>
+   <Signature pre="" post="" name="DATASET(ext_test_rec) extend_test_cases(test_rec l, {UNSIGNED node_count} r)">DATASET(ext_test_rec) extend_test_cases(test_rec l, {UNSIGNED node_count} r)</Signature><Return>ext_test_rec</Return>
+  </Definition>
+  <Definition body="1548" end="1622" fullname="pbblas.test.test_cases_ext" inherit_type="local" line="63" name="test_cases_ext" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/BlockDimensionsMultiply.ecl" start="1509">
+   <Signature pre="" post="" name="DATASET(ext_test_rec) test_cases_ext">DATASET(ext_test_rec) test_cases_ext</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1636" end="2064" fullname="pbblas.test.result_rec" inherit_type="local" line="64" name="result_rec" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/BlockDimensionsMultiply.ecl" start="1623">
+   <Type>record</Type>
+   <Field name="status"/>
+   <Field name="berror"/>
+   <Field name="error_text"/>
+   <Field name="nodes"/>
+   <Field name="N"/>
+   <Field name="M"/>
+   <Field name="P"/>
+   <Field name="PN"/>
+   <Field name="PM"/>
+   <Field name="PP"/>
+   <Field name="partition_type"/>
+   <Field name="a_block_rows"/>
+   <Field name="a_block_cols"/>
+   <Field name="b_block_cols"/>
+   <Field name="a_block_size"/>
+   <Field name="b_block_size"/>
+   <Field name="c_block_size"/>
+   <Field name="a_parts"/>
+   <Field name="b_parts"/>
+   <Field name="c_parts"/>
+   <Signature pre="" post="" name="result_rec">result_rec</Signature><Field name="partitions"/>
+  </Definition>
+  <Definition body="2104" end="3642" fullname="pbblas.test.do_tests" inherit_type="local" line="86" name="do_tests" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/BlockDimensionsMultiply.ecl" start="2066">
+   <Type>transform</Type>
+   <Params>
+    <Param name="r"/>
+   </Params>
+   <Signature pre="" post="" name="result_rec do_tests(ext_test_rec r)">result_rec do_tests(ext_test_rec r)</Signature><Return>result_rec</Return>
+  </Definition>
+  <Definition body="3678" end="3719" fullname="pbblas.test.result_data" inherit_type="local" line="116" name="result_data" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/BlockDimensionsMultiply.ecl" start="3644">
+   <Signature pre="" post="" name="DATASET(result_rec) result_data">DATASET(result_rec) result_data</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="4089" end="4102" exported="1" fullname="pbblas.test.blockdimensionsmultiply" inherit_type="local" line="128" name="BlockDimensionsMultiply" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/BlockDimensionsMultiply.ecl" start="4056">
+   <Type>attribute</Type>
+   <Signature pre="" post="" name="BlockDimensionsMultiply">BlockDimensionsMultiply</Signature><Documentation> <see>Std/PBblas/BlockDimensionsMultiply</see>
+    <see>Std/PBblas/BlockDimensions</see>
+    <content>Test driver for Std.PBblas.BlockDimensionsMultiply Also indirectly exercises all aspects of Std.PBblas.BlockDimensions. Test against many different values of N, M, and P. Verify that the hierarchical constraints are met.</content>
+   </Documentation>
+  </Definition>
+ </Source>
+ <Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Types.ecl" name="PBblas.Types" target="../types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Types.ecl" name="ML_Core.Types" target="../../ml_core/types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/Types.ecl" name="PBblas.internal.Types" target="../internal/types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/BlockDimensionsMultiply.ecl" name="PBblas.internal.BlockDimensionsMultiply" target="../internal/blockdimensionsmultiply.ecl.xml"/><Depends sourcePath="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/system/Thorlib.ecl" name="std.system.Thorlib" target="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/system/Thorlib.ecl"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/BlockDimensions.ecl" name="PBblas.internal.BlockDimensions" target="../internal/blockdimensions.ecl.xml"/></Meta>

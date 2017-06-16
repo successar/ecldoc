@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Meta>
+ <Source name="LogisticRegression.DataStats" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/DataStats.ecl" target="datastats.ecl.xml">
+  <Import body="0" end="7" fullname="LogisticRegression" inherit_type="local" line="1" name="LogisticRegression" ref="logisticregression" start="7" target="pkg.toc.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0" end="39" fullname="LogisticRegression.Types" inherit_type="local" line="2" name="Types" ref="logisticregression.types" start="39" target="types.ecl.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0" end="81" fullname="LogisticRegression.Constants" inherit_type="local" line="3" name="Constants" ref="logisticregression.constants" start="81" target="constants.ecl.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0" end="131" fullname="ML_Core.Types" inherit_type="local" line="4" name="Core_Types" ref="ml_core.types" start="131" target="../ml_core/types.ecl.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Definition body="194" end="211" fullname="logisticregression.data_info" inherit_type="local" line="6" name="Data_Info" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/DataStats.ecl" start="182">
+   <Type>record</Type>
+   <Field name="wi"/>
+   <Field name="dependent_fields"/>
+   <Field name="dependent_records"/>
+   <Field name="independent_fields"/>
+   <Field name="independent_records"/>
+   <Field name="dependent_count"/>
+   <Field name="independent_count"/>
+   <Field name="dependent_stats"/>
+   <Signature pre="" post="" name="Data_Info">Data_Info</Signature><Field name="independent_stats"/>
+  </Definition>
+  <Definition body="225" end="243" fullname="logisticregression.field_desc" inherit_type="local" line="7" name="Field_Desc" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/DataStats.ecl" start="212">
+   <Type>record</Type>
+   <Field name="number"/>
+   <Field name="cardinality"/>
+   <Field name="min_value"/>
+   <Signature pre="" post="" name="Field_Desc">Field_Desc</Signature><Field name="max_value"/>
+  </Definition>
+  <Definition body="259" end="284" fullname="logisticregression.numericfield" inherit_type="local" line="8" name="NumericField" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/DataStats.ecl" start="244">
+   <Type>record</Type>
+   <Field name="wi"/>
+   <Field name="id"/>
+   <Field name="number"/>
+   <Signature pre="" post="" name="NumericField">NumericField</Signature><Field name="value"/>
+  </Definition>
+  <Definition body="300" end="326" fullname="logisticregression.discretefield" inherit_type="local" line="9" name="DiscreteField" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/DataStats.ecl" start="285">
+   <Type>record</Type>
+   <Field name="wi"/>
+   <Field name="id"/>
+   <Field name="number"/>
+   <Signature pre="" post="" name="DiscreteField">DiscreteField</Signature><Field name="value"/>
+  </Definition>
+  <Definition body="368" end="427" fullname="logisticregression.flat_field_desc" inherit_type="local" line="11" name="Flat_Field_Desc" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/DataStats.ecl" start="350">
+   <Type>record</Type>
+   <Field name="number"/>
+   <Field name="cardinality"/>
+   <Field name="min_value"/>
+   <Field name="max_value"/>
+   <Signature pre="" post="" name="Flat_Field_Desc">Flat_Field_Desc</Signature><Field name="wi"/>
+  </Definition>
+  <Definition body="1254" end="4864" exported="1" fullname="logisticregression.datastats" inherit_type="local" line="28" name="DataStats" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/DataStats.ecl" start="1059">
+   <Type>function</Type>
+   <Documentation> <content>Information about the datasets. Without details the range for the x and y (independent and dependent) columns. Note that a column of all zero values cannot be distinguished from a missing column. When details are requested, the cardinality, minimum, and maximum values are returned. A zero cardinality is returned when the field cardinality exceeds the Constants.limit_card value.</content>
+    <returns>a data set of information on each work item</returns>
+    <param><name>indep</name><desc>data set of independent variables</desc></param>
+    <param><name>dep</name><desc>data set of dependent variables</desc></param>
+    <param><name>field_details</name><desc>Boolean directive to provide field level info</desc></param>
+   </Documentation>
+   <Signature pre="" post="" name="DATASET(Types.Data_Info)&#10;       DataStats(DATASET(Core_Types.NumericField) indep,&#10;                  DATASET(Core_Types.DiscreteField) dep,&#10;                  BOOLEAN field_details=FALSE)">DATASET(Types.Data_Info)
+       DataStats(DATASET(Core_Types.NumericField) indep,
+                  DATASET(Core_Types.DiscreteField) dep,
+                  BOOLEAN field_details=FALSE)</Signature><Params>
+    <Param name="indep"/>
+    <Param name="dep"/>
+    <Param name="field_details"/>
+   </Params>
+  </Definition>
+ </Source>
+ <Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Types.ecl" name="LogisticRegression.Types" target="types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Constants.ecl" name="LogisticRegression.Constants" target="constants.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Types.ecl" name="ML_Core.Types" target="../ml_core/types.ecl.xml"/></Meta>

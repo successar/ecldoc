@@ -1,0 +1,351 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Meta>
+ <Source name="LogisticRegression.IRLS.GetModel_local" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/IRLS/GetModel_local.ecl" target="getmodel_local.ecl.xml">
+  <Import body="0" end="7" fullname="ML_Core" inherit_type="local" line="1" name="ML_Core" ref="ml_core" remotescope="1" start="7" target="../../ml_core/pkg.toc.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0" end="23" fullname="ML_Core.Types" inherit_type="local" line="2" name="Core_Types" ref="ml_core.types" start="23" target="../../ml_core/types.ecl.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0" end="59" fullname="LogisticRegression" inherit_type="local" line="3" name="LR" ref="logisticregression" start="59" target="../pkg.toc.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0" end="77" fullname="LogisticRegression.Constants" inherit_type="local" line="4" name="Constants" ref="logisticregression.constants" start="77" target="../constants.ecl.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0" end="99" fullname="LogisticRegression.Types" inherit_type="local" line="5" name="Types" ref="logisticregression.types" start="99" target="../types.ecl.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0" end="117" fullname="LogisticRegression.IRLS" inherit_type="local" line="6" name="IRLS" ref="logisticregression.irls" start="117" target="pkg.toc.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0" end="135" fullname="std" inherit_type="local" line="7" name="std" ref="std" remotescope="1" start="135" target="../../std/pkg.toc.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0" end="147" fullname="std.BLAS" inherit_type="local" line="8" name="BLAS" ref="std.blas" start="147" target="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/BLAS.ecl">
+   <Type>attribute</Type>
+  </Import>
+  <Definition body="206" end="231" fullname="logisticregression.irls.numericfield" inherit_type="local" line="10" name="NumericField" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/IRLS/GetModel_local.ecl" start="191">
+   <Type>record</Type>
+   <Field name="wi"/>
+   <Field name="id"/>
+   <Field name="number"/>
+   <Signature pre="" post="" name="NumericField">NumericField</Signature><Field name="value"/>
+  </Definition>
+  <Definition body="247" end="273" fullname="logisticregression.irls.discretefield" inherit_type="local" line="11" name="DiscreteField" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/IRLS/GetModel_local.ecl" start="232">
+   <Type>record</Type>
+   <Field name="wi"/>
+   <Field name="id"/>
+   <Field name="number"/>
+   <Signature pre="" post="" name="DiscreteField">DiscreteField</Signature><Field name="value"/>
+  </Definition>
+  <Definition body="289" end="314" fullname="logisticregression.irls.layout_model" inherit_type="local" line="12" name="Layout_Model" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/IRLS/GetModel_local.ecl" start="274">
+   <Type>record</Type>
+   <Field name="wi"/>
+   <Field name="id"/>
+   <Field name="number"/>
+   <Signature pre="" post="" name="Layout_Model">Layout_Model</Signature><Field name="value"/>
+  </Definition>
+  <Definition body="330" end="354" fullname="logisticregression.irls.t_work_item" inherit_type="local" line="13" name="t_work_item" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/IRLS/GetModel_local.ecl" start="315">
+   <Signature pre="" post="" name="t_work_item">t_work_item</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="370" end="393" fullname="logisticregression.irls.t_recordid" inherit_type="local" line="14" name="t_RecordID" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/IRLS/GetModel_local.ecl" start="355">
+   <Signature pre="" post="" name="t_RecordID">t_RecordID</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="409" end="435" fullname="logisticregression.irls.t_fieldnumber" inherit_type="local" line="15" name="t_FieldNumber" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/IRLS/GetModel_local.ecl" start="394">
+   <Signature pre="" post="" name="t_FieldNumber">t_FieldNumber</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="451" end="475" fullname="logisticregression.irls.t_fieldreal" inherit_type="local" line="16" name="t_FieldReal" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/IRLS/GetModel_local.ecl" start="436">
+   <Signature pre="" post="" name="t_FieldReal">t_FieldReal</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="491" end="511" fullname="logisticregression.irls.value_t" inherit_type="local" line="17" name="value_t" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/IRLS/GetModel_local.ecl" start="476">
+   <Signature pre="" post="" name="value_t">value_t</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="527" end="551" fullname="logisticregression.irls.dimension_t" inherit_type="local" line="18" name="dimension_t" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/IRLS/GetModel_local.ecl" start="512">
+   <Signature pre="" post="" name="dimension_t">dimension_t</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="567" end="588" fullname="logisticregression.irls.matrix_t" inherit_type="local" line="19" name="matrix_t" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/IRLS/GetModel_local.ecl" start="552">
+   <Signature pre="" post="" name="matrix_t">matrix_t</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="604" end="625" inherit_type="local" line="20" name="triangle" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/IRLS/GetModel_local.ecl" start="589" fullname="ecldoc-triangle">
+   <Signature pre="" post="" name="triangle">triangle</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="641" end="662" inherit_type="local" line="21" name="diagonal" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/IRLS/GetModel_local.ecl" start="626" fullname="ecldoc-diagonal">
+   <Signature pre="" post="" name="diagonal">diagonal</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="678" end="695" inherit_type="local" line="22" name="side" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/IRLS/GetModel_local.ecl" start="663" fullname="ecldoc-side">
+   <Signature pre="" post="" name="side">side</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="711" end="723" fullname="logisticregression.irls.gemm" inherit_type="local" line="23" name="gemm" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/IRLS/GetModel_local.ecl" start="696">
+   <Type>function</Type>
+   <Documentation> <content>alpha*op(A) op(B) + beta*C where op() is transpose</content>
+    <param><name>transposeA</name><desc>true when transpose of A is used</desc></param>
+    <param><name>transposeB</name><desc>true when transpose of B is used</desc></param>
+    <param><name>M</name><desc>number of rows in product</desc></param>
+    <param><name>N</name><desc>number of columns in product</desc></param>
+    <param><name>K</name><desc>number of columns/rows for the multiplier/multiplicand</desc></param>
+    <param><name>alpha</name><desc>scalar used on A</desc></param>
+    <param><name>A</name><desc>matrix A</desc></param>
+    <param><name>B</name><desc>matrix B</desc></param>
+    <param><name>beta</name><desc>scalar for matrix C</desc></param>
+    <param><name>C</name><desc>matrix C or empty</desc></param>
+   </Documentation>
+   <Signature pre="" post="" name="gemm">gemm</Signature><Params>
+    <Param name="transposeA"/>
+    <Param name="transposeB"/>
+    <Param name="M"/>
+    <Param name="N"/>
+    <Param name="K"/>
+    <Param name="alpha"/>
+    <Param name="A"/>
+    <Param name="B"/>
+    <Param name="beta"/>
+    <Param name="C"/>
+   </Params>
+  </Definition>
+  <Definition body="739" end="751" fullname="logisticregression.irls.trsm" inherit_type="local" line="24" name="trsm" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/IRLS/GetModel_local.ecl" start="724">
+   <Type>function</Type>
+   <Documentation> <content>Triangular matrix solver. op(A) X = alpha B or X op(A) = alpha B where op is Transpose, X and B is MxN</content>
+    <return>the matrix of coefficients to get B.</return>
+    <param><name>side</name><desc>side for A, Side.Ax is op(A) X = alpha B</desc></param>
+    <param><name>tri</name><desc>Says whether A is Upper or Lower triangle</desc></param>
+    <param><name>transposeA</name><desc>is op(A) the transpose of A</desc></param>
+    <param><name>diag</name><desc>is the diagonal an implied unit diagonal or supplied</desc></param>
+    <param><name>M</name><desc>number of rows</desc></param>
+    <param><name>N</name><desc>number of columns</desc></param>
+    <param><name>lda</name><desc>the leading dimension of the A matrix, either M or N</desc></param>
+    <param><name>alpha</name><desc>the scalar multiplier for B</desc></param>
+    <param><name>A</name><desc>a triangular matrix</desc></param>
+    <param><name>B</name><desc>the matrix of values for the solve</desc></param>
+   </Documentation>
+   <Signature pre="" post="" name="trsm">trsm</Signature><Params>
+    <Param name="side"/>
+    <Param name="tri"/>
+    <Param name="transposeA"/>
+    <Param name="diag"/>
+    <Param name="M"/>
+    <Param name="N"/>
+    <Param name="lda"/>
+    <Param name="alpha"/>
+    <Param name="A"/>
+    <Param name="B"/>
+   </Params>
+  </Definition>
+  <Definition body="767" end="780" fullname="logisticregression.irls.getf2" inherit_type="local" line="25" name="getf2" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/IRLS/GetModel_local.ecl" start="752">
+   <Type>function</Type>
+   <Documentation> <content>Compute LU Factorization of matrix A.</content>
+    <return>composite matrix of factors, lower triangle has an implied diagonal of ones. Upper triangle has the diagonal of the composite.</return>
+    <param><name>m</name><desc>number of rows of A</desc></param>
+    <param><name>n</name><desc>number of columns of A</desc></param>
+   </Documentation>
+   <Signature pre="" post="" name="getf2">getf2</Signature><Params>
+    <Param name="m"/>
+    <Param name="n"/>
+    <Param name="a"/>
+   </Params>
+  </Definition>
+  <Definition body="796" end="808" fullname="logisticregression.irls.axpy" inherit_type="local" line="26" name="axpy" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/IRLS/GetModel_local.ecl" start="781">
+   <Type>function</Type>
+   <Documentation> <content>alpha*X + Y</content>
+    <return>the updated matrix</return>
+    <param><name>N</name><desc>number of elements in vector</desc></param>
+    <param><name>alpha</name><desc>the scalar multiplier</desc></param>
+    <param><name>X</name><desc>the column major matrix holding the vector X</desc></param>
+    <param><name>incX</name><desc>the increment or stride for the vector</desc></param>
+    <param><name>Y</name><desc>the column major matrix holding the vector Y</desc></param>
+    <param><name>incY</name><desc>the increment or stride of Y</desc></param>
+    <param><name>x_skipped</name><desc>number of entries skipped to get to the first X</desc></param>
+    <param><name>y_skipped</name><desc>number of entries skipped to get to the first Y</desc></param>
+   </Documentation>
+   <Signature pre="" post="" name="axpy">axpy</Signature><Params>
+    <Param name="N"/>
+    <Param name="alpha"/>
+    <Param name="X"/>
+    <Param name="incX"/>
+    <Param name="Y"/>
+    <Param name="incY"/>
+    <Param name="x_skipped"/>
+    <Param name="y_skipped"/>
+   </Params>
+  </Definition>
+  <Definition body="824" end="842" fullname="logisticregression.irls.apply2cells" inherit_type="local" line="27" name="Apply2Cells" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/IRLS/GetModel_local.ecl" start="809">
+   <Type>function</Type>
+   <Documentation> <content>Iterate matrix and apply function to each cell</content>
+    <return>updated matrix</return>
+    <param><name>m</name><desc>number of rows</desc></param>
+    <param><name>n</name><desc>number of columns</desc></param>
+    <param><name>x</name><desc>matrix</desc></param>
+    <param><name>f</name><desc>function to apply</desc></param>
+   </Documentation>
+   <Signature pre="" post="" name="Apply2Cells">Apply2Cells</Signature><Params>
+    <Param name="m"/>
+    <Param name="n"/>
+    <Param name="x"/>
+    <Param name="f"/>
+   </Params>
+  </Definition>
+  <Definition body="858" end="874" fullname="logisticregression.irls.make_diag" inherit_type="local" line="28" name="make_diag" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/IRLS/GetModel_local.ecl" start="843">
+   <Type>function</Type>
+   <Documentation> <content>Generate a diagonal matrix.</content>
+    <return>a diagonal matrix</return>
+    <param><name>m</name><desc>number of diagonal entries</desc></param>
+    <param><name>v</name><desc>option value, defaults to 1</desc></param>
+    <param><name>X</name><desc>optional input of diagonal values, multiplied by v.</desc></param>
+   </Documentation>
+   <Signature pre="" post="" name="make_diag">make_diag</Signature><Params>
+    <Param name="m"/>
+    <Param name="v"/>
+    <Param name="X"/>
+   </Params>
+  </Definition>
+  <Definition body="890" end="899" fullname="logisticregression.irls.dimm" inherit_type="local" line="29" name="dimm" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/IRLS/GetModel_local.ecl" start="875">
+   <Type>embed</Type>
+   <Documentation> <content>Matrix multiply when either A or B is a diagonal and is passed as a vector. alpha*op(A) op(B) + beta*C where op() is transpose</content>
+    <param><name>transposeA</name><desc>true when transpose of A is used</desc></param>
+    <param><name>transposeB</name><desc>true when transpose of B is used</desc></param>
+    <param><name>diagonalA</name><desc>true when A is the diagonal matrix</desc></param>
+    <param><name>diagonalB</name><desc>true when B is the diagonal matrix</desc></param>
+    <param><name>m</name><desc>number of rows in product</desc></param>
+    <param><name>n</name><desc>number of columns in product</desc></param>
+    <param><name>k</name><desc>number of columns/rows for the multiplier/multiplicand</desc></param>
+    <param><name>alpha</name><desc>scalar used on A</desc></param>
+    <param><name>A</name><desc>matrix A</desc></param>
+    <param><name>B</name><desc>matrix B</desc></param>
+    <param><name>beta</name><desc>scalar for matrix C</desc></param>
+    <param><name>C</name><desc>matrix C or empty</desc></param>
+   </Documentation>
+   <Signature pre="" post="" name="dimm">dimm</Signature><Params>
+    <Param name="transposeA"/>
+    <Param name="transposeB"/>
+    <Param name="diagonalA"/>
+    <Param name="diagonalB"/>
+    <Param name="m"/>
+    <Param name="n"/>
+    <Param name="k"/>
+    <Param name="alpha"/>
+    <Param name="A"/>
+    <Param name="B"/>
+    <Param name="beta"/>
+    <Param name="C"/>
+   </Params>
+  </Definition>
+  <Definition body="915" end="933" fullname="logisticregression.irls.make_vector" inherit_type="local" line="30" name="make_vector" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/IRLS/GetModel_local.ecl" start="900">
+   <Type>function</Type>
+   <Documentation> <content>Make a vector of dimension m</content>
+    <return>the vector</return>
+    <param><name>m</name><desc>number of elements</desc></param>
+    <param><name>v</name><desc>the values, defaults to 1</desc></param>
+   </Documentation>
+   <Signature pre="" post="" name="make_vector">make_vector</Signature><Params>
+    <Param name="m"/>
+    <Param name="v"/>
+   </Params>
+  </Definition>
+  <Definition body="949" end="968" fullname="logisticregression.irls.extract_diag" inherit_type="local" line="31" name="extract_diag" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/IRLS/GetModel_local.ecl" start="934">
+   <Type>function</Type>
+   <Documentation> <content>Extract the diagonal of he matrix</content>
+    <return>diagonal matrix</return>
+    <param><name>m</name><desc>number of rows</desc></param>
+    <param><name>n</name><desc>number of columns</desc></param>
+    <param><name>x</name><desc>matrix from which to extract the diagonal</desc></param>
+   </Documentation>
+   <Signature pre="" post="" name="extract_diag">extract_diag</Signature><Params>
+    <Param name="m"/>
+    <Param name="n"/>
+    <Param name="x"/>
+   </Params>
+  </Definition>
+  <Definition body="984" end="995" fullname="logisticregression.irls.t_part" inherit_type="local" line="32" name="t_part" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/IRLS/GetModel_local.ecl" start="969">
+   <Signature pre="" post="" name="t_part">t_part</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1006" end="1211" fullname="logisticregression.irls.part" inherit_type="local" line="34" name="Part" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/IRLS/GetModel_local.ecl" start="999">
+   <Type>record</Type>
+   <Field name="wi"/>
+   <Field name="part_rows"/>
+   <Field name="part_cols"/>
+   <Field name="mat"/>
+   <Field name="max_delta"/>
+   <Field name="iterations"/>
+   <Field name="correct"/>
+   <Signature pre="" post="" name="Part">Part</Signature><Field name="incorrect"/>
+  </Definition>
+  <Definition body="1231" end="1307" fullname="logisticregression.irls.ext_numericfield" inherit_type="local" line="44" name="Ext_NumericField" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/IRLS/GetModel_local.ecl" start="1212">
+   <Type>record</Type>
+   <Field name="wi"/>
+   <Field name="id"/>
+   <Field name="number"/>
+   <Field name="value"/>
+   <Field name="part_rows"/>
+   <Signature pre="" post="" name="Ext_NumericField">Ext_NumericField</Signature><Field name="part_cols"/>
+  </Definition>
+  <Definition body="1338" end="1357" fullname="logisticregression.irls.bernoulli_ev" inherit_type="local" line="48" name="Bernoulli_EV" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/IRLS/GetModel_local.ecl" start="1308">
+   <Type>function</Type>
+   <Signature pre="" post="" name="REAL8 Bernoulli_EV(REAL8 v)">REAL8 Bernoulli_EV(REAL8 v)</Signature><Params>
+    <Param name="v"/>
+   </Params>
+  </Definition>
+  <Definition body="1437" end="1454" fullname="logisticregression.irls.u_i" inherit_type="local" line="49" name="u_i" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/IRLS/GetModel_local.ecl" start="1358">
+   <Type>function</Type>
+   <Signature pre="" post="" name="value_t u_i(value_t v,&#10;            dimension_t r,&#10;            dimension_t c)">value_t u_i(value_t v,
+            dimension_t r,
+            dimension_t c)</Signature><Params>
+    <Param name="v"/>
+    <Param name="r"/>
+    <Param name="c"/>
+   </Params>
+  </Definition>
+  <Definition body="1534" end="1563" fullname="logisticregression.irls.w_i" inherit_type="local" line="52" name="w_i" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/IRLS/GetModel_local.ecl" start="1455">
+   <Type>function</Type>
+   <Signature pre="" post="" name="value_t w_i(value_t v,&#10;            dimension_t r,&#10;            dimension_t c)">value_t w_i(value_t v,
+            dimension_t r,
+            dimension_t c)</Signature><Params>
+    <Param name="v"/>
+    <Param name="r"/>
+    <Param name="c"/>
+   </Params>
+  </Definition>
+  <Definition body="1649" end="1657" fullname="logisticregression.irls.abs_v" inherit_type="local" line="55" name="abs_v" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/IRLS/GetModel_local.ecl" start="1564">
+   <Type>function</Type>
+   <Signature pre="" post="" name="value_t abs_v(value_t v,&#10;              dimension_t r,&#10;              dimension_t c)">value_t abs_v(value_t v,
+              dimension_t r,
+              dimension_t c)</Signature><Params>
+    <Param name="v"/>
+    <Param name="r"/>
+    <Param name="c"/>
+   </Params>
+  </Definition>
+  <Definition body="1743" end="1761" fullname="logisticregression.irls.sig_v" inherit_type="local" line="58" name="sig_v" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/IRLS/GetModel_local.ecl" start="1658">
+   <Type>function</Type>
+   <Signature pre="" post="" name="value_t sig_v(value_t v,&#10;              dimension_t r,&#10;              dimension_t c)">value_t sig_v(value_t v,
+              dimension_t r,
+              dimension_t c)</Signature><Params>
+    <Param name="v"/>
+    <Param name="r"/>
+    <Param name="c"/>
+   </Params>
+  </Definition>
+  <Definition body="2575" end="15109" exported="1" fullname="logisticregression.irls.getmodel_local" inherit_type="local" line="73" name="GetModel_local" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/IRLS/GetModel_local.ecl" start="2289">
+   <Type>function</Type>
+   <Documentation> <content>Internal function to determine values for the model co-efficients and selected stats from building the model.</content>
+    <return>coefficient matrix plus model building stats</return>
+    <param><name>independents</name><desc>the independent values</desc></param>
+    <param><name>dependents</name><desc>the dependent values.</desc></param>
+    <param><name>max_iter</name><desc>maximum number of iterations to try</desc></param>
+    <param><name>epsilon</name><desc>the minimum change in the Beta value estimate to continue</desc></param>
+    <param><name>ridge</name><desc>a value to populate a diagonal matrix that is added to a matrix help assure that the matrix is invertible.</desc></param>
+   </Documentation>
+   <Signature pre="" post="" name="DATASET(Layout_Model)&#10;       GetModel_local(DATASET(NumericField) independents,&#10;               DATASET(DiscreteField) dependents,&#10;               UNSIGNED2 max_iter=200,&#10;               REAL8 epsilon=Constants.default_epsilon,&#10;               REAL8 ridge=Constants.default_ridge)">DATASET(Layout_Model)
+       GetModel_local(DATASET(NumericField) independents,
+               DATASET(DiscreteField) dependents,
+               UNSIGNED2 max_iter=200,
+               REAL8 epsilon=Constants.default_epsilon,
+               REAL8 ridge=Constants.default_ridge)</Signature><Params>
+    <Param name="independents"/>
+    <Param name="dependents"/>
+    <Param name="max_iter"/>
+    <Param name="epsilon"/>
+    <Param name="ridge"/>
+   </Params>
+  </Definition>
+ </Source>
+ <Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Types.ecl" name="ML_Core.Types" target="../../ml_core/types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Constants.ecl" name="LogisticRegression.Constants" target="../constants.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Types.ecl" name="LogisticRegression.Types" target="../types.ecl.xml"/><Depends sourcePath="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/BLAS.ecl" name="std.BLAS" target="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/BLAS.ecl"/><Depends sourcePath="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/plugins/lib_eclblas.ecllib" target="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/plugins/lib_eclblas.ecllib"/><Depends sourcePath="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/system/Thorlib.ecl" name="std.system.thorlib" target="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/system/Thorlib.ecl"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/dimm.ecl" name="LogisticRegression.dimm" target="../dimm.ecl.xml"/></Meta>

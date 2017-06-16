@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Meta>
+ <Source name="LogisticRegression.BinomialConfusion" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/BinomialConfusion.ecl" target="binomialconfusion.ecl.xml">
+  <Import body="0" end="7" fullname="LogisticRegression" inherit_type="local" line="1" name="LR" ref="logisticregression" start="7" target="pkg.toc.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0" end="23" fullname="LogisticRegression.Types" inherit_type="local" line="2" name="Types" ref="logisticregression.types" start="23" target="types.ecl.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0" end="48" fullname="ML_Core.Types" inherit_type="local" line="3" name="Core_Types" ref="ml_core.types" start="48" target="../ml_core/types.ecl.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Definition body="102" end="126" fullname="logisticregression.t_work_item" inherit_type="local" line="6" name="t_work_item" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/BinomialConfusion.ecl" start="88">
+   <Signature pre="" post="" name="t_work_item">t_work_item</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="143" end="169" fullname="logisticregression.t_fieldnumber" inherit_type="local" line="7" name="t_FieldNumber" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/BinomialConfusion.ecl" start="127">
+   <Signature pre="" post="" name="t_FieldNumber">t_FieldNumber</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="183" end="206" fullname="logisticregression.t_discrete" inherit_type="local" line="8" name="t_Discrete" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/BinomialConfusion.ecl" start="170">
+   <Signature pre="" post="" name="t_Discrete">t_Discrete</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="626" end="4096" exported="1" fullname="logisticregression.binomialconfusion" inherit_type="local" line="17" name="BinomialConfusion" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/BinomialConfusion.ecl" start="510">
+   <Type>function</Type>
+   <Documentation> <content>Binomial confusion matrix. Work items with multinomial responses are ignored by this function. The higher value lexically is considered to be the positive indication.</content>
+    <return>confusion matrix for a binomial classifier</return>
+    <param><name>d</name><desc>confusion detail for the work item and classifier</desc></param>
+   </Documentation>
+   <Signature pre="" post="" name="DATASET(Types.Binomial_Confusion_Summary)&#10;       BinomialConfusion(DATASET(Core_Types.Confusion_Detail) d)">DATASET(Types.Binomial_Confusion_Summary)
+       BinomialConfusion(DATASET(Core_Types.Confusion_Detail) d)</Signature><Params>
+    <Param name="d"/>
+   </Params>
+  </Definition>
+ </Source>
+ <Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Types.ecl" name="ML_Core.Types" target="../ml_core/types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Types.ecl" name="LogisticRegression.Types" target="types.ecl.xml"/></Meta>

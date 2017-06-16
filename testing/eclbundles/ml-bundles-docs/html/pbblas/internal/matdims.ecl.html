@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
+	<title>PBblas.internal.MatDims</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
+	<link href="../../../css/simple-sidebar.css" rel="stylesheet">
+
+</head>
+
+<body>
+	<nav class="navbar topbar">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a href="#menu-toggle" id="menu-toggle" class="navbar-brand glyphicon glyphicon-menu-hamburger ham"></a>
+			</div>
+			<div class="navbar-header" style="margin-left: 20px;">
+				<span class="navbar-brand">PBblas.internal.MatDims</span>
+			</div>
+			<div class="navbar-collapse collapse">
+			<ul class="nav navbar-nav">
+				<li><a href="#ecldoc-section-import" class="topbar">Imports</a></li>
+				<li><a href="#ecldoc-section-tree" class="topbar">Tree</a></li>
+				<li><a href="#ecldoc-section-desc" class="topbar">Descriptions</a></li>
+			</ul>
+			</div>
+		</div>
+	</nav>
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		<div id="sidebar-wrapper">
+			<ul class="sidebar-nav">
+				<li class="sidebar-brand">
+					<a href="pkg.toc.html">
+						Up
+					</a>
+				</li>
+				
+				<li>
+					<a href="blockdimensionssolve.ecl.html">blockdimensionssolve.ecl</a>
+				</li>
+				
+				<li>
+					<a href="fromr8set.ecl.html">fromr8set.ecl</a>
+				</li>
+				
+				<li>
+					<a href="blockdimensions.ecl.html">blockdimensions.ecl</a>
+				</li>
+				
+				<li>
+					<a href="matdims.ecl.html">matdims.ecl</a>
+				</li>
+				
+				<li>
+					<a href="converted.ecl.html">converted.ecl</a>
+				</li>
+				
+				<li>
+					<a href="blockdimensionsmultiply.ecl.html">blockdimensionsmultiply.ecl</a>
+				</li>
+				
+				<li>
+					<a href="maker8set.ecl.html">maker8set.ecl</a>
+				</li>
+				
+				<li>
+					<a href="types.ecl.html">types.ecl</a>
+				</li>
+				
+			</ul>
+		</div>
+
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<section id="ecldoc-section-import">
+					<h3 class="page-header">IMPORTS</h3>
+					<ul class="pagination">
+						<li>
+							<a href="../pkg.toc.html">
+								pbblas
+							</a>
+							</li>
+						<li>
+							<a href="pkg.toc.html">
+								pbblas.internal
+							</a>
+							</li>
+						<li>
+							<a href="../types.ecl.html">
+								pbblas.types
+							</a>
+							</li>
+						<li>
+							<a href="types.ecl.html">
+								pbblas.internal.types
+							</a>
+							</li>
+						</ul>
+				</section>
+				<section id="ecldoc-section-tree">
+					<h3 class="page-header">DEFINITION TREE</h3>
+					<ul class="tree">
+						<li id="t-pbblas-internal-dimension_t">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-internal-dimension_t">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">dimension_t</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-internal-dimension_t" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-internal-work_item_t">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-internal-work_item_t">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">work_item_t</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-internal-work_item_t" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-internal-layout_cell">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-internal-layout_cell">
+								RECORD :
+								<span class="sign-pre"></span>
+								<span class="sign-name">Layout_Cell</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-internal-layout_cell" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-internal-layout_dims">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-internal-layout_dims">
+								RECORD :
+								<span class="sign-pre"></span>
+								<span class="sign-name">Layout_Dims</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-internal-layout_dims" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-ecldoc-OpType">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#decldoc-OpType">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">OpType</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="ecldoc-OpType" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-internal-m_label_t">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-internal-m_label_t">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">m_label_t</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-internal-m_label_t" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-PBblas-internal-MatDims">
+							
+							<a href="#PBblas-internal-MatDims" data-toggle="collapse" class="glyphicon glyphicon-folder-open" style="margin-right: 6px;"></a>
+							
+							<a href="#dPBblas-internal-MatDims">
+								MODULE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">MatDims</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="PBblas-internal-MatDims" class="accordian-body tree collapse">
+								<li id="t-pbblas-internal-matdims-fromcells">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-internal-matdims-fromcells">
+								FUNCTION :
+								<span class="sign-pre"></span>
+								<span class="sign-name">FromCells(DATASET(Layout_Cell) cells, m_label_t m_label='')</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-internal-matdims-fromcells" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-internal-matdims-partitionedfromdims">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-internal-matdims-partitionedfromdims">
+								FUNCTION :
+								<span class="sign-pre"></span>
+								<span class="sign-name">PartitionedFromDims(DATASET(Layout_Dims) dims)</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-internal-matdims-partitionedfromdims" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-internal-matdims-partitionedfromcells">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-internal-matdims-partitionedfromcells">
+								FUNCTION :
+								<span class="sign-pre"></span>
+								<span class="sign-name">PartitionedFromCells(DATASET(Layout_Cell) cells, m_label_t m_label='')</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-internal-matdims-partitionedfromcells" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-internal-matdims-partitionedfromdimsforop">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-internal-matdims-partitionedfromdimsforop">
+								FUNCTION :
+								<span class="sign-pre"></span>
+								<span class="sign-name">PartitionedFromDimsForOp(OpType op, DATASET(Layout_Dims) dims)</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-internal-matdims-partitionedfromdimsforop" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-internal-matdims-transposedims">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-internal-matdims-transposedims">
+								FUNCTION :
+								<span class="sign-pre"></span>
+								<span class="sign-name">TransposeDims(DATASET(Layout_Dims) dims_in)</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-internal-matdims-transposedims" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						
+							</ul>
+						</li>
+						</ul>
+				</section>
+				<section id="ecldoc-section-desc">
+					<h3 class="page-header">DESCRIPTIONS</h3>
+					<div class="panel-group">
+						<div class="panel panel-info" id="dpbblas-internal-dimension_t">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">dimension_t</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-internal-dimension_t" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-internal-work_item_t">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">work_item_t</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-internal-work_item_t" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-internal-layout_cell">
+							<div class="panel-heading">
+								<div class="type">
+									RECORD
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">Layout_Cell</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-internal-layout_cell" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Layout for Matrix Cell Main representation of Matrix cell at interface to all PBBlas functions. Matrixes are represented as DATASET(Layout_Cell), where each cell describes the row and column position of the cell as well as its value. Only the non-zero cells need to be contained in the dataset in order to describe the matrix since all unspecified cells are considered to have a value of zero. The cell also contains a work-item number that allows multiple separate matrixes to be carried in the same dataset. This supports the "myriad" style interface that allows the same operations to be performed on many different sets of data at once. Note that these matrixes do not have an explicit size. They are sized implicitly, based on the maximum row and column presented in the data. A matrix can be converted to an explicit dense form (see matrix_t) by using the utility module MakeR8Set. This module should only be used for known small matrixes (< 1M cells) or for partitions of a larger matrix. The Converted module provides utility functions to convert to and from a set of partitions (See Layout_parts).
+									</div>
+								</div>
+								<br/>
+								
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Fields</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td width="20%"><b>wi_id</b> </td>
+												<td>Work Item Number -- An identifier from 1 to 64K-1 that separates and identifies individual matrixes</td>
+											</tr>
+											<tr>
+												<td width="20%"><b>x</b> </td>
+												<td>1-based row position within the matrix</td>
+											</tr>
+											<tr>
+												<td width="20%"><b>y</b> </td>
+												<td>1-based column position within the matrix</td>
+											</tr>
+											<tr>
+												<td width="20%"><b>v</b> </td>
+												<td>Real value for the cell</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								</div>
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-md-1">Also See</div>
+									<div class="col-md-11">
+										<ul>
+											<li><b>matrix_t</b></li>
+											<li><b>Std/PBblas/MakeR8Set.ecl</b></li>
+											<li><b>Std/PBblas/Converted.ecl WARNING: Used as C++ attribute. Do not change without corresponding changes to MakeR8Set.</b></li>
+											</ul>
+									</div>
+								</div>
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-internal-layout_dims">
+							<div class="panel-heading">
+								<div class="type">
+									RECORD
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">Layout_Dims</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-internal-layout_dims" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Record format for matrix and matrix partition dimensions. Each record describes A single matrix or matrix partition. Partitions use all of the fields, while a non-partitioned matrix only uses the first two (i.e. m_rows and m_cols).
+									</div>
+								</div>
+								<br/>
+								
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Fields</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td width="20%"><b>m_label</b> </td>
+												<td>A user provided label indicating to which matrix the dimensions apply, when used to describe a set of related matrixes (e.g., 'A', 'B', and 'C') for the same work item used in an operation.</td>
+											</tr>
+											<tr>
+												<td width="20%"><b>m_rows</b> </td>
+												<td>The number of rows in the full matrix</td>
+											</tr>
+											<tr>
+												<td width="20%"><b>m_cols</b> </td>
+												<td>The number of colums in the full matrix</td>
+											</tr>
+											<tr>
+												<td width="20%"><b>block_rows</b> </td>
+												<td>The number of rows in each partition of the matrix</td>
+											</tr>
+											<tr>
+												<td width="20%"><b>block_cols</b> </td>
+												<td>The number of columns in each partition</td>
+											</tr>
+											<tr>
+												<td width="20%"><b>row_blocks</b> </td>
+												<td>The number of row partitions in use for the matrix</td>
+											</tr>
+											<tr>
+												<td width="20%"><b>col_blocks</b> </td>
+												<td>The number of column partitions in use for the matrix</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="decldoc-OpType">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">OpType</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-ecldoc-OpType" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-internal-m_label_t">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">m_label_t</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-internal-m_label_t" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dPBblas-internal-MatDims">
+							<div class="panel-heading">
+								<div class="type">
+									MODULE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">MatDims</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-PBblas-internal-MatDims" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Module to calculate matrix dimensions and matrix partition dimensions from matrix cells.
+									</div>
+								</div>
+								<br/>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						<div class="panel panel-info" id="dpbblas-internal-matdims-fromcells">
+							<div class="panel-heading">
+								<div class="type">
+									FUNCTION
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">FromCells(DATASET(Layout_Cell) cells, m_label_t m_label='')</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-internal-matdims-fromcells" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Get basic matrix dimensions (m_rows, m_cols) from a dataset of cells (Layout_Cell). Multiple matrices can be included in the dataset separated by wi_id. One record of Layout_Dims will be produced for each matrix in the input set. 
+									</div>
+								</div>
+								<br/>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>cells</b> </td>
+												<td>dataset of Layout_Cell containing the matrixes to be dimensioned</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>m_label</b> </td>
+												<td>a single text label to be attached to the dimensions so that this set of dimensions can be distinguished from another set used by the same operation (e.g. 'A', 'B', or 'C')</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>DATASET(Layout_Dims), one record per work item</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-md-1">Also See</div>
+									<div class="col-md-11">
+										<ul>
+											<li><b>Std/PBblas/Types.Layout_Cell</b></li>
+											<li><b>Std/PBblas/Types.Layout_Dims</b></li>
+											</ul>
+									</div>
+								</div>
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-internal-matdims-partitionedfromdims">
+							<div class="panel-heading">
+								<div class="type">
+									FUNCTION
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">PartitionedFromDims(DATASET(Layout_Dims) dims)</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-internal-matdims-partitionedfromdims" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Determine optimal partitioning scheme for one or more matrixes based on the dimensions provided.
+									</div>
+								</div>
+								<br/>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>dims</b> </td>
+												<td>DATASET(Layout_Dims), typically output from FromCells above</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>DATASET(Layout_Dims), with partition info filled in</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-md-1">Also See</div>
+									<div class="col-md-11">
+										<ul>
+											<li><b>Std/PBblas/Types.Layout_Dims</b></li>
+											</ul>
+									</div>
+								</div>
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-internal-matdims-partitionedfromcells">
+							<div class="panel-heading">
+								<div class="type">
+									FUNCTION
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">PartitionedFromCells(DATASET(Layout_Cell) cells, m_label_t m_label='')</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-internal-matdims-partitionedfromcells" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Generate a partitioning scheme from a set of matrices in cell form. Essentially a shortcut for FromCells followed by PartitionedFromDims
+									</div>
+								</div>
+								<br/>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>cells</b> </td>
+												<td>DATASET(Layout_Cell) representing one or more matrixes</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>m_label</b> </td>
+												<td>a single text label to be attached to the dimensions so that this set of dimensions can be distinguished from another set used by the same operation (e.g. 'A', 'B', or 'C')</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>DATASET(Layout_Dims) with partition info filled in</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-md-1">Also See</div>
+									<div class="col-md-11">
+										<ul>
+											<li><b>Std/PBblas/Types.Layout_Dims</b></li>
+											<li><b>Std/PBblas/Types.Layout_Cell</b></li>
+											<li><b>FromCells</b></li>
+											<li><b>PartitionedFromDims</b></li>
+											</ul>
+									</div>
+								</div>
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-internal-matdims-partitionedfromdimsforop">
+							<div class="panel-heading">
+								<div class="type">
+									FUNCTION
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">PartitionedFromDimsForOp(OpType op, DATASET(Layout_Dims) dims)</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-internal-matdims-partitionedfromdimsforop" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Determines an optimal partitioning scheme for a set of matrixes involved in a given operation. This handles interlocking dimensions such as those involved in a multiplication operation. Note that calling this function with OpType.single is equivalent to calling PartitionedFromDims above. The input dimensions include dimensions from different work-items (separated by wi_id) as well as dimensions from separate matrixes (e.g. A, B, and C/result) within a work-item (separated by m_label). Each operation-type may have a different expected set of m_labels and will perform its interlock calculations accordingly.
+									</div>
+								</div>
+								<br/>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>op</b> </td>
+												<td>The operation requiring partitioning. See Types.OpType</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>dims</b> </td>
+												<td>DATASET(Layout_Dims) typically returned by FromCells above</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>DATASET(Layout_Dims) with patition info filled in. This will contain one entry per work item, per matrix label.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-md-1">Also See</div>
+									<div class="col-md-11">
+										<ul>
+											<li><b>Std/PBblas/Types.Layout_Dims</b></li>
+											<li><b>Std/PBblas/Types.OpType</b></li>
+											<li><b>FromCells</b></li>
+											<li><b>PartitionedFromDims</b></li>
+											</ul>
+									</div>
+								</div>
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-internal-matdims-transposedims">
+							<div class="panel-heading">
+								<div class="type">
+									FUNCTION
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">TransposeDims(DATASET(Layout_Dims) dims_in)</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-internal-matdims-transposedims" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Transpose rows and columns for a set of matrix dimensions. Can be used for single matrix dimensions or partitioned matrixes. Returns one record for each input record. Many matrixes can be included in one call.
+									</div>
+								</div>
+								<br/>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>dims_in</b> </td>
+												<td>The dimensions to be transposed in Layout_Dims format</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>DATASET(Layout_Dims), the input dimensions transposed</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						
+						</div>
+				</section>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+		$("#menu-toggle").click(function(e) {
+			e.preventDefault();
+			$("#wrapper").toggleClass("toggled");
+		});
+	</script>
+	<script>
+		$(document).ready(function(){
+			$('.tree-link').click(function(e) {
+				var loc = $(this).attr('href');
+				$(loc).parents().collapse('show');
+				return true;
+			});
+		});
+	</script>
+</body>
+</html>

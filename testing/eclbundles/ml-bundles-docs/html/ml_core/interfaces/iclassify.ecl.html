@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
+	<title>ML_Core.Interfaces.IClassify</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
+	<link href="../../../css/simple-sidebar.css" rel="stylesheet">
+
+</head>
+
+<body>
+	<nav class="navbar topbar">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a href="#menu-toggle" id="menu-toggle" class="navbar-brand glyphicon glyphicon-menu-hamburger ham"></a>
+			</div>
+			<div class="navbar-header" style="margin-left: 20px;">
+				<span class="navbar-brand">ML_Core.Interfaces.IClassify</span>
+			</div>
+			<div class="navbar-collapse collapse">
+			<ul class="nav navbar-nav">
+				<li><a href="#ecldoc-section-import" class="topbar">Imports</a></li>
+				<li><a href="#ecldoc-section-tree" class="topbar">Tree</a></li>
+				<li><a href="#ecldoc-section-desc" class="topbar">Descriptions</a></li>
+			</ul>
+			</div>
+		</div>
+	</nav>
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		<div id="sidebar-wrapper">
+			<ul class="sidebar-nav">
+				<li class="sidebar-brand">
+					<a href="pkg.toc.html">
+						Up
+					</a>
+				</li>
+				
+				<li>
+					<a href="iclassify.ecl.html">iclassify.ecl</a>
+				</li>
+				
+				<li>
+					<a href="iregression.ecl.html">iregression.ecl</a>
+				</li>
+				
+			</ul>
+		</div>
+
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<section id="ecldoc-section-import">
+					<h3 class="page-header">IMPORTS</h3>
+					<ul class="pagination">
+						<li>
+							<a href="../pkg.toc.html">
+								ml_core
+							</a>
+							</li>
+						<li>
+							<a href="../types.ecl.html">
+								ml_core.types
+							</a>
+							</li>
+						</ul>
+				</section>
+				<section id="ecldoc-section-tree">
+					<h3 class="page-header">DEFINITION TREE</h3>
+					<ul class="tree">
+						<li id="t-ML_Core-Interfaces-IClassify">
+							
+							<a href="#ML_Core-Interfaces-IClassify" data-toggle="collapse" class="glyphicon glyphicon-folder-open" style="margin-right: 6px;"></a>
+							
+							<a href="#dML_Core-Interfaces-IClassify">
+								MODULE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">IClassify</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="ML_Core-Interfaces-IClassify" class="accordian-body tree collapse">
+								<li id="t-ml_core-interfaces-iclassify-getmodel">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dml_core-interfaces-iclassify-getmodel">
+								FUNCTION :
+								<span class="sign-pre"></span>
+								<span class="sign-name">DATASET(Types.Layout_Model)
+        GetModel(DATASET(Types.NumericField) observations,
+                 DATASET(Types.DiscreteField) classifications)</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="ml_core-interfaces-iclassify-getmodel" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-ml_core-interfaces-iclassify-classify">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dml_core-interfaces-iclassify-classify">
+								FUNCTION :
+								<span class="sign-pre"></span>
+								<span class="sign-name">DATASET(Types.Classify_Result)
+        Classify(DATASET(Types.Layout_Model) model,
+                 DATASET(Types.NumericField) new_observations)</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="ml_core-interfaces-iclassify-classify" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-ml_core-interfaces-iclassify-report">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dml_core-interfaces-iclassify-report">
+								FUNCTION :
+								<span class="sign-pre"></span>
+								<span class="sign-name">DATASET(Types.Confusion_Detail)
+        Report(DATASET(Types.Layout_Model) model,
+               DATASET(Types.NumericField) observations,
+               DATASET(Types.DiscreteField) classifications)</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="ml_core-interfaces-iclassify-report" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						
+							</ul>
+						</li>
+						</ul>
+				</section>
+				<section id="ecldoc-section-desc">
+					<h3 class="page-header">DESCRIPTIONS</h3>
+					<div class="panel-group">
+						<div class="panel panel-info" id="dML_Core-Interfaces-IClassify">
+							<div class="panel-heading">
+								<div class="type">
+									MODULE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">IClassify</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-ML_Core-Interfaces-IClassify" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Interface definition for Classification. Actual implementation modules will probably take parameters.
+									</div>
+								</div>
+								<br/>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						<div class="panel panel-info" id="dml_core-interfaces-iclassify-getmodel">
+							<div class="panel-heading">
+								<div class="type">
+									FUNCTION
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">DATASET(Types.Layout_Model)
+        GetModel(DATASET(Types.NumericField) observations,
+                 DATASET(Types.DiscreteField) classifications)</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-ml_core-interfaces-iclassify-getmodel" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Calculate the model to fit the observation data to the observed classes.
+									</div>
+								</div>
+								<br/>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>observations</b> </td>
+												<td>the observed explanatory values</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>classifications</b> </td>
+												<td>the observed classification used to build the model</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>the encoded model</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dml_core-interfaces-iclassify-classify">
+							<div class="panel-heading">
+								<div class="type">
+									FUNCTION
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">DATASET(Types.Classify_Result)
+        Classify(DATASET(Types.Layout_Model) model,
+                 DATASET(Types.NumericField) new_observations)</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-ml_core-interfaces-iclassify-classify" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Classify the observations using a model.
+									</div>
+								</div>
+								<br/>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>model</b> </td>
+												<td>The model, which must be produced by a corresponding getModel function.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>new_observations</b> </td>
+												<td>observations to be classified</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>Classification with a confidence value</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dml_core-interfaces-iclassify-report">
+							<div class="panel-heading">
+								<div class="type">
+									FUNCTION
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">DATASET(Types.Confusion_Detail)
+        Report(DATASET(Types.Layout_Model) model,
+               DATASET(Types.NumericField) observations,
+               DATASET(Types.DiscreteField) classifications)</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-ml_core-interfaces-iclassify-report" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Report the confusion matrix for the classifier and training data.
+									</div>
+								</div>
+								<br/>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>model</b> </td>
+												<td>the encoded model</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>observations</b> </td>
+												<td>the explanatory values.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>classifications</b> </td>
+												<td>the classifications associated with the observations</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>the confusion matrix showing correct and incorrect results</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						
+						</div>
+				</section>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+		$("#menu-toggle").click(function(e) {
+			e.preventDefault();
+			$("#wrapper").toggleClass("toggled");
+		});
+	</script>
+	<script>
+		$(document).ready(function(){
+			$('.tree-link').click(function(e) {
+				var loc = $(this).attr('href');
+				$(loc).parents().collapse('show');
+				return true;
+			});
+		});
+	</script>
+</body>
+</html>

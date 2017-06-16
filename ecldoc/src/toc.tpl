@@ -14,6 +14,16 @@
 </head>
 
 <body>
+	<nav class="navbar topbar">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a href="#menu-toggle" id="menu-toggle" class="navbar-brand glyphicon glyphicon-menu-hamburger ham"></a>
+			</div>
+			<div class="navbar-header" style="margin-left : 20px;">
+				<span class="navbar-brand">{{ name }}</span>
+			</div>
+		</div>
+	</nav>
 	<div id="wrapper">
 
 		<!-- Sidebar -->
@@ -35,25 +45,20 @@
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-lg-12">
-						<div class="row">
-							<div class="col-lg-4">
-								<a href="#menu-toggle" class="glyphicon glyphicon-menu-hamburger" style="font-size:2.2em;" id="menu-toggle"></a>
-							</div>
-							<div class="col-lg-8">
-								<h1>{{ name }}</h1>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-lg-12">
-								<ul>
-									{% for d in files %}
-									<li>
-										<a href="{{ d.target }}">{{ d.name }}</a>
-									</li>
-									{% endfor %}
-								</ul>
-							</div>
-						</div>
+						<table class="table">
+							{% for d in files %}
+							<tr>
+								<td>
+									{% if d.type == 'file' %}
+									<span class="glyphicon glyphicon-file"></span>
+									{% else %}
+									<span class="glyphicon glyphicon-folder-close"></span>
+									{% endif %}
+								</td>
+								<td><a href="{{ d.target }}">{{ d.name }}</a></td>
+							</tr>
+							{% endfor %}
+						</table>
 					</div>
 				</div>
 			</div>

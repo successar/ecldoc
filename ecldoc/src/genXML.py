@@ -123,12 +123,13 @@ class ParseXML(object) :
 		split = re.split(name, sign.text, maxsplit=1, flags=re.I)
 		if len(split) == 2 :
 			preamble, postamble = re.split(name, sign.text, maxsplit=1, flags=re.I)
+			name = sign.text
 		else :
 			preamble, postamble = "", ""
 
-		sign.attrib['pre'] = preamble.strip()
-		sign.attrib['post'] = postamble.strip()
-		sign.attrib['name'] = name.upper()
+		sign.attrib['pre'] = ""
+		sign.attrib['post'] = ""
+		sign.attrib['name'] = name
 		return sign
 
 	def parseDocumentation(self, doc) :
@@ -206,7 +207,8 @@ def genXML(input_root, output_root, ecl_files) :
 	for ecl_file in ecl_files :
 		input_file = os.path.join(input_root, ecl_file)
 		xml_orig_file = os.path.join(xml_orig_root, (ecl_file + '.xml').lower())
-		# if check_if_modified(fpin, fpout) :
+		xml_file = os.path.join(xml_root, (ecl_file + '.xml').lower())
+		# if check_if_modified(input_file, xml_file) :
 		# 	continue
 		os.makedirs(os.path.dirname(xml_orig_file), exist_ok=True)
 		os.chdir(input_root)

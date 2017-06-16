@@ -1,0 +1,679 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Meta>
+ <Source name="LinearRegression.performance.OLSPerformance" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerformance.ecl" target="olsperformance.ecl.xml">
+  <Import body="0" end="250" fullname="LinearRegression" inherit_type="local" line="4" name="LROLS" ref="linearregression" start="250" target="../pkg.toc.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0" end="271" fullname="ML_Core" inherit_type="local" line="5" name="ML_Core" ref="ml_core" remotescope="1" start="271" target="../../ml_core/pkg.toc.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0" end="287" fullname="ML_Core.Types" inherit_type="local" line="6" name="mlTypes" ref="ml_core.types" start="287" target="../../ml_core/types.ecl.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0" end="320" fullname="PBblas" inherit_type="local" line="7" name="PBblas" ref="pbblas" remotescope="1" start="320" target="../../pbblas/pkg.toc.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0" end="335" fullname="PBblas.test.MakeTestMatrix" inherit_type="local" line="8" name="tm" ref="pbblas.test.maketestmatrix" start="335" target="../../pbblas/test/maketestmatrix.ecl.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0" end="376" fullname="PBblas.Types" inherit_type="local" line="9" name="pbbTypes" ref="pbblas.types" start="376" target="../../pbblas/types.ecl.xml">
+   <Type>attribute</Type>
+   <Documentation> <content>Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes.</content>
+   </Documentation>
+  </Import>
+  <Import body="0" end="409" fullname="PBblas.Converted" inherit_type="local" line="10" name="pbbConverted" ref="pbblas.converted" start="409" target="../../pbblas/converted.ecl.xml">
+   <Type>attribute</Type>
+   <Documentation> <content>Module to convert between ML_Core/Types Field layouts (i.e. NumericField and DiscreteField) and PBblas matrix layout (i.e. Layout_Cell)</content>
+   </Documentation>
+  </Import>
+  <Definition body="457" end="479" fullname="linearregression.performance.layout_cell" inherit_type="local" line="11" name="Layout_Cell" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerformance.ecl" start="443">
+   <Type>record</Type>
+   <Field name="wi_id"/>
+   <Field name="x"/>
+   <Field name="y"/>
+   <Field name="v"/>
+   <Signature pre="" post="" name="Layout_Cell">Layout_Cell</Signature><Documentation> <field><name>wi_id</name><desc>Work Item Number -- An identifier from 1 to 64K-1 that separates and identifies individual matrixes</desc></field>
+    <field><name>x</name><desc>1-based row position within the matrix</desc></field>
+    <field><name>y</name><desc>1-based column position within the matrix</desc></field>
+    <field><name>v</name><desc>Real value for the cell</desc></field>
+    <see>matrix_t</see>
+    <see>Std/PBblas/MakeR8Set.ecl</see>
+    <see>Std/PBblas/Converted.ecl WARNING: Used as C++ attribute. Do not change without corresponding changes to MakeR8Set.</see>
+    <content>Layout for Matrix Cell Main representation of Matrix cell at interface to all PBBlas functions. Matrixes are represented as DATASET(Layout_Cell), where each cell describes the row and column position of the cell as well as its value. Only the non-zero cells need to be contained in the dataset in order to describe the matrix since all unspecified cells are considered to have a value of zero. The cell also contains a work-item number that allows multiple separate matrixes to be carried in the same dataset. This supports the "myriad" style interface that allows the same operations to be performed on many different sets of data at once. Note that these matrixes do not have an explicit size. They are sized implicitly, based on the maximum row and column presented in the data. A matrix can be converted to an explicit dense form (see matrix_t) by using the utility module MakeR8Set. This module should only be used for known small matrixes (&lt; 1M cells) or for partitions of a larger matrix. The Converted module provides utility functions to convert to and from a set of partitions (See Layout_parts).</content>
+   </Documentation>
+  </Definition>
+  <Definition body="495" end="517" fullname="linearregression.performance.numericfield" inherit_type="local" line="12" name="NumericField" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerformance.ecl" start="480">
+   <Type>record</Type>
+   <Field name="wi"/>
+   <Field name="id"/>
+   <Field name="number"/>
+   <Signature pre="" post="" name="NumericField">NumericField</Signature><Field name="value"/>
+  </Definition>
+  <Definition body="526" end="540" fullname="linearregression.performance.two31" inherit_type="local" line="13" name="two31" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerformance.ecl" start="518">
+   <Signature pre="" post="" name="two31">two31</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="554" end="622" fullname="linearregression.performance.noise" inherit_type="local" line="14" name="Noise" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerformance.ecl" start="541">
+   <Signature pre="" post="" name="REAL Noise">REAL Noise</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="636" end="738" fullname="linearregression.performance.test_rslt" inherit_type="local" line="19" name="test_rslt" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerformance.ecl" start="624">
+   <Type>record</Type>
+   <Field name="TestName"/>
+   <Field name="X"/>
+   <Field name="Y"/>
+   <Field name="projY"/>
+   <Field name="diff"/>
+   <Signature pre="" post="" name="test_rslt">test_rslt</Signature><Field name="pctErr"/>
+  </Definition>
+  <Definition body="782" end="849" fullname="linearregression.performance.compx2" inherit_type="local" line="30" name="compX2" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerformance.ecl" start="773">
+   <Type>record</Type>
+   <Field name="wi"/>
+   <Field name="id"/>
+   <Field name="X1"/>
+   <Field name="X2"/>
+   <Signature pre="" post="" name="compX2">compX2</Signature><Field name="X3"/>
+  </Definition>
+  <Definition body="913" end="1046" fullname="linearregression.performance.makecomposite2" inherit_type="local" line="37" name="makeComposite2" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerformance.ecl" start="850">
+   <Type>transform</Type>
+   <Params>
+    <Param name="l"/>
+    <Param name="r"/>
+   </Params>
+   <Signature pre="" post="" name="compX2 makeComposite2(Layout_Cell l, DATASET(Layout_Cell) r)">compX2 makeComposite2(Layout_Cell l, DATASET(Layout_Cell) r)</Signature><Return>compx2</Return>
+  </Definition>
+  <Definition body="1053" end="1059" fullname="linearregression.performance.a21" inherit_type="local" line="44" name="A21" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerformance.ecl" start="1047">
+   <Signature pre="" post="" name="A21">A21</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1066" end="1074" fullname="linearregression.performance.a22" inherit_type="local" line="45" name="A22" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerformance.ecl" start="1060">
+   <Signature pre="" post="" name="A22">A22</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1081" end="1088" fullname="linearregression.performance.a23" inherit_type="local" line="46" name="A23" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerformance.ecl" start="1075">
+   <Signature pre="" post="" name="A23">A23</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1094" end="1102" fullname="linearregression.performance.b2" inherit_type="local" line="47" name="B2" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerformance.ecl" start="1089">
+   <Signature pre="" post="" name="B2">B2</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1108" end="1119" fullname="linearregression.performance.n2" inherit_type="local" line="48" name="N2" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerformance.ecl" start="1103">
+   <Signature pre="" post="" name="N2">N2</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1125" end="1128" fullname="linearregression.performance.m2" inherit_type="local" line="49" name="M2" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerformance.ecl" start="1120">
+   <Signature pre="" post="" name="M2">M2</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1135" end="1188" fullname="linearregression.performance.mx2" inherit_type="local" line="50" name="mX2" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerformance.ecl" start="1129">
+   <Signature pre="" post="" name="mX2">mX2</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1195" end="1216" fullname="linearregression.performance.sx2" inherit_type="local" line="51" name="sX2" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerformance.ecl" start="1189">
+   <Signature pre="" post="" name="sX2">sX2</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1223" end="1245" fullname="linearregression.performance.gx2" inherit_type="local" line="52" name="gX2" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerformance.ecl" start="1217">
+   <Signature pre="" post="" name="gX2">gX2</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1252" end="1307" fullname="linearregression.performance.cx2" inherit_type="local" line="53" name="cX2" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerformance.ecl" start="1246">
+   <Signature pre="" post="" name="cX2">cX2</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1339" end="1471" fullname="linearregression.performance.makey2" inherit_type="local" line="54" name="makeY2" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerformance.ecl" start="1308">
+   <Type>transform</Type>
+   <Params>
+    <Param name="X"/>
+   </Params>
+   <Signature pre="" post="" name="Layout_Cell makeY2(compX2 X)">Layout_Cell makeY2(compX2 X)</Signature><Return>layout_cell</Return>
+  </Definition>
+  <Definition body="1478" end="1506" fullname="linearregression.performance.my2" inherit_type="local" line="60" name="mY2" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerformance.ecl" start="1472">
+   <Signature pre="" post="" name="mY2">mY2</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1512" end="1542" fullname="linearregression.performance.x2" inherit_type="local" line="61" name="X2" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerformance.ecl" start="1507">
+   <Type>attribute</Type>
+   <Signature pre="" post="" name="X2">X2</Signature><Documentation> <see>PBblas/Types.Layout_Cell</see>
+    <see>ML_Core/Types.NumericField</see>
+    <return>NumericField Dataset</return>
+    <param><name>mat</name><desc>Matrix in DATASET(Layout_Cell) format</desc></param>
+    <content>Convert Matrix to NumericField dataset</content>
+   </Documentation>
+  </Definition>
+  <Definition body="1548" end="1578" fullname="linearregression.performance.y2" inherit_type="local" line="62" name="Y2" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerformance.ecl" start="1543">
+   <Type>attribute</Type>
+   <Signature pre="" post="" name="Y2">Y2</Signature><Documentation> <see>PBblas/Types.Layout_Cell</see>
+    <see>ML_Core/Types.NumericField</see>
+    <return>NumericField Dataset</return>
+    <param><name>mat</name><desc>Matrix in DATASET(Layout_Cell) format</desc></param>
+    <content>Convert Matrix to NumericField dataset</content>
+   </Documentation>
+  </Definition>
+  <Definition body="1585" end="1604" fullname="LinearRegression.OLS" inherit_type="local" line="63" name="lr2" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerformance.ecl" start="1579" target="../ols.ecl.xml">
+   <Type>module</Type>
+   <Parents>
+    <Parent line="37" name="IRegression" ref="ml_core.interfaces.iregression" target="../../ml_core/interfaces/iregression.ecl.xml"/>
+   </Parents>
+   <Definition body="6085" end="6122" exported="1" fullname="linearregression.ols.getmodel" inherit_type="override" line="139" name="GetModel" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="6044" target="../ols.ecl.xml">
+    <Type>attribute</Type>
+    <Signature pre="" post="" name="DATASET(Layout_Model) GetModel">DATASET(Layout_Model) GetModel</Signature><Documentation> <see>ML_core/Types.Layout_Model</see>
+     <return>Model in DATASET(Layout_Model) format</return>
+     <content>GetModel Returns the learned model that maps X's to Y's. In the case of OLS, the model represents a set of Betas which are the coefficients of the linear model: Beta0 * 1 + Beta1 * Field1 + Beta2 * Field2 ... The ID of each model record specifies to which Y variable the coefficient applies. The Field Number ('number') indicates to which field of X the beta is to be applied. Field number 1 provides the intercept portion of the linear model and is always multiplied by 1. Note that if multiple work-items are provided within X and Y, there will be multiple models returned. The models can be separated by their work item id (i.e. 'wi'). A single model can be extracted from a myriad model by using e.g., model(wi=myWI_id). GetModel should not be called when predicting using a previously persisted model (i.e. when training data was not passed to the module.</content>
+    </Documentation>
+   </Definition>
+   <Definition body="6441" end="6525" fullname="linearregression.ols.mbetas" inherit_type="local" line="149" name="mBetas" shared="1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="6366" target="../ols.ecl.xml">
+    <Type>function</Type>
+    <Signature pre="" post="" name="DATASET(Layout_Cell) mBetas(DATASET(Layout_Model) model=GetModel)">DATASET(Layout_Cell) mBetas(DATASET(Layout_Model) model=GetModel)</Signature><Params>
+     <Param name="model"/>
+    </Params>
+   </Definition>
+   <Definition body="7834" end="7925" exported="1" fullname="linearregression.ols.betas" inherit_type="local" line="172" name="Betas" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="7759" target="../ols.ecl.xml">
+    <Type>function</Type>
+    <Documentation> <content>Return raw Beta values as numeric fields Extracts Beta values from the model. Can be used during training and prediction phases. For use during training phase, the 'model' parameter can be omitted. GetModel will be called to retrieve the model based on the training data. For use during prediction phase, a previously persisted model should be provided. The 'number' field of the returned NumericField records specifies to which Y the coefficient applies. The 'id' field of the returned record indicates the position of the Beta value. ID = 1 provides the Beta for the constant term (i.e. the Y intercept) while subsequent values reflect the Beta for each correspondingly numbered X feature. Feature 1 corresponds to Beta with 'id' = 2 and so on. If 'model' contains multiple work-items, Separate sets of Betas will be returned for each of the 'myriad' models (distinguished by 'wi').</content>
+     <return>DATASET(NumericField) containing the Beta values.</return>
+     <param><name>model</name><desc>Optional parameter provides a model that was previously retrieved using GetModel. If omitted, GetModel will be used as the model.</desc></param>
+    </Documentation>
+    <Signature pre="" post="" name="DATASET(NumericField) Betas(DATASET(Layout_Model) model=GetModel)">DATASET(NumericField) Betas(DATASET(Layout_Model) model=GetModel)</Signature><Params>
+     <Param name="model"/>
+    </Params>
+   </Definition>
+   <Definition body="9281" end="9615" exported="1" fullname="linearregression.ols.predict" inherit_type="override" line="199" name="Predict" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="9164" target="../ols.ecl.xml">
+    <Type>function</Type>
+    <Documentation> <content>Predict the dependent variable values (Y) for any set of independent variables (X). Returns a predicted Y values for each observation (i.e. record) of X. This supports the 'myriad' style interface in that multiple independent work items may be present in 'newX', and multiple independent models may be provided in 'model'. The resulting predicted values will also be separable by work item (i.e. wi).</content>
+     <return>An estimation of the corresponding Y value for each observation of newX. Returned in DATASET(NumericField) format with field number (i.e. 'number') indicating the dependent variable that is predicted.</return>
+     <param><name>newX</name><desc>The set of observations of independent variables in DATASET(NumericField) format.</desc></param>
+     <param><name>model</name><desc>Optional. A model that was previously returned from GetModel (above). Note that a model from a previous run will only be valid if the field numbers in X are the same as when the model was learned. If this parameter is omitted, the current model will be used.</desc></param>
+    </Documentation>
+    <Signature pre="" post="" name="DATASET(NumericField) Predict(DATASET(NumericField) newX,&#10;            DATASET(Layout_Model) model=GetModel)">DATASET(NumericField) Predict(DATASET(NumericField) newX,
+            DATASET(Layout_Model) model=GetModel)</Signature><Params>
+     <Param name="newX"/>
+     <Param name="model"/>
+    </Params>
+   </Definition>
+   <Definition body="9725" end="9742" fullname="linearregression.ols.modely" inherit_type="local" line="212" name="modelY" shared="1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="9687" target="../ols.ecl.xml">
+    <Type>attribute</Type>
+    <Signature pre="" post="" name="DATASET(NumericField) modelY">DATASET(NumericField) modelY</Signature><Documentation> <content>Predict the dependent variable values (Y) for any set of independent variables (X). Returns a predicted Y values for each observation (i.e. record) of X. This supports the 'myriad' style interface in that multiple independent work items may be present in 'newX', and multiple independent models may be provided in 'model'. The resulting predicted values will also be separable by work item (i.e. wi).</content>
+     <return>An estimation of the corresponding Y value for each observation of newX. Returned in DATASET(NumericField) format with field number (i.e. 'number') indicating the dependent variable that is predicted.</return>
+     <param><name>newX</name><desc>The set of observations of independent variables in DATASET(NumericField) format.</desc></param>
+     <param><name>model</name><desc>Optional. A model that was previously returned from GetModel (above). Note that a model from a previous run will only be valid if the field numbers in X are the same as when the model was learned. If this parameter is omitted, the current model will be used.</desc></param>
+    </Documentation>
+   </Definition>
+   <Definition body="9851" end="9859" fullname="linearregression.ols.yhat" inherit_type="local" line="216" name="Yhat" shared="1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="9837" target="../ols.ecl.xml">
+    <Type>attribute</Type>
+    <Signature pre="" post="" name="Yhat">Yhat</Signature><Documentation> <content>Predict the dependent variable values (Y) for any set of independent variables (X). Returns a predicted Y values for each observation (i.e. record) of X. This supports the 'myriad' style interface in that multiple independent work items may be present in 'newX', and multiple independent models may be provided in 'model'. The resulting predicted values will also be separable by work item (i.e. wi).</content>
+     <return>An estimation of the corresponding Y value for each observation of newX. Returned in DATASET(NumericField) format with field number (i.e. 'number') indicating the dependent variable that is predicted.</return>
+     <param><name>newX</name><desc>The set of observations of independent variables in DATASET(NumericField) format.</desc></param>
+     <param><name>model</name><desc>Optional. A model that was previously returned from GetModel (above). Note that a model from a previous run will only be valid if the field numbers in X are the same as when the model was learned. If this parameter is omitted, the current model will be used.</desc></param>
+    </Documentation>
+   </Definition>
+   <Definition body="10071" end="10199" fullname="linearregression.ols.yyhat" inherit_type="local" line="222" name="YYhat" shared="1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="10056" target="../ols.ecl.xml">
+    <Signature pre="" post="" name="YYhat">YYhat</Signature><Type>attribute</Type>
+   </Definition>
+   <Definition body="10268" end="10303" fullname="linearregression.ols.y_stats" inherit_type="local" line="225" name="Y_stats" shared="1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="10251" target="../ols.ecl.xml">
+    <Signature pre="" post="" name="Y_stats">Y_stats</Signature><Type>attribute</Type>
+   </Definition>
+   <Definition body="11245" end="11343" fullname="linearregression.ols.ycomp" inherit_type="local" line="256" name="Ycomp" shared="1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="11229" target="../ols.ecl.xml">
+    <Signature pre="" post="" name="Ycomp">Ycomp</Signature><Type>attribute</Type>
+   </Definition>
+   <Definition body="11400" end="11531" fullname="linearregression.ols.cocorec" inherit_type="local" line="259" name="CoCoRec" shared="1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="11383" target="../ols.ecl.xml">
+    <Type>record</Type>
+    <Field name="wi"/>
+    <Field name="number"/>
+    <Field name="covariance"/>
+    <Signature pre="" post="" name="CoCoRec">CoCoRec</Signature><Field name="pearson"/>
+   </Definition>
+   <Definition body="11807" end="11839" fullname="linearregression.ols.cor_coefs" inherit_type="local" line="273" name="cor_coefs" shared="1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="11788" target="../ols.ecl.xml">
+    <Signature pre="" post="" name="cor_coefs">cor_coefs</Signature><Type>attribute</Type>
+   </Definition>
+   <Definition body="11903" end="11991" fullname="linearregression.ols.r2rec" inherit_type="local" line="276" name="R2Rec" shared="1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="11888" target="../ols.ecl.xml">
+    <Type>record</Type>
+    <Field name="wi"/>
+    <Field name="number"/>
+    <Signature pre="" post="" name="R2Rec">R2Rec</Signature><Field name="RSquared"/>
+   </Definition>
+   <Definition body="12032" end="12155" exported="1" fullname="linearregression.ols.makersq" inherit_type="local" line="282" name="makeRSQ" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="11995" target="../ols.ecl.xml">
+    <Type>transform</Type>
+    <Params>
+     <Param name="coco"/>
+    </Params>
+    <Signature pre="" post="" name="R2Rec makeRSQ(CoCoRec coco)">R2Rec makeRSQ(CoCoRec coco)</Signature><Return>r2rec</Return>
+   </Definition>
+   <Definition body="13934" end="13969" exported="1" fullname="linearregression.ols.rsquared" inherit_type="local" line="315" name="RSquared" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="13900" target="../ols.ecl.xml">
+    <Type>attribute</Type>
+    <Signature pre="" post="" name="DATASET(R2Rec)  RSquared">DATASET(R2Rec)  RSquared</Signature><Documentation> <return>DATASET(R2Rec) with one record per dependent variable, per work-item. The number field indicates the dependent variable and coresponds to the number field of the dependent (Y) variable to which it applies.</return>
+     <content>RSquared Calculate the R-Squared Metric used to assess the fit of the regression line to the training data. Since the regression has chosen the best (i.e. least squared error) line matching the data, this can be thought of as a measurement of the linearity of the training data. R Squared generally varies between 0 and 1, with 1 indicating an exact linear fit, and 0 indicating that a linear fit will have no predictive power. Negative values are possible under certain conditions, and indicate that the mean(Y) will be more predictive than any linear fit. Moderate values of R squared (e.g. .5) may indicate that the relationship of X -&gt; Y is non-linear, or that the measurement error is high relative to the linear correlation (e.g. many outliers). In the former case, increasing the dimensionality of X, such as by using polynomial variants of the features, may yield a better fit. R squared always increases when additional independent variables are added, so it should not be used to determine the optimal set of X variables to include. For that purpose, use Adjusted R Squared (below) which penalizes larger numbers of variables. Note that the result of this call is only meaningful during training phase (use case 1 above) as it is an analysis based on the training data which is not provided during a prediction-only phase.</content>
+    </Documentation>
+   </Definition>
+   <Definition body="14214" end="14256" fullname="linearregression.ols.fieldcounts" inherit_type="local" line="321" name="fieldCounts" shared="1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="14193" target="../ols.ecl.xml">
+    <Signature pre="" post="" name="fieldCounts">fieldCounts</Signature><Type>attribute</Type>
+   </Definition>
+   <Definition body="14322" end="14453" fullname="linearregression.ols.tmprec" inherit_type="local" line="324" name="tmpRec" shared="1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="14306" target="../ols.ecl.xml">
+    <Type>record</Type>
+    <Field name="wi"/>
+    <Field name="number"/>
+    <Field name="minval"/>
+    <Field name="maxval"/>
+    <Field name="sumval"/>
+    <Field name="countval"/>
+    <Field name="mean"/>
+    <Field name="var"/>
+    <Field name="sd"/>
+    <Field name="RSquared"/>
+    <Signature pre="" post="" name="tmpRec">tmpRec</Signature><Field name="K"/>
+   </Definition>
+   <Definition body="14773" end="14908" fullname="linearregression.ols.y_stats2" inherit_type="local" line="333" name="Y_stats2" shared="1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="14755" target="../ols.ecl.xml">
+    <Signature pre="" post="" name="Y_stats2">Y_stats2</Signature><Type>attribute</Type>
+   </Definition>
+   <Definition body="14929" end="15563" exported="1" fullname="linearregression.ols.anovarec" inherit_type="local" line="335" name="AnovaRec" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="14911" target="../ols.ecl.xml">
+    <Type>record</Type>
+    <Field name="wi"/>
+    <Field name="number"/>
+    <Field name="Total_SS"/>
+    <Field name="Model_SS"/>
+    <Field name="Error_SS"/>
+    <Field name="Total_DF"/>
+    <Field name="Model_DF"/>
+    <Field name="Error_DF"/>
+    <Field name="Total_MS"/>
+    <Field name="Model_MS"/>
+    <Field name="Error_MS"/>
+    <Signature pre="" post="" name="AnovaRec">AnovaRec</Signature><Field name="Model_F"/>
+   </Definition>
+   <Definition body="15606" end="16423" exported="1" fullname="linearregression.ols.calcanova" inherit_type="local" line="350" name="calcAnova" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="15567" target="../ols.ecl.xml">
+    <Type>transform</Type>
+    <Params>
+     <Param name="le"/>
+    </Params>
+    <Signature pre="" post="" name="AnovaRec calcAnova(tmpRec le)">AnovaRec calcAnova(tmpRec le)</Signature><Return>anovarec</Return>
+   </Definition>
+   <Definition body="17870" end="17945" exported="1" fullname="linearregression.ols.anova" inherit_type="local" line="402" name="Anova" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="17855" target="../ols.ecl.xml">
+    <Type>attribute</Type>
+    <Signature pre="" post="" name="Anova">Anova</Signature><Documentation> <return>DATASET(AnovaRec), one per work-item per dependent (Y) variable The number field indicates the dependent variable to which the analysis applies.</return>
+     <content>ANOVA (Analysis of Variance) report Analyzes the sources of variance. Basic ANOVA equality: Model + Error = Total Determines how much of the variance of Y is explained by the regression model, versus how much is due to the error term (i.e. unexplained variance). This attribute is only meaningful during the training phase. Provides one record per work-item. Each record provides the following statistics: - Total_SS -- Total Sum of Squares (SS) variance of the dependent data - Model_SS -- The SS variance represented within the model - Error_SS -- The SS variance not reflected by the model (i.e. Total_SS - Error_SS) - Total_DF -- The total degrees of freedom within the dependent data - Model_DF -- Degrees of freedom of the model - Error_DF -- Degrees of freedom of the error component - Total_MS -- The Mean Square (MS) variance of the dependent data - Model_MS -- The Mean Square (MS) variance represented within the model - Error_MS -- The MS variance not reflected by the model - Model_F -- The F-Test statistic: Model_MS / Error_MS</content>
+    </Documentation>
+   </Definition>
+   <Definition body="18995" end="19107" fullname="linearregression.ols.mxtxinv" inherit_type="local" line="429" name="mXTXinv" shared="1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="18978" target="../ols.ecl.xml">
+    <Type>attribute</Type>
+    <Signature pre="" post="" name="mXTXinv">mXTXinv</Signature><Documentation> <see>Types.Layout_Cell</see>
+     <see>Types.Triangle</see>
+     <see>Types.Side</see>
+     <return>X solution matrix in Layout_Cell format</return>
+     <param><name>s</name><desc>Types.Side enumeration indicating whether we are solving AX = B or XA = B</desc></param>
+     <param><name>tri</name><desc>Types.Triangle enumeration indicating whether we are solving an Upper or Lower triangle.</desc></param>
+     <param><name>transposeA</name><desc>Boolean indicating whether or not to transpose the A matrix before solving</desc></param>
+     <param><name>diag</name><desc>Types.Diagonal enumeration indicating whether A is a unit matrix or not. This is primarily used after factoring matrixes using getrf (LU factorization). That module produces a factored matrix stored within the same space as the original matrix. Since the diagonal is used by both factors, by convention, the Lower triangle has a unit matrix (diagonal all 1's) while the Upper triangle uses the diagonal cells. Setting this to UnitTri, causes the contents of the diagonal to be ignored, and assumed to be 1. NotUnitTri should be used for most other cases.</desc></param>
+     <param><name>alpha</name><desc>Multiplier to scale A</desc></param>
+     <param><name>A_in</name><desc>The A matrix in Layout_Cell format</desc></param>
+     <param><name>B_in</name><desc>The B matrix in Layout_Cell format</desc></param>
+     <content>Partitioned block parallel triangular matrix solver. Solves for X using: AX = B or XA = B A is is a square triangular matrix, X and B have the same dimensions. A may be an upper triangular matrix (UX = B or XU = B), or a lower triangular matrix (LX = B or XL = B). Allows optional transposing and scaling of A. Partially based upon an approach discussed by MJ DAYDE, IS DUFF, AP CERFACS. A Parallel Block implementation of Level-3 BLAS for MIMD Vector Processors ACM Tran. Mathematical Software, Vol 20, No 2, June 1994 pp 178-193 and other papers about PB-BLAS by Choi and Dongarra This module supports the "Myriad" style interface, allowing many independent problems to be worked on at once. Corresponding A and B matrixes are related by a common work-item identifier (wi_id) within each cell of the matrix. The returned X matrix will contain cells for the same set of work-items as specified for the A and B matrices.</content>
+    </Documentation>
+   </Definition>
+   <Definition body="20998" end="21046" fullname="linearregression.ols.coef_covar" inherit_type="local" line="467" name="Coef_covar" shared="1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="20932" target="../ols.ecl.xml">
+    <Type>function</Type>
+    <Documentation> <content>Coefficient Variance-Covariance Matrix This is the covariance matrix of the coefficients (i.e. Betas), not to be confused with the covariance matrix for X. If X is an N x M matrix (i.e. N observations of M features), then this will be an M+1 x M+1 matrix, since there are M + 1 coefficients including the Y intercept. Index 1 represents the Y intercept, Index 2 represents feature 1 .. Index M+1 represents Feature M. The diagonal entries designate the sampling variance of the coefficient, while the non-diagonal entries represents the covariance between two coefficients. For example, entry 2,3 represents the covariance between the coefficients for feature 1 and feature 2. This supports the myriad interface and will produce separate matrices for each work-item specified within X and Y. Note that, since this returns a matrix of coefs x coefs, it can only provide the matrix for one dependent variable at a time. Therefore it needs to be called multiple times in the case of multi-variate regression (more than one dependent variable). This is only meaningful during the training phase.</content>
+     <return>DATASET(NumericField) representing the covariance matrix of the coefficients</return>
+     <param><name>y_number</name><desc>The number of the y variable whose covariance matrix to return</desc></param>
+    </Documentation>
+    <Signature pre="" post="" name="DATASET(NumericField) Coef_covar(t_FieldNumber y_number)">DATASET(NumericField) Coef_covar(t_FieldNumber y_number)</Signature><Params>
+     <Param name="y_number"/>
+    </Params>
+   </Definition>
+   <Definition body="21707" end="21722" fullname="linearregression.ols.coef_var" inherit_type="local" line="483" name="Coef_var" shared="1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="21689" target="../ols.ecl.xml">
+    <Signature pre="" post="" name="Coef_var">Coef_var</Signature><Type>attribute</Type>
+   </Definition>
+   <Definition body="21775" end="21848" fullname="linearregression.ols.calc_serr" inherit_type="local" line="485" name="calc_sErr" shared="1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="21726" target="../ols.ecl.xml">
+    <Type>transform</Type>
+    <Params>
+     <Param name="lr"/>
+    </Params>
+    <Signature pre="" post="" name="NumericField calc_sErr(NumericField lr)">NumericField calc_sErr(NumericField lr)</Signature><Return>numericfield</Return>
+   </Definition>
+   <Definition body="22677" end="22758" exported="1" fullname="linearregression.ols.se" inherit_type="local" line="507" name="SE" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="22643" target="../ols.ecl.xml">
+    <Type>attribute</Type>
+    <Signature pre="" post="" name="DATASET(NumericField) SE">DATASET(NumericField) SE</Signature><Documentation> <return>DATASET(NumericField), one record per Beta coefficient per dependent variable per work-item. The 'id' field is the coefficient number, with 1 being the Y intercept, 2 being the coefficient for the first feature, etc. The 'number' field indicates the dependent variable to which the coefficient applies.</return>
+     <content>Standard Error of the Regression Coefficients Describes the variability of the regression error for each coefficient. Only meaningful during the training phase.</content>
+    </Documentation>
+   </Definition>
+   <Definition body="23797" end="23992" exported="1" fullname="linearregression.ols.tstat" inherit_type="local" line="535" name="TStat" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="23760" target="../ols.ecl.xml">
+    <Type>attribute</Type>
+    <Signature pre="" post="" name="DATASET(NumericField) TStat">DATASET(NumericField) TStat</Signature><Documentation> <return>DATSET(NumericField), one record per Beta coefficient per dependent variable per work-item. The 'id' field is the coefficient number, with 1 being the Y intercept, 2 being the coefficient for the first feature, etc. The number field indicates the dependent variable to which the coefficient applies.</return>
+     <content>T-Statistic The T-statistic identifies the significance of the value of each regression coefficient. Its calculation is simply the value of the coefficient divided by the Standard Error of the coefficient. A larger absolute value of the T-statistic indicates that the coefficient is more significant. Only meaningful during the training phase.</content>
+    </Documentation>
+   </Definition>
+   <Definition body="24999" end="25146" exported="1" fullname="linearregression.ols.adjrsquared" inherit_type="local" line="560" name="AdjRSquared" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="24963" target="../ols.ecl.xml">
+    <Type>attribute</Type>
+    <Signature pre="" post="" name="DATASET(R2Rec) AdjRSquared">DATASET(R2Rec) AdjRSquared</Signature><Documentation> <return>DATASET(R2Rec), one record per dependent variable per work-item. The number field indicates the dependent variable and corresponds to the number field of the dependent (Y) variable to which it applies.</return>
+     <content>Adjusted R2 Calculate Adjusted R Squared which is a scaled version of R Squared that does not arbitrarily increase with the number of features. Adjusted R2, rather than R2 should always be used when trying to determine the best set of features to include in a model. When adding features, R2 will always increase, whether or not it improves the predictive power of the model. Adjusted R2, however, will only increase with the predictive power of the model.</content>
+    </Documentation>
+   </Definition>
+   <Definition body="25162" end="25181" fullname="linearregression.ols.pi" inherit_type="local" line="564" name="PI" shared="1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="25150" target="../ols.ecl.xml">
+    <Signature pre="" post="" name="PI">PI</Signature><Type>attribute</Type>
+   </Definition>
+   <Definition body="25236" end="25323" exported="1" fullname="linearregression.ols.aicrec" inherit_type="local" line="567" name="AICRec" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="25220" target="../ols.ecl.xml">
+    <Type>record</Type>
+    <Field name="wi"/>
+    <Field name="number"/>
+    <Signature pre="" post="" name="AICRec">AICRec</Signature><Field name="AIC"/>
+   </Definition>
+   <Definition body="26623" end="26655" exported="1" fullname="linearregression.ols.aic" inherit_type="local" line="601" name="AIC" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="26594" target="../ols.ecl.xml">
+    <Type>attribute</Type>
+    <Signature pre="" post="" name="DATASET(AICRec) AIC">DATASET(AICRec) AIC</Signature><Documentation> <return>DATASET(AICRec), one record per dependent variable per work-item. The number field indicates the dependent variable and corresponds to the number field of the dependent (Y) variable to which it applies.</return>
+     <content>Akaike Information Criterion (AIC) Information theory based criterion for assessing Goodness of Fit (GOF). Lower values mean better fit.</content>
+    </Documentation>
+   </Definition>
+   <Definition body="26915" end="27070" exported="1" fullname="linearregression.ols.rangevec" inherit_type="local" line="609" name="RangeVec" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="26897" target="../ols.ecl.xml">
+    <Type>record</Type>
+    <Field name="RangeNumber"/>
+    <Field name="RangeLow"/>
+    <Field name="RangeHigh"/>
+    <Signature pre="" post="" name="RangeVec">RangeVec</Signature><Field name="P"/>
+   </Definition>
+   <Definition body="27084" end="27100" fullname="linearregression.ols.e" inherit_type="local" line="615" name="E" shared="1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="27073" target="../ols.ecl.xml">
+    <Signature pre="" post="" name="E">E</Signature><Type>attribute</Type>
+   </Definition>
+   <Definition body="27155" end="29244" exported="1" fullname="linearregression.ols.distributionbase" inherit_type="local" line="617" name="DistributionBase" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="27104" virtual="1" target="../ols.ecl.xml">
+    <Type>module</Type>
+    <Params>
+     <Param name="Nranges"/>
+    </Params>
+    <Parents/>
+    <Definition body="27188" end="27191" exported="1" fullname="linearregression.ols.distributionbase.low" inherit_type="local" line="618" name="Low" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="27175" target="../ols.ecl.xml">
+     <Signature pre="" post="" name="Low">Low</Signature><Type>attribute</Type>
+    </Definition>
+    <Definition body="27245" end="27250" exported="1" fullname="linearregression.ols.distributionbase.high" inherit_type="local" line="619" name="High" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="27231" target="../ols.ecl.xml">
+     <Signature pre="" post="" name="High">High</Signature><Type>attribute</Type>
+    </Definition>
+    <Definition body="27333" end="27338" exported="1" fullname="linearregression.ols.distributionbase.density" inherit_type="local" line="620" name="Density" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="27289" target="../ols.ecl.xml">
+     <Type>function</Type>
+     <Signature pre="" post="" name="t_FieldReal Density(t_FieldReal t)">t_FieldReal Density(t_FieldReal t)</Signature><Params>
+      <Param name="t"/>
+     </Params>
+    </Definition>
+    <Definition body="27399" end="27423" exported="1" fullname="linearregression.ols.distributionbase.rangewidth" inherit_type="local" line="621" name="RangeWidth" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="27379" target="../ols.ecl.xml">
+     <Signature pre="" post="" name="RangeWidth">RangeWidth</Signature><Type>attribute</Type>
+    </Definition>
+    <Definition body="27466" end="27895" exported="1" fullname="linearregression.ols.distributionbase.densityv" inherit_type="local" line="622" name="DensityV" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="27428" target="../ols.ecl.xml">
+     <Type>function</Type>
+     <Signature pre="" post="" name="DATASET(RangeVec) DensityV()">DATASET(RangeVec) DensityV()</Signature><Params/>
+    </Definition>
+    <Definition body="28006" end="28220" exported="1" fullname="linearregression.ols.distributionbase.cumulativev" inherit_type="local" line="634" name="CumulativeV" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="27983" target="../ols.ecl.xml">
+     <Type>function</Type>
+     <Signature pre="" post="" name="CumulativeV()">CumulativeV()</Signature><Params/>
+    </Definition>
+    <Definition body="28368" end="28417" fullname="linearregression.ols.distributionbase.interc" inherit_type="local" line="644" name="InterC" shared="1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="28324" target="../ols.ecl.xml">
+     <Type>function</Type>
+     <Signature pre="" post="" name="InterC(RangeVec rv, t_FieldReal t)">InterC(RangeVec rv, t_FieldReal t)</Signature><Params>
+      <Param name="rv"/>
+      <Param name="t"/>
+     </Params>
+    </Definition>
+    <Definition body="28530" end="28754" exported="1" fullname="linearregression.ols.distributionbase.cumulative" inherit_type="local" line="647" name="Cumulative" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="28483" target="../ols.ecl.xml">
+     <Type>function</Type>
+     <Signature pre="" post="" name="t_FieldReal Cumulative(t_FieldReal t)">t_FieldReal Cumulative(t_FieldReal t)</Signature><Params>
+      <Param name="t"/>
+     </Params>
+    </Definition>
+    <Definition body="28863" end="29114" exported="1" fullname="linearregression.ols.distributionbase.ntile" inherit_type="local" line="655" name="NTile" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="28820" target="../ols.ecl.xml">
+     <Type>function</Type>
+     <Signature pre="" post="" name="t_FieldReal NTile(t_FieldReal Pc)">t_FieldReal NTile(t_FieldReal Pc)</Signature><Params>
+      <Param name="Pc"/>
+     </Params>
+    </Definition>
+    <Definition body="29158" end="29163" exported="1" fullname="linearregression.ols.distributionbase.invdensity" inherit_type="local" line="662" name="InvDensity" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="29119" target="../ols.ecl.xml">
+     <Type>function</Type>
+     <Signature pre="" post="" name="InvDensity(t_FieldReal delta)">InvDensity(t_FieldReal delta)</Signature><Params>
+      <Param name="delta"/>
+     </Params>
+    </Definition>
+    <Signature pre="" post="" name="DistributionBase(t_Count Nranges = 10000)">DistributionBase(t_Count Nranges = 10000)</Signature><Definition body="29230" end="29237" exported="1" fullname="linearregression.ols.distributionbase.discrete" inherit_type="local" line="663" name="Discrete" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="29212" target="../ols.ecl.xml">
+     <Signature pre="" post="" name="Discrete">Discrete</Signature><Type>attribute</Type>
+    </Definition>
+   </Definition>
+   <Definition body="29506" end="31702" exported="1" fullname="linearregression.ols.tdistribution" inherit_type="local" line="670" name="TDistribution" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="29442" target="../ols.ecl.xml">
+    <Type>module</Type>
+    <Params>
+     <Param name="v_in"/>
+     <Param name="NRanges"/>
+    </Params>
+    <Parents>
+     <Parent line="617" name="DistributionBase" ref="linearregression.ols.distributionbase" target="../ols.ecl.xml"/>
+    </Parents>
+    <Definition body="27466" end="27895" exported="1" fullname="linearregression.ols.distributionbase.densityv" inherit_type="override" line="622" name="DensityV" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="27428" target="../ols.ecl.xml">
+     <Type>function</Type>
+     <Signature pre="" post="" name="DATASET(RangeVec) DensityV()">DATASET(RangeVec) DensityV()</Signature><Params/>
+    </Definition>
+    <Definition body="28368" end="28417" fullname="linearregression.ols.distributionbase.interc" inherit_type="override" line="644" name="InterC" shared="1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="28324" target="../ols.ecl.xml">
+     <Type>function</Type>
+     <Signature pre="" post="" name="InterC(RangeVec rv, t_FieldReal t)">InterC(RangeVec rv, t_FieldReal t)</Signature><Params>
+      <Param name="rv"/>
+      <Param name="t"/>
+     </Params>
+    </Definition>
+    <Definition body="28863" end="29114" exported="1" fullname="linearregression.ols.distributionbase.ntile" inherit_type="override" line="655" name="NTile" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="28820" target="../ols.ecl.xml">
+     <Type>function</Type>
+     <Signature pre="" post="" name="t_FieldReal NTile(t_FieldReal Pc)">t_FieldReal NTile(t_FieldReal Pc)</Signature><Params>
+      <Param name="Pc"/>
+     </Params>
+    </Definition>
+    <Definition body="29230" end="29237" exported="1" fullname="linearregression.ols.distributionbase.discrete" inherit_type="inherited" line="663" name="Discrete" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="29212" target="../ols.ecl.xml">
+     <Signature pre="" post="" name="Discrete">Discrete</Signature><Type>attribute</Type>
+    </Definition>
+    <Definition body="29556" end="29562" fullname="linearregression.ols.tdistribution.v" inherit_type="local" line="671" name="v" shared="1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="29545" target="../ols.ecl.xml">
+     <Signature pre="" post="" name="v">v</Signature><Type>attribute</Type>
+    </Definition>
+    <Definition body="29587" end="29621" fullname="linearregression.ols.tdistribution.multiplier" inherit_type="local" line="672" name="Multiplier" shared="1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="29567" target="../ols.ecl.xml">
+     <Signature pre="" post="" name="Multiplier">Multiplier</Signature><Type>attribute</Type>
+    </Definition>
+    <Definition body="29714" end="29723" fullname="linearregression.ols.tdistribution.lowdensity" inherit_type="local" line="674" name="LowDensity" shared="1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="29694" target="../ols.ecl.xml">
+     <Signature pre="" post="" name="LowDensity">LowDensity</Signature><Type>attribute</Type>
+    </Definition>
+    <Definition body="29808" end="29858" exported="1" fullname="linearregression.ols.tdistribution.invdensity" inherit_type="override" line="675" name="InvDensity" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="29769" target="../ols.ecl.xml">
+     <Type>function</Type>
+     <Signature pre="" post="" name="InvDensity(t_FieldReal delta)">InvDensity(t_FieldReal delta)</Signature><Params>
+      <Param name="delta"/>
+     </Params>
+    </Definition>
+    <Definition body="30013" end="30017" exported="1" fullname="linearregression.ols.tdistribution.high" inherit_type="override" line="678" name="High" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="29999" target="../ols.ecl.xml">
+     <Signature pre="" post="" name="High">High</Signature><Type>attribute</Type>
+    </Definition>
+    <Definition body="30035" end="30038" exported="1" fullname="linearregression.ols.tdistribution.low" inherit_type="inherited" line="679" name="Low" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="30022" target="../ols.ecl.xml">
+     <Signature pre="" post="" name="Low">Low</Signature><Type>attribute</Type>
+    </Definition>
+    <Definition body="30063" end="30083" exported="1" fullname="linearregression.ols.tdistribution.rangewidth" inherit_type="override" line="680" name="RangeWidth" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="30043" target="../ols.ecl.xml">
+     <Signature pre="" post="" name="RangeWidth">RangeWidth</Signature><Type>attribute</Type>
+    </Definition>
+    <Definition body="30212" end="30259" exported="1" fullname="linearregression.ols.tdistribution.density" inherit_type="override" line="682" name="Density" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="30168" target="../ols.ecl.xml">
+     <Type>function</Type>
+     <Signature pre="" post="" name="t_FieldReal Density(t_FieldReal t)">t_FieldReal Density(t_FieldReal t)</Signature><Params>
+      <Param name="t"/>
+     </Params>
+    </Definition>
+    <Definition body="30287" end="30932" exported="1" fullname="linearregression.ols.tdistribution.cumulativev" inherit_type="override" line="683" name="CumulativeV" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="30264" target="../ols.ecl.xml">
+     <Type>function</Type>
+     <Signature pre="" post="" name="CumulativeV()">CumulativeV()</Signature><Params/>
+    </Definition>
+    <Signature pre="" post="" name="TDistribution(t_Discrete v_in,t_Count NRanges = 10000)">TDistribution(t_Discrete v_in,t_Count NRanges = 10000)</Signature><Definition body="31035" end="31695" exported="1" fullname="linearregression.ols.tdistribution.cumulative" inherit_type="override" line="696" name="Cumulative" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="30988" target="../ols.ecl.xml">
+     <Type>function</Type>
+     <Signature pre="" post="" name="t_FieldReal Cumulative(t_FieldReal t)">t_FieldReal Cumulative(t_FieldReal t)</Signature><Params>
+      <Param name="t"/>
+     </Params>
+    </Definition>
+   </Definition>
+   <Definition body="31809" end="33046" exported="1" fullname="linearregression.ols.fdistribution" inherit_type="local" line="709" name="FDistribution" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="31725" target="../ols.ecl.xml">
+    <Type>module</Type>
+    <Params>
+     <Param name="d1_in"/>
+     <Param name="d2_in"/>
+     <Param name="NRanges"/>
+    </Params>
+    <Parents>
+     <Parent line="617" name="DistributionBase" ref="linearregression.ols.distributionbase" target="../ols.ecl.xml"/>
+    </Parents>
+    <Definition body="27466" end="27895" exported="1" fullname="linearregression.ols.distributionbase.densityv" inherit_type="override" line="622" name="DensityV" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="27428" target="../ols.ecl.xml">
+     <Type>function</Type>
+     <Signature pre="" post="" name="DATASET(RangeVec) DensityV()">DATASET(RangeVec) DensityV()</Signature><Params/>
+    </Definition>
+    <Definition body="28006" end="28220" exported="1" fullname="linearregression.ols.distributionbase.cumulativev" inherit_type="override" line="634" name="CumulativeV" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="27983" target="../ols.ecl.xml">
+     <Type>function</Type>
+     <Signature pre="" post="" name="CumulativeV()">CumulativeV()</Signature><Params/>
+    </Definition>
+    <Definition body="28368" end="28417" fullname="linearregression.ols.distributionbase.interc" inherit_type="override" line="644" name="InterC" shared="1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="28324" target="../ols.ecl.xml">
+     <Type>function</Type>
+     <Signature pre="" post="" name="InterC(RangeVec rv, t_FieldReal t)">InterC(RangeVec rv, t_FieldReal t)</Signature><Params>
+      <Param name="rv"/>
+      <Param name="t"/>
+     </Params>
+    </Definition>
+    <Definition body="28530" end="28754" exported="1" fullname="linearregression.ols.distributionbase.cumulative" inherit_type="override" line="647" name="Cumulative" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="28483" target="../ols.ecl.xml">
+     <Type>function</Type>
+     <Signature pre="" post="" name="t_FieldReal Cumulative(t_FieldReal t)">t_FieldReal Cumulative(t_FieldReal t)</Signature><Params>
+      <Param name="t"/>
+     </Params>
+    </Definition>
+    <Definition body="28863" end="29114" exported="1" fullname="linearregression.ols.distributionbase.ntile" inherit_type="override" line="655" name="NTile" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="28820" target="../ols.ecl.xml">
+     <Type>function</Type>
+     <Signature pre="" post="" name="t_FieldReal NTile(t_FieldReal Pc)">t_FieldReal NTile(t_FieldReal Pc)</Signature><Params>
+      <Param name="Pc"/>
+     </Params>
+    </Definition>
+    <Definition body="29158" end="29163" exported="1" fullname="linearregression.ols.distributionbase.invdensity" inherit_type="inherited" line="662" name="InvDensity" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="29119" target="../ols.ecl.xml">
+     <Type>function</Type>
+     <Signature pre="" post="" name="InvDensity(t_FieldReal delta)">InvDensity(t_FieldReal delta)</Signature><Params>
+      <Param name="delta"/>
+     </Params>
+    </Definition>
+    <Definition body="29230" end="29237" exported="1" fullname="linearregression.ols.distributionbase.discrete" inherit_type="inherited" line="663" name="Discrete" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="29212" target="../ols.ecl.xml">
+     <Signature pre="" post="" name="Discrete">Discrete</Signature><Type>attribute</Type>
+    </Definition>
+    <Definition body="31866" end="31873" fullname="linearregression.ols.fdistribution.d1" inherit_type="local" line="710" name="d1" shared="1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="31848" target="../ols.ecl.xml">
+     <Signature pre="" post="" name="REAL8 d1">REAL8 d1</Signature><Type>attribute</Type>
+    </Definition>
+    <Definition body="31896" end="31903" fullname="linearregression.ols.fdistribution.d2" inherit_type="local" line="711" name="d2" shared="1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="31878" target="../ols.ecl.xml">
+     <Signature pre="" post="" name="REAL8 d2">REAL8 d2</Signature><Type>attribute</Type>
+    </Definition>
+    <Definition body="31921" end="31924" exported="1" fullname="linearregression.ols.fdistribution.low" inherit_type="inherited" line="712" name="Low" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="31908" target="../ols.ecl.xml">
+     <Signature pre="" post="" name="Low">Low</Signature><Type>attribute</Type>
+    </Definition>
+    <Definition body="31943" end="31947" exported="1" fullname="linearregression.ols.fdistribution.high" inherit_type="override" line="713" name="High" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="31929" target="../ols.ecl.xml">
+     <Signature pre="" post="" name="High">High</Signature><Type>attribute</Type>
+    </Definition>
+    <Definition body="31972" end="31994" exported="1" fullname="linearregression.ols.fdistribution.rangewidth" inherit_type="override" line="714" name="RangeWidth" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="31952" target="../ols.ecl.xml">
+     <Signature pre="" post="" name="RangeWidth">RangeWidth</Signature><Type>attribute</Type>
+    </Definition>
+    <Definition body="32054" end="32099" fullname="linearregression.ols.fdistribution.multiplier" inherit_type="local" line="716" name="Multiplier" shared="1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="32028" target="../ols.ecl.xml">
+     <Signature pre="" post="" name="REAL8 Multiplier">REAL8 Multiplier</Signature><Type>attribute</Type>
+    </Definition>
+    <Signature pre="" post="" name="FDistribution(t_Discrete d1_in, t_Discrete d2_in, t_Count NRanges = 10000)">FDistribution(t_Discrete d1_in, t_Discrete d2_in, t_Count NRanges = 10000)</Signature><Definition body="32148" end="32267" exported="1" fullname="linearregression.ols.fdistribution.density" inherit_type="override" line="717" name="Density" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="32104" target="../ols.ecl.xml">
+     <Type>function</Type>
+     <Signature pre="" post="" name="t_FieldReal Density(t_FieldReal t)">t_FieldReal Density(t_FieldReal t)</Signature><Params>
+      <Param name="t"/>
+     </Params>
+    </Definition>
+   </Definition>
+   <Definition body="33119" end="33244" exported="1" fullname="linearregression.ols.normaldistribution" inherit_type="local" line="731" name="NormalDistribution" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="33074" target="../ols.ecl.xml">
+    <Type>module</Type>
+    <Params>
+     <Param name="NRanges"/>
+    </Params>
+    <Parents>
+     <Parent line="617" name="DistributionBase" ref="linearregression.ols.distributionbase" target="../ols.ecl.xml"/>
+    </Parents>
+    <Definition body="27188" end="27191" exported="1" fullname="linearregression.ols.distributionbase.low" inherit_type="inherited" line="618" name="Low" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="27175" target="../ols.ecl.xml">
+     <Signature pre="" post="" name="Low">Low</Signature><Type>attribute</Type>
+    </Definition>
+    <Definition body="27245" end="27250" exported="1" fullname="linearregression.ols.distributionbase.high" inherit_type="inherited" line="619" name="High" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="27231" target="../ols.ecl.xml">
+     <Signature pre="" post="" name="High">High</Signature><Type>attribute</Type>
+    </Definition>
+    <Definition body="27399" end="27423" exported="1" fullname="linearregression.ols.distributionbase.rangewidth" inherit_type="override" line="621" name="RangeWidth" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="27379" target="../ols.ecl.xml">
+     <Signature pre="" post="" name="RangeWidth">RangeWidth</Signature><Type>attribute</Type>
+    </Definition>
+    <Definition body="27466" end="27895" exported="1" fullname="linearregression.ols.distributionbase.densityv" inherit_type="override" line="622" name="DensityV" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="27428" target="../ols.ecl.xml">
+     <Type>function</Type>
+     <Signature pre="" post="" name="DATASET(RangeVec) DensityV()">DATASET(RangeVec) DensityV()</Signature><Params/>
+    </Definition>
+    <Definition body="28006" end="28220" exported="1" fullname="linearregression.ols.distributionbase.cumulativev" inherit_type="override" line="634" name="CumulativeV" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="27983" target="../ols.ecl.xml">
+     <Type>function</Type>
+     <Signature pre="" post="" name="CumulativeV()">CumulativeV()</Signature><Params/>
+    </Definition>
+    <Definition body="28368" end="28417" fullname="linearregression.ols.distributionbase.interc" inherit_type="override" line="644" name="InterC" shared="1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="28324" target="../ols.ecl.xml">
+     <Type>function</Type>
+     <Signature pre="" post="" name="InterC(RangeVec rv, t_FieldReal t)">InterC(RangeVec rv, t_FieldReal t)</Signature><Params>
+      <Param name="rv"/>
+      <Param name="t"/>
+     </Params>
+    </Definition>
+    <Definition body="28530" end="28754" exported="1" fullname="linearregression.ols.distributionbase.cumulative" inherit_type="override" line="647" name="Cumulative" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="28483" target="../ols.ecl.xml">
+     <Type>function</Type>
+     <Signature pre="" post="" name="t_FieldReal Cumulative(t_FieldReal t)">t_FieldReal Cumulative(t_FieldReal t)</Signature><Params>
+      <Param name="t"/>
+     </Params>
+    </Definition>
+    <Definition body="28863" end="29114" exported="1" fullname="linearregression.ols.distributionbase.ntile" inherit_type="override" line="655" name="NTile" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="28820" target="../ols.ecl.xml">
+     <Type>function</Type>
+     <Signature pre="" post="" name="t_FieldReal NTile(t_FieldReal Pc)">t_FieldReal NTile(t_FieldReal Pc)</Signature><Params>
+      <Param name="Pc"/>
+     </Params>
+    </Definition>
+    <Definition body="29158" end="29163" exported="1" fullname="linearregression.ols.distributionbase.invdensity" inherit_type="inherited" line="662" name="InvDensity" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="29119" target="../ols.ecl.xml">
+     <Type>function</Type>
+     <Signature pre="" post="" name="InvDensity(t_FieldReal delta)">InvDensity(t_FieldReal delta)</Signature><Params>
+      <Param name="delta"/>
+     </Params>
+    </Definition>
+    <Definition body="29230" end="29237" exported="1" fullname="linearregression.ols.distributionbase.discrete" inherit_type="inherited" line="663" name="Discrete" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="29212" target="../ols.ecl.xml">
+     <Signature pre="" post="" name="Discrete">Discrete</Signature><Type>attribute</Type>
+    </Definition>
+    <Signature pre="" post="" name="NormalDistribution(t_Count NRanges)">NormalDistribution(t_Count NRanges)</Signature><Definition body="33201" end="33237" exported="1" fullname="linearregression.ols.normaldistribution.density" inherit_type="override" line="732" name="Density" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="33157" target="../ols.ecl.xml">
+     <Type>function</Type>
+     <Signature pre="" post="" name="t_FieldReal Density(t_FieldReal t)">t_FieldReal Density(t_FieldReal t)</Signature><Params>
+      <Param name="t"/>
+     </Params>
+    </Definition>
+   </Definition>
+   <Definition body="34820" end="34881" exported="1" fullname="linearregression.ols.pval" inherit_type="local" line="768" name="pVal" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="34806" target="../ols.ecl.xml">
+    <Type>attribute</Type>
+    <Signature pre="" post="" name="pVal">pVal</Signature><Documentation> <return>DATSET(NumericField), one record per Beta coefficient per dependent variable per work-item. The 'id' field is the coefficient number, with 1 being the Y intercept, 2 being the coefficient for the first feature, etc. The number field indicates the dependent variable and corresponds to the number field of the dependent (Y) variable to which it applies.</return>
+     <content>P-Value Calculate the P-value for each coefficient, which is the probability that the coefficient is insignificant (i.e. actually zero). A low P-value (e.g. .05) provides evidence that the coefficient is significant in the model. A high P-value indicates that the coefficient value should, in fact, be zero. P-value is related to the T-Statistic, and can be thought of as a normalized version of the T-Statistic. Only meaningful during the training phase.</content>
+    </Documentation>
+   </Definition>
+   <Definition body="34930" end="35075" exported="1" fullname="linearregression.ols.confintrec" inherit_type="local" line="771" name="ConfintRec" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="34910" target="../ols.ecl.xml">
+    <Type>record</Type>
+    <Field name="wi"/>
+    <Field name="id"/>
+    <Field name="number"/>
+    <Field name="LowerInt"/>
+    <Signature pre="" post="" name="ConfintRec">ConfintRec</Signature><Field name="UpperInt"/>
+   </Definition>
+   <Definition body="36958" end="37739" exported="1" fullname="linearregression.ols.confint" inherit_type="local" line="816" name="ConfInt" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="36916" target="../ols.ecl.xml">
+    <Type>function</Type>
+    <Documentation> <content>Confidence Interval The Confidence Interval determines the upper and lower bounds of each estimated coefficient given a confidence level (level) that is required. For example, one could say that there is a 95% probability (level) that the coefficient of the first independent variable is between 2.05 and 3.62. This allows error margins to be determined with the desired confidence level. If the confidence interval spans zero, it implies that the coefficient may not be significant at the specified confidence level.</content>
+     <return>DATASET(ConfintRec) with one record per coefficient per dependent variable per work-item. The 'id' field is the coefficient number, with 1 being the Y intercept, 2 being the coefficient for the first feature, etc. The number field indicates the dependent variable and corresponds to the number field of the dependent (Y) variable to which it applies.</return>
+     <param><name>level</name><desc>The level of confidence required, expressed as a percentage from 0.0 to 100.0</desc></param>
+    </Documentation>
+    <Signature pre="" post="" name="ConfInt(Types.t_fieldReal level)">ConfInt(Types.t_fieldReal level)</Signature><Params>
+     <Param name="level"/>
+    </Params>
+   </Definition>
+   <Definition body="37806" end="37915" exported="1" fullname="linearregression.ols.ftestrec" inherit_type="local" line="834" name="FTestRec" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="37788" target="../ols.ecl.xml">
+    <Type>record</Type>
+    <Field name="wi"/>
+    <Field name="number"/>
+    <Field name="Model_F"/>
+    <Signature pre="" post="" name="FTestRec">FTestRec</Signature><Field name="pValue"/>
+   </Definition>
+   <Definition body="39894" end="39924" exported="1" fullname="linearregression.ols.ftest" inherit_type="local" line="879" name="FTest" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LinearRegression/OLS.ecl" start="39861" target="../ols.ecl.xml">
+    <Type>attribute</Type>
+    <Signature pre="" post="" name="DATASET(FTestRec) FTest">DATASET(FTestRec) FTest</Signature><Documentation> <return>DATASET(FTestRec), one record per dependent variable per work-item. The number field indicates the dependent variable and corresponds to the number field of the dependent (Y) variable to which it applies.</return>
+     <content>F-Test Calculate the P-value for the full regression, which is the probability that all of the coefficients are insignificant (i.e. actually zero). A low P-value (e.g. .05) provides evidence that at least one coefficient is significant. A high P-value indicates that all the coefficient values should in fact be zero, implying that the regression has no statistically significant predictive power. P-value is related to the ANOVA F-Statistic, and can be thought of as a standardized version of the ANOVA F-Statistic. The F-Test and T-Test are similar, except that the T-test is used to test the significance of each coefficient, while the F-Test is used to test the significance of the entire regression. For simple linear regression (i.e. only one independent variable, the T-Test and F-Test are equivalent.</content>
+    </Documentation>
+   </Definition>
+   <Signature pre="" post="" name="lr2">lr2</Signature><Documentation> <content>Ordinary Least Squares (OLS) Linear Regression aka Ordinary Linear Regression Regression learns a function that maps a set of input data (independents) to one or more output variables (dependents). The resulting learned function is known as the model. That model can then be used repetitively to predict (i.e. estimate) the output value(s) based on new input data. Two major use cases are supported: 1) Learn and return a model 2) Use an existing (e.g. persisted) model to predict new values for Y Of course, both can be done in a single run. Alternatively, the model can be persisted and used indefinitely for prediction of Y values, as long as the record format has not changed, and the original training data remains representative of the population. OLS supports any number of independent variables (Multiple Regression) and multiple dependent variables (Multivariate Regression). In this way, multiple variables' values can be predicted from the same input (i.e. independent) data. Training data is presented as parameters to this module. When using a previously persisted model (use case 2 above), these parameters should be omitted. This module provides a rich set of analytics to assess the usefulness of the resulting linear regression model, and to determine the best subset of independent variables to include in the model. These include: For the whole model: - Analysis of Variance (ANOVA) - R-squared - Adjusted R-squared - F-Test - Akaike Information Criterion (AIC) For each coefficient: - Standard Error (SE) - T-statistic - P-value - Confidence Interval</content>
+    <param><name>X</name><desc>The independent variable training data in DATASET(NumericField) format. Each observation (e.g. record) is identified by 'id', and each feature is identified by field number (i.e. 'number'). Omit this parameter when predicting from a persisted model.</desc></param>
+    <param><name>Y</name><desc>The dependent variable training data in DATASET(NumericField) format. Each observation (e.g. record) is identified by 'id', and each feature is identified by field number. Omit this parameter when predicting from a persisted model.</desc></param>
+   </Documentation>
+  </Definition>
+  <Definition body="1611" end="1625" fullname="linearregression.performance.mod" inherit_type="local" line="64" name="mod" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerformance.ecl" start="1605">
+   <Type>attribute</Type>
+   <Signature pre="" post="" name="mod">mod</Signature><Documentation> <see>ML_core/Types.Layout_Model</see>
+    <return>Model in DATASET(Layout_Model) format</return>
+    <content>GetModel Returns the learned model that maps X's to Y's. In the case of OLS, the model represents a set of Betas which are the coefficients of the linear model: Beta0 * 1 + Beta1 * Field1 + Beta2 * Field2 ... The ID of each model record specifies to which Y variable the coefficient applies. The Field Number ('number') indicates to which field of X the beta is to be applied. Field number 1 provides the intercept portion of the linear model and is always multiplied by 1. Note that if multiple work-items are provided within X and Y, there will be multiple models returned. The models can be separated by their work item id (i.e. 'wi'). A single model can be extracted from a myriad model by using e.g., model(wi=myWI_id). GetModel should not be called when predicting using a previously persisted model (i.e. when training data was not passed to the module.</content>
+   </Documentation>
+  </Definition>
+  <Definition body="1651" end="1656" exported="1" fullname="linearregression.performance.olsperformance" inherit_type="local" line="66" name="OLSPerformance" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerformance.ecl" start="1627">
+   <Type>attribute</Type>
+   <Signature pre="" post="" name="OLSPerformance">OLSPerformance</Signature><Documentation> <see>ML_core/Types.Layout_Model</see>
+    <return>Model in DATASET(Layout_Model) format</return>
+    <content>GetModel Returns the learned model that maps X's to Y's. In the case of OLS, the model represents a set of Betas which are the coefficients of the linear model: Beta0 * 1 + Beta1 * Field1 + Beta2 * Field2 ... The ID of each model record specifies to which Y variable the coefficient applies. The Field Number ('number') indicates to which field of X the beta is to be applied. Field number 1 provides the intercept portion of the linear model and is always multiplied by 1. Note that if multiple work-items are provided within X and Y, there will be multiple models returned. The models can be separated by their work item id (i.e. 'wi'). A single model can be extracted from a myriad model by using e.g., model(wi=myWI_id). GetModel should not be called when predicting using a previously persisted model (i.e. when training data was not passed to the module.</content>
+   </Documentation>
+  </Definition>
+ </Source>
+ <Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Types.ecl" name="ML_Core.Types" target="../../ml_core/types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/MakeTestMatrix.ecl" name="PBblas.test.MakeTestMatrix" target="../../pbblas/test/maketestmatrix.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Types.ecl" name="PBblas.Types" target="../../pbblas/types.ecl.xml"/><Depends sourcePath="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/system/Thorlib.ecl" name="std.system.Thorlib" target="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/system/Thorlib.ecl"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Converted.ecl" name="PBblas.Converted" target="../../pbblas/converted.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/OLS.ecl" name="LinearRegression.OLS" target="../ols.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/MatUtils.ecl" name="PBblas.MatUtils" target="../../pbblas/matutils.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/Types.ecl" name="PBblas.internal.Types" target="../../pbblas/internal/types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/MatDims.ecl" name="PBblas.internal.MatDims" target="../../pbblas/internal/matdims.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/BlockDimensions.ecl" name="PBblas.internal.BlockDimensions" target="../../pbblas/internal/blockdimensions.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/BlockDimensionsMultiply.ecl" name="PBblas.internal.BlockDimensionsMultiply" target="../../pbblas/internal/blockdimensionsmultiply.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/BlockDimensionsSolve.ecl" name="PBblas.internal.BlockDimensionsSolve" target="../../pbblas/internal/blockdimensionssolve.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Constants.ecl" name="PBblas.Constants" target="../../pbblas/constants.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Interfaces/IRegression.ecl" name="ML_Core.Interfaces.IRegression" target="../../ml_core/interfaces/iregression.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/gemm.ecl" name="PBblas.gemm" target="../../pbblas/gemm.ecl.xml"/><Depends sourcePath="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/BLAS.ecl" name="std.BLAS" target="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/BLAS.ecl"/><Depends sourcePath="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/plugins/lib_eclblas.ecllib" target="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/plugins/lib_eclblas.ecllib"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/Converted.ecl" name="PBblas.internal.Converted" target="../../pbblas/internal/converted.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/MakeR8Set.ecl" name="PBblas.internal.MakeR8Set" target="../../pbblas/internal/maker8set.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/potrf.ecl" name="PBblas.potrf" target="../../pbblas/potrf.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/trsm.ecl" name="PBblas.trsm" target="../../pbblas/trsm.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/FieldAggregates.ecl" name="ML_Core.FieldAggregates" target="../../ml_core/fieldaggregates.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Utils/SequenceInField.ecl" name="ML_Core.Utils.SequenceInField" target="../../ml_core/utils/sequenceinfield.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Math/Beta.ecl" name="ML_Core.Math.Beta" target="../../ml_core/math/beta.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Math/log_gamma.ecl" name="ML_Core.Math.log_gamma" target="../../ml_core/math/log_gamma.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Math/gamma.ecl" name="ML_Core.Math.gamma" target="../../ml_core/math/gamma.ecl.xml"/></Meta>

@@ -1,0 +1,164 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Meta>
+ <Source name="ML_Core.Tests.Check_Dist" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Tests/Check_Dist.ecl" target="check_dist.ecl.xml">
+  <Import body="0" end="7" fullname="ML_Core.Math.Distributions" inherit_type="local" line="1" name="Distributions" ref="ml_core.math.distributions" start="7" target="../math/distributions.ecl.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0" end="55" fullname="ML_Core" inherit_type="local" line="2" name="ML_Core" ref="ml_core" start="55" target="../pkg.toc.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0" end="78" fullname="python" inherit_type="local" line="3" name="python" ref="python" remotescope="1" start="78" target="../../python/pkg.toc.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Definition body="142" end="392" fullname="ml_core.tests.scipy_dist_cdf" inherit_type="local" line="4" name="scipy_dist_cdf" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Tests/Check_Dist.ecl" start="86">
+   <Type>embed</Type>
+   <Signature pre="" post="" name="REAL8 scipy_dist_cdf(REAL8 x, REAL8 df, INTEGER dist)">REAL8 scipy_dist_cdf(REAL8 x, REAL8 df, INTEGER dist)</Signature><Params>
+    <Param name="x"/>
+    <Param name="df"/>
+    <Param name="dist"/>
+   </Params>
+  </Definition>
+  <Definition body="449" end="697" fullname="ml_core.tests.scipy_dist_ppf" inherit_type="local" line="15" name="scipy_dist_ppf" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Tests/Check_Dist.ecl" start="393">
+   <Type>embed</Type>
+   <Signature pre="" post="" name="REAL8 scipy_dist_ppf(REAL8 x, REAL8 df, INTEGER dist)">REAL8 scipy_dist_ppf(REAL8 x, REAL8 df, INTEGER dist)</Signature><Params>
+    <Param name="x"/>
+    <Param name="df"/>
+    <Param name="dist"/>
+   </Params>
+  </Definition>
+  <Definition body="735" end="960" fullname="ml_core.tests.diff_tolerance" inherit_type="local" line="26" name="diff_tolerance" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Tests/Check_Dist.ecl" start="698">
+   <Type>function</Type>
+   <Signature pre="" post="" name="REAL8 diff_tolerance(STRING4 test)">REAL8 diff_tolerance(STRING4 test)</Signature><Params>
+    <Param name="test"/>
+   </Params>
+  </Definition>
+  <Definition body="976" end="1105" fullname="ml_core.tests.prob_values" inherit_type="local" line="32" name="prob_values" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Tests/Check_Dist.ecl" start="962">
+   <Signature pre="" post="" name="prob_values">prob_values</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1120" end="1177" fullname="ml_core.tests.dist_values" inherit_type="local" line="34" name="dist_values" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Tests/Check_Dist.ecl" start="1106">
+   <Signature pre="" post="" name="dist_values">dist_values</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1190" end="1254" fullname="ml_core.tests.df_values" inherit_type="local" line="35" name="df_values" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Tests/Check_Dist.ecl" start="1178">
+   <Signature pre="" post="" name="df_values">df_values</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1277" end="1327" fullname="ml_core.tests.test" inherit_type="local" line="36" name="test" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Tests/Check_Dist.ecl" start="1255">
+   <Signature pre="" post="" name="SET OF STRING4 test">SET OF STRING4 test</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1354" end="1380" fullname="ml_core.tests.inv_test" inherit_type="local" line="37" name="inv_test" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Tests/Check_Dist.ecl" start="1328">
+   <Signature pre="" post="" name="SET OF STRING4 inv_test">SET OF STRING4 inv_test</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1388" end="1552" fullname="ml_core.tests.work" inherit_type="local" line="38" name="Work" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Tests/Check_Dist.ecl" start="1381">
+   <Type>record</Type>
+   <Field name="df"/>
+   <Field name="prob"/>
+   <Field name="ecl_ppf"/>
+   <Field name="scipy_ppf"/>
+   <Field name="ppf_diff"/>
+   <Field name="dist"/>
+   <Field name="ecl_cdf"/>
+   <Field name="scipy_cdf"/>
+   <Signature pre="" post="" name="Work">Work</Signature><Field name="cdf_diff"/>
+  </Definition>
+  <Definition body="1591" end="1616" fullname="ml_core.tests.abs_max_abs" inherit_type="local" line="49" name="abs_max_abs" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Tests/Check_Dist.ecl" start="1553">
+   <Type>function</Type>
+   <Signature pre="" post="" name="REAL8 abs_max_abs(REAL8 a, REAL8 b)">REAL8 abs_max_abs(REAL8 a, REAL8 b)</Signature><Params>
+    <Param name="a"/>
+    <Param name="b"/>
+   </Params>
+  </Definition>
+  <Definition body="1651" end="1691" fullname="ml_core.tests.fixed" inherit_type="local" line="50" name="fixed" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Tests/Check_Dist.ecl" start="1617">
+   <Type>function</Type>
+   <Signature pre="" post="" name="BOOLEAN fixed(REAL8 a, REAL8 b)">BOOLEAN fixed(REAL8 a, REAL8 b)</Signature><Params>
+    <Param name="a"/>
+    <Param name="b"/>
+   </Params>
+  </Definition>
+  <Definition body="1726" end="1765" fullname="ml_core.tests.divisor" inherit_type="local" line="51" name="divisor" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Tests/Check_Dist.ecl" start="1692">
+   <Type>function</Type>
+   <Signature pre="" post="" name="REAL8 divisor(REAL8 a, REAL8 b)">REAL8 divisor(REAL8 a, REAL8 b)</Signature><Params>
+    <Param name="a"/>
+    <Param name="b"/>
+   </Params>
+  </Definition>
+  <Definition body="1801" end="1824" fullname="ml_core.tests.calc_err" inherit_type="local" line="52" name="calc_err" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Tests/Check_Dist.ecl" start="1766">
+   <Type>function</Type>
+   <Signature pre="" post="" name="REAL8 calc_err(REAL8 a, REAL8 b)">REAL8 calc_err(REAL8 a, REAL8 b)</Signature><Params>
+    <Param name="a"/>
+    <Param name="b"/>
+   </Params>
+  </Definition>
+  <Definition body="1872" end="1889" fullname="ml_core.tests.check_err" inherit_type="local" line="53" name="check_err" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Tests/Check_Dist.ecl" start="1825">
+   <Type>function</Type>
+   <Signature pre="" post="" name="BOOLEAN check_err(REAL8 a, REAL8 b, REAL8 t)">BOOLEAN check_err(REAL8 a, REAL8 b, REAL8 t)</Signature><Params>
+    <Param name="a"/>
+    <Param name="b"/>
+    <Param name="t"/>
+   </Params>
+  </Definition>
+  <Definition body="1924" end="2753" fullname="ml_core.tests.run" inherit_type="local" line="54" name="run" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Tests/Check_Dist.ecl" start="1890">
+   <Type>transform</Type>
+   <Params>
+    <Param name="c"/>
+    <Param name="d"/>
+   </Params>
+   <Signature pre="" post="" name="Work run(UNSIGNED c, INTEGER d)">Work run(UNSIGNED c, INTEGER d)</Signature><Return>work</Return>
+  </Definition>
+  <Definition body="2763" end="2891" fullname="ml_core.tests.report" inherit_type="local" line="74" name="Report" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Tests/Check_Dist.ecl" start="2754">
+   <Type>record</Type>
+   <Field name="test"/>
+   <Field name="OK"/>
+   <Field name="df"/>
+   <Field name="inp_value"/>
+   <Field name="ecl_value"/>
+   <Field name="py_value"/>
+   <Signature pre="" post="" name="Report">Report</Signature><Field name="diff"/>
+  </Definition>
+  <Definition body="2932" end="3452" fullname="ml_core.tests.makereport" inherit_type="local" line="83" name="makeReport" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Tests/Check_Dist.ecl" start="2892">
+   <Type>transform</Type>
+   <Params>
+    <Param name="w"/>
+    <Param name="c"/>
+   </Params>
+   <Signature pre="" post="" name="Report makeReport(Work w, UNSIGNED c)">Report makeReport(Work w, UNSIGNED c)</Signature><Return>report</Return>
+  </Definition>
+  <Definition body="3459" end="3505" fullname="ml_core.tests.ts1" inherit_type="local" line="95" name="ts1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Tests/Check_Dist.ecl" start="3453">
+   <Signature pre="" post="" name="ts1">ts1</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="3512" end="3574" fullname="ml_core.tests.ts2" inherit_type="local" line="96" name="ts2" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Tests/Check_Dist.ecl" start="3506">
+   <Signature pre="" post="" name="ts2">ts2</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="3581" end="3643" fullname="ml_core.tests.ts3" inherit_type="local" line="97" name="ts3" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Tests/Check_Dist.ecl" start="3575">
+   <Signature pre="" post="" name="ts3">ts3</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="3649" end="3695" fullname="ml_core.tests.r1" inherit_type="local" line="98" name="r1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Tests/Check_Dist.ecl" start="3644">
+   <Signature pre="" post="" name="r1">r1</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="3701" end="3749" fullname="ml_core.tests.r2" inherit_type="local" line="99" name="r2" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Tests/Check_Dist.ecl" start="3696">
+   <Signature pre="" post="" name="r2">r2</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="3755" end="3803" fullname="ml_core.tests.r3" inherit_type="local" line="100" name="r3" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Tests/Check_Dist.ecl" start="3750">
+   <Signature pre="" post="" name="r3">r3</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="3827" end="4079" fullname="ml_core.tests.df_cat" inherit_type="local" line="101" name="df_cat" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Tests/Check_Dist.ecl" start="3804">
+   <Type>function</Type>
+   <Signature pre="" post="" name="df_cat(UNSIGNED4 df)">df_cat(UNSIGNED4 df)</Signature><Params>
+    <Param name="df"/>
+   </Params>
+  </Definition>
+  <Definition body="4086" end="4300" fullname="ml_core.tests.rpt" inherit_type="local" line="106" name="rpt" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Tests/Check_Dist.ecl" start="4080">
+   <Signature pre="" post="" name="rpt">rpt</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="4310" end="4357" fullname="ml_core.tests.errors" inherit_type="local" line="111" name="errors" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Tests/Check_Dist.ecl" start="4301">
+   <Signature pre="" post="" name="errors">errors</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="4374" end="4805" fullname="ml_core.tests.error_actions" inherit_type="local" line="112" name="error_actions" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Tests/Check_Dist.ecl" start="4358">
+   <Signature pre="" post="" name="error_actions">error_actions</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="4815" end="4875" fullname="ml_core.tests.passed" inherit_type="local" line="120" name="passed" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Tests/Check_Dist.ecl" start="4806">
+   <Signature pre="" post="" name="passed">passed</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="4897" end="4940" exported="1" fullname="ml_core.tests.check_dist" inherit_type="local" line="122" name="Check_Dist" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Tests/Check_Dist.ecl" start="4877">
+   <Signature pre="" post="" name="Check_Dist">Check_Dist</Signature><Type>attribute</Type>
+  </Definition>
+ </Source>
+ <Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Math/Distributions.ecl" name="ML_Core.Math.Distributions" target="../math/distributions.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Constants.ecl" name="ML_Core.Constants" target="../constants.ecl.xml"/><Depends sourcePath="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/plugins/python.ecllib" target="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/plugins/python.ecllib"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Math/DoubleFac.ecl" name="ML_Core.Math.DoubleFac" target="../math/doublefac.ecl.xml"/></Meta>

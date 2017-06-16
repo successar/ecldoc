@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
+	<title>PBblas.performance.SolvePerfMyrPrep</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
+	<link href="../../../css/simple-sidebar.css" rel="stylesheet">
+
+</head>
+
+<body>
+	<nav class="navbar topbar">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a href="#menu-toggle" id="menu-toggle" class="navbar-brand glyphicon glyphicon-menu-hamburger ham"></a>
+			</div>
+			<div class="navbar-header" style="margin-left: 20px;">
+				<span class="navbar-brand">PBblas.performance.SolvePerfMyrPrep</span>
+			</div>
+			<div class="navbar-collapse collapse">
+			<ul class="nav navbar-nav">
+				<li><a href="#ecldoc-section-import" class="topbar">Imports</a></li>
+				<li><a href="#ecldoc-section-tree" class="topbar">Tree</a></li>
+				<li><a href="#ecldoc-section-desc" class="topbar">Descriptions</a></li>
+			</ul>
+			</div>
+		</div>
+	</nav>
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		<div id="sidebar-wrapper">
+			<ul class="sidebar-nav">
+				<li class="sidebar-brand">
+					<a href="pkg.toc.html">
+						Up
+					</a>
+				</li>
+				
+				<li>
+					<a href="multiplyperfmyrprep.ecl.html">multiplyperfmyrprep.ecl</a>
+				</li>
+				
+				<li>
+					<a href="multiplyperfmyr.ecl.html">multiplyperfmyr.ecl</a>
+				</li>
+				
+				<li>
+					<a href="multiplyperf.ecl.html">multiplyperf.ecl</a>
+				</li>
+				
+				<li>
+					<a href="solveperfmyrprep.ecl.html">solveperfmyrprep.ecl</a>
+				</li>
+				
+				<li>
+					<a href="multiplyperfprep.ecl.html">multiplyperfprep.ecl</a>
+				</li>
+				
+				<li>
+					<a href="solveperfprep.ecl.html">solveperfprep.ecl</a>
+				</li>
+				
+				<li>
+					<a href="solveperfmyr.ecl.html">solveperfmyr.ecl</a>
+				</li>
+				
+				<li>
+					<a href="solveperf.ecl.html">solveperf.ecl</a>
+				</li>
+				
+				<li>
+					<a href="hadamardproductperf.ecl.html">hadamardproductperf.ecl</a>
+				</li>
+				
+			</ul>
+		</div>
+
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<section id="ecldoc-section-import">
+					<h3 class="page-header">IMPORTS</h3>
+					<ul class="pagination">
+						<li>
+							<a href="../pkg.toc.html">
+								pbblas
+							</a>
+							</li>
+						<li>
+							<a href="../internal/pkg.toc.html">
+								pbblas.internal
+							</a>
+							</li>
+						<li>
+							<a href="../matutils.ecl.html">
+								pbblas.matutils
+							</a>
+							</li>
+						<li>
+							<a href="../types.ecl.html">
+								pbblas.types
+							</a>
+							</li>
+						<li>
+							<a href="../internal/types.ecl.html">
+								pbblas.internal.types
+							</a>
+							</li>
+						<li>
+							<a href="../test/pkg.toc.html">
+								pbblas.test
+							</a>
+							</li>
+						<li>
+							<a href="../test/maketestmatrix.ecl.html">
+								pbblas.test.maketestmatrix
+							</a>
+							</li>
+						</ul>
+				</section>
+				<section id="ecldoc-section-tree">
+					<h3 class="page-header">DEFINITION TREE</h3>
+					<ul class="tree">
+						<li id="t-pbblas-performance-matrix_t">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-performance-matrix_t">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">matrix_t</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-performance-matrix_t" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-ecldoc-Triangle">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#decldoc-Triangle">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">Triangle</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="ecldoc-Triangle" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-ecldoc-Diagonal">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#decldoc-Diagonal">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">Diagonal</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="ecldoc-Diagonal" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-performance-upper">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-performance-upper">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">Upper</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-performance-upper" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-performance-lower">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-performance-lower">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">Lower</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-performance-lower" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-performance-layout_cell">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-performance-layout_cell">
+								RECORD :
+								<span class="sign-pre"></span>
+								<span class="sign-name">Layout_Cell</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-performance-layout_cell" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-ecldoc-Side">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#decldoc-Side">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">Side</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="ecldoc-Side" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-performance-test_size">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-performance-test_size">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">UNSIGNED1 test_size</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-performance-test_size" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-performance-n">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-performance-n">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">N</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-performance-n" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-performance-m">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-performance-m">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">M</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-performance-m" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-performance-myriad_count_s">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-performance-myriad_count_s">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">Myriad_Count_s</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-performance-myriad_count_s" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-performance-myriad_count_m">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-performance-myriad_count_m">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">Myriad_Count_m</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-performance-myriad_count_m" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-performance-myriad_count_l">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-performance-myriad_count_l">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">Myriad_count_l</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-performance-myriad_count_l" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-performance-a">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-performance-a">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">A</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-performance-a" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-performance-x">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-performance-x">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">X</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-performance-x" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-performance-b0">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-performance-b0">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">B0</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-performance-b0" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-performance-b">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-performance-b">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">B</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-performance-b" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-performance-make_myriad">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-performance-make_myriad">
+								TRANSFORM :
+								<span class="sign-pre"></span>
+								<span class="sign-name">Layout_Cell make_myriad(Layout_Cell d, UNSIGNED c)</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-performance-make_myriad" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-performance-a_myr_s">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-performance-a_myr_s">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">A_myr_s</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-performance-a_myr_s" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-performance-b_myr_s">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-performance-b_myr_s">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">B_myr_s</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-performance-b_myr_s" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-performance-a_myr_m">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-performance-a_myr_m">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">A_myr_m</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-performance-a_myr_m" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-performance-b_myr_m">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-performance-b_myr_m">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">B_myr_m</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-performance-b_myr_m" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-performance-a_myr_l">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-performance-a_myr_l">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">A_myr_l</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-performance-a_myr_l" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-performance-b_myr_l">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-performance-b_myr_l">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">B_myr_l</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-performance-b_myr_l" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						</ul>
+				</section>
+				<section id="ecldoc-section-desc">
+					<h3 class="page-header">DESCRIPTIONS</h3>
+					<div class="panel-group">
+						<div class="panel panel-info" id="dpbblas-performance-matrix_t">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">matrix_t</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-performance-matrix_t" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="decldoc-Triangle">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">Triangle</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-ecldoc-Triangle" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Enumeration for Triangle type WARNING: type used in C++ attribute
+									</div>
+								</div>
+								<br/>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="decldoc-Diagonal">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">Diagonal</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-ecldoc-Diagonal" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Enumeration for Diagonal type WARNING: type used in C++ attribute
+									</div>
+								</div>
+								<br/>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-performance-upper">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">Upper</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-performance-upper" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-performance-lower">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">Lower</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-performance-lower" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-performance-layout_cell">
+							<div class="panel-heading">
+								<div class="type">
+									RECORD
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">Layout_Cell</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-performance-layout_cell" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Layout for Matrix Cell Main representation of Matrix cell at interface to all PBBlas functions. Matrixes are represented as DATASET(Layout_Cell), where each cell describes the row and column position of the cell as well as its value. Only the non-zero cells need to be contained in the dataset in order to describe the matrix since all unspecified cells are considered to have a value of zero. The cell also contains a work-item number that allows multiple separate matrixes to be carried in the same dataset. This supports the "myriad" style interface that allows the same operations to be performed on many different sets of data at once. Note that these matrixes do not have an explicit size. They are sized implicitly, based on the maximum row and column presented in the data. A matrix can be converted to an explicit dense form (see matrix_t) by using the utility module MakeR8Set. This module should only be used for known small matrixes (< 1M cells) or for partitions of a larger matrix. The Converted module provides utility functions to convert to and from a set of partitions (See Layout_parts).
+									</div>
+								</div>
+								<br/>
+								
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Fields</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td width="20%"><b>wi_id</b> </td>
+												<td>Work Item Number -- An identifier from 1 to 64K-1 that separates and identifies individual matrixes</td>
+											</tr>
+											<tr>
+												<td width="20%"><b>x</b> </td>
+												<td>1-based row position within the matrix</td>
+											</tr>
+											<tr>
+												<td width="20%"><b>y</b> </td>
+												<td>1-based column position within the matrix</td>
+											</tr>
+											<tr>
+												<td width="20%"><b>v</b> </td>
+												<td>Real value for the cell</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								</div>
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-md-1">Also See</div>
+									<div class="col-md-11">
+										<ul>
+											<li><b>matrix_t</b></li>
+											<li><b>Std/PBblas/MakeR8Set.ecl</b></li>
+											<li><b>Std/PBblas/Converted.ecl WARNING: Used as C++ attribute. Do not change without corresponding changes to MakeR8Set.</b></li>
+											</ul>
+									</div>
+								</div>
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="decldoc-Side">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">Side</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-ecldoc-Side" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Enumeration for Side type WARNING: type used in C++ attribute
+									</div>
+								</div>
+								<br/>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-performance-test_size">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">UNSIGNED1 test_size</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-performance-test_size" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-performance-n">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">N</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-performance-n" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-performance-m">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">M</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-performance-m" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-performance-myriad_count_s">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">Myriad_Count_s</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-performance-myriad_count_s" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-performance-myriad_count_m">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">Myriad_Count_m</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-performance-myriad_count_m" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-performance-myriad_count_l">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">Myriad_count_l</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-performance-myriad_count_l" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-performance-a">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">A</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-performance-a" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-performance-x">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">X</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-performance-x" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-performance-b0">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">B0</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-performance-b0" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Extended Parallel Block Matrix Multiplication Module Implements: Result <- alpha * op(A)op(B) + beta * C. op is No Transpose or Transpose. Multiplies two matrixes A and B, with an optional pre-multiply transpose for each Optionally scales the product by the scalar "alpha". Then adds an optional C matrix to the product after scaling C by the scalar "beta". A, B, and C are specified as DATASET(Layout_Cell), as is the Resulting matrix. Layout_Cell describes a sparse matrix stored as a list of x, y, and value. This interface also provides a "Myriad" capability allowing multiple similar operations to be performed on independent sets of matrixes in parallel. This is done by use of the work-item id (wi_id) in each cell of the matrixes. Cells with the same wi_id are considered part of the same matrix. In the myriad form, each input matrix A, B, and (optionally) C can contain many independent matrixes. The wi_ids are matched up such that each operation involves the A, B, and C with the same wi_id. A and B must therefore contain the same set of wi_ids, while C is optional for any wi_id. The same parameters: alpha, beta, transposeA, and transposeB are used for all work-items. The result will contain cells from all provided work-items. Result has same shape as C if provided. Note that matrixes are not explicitly dimensioned. The shape is determined by the highest value of x and y for each work-item.
+									</div>
+								</div>
+								<br/>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>transposeA</b> </td>
+												<td>Boolean indicating whether matrix A should be transposed before multiplying</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>transposeB</b> </td>
+												<td>Same as above but for matrix B</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>alpha</b> </td>
+												<td>Scalar multiplier for alpha * A * B</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>A_in</b> </td>
+												<td>'A' matrix (multiplier) in Layout_Cell format</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>B_in</b> </td>
+												<td>Same as above for the 'B' matrix (multiplicand)</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>C_in</b> </td>
+												<td>Same as above for the 'C' matrix (addend). May be omitted.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>beta</b> </td>
+												<td>A scalar multiplier for beta * C, scales the C matrix before addition. May be omitted.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>Result matrix in Layout_Cell format.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-md-1">Also See</div>
+									<div class="col-md-11">
+										<ul>
+											<li><b>PBblas/Types.Layout_Cell</b></li>
+											</ul>
+									</div>
+								</div>
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-performance-b">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">B</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-performance-b" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-performance-make_myriad">
+							<div class="panel-heading">
+								<div class="type">
+									TRANSFORM
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">Layout_Cell make_myriad(Layout_Cell d, UNSIGNED c)</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-performance-make_myriad" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-performance-a_myr_s">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">A_myr_s</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-performance-a_myr_s" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-performance-b_myr_s">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">B_myr_s</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-performance-b_myr_s" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-performance-a_myr_m">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">A_myr_m</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-performance-a_myr_m" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-performance-b_myr_m">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">B_myr_m</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-performance-b_myr_m" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-performance-a_myr_l">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">A_myr_l</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-performance-a_myr_l" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-performance-b_myr_l">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">B_myr_l</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-performance-b_myr_l" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						</div>
+				</section>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+		$("#menu-toggle").click(function(e) {
+			e.preventDefault();
+			$("#wrapper").toggleClass("toggled");
+		});
+	</script>
+	<script>
+		$(document).ready(function(){
+			$('.tree-link').click(function(e) {
+				var loc = $(this).attr('href');
+				$(loc).parents().collapse('show');
+				return true;
+			});
+		});
+	</script>
+</body>
+</html>

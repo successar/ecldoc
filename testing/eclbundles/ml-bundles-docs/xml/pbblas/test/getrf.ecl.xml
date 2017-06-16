@@ -1,0 +1,445 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Meta>
+ <Source name="PBblas.test.getrf" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/getrf.ecl" target="getrf.ecl.xml">
+  <Import body="0" end="251" fullname="PBblas" inherit_type="local" line="5" name="PBblas" ref="pbblas" start="251" target="../pkg.toc.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0" end="273" fullname="PBblas.internal" inherit_type="local" line="6" name="int" ref="pbblas.internal" remotescope="1" start="273" target="../internal/pkg.toc.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0" end="304" fullname="PBblas.internal.Types" inherit_type="local" line="7" name="iTypes" ref="pbblas.internal.types" start="304" target="../internal/types.ecl.xml">
+   <Type>attribute</Type>
+   <Documentation> <content>Internal Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes.</content>
+   </Documentation>
+  </Import>
+  <Import body="0" end="332" fullname="PBblas.test" inherit_type="local" line="8" name="Tests" ref="pbblas.test" start="332" target="pkg.toc.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0" end="351" fullname="PBblas.test.MakeTestMatrix" inherit_type="local" line="9" name="tm" ref="pbblas.test.maketestmatrix" start="351" target="maketestmatrix.ecl.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0" end="386" fullname="PBblas.Types" inherit_type="local" line="10" name="Types" ref="pbblas.types" start="386" target="../types.ecl.xml">
+   <Type>attribute</Type>
+   <Documentation> <content>Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes.</content>
+   </Documentation>
+  </Import>
+  <Import body="0" end="407" fullname="PBblas.test.DiffReport" inherit_type="local" line="11" name="dr" ref="pbblas.test.diffreport" start="407" target="diffreport.ecl.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0" end="438" fullname="std.BLAS" inherit_type="local" line="12" name="BLAS" ref="std.blas" start="438" target="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/BLAS.ecl">
+   <Type>attribute</Type>
+  </Import>
+  <Definition body="84" end="103" fullname="pbblas.test.layout_cell" inherit_type="local" line="4" name="Layout_Cell" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/test/MakeTestMatrix.ecl" start="70">
+   <Type>record</Type>
+   <Field name="wi_id"/>
+   <Field name="x"/>
+   <Field name="y"/>
+   <Field name="v"/>
+   <Signature pre="" post="" name="Layout_Cell">Layout_Cell</Signature><Documentation> <field><name>wi_id</name><desc>Work Item Number -- An identifier from 1 to 64K-1 that separates and identifies individual matrixes</desc></field>
+    <field><name>x</name><desc>1-based row position within the matrix</desc></field>
+    <field><name>y</name><desc>1-based column position within the matrix</desc></field>
+    <field><name>v</name><desc>Real value for the cell</desc></field>
+    <see>matrix_t</see>
+    <see>Std/PBblas/MakeR8Set.ecl</see>
+    <see>Std/PBblas/Converted.ecl WARNING: Used as C++ attribute. Do not change without corresponding changes to MakeR8Set.</see>
+    <content>Layout for Matrix Cell Main representation of Matrix cell at interface to all PBBlas functions. Matrixes are represented as DATASET(Layout_Cell), where each cell describes the row and column position of the cell as well as its value. Only the non-zero cells need to be contained in the dataset in order to describe the matrix since all unspecified cells are considered to have a value of zero. The cell also contains a work-item number that allows multiple separate matrixes to be carried in the same dataset. This supports the "myriad" style interface that allows the same operations to be performed on many different sets of data at once. Note that these matrixes do not have an explicit size. They are sized implicitly, based on the maximum row and column presented in the data. A matrix can be converted to an explicit dense form (see matrix_t) by using the utility module MakeR8Set. This module should only be used for known small matrixes (&lt; 1M cells) or for partitions of a larger matrix. The Converted module provides utility functions to convert to and from a set of partitions (See Layout_parts).</content>
+   </Documentation>
+  </Definition>
+  <Definition body="454" end="470" inherit_type="local" line="13" name="tri" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/getrf.ecl" start="448" fullname="ecldoc-tri">
+   <Type>attribute</Type>
+   <Signature pre="" post="" name="tri">tri</Signature><Documentation> <content>Enumeration for Triangle type WARNING: type used in C++ attribute</content>
+   </Documentation>
+  </Definition>
+  <Definition body="516" end="533" fullname="pbblas.test.matrix_t" inherit_type="local" line="15" name="matrix_t" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/getrf.ecl" start="505">
+   <Signature pre="" post="" name="matrix_t">matrix_t</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="541" end="557" inherit_type="local" line="16" name="diag" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/getrf.ecl" start="534" fullname="ecldoc-diag">
+   <Type>attribute</Type>
+   <Signature pre="" post="" name="diag">diag</Signature><Documentation> <content>Enumeration for Diagonal type WARNING: type used in C++ attribute</content>
+   </Documentation>
+  </Definition>
+  <Definition body="654" end="660" fullname="pbblas.test.max_partition_size_or" inherit_type="local" line="19" name="max_partition_size_or" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/getrf.ecl" start="630">
+   <Signature pre="" post="" name="max_partition_size_or">max_partition_size_or</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="672" end="742" fullname="pbblas.test.override" inherit_type="local" line="20" name="override" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/getrf.ecl" start="661">
+   <Signature pre="" post="" name="override">override</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="786" end="789" fullname="pbblas.test.n1" inherit_type="local" line="23" name="N1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/getrf.ecl" start="781">
+   <Signature pre="" post="" name="N1">N1</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="795" end="798" fullname="pbblas.test.m1" inherit_type="local" line="24" name="M1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/getrf.ecl" start="790">
+   <Signature pre="" post="" name="M1">M1</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="832" end="865" fullname="pbblas.test.prea1" inherit_type="local" line="27" name="preA1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/getrf.ecl" start="824">
+   <Signature pre="" post="" name="preA1">preA1</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="917" end="962" fullname="pbblas.test.a1" inherit_type="local" line="30" name="A1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/getrf.ecl" start="912">
+   <Type>attribute</Type>
+   <Signature pre="" post="" name="A1">A1</Signature><Documentation> <see>PBblas/Types.Layout_Cell</see>
+    <return>Result matrix in Layout_Cell format.</return>
+    <param><name>transposeA</name><desc>Boolean indicating whether matrix A should be transposed before multiplying</desc></param>
+    <param><name>transposeB</name><desc>Same as above but for matrix B</desc></param>
+    <param><name>alpha</name><desc>Scalar multiplier for alpha * A * B</desc></param>
+    <param><name>A_in</name><desc>'A' matrix (multiplier) in Layout_Cell format</desc></param>
+    <param><name>B_in</name><desc>Same as above for the 'B' matrix (multiplicand)</desc></param>
+    <param><name>C_in</name><desc>Same as above for the 'C' matrix (addend). May be omitted.</desc></param>
+    <param><name>beta</name><desc>A scalar multiplier for beta * C, scales the C matrix before addition. May be omitted.</desc></param>
+    <content>Extended Parallel Block Matrix Multiplication Module Implements: Result &lt;- alpha * op(A)op(B) + beta * C. op is No Transpose or Transpose. Multiplies two matrixes A and B, with an optional pre-multiply transpose for each Optionally scales the product by the scalar "alpha". Then adds an optional C matrix to the product after scaling C by the scalar "beta". A, B, and C are specified as DATASET(Layout_Cell), as is the Resulting matrix. Layout_Cell describes a sparse matrix stored as a list of x, y, and value. This interface also provides a "Myriad" capability allowing multiple similar operations to be performed on independent sets of matrixes in parallel. This is done by use of the work-item id (wi_id) in each cell of the matrixes. Cells with the same wi_id are considered part of the same matrix. In the myriad form, each input matrix A, B, and (optionally) C can contain many independent matrixes. The wi_ids are matched up such that each operation involves the A, B, and C with the same wi_id. A and B must therefore contain the same set of wi_ids, while C is optional for any wi_id. The same parameters: alpha, beta, transposeA, and transposeB are used for all work-items. The result will contain cells from all provided work-items. Result has same shape as C if provided. Note that matrixes are not explicitly dimensioned. The shape is determined by the highest value of x and y for each work-item.</content>
+   </Documentation>
+  </Definition>
+  <Definition body="996" end="1014" fullname="pbblas.test.a1_factored" inherit_type="local" line="33" name="A1_factored" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/getrf.ecl" start="982">
+   <Type>attribute</Type>
+   <Signature pre="" post="" name="A1_factored">A1_factored</Signature><Documentation> <see>Types.Layout_Cell</see>
+    <see>ExtractTri</see>
+    <return>Resulting factored matrix in Layout_Cell format</return>
+    <param><name>A</name><desc>The input matrix in Types.Layout_Cell format</desc></param>
+    <content>LU Factorization Splits a matrix into Lower and Upper triangular factors Produces composite LU matrix for the diagonal blocks. Iterates through the matrix a row of blocks and column of blocks at a time. Partition A into M block rows and N block columns. The A11 cell is a single block. A12 is a single row of blocks with N-1 columns. A21 is a single column of blocks with M-1 rows. A22 is a sub-matrix of M-1 x N-1 blocks. | A11 A12 | | L11 0 | | U11 U12 | | A21 A22 | == | L21 L22 | * | 0 U22 | | L11*U11 L11*U12 | == | L21*U11 L21*U12 + L22*U22 | Based upon PB-BLAS: A set of parallel block basic linear algebra subprograms by Choi and Dongarra This module supports the "Myriad" style interface, allowing many independent problems to be worked on at once. The A matrix can contain multiple matrixes to be factored, indicated by different values for work-item id (wi_id). Note: The returned matrix includes both the upper and lower factors. This matrix can be used directly by trsm which will only use the part indicated by trsm's 'triangle' parameter (i.e. upper or lower). To extract the upper or lower triangle explicitly for other purposes, use the ExtractTri function. When passing the Lower matrix to the triangle solver (trsm), set the "Diagonal" parameter to "UnitTri". This is necessary because both triangular matrixes returned from this function are packed into a square matrix with only one diagonal. By convention, The Lower triangle is assumed to be a Unit Triangle (diagonal all ones), so the diagonal contained in the returned matrix is for the Upper factor and must be ignored (i.e. assumed to be all ones) when referencing the Lower triangle.</content>
+   </Documentation>
+  </Definition>
+  <Definition body="1058" end="1118" fullname="pbblas.test.u1" inherit_type="local" line="36" name="U1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/getrf.ecl" start="1053">
+   <Type>attribute</Type>
+   <Signature pre="" post="" name="U1">U1</Signature><Documentation> <see>Std.PBblas.Types</see>
+    <return>Matrix of cells in Layout_Cell format representing a triangular matrix (upper or lower)</return>
+    <param><name>tri</name><desc>Triangle type: Upper or Lower (see Types.Triangle)</desc></param>
+    <param><name>dt</name><desc>Diagonal type: Unit or non unit (see Types.Diagonal)</desc></param>
+    <param><name>A</name><desc>Matrix of cells. See Types.Layout_Cell</desc></param>
+    <content>Extract the upper or lower triangle from the composite output from getrf (LU Factorization).</content>
+   </Documentation>
+  </Definition>
+  <Definition body="1124" end="1181" fullname="pbblas.test.l1" inherit_type="local" line="37" name="L1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/getrf.ecl" start="1119">
+   <Type>attribute</Type>
+   <Signature pre="" post="" name="L1">L1</Signature><Documentation> <see>Std.PBblas.Types</see>
+    <return>Matrix of cells in Layout_Cell format representing a triangular matrix (upper or lower)</return>
+    <param><name>tri</name><desc>Triangle type: Upper or Lower (see Types.Triangle)</desc></param>
+    <param><name>dt</name><desc>Diagonal type: Unit or non unit (see Types.Diagonal)</desc></param>
+    <param><name>A</name><desc>Matrix of cells. See Types.Layout_Cell</desc></param>
+    <content>Extract the upper or lower triangle from the composite output from getrf (LU Factorization).</content>
+   </Documentation>
+  </Definition>
+  <Definition body="1243" end="1283" fullname="pbblas.test.cmp1" inherit_type="local" line="40" name="cmp1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/getrf.ecl" start="1236">
+   <Type>attribute</Type>
+   <Signature pre="" post="" name="cmp1">cmp1</Signature><Documentation> <see>PBblas/Types.Layout_Cell</see>
+    <return>Result matrix in Layout_Cell format.</return>
+    <param><name>transposeA</name><desc>Boolean indicating whether matrix A should be transposed before multiplying</desc></param>
+    <param><name>transposeB</name><desc>Same as above but for matrix B</desc></param>
+    <param><name>alpha</name><desc>Scalar multiplier for alpha * A * B</desc></param>
+    <param><name>A_in</name><desc>'A' matrix (multiplier) in Layout_Cell format</desc></param>
+    <param><name>B_in</name><desc>Same as above for the 'B' matrix (multiplicand)</desc></param>
+    <param><name>C_in</name><desc>Same as above for the 'C' matrix (addend). May be omitted.</desc></param>
+    <param><name>beta</name><desc>A scalar multiplier for beta * C, scales the C matrix before addition. May be omitted.</desc></param>
+    <content>Extended Parallel Block Matrix Multiplication Module Implements: Result &lt;- alpha * op(A)op(B) + beta * C. op is No Transpose or Transpose. Multiplies two matrixes A and B, with an optional pre-multiply transpose for each Optionally scales the product by the scalar "alpha". Then adds an optional C matrix to the product after scaling C by the scalar "beta". A, B, and C are specified as DATASET(Layout_Cell), as is the Resulting matrix. Layout_Cell describes a sparse matrix stored as a list of x, y, and value. This interface also provides a "Myriad" capability allowing multiple similar operations to be performed on independent sets of matrixes in parallel. This is done by use of the work-item id (wi_id) in each cell of the matrixes. Cells with the same wi_id are considered part of the same matrix. In the myriad form, each input matrix A, B, and (optionally) C can contain many independent matrixes. The wi_ids are matched up such that each operation involves the A, B, and C with the same wi_id. A and B must therefore contain the same set of wi_ids, while C is optional for any wi_id. The same parameters: alpha, beta, transposeA, and transposeB are used for all work-items. The result will contain cells from all provided work-items. Result has same shape as C if provided. Note that matrixes are not explicitly dimensioned. The shape is determined by the highest value of x and y for each work-item.</content>
+   </Documentation>
+  </Definition>
+  <Definition body="1293" end="1341" fullname="pbblas.test.test1" inherit_type="local" line="42" name="test1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/getrf.ecl" start="1285">
+   <Signature pre="" post="" name="test1">test1</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1380" end="1384" fullname="pbblas.test.n2" inherit_type="local" line="45" name="N2" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/getrf.ecl" start="1375">
+   <Signature pre="" post="" name="N2">N2</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1390" end="1394" fullname="pbblas.test.m2" inherit_type="local" line="46" name="M2" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/getrf.ecl" start="1385">
+   <Signature pre="" post="" name="M2">M2</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1404" end="1437" fullname="pbblas.test.prea2" inherit_type="local" line="48" name="preA2" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/getrf.ecl" start="1396">
+   <Signature pre="" post="" name="preA2">preA2</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1459" end="1504" fullname="pbblas.test.a2" inherit_type="local" line="51" name="A2" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/getrf.ecl" start="1454">
+   <Type>attribute</Type>
+   <Signature pre="" post="" name="A2">A2</Signature><Documentation> <see>PBblas/Types.Layout_Cell</see>
+    <return>Result matrix in Layout_Cell format.</return>
+    <param><name>transposeA</name><desc>Boolean indicating whether matrix A should be transposed before multiplying</desc></param>
+    <param><name>transposeB</name><desc>Same as above but for matrix B</desc></param>
+    <param><name>alpha</name><desc>Scalar multiplier for alpha * A * B</desc></param>
+    <param><name>A_in</name><desc>'A' matrix (multiplier) in Layout_Cell format</desc></param>
+    <param><name>B_in</name><desc>Same as above for the 'B' matrix (multiplicand)</desc></param>
+    <param><name>C_in</name><desc>Same as above for the 'C' matrix (addend). May be omitted.</desc></param>
+    <param><name>beta</name><desc>A scalar multiplier for beta * C, scales the C matrix before addition. May be omitted.</desc></param>
+    <content>Extended Parallel Block Matrix Multiplication Module Implements: Result &lt;- alpha * op(A)op(B) + beta * C. op is No Transpose or Transpose. Multiplies two matrixes A and B, with an optional pre-multiply transpose for each Optionally scales the product by the scalar "alpha". Then adds an optional C matrix to the product after scaling C by the scalar "beta". A, B, and C are specified as DATASET(Layout_Cell), as is the Resulting matrix. Layout_Cell describes a sparse matrix stored as a list of x, y, and value. This interface also provides a "Myriad" capability allowing multiple similar operations to be performed on independent sets of matrixes in parallel. This is done by use of the work-item id (wi_id) in each cell of the matrixes. Cells with the same wi_id are considered part of the same matrix. In the myriad form, each input matrix A, B, and (optionally) C can contain many independent matrixes. The wi_ids are matched up such that each operation involves the A, B, and C with the same wi_id. A and B must therefore contain the same set of wi_ids, while C is optional for any wi_id. The same parameters: alpha, beta, transposeA, and transposeB are used for all work-items. The result will contain cells from all provided work-items. Result has same shape as C if provided. Note that matrixes are not explicitly dimensioned. The shape is determined by the highest value of x and y for each work-item.</content>
+   </Documentation>
+  </Definition>
+  <Definition body="1551" end="1569" fullname="pbblas.test.a2_factored" inherit_type="local" line="54" name="A2_factored" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/getrf.ecl" start="1537">
+   <Type>attribute</Type>
+   <Signature pre="" post="" name="A2_factored">A2_factored</Signature><Documentation> <see>Types.Layout_Cell</see>
+    <see>ExtractTri</see>
+    <return>Resulting factored matrix in Layout_Cell format</return>
+    <param><name>A</name><desc>The input matrix in Types.Layout_Cell format</desc></param>
+    <content>LU Factorization Splits a matrix into Lower and Upper triangular factors Produces composite LU matrix for the diagonal blocks. Iterates through the matrix a row of blocks and column of blocks at a time. Partition A into M block rows and N block columns. The A11 cell is a single block. A12 is a single row of blocks with N-1 columns. A21 is a single column of blocks with M-1 rows. A22 is a sub-matrix of M-1 x N-1 blocks. | A11 A12 | | L11 0 | | U11 U12 | | A21 A22 | == | L21 L22 | * | 0 U22 | | L11*U11 L11*U12 | == | L21*U11 L21*U12 + L22*U22 | Based upon PB-BLAS: A set of parallel block basic linear algebra subprograms by Choi and Dongarra This module supports the "Myriad" style interface, allowing many independent problems to be worked on at once. The A matrix can contain multiple matrixes to be factored, indicated by different values for work-item id (wi_id). Note: The returned matrix includes both the upper and lower factors. This matrix can be used directly by trsm which will only use the part indicated by trsm's 'triangle' parameter (i.e. upper or lower). To extract the upper or lower triangle explicitly for other purposes, use the ExtractTri function. When passing the Lower matrix to the triangle solver (trsm), set the "Diagonal" parameter to "UnitTri". This is necessary because both triangular matrixes returned from this function are packed into a square matrix with only one diagonal. By convention, The Lower triangle is assumed to be a Unit Triangle (diagonal all ones), so the diagonal contained in the returned matrix is for the Upper factor and must be ignored (i.e. assumed to be all ones) when referencing the Lower triangle.</content>
+   </Documentation>
+  </Definition>
+  <Definition body="1575" end="1635" fullname="pbblas.test.u2" inherit_type="local" line="55" name="U2" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/getrf.ecl" start="1570">
+   <Type>attribute</Type>
+   <Signature pre="" post="" name="U2">U2</Signature><Documentation> <see>Std.PBblas.Types</see>
+    <return>Matrix of cells in Layout_Cell format representing a triangular matrix (upper or lower)</return>
+    <param><name>tri</name><desc>Triangle type: Upper or Lower (see Types.Triangle)</desc></param>
+    <param><name>dt</name><desc>Diagonal type: Unit or non unit (see Types.Diagonal)</desc></param>
+    <param><name>A</name><desc>Matrix of cells. See Types.Layout_Cell</desc></param>
+    <content>Extract the upper or lower triangle from the composite output from getrf (LU Factorization).</content>
+   </Documentation>
+  </Definition>
+  <Definition body="1641" end="1698" fullname="pbblas.test.l2" inherit_type="local" line="56" name="L2" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/getrf.ecl" start="1636">
+   <Type>attribute</Type>
+   <Signature pre="" post="" name="L2">L2</Signature><Documentation> <see>Std.PBblas.Types</see>
+    <return>Matrix of cells in Layout_Cell format representing a triangular matrix (upper or lower)</return>
+    <param><name>tri</name><desc>Triangle type: Upper or Lower (see Types.Triangle)</desc></param>
+    <param><name>dt</name><desc>Diagonal type: Unit or non unit (see Types.Diagonal)</desc></param>
+    <param><name>A</name><desc>Matrix of cells. See Types.Layout_Cell</desc></param>
+    <content>Extract the upper or lower triangle from the composite output from getrf (LU Factorization).</content>
+   </Documentation>
+  </Definition>
+  <Definition body="1771" end="1811" fullname="pbblas.test.cmp2" inherit_type="local" line="59" name="cmp2" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/getrf.ecl" start="1764">
+   <Type>attribute</Type>
+   <Signature pre="" post="" name="cmp2">cmp2</Signature><Documentation> <see>PBblas/Types.Layout_Cell</see>
+    <return>Result matrix in Layout_Cell format.</return>
+    <param><name>transposeA</name><desc>Boolean indicating whether matrix A should be transposed before multiplying</desc></param>
+    <param><name>transposeB</name><desc>Same as above but for matrix B</desc></param>
+    <param><name>alpha</name><desc>Scalar multiplier for alpha * A * B</desc></param>
+    <param><name>A_in</name><desc>'A' matrix (multiplier) in Layout_Cell format</desc></param>
+    <param><name>B_in</name><desc>Same as above for the 'B' matrix (multiplicand)</desc></param>
+    <param><name>C_in</name><desc>Same as above for the 'C' matrix (addend). May be omitted.</desc></param>
+    <param><name>beta</name><desc>A scalar multiplier for beta * C, scales the C matrix before addition. May be omitted.</desc></param>
+    <content>Extended Parallel Block Matrix Multiplication Module Implements: Result &lt;- alpha * op(A)op(B) + beta * C. op is No Transpose or Transpose. Multiplies two matrixes A and B, with an optional pre-multiply transpose for each Optionally scales the product by the scalar "alpha". Then adds an optional C matrix to the product after scaling C by the scalar "beta". A, B, and C are specified as DATASET(Layout_Cell), as is the Resulting matrix. Layout_Cell describes a sparse matrix stored as a list of x, y, and value. This interface also provides a "Myriad" capability allowing multiple similar operations to be performed on independent sets of matrixes in parallel. This is done by use of the work-item id (wi_id) in each cell of the matrixes. Cells with the same wi_id are considered part of the same matrix. In the myriad form, each input matrix A, B, and (optionally) C can contain many independent matrixes. The wi_ids are matched up such that each operation involves the A, B, and C with the same wi_id. A and B must therefore contain the same set of wi_ids, while C is optional for any wi_id. The same parameters: alpha, beta, transposeA, and transposeB are used for all work-items. The result will contain cells from all provided work-items. Result has same shape as C if provided. Note that matrixes are not explicitly dimensioned. The shape is determined by the highest value of x and y for each work-item.</content>
+   </Documentation>
+  </Definition>
+  <Definition body="1821" end="1854" fullname="pbblas.test.u2_r8s" inherit_type="local" line="60" name="U2_r8s" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/getrf.ecl" start="1812">
+   <Type>attribute</Type>
+   <Signature pre="" post="" name="U2_r8s">U2_r8s</Signature><Documentation> <content>Take a dataset of cells (or sub-matrix thereof) and pack into a dense matrix. in column major order [r1c1, r2c1, r3c1, ..., rNc1, r1c2, ..., rNcM]. First row and first column are one based.</content>
+    <return>Dense matrix or sub-matrix (SET OF REAL8)</return>
+    <param><name>r</name><desc>The number of rows in the matrix or sub-matrix</desc></param>
+    <param><name>s</name><desc>The number of columns in the matrix or sub-matrix</desc></param>
+    <param><name>first_row</name><desc>The first row to include in the submatrix</desc></param>
+    <param><name>first_col</name><desc>The first column to include in the submatrix</desc></param>
+    <param><name>D</name><desc>The matrix to convert in Layout_Cell form</desc></param>
+    <param><name>transpose</name><desc>Boolean to transpose the matrix during conversion (optional)</desc></param>
+   </Documentation>
+  </Definition>
+  <Definition body="1864" end="1897" fullname="pbblas.test.l2_r8s" inherit_type="local" line="61" name="L2_r8s" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/getrf.ecl" start="1855">
+   <Type>attribute</Type>
+   <Signature pre="" post="" name="L2_r8s">L2_r8s</Signature><Documentation> <content>Take a dataset of cells (or sub-matrix thereof) and pack into a dense matrix. in column major order [r1c1, r2c1, r3c1, ..., rNc1, r1c2, ..., rNcM]. First row and first column are one based.</content>
+    <return>Dense matrix or sub-matrix (SET OF REAL8)</return>
+    <param><name>r</name><desc>The number of rows in the matrix or sub-matrix</desc></param>
+    <param><name>s</name><desc>The number of columns in the matrix or sub-matrix</desc></param>
+    <param><name>first_row</name><desc>The first row to include in the submatrix</desc></param>
+    <param><name>first_col</name><desc>The first column to include in the submatrix</desc></param>
+    <param><name>D</name><desc>The matrix to convert in Layout_Cell form</desc></param>
+    <param><name>transpose</name><desc>Boolean to transpose the matrix during conversion (optional)</desc></param>
+   </Documentation>
+  </Definition>
+  <Definition body="1909" end="1967" fullname="pbblas.test.cmp2_r8s" inherit_type="local" line="62" name="cmp2_r8s" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/getrf.ecl" start="1898">
+   <Type>attribute</Type>
+   <Signature pre="" post="" name="cmp2_r8s">cmp2_r8s</Signature><Documentation> <content>alpha*op(A) op(B) + beta*C where op() is transpose</content>
+    <param><name>transposeA</name><desc>true when transpose of A is used</desc></param>
+    <param><name>transposeB</name><desc>true when transpose of B is used</desc></param>
+    <param><name>M</name><desc>number of rows in product</desc></param>
+    <param><name>N</name><desc>number of columns in product</desc></param>
+    <param><name>K</name><desc>number of columns/rows for the multiplier/multiplicand</desc></param>
+    <param><name>alpha</name><desc>scalar used on A</desc></param>
+    <param><name>A</name><desc>matrix A</desc></param>
+    <param><name>B</name><desc>matrix B</desc></param>
+    <param><name>beta</name><desc>scalar for matrix C</desc></param>
+    <param><name>C</name><desc>matrix C or empty</desc></param>
+   </Documentation>
+  </Definition>
+  <Definition body="1978" end="2007" fullname="pbblas.test.cmp2_nb" inherit_type="local" line="63" name="cmp2_nb" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/getrf.ecl" start="1968">
+   <Type>attribute</Type>
+   <Signature pre="" post="" name="cmp2_nb">cmp2_nb</Signature><Documentation> <see>PBblas/Types.Layout_Cell</see>
+    <return>DATASET(Layout_Cell) -- A sparse matrix.</return>
+    <param><name>mat_data</name><desc>A set of REAL8 values representing a matrix in column major order [r1c1, r2c1, r3c1, ..., rNc1, r1c2, ..., rNcM]</desc></param>
+    <param><name>num_rows</name><desc>The number of rows in the matrix</desc></param>
+    <param><name>row_offset</name><desc>The offset to the starting row of this sub-matrix (optional)</desc></param>
+    <param><name>col_offset</name><desc>The offset to starting column of this sub-matrix (optional)</desc></param>
+    <content>Take a dense matrix or submatrix and convert it to a sparse matrix in Layout_Cell format.</content>
+   </Documentation>
+  </Definition>
+  <Definition body="2017" end="2077" fullname="pbblas.test.test2" inherit_type="local" line="65" name="test2" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/getrf.ecl" start="2009">
+   <Signature pre="" post="" name="test2">test2</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="2148" end="2157" fullname="pbblas.test.a3" inherit_type="local" line="68" name="A3" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/getrf.ecl" start="2143">
+   <Signature pre="" post="" name="A3">A3</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="2198" end="2216" fullname="pbblas.test.a3_factored" inherit_type="local" line="69" name="A3_factored" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/getrf.ecl" start="2184">
+   <Type>attribute</Type>
+   <Signature pre="" post="" name="A3_factored">A3_factored</Signature><Documentation> <see>Types.Layout_Cell</see>
+    <see>ExtractTri</see>
+    <return>Resulting factored matrix in Layout_Cell format</return>
+    <param><name>A</name><desc>The input matrix in Types.Layout_Cell format</desc></param>
+    <content>LU Factorization Splits a matrix into Lower and Upper triangular factors Produces composite LU matrix for the diagonal blocks. Iterates through the matrix a row of blocks and column of blocks at a time. Partition A into M block rows and N block columns. The A11 cell is a single block. A12 is a single row of blocks with N-1 columns. A21 is a single column of blocks with M-1 rows. A22 is a sub-matrix of M-1 x N-1 blocks. | A11 A12 | | L11 0 | | U11 U12 | | A21 A22 | == | L21 L22 | * | 0 U22 | | L11*U11 L11*U12 | == | L21*U11 L21*U12 + L22*U22 | Based upon PB-BLAS: A set of parallel block basic linear algebra subprograms by Choi and Dongarra This module supports the "Myriad" style interface, allowing many independent problems to be worked on at once. The A matrix can contain multiple matrixes to be factored, indicated by different values for work-item id (wi_id). Note: The returned matrix includes both the upper and lower factors. This matrix can be used directly by trsm which will only use the part indicated by trsm's 'triangle' parameter (i.e. upper or lower). To extract the upper or lower triangle explicitly for other purposes, use the ExtractTri function. When passing the Lower matrix to the triangle solver (trsm), set the "Diagonal" parameter to "UnitTri". This is necessary because both triangular matrixes returned from this function are packed into a square matrix with only one diagonal. By convention, The Lower triangle is assumed to be a Unit Triangle (diagonal all ones), so the diagonal contained in the returned matrix is for the Upper factor and must be ignored (i.e. assumed to be all ones) when referencing the Lower triangle.</content>
+   </Documentation>
+  </Definition>
+  <Definition body="2222" end="2282" fullname="pbblas.test.u3" inherit_type="local" line="70" name="U3" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/getrf.ecl" start="2217">
+   <Type>attribute</Type>
+   <Signature pre="" post="" name="U3">U3</Signature><Documentation> <see>Std.PBblas.Types</see>
+    <return>Matrix of cells in Layout_Cell format representing a triangular matrix (upper or lower)</return>
+    <param><name>tri</name><desc>Triangle type: Upper or Lower (see Types.Triangle)</desc></param>
+    <param><name>dt</name><desc>Diagonal type: Unit or non unit (see Types.Diagonal)</desc></param>
+    <param><name>A</name><desc>Matrix of cells. See Types.Layout_Cell</desc></param>
+    <content>Extract the upper or lower triangle from the composite output from getrf (LU Factorization).</content>
+   </Documentation>
+  </Definition>
+  <Definition body="2288" end="2345" fullname="pbblas.test.l3" inherit_type="local" line="71" name="L3" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/getrf.ecl" start="2283">
+   <Type>attribute</Type>
+   <Signature pre="" post="" name="L3">L3</Signature><Documentation> <see>Std.PBblas.Types</see>
+    <return>Matrix of cells in Layout_Cell format representing a triangular matrix (upper or lower)</return>
+    <param><name>tri</name><desc>Triangle type: Upper or Lower (see Types.Triangle)</desc></param>
+    <param><name>dt</name><desc>Diagonal type: Unit or non unit (see Types.Diagonal)</desc></param>
+    <param><name>A</name><desc>Matrix of cells. See Types.Layout_Cell</desc></param>
+    <content>Extract the upper or lower triangle from the composite output from getrf (LU Factorization).</content>
+   </Documentation>
+  </Definition>
+  <Definition body="2419" end="2459" fullname="pbblas.test.cmp3" inherit_type="local" line="73" name="cmp3" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/getrf.ecl" start="2412">
+   <Type>attribute</Type>
+   <Signature pre="" post="" name="cmp3">cmp3</Signature><Documentation> <see>PBblas/Types.Layout_Cell</see>
+    <return>Result matrix in Layout_Cell format.</return>
+    <param><name>transposeA</name><desc>Boolean indicating whether matrix A should be transposed before multiplying</desc></param>
+    <param><name>transposeB</name><desc>Same as above but for matrix B</desc></param>
+    <param><name>alpha</name><desc>Scalar multiplier for alpha * A * B</desc></param>
+    <param><name>A_in</name><desc>'A' matrix (multiplier) in Layout_Cell format</desc></param>
+    <param><name>B_in</name><desc>Same as above for the 'B' matrix (multiplicand)</desc></param>
+    <param><name>C_in</name><desc>Same as above for the 'C' matrix (addend). May be omitted.</desc></param>
+    <param><name>beta</name><desc>A scalar multiplier for beta * C, scales the C matrix before addition. May be omitted.</desc></param>
+    <content>Extended Parallel Block Matrix Multiplication Module Implements: Result &lt;- alpha * op(A)op(B) + beta * C. op is No Transpose or Transpose. Multiplies two matrixes A and B, with an optional pre-multiply transpose for each Optionally scales the product by the scalar "alpha". Then adds an optional C matrix to the product after scaling C by the scalar "beta". A, B, and C are specified as DATASET(Layout_Cell), as is the Resulting matrix. Layout_Cell describes a sparse matrix stored as a list of x, y, and value. This interface also provides a "Myriad" capability allowing multiple similar operations to be performed on independent sets of matrixes in parallel. This is done by use of the work-item id (wi_id) in each cell of the matrixes. Cells with the same wi_id are considered part of the same matrix. In the myriad form, each input matrix A, B, and (optionally) C can contain many independent matrixes. The wi_ids are matched up such that each operation involves the A, B, and C with the same wi_id. A and B must therefore contain the same set of wi_ids, while C is optional for any wi_id. The same parameters: alpha, beta, transposeA, and transposeB are used for all work-items. The result will contain cells from all provided work-items. Result has same shape as C if provided. Note that matrixes are not explicitly dimensioned. The shape is determined by the highest value of x and y for each work-item.</content>
+   </Documentation>
+  </Definition>
+  <Definition body="2506" end="2523" fullname="pbblas.test.cmp3_1" inherit_type="local" line="75" name="cmp3_1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/getrf.ecl" start="2497">
+   <Signature pre="" post="" name="cmp3_1">cmp3_1</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="2533" end="2550" fullname="pbblas.test.cmp3_2" inherit_type="local" line="76" name="cmp3_2" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/getrf.ecl" start="2524">
+   <Signature pre="" post="" name="cmp3_2">cmp3_2</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="2562" end="2636" fullname="pbblas.test.test3_1" inherit_type="local" line="78" name="test3_1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/getrf.ecl" start="2552">
+   <Signature pre="" post="" name="test3_1">test3_1</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="2647" end="2721" fullname="pbblas.test.test3_2" inherit_type="local" line="79" name="test3_2" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/getrf.ecl" start="2637">
+   <Signature pre="" post="" name="test3_2">test3_2</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="2941" end="2945" fullname="pbblas.test.n4" inherit_type="local" line="85" name="N4" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/getrf.ecl" start="2936">
+   <Signature pre="" post="" name="N4">N4</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="2951" end="2955" fullname="pbblas.test.m4" inherit_type="local" line="86" name="M4" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/getrf.ecl" start="2946">
+   <Signature pre="" post="" name="M4">M4</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="2964" end="2997" fullname="pbblas.test.prea4" inherit_type="local" line="87" name="preA4" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/getrf.ecl" start="2956">
+   <Signature pre="" post="" name="preA4">preA4</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="3019" end="3064" fullname="pbblas.test.a4" inherit_type="local" line="90" name="A4" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/getrf.ecl" start="3014">
+   <Type>attribute</Type>
+   <Signature pre="" post="" name="A4">A4</Signature><Documentation> <see>PBblas/Types.Layout_Cell</see>
+    <return>Result matrix in Layout_Cell format.</return>
+    <param><name>transposeA</name><desc>Boolean indicating whether matrix A should be transposed before multiplying</desc></param>
+    <param><name>transposeB</name><desc>Same as above but for matrix B</desc></param>
+    <param><name>alpha</name><desc>Scalar multiplier for alpha * A * B</desc></param>
+    <param><name>A_in</name><desc>'A' matrix (multiplier) in Layout_Cell format</desc></param>
+    <param><name>B_in</name><desc>Same as above for the 'B' matrix (multiplicand)</desc></param>
+    <param><name>C_in</name><desc>Same as above for the 'C' matrix (addend). May be omitted.</desc></param>
+    <param><name>beta</name><desc>A scalar multiplier for beta * C, scales the C matrix before addition. May be omitted.</desc></param>
+    <content>Extended Parallel Block Matrix Multiplication Module Implements: Result &lt;- alpha * op(A)op(B) + beta * C. op is No Transpose or Transpose. Multiplies two matrixes A and B, with an optional pre-multiply transpose for each Optionally scales the product by the scalar "alpha". Then adds an optional C matrix to the product after scaling C by the scalar "beta". A, B, and C are specified as DATASET(Layout_Cell), as is the Resulting matrix. Layout_Cell describes a sparse matrix stored as a list of x, y, and value. This interface also provides a "Myriad" capability allowing multiple similar operations to be performed on independent sets of matrixes in parallel. This is done by use of the work-item id (wi_id) in each cell of the matrixes. Cells with the same wi_id are considered part of the same matrix. In the myriad form, each input matrix A, B, and (optionally) C can contain many independent matrixes. The wi_ids are matched up such that each operation involves the A, B, and C with the same wi_id. A and B must therefore contain the same set of wi_ids, while C is optional for any wi_id. The same parameters: alpha, beta, transposeA, and transposeB are used for all work-items. The result will contain cells from all provided work-items. Result has same shape as C if provided. Note that matrixes are not explicitly dimensioned. The shape is determined by the highest value of x and y for each work-item.</content>
+   </Documentation>
+  </Definition>
+  <Definition body="3074" end="3088" fullname="pbblas.test.a4_all" inherit_type="local" line="91" name="A4_All" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/getrf.ecl" start="3065">
+   <Signature pre="" post="" name="A4_All">A4_All</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="3103" end="3125" fullname="pbblas.test.a4_factored" inherit_type="local" line="92" name="A4_factored" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/getrf.ecl" start="3089">
+   <Type>attribute</Type>
+   <Signature pre="" post="" name="A4_factored">A4_factored</Signature><Documentation> <see>Types.Layout_Cell</see>
+    <see>ExtractTri</see>
+    <return>Resulting factored matrix in Layout_Cell format</return>
+    <param><name>A</name><desc>The input matrix in Types.Layout_Cell format</desc></param>
+    <content>LU Factorization Splits a matrix into Lower and Upper triangular factors Produces composite LU matrix for the diagonal blocks. Iterates through the matrix a row of blocks and column of blocks at a time. Partition A into M block rows and N block columns. The A11 cell is a single block. A12 is a single row of blocks with N-1 columns. A21 is a single column of blocks with M-1 rows. A22 is a sub-matrix of M-1 x N-1 blocks. | A11 A12 | | L11 0 | | U11 U12 | | A21 A22 | == | L21 L22 | * | 0 U22 | | L11*U11 L11*U12 | == | L21*U11 L21*U12 + L22*U22 | Based upon PB-BLAS: A set of parallel block basic linear algebra subprograms by Choi and Dongarra This module supports the "Myriad" style interface, allowing many independent problems to be worked on at once. The A matrix can contain multiple matrixes to be factored, indicated by different values for work-item id (wi_id). Note: The returned matrix includes both the upper and lower factors. This matrix can be used directly by trsm which will only use the part indicated by trsm's 'triangle' parameter (i.e. upper or lower). To extract the upper or lower triangle explicitly for other purposes, use the ExtractTri function. When passing the Lower matrix to the triangle solver (trsm), set the "Diagonal" parameter to "UnitTri". This is necessary because both triangular matrixes returned from this function are packed into a square matrix with only one diagonal. By convention, The Lower triangle is assumed to be a Unit Triangle (diagonal all ones), so the diagonal contained in the returned matrix is for the Upper factor and must be ignored (i.e. assumed to be all ones) when referencing the Lower triangle.</content>
+   </Documentation>
+  </Definition>
+  <Definition body="3131" end="3191" fullname="pbblas.test.u4" inherit_type="local" line="93" name="U4" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/getrf.ecl" start="3126">
+   <Type>attribute</Type>
+   <Signature pre="" post="" name="U4">U4</Signature><Documentation> <see>Std.PBblas.Types</see>
+    <return>Matrix of cells in Layout_Cell format representing a triangular matrix (upper or lower)</return>
+    <param><name>tri</name><desc>Triangle type: Upper or Lower (see Types.Triangle)</desc></param>
+    <param><name>dt</name><desc>Diagonal type: Unit or non unit (see Types.Diagonal)</desc></param>
+    <param><name>A</name><desc>Matrix of cells. See Types.Layout_Cell</desc></param>
+    <content>Extract the upper or lower triangle from the composite output from getrf (LU Factorization).</content>
+   </Documentation>
+  </Definition>
+  <Definition body="3197" end="3254" fullname="pbblas.test.l4" inherit_type="local" line="94" name="L4" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/getrf.ecl" start="3192">
+   <Type>attribute</Type>
+   <Signature pre="" post="" name="L4">L4</Signature><Documentation> <see>Std.PBblas.Types</see>
+    <return>Matrix of cells in Layout_Cell format representing a triangular matrix (upper or lower)</return>
+    <param><name>tri</name><desc>Triangle type: Upper or Lower (see Types.Triangle)</desc></param>
+    <param><name>dt</name><desc>Diagonal type: Unit or non unit (see Types.Diagonal)</desc></param>
+    <param><name>A</name><desc>Matrix of cells. See Types.Layout_Cell</desc></param>
+    <content>Extract the upper or lower triangle from the composite output from getrf (LU Factorization).</content>
+   </Documentation>
+  </Definition>
+  <Definition body="3328" end="3368" fullname="pbblas.test.cmp4" inherit_type="local" line="96" name="cmp4" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/getrf.ecl" start="3321">
+   <Type>attribute</Type>
+   <Signature pre="" post="" name="cmp4">cmp4</Signature><Documentation> <see>PBblas/Types.Layout_Cell</see>
+    <return>Result matrix in Layout_Cell format.</return>
+    <param><name>transposeA</name><desc>Boolean indicating whether matrix A should be transposed before multiplying</desc></param>
+    <param><name>transposeB</name><desc>Same as above but for matrix B</desc></param>
+    <param><name>alpha</name><desc>Scalar multiplier for alpha * A * B</desc></param>
+    <param><name>A_in</name><desc>'A' matrix (multiplier) in Layout_Cell format</desc></param>
+    <param><name>B_in</name><desc>Same as above for the 'B' matrix (multiplicand)</desc></param>
+    <param><name>C_in</name><desc>Same as above for the 'C' matrix (addend). May be omitted.</desc></param>
+    <param><name>beta</name><desc>A scalar multiplier for beta * C, scales the C matrix before addition. May be omitted.</desc></param>
+    <content>Extended Parallel Block Matrix Multiplication Module Implements: Result &lt;- alpha * op(A)op(B) + beta * C. op is No Transpose or Transpose. Multiplies two matrixes A and B, with an optional pre-multiply transpose for each Optionally scales the product by the scalar "alpha". Then adds an optional C matrix to the product after scaling C by the scalar "beta". A, B, and C are specified as DATASET(Layout_Cell), as is the Resulting matrix. Layout_Cell describes a sparse matrix stored as a list of x, y, and value. This interface also provides a "Myriad" capability allowing multiple similar operations to be performed on independent sets of matrixes in parallel. This is done by use of the work-item id (wi_id) in each cell of the matrixes. Cells with the same wi_id are considered part of the same matrix. In the myriad form, each input matrix A, B, and (optionally) C can contain many independent matrixes. The wi_ids are matched up such that each operation involves the A, B, and C with the same wi_id. A and B must therefore contain the same set of wi_ids, while C is optional for any wi_id. The same parameters: alpha, beta, transposeA, and transposeB are used for all work-items. The result will contain cells from all provided work-items. Result has same shape as C if provided. Note that matrixes are not explicitly dimensioned. The shape is determined by the highest value of x and y for each work-item.</content>
+   </Documentation>
+  </Definition>
+  <Definition body="3415" end="3432" fullname="pbblas.test.cmp4_1" inherit_type="local" line="98" name="cmp4_1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/getrf.ecl" start="3406">
+   <Signature pre="" post="" name="cmp4_1">cmp4_1</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="3442" end="3459" fullname="pbblas.test.cmp4_2" inherit_type="local" line="99" name="cmp4_2" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/getrf.ecl" start="3433">
+   <Signature pre="" post="" name="cmp4_2">cmp4_2</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="3469" end="3486" fullname="pbblas.test.cmp4_4" inherit_type="local" line="100" name="cmp4_4" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/getrf.ecl" start="3460">
+   <Signature pre="" post="" name="cmp4_4">cmp4_4</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="3498" end="3575" fullname="pbblas.test.test4_1" inherit_type="local" line="102" name="test4_1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/getrf.ecl" start="3488">
+   <Signature pre="" post="" name="test4_1">test4_1</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="3586" end="3663" fullname="pbblas.test.test4_2" inherit_type="local" line="103" name="test4_2" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/getrf.ecl" start="3576">
+   <Signature pre="" post="" name="test4_2">test4_2</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="3674" end="3751" fullname="pbblas.test.test4_3" inherit_type="local" line="104" name="test4_3" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/getrf.ecl" start="3664">
+   <Signature pre="" post="" name="test4_3">test4_3</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="3822" end="3848" fullname="pbblas.test.null" inherit_type="local" line="108" name="null" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/getrf.ecl" start="3815">
+   <Signature pre="" post="" name="null">null</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="3863" end="3883" fullname="pbblas.test.a5_factored" inherit_type="local" line="109" name="A5_factored" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/getrf.ecl" start="3849">
+   <Type>attribute</Type>
+   <Signature pre="" post="" name="A5_factored">A5_factored</Signature><Documentation> <see>Types.Layout_Cell</see>
+    <see>ExtractTri</see>
+    <return>Resulting factored matrix in Layout_Cell format</return>
+    <param><name>A</name><desc>The input matrix in Types.Layout_Cell format</desc></param>
+    <content>LU Factorization Splits a matrix into Lower and Upper triangular factors Produces composite LU matrix for the diagonal blocks. Iterates through the matrix a row of blocks and column of blocks at a time. Partition A into M block rows and N block columns. The A11 cell is a single block. A12 is a single row of blocks with N-1 columns. A21 is a single column of blocks with M-1 rows. A22 is a sub-matrix of M-1 x N-1 blocks. | A11 A12 | | L11 0 | | U11 U12 | | A21 A22 | == | L21 L22 | * | 0 U22 | | L11*U11 L11*U12 | == | L21*U11 L21*U12 + L22*U22 | Based upon PB-BLAS: A set of parallel block basic linear algebra subprograms by Choi and Dongarra This module supports the "Myriad" style interface, allowing many independent problems to be worked on at once. The A matrix can contain multiple matrixes to be factored, indicated by different values for work-item id (wi_id). Note: The returned matrix includes both the upper and lower factors. This matrix can be used directly by trsm which will only use the part indicated by trsm's 'triangle' parameter (i.e. upper or lower). To extract the upper or lower triangle explicitly for other purposes, use the ExtractTri function. When passing the Lower matrix to the triangle solver (trsm), set the "Diagonal" parameter to "UnitTri". This is necessary because both triangular matrixes returned from this function are packed into a square matrix with only one diagonal. By convention, The Lower triangle is assumed to be a Unit Triangle (diagonal all ones), so the diagonal contained in the returned matrix is for the Upper factor and must be ignored (i.e. assumed to be all ones) when referencing the Lower triangle.</content>
+   </Documentation>
+  </Definition>
+  <Definition body="3889" end="3949" fullname="pbblas.test.u5" inherit_type="local" line="110" name="U5" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/getrf.ecl" start="3884">
+   <Type>attribute</Type>
+   <Signature pre="" post="" name="U5">U5</Signature><Documentation> <see>Std.PBblas.Types</see>
+    <return>Matrix of cells in Layout_Cell format representing a triangular matrix (upper or lower)</return>
+    <param><name>tri</name><desc>Triangle type: Upper or Lower (see Types.Triangle)</desc></param>
+    <param><name>dt</name><desc>Diagonal type: Unit or non unit (see Types.Diagonal)</desc></param>
+    <param><name>A</name><desc>Matrix of cells. See Types.Layout_Cell</desc></param>
+    <content>Extract the upper or lower triangle from the composite output from getrf (LU Factorization).</content>
+   </Documentation>
+  </Definition>
+  <Definition body="3955" end="4012" fullname="pbblas.test.l5" inherit_type="local" line="111" name="L5" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/getrf.ecl" start="3950">
+   <Type>attribute</Type>
+   <Signature pre="" post="" name="L5">L5</Signature><Documentation> <see>Std.PBblas.Types</see>
+    <return>Matrix of cells in Layout_Cell format representing a triangular matrix (upper or lower)</return>
+    <param><name>tri</name><desc>Triangle type: Upper or Lower (see Types.Triangle)</desc></param>
+    <param><name>dt</name><desc>Diagonal type: Unit or non unit (see Types.Diagonal)</desc></param>
+    <param><name>A</name><desc>Matrix of cells. See Types.Layout_Cell</desc></param>
+    <content>Extract the upper or lower triangle from the composite output from getrf (LU Factorization).</content>
+   </Documentation>
+  </Definition>
+  <Definition body="4023" end="4091" fullname="pbblas.test.test5_1" inherit_type="local" line="112" name="test5_1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/getrf.ecl" start="4013">
+   <Signature pre="" post="" name="test5_1">test5_1</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="4102" end="4170" fullname="pbblas.test.test5_2" inherit_type="local" line="113" name="test5_2" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/getrf.ecl" start="4092">
+   <Signature pre="" post="" name="test5_2">test5_2</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="4179" end="4325" fullname="pbblas.test.rslt" inherit_type="local" line="115" name="rslt" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/getrf.ecl" start="4172">
+   <Signature pre="" post="" name="rslt">rslt</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="4342" end="4364" exported="1" fullname="pbblas.test.getrf" inherit_type="local" line="120" name="getrf" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/getrf.ecl" start="4327">
+   <Signature pre="" post="" name="getrf">getrf</Signature><Type>attribute</Type>
+  </Definition>
+ </Source>
+ <Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/Types.ecl" name="PBblas.internal.Types" target="../internal/types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Types.ecl" name="PBblas.Types" target="../types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Types.ecl" name="ML_Core.Types" target="../../ml_core/types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/MakeTestMatrix.ecl" name="PBblas.test.MakeTestMatrix" target="maketestmatrix.ecl.xml"/><Depends sourcePath="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/system/Thorlib.ecl" name="std.system.Thorlib" target="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/system/Thorlib.ecl"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/DiffReport.ecl" name="PBblas.test.DiffReport" target="diffreport.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/Converted.ecl" name="PBblas.internal.Converted" target="../internal/converted.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/MakeR8Set.ecl" name="PBblas.internal.MakeR8Set" target="../internal/maker8set.ecl.xml"/><Depends sourcePath="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/BLAS.ecl" name="std.BLAS" target="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/BLAS.ecl"/><Depends sourcePath="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/plugins/lib_eclblas.ecllib" target="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/plugins/lib_eclblas.ecllib"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/gemm.ecl" name="PBblas.gemm" target="../gemm.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/MatDims.ecl" name="PBblas.internal.MatDims" target="../internal/matdims.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/BlockDimensions.ecl" name="PBblas.internal.BlockDimensions" target="../internal/blockdimensions.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/BlockDimensionsMultiply.ecl" name="PBblas.internal.BlockDimensionsMultiply" target="../internal/blockdimensionsmultiply.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/BlockDimensionsSolve.ecl" name="PBblas.internal.BlockDimensionsSolve" target="../internal/blockdimensionssolve.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/getrf.ecl" name="PBblas.getrf" target="../getrf.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/FromR8Set.ecl" name="PBblas.internal.FromR8Set" target="../internal/fromr8set.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/ExtractTri.ecl" name="PBblas.ExtractTri" target="../extracttri.ecl.xml"/></Meta>

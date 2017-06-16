@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Meta>
+ <Source name="ML_Core.Tests.test_appends" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Tests/test_appends.ecl" target="test_appends.ecl.xml">
+  <Import body="0" end="7" fullname="ML_Core" inherit_type="local" line="1" name="ML_Core" ref="ml_core" start="7" target="../pkg.toc.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0" end="30" fullname="std.system.thorlib" inherit_type="local" line="2" name="thorlib" ref="std.system.thorlib" start="30" target="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/system/Thorlib.ecl">
+   <Type>attribute</Type>
+  </Import>
+  <Definition body="59" end="124" fullname="ml_core.tests.work1" inherit_type="local" line="4" name="Work1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Tests/test_appends.ecl" start="51">
+   <Type>record</Type>
+   <Field name="content"/>
+   <Field name="node"/>
+   <Signature pre="" post="" name="Work1">Work1</Signature><Field name="pos"/>
+  </Definition>
+  <Definition body="149" end="326" fullname="ml_core.tests.gen" inherit_type="local" line="9" name="gen" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Tests/test_appends.ecl" start="125">
+   <Type>transform</Type>
+   <Params>
+    <Param name="c"/>
+   </Params>
+   <Signature pre="" post="" name="Work1 gen(UNSIGNED c)">Work1 gen(UNSIGNED c)</Signature><Return>work1</Return>
+  </Definition>
+  <Definition body="337" end="373" fullname="ml_core.tests.test_ds" inherit_type="local" line="15" name="test_ds" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Tests/test_appends.ecl" start="327">
+   <Signature pre="" post="" name="test_ds">test_ds</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="37" end="91" fullname="ml_core.tests.__dinprep__1__" inherit_type="local" line="17" name="__dInPrep__1__" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/AppendID.ecl" start="1">
+   <Signature pre="" post="" name="__dInPrep__1__">/-----------------------------------</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="37" end="91" fullname="ml_core.tests.__dinprep__3__" inherit_type="local" line="17" name="__dInPrep__3__" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/AppendSeqID.ecl" start="1">
+   <Signature pre="" post="" name="__dInPrep__3__">/-----------------------------------</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="431" end="560" fullname="ml_core.tests.test_id_list" inherit_type="local" line="18" name="test_id_list" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Tests/test_appends.ecl" start="416">
+   <Signature pre="" post="" name="test_id_list">test_id_list</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="157" end="255" fullname="ml_core.tests.__tra__2__" inherit_type="local" line="19" name="__tra__2__" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/AppendID.ecl" start="113">
+   <Type>transform</Type>
+   <Params>
+    <Param name="L"/>
+    <Param name="C"/>
+   </Params>
+   <Signature pre="" post="" name="__tra__2__">et, and appends a unique 1-based record ID
+/</Signature><Return>&lt;unnamed&gt;</Return>
+  </Definition>
+  <Definition body="157" end="214" fullname="ml_core.tests.__tra__4__" inherit_type="local" line="19" name="__tra__4__" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/AppendSeqID.ecl" start="113">
+   <Type>transform</Type>
+   <Params>
+    <Param name="L"/>
+    <Param name="C"/>
+   </Params>
+   <Signature pre="" post="" name="__tra__4__">et, and appends a unique 1-based record ID
+/</Signature><Return>&lt;unnamed&gt;</Return>
+  </Definition>
+  <Definition body="575" end="642" fullname="ml_core.tests.test_id_tab" inherit_type="local" line="20" name="test_id_tab" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Tests/test_appends.ecl" start="561">
+   <Signature pre="" post="" name="test_id_tab">test_id_tab</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="265" end="306" fullname="ml_core.tests.test_id" inherit_type="local" line="23" name="test_id" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/AppendID.ecl" start="1">
+   <Signature pre="" post="" name="test_id">/---------------------------------------------------------------------------
+// Macro takes any structured dataset, and appends a unique 1-based record ID
+// column to it.  Values will not be sequential and values will not be
+// dense because of data skew.  Gaps w</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="224" end="258" fullname="ml_core.tests.test_seq" inherit_type="local" line="23" name="test_seq" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/AppendSeqID.ecl" start="1">
+   <Signature pre="" post="" name="test_seq">/---------------------------------------------------------------------------
+// Macro takes any structured dataset, and appends a unique 1-based record ID
+// column to it.  Values will be in data sequence.
+// Note:  impleme</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="705" end="840" fullname="ml_core.tests.test_seq_list" inherit_type="local" line="23" name="test_seq_list" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Tests/test_appends.ecl" start="689">
+   <Signature pre="" post="" name="test_seq_list">test_seq_list</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="856" end="924" fullname="ml_core.tests.test_seq_tab" inherit_type="local" line="25" name="test_seq_tab" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Tests/test_appends.ecl" start="841">
+   <Signature pre="" post="" name="test_seq_tab">test_seq_tab</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="949" end="1046" exported="1" fullname="ml_core.tests.test_appends" inherit_type="local" line="28" name="test_appends" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Tests/test_appends.ecl" start="927">
+   <Signature pre="" post="" name="test_appends">test_appends</Signature><Type>attribute</Type>
+  </Definition>
+ </Source>
+ <Depends sourcePath="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/system/Thorlib.ecl" name="std.system.thorlib" target="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/system/Thorlib.ecl"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/AppendID.ecl" name="ML_Core.AppendID" target="../appendid.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/AppendSeqID.ecl" name="ML_Core.AppendSeqID" target="../appendseqid.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Types.ecl" name="ML_Core.Types" target="../types.ecl.xml"/></Meta>

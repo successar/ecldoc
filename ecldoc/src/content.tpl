@@ -14,6 +14,23 @@
 </head>
 
 <body>
+	<nav class="navbar topbar">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a href="#menu-toggle" id="menu-toggle" class="navbar-brand glyphicon glyphicon-menu-hamburger ham"></a>
+			</div>
+			<div class="navbar-header" style="margin-left: 20px;">
+				<span class="navbar-brand">{{ src.attrib['name'] }}</span>
+			</div>
+			<div class="navbar-collapse collapse">
+			<ul class="nav navbar-nav">
+				<li><a href="#ecldoc-section-import" class="topbar">Imports</a></li>
+				<li><a href="#ecldoc-section-tree" class="topbar">Tree</a></li>
+				<li><a href="#ecldoc-section-desc" class="topbar">Descriptions</a></li>
+			</ul>
+			</div>
+		</div>
+	</nav>
 	<div id="wrapper">
 
 		<!-- Sidebar -->
@@ -24,9 +41,9 @@
 						Up
 					</a>
 				</li>
-				{% for file in files %}
+				{% for d in files %}
 				<li>
-					<a href="{{ files[file] }}">{{ file }}</a>
+					<a href="{{ d.target }}">{{ d.name }}</a>
 				</li>
 				{% endfor %}
 			</ul>
@@ -34,17 +51,9 @@
 
 		<div id="page-content-wrapper">
 			<div class="container-fluid">
-				<div class="row">
-					<div class="col-lg-4">
-						<a href="#menu-toggle" class="glyphicon glyphicon-menu-hamburger" style="font-size:2.2em;" id="menu-toggle"></a>
-					</div>
-					<div class="col-lg-8">
-						<span class="title">{{ src.attrib['name'] }}</span>
-					</div>
-				</div>
-				<div class="row">
-					<h2>Imports	</h2>
-					<ul>
+				<section id="ecldoc-section-import">
+					<h3 class="page-header">IMPORTS</h3>
+					<ul class="pagination">
 						{% for imp in src.findall('./Import') -%}
 						<li>
 							{% if 'ref' in imp.attrib -%}
@@ -55,7 +64,9 @@
 						</li>
 						{% endfor -%}
 					</ul>
-					<h2>Tree</h2>
+				</section>
+				<section id="ecldoc-section-tree">
+					<h3 class="page-header">DEFINITION TREE</h3>
 					<ul class="tree">
 						{% for def in src.findall('./Definition') recursive -%}
 						<li id="t-{{ def.attrib['fullname'] }}">
@@ -65,7 +76,7 @@
 							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
 							{% endif %}
 							<a href="#d{{ def.attrib['fullname'] }}">
-								 {{ def.find('./Type').text.upper() }} :
+								{{ def.find('./Type').text.upper() }} :
 								<span class="sign-pre">{{ def.find('./Signature').attrib['pre'] }}</span>
 								<span class="sign-name">{{ def.find('./Signature').attrib['name'] }}</span>
 								<span class="sign-post">{{ def.find('./Signature').attrib['post'] }}</span>
@@ -76,8 +87,9 @@
 						</li>
 						{% endfor -%}
 					</ul>
-					<hr/>
-					<h2>Descriptions</h2>
+				</section>
+				<section id="ecldoc-section-desc">
+					<h3 class="page-header">DESCRIPTIONS</h3>
 					<div class="panel-group">
 						{% for def in src.findall('./Definition') recursive -%}
 						<div class="panel panel-info" id="d{{ def.attrib['fullname'] }}">
@@ -103,7 +115,7 @@
 								{% if def.find('./Documentation') -%}
 								<div class="row">
 									<div class="col-md-12">
-									{{ def.find('./Documentation').find('./content').text }}
+										{{ def.find('./Documentation').find('./content').text }}
 									</div>
 								</div>
 								<br/>
@@ -111,14 +123,14 @@
 								<div class="row">
 									<div class="col-md-1 doc-type">Parameters</div>
 									<div class="col-md-11">
-									<table class="table">
-									{% for tag in def.find('./Documentation').findall('./param') -%}
-										<tr>
-											<td style="width: 20%;"><b>{{ tag.find('./name').text }}</b> </td>
-											<td>{{ tag.find('./desc').text }}</td>
-										</tr>
-									{% endfor -%}
-									</table>
+										<table class="table">
+											{% for tag in def.find('./Documentation').findall('./param') -%}
+											<tr>
+												<td style="width: 20%;"><b>{{ tag.find('./name').text }}</b> </td>
+												<td>{{ tag.find('./desc').text }}</td>
+											</tr>
+											{% endfor -%}
+										</table>
 									</div>
 								</div>
 								{% endif %}
@@ -126,13 +138,13 @@
 								<div class="row">
 									<div class="col-md-1 doc-type">Returns</div>
 									<div class="col-md-11">
-									<table class="table">
-									{% for tag in def.find('./Documentation').findall('./return') -%}
-										<tr>
-											<td>{{ tag.text }}</td>
-										</tr>
-									{% endfor -%}
-									</table>
+										<table class="table">
+											{% for tag in def.find('./Documentation').findall('./return') -%}
+											<tr>
+												<td>{{ tag.text }}</td>
+											</tr>
+											{% endfor -%}
+										</table>
 									</div>
 								</div>
 								{% endif %}
@@ -140,14 +152,14 @@
 								<div class="row">
 									<div class="col-md-1 doc-type">Fields</div>
 									<div class="col-md-11">
-									<table class="table">
-									{% for tag in def.find('./Documentation').findall('./field') -%}
-										<tr>
-											<td width="20%"><b>{{ tag.find('./name').text }}</b> </td>
-											<td>{{ tag.find('./desc').text }}</td>
-										</tr>
-									{% endfor -%}
-									</table>
+										<table class="table">
+											{% for tag in def.find('./Documentation').findall('./field') -%}
+											<tr>
+												<td width="20%"><b>{{ tag.find('./name').text }}</b> </td>
+												<td>{{ tag.find('./desc').text }}</td>
+											</tr>
+											{% endfor -%}
+										</table>
 									</div>
 								</div>
 								{% endif %}
@@ -159,11 +171,11 @@
 								<div class="row">
 									<div class="col-md-1">Also See</div>
 									<div class="col-md-11">
-									<ul>
-									{% for tag in def.find('./Documentation').findall('./see') -%}
-										<li><b>{{ tag.text }}</b></li>
-									{% endfor -%}
-									</ul>
+										<ul>
+											{% for tag in def.find('./Documentation').findall('./see') -%}
+											<li><b>{{ tag.text }}</b></li>
+											{% endfor -%}
+										</ul>
 									</div>
 								</div>
 								{% endif -%}
@@ -173,17 +185,17 @@
 								<div class="row">
 									<div class="col-md-1">Parent</div>
 									<div class="col-md-11">
-									<ul>
-										{% for parent in def.find('./Parents').findall('./Parent') -%}
-										<li>
-											{% if 'ref' in parent.attrib -%}
-											<a href="{{ parent.attrib['target'] }}">
-												{{ parent.attrib['ref'] }}
-											</a>
-											{% endif -%}
-										</li>
-										{% endfor -%}
-									</ul>
+										<ul>
+											{% for parent in def.find('./Parents').findall('./Parent') -%}
+											<li>
+												{% if 'ref' in parent.attrib -%}
+												<a href="{{ parent.attrib['target'] }}">
+													{{ parent.attrib['ref'] }}
+												</a>
+												{% endif -%}
+											</li>
+											{% endfor -%}
+										</ul>
 									</div>
 								</div>
 								{% endif -%}
@@ -192,10 +204,9 @@
 						{{ loop(def.findall('./Definition')) }}
 						{% endfor -%}
 					</div>
-				</div>
+				</section>
 			</div>
 		</div>
-
 	</div>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>

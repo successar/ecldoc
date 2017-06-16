@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
+	<title>PBblas.MatUtils</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
+	<link href="../../css/simple-sidebar.css" rel="stylesheet">
+
+</head>
+
+<body>
+	<nav class="navbar topbar">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a href="#menu-toggle" id="menu-toggle" class="navbar-brand glyphicon glyphicon-menu-hamburger ham"></a>
+			</div>
+			<div class="navbar-header" style="margin-left: 20px;">
+				<span class="navbar-brand">PBblas.MatUtils</span>
+			</div>
+			<div class="navbar-collapse collapse">
+			<ul class="nav navbar-nav">
+				<li><a href="#ecldoc-section-import" class="topbar">Imports</a></li>
+				<li><a href="#ecldoc-section-tree" class="topbar">Tree</a></li>
+				<li><a href="#ecldoc-section-desc" class="topbar">Descriptions</a></li>
+			</ul>
+			</div>
+		</div>
+	</nav>
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		<div id="sidebar-wrapper">
+			<ul class="sidebar-nav">
+				<li class="sidebar-brand">
+					<a href="pkg.toc.html">
+						Up
+					</a>
+				</li>
+				
+				<li>
+					<a href="scal.ecl.html">scal.ecl</a>
+				</li>
+				
+				<li>
+					<a href="converted.ecl.html">converted.ecl</a>
+				</li>
+				
+				<li>
+					<a href="bundle.ecl.html">bundle.ecl</a>
+				</li>
+				
+				<li>
+					<a href="tran.ecl.html">tran.ecl</a>
+				</li>
+				
+				<li>
+					<a href="internal/pkg.toc.html">internal</a>
+				</li>
+				
+				<li>
+					<a href="getrf.ecl.html">getrf.ecl</a>
+				</li>
+				
+				<li>
+					<a href="gemm.ecl.html">gemm.ecl</a>
+				</li>
+				
+				<li>
+					<a href="test/pkg.toc.html">test</a>
+				</li>
+				
+				<li>
+					<a href="ecl/pkg.toc.html">ecl</a>
+				</li>
+				
+				<li>
+					<a href="matutils.ecl.html">matutils.ecl</a>
+				</li>
+				
+				<li>
+					<a href="constants.ecl.html">constants.ecl</a>
+				</li>
+				
+				<li>
+					<a href="axpy.ecl.html">axpy.ecl</a>
+				</li>
+				
+				<li>
+					<a href="types.ecl.html">types.ecl</a>
+				</li>
+				
+				<li>
+					<a href="hadamardproduct.ecl.html">hadamardproduct.ecl</a>
+				</li>
+				
+				<li>
+					<a href="ielementfunc.ecl.html">ielementfunc.ecl</a>
+				</li>
+				
+				<li>
+					<a href="apply2elements.ecl.html">apply2elements.ecl</a>
+				</li>
+				
+				<li>
+					<a href="asum.ecl.html">asum.ecl</a>
+				</li>
+				
+				<li>
+					<a href="extracttri.ecl.html">extracttri.ecl</a>
+				</li>
+				
+				<li>
+					<a href="trsm.ecl.html">trsm.ecl</a>
+				</li>
+				
+				<li>
+					<a href="potrf.ecl.html">potrf.ecl</a>
+				</li>
+				
+				<li>
+					<a href="vector2diag.ecl.html">vector2diag.ecl</a>
+				</li>
+				
+				<li>
+					<a href="performance/pkg.toc.html">performance</a>
+				</li>
+				
+			</ul>
+		</div>
+
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<section id="ecldoc-section-import">
+					<h3 class="page-header">IMPORTS</h3>
+					<ul class="pagination">
+						<li>
+							<a href="pkg.toc.html">
+								pbblas
+							</a>
+							</li>
+						<li>
+							<a href="types.ecl.html">
+								pbblas.types
+							</a>
+							</li>
+						<li>
+							<a href="internal/pkg.toc.html">
+								pbblas.internal
+							</a>
+							</li>
+						<li>
+							<a href="internal/types.ecl.html">
+								pbblas.internal.types
+							</a>
+							</li>
+						<li>
+							<a href="internal/matdims.ecl.html">
+								pbblas.internal.matdims
+							</a>
+							</li>
+						</ul>
+				</section>
+				<section id="ecldoc-section-tree">
+					<h3 class="page-header">DEFINITION TREE</h3>
+					<ul class="tree">
+						<li id="t-pbblas-dimension_t">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-dimension_t">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">dimension_t</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-dimension_t" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-value_t">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-value_t">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">value_t</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-value_t" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-layout_cell">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-layout_cell">
+								RECORD :
+								<span class="sign-pre"></span>
+								<span class="sign-name">Layout_Cell</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-layout_cell" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-layout_dims">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-layout_dims">
+								RECORD :
+								<span class="sign-pre"></span>
+								<span class="sign-name">Layout_Dims</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-layout_dims" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-layout_wi_id">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-layout_wi_id">
+								RECORD :
+								<span class="sign-pre"></span>
+								<span class="sign-name">Layout_WI_ID</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-layout_wi_id" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-work_item_t">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-work_item_t">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">work_item_t</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-work_item_t" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-PBblas-MatUtils">
+							
+							<a href="#PBblas-MatUtils" data-toggle="collapse" class="glyphicon glyphicon-folder-open" style="margin-right: 6px;"></a>
+							
+							<a href="#dPBblas-MatUtils">
+								MODULE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">MatUtils</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="PBblas-MatUtils" class="accordian-body tree collapse">
+								<li id="t-pbblas-matutils-getworkitems">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-matutils-getworkitems">
+								FUNCTION :
+								<span class="sign-pre"></span>
+								<span class="sign-name">DATASET(Layout_WI_ID) GetWorkItems(DATASET(Layout_Cell) cells)</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-matutils-getworkitems" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-matutils-insertcols">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-matutils-insertcols">
+								FUNCTION :
+								<span class="sign-pre"></span>
+								<span class="sign-name">DATASET(Layout_Cell) InsertCols(DATASET(Layout_Cell) M, UNSIGNED cols_to_insert=1, 
+    value_t insert_val=1)</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-matutils-insertcols" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-matutils-transpose">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-matutils-transpose">
+								FUNCTION :
+								<span class="sign-pre"></span>
+								<span class="sign-name">DATASET(Layout_Cell) Transpose(DATASET(Layout_Cell) M)</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-matutils-transpose" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						
+							</ul>
+						</li>
+						</ul>
+				</section>
+				<section id="ecldoc-section-desc">
+					<h3 class="page-header">DESCRIPTIONS</h3>
+					<div class="panel-group">
+						<div class="panel panel-info" id="dpbblas-dimension_t">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">dimension_t</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-dimension_t" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-value_t">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">value_t</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-value_t" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-layout_cell">
+							<div class="panel-heading">
+								<div class="type">
+									RECORD
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">Layout_Cell</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-layout_cell" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Layout for Matrix Cell Main representation of Matrix cell at interface to all PBBlas functions. Matrixes are represented as DATASET(Layout_Cell), where each cell describes the row and column position of the cell as well as its value. Only the non-zero cells need to be contained in the dataset in order to describe the matrix since all unspecified cells are considered to have a value of zero. The cell also contains a work-item number that allows multiple separate matrixes to be carried in the same dataset. This supports the "myriad" style interface that allows the same operations to be performed on many different sets of data at once. Note that these matrixes do not have an explicit size. They are sized implicitly, based on the maximum row and column presented in the data. A matrix can be converted to an explicit dense form (see matrix_t) by using the utility module MakeR8Set. This module should only be used for known small matrixes (< 1M cells) or for partitions of a larger matrix. The Converted module provides utility functions to convert to and from a set of partitions (See Layout_parts).
+									</div>
+								</div>
+								<br/>
+								
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Fields</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td width="20%"><b>wi_id</b> </td>
+												<td>Work Item Number -- An identifier from 1 to 64K-1 that separates and identifies individual matrixes</td>
+											</tr>
+											<tr>
+												<td width="20%"><b>x</b> </td>
+												<td>1-based row position within the matrix</td>
+											</tr>
+											<tr>
+												<td width="20%"><b>y</b> </td>
+												<td>1-based column position within the matrix</td>
+											</tr>
+											<tr>
+												<td width="20%"><b>v</b> </td>
+												<td>Real value for the cell</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								</div>
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-md-1">Also See</div>
+									<div class="col-md-11">
+										<ul>
+											<li><b>matrix_t</b></li>
+											<li><b>Std/PBblas/MakeR8Set.ecl</b></li>
+											<li><b>Std/PBblas/Converted.ecl WARNING: Used as C++ attribute. Do not change without corresponding changes to MakeR8Set.</b></li>
+											</ul>
+									</div>
+								</div>
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-layout_dims">
+							<div class="panel-heading">
+								<div class="type">
+									RECORD
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">Layout_Dims</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-layout_dims" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Record format for matrix and matrix partition dimensions. Each record describes A single matrix or matrix partition. Partitions use all of the fields, while a non-partitioned matrix only uses the first two (i.e. m_rows and m_cols).
+									</div>
+								</div>
+								<br/>
+								
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Fields</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td width="20%"><b>m_label</b> </td>
+												<td>A user provided label indicating to which matrix the dimensions apply, when used to describe a set of related matrixes (e.g., 'A', 'B', and 'C') for the same work item used in an operation.</td>
+											</tr>
+											<tr>
+												<td width="20%"><b>m_rows</b> </td>
+												<td>The number of rows in the full matrix</td>
+											</tr>
+											<tr>
+												<td width="20%"><b>m_cols</b> </td>
+												<td>The number of colums in the full matrix</td>
+											</tr>
+											<tr>
+												<td width="20%"><b>block_rows</b> </td>
+												<td>The number of rows in each partition of the matrix</td>
+											</tr>
+											<tr>
+												<td width="20%"><b>block_cols</b> </td>
+												<td>The number of columns in each partition</td>
+											</tr>
+											<tr>
+												<td width="20%"><b>row_blocks</b> </td>
+												<td>The number of row partitions in use for the matrix</td>
+											</tr>
+											<tr>
+												<td width="20%"><b>col_blocks</b> </td>
+												<td>The number of column partitions in use for the matrix</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-layout_wi_id">
+							<div class="panel-heading">
+								<div class="type">
+									RECORD
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">Layout_WI_ID</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-layout_wi_id" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Record for a list of work-item ids used internally
+									</div>
+								</div>
+								<br/>
+								
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Fields</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td width="20%"><b>wi_id</b> </td>
+												<td>The wi_id, typically from a myriad set of matrixes</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-work_item_t">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">work_item_t</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-work_item_t" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dPBblas-MatUtils">
+							<div class="panel-heading">
+								<div class="type">
+									MODULE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">MatUtils</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-PBblas-MatUtils" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Provides various utility attributes for manipulating cell-based matrixes
+									</div>
+								</div>
+								<br/>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-md-1">Also See</div>
+									<div class="col-md-11">
+										<ul>
+											<li><b>Std/PBblas/Types.Layout_Cell</b></li>
+											</ul>
+									</div>
+								</div>
+								</div>
+						</div>
+						<div class="panel panel-info" id="dpbblas-matutils-getworkitems">
+							<div class="panel-heading">
+								<div class="type">
+									FUNCTION
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">DATASET(Layout_WI_ID) GetWorkItems(DATASET(Layout_Cell) cells)</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-matutils-getworkitems" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Get a list of work-item ids from a matrix containing one or more work items
+									</div>
+								</div>
+								<br/>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>cells</b> </td>
+												<td>A matrix in Layout_Cell format</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>DATASET(Layout_WI_ID), one record per work-item</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-md-1">Also See</div>
+									<div class="col-md-11">
+										<ul>
+											<li><b>PBblas/Types.Layout_Cell</b></li>
+											<li><b>PBblas/Types.Layout_WI_ID</b></li>
+											</ul>
+									</div>
+								</div>
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-matutils-insertcols">
+							<div class="panel-heading">
+								<div class="type">
+									FUNCTION
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">DATASET(Layout_Cell) InsertCols(DATASET(Layout_Cell) M, UNSIGNED cols_to_insert=1, 
+    value_t insert_val=1)</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-matutils-insertcols" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Insert one or more columns of a fixed value into a matrix. Columns are inserted before the first original column. This attribute supports the myriad interface. Multiple independent matrixes can be represented by M.
+									</div>
+								</div>
+								<br/>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>M</b> </td>
+												<td>the input matrix</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>cols_to_insert</b> </td>
+												<td>the number of columns to insert, default 1</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>insert_val</b> </td>
+												<td>the value for each cell of the new column(s), default 0</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>matrix in Layout_Cell format with additional column(s)</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-matutils-transpose">
+							<div class="panel-heading">
+								<div class="type">
+									FUNCTION
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">DATASET(Layout_Cell) Transpose(DATASET(Layout_Cell) M)</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-matutils-transpose" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Transpose a matrix This attribute supports the myriad interface. Multiple independent matrixes can be represented by M.
+									</div>
+								</div>
+								<br/>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>M</b> </td>
+												<td>A matrix represented as DATASET(Layout_Cell)</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>Transposed matrix in Layout_Cell format</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-md-1">Also See</div>
+									<div class="col-md-11">
+										<ul>
+											<li><b>PBblas/Types.Layout_Cell</b></li>
+											</ul>
+									</div>
+								</div>
+								</div>
+						</div>
+						
+						
+						</div>
+				</section>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+		$("#menu-toggle").click(function(e) {
+			e.preventDefault();
+			$("#wrapper").toggleClass("toggled");
+		});
+	</script>
+	<script>
+		$(document).ready(function(){
+			$('.tree-link').click(function(e) {
+				var loc = $(this).attr('href');
+				$(loc).parents().collapse('show');
+				return true;
+			});
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,173 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Meta>
+ <Source name="PBblas.test.Vector2Diag" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Vector2Diag.ecl" target="vector2diag.ecl.xml">
+  <Import body="0" end="250" fullname="PBblas.test" inherit_type="local" line="4" name="Tests" ref="pbblas.test" start="250" target="pkg.toc.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0" end="269" fullname="PBblas" inherit_type="local" line="5" name="PBblas" ref="pbblas" start="269" target="../pkg.toc.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0" end="291" fullname="PBblas.internal" inherit_type="local" line="6" name="int" ref="pbblas.internal" remotescope="1" start="291" target="../internal/pkg.toc.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0" end="322" fullname="PBblas.internal.MatDims" inherit_type="local" line="7" name="MatDims" ref="pbblas.internal.matdims" start="322" target="../internal/matdims.ecl.xml">
+   <Type>attribute</Type>
+   <Documentation> <content>Module to calculate matrix dimensions and matrix partition dimensions from matrix cells.</content>
+   </Documentation>
+  </Import>
+  <Import body="0" end="342" fullname="PBblas.Types" inherit_type="local" line="8" name="Types" ref="pbblas.types" start="342" target="../types.ecl.xml">
+   <Type>attribute</Type>
+   <Documentation> <content>Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes.</content>
+   </Documentation>
+  </Import>
+  <Import body="0" end="363" fullname="PBblas.test.MakeTestMatrix" inherit_type="local" line="9" name="tm" ref="pbblas.test.maketestmatrix" start="363" target="maketestmatrix.ecl.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0" end="398" fullname="PBblas.test.DiffReport" inherit_type="local" line="10" name="dr" ref="pbblas.test.diffreport" start="398" target="diffreport.ecl.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Definition body="84" end="103" fullname="pbblas.test.layout_cell" inherit_type="local" line="4" name="Layout_Cell" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/test/MakeTestMatrix.ecl" start="70">
+   <Type>record</Type>
+   <Field name="wi_id"/>
+   <Field name="x"/>
+   <Field name="y"/>
+   <Field name="v"/>
+   <Signature pre="" post="" name="Layout_Cell">Layout_Cell</Signature><Documentation> <field><name>wi_id</name><desc>Work Item Number -- An identifier from 1 to 64K-1 that separates and identifies individual matrixes</desc></field>
+    <field><name>x</name><desc>1-based row position within the matrix</desc></field>
+    <field><name>y</name><desc>1-based column position within the matrix</desc></field>
+    <field><name>v</name><desc>Real value for the cell</desc></field>
+    <see>matrix_t</see>
+    <see>Std/PBblas/MakeR8Set.ecl</see>
+    <see>Std/PBblas/Converted.ecl WARNING: Used as C++ attribute. Do not change without corresponding changes to MakeR8Set.</see>
+    <content>Layout for Matrix Cell Main representation of Matrix cell at interface to all PBBlas functions. Matrixes are represented as DATASET(Layout_Cell), where each cell describes the row and column position of the cell as well as its value. Only the non-zero cells need to be contained in the dataset in order to describe the matrix since all unspecified cells are considered to have a value of zero. The cell also contains a work-item number that allows multiple separate matrixes to be carried in the same dataset. This supports the "myriad" style interface that allows the same operations to be performed on many different sets of data at once. Note that these matrixes do not have an explicit size. They are sized implicitly, based on the maximum row and column presented in the data. A matrix can be converted to an explicit dense form (see matrix_t) by using the utility module MakeR8Set. This module should only be used for known small matrixes (&lt; 1M cells) or for partitions of a larger matrix. The Converted module provides utility functions to convert to and from a set of partitions (See Layout_parts).</content>
+   </Documentation>
+  </Definition>
+  <Definition body="469" end="539" fullname="pbblas.test.test_rec" inherit_type="local" line="14" name="test_rec" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Vector2Diag.ecl" start="458">
+   <Type>record</Type>
+   <Field name="test"/>
+   <Field name="errors"/>
+   <Signature pre="" post="" name="test_rec">test_rec</Signature><Field name="details"/>
+  </Definition>
+  <Definition body="546" end="549" fullname="pbblas.test.n1" inherit_type="local" line="20" name="N1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Vector2Diag.ecl" start="541">
+   <Signature pre="" post="" name="N1">N1</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="555" end="561" fullname="pbblas.test.m1" inherit_type="local" line="21" name="M1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Vector2Diag.ecl" start="550">
+   <Signature pre="" post="" name="M1">M1</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="570" end="597" fullname="pbblas.test.xmat1" inherit_type="local" line="22" name="Xmat1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Vector2Diag.ecl" start="562">
+   <Signature pre="" post="" name="Xmat1">Xmat1</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="606" end="633" fullname="pbblas.test.xmat2" inherit_type="local" line="23" name="Xmat2" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Vector2Diag.ecl" start="598">
+   <Signature pre="" post="" name="Xmat2">Xmat2</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="720" end="753" fullname="pbblas.test.newmat" inherit_type="local" line="26" name="newmat" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Vector2Diag.ecl" start="711">
+   <Type>attribute</Type>
+   <Signature pre="" post="" name="newmat">newmat</Signature><Documentation> <see>PBblas/Types.Layout_cell</see>
+    <return>An N x N matrix in Layout_Cell format</return>
+    <param><name>X</name><desc>A row or column vector (i.e. N x 1 or 1 x N) in Layout_Cell format</desc></param>
+    <content>Convert a vector into a diagonal matrix. The typical notation is D = diag(V). The input X must be a 1 x N column vector or an N x 1 row vector. The resulting matrix, in either case will be N x N, with zero everywhere except the diagonal.</content>
+   </Documentation>
+  </Definition>
+  <Definition body="761" end="780" fullname="pbblas.test.new1" inherit_type="local" line="27" name="new1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Vector2Diag.ecl" start="754">
+   <Signature pre="" post="" name="new1">new1</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="788" end="807" fullname="pbblas.test.new2" inherit_type="local" line="28" name="new2" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Vector2Diag.ecl" start="781">
+   <Signature pre="" post="" name="new2">new2</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="858" end="886" fullname="pbblas.test.dims_1" inherit_type="local" line="31" name="dims_1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Vector2Diag.ecl" start="849">
+   <Signature pre="" post="" name="dims_1">dims_1</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="896" end="924" fullname="pbblas.test.dims_2" inherit_type="local" line="32" name="dims_2" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Vector2Diag.ecl" start="887">
+   <Signature pre="" post="" name="dims_2">dims_2</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="935" end="989" fullname="pbblas.test.err1_1" inherit_type="local" line="34" name="err1_1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Vector2Diag.ecl" start="926">
+   <Signature pre="" post="" name="err1_1">err1_1</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="999" end="1053" fullname="pbblas.test.err1_2" inherit_type="local" line="35" name="err1_2" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Vector2Diag.ecl" start="990">
+   <Signature pre="" post="" name="err1_2">err1_2</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1171" end="1210" fullname="pbblas.test.err1_3" inherit_type="local" line="38" name="err1_3" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Vector2Diag.ecl" start="1162">
+   <Signature pre="" post="" name="err1_3">err1_3</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1220" end="1259" fullname="pbblas.test.err1_4" inherit_type="local" line="39" name="err1_4" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Vector2Diag.ecl" start="1211">
+   <Signature pre="" post="" name="err1_4">err1_4</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1269" end="1479" fullname="pbblas.test.test1" inherit_type="local" line="41" name="test1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Vector2Diag.ecl" start="1261">
+   <Signature pre="" post="" name="test1">test1</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1543" end="1546" fullname="pbblas.test.tp1" inherit_type="local" line="49" name="tp1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Vector2Diag.ecl" start="1537">
+   <Signature pre="" post="" name="tp1">tp1</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1553" end="1558" fullname="pbblas.test.tp2" inherit_type="local" line="50" name="tp2" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Vector2Diag.ecl" start="1547">
+   <Signature pre="" post="" name="tp2">tp2</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1565" end="1571" fullname="pbblas.test.tp3" inherit_type="local" line="51" name="tp3" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Vector2Diag.ecl" start="1559">
+   <Signature pre="" post="" name="tp3">tp3</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1582" end="1613" fullname="pbblas.test.xval1_1" inherit_type="local" line="52" name="Xval1_1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Vector2Diag.ecl" start="1572">
+   <Signature pre="" post="" name="Xval1_1">Xval1_1</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1624" end="1655" fullname="pbblas.test.xval2_1" inherit_type="local" line="53" name="Xval2_1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Vector2Diag.ecl" start="1614">
+   <Signature pre="" post="" name="Xval2_1">Xval2_1</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1666" end="1697" fullname="pbblas.test.xval1_2" inherit_type="local" line="54" name="Xval1_2" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Vector2Diag.ecl" start="1656">
+   <Signature pre="" post="" name="Xval1_2">Xval1_2</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1708" end="1739" fullname="pbblas.test.xval2_2" inherit_type="local" line="55" name="Xval2_2" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Vector2Diag.ecl" start="1698">
+   <Signature pre="" post="" name="Xval2_2">Xval2_2</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1750" end="1781" fullname="pbblas.test.xval1_3" inherit_type="local" line="56" name="Xval1_3" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Vector2Diag.ecl" start="1740">
+   <Signature pre="" post="" name="Xval1_3">Xval1_3</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1792" end="1823" fullname="pbblas.test.xval2_3" inherit_type="local" line="57" name="Xval2_3" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Vector2Diag.ecl" start="1782">
+   <Signature pre="" post="" name="Xval2_3">Xval2_3</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1834" end="1866" fullname="pbblas.test.rval1_1" inherit_type="local" line="58" name="Rval1_1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Vector2Diag.ecl" start="1824">
+   <Signature pre="" post="" name="Rval1_1">Rval1_1</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1877" end="1909" fullname="pbblas.test.rval2_1" inherit_type="local" line="59" name="Rval2_1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Vector2Diag.ecl" start="1867">
+   <Signature pre="" post="" name="Rval2_1">Rval2_1</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1920" end="1952" fullname="pbblas.test.rval1_2" inherit_type="local" line="60" name="Rval1_2" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Vector2Diag.ecl" start="1910">
+   <Signature pre="" post="" name="Rval1_2">Rval1_2</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1963" end="1995" fullname="pbblas.test.rval2_2" inherit_type="local" line="61" name="Rval2_2" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Vector2Diag.ecl" start="1953">
+   <Signature pre="" post="" name="Rval2_2">Rval2_2</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="2006" end="2038" fullname="pbblas.test.rval1_3" inherit_type="local" line="62" name="Rval1_3" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Vector2Diag.ecl" start="1996">
+   <Signature pre="" post="" name="Rval1_3">Rval1_3</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="2049" end="2081" fullname="pbblas.test.rval2_3" inherit_type="local" line="63" name="Rval2_3" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Vector2Diag.ecl" start="2039">
+   <Signature pre="" post="" name="Rval2_3">Rval2_3</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="2093" end="2123" fullname="pbblas.test.err2_1_1" inherit_type="local" line="64" name="err2_1_1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Vector2Diag.ecl" start="2082">
+   <Signature pre="" post="" name="err2_1_1">err2_1_1</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="2135" end="2165" fullname="pbblas.test.err2_2_1" inherit_type="local" line="65" name="err2_2_1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Vector2Diag.ecl" start="2124">
+   <Signature pre="" post="" name="err2_2_1">err2_2_1</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="2177" end="2207" fullname="pbblas.test.err2_1_2" inherit_type="local" line="66" name="err2_1_2" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Vector2Diag.ecl" start="2166">
+   <Signature pre="" post="" name="err2_1_2">err2_1_2</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="2219" end="2249" fullname="pbblas.test.err2_2_2" inherit_type="local" line="67" name="err2_2_2" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Vector2Diag.ecl" start="2208">
+   <Signature pre="" post="" name="err2_2_2">err2_2_2</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="2261" end="2291" fullname="pbblas.test.err2_1_3" inherit_type="local" line="68" name="err2_1_3" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Vector2Diag.ecl" start="2250">
+   <Signature pre="" post="" name="err2_1_3">err2_1_3</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="2303" end="2333" fullname="pbblas.test.err2_2_3" inherit_type="local" line="69" name="err2_2_3" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Vector2Diag.ecl" start="2292">
+   <Signature pre="" post="" name="err2_2_3">err2_2_3</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="2343" end="2688" fullname="pbblas.test.test2" inherit_type="local" line="71" name="test2" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Vector2Diag.ecl" start="2335">
+   <Signature pre="" post="" name="test2">test2</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="2699" end="2714" fullname="pbblas.test.result" inherit_type="local" line="79" name="result" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Vector2Diag.ecl" start="2690">
+   <Signature pre="" post="" name="result">result</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="2778" end="2786" exported="1" fullname="pbblas.test.vector2diag" inherit_type="local" line="83" name="Vector2Diag" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Vector2Diag.ecl" start="2757">
+   <Type>attribute</Type>
+   <Signature pre="" post="" name="Vector2Diag">Vector2Diag</Signature><Documentation> <content>Test for PBblas.Vector2Diag</content>
+   </Documentation>
+  </Definition>
+ </Source>
+ <Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/MatDims.ecl" name="PBblas.internal.MatDims" target="../internal/matdims.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Types.ecl" name="PBblas.Types" target="../types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Types.ecl" name="ML_Core.Types" target="../../ml_core/types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/Types.ecl" name="PBblas.internal.Types" target="../internal/types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/BlockDimensions.ecl" name="PBblas.internal.BlockDimensions" target="../internal/blockdimensions.ecl.xml"/><Depends sourcePath="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/system/Thorlib.ecl" name="std.system.Thorlib" target="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/system/Thorlib.ecl"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/BlockDimensionsMultiply.ecl" name="PBblas.internal.BlockDimensionsMultiply" target="../internal/blockdimensionsmultiply.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/BlockDimensionsSolve.ecl" name="PBblas.internal.BlockDimensionsSolve" target="../internal/blockdimensionssolve.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/MakeTestMatrix.ecl" name="PBblas.test.MakeTestMatrix" target="maketestmatrix.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/DiffReport.ecl" name="PBblas.test.DiffReport" target="diffreport.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/Converted.ecl" name="PBblas.internal.Converted" target="../internal/converted.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/MakeR8Set.ecl" name="PBblas.internal.MakeR8Set" target="../internal/maker8set.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Constants.ecl" name="PBblas.Constants" target="../constants.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Vector2Diag.ecl" name="PBblas.Vector2Diag" target="../vector2diag.ecl.xml"/></Meta>

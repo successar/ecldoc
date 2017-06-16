@@ -1,0 +1,1637 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
+	<title>PBblas.test.ConvertedInt</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
+	<link href="../../../css/simple-sidebar.css" rel="stylesheet">
+
+</head>
+
+<body>
+	<nav class="navbar topbar">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a href="#menu-toggle" id="menu-toggle" class="navbar-brand glyphicon glyphicon-menu-hamburger ham"></a>
+			</div>
+			<div class="navbar-header" style="margin-left: 20px;">
+				<span class="navbar-brand">PBblas.test.ConvertedInt</span>
+			</div>
+			<div class="navbar-collapse collapse">
+			<ul class="nav navbar-nav">
+				<li><a href="#ecldoc-section-import" class="topbar">Imports</a></li>
+				<li><a href="#ecldoc-section-tree" class="topbar">Tree</a></li>
+				<li><a href="#ecldoc-section-desc" class="topbar">Descriptions</a></li>
+			</ul>
+			</div>
+		</div>
+	</nav>
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		<div id="sidebar-wrapper">
+			<ul class="sidebar-nav">
+				<li class="sidebar-brand">
+					<a href="pkg.toc.html">
+						Up
+					</a>
+				</li>
+				
+				<li>
+					<a href="scal.ecl.html">scal.ecl</a>
+				</li>
+				
+				<li>
+					<a href="vector2diag.ecl.html">vector2diag.ecl</a>
+				</li>
+				
+				<li>
+					<a href="solve.ecl.html">solve.ecl</a>
+				</li>
+				
+				<li>
+					<a href="matdims.ecl.html">matdims.ecl</a>
+				</li>
+				
+				<li>
+					<a href="converted.ecl.html">converted.ecl</a>
+				</li>
+				
+				<li>
+					<a href="tran.ecl.html">tran.ecl</a>
+				</li>
+				
+				<li>
+					<a href="axpy.ecl.html">axpy.ecl</a>
+				</li>
+				
+				<li>
+					<a href="convertedint.ecl.html">convertedint.ecl</a>
+				</li>
+				
+				<li>
+					<a href="convertedintmyr.ecl.html">convertedintmyr.ecl</a>
+				</li>
+				
+				<li>
+					<a href="diffreport.ecl.html">diffreport.ecl</a>
+				</li>
+				
+				<li>
+					<a href="factor.ecl.html">factor.ecl</a>
+				</li>
+				
+				<li>
+					<a href="apply2elements.ecl.html">apply2elements.ecl</a>
+				</li>
+				
+				<li>
+					<a href="blockdimensions.ecl.html">blockdimensions.ecl</a>
+				</li>
+				
+				<li>
+					<a href="hadamardproduct.ecl.html">hadamardproduct.ecl</a>
+				</li>
+				
+				<li>
+					<a href="getrf.ecl.html">getrf.ecl</a>
+				</li>
+				
+				<li>
+					<a href="multiply.ecl.html">multiply.ecl</a>
+				</li>
+				
+				<li>
+					<a href="blockdimensionssolve.ecl.html">blockdimensionssolve.ecl</a>
+				</li>
+				
+				<li>
+					<a href="maketestmatrix.ecl.html">maketestmatrix.ecl</a>
+				</li>
+				
+				<li>
+					<a href="potrf.ecl.html">potrf.ecl</a>
+				</li>
+				
+				<li>
+					<a href="matutils.ecl.html">matutils.ecl</a>
+				</li>
+				
+				<li>
+					<a href="asum.ecl.html">asum.ecl</a>
+				</li>
+				
+				<li>
+					<a href="blockdimensionsmultiply.ecl.html">blockdimensionsmultiply.ecl</a>
+				</li>
+				
+			</ul>
+		</div>
+
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<section id="ecldoc-section-import">
+					<h3 class="page-header">IMPORTS</h3>
+					<ul class="pagination">
+						<li>
+							<a href="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/system/Thorlib.ecl">
+								std.system.thorlib
+							</a>
+							</li>
+						<li>
+							<a href="../pkg.toc.html">
+								pbblas
+							</a>
+							</li>
+						<li>
+							<a href="../types.ecl.html">
+								pbblas.types
+							</a>
+							</li>
+						<li>
+							<a href="../matutils.ecl.html">
+								pbblas.matutils
+							</a>
+							</li>
+						<li>
+							<a href="../internal/pkg.toc.html">
+								pbblas.internal
+							</a>
+							</li>
+						<li>
+							<a href="../internal/types.ecl.html">
+								pbblas.internal.types
+							</a>
+							</li>
+						<li>
+							<a href="../internal/matdims.ecl.html">
+								pbblas.internal.matdims
+							</a>
+							</li>
+						<li>
+							<a href="pkg.toc.html">
+								pbblas.test
+							</a>
+							</li>
+						<li>
+							<a href="maketestmatrix.ecl.html">
+								pbblas.test.maketestmatrix
+							</a>
+							</li>
+						</ul>
+				</section>
+				<section id="ecldoc-section-tree">
+					<h3 class="page-header">DEFINITION TREE</h3>
+					<ul class="tree">
+						<li id="t-pbblas-test-layout_cell">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-layout_cell">
+								RECORD :
+								<span class="sign-pre"></span>
+								<span class="sign-name">Layout_Cell</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-layout_cell" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-layout_part">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-layout_part">
+								RECORD :
+								<span class="sign-pre"></span>
+								<span class="sign-name">Layout_Part</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-layout_part" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-nodes">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-nodes">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">nodes</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-nodes" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-max_partition_size_override">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-max_partition_size_override">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">max_partition_size_override</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-max_partition_size_override" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-override">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-override">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">override</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-override" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-n">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-n">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">N</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-n" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-m">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-m">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">M</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-m" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-density">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-density">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">density</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-density" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-cells">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-cells">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">cells</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-cells" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-dims">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-dims">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">dims</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-dims" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-parts">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-parts">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">DATASET(Layout_Part) parts</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-parts" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-cells_roundtrip">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-cells_roundtrip">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">DATASET(Layout_Cell) cells_roundtrip</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-cells_roundtrip" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-t_dims">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-t_dims">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">t_dims</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-t_dims" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-t_parts">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-t_parts">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">DATASET(Layout_Part) t_parts</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-t_parts" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-t_cells_roundtrip">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-t_cells_roundtrip">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">DATASET(Layout_Cell) t_cells_roundtrip</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-t_cells_roundtrip" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-cmp_cells">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-cmp_cells">
+								TRANSFORM :
+								<span class="sign-pre"></span>
+								<span class="sign-name">Layout_Cell cmp_cells(Layout_Cell l, Layout_Cell r)</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-cmp_cells" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-reduce_parts">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-reduce_parts">
+								TRANSFORM :
+								<span class="sign-pre"></span>
+								<span class="sign-name">Layout_Part reduce_parts(Layout_Part lr)</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-reduce_parts" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-layout_result">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-layout_result">
+								RECORD :
+								<span class="sign-pre"></span>
+								<span class="sign-name">Layout_Result</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-layout_result" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-parts_cmp">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-parts_cmp">
+								TRANSFORM :
+								<span class="sign-pre"></span>
+								<span class="sign-name">Layout_Result parts_cmp(Layout_Part l, Layout_Part r)</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-parts_cmp" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-cells2">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-cells2">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">cells2</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-cells2" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-cells2_roundtrip">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-cells2_roundtrip">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">cells2_roundtrip</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-cells2_roundtrip" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-roundtrip_cmp">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-roundtrip_cmp">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">DATASET(Layout_Cell) roundtrip_cmp</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-roundtrip_cmp" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-t_cells2_roundtrip">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-t_cells2_roundtrip">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">t_cells2_roundtrip</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-t_cells2_roundtrip" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-t_roundtrip_cmp">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-t_roundtrip_cmp">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">DATASET(Layout_Cell) t_roundtrip_cmp</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-t_roundtrip_cmp" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-summary_rec">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-summary_rec">
+								RECORD :
+								<span class="sign-pre"></span>
+								<span class="sign-name">summary_rec</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-summary_rec" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-t_summary_rec">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-t_summary_rec">
+								RECORD :
+								<span class="sign-pre"></span>
+								<span class="sign-name">t_summary_rec</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-t_summary_rec" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-roundtrip_rslts">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-roundtrip_rslts">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">roundtrip_rslts</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-roundtrip_rslts" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-t_roundtrip_rslts">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-t_roundtrip_rslts">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">t_roundtrip_rslts</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-t_roundtrip_rslts" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-rslt">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-rslt">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">rslt</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-rslt" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-pbblas-test-convertedint">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dpbblas-test-convertedint">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">ConvertedInt</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="pbblas-test-convertedint" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						</ul>
+				</section>
+				<section id="ecldoc-section-desc">
+					<h3 class="page-header">DESCRIPTIONS</h3>
+					<div class="panel-group">
+						<div class="panel panel-info" id="dpbblas-test-layout_cell">
+							<div class="panel-heading">
+								<div class="type">
+									RECORD
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">Layout_Cell</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-layout_cell" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Test for PBblas/internal/Converted.ecl module Converts from cells to partitions, and then back to cells using Converted.FromCells and Converted.FromParts. Then repeats the test with the "transpose" feature (Transposes into parts and the transposes back into cells).
+									</div>
+								</div>
+								<br/>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-layout_part">
+							<div class="panel-heading">
+								<div class="type">
+									RECORD
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">Layout_Part</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-layout_part" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Alternate form for storage of large matrixes as a set of partitions Each partition holds the dense form of a piece of the matrix (see matrix_t) as well as information about its relationship to the larger matrix. The full matrix is then carried as DATASET(Layout_Part). Utility module Converted provides functions for converting a matrix in cell form (see Layout_cell) to partitions and vice versa. This form is primarily used internally to PBblas functions, but can also be used as an intermediate form to avoid repeated conversions from cell form. A work-item id field allows multiple matrixes to be carried in the same dataset. This supports the "myriad" style interface whereby the same operation can be performed on multiple sets of matrixes at once. The m_label field allows for the separation of multiple matrixes with the same wi_id for operations requiring multiple matrixes. This allows multiple work-items with multiple matrixes each to be carried in the same dataset.
+									</div>
+								</div>
+								<br/>
+								
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Fields</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td width="20%"><b>wi_id</b> </td>
+												<td>Work Item Number -- An identifier from 1 to 64K-1 that separates and identifies individual matrixes</td>
+											</tr>
+											<tr>
+												<td width="20%"><b>m_label</b> </td>
+												<td>A user provided label indicating to which matrix the dimensions apply, when used to describe a set of related matrixes (e.g., 'A', 'B', and 'C') for the same work item used in an operation. * @field partition_id A unique ID for this partition within the matrix</td>
+											</tr>
+											<tr>
+												<td width="20%"><b>partition_id</b> </td>
+												<td>The 1-based id of this partition, unique within a work-item</td>
+											</tr>
+											<tr>
+												<td width="20%"><b>node_id</b> </td>
+												<td>The node on which this partition is stored</td>
+											</tr>
+											<tr>
+												<td width="20%"><b>m_rows</b> </td>
+												<td>The number of rows in the full matrix</td>
+											</tr>
+											<tr>
+												<td width="20%"><b>m_cols</b> </td>
+												<td>The number of columns in the full matrix</td>
+											</tr>
+											<tr>
+												<td width="20%"><b>row_blocks</b> </td>
+												<td>The number of row partitions in use</td>
+											</tr>
+											<tr>
+												<td width="20%"><b>col_blocks</b> </td>
+												<td>The number of column partitions in use</td>
+											</tr>
+											<tr>
+												<td width="20%"><b>block_row</b> </td>
+												<td>The row of this partition within the block partition matrix</td>
+											</tr>
+											<tr>
+												<td width="20%"><b>block_col</b> </td>
+												<td>The column of this partition "</td>
+											</tr>
+											<tr>
+												<td width="20%"><b>part_rows</b> </td>
+												<td>The number of rows stored within this partition</td>
+											</tr>
+											<tr>
+												<td width="20%"><b>part_cols</b> </td>
+												<td>The number of columns stored within this partition</td>
+											</tr>
+											<tr>
+												<td width="20%"><b>first_row</b> </td>
+												<td>The first row of the original matrix stored within this partition</td>
+											</tr>
+											<tr>
+												<td width="20%"><b>first_col</b> </td>
+												<td>The first column of the original matrix stored within this partition</td>
+											</tr>
+											<tr>
+												<td width="20%"><b>mat_part</b> </td>
+												<td>The dense representation of the cells values within this partition (see matrix_t)</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								</div>
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-md-1">Also See</div>
+									<div class="col-md-11">
+										<ul>
+											<li><b>matrix_t</b></li>
+											<li><b>Layout_Cell</b></li>
+											<li><b>Std/PBblas/Converted</b></li>
+											</ul>
+									</div>
+								</div>
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-nodes">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">nodes</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-nodes" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-max_partition_size_override">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">max_partition_size_override</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-max_partition_size_override" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-override">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">override</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-override" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-n">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">N</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-n" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-m">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">M</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-m" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-density">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">density</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-density" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-cells">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">cells</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-cells" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-dims">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">dims</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-dims" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Generate a partitioning scheme from a set of matrices in cell form. Essentially a shortcut for FromCells followed by PartitionedFromDims
+									</div>
+								</div>
+								<br/>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>cells</b> </td>
+												<td>DATASET(Layout_Cell) representing one or more matrixes</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>m_label</b> </td>
+												<td>a single text label to be attached to the dimensions so that this set of dimensions can be distinguished from another set used by the same operation (e.g. 'A', 'B', or 'C')</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>DATASET(Layout_Dims) with partition info filled in</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-md-1">Also See</div>
+									<div class="col-md-11">
+										<ul>
+											<li><b>Std/PBblas/Types.Layout_Dims</b></li>
+											<li><b>Std/PBblas/Types.Layout_Cell</b></li>
+											<li><b>FromCells</b></li>
+											<li><b>PartitionedFromDims</b></li>
+											</ul>
+									</div>
+								</div>
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-parts">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">DATASET(Layout_Part) parts</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-parts" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Convert a matrix in cell-based form (i.e. DATASET(Layout_Cell)) to a partition-based form (i.e. DATASET(Layout_Part). Partition sizes will be automatically determined. See PBblas/Internal/MatDims. Note that the cell-based form may be sparse (i.e. contains only non-zero cells). The resulting partition-based matrix will contain zero in any cell not specified. Partitions will no non-zero cells will be omitted. This module supports the "myriad" style interface in that both dimension and matrix parameters may describe many separate matrices with different work item ids.
+									</div>
+								</div>
+								<br/>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>dims</b> </td>
+												<td>A DATASET(Layout_Dims) of partitioned dimensions</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>cells</b> </td>
+												<td>A DATASET(Layout_Cell) containing the cells of the matrix</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>DATASET(Layout_Part) -- A dataset of partitions describing the same matrix(es) as the input cells.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-md-1">Also See</div>
+									<div class="col-md-11">
+										<ul>
+											<li><b>PBblas/Types.Layout_Cell</b></li>
+											<li><b>PBblas/internal/Types.Layout_Part</b></li>
+											<li><b>PBblas/internal/Types.Layout_Dims</b></li>
+											</ul>
+									</div>
+								</div>
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-cells_roundtrip">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">DATASET(Layout_Cell) cells_roundtrip</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-cells_roundtrip" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Convert a matrix in Partition-based form (i.e. DATASET(Layout_Part)) to Cell-based form (i.e. DATASET(Layout_Cell)). Note that the returned cell-based matrix is sparse, in that it will only contain rows for cells that were non-zero in the original matrix. This interface supports "myriad" style, in that the partitions may represent many independent matrixes separated by different work item ids.
+									</div>
+								</div>
+								<br/>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>parts_recs</b> </td>
+												<td>A DATASET(Layout_Parts) specifying the matrix(es) to be converted</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>transpose</b> </td>
+												<td>BOOLEAN parameter causes each matrix to be transposed during conversion</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-md-1">Also See</div>
+									<div class="col-md-11">
+										<ul>
+											<li><b>Std/PBblas/Types.Layout_Cell</b></li>
+											<li><b>Std/PBblas/Types.Layout_Part</b></li>
+											</ul>
+									</div>
+								</div>
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-t_dims">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">t_dims</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-t_dims" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Transpose rows and columns for a set of matrix dimensions. Can be used for single matrix dimensions or partitioned matrixes. Returns one record for each input record. Many matrixes can be included in one call.
+									</div>
+								</div>
+								<br/>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>dims_in</b> </td>
+												<td>The dimensions to be transposed in Layout_Dims format</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>DATASET(Layout_Dims), the input dimensions transposed</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-t_parts">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">DATASET(Layout_Part) t_parts</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-t_parts" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Convert a matrix in cell-based form (i.e. DATASET(Layout_Cell)) to a partition-based form (i.e. DATASET(Layout_Part). Partition sizes will be automatically determined. See PBblas/Internal/MatDims. Note that the cell-based form may be sparse (i.e. contains only non-zero cells). The resulting partition-based matrix will contain zero in any cell not specified. Partitions will no non-zero cells will be omitted. This module supports the "myriad" style interface in that both dimension and matrix parameters may describe many separate matrices with different work item ids.
+									</div>
+								</div>
+								<br/>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>dims</b> </td>
+												<td>A DATASET(Layout_Dims) of partitioned dimensions</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>cells</b> </td>
+												<td>A DATASET(Layout_Cell) containing the cells of the matrix</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>DATASET(Layout_Part) -- A dataset of partitions describing the same matrix(es) as the input cells.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-md-1">Also See</div>
+									<div class="col-md-11">
+										<ul>
+											<li><b>PBblas/Types.Layout_Cell</b></li>
+											<li><b>PBblas/internal/Types.Layout_Part</b></li>
+											<li><b>PBblas/internal/Types.Layout_Dims</b></li>
+											</ul>
+									</div>
+								</div>
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-t_cells_roundtrip">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">DATASET(Layout_Cell) t_cells_roundtrip</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-t_cells_roundtrip" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										Convert a matrix in Partition-based form (i.e. DATASET(Layout_Part)) to Cell-based form (i.e. DATASET(Layout_Cell)). Note that the returned cell-based matrix is sparse, in that it will only contain rows for cells that were non-zero in the original matrix. This interface supports "myriad" style, in that the partitions may represent many independent matrixes separated by different work item ids.
+									</div>
+								</div>
+								<br/>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>parts_recs</b> </td>
+												<td>A DATASET(Layout_Parts) specifying the matrix(es) to be converted</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>transpose</b> </td>
+												<td>BOOLEAN parameter causes each matrix to be transposed during conversion</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-md-1">Also See</div>
+									<div class="col-md-11">
+										<ul>
+											<li><b>Std/PBblas/Types.Layout_Cell</b></li>
+											<li><b>Std/PBblas/Types.Layout_Part</b></li>
+											</ul>
+									</div>
+								</div>
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-cmp_cells">
+							<div class="panel-heading">
+								<div class="type">
+									TRANSFORM
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">Layout_Cell cmp_cells(Layout_Cell l, Layout_Cell r)</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-cmp_cells" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-reduce_parts">
+							<div class="panel-heading">
+								<div class="type">
+									TRANSFORM
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">Layout_Part reduce_parts(Layout_Part lr)</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-reduce_parts" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-layout_result">
+							<div class="panel-heading">
+								<div class="type">
+									RECORD
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">Layout_Result</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-layout_result" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-parts_cmp">
+							<div class="panel-heading">
+								<div class="type">
+									TRANSFORM
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">Layout_Result parts_cmp(Layout_Part l, Layout_Part r)</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-parts_cmp" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-cells2">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">cells2</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-cells2" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-cells2_roundtrip">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">cells2_roundtrip</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-cells2_roundtrip" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-roundtrip_cmp">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">DATASET(Layout_Cell) roundtrip_cmp</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-roundtrip_cmp" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-t_cells2_roundtrip">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">t_cells2_roundtrip</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-t_cells2_roundtrip" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-t_roundtrip_cmp">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">DATASET(Layout_Cell) t_roundtrip_cmp</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-t_roundtrip_cmp" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-summary_rec">
+							<div class="panel-heading">
+								<div class="type">
+									RECORD
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">summary_rec</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-summary_rec" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-t_summary_rec">
+							<div class="panel-heading">
+								<div class="type">
+									RECORD
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">t_summary_rec</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-t_summary_rec" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-roundtrip_rslts">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">roundtrip_rslts</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-roundtrip_rslts" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-t_roundtrip_rslts">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">t_roundtrip_rslts</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-t_roundtrip_rslts" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-rslt">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">rslt</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-rslt" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dpbblas-test-convertedint">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">ConvertedInt</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-pbblas-test-convertedint" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						</div>
+				</section>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+		$("#menu-toggle").click(function(e) {
+			e.preventDefault();
+			$("#wrapper").toggleClass("toggled");
+		});
+	</script>
+	<script>
+		$(document).ready(function(){
+			$('.tree-link').click(function(e) {
+				var loc = $(this).attr('href');
+				$(loc).parents().collapse('show');
+				return true;
+			});
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Meta>
+ <Source name="PBblas.Vector2Diag" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Vector2Diag.ecl" target="vector2diag.ecl.xml">
+  <Import body="0" end="251" fullname="PBblas" inherit_type="local" line="5" name="PBblas" ref="pbblas" start="251" target="pkg.toc.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0" end="271" fullname="PBblas.internal" inherit_type="local" line="6" name="int" ref="pbblas.internal" remotescope="1" start="271" target="internal/pkg.toc.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0" end="302" fullname="PBblas.internal.MatDims" inherit_type="local" line="7" name="MatDims" ref="pbblas.internal.matdims" start="302" target="internal/matdims.ecl.xml">
+   <Type>attribute</Type>
+   <Documentation> <content>Module to calculate matrix dimensions and matrix partition dimensions from matrix cells.</content>
+   </Documentation>
+  </Import>
+  <Import body="0" end="322" fullname="PBblas.Types" inherit_type="local" line="8" name="Types" ref="pbblas.types" start="322" target="types.ecl.xml">
+   <Type>attribute</Type>
+   <Documentation> <content>Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes.</content>
+   </Documentation>
+  </Import>
+  <Import body="0" end="343" fullname="PBblas.internal.Types" inherit_type="local" line="9" name="iTypes" ref="pbblas.internal.types" start="343" target="internal/types.ecl.xml">
+   <Type>attribute</Type>
+   <Documentation> <content>Internal Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes.</content>
+   </Documentation>
+  </Import>
+  <Import body="0" end="371" fullname="PBblas.Constants" inherit_type="local" line="10" name="Constants" ref="pbblas.constants" start="371" target="constants.ecl.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Definition body="436" end="455" fullname="pbblas.layout_cell" inherit_type="local" line="13" name="Layout_Cell" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Vector2Diag.ecl" start="422">
+   <Type>record</Type>
+   <Field name="wi_id"/>
+   <Field name="x"/>
+   <Field name="y"/>
+   <Field name="v"/>
+   <Signature pre="" post="" name="Layout_Cell">Layout_Cell</Signature><Documentation> <field><name>wi_id</name><desc>Work Item Number -- An identifier from 1 to 64K-1 that separates and identifies individual matrixes</desc></field>
+    <field><name>x</name><desc>1-based row position within the matrix</desc></field>
+    <field><name>y</name><desc>1-based column position within the matrix</desc></field>
+    <field><name>v</name><desc>Real value for the cell</desc></field>
+    <see>matrix_t</see>
+    <see>Std/PBblas/MakeR8Set.ecl</see>
+    <see>Std/PBblas/Converted.ecl WARNING: Used as C++ attribute. Do not change without corresponding changes to MakeR8Set.</see>
+    <content>Layout for Matrix Cell Main representation of Matrix cell at interface to all PBBlas functions. Matrixes are represented as DATASET(Layout_Cell), where each cell describes the row and column position of the cell as well as its value. Only the non-zero cells need to be contained in the dataset in order to describe the matrix since all unspecified cells are considered to have a value of zero. The cell also contains a work-item number that allows multiple separate matrixes to be carried in the same dataset. This supports the "myriad" style interface that allows the same operations to be performed on many different sets of data at once. Note that these matrixes do not have an explicit size. They are sized implicitly, based on the maximum row and column presented in the data. A matrix can be converted to an explicit dense form (see matrix_t) by using the utility module MakeR8Set. This module should only be used for known small matrixes (&lt; 1M cells) or for partitions of a larger matrix. The Converted module provides utility functions to convert to and from a set of partitions (See Layout_parts).</content>
+   </Documentation>
+  </Definition>
+  <Definition body="470" end="490" fullname="pbblas.layout_dims" inherit_type="local" line="14" name="Layout_Dims" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Vector2Diag.ecl" start="456">
+   <Type>record</Type>
+   <Field name="m_label"/>
+   <Field name="wi_id"/>
+   <Field name="m_rows"/>
+   <Field name="m_cols"/>
+   <Field name="block_rows"/>
+   <Field name="block_cols"/>
+   <Field name="row_blocks"/>
+   <Field name="col_blocks"/>
+   <Signature pre="" post="" name="Layout_Dims">Layout_Dims</Signature><Documentation> <field><name>m_label</name><desc>A user provided label indicating to which matrix the dimensions apply, when used to describe a set of related matrixes (e.g., 'A', 'B', and 'C') for the same work item used in an operation.</desc></field>
+    <field><name>m_rows</name><desc>The number of rows in the full matrix</desc></field>
+    <field><name>m_cols</name><desc>The number of colums in the full matrix</desc></field>
+    <field><name>block_rows</name><desc>The number of rows in each partition of the matrix</desc></field>
+    <field><name>block_cols</name><desc>The number of columns in each partition</desc></field>
+    <field><name>row_blocks</name><desc>The number of row partitions in use for the matrix</desc></field>
+    <field><name>col_blocks</name><desc>The number of column partitions in use for the matrix</desc></field>
+    <content>Record format for matrix and matrix partition dimensions. Each record describes A single matrix or matrix partition. Partitions use all of the fields, while a non-partitioned matrix only uses the first two (i.e. m_rows and m_cols).</content>
+   </Documentation>
+  </Definition>
+  <Definition body="501" end="516" fullname="pbblas.value_t" inherit_type="local" line="15" name="value_t" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Vector2Diag.ecl" start="491">
+   <Signature pre="" post="" name="value_t">value_t</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="531" end="557" fullname="pbblas.dimension_t" inherit_type="local" line="16" name="dimension_t" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Vector2Diag.ecl" start="517">
+   <Signature pre="" post="" name="dimension_t">dimension_t</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1075" end="1532" exported="1" fullname="pbblas.vector2diag" inherit_type="local" line="28" name="Vector2Diag" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Vector2Diag.ecl" start="1003">
+   <Type>function</Type>
+   <Documentation> <see>PBblas/Types.Layout_cell</see>
+    <return>An N x N matrix in Layout_Cell format</return>
+    <param><name>X</name><desc>A row or column vector (i.e. N x 1 or 1 x N) in Layout_Cell format</desc></param>
+    <content>Convert a vector into a diagonal matrix. The typical notation is D = diag(V). The input X must be a 1 x N column vector or an N x 1 row vector. The resulting matrix, in either case will be N x N, with zero everywhere except the diagonal.</content>
+   </Documentation>
+   <Signature pre="" post="" name="DATASET(Layout_Cell)&#10;       Vector2Diag(DATASET(Layout_Cell) X)">DATASET(Layout_Cell)
+       Vector2Diag(DATASET(Layout_Cell) X)</Signature><Params>
+    <Param name="X"/>
+   </Params>
+  </Definition>
+ </Source>
+ <Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/MatDims.ecl" name="PBblas.internal.MatDims" target="internal/matdims.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Types.ecl" name="PBblas.Types" target="types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Types.ecl" name="ML_Core.Types" target="../ml_core/types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/Types.ecl" name="PBblas.internal.Types" target="internal/types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/BlockDimensions.ecl" name="PBblas.internal.BlockDimensions" target="internal/blockdimensions.ecl.xml"/><Depends sourcePath="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/system/Thorlib.ecl" name="std.system.Thorlib" target="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/system/Thorlib.ecl"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/BlockDimensionsMultiply.ecl" name="PBblas.internal.BlockDimensionsMultiply" target="internal/blockdimensionsmultiply.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Constants.ecl" name="PBblas.Constants" target="constants.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/BlockDimensionsSolve.ecl" name="PBblas.internal.BlockDimensionsSolve" target="internal/blockdimensionssolve.ecl.xml"/></Meta>

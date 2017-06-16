@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Meta>
+ <Source name="PBblas.performance.SolvePerfMyrPrep" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/performance/SolvePerfMyrPrep.ecl" target="solveperfmyrprep.ecl.xml">
+  <Import body="0" end="405" fullname="PBblas" inherit_type="local" line="7" name="PBblas" ref="pbblas" start="405" target="../pkg.toc.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0" end="427" fullname="PBblas.internal" inherit_type="local" line="8" name="int" ref="pbblas.internal" remotescope="1" start="427" target="../internal/pkg.toc.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0" end="458" fullname="PBblas.MatUtils" inherit_type="local" line="9" name="MatUtils" ref="pbblas.matutils" start="458" target="../matutils.ecl.xml">
+   <Type>attribute</Type>
+   <Documentation> <see>Std/PBblas/Types.Layout_Cell</see>
+    <content>Provides various utility attributes for manipulating cell-based matrixes</content>
+   </Documentation>
+  </Import>
+  <Import body="0" end="482" fullname="PBblas.Types" inherit_type="local" line="10" name="Types" ref="pbblas.types" start="482" target="../types.ecl.xml">
+   <Type>attribute</Type>
+   <Documentation> <content>Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes.</content>
+   </Documentation>
+  </Import>
+  <Import body="0" end="503" fullname="PBblas.internal.Types" inherit_type="local" line="11" name="iTypes" ref="pbblas.internal.types" start="503" target="../internal/types.ecl.xml">
+   <Type>attribute</Type>
+   <Documentation> <content>Internal Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes.</content>
+   </Documentation>
+  </Import>
+  <Import body="0" end="531" fullname="PBblas.test" inherit_type="local" line="12" name="Tests" ref="pbblas.test" remotescope="1" start="531" target="../test/pkg.toc.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0" end="560" fullname="PBblas.test.MakeTestMatrix" inherit_type="local" line="13" name="tm" ref="pbblas.test.maketestmatrix" start="560" target="../test/maketestmatrix.ecl.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Definition body="600" end="617" fullname="pbblas.performance.matrix_t" inherit_type="local" line="15" name="matrix_t" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/performance/SolvePerfMyrPrep.ecl" start="589">
+   <Signature pre="" post="" name="matrix_t">matrix_t</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="629" end="645" inherit_type="local" line="16" name="Triangle" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/performance/SolvePerfMyrPrep.ecl" start="618" fullname="ecldoc-Triangle">
+   <Type>attribute</Type>
+   <Signature pre="" post="" name="Triangle">Triangle</Signature><Documentation> <content>Enumeration for Triangle type WARNING: type used in C++ attribute</content>
+   </Documentation>
+  </Definition>
+  <Definition body="657" end="673" inherit_type="local" line="17" name="Diagonal" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/performance/SolvePerfMyrPrep.ecl" start="646" fullname="ecldoc-Diagonal">
+   <Type>attribute</Type>
+   <Signature pre="" post="" name="Diagonal">Diagonal</Signature><Documentation> <content>Enumeration for Diagonal type WARNING: type used in C++ attribute</content>
+   </Documentation>
+  </Definition>
+  <Definition body="683" end="699" fullname="pbblas.performance.upper" inherit_type="local" line="18" name="Upper" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/performance/SolvePerfMyrPrep.ecl" start="674">
+   <Signature pre="" post="" name="Upper">Upper</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="709" end="725" fullname="pbblas.performance.lower" inherit_type="local" line="19" name="Lower" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/performance/SolvePerfMyrPrep.ecl" start="700">
+   <Signature pre="" post="" name="Lower">Lower</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="740" end="759" fullname="pbblas.performance.layout_cell" inherit_type="local" line="20" name="Layout_Cell" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/performance/SolvePerfMyrPrep.ecl" start="726">
+   <Type>record</Type>
+   <Field name="wi_id"/>
+   <Field name="x"/>
+   <Field name="y"/>
+   <Field name="v"/>
+   <Signature pre="" post="" name="Layout_Cell">Layout_Cell</Signature><Documentation> <field><name>wi_id</name><desc>Work Item Number -- An identifier from 1 to 64K-1 that separates and identifies individual matrixes</desc></field>
+    <field><name>x</name><desc>1-based row position within the matrix</desc></field>
+    <field><name>y</name><desc>1-based column position within the matrix</desc></field>
+    <field><name>v</name><desc>Real value for the cell</desc></field>
+    <see>matrix_t</see>
+    <see>Std/PBblas/MakeR8Set.ecl</see>
+    <see>Std/PBblas/Converted.ecl WARNING: Used as C++ attribute. Do not change without corresponding changes to MakeR8Set.</see>
+    <content>Layout for Matrix Cell Main representation of Matrix cell at interface to all PBBlas functions. Matrixes are represented as DATASET(Layout_Cell), where each cell describes the row and column position of the cell as well as its value. Only the non-zero cells need to be contained in the dataset in order to describe the matrix since all unspecified cells are considered to have a value of zero. The cell also contains a work-item number that allows multiple separate matrixes to be carried in the same dataset. This supports the "myriad" style interface that allows the same operations to be performed on many different sets of data at once. Note that these matrixes do not have an explicit size. They are sized implicitly, based on the maximum row and column presented in the data. A matrix can be converted to an explicit dense form (see matrix_t) by using the utility module MakeR8Set. This module should only be used for known small matrixes (&lt; 1M cells) or for partitions of a larger matrix. The Converted module provides utility functions to convert to and from a set of partitions (See Layout_parts).</content>
+   </Documentation>
+  </Definition>
+  <Definition body="767" end="779" inherit_type="local" line="21" name="Side" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/performance/SolvePerfMyrPrep.ecl" start="760" fullname="ecldoc-Side">
+   <Type>attribute</Type>
+   <Signature pre="" post="" name="Side">Side</Signature><Documentation> <content>Enumeration for Side type WARNING: type used in C++ attribute</content>
+   </Documentation>
+  </Definition>
+  <Definition body="914" end="939" fullname="pbblas.performance.test_size" inherit_type="local" line="27" name="test_size" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/performance/SolvePerfMyrPrep.ecl" start="892">
+   <Signature pre="" post="" name="UNSIGNED1 test_size">UNSIGNED1 test_size</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="967" end="973" fullname="pbblas.performance.n" inherit_type="local" line="29" name="N" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/performance/SolvePerfMyrPrep.ecl" start="963">
+   <Signature pre="" post="" name="N">N</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1036" end="1042" fullname="pbblas.performance.m" inherit_type="local" line="30" name="M" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/performance/SolvePerfMyrPrep.ecl" start="1032">
+   <Signature pre="" post="" name="M">M</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1172" end="1176" fullname="pbblas.performance.myriad_count_s" inherit_type="local" line="33" name="Myriad_Count_s" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/performance/SolvePerfMyrPrep.ecl" start="1155">
+   <Signature pre="" post="" name="Myriad_Count_s">Myriad_Count_s</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1194" end="1199" fullname="pbblas.performance.myriad_count_m" inherit_type="local" line="34" name="Myriad_Count_m" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/performance/SolvePerfMyrPrep.ecl" start="1177">
+   <Signature pre="" post="" name="Myriad_Count_m">Myriad_Count_m</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1217" end="1222" fullname="pbblas.performance.myriad_count_l" inherit_type="local" line="35" name="Myriad_count_l" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/performance/SolvePerfMyrPrep.ecl" start="1200">
+   <Signature pre="" post="" name="Myriad_count_l">Myriad_count_l</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1228" end="1259" fullname="pbblas.performance.a" inherit_type="local" line="37" name="A" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/performance/SolvePerfMyrPrep.ecl" start="1224">
+   <Signature pre="" post="" name="A">A</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1265" end="1296" fullname="pbblas.performance.x" inherit_type="local" line="39" name="X" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/performance/SolvePerfMyrPrep.ecl" start="1261">
+   <Signature pre="" post="" name="X">X</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1303" end="1341" fullname="pbblas.performance.b0" inherit_type="local" line="41" name="B0" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/performance/SolvePerfMyrPrep.ecl" start="1298">
+   <Type>attribute</Type>
+   <Signature pre="" post="" name="B0">B0</Signature><Documentation> <see>PBblas/Types.Layout_Cell</see>
+    <return>Result matrix in Layout_Cell format.</return>
+    <param><name>transposeA</name><desc>Boolean indicating whether matrix A should be transposed before multiplying</desc></param>
+    <param><name>transposeB</name><desc>Same as above but for matrix B</desc></param>
+    <param><name>alpha</name><desc>Scalar multiplier for alpha * A * B</desc></param>
+    <param><name>A_in</name><desc>'A' matrix (multiplier) in Layout_Cell format</desc></param>
+    <param><name>B_in</name><desc>Same as above for the 'B' matrix (multiplicand)</desc></param>
+    <param><name>C_in</name><desc>Same as above for the 'C' matrix (addend). May be omitted.</desc></param>
+    <param><name>beta</name><desc>A scalar multiplier for beta * C, scales the C matrix before addition. May be omitted.</desc></param>
+    <content>Extended Parallel Block Matrix Multiplication Module Implements: Result &lt;- alpha * op(A)op(B) + beta * C. op is No Transpose or Transpose. Multiplies two matrixes A and B, with an optional pre-multiply transpose for each Optionally scales the product by the scalar "alpha". Then adds an optional C matrix to the product after scaling C by the scalar "beta". A, B, and C are specified as DATASET(Layout_Cell), as is the Resulting matrix. Layout_Cell describes a sparse matrix stored as a list of x, y, and value. This interface also provides a "Myriad" capability allowing multiple similar operations to be performed on independent sets of matrixes in parallel. This is done by use of the work-item id (wi_id) in each cell of the matrixes. Cells with the same wi_id are considered part of the same matrix. In the myriad form, each input matrix A, B, and (optionally) C can contain many independent matrixes. The wi_ids are matched up such that each operation involves the A, B, and C with the same wi_id. A and B must therefore contain the same set of wi_ids, while C is optional for any wi_id. The same parameters: alpha, beta, transposeA, and transposeB are used for all work-items. The result will contain cells from all provided work-items. Result has same shape as C if provided. Note that matrixes are not explicitly dimensioned. The shape is determined by the highest value of x and y for each work-item.</content>
+   </Documentation>
+  </Definition>
+  <Definition body="1347" end="1363" fullname="pbblas.performance.b" inherit_type="local" line="43" name="B" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/performance/SolvePerfMyrPrep.ecl" start="1343">
+   <Signature pre="" post="" name="B">B</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1418" end="1471" fullname="pbblas.performance.make_myriad" inherit_type="local" line="45" name="make_myriad" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/performance/SolvePerfMyrPrep.ecl" start="1365">
+   <Type>transform</Type>
+   <Params>
+    <Param name="d"/>
+    <Param name="c"/>
+   </Params>
+   <Signature pre="" post="" name="Layout_Cell make_myriad(Layout_Cell d, UNSIGNED c)">Layout_Cell make_myriad(Layout_Cell d, UNSIGNED c)</Signature><Return>layout_cell</Return>
+  </Definition>
+  <Definition body="1483" end="1541" fullname="pbblas.performance.a_myr_s" inherit_type="local" line="50" name="A_myr_s" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/performance/SolvePerfMyrPrep.ecl" start="1473">
+   <Signature pre="" post="" name="A_myr_s">A_myr_s</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1552" end="1610" fullname="pbblas.performance.b_myr_s" inherit_type="local" line="51" name="B_myr_s" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/performance/SolvePerfMyrPrep.ecl" start="1542">
+   <Signature pre="" post="" name="B_myr_s">B_myr_s</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1621" end="1679" fullname="pbblas.performance.a_myr_m" inherit_type="local" line="52" name="A_myr_m" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/performance/SolvePerfMyrPrep.ecl" start="1611">
+   <Signature pre="" post="" name="A_myr_m">A_myr_m</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1690" end="1748" fullname="pbblas.performance.b_myr_m" inherit_type="local" line="53" name="B_myr_m" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/performance/SolvePerfMyrPrep.ecl" start="1680">
+   <Signature pre="" post="" name="B_myr_m">B_myr_m</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1759" end="1817" fullname="pbblas.performance.a_myr_l" inherit_type="local" line="54" name="A_myr_l" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/performance/SolvePerfMyrPrep.ecl" start="1749">
+   <Signature pre="" post="" name="A_myr_l">A_myr_l</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1828" end="1886" fullname="pbblas.performance.b_myr_l" inherit_type="local" line="55" name="B_myr_l" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/performance/SolvePerfMyrPrep.ecl" start="1818">
+   <Signature pre="" post="" name="B_myr_l">B_myr_l</Signature><Type>attribute</Type>
+  </Definition>
+ </Source>
+ <Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/MatUtils.ecl" name="PBblas.MatUtils" target="../matutils.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Types.ecl" name="PBblas.Types" target="../types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Types.ecl" name="ML_Core.Types" target="../../ml_core/types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/Types.ecl" name="PBblas.internal.Types" target="../internal/types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/MatDims.ecl" name="PBblas.internal.MatDims" target="../internal/matdims.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/BlockDimensions.ecl" name="PBblas.internal.BlockDimensions" target="../internal/blockdimensions.ecl.xml"/><Depends sourcePath="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/system/Thorlib.ecl" name="std.system.Thorlib" target="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/system/Thorlib.ecl"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/BlockDimensionsMultiply.ecl" name="PBblas.internal.BlockDimensionsMultiply" target="../internal/blockdimensionsmultiply.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/BlockDimensionsSolve.ecl" name="PBblas.internal.BlockDimensionsSolve" target="../internal/blockdimensionssolve.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/MakeTestMatrix.ecl" name="PBblas.test.MakeTestMatrix" target="../test/maketestmatrix.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/gemm.ecl" name="PBblas.gemm" target="../gemm.ecl.xml"/><Depends sourcePath="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/BLAS.ecl" name="std.BLAS" target="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/BLAS.ecl"/><Depends sourcePath="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/plugins/lib_eclblas.ecllib" target="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/plugins/lib_eclblas.ecllib"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/MakeR8Set.ecl" name="PBblas.internal.MakeR8Set" target="../internal/maker8set.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/Converted.ecl" name="PBblas.internal.Converted" target="../internal/converted.ecl.xml"/></Meta>

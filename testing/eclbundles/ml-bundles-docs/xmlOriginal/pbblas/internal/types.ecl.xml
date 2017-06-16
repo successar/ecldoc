@@ -1,0 +1,794 @@
+<Meta>
+ <Source name="PBblas.internal.Types" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/Types.ecl">
+  <Import body="0"
+          end="249"
+          fullname="PBblas"
+          inherit_type="local"
+          line="5"
+          name="PBblas"
+          ref="PBblas"
+          start="249">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0"
+          end="271"
+          fullname="PBblas.Types"
+          inherit_type="local"
+          line="6"
+          name="eTypes"
+          ref="PBblas.Types"
+          start="271">
+   <Type>attribute</Type>
+   <Documentation>
+    <content>Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes.</content>
+   </Documentation>
+  </Import>
+  <Definition body="309"
+              end="329"
+              fullname="pbblas.internal.dimension_t"
+              inherit_type="local"
+              line="7"
+              name="dimension_t"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/Types.ecl"
+              start="295">
+   <Type>attribute</Type>
+  </Definition>
+  <Definition body="344"
+              end="364"
+              fullname="pbblas.internal.partition_t"
+              inherit_type="local"
+              line="8"
+              name="partition_t"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/Types.ecl"
+              start="330">
+   <Type>attribute</Type>
+  </Definition>
+  <Definition body="379"
+              end="399"
+              fullname="pbblas.internal.work_item_t"
+              inherit_type="local"
+              line="9"
+              name="work_item_t"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/Types.ecl"
+              start="365">
+   <Type>attribute</Type>
+  </Definition>
+  <Definition body="636"
+              end="8878"
+              exported="1"
+              fullname="PBblas.internal.Types"
+              inherit_type="local"
+              line="16"
+              name="Types"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/Types.ecl"
+              start="621">
+   <Type>module</Type>
+   <Parents/>
+   <Definition body="747"
+               end="758"
+               exported="1"
+               fullname="pbblas.internal.types.partition_t"
+               inherit_type="local"
+               line="20"
+               name="partition_t"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/Types.ecl"
+               start="725">
+    <Type>attribute</Type>
+    <Documentation>
+     <content>Type for partition id -- only supports up to 64K partitions</content>
+    </Documentation>
+   </Definition>
+   <Definition body="852"
+               end="863"
+               exported="1"
+               fullname="pbblas.internal.types.node_t"
+               inherit_type="local"
+               line="24"
+               name="node_t"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/Types.ecl"
+               start="830">
+    <Type>attribute</Type>
+    <Documentation>
+     <content>Type for node id -- only supports up to 64K nodes</content>
+    </Documentation>
+   </Definition>
+   <Definition body="984"
+               end="991"
+               exported="1"
+               fullname="pbblas.internal.types.value_t"
+               inherit_type="local"
+               line="30"
+               name="value_t"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/Types.ecl"
+               start="962">
+    <Type>attribute</Type>
+    <Documentation>
+     <content>Type for matrix cell values WARNING: type used in C++ attribute</content>
+    </Documentation>
+   </Definition>
+   <Definition body="1147"
+               end="1156"
+               exported="1"
+               fullname="pbblas.internal.types.m_label_t"
+               inherit_type="local"
+               line="35"
+               name="m_label_t"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/Types.ecl"
+               start="1125">
+    <Type>attribute</Type>
+    <Documentation>
+     <content>Type for matrix label.  Used for Matrix dimensions (see Layout_Dims) and for partitions (see Layout_Part)</content>
+    </Documentation>
+   </Definition>
+   <Definition body="1893"
+               end="1907"
+               exported="1"
+               fullname="pbblas.internal.types.matrix_t"
+               inherit_type="local"
+               line="58"
+               name="matrix_t"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/Types.ecl"
+               start="1871">
+    <Type>attribute</Type>
+    <Documentation>
+     <see>Layout_Cell</see>
+     <see>Layout_Part</see>
+     <see>Std/PBblas/FromR8Set.ecl</see>
+     <content>Type for dense matrix storage Stored as a set of values in column/row order: [r1c1, r2c1, ... rMc1, r1c2, r2c2, ... rMc2, . . . r1cN, r2cN, ... rMcN] WARNING: type used in C++ attribute Note: This type is not distributed, so should only be used to represent small matrixes(&lt; 1M cells).  Larger matrixes can be represented using Layout_Cell or Layout_Part, both of which can be distributed. A dense matrix can be converted to a scalable sparse form (DATASET(Layout_Cell)) using the utility module FromR8Set</content>
+    </Documentation>
+   </Definition>
+   <Definition body="1987"
+               end="2035"
+               exported="1"
+               inherit_type="local"
+               line="63"
+               name="PartitionType"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/Types.ecl"
+               start="1964">
+    <Type>attribute</Type>
+    <Documentation>
+     <content>Enumeration for Partitioning Type</content>
+    </Documentation>
+   </Definition>
+   <Definition body="2403"
+               end="2426"
+               exported="1"
+               fullname="pbblas.internal.types.partitiontypestring"
+               inherit_type="local"
+               line="73"
+               name="PartitionTypeString"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/Types.ecl"
+               start="2356">
+    <Type>function</Type>
+    <Documentation>
+     <content>Translation of PartitionType enumeration</content>
+    </Documentation>
+    <Params>
+     <Param name="pt"/>
+    </Params>
+   </Definition>
+   <Definition body="2445"
+               end="2955"
+               exported="1"
+               inherit_type="local"
+               line="74"
+               name="OpType"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/Types.ecl"
+               start="2429">
+    <Type>attribute</Type>
+   </Definition>
+   <Definition body="3090"
+               end="3101"
+               exported="1"
+               fullname="pbblas.internal.types.t_mu_no"
+               inherit_type="local"
+               line="88"
+               name="t_mu_no"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/Types.ecl"
+               start="3068">
+    <Type>attribute</Type>
+    <Documentation>
+     <content>Type for matrix universe number Allow up to 64k matrices in one universe</content>
+    </Documentation>
+   </Definition>
+   <Definition body="5873"
+               end="6389"
+               exported="1"
+               fullname="pbblas.internal.types.layout_part"
+               inherit_type="local"
+               line="133"
+               name="Layout_Part"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/Types.ecl"
+               start="5851">
+    <Type>record</Type>
+    <Field name="m_label"/>
+    <Field name="wi_id"/>
+    <Field name="partition_id"/>
+    <Field name="node_id"/>
+    <Field name="m_rows"/>
+    <Field name="m_cols"/>
+    <Field name="row_blocks"/>
+    <Field name="col_blocks"/>
+    <Field name="block_row"/>
+    <Field name="block_col"/>
+    <Field name="part_rows"/>
+    <Field name="part_cols"/>
+    <Field name="first_row"/>
+    <Field name="first_col"/>
+    <Field name="mat_part"/>
+    <Documentation>
+     <field>wi_id          Work Item Number -- An identifier from 1 to 64K-1 that separates and identifies individual matrixes</field>
+     <field>m_label        A user provided label indicating to which matrix the dimensions apply, when used to describe a set of related matrixes (e.g., &apos;A&apos;, &apos;B&apos;, and &apos;C&apos;) for the same work item used in an operation.    * @field partition_id	A unique ID for this partition within the matrix</field>
+     <field>partition_id   The 1-based id of this partition, unique within a work-item</field>
+     <field>node_id		The node on which this partition is stored</field>
+     <field>m_rows         The number of rows in the full matrix</field>
+     <field>m_cols         The number of columns in the full matrix</field>
+     <field>row_blocks     The number of row partitions in use</field>
+     <field>col_blocks     The number of column partitions in use</field>
+     <field>block_row		The row of this partition within the block partition matrix</field>
+     <field>block_col		The column of this partition &quot;</field>
+     <field>part_rows		The number of rows stored within this partition</field>
+     <field>part_cols		The number of columns stored within this partition</field>
+     <field>first_row		The first row of the original matrix stored within this partition</field>
+     <field>first_col		The first column of the original matrix stored within this partition</field>
+     <field>mat_part		The dense representation of the cells values within this partition (see matrix_t)</field>
+     <see>matrix_t</see>
+     <see>Layout_Cell</see>
+     <see>Std/PBblas/Converted</see>
+     <content>Alternate form for storage of large matrixes as a set of partitions Each partition holds the dense form of a piece of the matrix (see matrix_t) as well as information about its relationship to the larger matrix. The full matrix is then carried as DATASET(Layout_Part). Utility module Converted provides functions for converting a matrix in cell form (see Layout_cell) to partitions and vice versa. This form is primarily used internally to PBblas functions, but can also be used as an intermediate form to avoid repeated conversions from cell form. A work-item id field allows multiple matrixes to be carried in the same dataset.  This supports the &quot;myriad&quot; style interface whereby the same operation can be performed on multiple sets of matrixes at once. The m_label field allows for the separation of multiple matrixes with the same wi_id for operations requiring multiple matrixes.  This allows multiple work-items with multiple matrixes each to be carried in the same dataset.</content>
+    </Documentation>
+   </Definition>
+   <Definition body="7167"
+               end="7354"
+               exported="1"
+               fullname="pbblas.internal.types.layout_target"
+               inherit_type="local"
+               line="164"
+               name="Layout_Target"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/Types.ecl"
+               start="7144">
+    <Type>record</Type>
+    <Field name="t_part_id"/>
+    <Field name="t_node_id"/>
+    <Field name="t_block_row"/>
+    <Field name="t_block_col"/>
+    <Field name="t_term"/>
+    <Field name="m_label"/>
+    <Field name="wi_id"/>
+    <Field name="partition_id"/>
+    <Field name="node_id"/>
+    <Field name="m_rows"/>
+    <Field name="m_cols"/>
+    <Field name="row_blocks"/>
+    <Field name="col_blocks"/>
+    <Field name="block_row"/>
+    <Field name="block_col"/>
+    <Field name="part_rows"/>
+    <Field name="part_cols"/>
+    <Field name="first_row"/>
+    <Field name="first_col"/>
+    <Field name="mat_part"/>
+    <Documentation>
+     <field>t_part_id		The output partition to which this partition is related</field>
+     <field>t_node_id		The node on which the output partition is located</field>
+     <field>t_block_row	The row of the output partition within its partition matrix</field>
+     <field>t_block_col	The column of the output partition within its partition matrix</field>
+     <field>t_term			A row/column number used to correlate related input partitions used in calculating the results of the output partition</field>
+     <content>Represents the relationship of a partition to the partition holding the results of a matrix operation.  This is used internally to PBblas functions to tie an input partition to its output.  It is not relevant to users of PBblas.</content>
+    </Documentation>
+   </Definition>
+   <Definition body="8306"
+               end="8658"
+               exported="1"
+               fullname="pbblas.internal.types.layout_dims"
+               inherit_type="local"
+               line="186"
+               name="Layout_Dims"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/Types.ecl"
+               start="8285">
+    <Type>record</Type>
+    <Field name="m_label"/>
+    <Field name="wi_id"/>
+    <Field name="m_rows"/>
+    <Field name="m_cols"/>
+    <Field name="block_rows"/>
+    <Field name="block_cols"/>
+    <Field name="row_blocks"/>
+    <Field name="col_blocks"/>
+    <Documentation>
+     <field>m_label A user provided label indicating to which matrix the dimensions apply, when used to describe a set of related matrixes (e.g., &apos;A&apos;, &apos;B&apos;, and &apos;C&apos;) for the same work item used in an operation.</field>
+     <field>m_rows The number of rows in the full matrix</field>
+     <field>m_cols The number of colums in the full matrix</field>
+     <field>block_rows The number of rows in each partition of the matrix</field>
+     <field>block_cols The number of columns in each partition</field>
+     <field>row_blocks The number of row partitions in use for the matrix</field>
+     <field>col_blocks The number of column partitions in use for the matrix</field>
+     <content>Record format for matrix and matrix partition dimensions.  Each record describes A single matrix or matrix partition.  Partitions use all of the fields, while a non-partitioned matrix only uses the first two (i.e. m_rows and m_cols).</content>
+    </Documentation>
+   </Definition>
+   <Definition body="8837"
+               end="8873"
+               exported="1"
+               fullname="pbblas.internal.types.layout_wi_id"
+               inherit_type="local"
+               line="202"
+               name="Layout_WI_ID"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/Types.ecl"
+               start="8815">
+    <Type>record</Type>
+    <Field name="wi_id"/>
+    <Documentation>
+     <field>wi_id  The wi_id, typically from a myriad set of matrixes</field>
+     <content>Record for a list of work-item ids used internally</content>
+    </Documentation>
+   </Definition>
+   <Documentation>
+    <content>Internal Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes.</content>
+   </Documentation>
+  </Definition>
+ </Source>
+ <Source name="PBblas.Types" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/Types.ecl">
+  <Definition body="516"
+              end="4363"
+              exported="1"
+              fullname="PBblas.Types"
+              inherit_type="local"
+              line="11"
+              name="Types"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/Types.ecl"
+              start="501">
+   <Type>module</Type>
+   <Parents/>
+   <Definition body="692"
+               end="703"
+               exported="1"
+               fullname="pbblas.types.dimension_t"
+               inherit_type="local"
+               line="16"
+               name="dimension_t"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/Types.ecl"
+               start="670">
+    <Type>attribute</Type>
+    <Documentation>
+     <content>Type for matrix dimensions.  Uses UNSIGNED four as matrixes are not designed to support more than 4 B rows or columns.</content>
+    </Documentation>
+   </Definition>
+   <Definition body="851"
+               end="862"
+               exported="1"
+               fullname="pbblas.types.partition_t"
+               inherit_type="local"
+               line="20"
+               name="partition_t"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/Types.ecl"
+               start="829">
+    <Type>attribute</Type>
+    <Documentation>
+     <content>Type for partition id -- only supports up to 64K partitions</content>
+    </Documentation>
+   </Definition>
+   <Definition body="967"
+               end="988"
+               exported="1"
+               fullname="pbblas.types.work_item_t"
+               inherit_type="local"
+               line="24"
+               name="work_item_t"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/Types.ecl"
+               start="945">
+    <Type>attribute</Type>
+    <Documentation>
+     <content>Type for work-item id -- only supports up to 64K work items</content>
+    </Documentation>
+   </Definition>
+   <Definition body="1109"
+               end="1116"
+               exported="1"
+               fullname="pbblas.types.value_t"
+               inherit_type="local"
+               line="30"
+               name="value_t"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/Types.ecl"
+               start="1087">
+    <Type>attribute</Type>
+    <Documentation>
+     <content>Type for matrix cell values WARNING: type used in C++ attribute</content>
+    </Documentation>
+   </Definition>
+   <Definition body="1272"
+               end="1281"
+               exported="1"
+               fullname="pbblas.types.m_label_t"
+               inherit_type="local"
+               line="35"
+               name="m_label_t"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/Types.ecl"
+               start="1250">
+    <Type>attribute</Type>
+    <Documentation>
+     <content>Type for matrix label.  Used for Matrix dimensions (see Layout_Dims) and for partitions (see Layout_Part)</content>
+    </Documentation>
+   </Definition>
+   <Definition body="1404"
+               end="1439"
+               exported="1"
+               inherit_type="local"
+               line="41"
+               name="Triangle"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/Types.ecl"
+               start="1382">
+    <Type>attribute</Type>
+    <Documentation>
+     <content>Enumeration for Triangle type WARNING: type used in C++ attribute</content>
+    </Documentation>
+   </Definition>
+   <Definition body="1564"
+               end="1606"
+               exported="1"
+               inherit_type="local"
+               line="47"
+               name="Diagonal"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/Types.ecl"
+               start="1542">
+    <Type>attribute</Type>
+    <Documentation>
+     <content>Enumeration for Diagonal type WARNING: type used in C++ attribute</content>
+    </Documentation>
+   </Definition>
+   <Definition body="1729"
+               end="1758"
+               exported="1"
+               inherit_type="local"
+               line="53"
+               name="Side"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/Types.ecl"
+               start="1707">
+    <Type>attribute</Type>
+    <Documentation>
+     <content>Enumeration for Side type WARNING: type used in C++ attribute</content>
+    </Documentation>
+   </Definition>
+   <Definition body="1893"
+               end="1904"
+               exported="1"
+               fullname="pbblas.types.t_mu_no"
+               inherit_type="local"
+               line="60"
+               name="t_mu_no"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/Types.ecl"
+               start="1871">
+    <Type>attribute</Type>
+    <Documentation>
+     <content>Type for matrix universe number Allow up to 64k matrices in one universe</content>
+    </Documentation>
+   </Definition>
+   <Definition body="3736"
+               end="3974"
+               exported="1"
+               fullname="pbblas.types.layout_cell"
+               inherit_type="local"
+               line="94"
+               name="Layout_Cell"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/Types.ecl"
+               start="3714">
+    <Type>record</Type>
+    <Field name="wi_id"/>
+    <Field name="x"/>
+    <Field name="y"/>
+    <Field name="v"/>
+    <Documentation>
+     <field>wi_id  Work Item Number -- An identifier from 1 to 64K-1 that separates and identifies individual matrixes</field>
+     <field>x	    1-based row position within the matrix</field>
+     <field>y	    1-based column position within the matrix</field>
+     <field>v	    Real value for the cell</field>
+     <see>matrix_t</see>
+     <see>Std/PBblas/MakeR8Set.ecl</see>
+     <see>Std/PBblas/Converted.ecl WARNING: Used as C++ attribute.  Do not change without corresponding changes to MakeR8Set.</see>
+     <content>Layout for Matrix Cell Main representation of Matrix cell at interface to all PBBlas functions. Matrixes are represented as DATASET(Layout_Cell), where each cell describes the row and column position of the cell as well as its value. Only the non-zero cells need to be contained in the dataset in order to describe the matrix since all unspecified cells are considered to have a value of zero. The cell also contains a work-item number that allows multiple separate matrixes to be carried in the same dataset.  This supports the &quot;myriad&quot; style interface that allows the same operations to be performed on many different sets of data at once. Note that these matrixes do not have an explicit size.  They are sized implicitly, based on the maximum row and column presented in the data. A matrix can be converted to an explicit dense form (see matrix_t) by  using the utility module MakeR8Set. This module should only be used for known small matrixes (&lt; 1M cells) or for partitions of a larger matrix. The Converted module provides utility functions to convert to and from a set of partitions (See Layout_parts).</content>
+    </Documentation>
+   </Definition>
+   <Definition body="4234"
+               end="4358"
+               exported="1"
+               fullname="pbblas.types.layout_norm"
+               inherit_type="local"
+               line="108"
+               name="Layout_Norm"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/Types.ecl"
+               start="4213">
+    <Type>record</Type>
+    <Field name="wi_id"/>
+    <Field name="v"/>
+    <Documentation>
+     <field>wi_id  Work Item Number -- An identifier from 1 to 64K-1 that separates and identifies individual matrixes</field>
+     <field>v	    Real value for the norm</field>
+     <content>Layout for Norm results.</content>
+    </Documentation>
+   </Definition>
+   <Documentation>
+    <content>Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes.</content>
+   </Documentation>
+  </Definition>
+  <Import body="0"
+          end="248"
+          fullname="ML_Core"
+          inherit_type="local"
+          line="4"
+          name="ML_Core"
+          ref="ML_Core"
+          remotescope="1"
+          start="248">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0"
+          end="264"
+          fullname="ML_Core.Types"
+          inherit_type="local"
+          line="5"
+          name="MlTypes"
+          ref="ML_Core.Types"
+          start="264">
+   <Type>attribute</Type>
+  </Import>
+ </Source>
+ <Source name="ML_Core.Types" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl">
+  <Definition body="37"
+              end="3074"
+              exported="1"
+              fullname="ML_Core.Types"
+              inherit_type="local"
+              line="2"
+              name="Types"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+              start="22">
+   <Type>module</Type>
+   <Definition body="944"
+               end="955"
+               exported="1"
+               fullname="ml_core.types.t_recordid"
+               inherit_type="local"
+               line="22"
+               name="t_RecordID"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="924">
+    <Type>attribute</Type>
+   </Definition>
+   <Definition body="981"
+               end="992"
+               exported="1"
+               fullname="ml_core.types.t_fieldnumber"
+               inherit_type="local"
+               line="23"
+               name="t_FieldNumber"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="958">
+    <Type>attribute</Type>
+   </Definition>
+   <Definition body="1016"
+               end="1023"
+               exported="1"
+               fullname="ml_core.types.t_fieldreal"
+               inherit_type="local"
+               line="24"
+               name="t_FieldReal"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="995">
+    <Type>attribute</Type>
+   </Definition>
+   <Definition body="1047"
+               end="1057"
+               exported="1"
+               fullname="ml_core.types.t_fieldsign"
+               inherit_type="local"
+               line="25"
+               name="t_FieldSign"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="1026">
+    <Type>attribute</Type>
+   </Definition>
+   <Definition body="1080"
+               end="1090"
+               exported="1"
+               fullname="ml_core.types.t_discrete"
+               inherit_type="local"
+               line="26"
+               name="t_Discrete"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="1060">
+    <Type>attribute</Type>
+   </Definition>
+   <Definition body="1109"
+               end="1120"
+               exported="1"
+               fullname="ml_core.types.t_item"
+               inherit_type="local"
+               line="27"
+               name="t_Item"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="1093">
+    <Type>attribute</Type>
+   </Definition>
+   <Definition body="1188"
+               end="1200"
+               exported="1"
+               fullname="ml_core.types.t_count"
+               inherit_type="local"
+               line="28"
+               name="t_Count"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="1171">
+    <Type>attribute</Type>
+   </Definition>
+   <Definition body="1258"
+               end="1269"
+               exported="1"
+               fullname="ml_core.types.t_work_item"
+               inherit_type="local"
+               line="29"
+               name="t_Work_Item"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="1237">
+    <Type>attribute</Type>
+   </Definition>
+   <Definition body="1391"
+               end="1600"
+               exported="1"
+               fullname="ml_core.types.anyfield"
+               inherit_type="local"
+               line="32"
+               name="AnyField"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="1369">
+    <Type>record</Type>
+    <Field name="wi"/>
+    <Field name="id"/>
+    <Field name="number"/>
+   </Definition>
+   <Definition body="1673"
+               end="1720"
+               exported="1"
+               fullname="ml_core.types.numericfield"
+               inherit_type="local"
+               line="39"
+               name="NumericField"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="1651">
+    <Type>record</Type>
+    <Field name="wi"/>
+    <Field name="id"/>
+    <Field name="number"/>
+    <Field name="value"/>
+   </Definition>
+   <Definition body="1797"
+               end="1843"
+               exported="1"
+               fullname="ml_core.types.discretefield"
+               inherit_type="local"
+               line="44"
+               name="DiscreteField"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="1774">
+    <Type>record</Type>
+    <Field name="wi"/>
+    <Field name="id"/>
+    <Field name="number"/>
+    <Field name="value"/>
+   </Definition>
+   <Definition body="1953"
+               end="2200"
+               exported="1"
+               fullname="ml_core.types.layout_model"
+               inherit_type="local"
+               line="49"
+               name="Layout_Model"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="1931">
+    <Type>record</Type>
+    <Field name="wi"/>
+    <Field name="id"/>
+    <Field name="number"/>
+    <Field name="value"/>
+   </Definition>
+   <Definition body="2261"
+               end="2336"
+               exported="1"
+               fullname="ml_core.types.classify_result"
+               inherit_type="local"
+               line="57"
+               name="Classify_Result"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="2236">
+    <Type>record</Type>
+    <Field name="wi"/>
+    <Field name="id"/>
+    <Field name="number"/>
+    <Field name="value"/>
+    <Field name="conf"/>
+   </Definition>
+   <Definition body="2357"
+               end="2410"
+               exported="1"
+               fullname="ml_core.types.l_result"
+               inherit_type="local"
+               line="60"
+               name="l_result"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="2339">
+    <Type>record</Type>
+    <Field name="wi"/>
+    <Field name="id"/>
+    <Field name="number"/>
+    <Field name="value"/>
+    <Field name="conf"/>
+   </Definition>
+   <Definition body="2440"
+               end="2639"
+               exported="1"
+               fullname="ml_core.types.confusion_detail"
+               inherit_type="local"
+               line="62"
+               name="Confusion_Detail"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="2414">
+    <Type>record</Type>
+    <Field name="wi"/>
+    <Field name="classifier"/>
+    <Field name="actual_class"/>
+    <Field name="predict_class"/>
+    <Field name="occurs"/>
+    <Field name="correct"/>
+   </Definition>
+   <Definition body="2711"
+               end="2782"
+               exported="1"
+               fullname="ml_core.types.itemelement"
+               inherit_type="local"
+               line="72"
+               name="ItemElement"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="2690">
+    <Type>record</Type>
+    <Field name="wi"/>
+    <Field name="value"/>
+    <Field name="id"/>
+   </Definition>
+   <Definition body="2848"
+               end="2858"
+               exported="1"
+               fullname="ml_core.types.t_node"
+               inherit_type="local"
+               line="79"
+               name="t_node"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="2831">
+    <Type>attribute</Type>
+   </Definition>
+   <Definition body="2942"
+               end="2953"
+               exported="1"
+               fullname="ml_core.types.t_level"
+               inherit_type="local"
+               line="80"
+               name="t_level"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="2925">
+    <Type>attribute</Type>
+   </Definition>
+   <Definition body="2995"
+               end="3069"
+               exported="1"
+               fullname="ml_core.types.nodeid"
+               inherit_type="local"
+               line="81"
+               name="NodeID"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="2978">
+    <Type>record</Type>
+    <Field name="wi"/>
+    <Field name="node_id"/>
+    <Field name="level"/>
+   </Definition>
+   <Parents/>
+  </Definition>
+ </Source>
+</Meta>

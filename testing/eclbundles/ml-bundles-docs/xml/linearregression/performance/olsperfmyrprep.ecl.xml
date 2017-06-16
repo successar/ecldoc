@@ -1,0 +1,205 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Meta>
+ <Source name="LinearRegression.performance.OLSPerfMyrPrep" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfMyrPrep.ecl" target="olsperfmyrprep.ecl.xml">
+  <Import body="0" end="250" fullname="LinearRegression" inherit_type="local" line="4" name="LROLS" ref="linearregression" start="250" target="../pkg.toc.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0" end="271" fullname="ML_Core" inherit_type="local" line="5" name="ML_Core" ref="ml_core" remotescope="1" start="271" target="../../ml_core/pkg.toc.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0" end="287" fullname="ML_Core.Types" inherit_type="local" line="6" name="mlTypes" ref="ml_core.types" start="287" target="../../ml_core/types.ecl.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0" end="320" fullname="PBblas" inherit_type="local" line="7" name="PBblas" ref="pbblas" remotescope="1" start="320" target="../../pbblas/pkg.toc.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0" end="335" fullname="PBblas.test.MakeTestMatrix" inherit_type="local" line="8" name="tm" ref="pbblas.test.maketestmatrix" start="335" target="../../pbblas/test/maketestmatrix.ecl.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0" end="376" fullname="PBblas.Types" inherit_type="local" line="9" name="pbbTypes" ref="pbblas.types" start="376" target="../../pbblas/types.ecl.xml">
+   <Type>attribute</Type>
+   <Documentation> <content>Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes.</content>
+   </Documentation>
+  </Import>
+  <Import body="0" end="409" fullname="PBblas.Converted" inherit_type="local" line="10" name="pbbConverted" ref="pbblas.converted" start="409" target="../../pbblas/converted.ecl.xml">
+   <Type>attribute</Type>
+   <Documentation> <content>Module to convert between ML_Core/Types Field layouts (i.e. NumericField and DiscreteField) and PBblas matrix layout (i.e. Layout_Cell)</content>
+   </Documentation>
+  </Import>
+  <Definition body="457" end="479" fullname="linearregression.performance.layout_cell" inherit_type="local" line="11" name="Layout_Cell" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfMyrPrep.ecl" start="443">
+   <Type>record</Type>
+   <Field name="wi_id"/>
+   <Field name="x"/>
+   <Field name="y"/>
+   <Field name="v"/>
+   <Signature pre="" post="" name="Layout_Cell">Layout_Cell</Signature><Documentation> <field><name>wi_id</name><desc>Work Item Number -- An identifier from 1 to 64K-1 that separates and identifies individual matrixes</desc></field>
+    <field><name>x</name><desc>1-based row position within the matrix</desc></field>
+    <field><name>y</name><desc>1-based column position within the matrix</desc></field>
+    <field><name>v</name><desc>Real value for the cell</desc></field>
+    <see>matrix_t</see>
+    <see>Std/PBblas/MakeR8Set.ecl</see>
+    <see>Std/PBblas/Converted.ecl WARNING: Used as C++ attribute. Do not change without corresponding changes to MakeR8Set.</see>
+    <content>Layout for Matrix Cell Main representation of Matrix cell at interface to all PBBlas functions. Matrixes are represented as DATASET(Layout_Cell), where each cell describes the row and column position of the cell as well as its value. Only the non-zero cells need to be contained in the dataset in order to describe the matrix since all unspecified cells are considered to have a value of zero. The cell also contains a work-item number that allows multiple separate matrixes to be carried in the same dataset. This supports the "myriad" style interface that allows the same operations to be performed on many different sets of data at once. Note that these matrixes do not have an explicit size. They are sized implicitly, based on the maximum row and column presented in the data. A matrix can be converted to an explicit dense form (see matrix_t) by using the utility module MakeR8Set. This module should only be used for known small matrixes (&lt; 1M cells) or for partitions of a larger matrix. The Converted module provides utility functions to convert to and from a set of partitions (See Layout_parts).</content>
+   </Documentation>
+  </Definition>
+  <Definition body="495" end="517" fullname="linearregression.performance.numericfield" inherit_type="local" line="12" name="NumericField" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfMyrPrep.ecl" start="480">
+   <Type>record</Type>
+   <Field name="wi"/>
+   <Field name="id"/>
+   <Field name="number"/>
+   <Signature pre="" post="" name="NumericField">NumericField</Signature><Field name="value"/>
+  </Definition>
+  <Definition body="526" end="540" fullname="linearregression.performance.two31" inherit_type="local" line="13" name="two31" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfMyrPrep.ecl" start="518">
+   <Signature pre="" post="" name="two31">two31</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="554" end="622" fullname="linearregression.performance.noise" inherit_type="local" line="14" name="Noise" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfMyrPrep.ecl" start="541">
+   <Signature pre="" post="" name="REAL Noise">REAL Noise</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="636" end="738" fullname="linearregression.performance.test_rslt" inherit_type="local" line="19" name="test_rslt" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfMyrPrep.ecl" start="624">
+   <Type>record</Type>
+   <Field name="TestName"/>
+   <Field name="X"/>
+   <Field name="Y"/>
+   <Field name="projY"/>
+   <Field name="diff"/>
+   <Signature pre="" post="" name="test_rslt">test_rslt</Signature><Field name="pctErr"/>
+  </Definition>
+  <Definition body="781" end="926" fullname="linearregression.performance.compx" inherit_type="local" line="30" name="compX" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfMyrPrep.ecl" start="773">
+   <Type>record</Type>
+   <Field name="wi"/>
+   <Field name="id"/>
+   <Field name="X1"/>
+   <Field name="X2"/>
+   <Field name="X3"/>
+   <Field name="X4"/>
+   <Field name="X5"/>
+   <Field name="X6"/>
+   <Field name="X7"/>
+   <Field name="X8"/>
+   <Field name="X9"/>
+   <Signature pre="" post="" name="compX">compX</Signature><Field name="X10"/>
+  </Definition>
+  <Definition body="989" end="1306" fullname="linearregression.performance.makecomposite" inherit_type="local" line="45" name="makeComposite" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfMyrPrep.ecl" start="928">
+   <Type>transform</Type>
+   <Params>
+    <Param name="l"/>
+    <Param name="r"/>
+   </Params>
+   <Signature pre="" post="" name="compX makeComposite(Layout_Cell l, DATASET(Layout_Cell) r)">compX makeComposite(Layout_Cell l, DATASET(Layout_Cell) r)</Signature><Return>compx</Return>
+  </Definition>
+  <Definition body="1313" end="1319" fullname="linearregression.performance.a1" inherit_type="local" line="60" name="A1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfMyrPrep.ecl" start="1308">
+   <Signature pre="" post="" name="A1">A1</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1325" end="1333" fullname="linearregression.performance.a2" inherit_type="local" line="61" name="A2" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfMyrPrep.ecl" start="1320">
+   <Signature pre="" post="" name="A2">A2</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1339" end="1346" fullname="linearregression.performance.a3" inherit_type="local" line="62" name="A3" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfMyrPrep.ecl" start="1334">
+   <Signature pre="" post="" name="A3">A3</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1352" end="1359" fullname="linearregression.performance.a4" inherit_type="local" line="63" name="A4" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfMyrPrep.ecl" start="1347">
+   <Signature pre="" post="" name="A4">A4</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1365" end="1372" fullname="linearregression.performance.a5" inherit_type="local" line="64" name="A5" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfMyrPrep.ecl" start="1360">
+   <Signature pre="" post="" name="A5">A5</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1378" end="1385" fullname="linearregression.performance.a6" inherit_type="local" line="65" name="A6" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfMyrPrep.ecl" start="1373">
+   <Signature pre="" post="" name="A6">A6</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1391" end="1398" fullname="linearregression.performance.a7" inherit_type="local" line="66" name="A7" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfMyrPrep.ecl" start="1386">
+   <Signature pre="" post="" name="A7">A7</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1404" end="1409" fullname="linearregression.performance.a8" inherit_type="local" line="67" name="A8" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfMyrPrep.ecl" start="1399">
+   <Signature pre="" post="" name="A8">A8</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1415" end="1421" fullname="linearregression.performance.a9" inherit_type="local" line="68" name="A9" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfMyrPrep.ecl" start="1410">
+   <Signature pre="" post="" name="A9">A9</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1428" end="1435" fullname="linearregression.performance.a10" inherit_type="local" line="69" name="A10" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfMyrPrep.ecl" start="1422">
+   <Signature pre="" post="" name="A10">A10</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1441" end="1449" fullname="linearregression.performance.b" inherit_type="local" line="71" name="B" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfMyrPrep.ecl" start="1437">
+   <Signature pre="" post="" name="B">B</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1455" end="1463" fullname="linearregression.performance.n" inherit_type="local" line="73" name="N" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfMyrPrep.ecl" start="1451">
+   <Signature pre="" post="" name="N">N</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1468" end="1472" fullname="linearregression.performance.m" inherit_type="local" line="74" name="M" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfMyrPrep.ecl" start="1464">
+   <Signature pre="" post="" name="M">M</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1490" end="1494" fullname="linearregression.performance.myriad_count_s" inherit_type="local" line="75" name="Myriad_count_s" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfMyrPrep.ecl" start="1473">
+   <Signature pre="" post="" name="Myriad_count_s">Myriad_count_s</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1512" end="1517" fullname="linearregression.performance.myriad_count_m" inherit_type="local" line="76" name="Myriad_count_m" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfMyrPrep.ecl" start="1495">
+   <Signature pre="" post="" name="Myriad_count_m">Myriad_count_m</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1535" end="1540" fullname="linearregression.performance.myriad_count_l" inherit_type="local" line="77" name="Myriad_count_l" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfMyrPrep.ecl" start="1518">
+   <Signature pre="" post="" name="Myriad_count_l">Myriad_count_l</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1571" end="1885" fullname="linearregression.performance.makey" inherit_type="local" line="79" name="makeY" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfMyrPrep.ecl" start="1542">
+   <Type>transform</Type>
+   <Params>
+    <Param name="X"/>
+   </Params>
+   <Signature pre="" post="" name="Layout_Cell makeY(compX X)">Layout_Cell makeY(compX X)</Signature><Return>layout_cell</Return>
+  </Definition>
+  <Definition body="1926" end="1957" fullname="linearregression.performance.mx" inherit_type="local" line="97" name="mX" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfMyrPrep.ecl" start="1921">
+   <Signature pre="" post="" name="mX">mX</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1963" end="1983" fullname="linearregression.performance.sx" inherit_type="local" line="98" name="sX" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfMyrPrep.ecl" start="1958">
+   <Signature pre="" post="" name="sX">sX</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="1989" end="2010" fullname="linearregression.performance.gx" inherit_type="local" line="99" name="gX" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfMyrPrep.ecl" start="1984">
+   <Signature pre="" post="" name="gX">gX</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="2016" end="2069" fullname="linearregression.performance.cx" inherit_type="local" line="100" name="cX" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfMyrPrep.ecl" start="2011">
+   <Signature pre="" post="" name="cX">cX</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="2075" end="2101" fullname="linearregression.performance.my" inherit_type="local" line="101" name="mY" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfMyrPrep.ecl" start="2070">
+   <Signature pre="" post="" name="mY">mY</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="2106" end="2135" fullname="linearregression.performance.x" inherit_type="local" line="102" name="X" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfMyrPrep.ecl" start="2102">
+   <Type>attribute</Type>
+   <Signature pre="" post="" name="X">X</Signature><Documentation> <see>PBblas/Types.Layout_Cell</see>
+    <see>ML_Core/Types.NumericField</see>
+    <return>NumericField Dataset</return>
+    <param><name>mat</name><desc>Matrix in DATASET(Layout_Cell) format</desc></param>
+    <content>Convert Matrix to NumericField dataset</content>
+   </Documentation>
+  </Definition>
+  <Definition body="2140" end="2169" fullname="linearregression.performance.y" inherit_type="local" line="103" name="Y" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfMyrPrep.ecl" start="2136">
+   <Type>attribute</Type>
+   <Signature pre="" post="" name="Y">Y</Signature><Documentation> <see>PBblas/Types.Layout_Cell</see>
+    <see>ML_Core/Types.NumericField</see>
+    <return>NumericField Dataset</return>
+    <param><name>mat</name><desc>Matrix in DATASET(Layout_Cell) format</desc></param>
+    <content>Convert Matrix to NumericField dataset</content>
+   </Documentation>
+  </Definition>
+  <Definition body="2301" end="2349" fullname="linearregression.performance.makemyriad" inherit_type="local" line="105" name="makeMyriad" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfMyrPrep.ecl" start="2246">
+   <Type>transform</Type>
+   <Params>
+    <Param name="nf"/>
+    <Param name="c"/>
+   </Params>
+   <Signature pre="" post="" name="NumericField makeMyriad(NumericField nf, UNSIGNED c)">NumericField makeMyriad(NumericField nf, UNSIGNED c)</Signature><Return>numericfield</Return>
+  </Definition>
+  <Definition body="2357" end="2414" fullname="linearregression.performance.x_s" inherit_type="local" line="110" name="X_s" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfMyrPrep.ecl" start="2351">
+   <Signature pre="" post="" name="X_s">X_s</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="2421" end="2478" fullname="linearregression.performance.y_s" inherit_type="local" line="111" name="Y_s" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfMyrPrep.ecl" start="2415">
+   <Signature pre="" post="" name="Y_s">Y_s</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="2486" end="2543" fullname="linearregression.performance.x_m" inherit_type="local" line="113" name="X_m" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfMyrPrep.ecl" start="2480">
+   <Signature pre="" post="" name="X_m">X_m</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="2550" end="2607" fullname="linearregression.performance.y_m" inherit_type="local" line="114" name="Y_m" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfMyrPrep.ecl" start="2544">
+   <Signature pre="" post="" name="Y_m">Y_m</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="2615" end="2672" fullname="linearregression.performance.x_l" inherit_type="local" line="116" name="X_l" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfMyrPrep.ecl" start="2609">
+   <Signature pre="" post="" name="X_l">X_l</Signature><Type>attribute</Type>
+  </Definition>
+  <Definition body="2679" end="2736" fullname="linearregression.performance.y_l" inherit_type="local" line="117" name="Y_l" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LinearRegression/performance/OLSPerfMyrPrep.ecl" start="2673">
+   <Signature pre="" post="" name="Y_l">Y_l</Signature><Type>attribute</Type>
+  </Definition>
+ </Source>
+ <Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Types.ecl" name="ML_Core.Types" target="../../ml_core/types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/MakeTestMatrix.ecl" name="PBblas.test.MakeTestMatrix" target="../../pbblas/test/maketestmatrix.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Types.ecl" name="PBblas.Types" target="../../pbblas/types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Converted.ecl" name="PBblas.Converted" target="../../pbblas/converted.ecl.xml"/><Depends sourcePath="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/system/Thorlib.ecl" name="std.system.Thorlib" target="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/system/Thorlib.ecl"/></Meta>

@@ -14,6 +14,23 @@
 </head>
 
 <body>
+	<nav class="navbar topbar">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a href="#menu-toggle" id="menu-toggle" class="navbar-brand glyphicon glyphicon-menu-hamburger ham"></a>
+			</div>
+			<div class="navbar-header" style="margin-left: 20px;">
+				<span class="navbar-brand">BLAS</span>
+			</div>
+			<div class="navbar-collapse collapse">
+			<ul class="nav navbar-nav">
+				<li><a href="#ecldoc-section-import" class="topbar">Imports</a></li>
+				<li><a href="#ecldoc-section-tree" class="topbar">Tree</a></li>
+				<li><a href="#ecldoc-section-desc" class="topbar">Descriptions</a></li>
+			</ul>
+			</div>
+		</div>
+	</nav>
 	<div id="wrapper">
 
 		<!-- Sidebar -->
@@ -26,31 +43,7 @@
 				</li>
 				
 				<li>
-					<a href="audit.ecl.html">audit.ecl</a>
-				</li>
-				
-				<li>
-					<a href="file.ecl.html">file.ecl</a>
-				</li>
-				
-				<li>
-					<a href="system/pkg.toc.html">system</a>
-				</li>
-				
-				<li>
-					<a href="metaphone3.ecl.html">metaphone3.ecl</a>
-				</li>
-				
-				<li>
-					<a href="metaphone.ecl.html">metaphone.ecl</a>
-				</li>
-				
-				<li>
-					<a href="str.ecl.html">str.ecl</a>
-				</li>
-				
-				<li>
-					<a href="date.ecl.html">date.ecl</a>
+					<a href="bundlebase.ecl.html">bundlebase.ecl</a>
 				</li>
 				
 				<li>
@@ -58,15 +51,39 @@
 				</li>
 				
 				<li>
+					<a href="str.ecl.html">str.ecl</a>
+				</li>
+				
+				<li>
+					<a href="audit.ecl.html">audit.ecl</a>
+				</li>
+				
+				<li>
 					<a href="math.ecl.html">math.ecl</a>
 				</li>
 				
 				<li>
-					<a href="bundlebase.ecl.html">bundlebase.ecl</a>
+					<a href="metaphone.ecl.html">metaphone.ecl</a>
+				</li>
+				
+				<li>
+					<a href="date.ecl.html">date.ecl</a>
+				</li>
+				
+				<li>
+					<a href="system/pkg.toc.html">system</a>
+				</li>
+				
+				<li>
+					<a href="file.ecl.html">file.ecl</a>
 				</li>
 				
 				<li>
 					<a href="uni.ecl.html">uni.ecl</a>
+				</li>
+				
+				<li>
+					<a href="metaphone3.ecl.html">metaphone3.ecl</a>
 				</li>
 				
 			</ul>
@@ -74,31 +91,25 @@
 
 		<div id="page-content-wrapper">
 			<div class="container-fluid">
-				<div class="row">
-					<div class="col-lg-4">
-						<a href="#menu-toggle" class="glyphicon glyphicon-menu-hamburger" style="font-size:2.2em;" id="menu-toggle"></a>
-					</div>
-					<div class="col-lg-8">
-						<span class="title">BLAS</span>
-					</div>
-				</div>
-				<div class="row">
-					<h2>Imports	</h2>
-					<ul>
+				<section id="ecldoc-section-import">
+					<h3 class="page-header">IMPORTS</h3>
+					<ul class="pagination">
 						<li>
 							<a href="lib_eclblas/pkg.toc.html">
 								lib_eclblas
 							</a>
 							</li>
 						</ul>
-					<h2>Tree</h2>
+				</section>
+				<section id="ecldoc-section-tree">
+					<h3 class="page-header">DEFINITION TREE</h3>
 					<ul class="tree">
 						<li id="t-BLAS">
 							
 							<a href="#BLAS" data-toggle="collapse" class="glyphicon glyphicon-folder-open" style="margin-right: 6px;"></a>
 							
 							<a href="#dBLAS">
-								 MODULE :
+								MODULE :
 								<span class="sign-pre"></span>
 								<span class="sign-name">BLAS</span>
 								<span class="sign-post"></span>
@@ -109,9 +120,9 @@
 							<a href="#BLAS-Types" data-toggle="collapse" class="glyphicon glyphicon-folder-open" style="margin-right: 6px;"></a>
 							
 							<a href="#dBLAS-Types">
-								 MODULE :
+								MODULE :
 								<span class="sign-pre"></span>
-								<span class="sign-name">TYPES</span>
+								<span class="sign-name">Types</span>
 								<span class="sign-post"></span>
 							</a>
 							<ul id="BLAS-Types" class="accordian-body tree collapse">
@@ -120,9 +131,9 @@
 							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
 							
 							<a href="#dblas-types-value_t">
-								 ATTRIBUTE :
+								ATTRIBUTE :
 								<span class="sign-pre"></span>
-								<span class="sign-name">VALUE_T</span>
+								<span class="sign-name">value_t</span>
 								<span class="sign-post"></span>
 							</a>
 							<ul id="blas-types-value_t" class="accordian-body tree collapse">
@@ -134,9 +145,9 @@
 							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
 							
 							<a href="#dblas-types-dimension_t">
-								 ATTRIBUTE :
+								ATTRIBUTE :
 								<span class="sign-pre"></span>
-								<span class="sign-name">DIMENSION_T</span>
+								<span class="sign-name">dimension_t</span>
 								<span class="sign-post"></span>
 							</a>
 							<ul id="blas-types-dimension_t" class="accordian-body tree collapse">
@@ -148,9 +159,9 @@
 							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
 							
 							<a href="#dblas-types-matrix_t">
-								 ATTRIBUTE :
+								ATTRIBUTE :
 								<span class="sign-pre"></span>
-								<span class="sign-name">MATRIX_T</span>
+								<span class="sign-name">matrix_t</span>
 								<span class="sign-post"></span>
 							</a>
 							<ul id="blas-types-matrix_t" class="accordian-body tree collapse">
@@ -162,9 +173,9 @@
 							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
 							
 							<a href="#decldoc-Triangle">
-								 ATTRIBUTE :
+								ATTRIBUTE :
 								<span class="sign-pre"></span>
-								<span class="sign-name">TRIANGLE</span>
+								<span class="sign-name">Triangle</span>
 								<span class="sign-post"></span>
 							</a>
 							<ul id="ecldoc-Triangle" class="accordian-body tree collapse">
@@ -176,9 +187,9 @@
 							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
 							
 							<a href="#decldoc-Diagonal">
-								 ATTRIBUTE :
+								ATTRIBUTE :
 								<span class="sign-pre"></span>
-								<span class="sign-name">DIAGONAL</span>
+								<span class="sign-name">Diagonal</span>
 								<span class="sign-post"></span>
 							</a>
 							<ul id="ecldoc-Diagonal" class="accordian-body tree collapse">
@@ -190,9 +201,9 @@
 							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
 							
 							<a href="#decldoc-Side">
-								 ATTRIBUTE :
+								ATTRIBUTE :
 								<span class="sign-pre"></span>
-								<span class="sign-name">SIDE</span>
+								<span class="sign-name">Side</span>
 								<span class="sign-post"></span>
 							</a>
 							<ul id="ecldoc-Side" class="accordian-body tree collapse">
@@ -207,12 +218,12 @@
 							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
 							
 							<a href="#dblas-icellfunc">
-								 FUNCTION :
-								<span class="sign-pre">Types.value_t</span>
-								<span class="sign-name">ICELLFUNC</span>
-								<span class="sign-post">(Types.value_t v,
+								FUNCTION :
+								<span class="sign-pre"></span>
+								<span class="sign-name">Types.value_t ICellFunc(Types.value_t v,
                                  Types.dimension_t r,
                                  Types.dimension_t c)</span>
+								<span class="sign-post"></span>
 							</a>
 							<ul id="blas-icellfunc" class="accordian-body tree collapse">
 								
@@ -223,13 +234,13 @@
 							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
 							
 							<a href="#dblas-apply2cells">
-								 FUNCTION :
-								<span class="sign-pre">Types.matrix_t</span>
-								<span class="sign-name">APPLY2CELLS</span>
-								<span class="sign-post">(Types.dimension_t m,
+								FUNCTION :
+								<span class="sign-pre"></span>
+								<span class="sign-name">Types.matrix_t Apply2Cells(Types.dimension_t m,
                                     Types.dimension_t n,
                                     Types.matrix_t x,
                                     ICellFunc f)</span>
+								<span class="sign-post"></span>
 							</a>
 							<ul id="blas-apply2cells" class="accordian-body tree collapse">
 								
@@ -240,11 +251,12 @@
 							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
 							
 							<a href="#dblas-dasum">
-								 FUNCTION :
-								<span class="sign-pre">Types.value_t</span>
-								<span class="sign-name">DASUM</span>
-								<span class="sign-post">(Types.dimension_t m, Types.matrix_t x,
+								FUNCTION :
+								<span class="sign-pre"></span>
+								<span class="sign-name">Types.value_t
+      dasum(Types.dimension_t m, Types.matrix_t x,
             Types.dimension_t incx, Types.dimension_t skipped=0)</span>
+								<span class="sign-post"></span>
 							</a>
 							<ul id="blas-dasum" class="accordian-body tree collapse">
 								
@@ -255,12 +267,13 @@
 							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
 							
 							<a href="#dblas-daxpy">
-								 FUNCTION :
-								<span class="sign-pre">Types.matrix_t</span>
-								<span class="sign-name">DAXPY</span>
-								<span class="sign-post">(Types.dimension_t N, Types.value_t alpha, Types.matrix_t X,
+								FUNCTION :
+								<span class="sign-pre"></span>
+								<span class="sign-name">Types.matrix_t
+       daxpy(Types.dimension_t N, Types.value_t alpha, Types.matrix_t X,
              Types.dimension_t incX, Types.matrix_t Y, Types.dimension_t incY,
              Types.dimension_t x_skipped=0, Types.dimension_t y_skipped=0)</span>
+								<span class="sign-post"></span>
 							</a>
 							<ul id="blas-daxpy" class="accordian-body tree collapse">
 								
@@ -271,13 +284,14 @@
 							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
 							
 							<a href="#dblas-dgemm">
-								 FUNCTION :
-								<span class="sign-pre">Types.matrix_t</span>
-								<span class="sign-name">DGEMM</span>
-								<span class="sign-post">(BOOLEAN transposeA, BOOLEAN transposeB,
+								FUNCTION :
+								<span class="sign-pre"></span>
+								<span class="sign-name">Types.matrix_t
+         dgemm(BOOLEAN transposeA, BOOLEAN transposeB,
                Types.dimension_t M, Types.dimension_t N, Types.dimension_t K,
                Types.value_t alpha, Types.matrix_t A, Types.matrix_t B,
                Types.value_t beta=0.0, Types.matrix_t C=[])</span>
+								<span class="sign-post"></span>
 							</a>
 							<ul id="blas-dgemm" class="accordian-body tree collapse">
 								
@@ -288,10 +302,11 @@
 							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
 							
 							<a href="#dblas-dgetf2">
-								 FUNCTION :
-								<span class="sign-pre">Types.matrix_t</span>
-								<span class="sign-name">DGETF2</span>
-								<span class="sign-post">(Types.dimension_t m, Types.dimension_t n, Types.matrix_t a)</span>
+								FUNCTION :
+								<span class="sign-pre"></span>
+								<span class="sign-name">Types.matrix_t
+         dgetf2(Types.dimension_t m, Types.dimension_t n, Types.matrix_t a)</span>
+								<span class="sign-post"></span>
 							</a>
 							<ul id="blas-dgetf2" class="accordian-body tree collapse">
 								
@@ -302,11 +317,12 @@
 							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
 							
 							<a href="#dblas-dpotf2">
-								 FUNCTION :
-								<span class="sign-pre">Types.matrix_t</span>
-								<span class="sign-name">DPOTF2</span>
-								<span class="sign-post">(Types.Triangle tri, Types.dimension_t r, Types.matrix_t A,
+								FUNCTION :
+								<span class="sign-pre"></span>
+								<span class="sign-name">Types.matrix_t
+         dpotf2(Types.Triangle tri, Types.dimension_t r, Types.matrix_t A,
                          BOOLEAN clear=TRUE)</span>
+								<span class="sign-post"></span>
 							</a>
 							<ul id="blas-dpotf2" class="accordian-body tree collapse">
 								
@@ -317,11 +333,12 @@
 							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
 							
 							<a href="#dblas-dscal">
-								 FUNCTION :
-								<span class="sign-pre">Types.matrix_t</span>
-								<span class="sign-name">DSCAL</span>
-								<span class="sign-post">(Types.dimension_t N, Types.value_t alpha, Types.matrix_t X,
+								FUNCTION :
+								<span class="sign-pre"></span>
+								<span class="sign-name">Types.matrix_t
+         dscal(Types.dimension_t N, Types.value_t alpha, Types.matrix_t X,
                Types.dimension_t incX, Types.dimension_t skipped=0)</span>
+								<span class="sign-post"></span>
 							</a>
 							<ul id="blas-dscal" class="accordian-body tree collapse">
 								
@@ -332,13 +349,14 @@
 							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
 							
 							<a href="#dblas-dsyrk">
-								 FUNCTION :
-								<span class="sign-pre">Types.matrix_t</span>
-								<span class="sign-name">DSYRK</span>
-								<span class="sign-post">(Types.Triangle tri, BOOLEAN transposeA,
+								FUNCTION :
+								<span class="sign-pre"></span>
+								<span class="sign-name">Types.matrix_t
+         dsyrk(Types.Triangle tri, BOOLEAN transposeA,
                Types.dimension_t N, Types.dimension_t K,
                Types.value_t alpha, Types.matrix_t A,
                Types.value_t beta, Types.matrix_t C, BOOLEAN clear=FALSE)</span>
+								<span class="sign-post"></span>
 							</a>
 							<ul id="blas-dsyrk" class="accordian-body tree collapse">
 								
@@ -349,13 +367,14 @@
 							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
 							
 							<a href="#dblas-dtrsm">
-								 FUNCTION :
-								<span class="sign-pre">Types.matrix_t</span>
-								<span class="sign-name">DTRSM</span>
-								<span class="sign-post">(Types.Side side, Types.Triangle tri,
+								FUNCTION :
+								<span class="sign-pre"></span>
+								<span class="sign-name">Types.matrix_t
+         dtrsm(Types.Side side, Types.Triangle tri,
                BOOLEAN transposeA, Types.Diagonal diag,
                Types.dimension_t M, Types.dimension_t N, Types.dimension_t lda,
                Types.value_t alpha, Types.matrix_t A, Types.matrix_t B)</span>
+								<span class="sign-post"></span>
 							</a>
 							<ul id="blas-dtrsm" class="accordian-body tree collapse">
 								
@@ -366,12 +385,12 @@
 							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
 							
 							<a href="#dblas-extract_diag">
-								 FUNCTION :
-								<span class="sign-pre">Types.matrix_t</span>
-								<span class="sign-name">EXTRACT_DIAG</span>
-								<span class="sign-post">(Types.dimension_t m,
+								FUNCTION :
+								<span class="sign-pre"></span>
+								<span class="sign-name">Types.matrix_t extract_diag(Types.dimension_t m,
                                      Types.dimension_t n,
                                      Types.matrix_t x)</span>
+								<span class="sign-post"></span>
 							</a>
 							<ul id="blas-extract_diag" class="accordian-body tree collapse">
 								
@@ -382,12 +401,13 @@
 							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
 							
 							<a href="#dblas-extract_tri">
-								 FUNCTION :
-								<span class="sign-pre">Types.matrix_t</span>
-								<span class="sign-name">EXTRACT_TRI</span>
-								<span class="sign-post">(Types.dimension_t m, Types.dimension_t n,
+								FUNCTION :
+								<span class="sign-pre"></span>
+								<span class="sign-name">Types.matrix_t
+         extract_tri(Types.dimension_t m, Types.dimension_t n,
                      Types.Triangle tri, Types.Diagonal dt,
                      Types.matrix_t a)</span>
+								<span class="sign-post"></span>
 							</a>
 							<ul id="blas-extract_tri" class="accordian-body tree collapse">
 								
@@ -398,11 +418,12 @@
 							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
 							
 							<a href="#dblas-make_diag">
-								 FUNCTION :
-								<span class="sign-pre">Types.matrix_t</span>
-								<span class="sign-name">MAKE_DIAG</span>
-								<span class="sign-post">(Types.dimension_t m, Types.value_t v=1.0,
+								FUNCTION :
+								<span class="sign-pre"></span>
+								<span class="sign-name">Types.matrix_t
+         make_diag(Types.dimension_t m, Types.value_t v=1.0,
                    Types.matrix_t X=[])</span>
+								<span class="sign-post"></span>
 							</a>
 							<ul id="blas-make_diag" class="accordian-body tree collapse">
 								
@@ -413,11 +434,12 @@
 							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
 							
 							<a href="#dblas-make_vector">
-								 FUNCTION :
-								<span class="sign-pre">Types.matrix_t</span>
-								<span class="sign-name">MAKE_VECTOR</span>
-								<span class="sign-post">(Types.dimension_t m,
+								FUNCTION :
+								<span class="sign-pre"></span>
+								<span class="sign-name">Types.matrix_t
+      make_vector(Types.dimension_t m,
                   Types.value_t v=1.0)</span>
+								<span class="sign-post"></span>
 							</a>
 							<ul id="blas-make_vector" class="accordian-body tree collapse">
 								
@@ -428,12 +450,13 @@
 							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
 							
 							<a href="#dblas-trace">
-								 FUNCTION :
-								<span class="sign-pre">Types.value_t</span>
-								<span class="sign-name">TRACE</span>
-								<span class="sign-post">(Types.dimension_t m,
+								FUNCTION :
+								<span class="sign-pre"></span>
+								<span class="sign-name">Types.value_t
+      trace(Types.dimension_t m,
             Types.dimension_t n,
             Types.matrix_t x)</span>
+								<span class="sign-post"></span>
 							</a>
 							<ul id="blas-trace" class="accordian-body tree collapse">
 								
@@ -443,8 +466,9 @@
 							</ul>
 						</li>
 						</ul>
-					<hr/>
-					<h2>Descriptions</h2>
+				</section>
+				<section id="ecldoc-section-desc">
+					<h3 class="page-header">DESCRIPTIONS</h3>
 					<div class="panel-group">
 						<div class="panel panel-info" id="dBLAS">
 							<div class="panel-heading">
@@ -474,7 +498,7 @@
 								</div>
 								<div class="sign">
 									<span class="sign-pre"></span>
-									<span class="sign-name">TYPES</span>
+									<span class="sign-name">Types</span>
 									<span class="sign-post"></span>
 								</div>
 								<div class="btns">
@@ -495,7 +519,7 @@
 								</div>
 								<div class="sign">
 									<span class="sign-pre"></span>
-									<span class="sign-name">VALUE_T</span>
+									<span class="sign-name">value_t</span>
 									<span class="sign-post"></span>
 								</div>
 								<div class="btns">
@@ -517,7 +541,7 @@
 								</div>
 								<div class="sign">
 									<span class="sign-pre"></span>
-									<span class="sign-name">DIMENSION_T</span>
+									<span class="sign-name">dimension_t</span>
 									<span class="sign-post"></span>
 								</div>
 								<div class="btns">
@@ -539,7 +563,7 @@
 								</div>
 								<div class="sign">
 									<span class="sign-pre"></span>
-									<span class="sign-name">MATRIX_T</span>
+									<span class="sign-name">matrix_t</span>
 									<span class="sign-post"></span>
 								</div>
 								<div class="btns">
@@ -561,7 +585,7 @@
 								</div>
 								<div class="sign">
 									<span class="sign-pre"></span>
-									<span class="sign-name">TRIANGLE</span>
+									<span class="sign-name">Triangle</span>
 									<span class="sign-post"></span>
 								</div>
 								<div class="btns">
@@ -583,7 +607,7 @@
 								</div>
 								<div class="sign">
 									<span class="sign-pre"></span>
-									<span class="sign-name">DIAGONAL</span>
+									<span class="sign-name">Diagonal</span>
 									<span class="sign-post"></span>
 								</div>
 								<div class="btns">
@@ -605,7 +629,7 @@
 								</div>
 								<div class="sign">
 									<span class="sign-pre"></span>
-									<span class="sign-name">SIDE</span>
+									<span class="sign-name">Side</span>
 									<span class="sign-post"></span>
 								</div>
 								<div class="btns">
@@ -627,11 +651,11 @@
 									FUNCTION
 								</div>
 								<div class="sign">
-									<span class="sign-pre">Types.value_t</span>
-									<span class="sign-name">ICELLFUNC</span>
-									<span class="sign-post">(Types.value_t v,
+									<span class="sign-pre"></span>
+									<span class="sign-name">Types.value_t ICellFunc(Types.value_t v,
                                  Types.dimension_t r,
                                  Types.dimension_t c)</span>
+									<span class="sign-post"></span>
 								</div>
 								<div class="btns">
 									<a href="#t-blas-icellfunc" class="tree-link btn btn-primary">Tree</a>
@@ -642,7 +666,7 @@
 							<div class="panel-body">
 								<div class="row">
 									<div class="col-md-12">
-									Function prototype for Apply2Cell.
+										Function prototype for Apply2Cell.
 									</div>
 								</div>
 								<br/>
@@ -650,20 +674,20 @@
 								<div class="row">
 									<div class="col-md-1 doc-type">Parameters</div>
 									<div class="col-md-11">
-									<table class="table">
-									<tr>
-											<td style="width: 20%;"><b>v</b> </td>
-											<td>the value</td>
-										</tr>
-									<tr>
-											<td style="width: 20%;"><b>r</b> </td>
-											<td>the row ordinal</td>
-										</tr>
-									<tr>
-											<td style="width: 20%;"><b>c</b> </td>
-											<td>the column ordinal</td>
-										</tr>
-									</table>
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>v</b> </td>
+												<td>the value</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>r</b> </td>
+												<td>the row ordinal</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>c</b> </td>
+												<td>the column ordinal</td>
+											</tr>
+											</table>
 									</div>
 								</div>
 								
@@ -671,11 +695,11 @@
 								<div class="row">
 									<div class="col-md-1 doc-type">Returns</div>
 									<div class="col-md-11">
-									<table class="table">
-									<tr>
-											<td>the updated value</td>
-										</tr>
-									</table>
+										<table class="table">
+											<tr>
+												<td>the updated value</td>
+											</tr>
+											</table>
 									</div>
 								</div>
 								
@@ -691,12 +715,12 @@
 									FUNCTION
 								</div>
 								<div class="sign">
-									<span class="sign-pre">Types.matrix_t</span>
-									<span class="sign-name">APPLY2CELLS</span>
-									<span class="sign-post">(Types.dimension_t m,
+									<span class="sign-pre"></span>
+									<span class="sign-name">Types.matrix_t Apply2Cells(Types.dimension_t m,
                                     Types.dimension_t n,
                                     Types.matrix_t x,
                                     ICellFunc f)</span>
+									<span class="sign-post"></span>
 								</div>
 								<div class="btns">
 									<a href="#t-blas-apply2cells" class="tree-link btn btn-primary">Tree</a>
@@ -707,7 +731,7 @@
 							<div class="panel-body">
 								<div class="row">
 									<div class="col-md-12">
-									Iterate matrix and apply function to each cell
+										Iterate matrix and apply function to each cell
 									</div>
 								</div>
 								<br/>
@@ -715,24 +739,24 @@
 								<div class="row">
 									<div class="col-md-1 doc-type">Parameters</div>
 									<div class="col-md-11">
-									<table class="table">
-									<tr>
-											<td style="width: 20%;"><b>m</b> </td>
-											<td>number of rows</td>
-										</tr>
-									<tr>
-											<td style="width: 20%;"><b>n</b> </td>
-											<td>number of columns</td>
-										</tr>
-									<tr>
-											<td style="width: 20%;"><b>x</b> </td>
-											<td>matrix</td>
-										</tr>
-									<tr>
-											<td style="width: 20%;"><b>f</b> </td>
-											<td>function to apply</td>
-										</tr>
-									</table>
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>m</b> </td>
+												<td>number of rows</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>n</b> </td>
+												<td>number of columns</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>x</b> </td>
+												<td>matrix</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>f</b> </td>
+												<td>function to apply</td>
+											</tr>
+											</table>
 									</div>
 								</div>
 								
@@ -740,11 +764,11 @@
 								<div class="row">
 									<div class="col-md-1 doc-type">Returns</div>
 									<div class="col-md-11">
-									<table class="table">
-									<tr>
-											<td>updated matrix</td>
-										</tr>
-									</table>
+										<table class="table">
+											<tr>
+												<td>updated matrix</td>
+											</tr>
+											</table>
 									</div>
 								</div>
 								
@@ -760,10 +784,11 @@
 									FUNCTION
 								</div>
 								<div class="sign">
-									<span class="sign-pre">Types.value_t</span>
-									<span class="sign-name">DASUM</span>
-									<span class="sign-post">(Types.dimension_t m, Types.matrix_t x,
+									<span class="sign-pre"></span>
+									<span class="sign-name">Types.value_t
+      dasum(Types.dimension_t m, Types.matrix_t x,
             Types.dimension_t incx, Types.dimension_t skipped=0)</span>
+									<span class="sign-post"></span>
 								</div>
 								<div class="btns">
 									<a href="#t-blas-dasum" class="tree-link btn btn-primary">Tree</a>
@@ -774,7 +799,7 @@
 							<div class="panel-body">
 								<div class="row">
 									<div class="col-md-12">
-									Absolute sum, the 1 norm of a vector.
+										Absolute sum, the 1 norm of a vector.
 									</div>
 								</div>
 								<br/>
@@ -782,24 +807,24 @@
 								<div class="row">
 									<div class="col-md-1 doc-type">Parameters</div>
 									<div class="col-md-11">
-									<table class="table">
-									<tr>
-											<td style="width: 20%;"><b>m</b> </td>
-											<td>the number of entries</td>
-										</tr>
-									<tr>
-											<td style="width: 20%;"><b>x</b> </td>
-											<td>the column major matrix holding the vector</td>
-										</tr>
-									<tr>
-											<td style="width: 20%;"><b>incx</b> </td>
-											<td>the increment for x, 1 in the case of an actual vector</td>
-										</tr>
-									<tr>
-											<td style="width: 20%;"><b>skipped</b> </td>
-											<td>default is zero, the number of entries stepped over to get to the first entry</td>
-										</tr>
-									</table>
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>m</b> </td>
+												<td>the number of entries</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>x</b> </td>
+												<td>the column major matrix holding the vector</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>incx</b> </td>
+												<td>the increment for x, 1 in the case of an actual vector</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>skipped</b> </td>
+												<td>default is zero, the number of entries stepped over to get to the first entry</td>
+											</tr>
+											</table>
 									</div>
 								</div>
 								
@@ -807,11 +832,11 @@
 								<div class="row">
 									<div class="col-md-1 doc-type">Returns</div>
 									<div class="col-md-11">
-									<table class="table">
-									<tr>
-											<td>the sum of the absolute values</td>
-										</tr>
-									</table>
+										<table class="table">
+											<tr>
+												<td>the sum of the absolute values</td>
+											</tr>
+											</table>
 									</div>
 								</div>
 								
@@ -827,11 +852,12 @@
 									FUNCTION
 								</div>
 								<div class="sign">
-									<span class="sign-pre">Types.matrix_t</span>
-									<span class="sign-name">DAXPY</span>
-									<span class="sign-post">(Types.dimension_t N, Types.value_t alpha, Types.matrix_t X,
+									<span class="sign-pre"></span>
+									<span class="sign-name">Types.matrix_t
+       daxpy(Types.dimension_t N, Types.value_t alpha, Types.matrix_t X,
              Types.dimension_t incX, Types.matrix_t Y, Types.dimension_t incY,
              Types.dimension_t x_skipped=0, Types.dimension_t y_skipped=0)</span>
+									<span class="sign-post"></span>
 								</div>
 								<div class="btns">
 									<a href="#t-blas-daxpy" class="tree-link btn btn-primary">Tree</a>
@@ -842,7 +868,7 @@
 							<div class="panel-body">
 								<div class="row">
 									<div class="col-md-12">
-									alpha*X + Y
+										alpha*X + Y
 									</div>
 								</div>
 								<br/>
@@ -850,40 +876,40 @@
 								<div class="row">
 									<div class="col-md-1 doc-type">Parameters</div>
 									<div class="col-md-11">
-									<table class="table">
-									<tr>
-											<td style="width: 20%;"><b>N</b> </td>
-											<td>number of elements in vector</td>
-										</tr>
-									<tr>
-											<td style="width: 20%;"><b>alpha</b> </td>
-											<td>the scalar multiplier</td>
-										</tr>
-									<tr>
-											<td style="width: 20%;"><b>X</b> </td>
-											<td>the column major matrix holding the vector X</td>
-										</tr>
-									<tr>
-											<td style="width: 20%;"><b>incX</b> </td>
-											<td>the increment or stride for the vector</td>
-										</tr>
-									<tr>
-											<td style="width: 20%;"><b>Y</b> </td>
-											<td>the column major matrix holding the vector Y</td>
-										</tr>
-									<tr>
-											<td style="width: 20%;"><b>incY</b> </td>
-											<td>the increment or stride of Y</td>
-										</tr>
-									<tr>
-											<td style="width: 20%;"><b>x_skipped</b> </td>
-											<td>number of entries skipped to get to the first X</td>
-										</tr>
-									<tr>
-											<td style="width: 20%;"><b>y_skipped</b> </td>
-											<td>number of entries skipped to get to the first Y</td>
-										</tr>
-									</table>
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>N</b> </td>
+												<td>number of elements in vector</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>alpha</b> </td>
+												<td>the scalar multiplier</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>X</b> </td>
+												<td>the column major matrix holding the vector X</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>incX</b> </td>
+												<td>the increment or stride for the vector</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>Y</b> </td>
+												<td>the column major matrix holding the vector Y</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>incY</b> </td>
+												<td>the increment or stride of Y</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>x_skipped</b> </td>
+												<td>number of entries skipped to get to the first X</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>y_skipped</b> </td>
+												<td>number of entries skipped to get to the first Y</td>
+											</tr>
+											</table>
 									</div>
 								</div>
 								
@@ -891,11 +917,11 @@
 								<div class="row">
 									<div class="col-md-1 doc-type">Returns</div>
 									<div class="col-md-11">
-									<table class="table">
-									<tr>
-											<td>the updated matrix</td>
-										</tr>
-									</table>
+										<table class="table">
+											<tr>
+												<td>the updated matrix</td>
+											</tr>
+											</table>
 									</div>
 								</div>
 								
@@ -911,12 +937,13 @@
 									FUNCTION
 								</div>
 								<div class="sign">
-									<span class="sign-pre">Types.matrix_t</span>
-									<span class="sign-name">DGEMM</span>
-									<span class="sign-post">(BOOLEAN transposeA, BOOLEAN transposeB,
+									<span class="sign-pre"></span>
+									<span class="sign-name">Types.matrix_t
+         dgemm(BOOLEAN transposeA, BOOLEAN transposeB,
                Types.dimension_t M, Types.dimension_t N, Types.dimension_t K,
                Types.value_t alpha, Types.matrix_t A, Types.matrix_t B,
                Types.value_t beta=0.0, Types.matrix_t C=[])</span>
+									<span class="sign-post"></span>
 								</div>
 								<div class="btns">
 									<a href="#t-blas-dgemm" class="tree-link btn btn-primary">Tree</a>
@@ -927,7 +954,7 @@
 							<div class="panel-body">
 								<div class="row">
 									<div class="col-md-12">
-									alpha*op(A) op(B) + beta*C where op() is transpose
+										alpha*op(A) op(B) + beta*C where op() is transpose
 									</div>
 								</div>
 								<br/>
@@ -935,48 +962,48 @@
 								<div class="row">
 									<div class="col-md-1 doc-type">Parameters</div>
 									<div class="col-md-11">
-									<table class="table">
-									<tr>
-											<td style="width: 20%;"><b>transposeA</b> </td>
-											<td>true when transpose of A is used</td>
-										</tr>
-									<tr>
-											<td style="width: 20%;"><b>transposeB</b> </td>
-											<td>true when transpose of B is used</td>
-										</tr>
-									<tr>
-											<td style="width: 20%;"><b>M</b> </td>
-											<td>number of rows in product</td>
-										</tr>
-									<tr>
-											<td style="width: 20%;"><b>N</b> </td>
-											<td>number of columns in product</td>
-										</tr>
-									<tr>
-											<td style="width: 20%;"><b>K</b> </td>
-											<td>number of columns/rows for the multiplier/multiplicand</td>
-										</tr>
-									<tr>
-											<td style="width: 20%;"><b>alpha</b> </td>
-											<td>scalar used on A</td>
-										</tr>
-									<tr>
-											<td style="width: 20%;"><b>A</b> </td>
-											<td>matrix A</td>
-										</tr>
-									<tr>
-											<td style="width: 20%;"><b>B</b> </td>
-											<td>matrix B</td>
-										</tr>
-									<tr>
-											<td style="width: 20%;"><b>beta</b> </td>
-											<td>scalar for matrix C</td>
-										</tr>
-									<tr>
-											<td style="width: 20%;"><b>C</b> </td>
-											<td>matrix C or empty</td>
-										</tr>
-									</table>
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>transposeA</b> </td>
+												<td>true when transpose of A is used</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>transposeB</b> </td>
+												<td>true when transpose of B is used</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>M</b> </td>
+												<td>number of rows in product</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>N</b> </td>
+												<td>number of columns in product</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>K</b> </td>
+												<td>number of columns/rows for the multiplier/multiplicand</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>alpha</b> </td>
+												<td>scalar used on A</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>A</b> </td>
+												<td>matrix A</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>B</b> </td>
+												<td>matrix B</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>beta</b> </td>
+												<td>scalar for matrix C</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>C</b> </td>
+												<td>matrix C or empty</td>
+											</tr>
+											</table>
 									</div>
 								</div>
 								
@@ -993,9 +1020,10 @@
 									FUNCTION
 								</div>
 								<div class="sign">
-									<span class="sign-pre">Types.matrix_t</span>
-									<span class="sign-name">DGETF2</span>
-									<span class="sign-post">(Types.dimension_t m, Types.dimension_t n, Types.matrix_t a)</span>
+									<span class="sign-pre"></span>
+									<span class="sign-name">Types.matrix_t
+         dgetf2(Types.dimension_t m, Types.dimension_t n, Types.matrix_t a)</span>
+									<span class="sign-post"></span>
 								</div>
 								<div class="btns">
 									<a href="#t-blas-dgetf2" class="tree-link btn btn-primary">Tree</a>
@@ -1006,7 +1034,7 @@
 							<div class="panel-body">
 								<div class="row">
 									<div class="col-md-12">
-									Compute LU Factorization of matrix A.
+										Compute LU Factorization of matrix A.
 									</div>
 								</div>
 								<br/>
@@ -1014,16 +1042,16 @@
 								<div class="row">
 									<div class="col-md-1 doc-type">Parameters</div>
 									<div class="col-md-11">
-									<table class="table">
-									<tr>
-											<td style="width: 20%;"><b>m</b> </td>
-											<td>number of rows of A</td>
-										</tr>
-									<tr>
-											<td style="width: 20%;"><b>n</b> </td>
-											<td>number of columns of A</td>
-										</tr>
-									</table>
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>m</b> </td>
+												<td>number of rows of A</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>n</b> </td>
+												<td>number of columns of A</td>
+											</tr>
+											</table>
 									</div>
 								</div>
 								
@@ -1031,11 +1059,11 @@
 								<div class="row">
 									<div class="col-md-1 doc-type">Returns</div>
 									<div class="col-md-11">
-									<table class="table">
-									<tr>
-											<td>composite matrix of factors, lower triangle has an implied diagonal of ones. Upper triangle has the diagonal of the composite.</td>
-										</tr>
-									</table>
+										<table class="table">
+											<tr>
+												<td>composite matrix of factors, lower triangle has an implied diagonal of ones. Upper triangle has the diagonal of the composite.</td>
+											</tr>
+											</table>
 									</div>
 								</div>
 								
@@ -1051,10 +1079,11 @@
 									FUNCTION
 								</div>
 								<div class="sign">
-									<span class="sign-pre">Types.matrix_t</span>
-									<span class="sign-name">DPOTF2</span>
-									<span class="sign-post">(Types.Triangle tri, Types.dimension_t r, Types.matrix_t A,
+									<span class="sign-pre"></span>
+									<span class="sign-name">Types.matrix_t
+         dpotf2(Types.Triangle tri, Types.dimension_t r, Types.matrix_t A,
                          BOOLEAN clear=TRUE)</span>
+									<span class="sign-post"></span>
 								</div>
 								<div class="btns">
 									<a href="#t-blas-dpotf2" class="tree-link btn btn-primary">Tree</a>
@@ -1065,7 +1094,7 @@
 							<div class="panel-body">
 								<div class="row">
 									<div class="col-md-12">
-									DPOTF2 computes the Cholesky factorization of a real symmetric positive definite matrix A. The factorization has the form A = U**T * U , if UPLO = 'U', or A = L * L**T, if UPLO = 'L', where U is an upper triangular matrix and L is lower triangular. This is the unblocked version of the algorithm, calling Level 2 BLAS.
+										DPOTF2 computes the Cholesky factorization of a real symmetric positive definite matrix A. The factorization has the form A = U**T * U , if UPLO = 'U', or A = L * L**T, if UPLO = 'L', where U is an upper triangular matrix and L is lower triangular. This is the unblocked version of the algorithm, calling Level 2 BLAS.
 									</div>
 								</div>
 								<br/>
@@ -1073,24 +1102,24 @@
 								<div class="row">
 									<div class="col-md-1 doc-type">Parameters</div>
 									<div class="col-md-11">
-									<table class="table">
-									<tr>
-											<td style="width: 20%;"><b>tri</b> </td>
-											<td>indicate whether upper or lower triangle is used</td>
-										</tr>
-									<tr>
-											<td style="width: 20%;"><b>r</b> </td>
-											<td>number of rows/columns in the square matrix</td>
-										</tr>
-									<tr>
-											<td style="width: 20%;"><b>A</b> </td>
-											<td>the square matrix</td>
-										</tr>
-									<tr>
-											<td style="width: 20%;"><b>clear</b> </td>
-											<td>clears the unused triangle</td>
-										</tr>
-									</table>
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>tri</b> </td>
+												<td>indicate whether upper or lower triangle is used</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>r</b> </td>
+												<td>number of rows/columns in the square matrix</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>A</b> </td>
+												<td>the square matrix</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>clear</b> </td>
+												<td>clears the unused triangle</td>
+											</tr>
+											</table>
 									</div>
 								</div>
 								
@@ -1098,11 +1127,11 @@
 								<div class="row">
 									<div class="col-md-1 doc-type">Returns</div>
 									<div class="col-md-11">
-									<table class="table">
-									<tr>
-											<td>the triangular matrix requested.</td>
-										</tr>
-									</table>
+										<table class="table">
+											<tr>
+												<td>the triangular matrix requested.</td>
+											</tr>
+											</table>
 									</div>
 								</div>
 								
@@ -1118,10 +1147,11 @@
 									FUNCTION
 								</div>
 								<div class="sign">
-									<span class="sign-pre">Types.matrix_t</span>
-									<span class="sign-name">DSCAL</span>
-									<span class="sign-post">(Types.dimension_t N, Types.value_t alpha, Types.matrix_t X,
+									<span class="sign-pre"></span>
+									<span class="sign-name">Types.matrix_t
+         dscal(Types.dimension_t N, Types.value_t alpha, Types.matrix_t X,
                Types.dimension_t incX, Types.dimension_t skipped=0)</span>
+									<span class="sign-post"></span>
 								</div>
 								<div class="btns">
 									<a href="#t-blas-dscal" class="tree-link btn btn-primary">Tree</a>
@@ -1132,7 +1162,7 @@
 							<div class="panel-body">
 								<div class="row">
 									<div class="col-md-12">
-									Scale a vector alpha
+										Scale a vector alpha
 									</div>
 								</div>
 								<br/>
@@ -1140,28 +1170,28 @@
 								<div class="row">
 									<div class="col-md-1 doc-type">Parameters</div>
 									<div class="col-md-11">
-									<table class="table">
-									<tr>
-											<td style="width: 20%;"><b>N</b> </td>
-											<td>number of elements in the vector</td>
-										</tr>
-									<tr>
-											<td style="width: 20%;"><b>alpha</b> </td>
-											<td>the scaling factor</td>
-										</tr>
-									<tr>
-											<td style="width: 20%;"><b>X</b> </td>
-											<td>the column major matrix holding the vector</td>
-										</tr>
-									<tr>
-											<td style="width: 20%;"><b>incX</b> </td>
-											<td>the stride to get to the next element in the vector</td>
-										</tr>
-									<tr>
-											<td style="width: 20%;"><b>skipped</b> </td>
-											<td>the number of elements skipped to get to the first element</td>
-										</tr>
-									</table>
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>N</b> </td>
+												<td>number of elements in the vector</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>alpha</b> </td>
+												<td>the scaling factor</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>X</b> </td>
+												<td>the column major matrix holding the vector</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>incX</b> </td>
+												<td>the stride to get to the next element in the vector</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>skipped</b> </td>
+												<td>the number of elements skipped to get to the first element</td>
+											</tr>
+											</table>
 									</div>
 								</div>
 								
@@ -1169,11 +1199,11 @@
 								<div class="row">
 									<div class="col-md-1 doc-type">Returns</div>
 									<div class="col-md-11">
-									<table class="table">
-									<tr>
-											<td>the updated matrix</td>
-										</tr>
-									</table>
+										<table class="table">
+											<tr>
+												<td>the updated matrix</td>
+											</tr>
+											</table>
 									</div>
 								</div>
 								
@@ -1189,12 +1219,13 @@
 									FUNCTION
 								</div>
 								<div class="sign">
-									<span class="sign-pre">Types.matrix_t</span>
-									<span class="sign-name">DSYRK</span>
-									<span class="sign-post">(Types.Triangle tri, BOOLEAN transposeA,
+									<span class="sign-pre"></span>
+									<span class="sign-name">Types.matrix_t
+         dsyrk(Types.Triangle tri, BOOLEAN transposeA,
                Types.dimension_t N, Types.dimension_t K,
                Types.value_t alpha, Types.matrix_t A,
                Types.value_t beta, Types.matrix_t C, BOOLEAN clear=FALSE)</span>
+									<span class="sign-post"></span>
 								</div>
 								<div class="btns">
 									<a href="#t-blas-dsyrk" class="tree-link btn btn-primary">Tree</a>
@@ -1205,7 +1236,7 @@
 							<div class="panel-body">
 								<div class="row">
 									<div class="col-md-12">
-									Implements symmetric rank update C <- alpha A**T A + beta C or c <- alpha A A**T + beta C. C is N x N.
+										Implements symmetric rank update C <- alpha A**T A + beta C or c <- alpha A A**T + beta C. C is N x N.
 									</div>
 								</div>
 								<br/>
@@ -1213,44 +1244,44 @@
 								<div class="row">
 									<div class="col-md-1 doc-type">Parameters</div>
 									<div class="col-md-11">
-									<table class="table">
-									<tr>
-											<td style="width: 20%;"><b>tri</b> </td>
-											<td>update upper or lower triangle</td>
-										</tr>
-									<tr>
-											<td style="width: 20%;"><b>transposeA</b> </td>
-											<td>Transpose the A matrix to be NxK</td>
-										</tr>
-									<tr>
-											<td style="width: 20%;"><b>N</b> </td>
-											<td>number of rows</td>
-										</tr>
-									<tr>
-											<td style="width: 20%;"><b>K</b> </td>
-											<td>number of columns in the update matrix or transpose</td>
-										</tr>
-									<tr>
-											<td style="width: 20%;"><b>alpha</b> </td>
-											<td>the alpha scalar</td>
-										</tr>
-									<tr>
-											<td style="width: 20%;"><b>A</b> </td>
-											<td>the update matrix, either NxK or KxN</td>
-										</tr>
-									<tr>
-											<td style="width: 20%;"><b>beta</b> </td>
-											<td>the beta scalar</td>
-										</tr>
-									<tr>
-											<td style="width: 20%;"><b>C</b> </td>
-											<td>the matrix to update</td>
-										</tr>
-									<tr>
-											<td style="width: 20%;"><b>clear</b> </td>
-											<td>clear the triangle that is not updated. BLAS assumes that symmetric matrices have only one of the triangles and this option lets you make that true.</td>
-										</tr>
-									</table>
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>tri</b> </td>
+												<td>update upper or lower triangle</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>transposeA</b> </td>
+												<td>Transpose the A matrix to be NxK</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>N</b> </td>
+												<td>number of rows</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>K</b> </td>
+												<td>number of columns in the update matrix or transpose</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>alpha</b> </td>
+												<td>the alpha scalar</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>A</b> </td>
+												<td>the update matrix, either NxK or KxN</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>beta</b> </td>
+												<td>the beta scalar</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>C</b> </td>
+												<td>the matrix to update</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>clear</b> </td>
+												<td>clear the triangle that is not updated. BLAS assumes that symmetric matrices have only one of the triangles and this option lets you make that true.</td>
+											</tr>
+											</table>
 									</div>
 								</div>
 								
@@ -1267,12 +1298,13 @@
 									FUNCTION
 								</div>
 								<div class="sign">
-									<span class="sign-pre">Types.matrix_t</span>
-									<span class="sign-name">DTRSM</span>
-									<span class="sign-post">(Types.Side side, Types.Triangle tri,
+									<span class="sign-pre"></span>
+									<span class="sign-name">Types.matrix_t
+         dtrsm(Types.Side side, Types.Triangle tri,
                BOOLEAN transposeA, Types.Diagonal diag,
                Types.dimension_t M, Types.dimension_t N, Types.dimension_t lda,
                Types.value_t alpha, Types.matrix_t A, Types.matrix_t B)</span>
+									<span class="sign-post"></span>
 								</div>
 								<div class="btns">
 									<a href="#t-blas-dtrsm" class="tree-link btn btn-primary">Tree</a>
@@ -1283,7 +1315,7 @@
 							<div class="panel-body">
 								<div class="row">
 									<div class="col-md-12">
-									Triangular matrix solver. op(A) X = alpha B or X op(A) = alpha B where op is Transpose, X and B is MxN
+										Triangular matrix solver. op(A) X = alpha B or X op(A) = alpha B where op is Transpose, X and B is MxN
 									</div>
 								</div>
 								<br/>
@@ -1291,48 +1323,48 @@
 								<div class="row">
 									<div class="col-md-1 doc-type">Parameters</div>
 									<div class="col-md-11">
-									<table class="table">
-									<tr>
-											<td style="width: 20%;"><b>side</b> </td>
-											<td>side for A, Side.Ax is op(A) X = alpha B</td>
-										</tr>
-									<tr>
-											<td style="width: 20%;"><b>tri</b> </td>
-											<td>Says whether A is Upper or Lower triangle</td>
-										</tr>
-									<tr>
-											<td style="width: 20%;"><b>transposeA</b> </td>
-											<td>is op(A) the transpose of A</td>
-										</tr>
-									<tr>
-											<td style="width: 20%;"><b>diag</b> </td>
-											<td>is the diagonal an implied unit diagonal or supplied</td>
-										</tr>
-									<tr>
-											<td style="width: 20%;"><b>M</b> </td>
-											<td>number of rows</td>
-										</tr>
-									<tr>
-											<td style="width: 20%;"><b>N</b> </td>
-											<td>number of columns</td>
-										</tr>
-									<tr>
-											<td style="width: 20%;"><b>lda</b> </td>
-											<td>the leading dimension of the A matrix, either M or N</td>
-										</tr>
-									<tr>
-											<td style="width: 20%;"><b>alpha</b> </td>
-											<td>the scalar multiplier for B</td>
-										</tr>
-									<tr>
-											<td style="width: 20%;"><b>A</b> </td>
-											<td>a triangular matrix</td>
-										</tr>
-									<tr>
-											<td style="width: 20%;"><b>B</b> </td>
-											<td>the matrix of values for the solve</td>
-										</tr>
-									</table>
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>side</b> </td>
+												<td>side for A, Side.Ax is op(A) X = alpha B</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>tri</b> </td>
+												<td>Says whether A is Upper or Lower triangle</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>transposeA</b> </td>
+												<td>is op(A) the transpose of A</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>diag</b> </td>
+												<td>is the diagonal an implied unit diagonal or supplied</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>M</b> </td>
+												<td>number of rows</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>N</b> </td>
+												<td>number of columns</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>lda</b> </td>
+												<td>the leading dimension of the A matrix, either M or N</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>alpha</b> </td>
+												<td>the scalar multiplier for B</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>A</b> </td>
+												<td>a triangular matrix</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>B</b> </td>
+												<td>the matrix of values for the solve</td>
+											</tr>
+											</table>
 									</div>
 								</div>
 								
@@ -1340,11 +1372,11 @@
 								<div class="row">
 									<div class="col-md-1 doc-type">Returns</div>
 									<div class="col-md-11">
-									<table class="table">
-									<tr>
-											<td>the matrix of coefficients to get B.</td>
-										</tr>
-									</table>
+										<table class="table">
+											<tr>
+												<td>the matrix of coefficients to get B.</td>
+											</tr>
+											</table>
 									</div>
 								</div>
 								
@@ -1360,11 +1392,11 @@
 									FUNCTION
 								</div>
 								<div class="sign">
-									<span class="sign-pre">Types.matrix_t</span>
-									<span class="sign-name">EXTRACT_DIAG</span>
-									<span class="sign-post">(Types.dimension_t m,
+									<span class="sign-pre"></span>
+									<span class="sign-name">Types.matrix_t extract_diag(Types.dimension_t m,
                                      Types.dimension_t n,
                                      Types.matrix_t x)</span>
+									<span class="sign-post"></span>
 								</div>
 								<div class="btns">
 									<a href="#t-blas-extract_diag" class="tree-link btn btn-primary">Tree</a>
@@ -1375,7 +1407,7 @@
 							<div class="panel-body">
 								<div class="row">
 									<div class="col-md-12">
-									Extract the diagonal of he matrix
+										Extract the diagonal of he matrix
 									</div>
 								</div>
 								<br/>
@@ -1383,20 +1415,20 @@
 								<div class="row">
 									<div class="col-md-1 doc-type">Parameters</div>
 									<div class="col-md-11">
-									<table class="table">
-									<tr>
-											<td style="width: 20%;"><b>m</b> </td>
-											<td>number of rows</td>
-										</tr>
-									<tr>
-											<td style="width: 20%;"><b>n</b> </td>
-											<td>number of columns</td>
-										</tr>
-									<tr>
-											<td style="width: 20%;"><b>x</b> </td>
-											<td>matrix from which to extract the diagonal</td>
-										</tr>
-									</table>
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>m</b> </td>
+												<td>number of rows</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>n</b> </td>
+												<td>number of columns</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>x</b> </td>
+												<td>matrix from which to extract the diagonal</td>
+											</tr>
+											</table>
 									</div>
 								</div>
 								
@@ -1404,11 +1436,11 @@
 								<div class="row">
 									<div class="col-md-1 doc-type">Returns</div>
 									<div class="col-md-11">
-									<table class="table">
-									<tr>
-											<td>diagonal matrix</td>
-										</tr>
-									</table>
+										<table class="table">
+											<tr>
+												<td>diagonal matrix</td>
+											</tr>
+											</table>
 									</div>
 								</div>
 								
@@ -1424,11 +1456,12 @@
 									FUNCTION
 								</div>
 								<div class="sign">
-									<span class="sign-pre">Types.matrix_t</span>
-									<span class="sign-name">EXTRACT_TRI</span>
-									<span class="sign-post">(Types.dimension_t m, Types.dimension_t n,
+									<span class="sign-pre"></span>
+									<span class="sign-name">Types.matrix_t
+         extract_tri(Types.dimension_t m, Types.dimension_t n,
                      Types.Triangle tri, Types.Diagonal dt,
                      Types.matrix_t a)</span>
+									<span class="sign-post"></span>
 								</div>
 								<div class="btns">
 									<a href="#t-blas-extract_tri" class="tree-link btn btn-primary">Tree</a>
@@ -1439,7 +1472,7 @@
 							<div class="panel-body">
 								<div class="row">
 									<div class="col-md-12">
-									Extract the upper or lower triangle. Diagonal can be actual or implied unit diagonal.
+										Extract the upper or lower triangle. Diagonal can be actual or implied unit diagonal.
 									</div>
 								</div>
 								<br/>
@@ -1447,28 +1480,28 @@
 								<div class="row">
 									<div class="col-md-1 doc-type">Parameters</div>
 									<div class="col-md-11">
-									<table class="table">
-									<tr>
-											<td style="width: 20%;"><b>m</b> </td>
-											<td>number of rows</td>
-										</tr>
-									<tr>
-											<td style="width: 20%;"><b>n</b> </td>
-											<td>number of columns</td>
-										</tr>
-									<tr>
-											<td style="width: 20%;"><b>tri</b> </td>
-											<td>Upper or Lower specifier, Triangle.Lower or Triangle.Upper</td>
-										</tr>
-									<tr>
-											<td style="width: 20%;"><b>dt</b> </td>
-											<td>Use Diagonal.NotUnitTri or Diagonal.UnitTri</td>
-										</tr>
-									<tr>
-											<td style="width: 20%;"><b>a</b> </td>
-											<td>Matrix, usually a composite from factoring</td>
-										</tr>
-									</table>
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>m</b> </td>
+												<td>number of rows</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>n</b> </td>
+												<td>number of columns</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>tri</b> </td>
+												<td>Upper or Lower specifier, Triangle.Lower or Triangle.Upper</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>dt</b> </td>
+												<td>Use Diagonal.NotUnitTri or Diagonal.UnitTri</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>a</b> </td>
+												<td>Matrix, usually a composite from factoring</td>
+											</tr>
+											</table>
 									</div>
 								</div>
 								
@@ -1476,11 +1509,11 @@
 								<div class="row">
 									<div class="col-md-1 doc-type">Returns</div>
 									<div class="col-md-11">
-									<table class="table">
-									<tr>
-											<td>the triangle</td>
-										</tr>
-									</table>
+										<table class="table">
+											<tr>
+												<td>the triangle</td>
+											</tr>
+											</table>
 									</div>
 								</div>
 								
@@ -1496,10 +1529,11 @@
 									FUNCTION
 								</div>
 								<div class="sign">
-									<span class="sign-pre">Types.matrix_t</span>
-									<span class="sign-name">MAKE_DIAG</span>
-									<span class="sign-post">(Types.dimension_t m, Types.value_t v=1.0,
+									<span class="sign-pre"></span>
+									<span class="sign-name">Types.matrix_t
+         make_diag(Types.dimension_t m, Types.value_t v=1.0,
                    Types.matrix_t X=[])</span>
+									<span class="sign-post"></span>
 								</div>
 								<div class="btns">
 									<a href="#t-blas-make_diag" class="tree-link btn btn-primary">Tree</a>
@@ -1510,7 +1544,7 @@
 							<div class="panel-body">
 								<div class="row">
 									<div class="col-md-12">
-									Generate a diagonal matrix.
+										Generate a diagonal matrix.
 									</div>
 								</div>
 								<br/>
@@ -1518,20 +1552,20 @@
 								<div class="row">
 									<div class="col-md-1 doc-type">Parameters</div>
 									<div class="col-md-11">
-									<table class="table">
-									<tr>
-											<td style="width: 20%;"><b>m</b> </td>
-											<td>number of diagonal entries</td>
-										</tr>
-									<tr>
-											<td style="width: 20%;"><b>v</b> </td>
-											<td>option value, defaults to 1</td>
-										</tr>
-									<tr>
-											<td style="width: 20%;"><b>X</b> </td>
-											<td>optional input of diagonal values, multiplied by v.</td>
-										</tr>
-									</table>
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>m</b> </td>
+												<td>number of diagonal entries</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>v</b> </td>
+												<td>option value, defaults to 1</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>X</b> </td>
+												<td>optional input of diagonal values, multiplied by v.</td>
+											</tr>
+											</table>
 									</div>
 								</div>
 								
@@ -1539,11 +1573,11 @@
 								<div class="row">
 									<div class="col-md-1 doc-type">Returns</div>
 									<div class="col-md-11">
-									<table class="table">
-									<tr>
-											<td>a diagonal matrix</td>
-										</tr>
-									</table>
+										<table class="table">
+											<tr>
+												<td>a diagonal matrix</td>
+											</tr>
+											</table>
 									</div>
 								</div>
 								
@@ -1559,10 +1593,11 @@
 									FUNCTION
 								</div>
 								<div class="sign">
-									<span class="sign-pre">Types.matrix_t</span>
-									<span class="sign-name">MAKE_VECTOR</span>
-									<span class="sign-post">(Types.dimension_t m,
+									<span class="sign-pre"></span>
+									<span class="sign-name">Types.matrix_t
+      make_vector(Types.dimension_t m,
                   Types.value_t v=1.0)</span>
+									<span class="sign-post"></span>
 								</div>
 								<div class="btns">
 									<a href="#t-blas-make_vector" class="tree-link btn btn-primary">Tree</a>
@@ -1573,7 +1608,7 @@
 							<div class="panel-body">
 								<div class="row">
 									<div class="col-md-12">
-									Make a vector of dimension m
+										Make a vector of dimension m
 									</div>
 								</div>
 								<br/>
@@ -1581,16 +1616,16 @@
 								<div class="row">
 									<div class="col-md-1 doc-type">Parameters</div>
 									<div class="col-md-11">
-									<table class="table">
-									<tr>
-											<td style="width: 20%;"><b>m</b> </td>
-											<td>number of elements</td>
-										</tr>
-									<tr>
-											<td style="width: 20%;"><b>v</b> </td>
-											<td>the values, defaults to 1</td>
-										</tr>
-									</table>
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>m</b> </td>
+												<td>number of elements</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>v</b> </td>
+												<td>the values, defaults to 1</td>
+											</tr>
+											</table>
 									</div>
 								</div>
 								
@@ -1598,11 +1633,11 @@
 								<div class="row">
 									<div class="col-md-1 doc-type">Returns</div>
 									<div class="col-md-11">
-									<table class="table">
-									<tr>
-											<td>the vector</td>
-										</tr>
-									</table>
+										<table class="table">
+											<tr>
+												<td>the vector</td>
+											</tr>
+											</table>
 									</div>
 								</div>
 								
@@ -1618,11 +1653,12 @@
 									FUNCTION
 								</div>
 								<div class="sign">
-									<span class="sign-pre">Types.value_t</span>
-									<span class="sign-name">TRACE</span>
-									<span class="sign-post">(Types.dimension_t m,
+									<span class="sign-pre"></span>
+									<span class="sign-name">Types.value_t
+      trace(Types.dimension_t m,
             Types.dimension_t n,
             Types.matrix_t x)</span>
+									<span class="sign-post"></span>
 								</div>
 								<div class="btns">
 									<a href="#t-blas-trace" class="tree-link btn btn-primary">Tree</a>
@@ -1633,7 +1669,7 @@
 							<div class="panel-body">
 								<div class="row">
 									<div class="col-md-12">
-									The trace of the input matrix
+										The trace of the input matrix
 									</div>
 								</div>
 								<br/>
@@ -1641,20 +1677,20 @@
 								<div class="row">
 									<div class="col-md-1 doc-type">Parameters</div>
 									<div class="col-md-11">
-									<table class="table">
-									<tr>
-											<td style="width: 20%;"><b>m</b> </td>
-											<td>number of rows</td>
-										</tr>
-									<tr>
-											<td style="width: 20%;"><b>n</b> </td>
-											<td>number of columns</td>
-										</tr>
-									<tr>
-											<td style="width: 20%;"><b>x</b> </td>
-											<td>the matrix</td>
-										</tr>
-									</table>
+										<table class="table">
+											<tr>
+												<td style="width: 20%;"><b>m</b> </td>
+												<td>number of rows</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>n</b> </td>
+												<td>number of columns</td>
+											</tr>
+											<tr>
+												<td style="width: 20%;"><b>x</b> </td>
+												<td>the matrix</td>
+											</tr>
+											</table>
 									</div>
 								</div>
 								
@@ -1662,11 +1698,11 @@
 								<div class="row">
 									<div class="col-md-1 doc-type">Returns</div>
 									<div class="col-md-11">
-									<table class="table">
-									<tr>
-											<td>the trace (sum of the diagonal entries)</td>
-										</tr>
-									</table>
+										<table class="table">
+											<tr>
+												<td>the trace (sum of the diagonal entries)</td>
+											</tr>
+											</table>
 									</div>
 								</div>
 								
@@ -1678,10 +1714,9 @@
 						
 						
 						</div>
-				</div>
+				</section>
 			</div>
 		</div>
-
 	</div>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>

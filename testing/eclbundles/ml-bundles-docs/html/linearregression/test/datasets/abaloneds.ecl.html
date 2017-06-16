@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
+	<title>LinearRegression.test.Datasets.AbaloneDS</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
+	<link href="../../../../css/simple-sidebar.css" rel="stylesheet">
+
+</head>
+
+<body>
+	<nav class="navbar topbar">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a href="#menu-toggle" id="menu-toggle" class="navbar-brand glyphicon glyphicon-menu-hamburger ham"></a>
+			</div>
+			<div class="navbar-header" style="margin-left: 20px;">
+				<span class="navbar-brand">LinearRegression.test.Datasets.AbaloneDS</span>
+			</div>
+			<div class="navbar-collapse collapse">
+			<ul class="nav navbar-nav">
+				<li><a href="#ecldoc-section-import" class="topbar">Imports</a></li>
+				<li><a href="#ecldoc-section-tree" class="topbar">Tree</a></li>
+				<li><a href="#ecldoc-section-desc" class="topbar">Descriptions</a></li>
+			</ul>
+			</div>
+		</div>
+	</nav>
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		<div id="sidebar-wrapper">
+			<ul class="sidebar-nav">
+				<li class="sidebar-brand">
+					<a href="pkg.toc.html">
+						Up
+					</a>
+				</li>
+				
+				<li>
+					<a href="housingds.ecl.html">housingds.ecl</a>
+				</li>
+				
+				<li>
+					<a href="servods.ecl.html">servods.ecl</a>
+				</li>
+				
+				<li>
+					<a href="friedman2ds.ecl.html">friedman2ds.ecl</a>
+				</li>
+				
+				<li>
+					<a href="friedman1ds.ecl.html">friedman1ds.ecl</a>
+				</li>
+				
+				<li>
+					<a href="abaloneds.ecl.html">abaloneds.ecl</a>
+				</li>
+				
+				<li>
+					<a href="friedman3ds.ecl.html">friedman3ds.ecl</a>
+				</li>
+				
+			</ul>
+		</div>
+
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<section id="ecldoc-section-import">
+					<h3 class="page-header">IMPORTS</h3>
+					<ul class="pagination">
+						<li>
+							<a href="../../../ml_core/types.ecl.html">
+								ml_core.types
+							</a>
+							</li>
+						</ul>
+				</section>
+				<section id="ecldoc-section-tree">
+					<h3 class="page-header">DEFINITION TREE</h3>
+					<ul class="tree">
+						<li id="t-LinearRegression-test-Datasets-AbaloneDS">
+							
+							<a href="#LinearRegression-test-Datasets-AbaloneDS" data-toggle="collapse" class="glyphicon glyphicon-folder-open" style="margin-right: 6px;"></a>
+							
+							<a href="#dLinearRegression-test-Datasets-AbaloneDS">
+								MODULE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">AbaloneDS</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="LinearRegression-test-Datasets-AbaloneDS" class="accordian-body tree collapse">
+								<li id="t-linearregression-test-datasets-abaloneds-abalonerecord">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dlinearregression-test-datasets-abaloneds-abalonerecord">
+								RECORD :
+								<span class="sign-pre"></span>
+								<span class="sign-name">AbaloneRECORD</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="linearregression-test-datasets-abaloneds-abalonerecord" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-linearregression-test-datasets-abaloneds-content">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dlinearregression-test-datasets-abaloneds-content">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">content</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="linearregression-test-datasets-abaloneds-content" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-linearregression-test-datasets-abaloneds-betas">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dlinearregression-test-datasets-abaloneds-betas">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">betas</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="linearregression-test-datasets-abaloneds-betas" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-linearregression-test-datasets-abaloneds-rsquared">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dlinearregression-test-datasets-abaloneds-rsquared">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">Rsquared</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="linearregression-test-datasets-abaloneds-rsquared" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-linearregression-test-datasets-abaloneds-adjrsquared">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dlinearregression-test-datasets-abaloneds-adjrsquared">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">adjRsquared</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="linearregression-test-datasets-abaloneds-adjrsquared" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-linearregression-test-datasets-abaloneds-total_ss">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dlinearregression-test-datasets-abaloneds-total_ss">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">Total_SS</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="linearregression-test-datasets-abaloneds-total_ss" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-linearregression-test-datasets-abaloneds-model_ss">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dlinearregression-test-datasets-abaloneds-model_ss">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">Model_SS</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="linearregression-test-datasets-abaloneds-model_ss" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-linearregression-test-datasets-abaloneds-error_ss">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dlinearregression-test-datasets-abaloneds-error_ss">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">Error_SS</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="linearregression-test-datasets-abaloneds-error_ss" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-linearregression-test-datasets-abaloneds-total_df">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dlinearregression-test-datasets-abaloneds-total_df">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">Total_DF</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="linearregression-test-datasets-abaloneds-total_df" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-linearregression-test-datasets-abaloneds-model_df">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dlinearregression-test-datasets-abaloneds-model_df">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">Model_DF</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="linearregression-test-datasets-abaloneds-model_df" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-linearregression-test-datasets-abaloneds-error_df">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dlinearregression-test-datasets-abaloneds-error_df">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">Error_DF</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="linearregression-test-datasets-abaloneds-error_df" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-linearregression-test-datasets-abaloneds-model_ms">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dlinearregression-test-datasets-abaloneds-model_ms">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">Model_MS</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="linearregression-test-datasets-abaloneds-model_ms" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-linearregression-test-datasets-abaloneds-error_ms">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dlinearregression-test-datasets-abaloneds-error_ms">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">Error_MS</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="linearregression-test-datasets-abaloneds-error_ms" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-linearregression-test-datasets-abaloneds-model_f">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dlinearregression-test-datasets-abaloneds-model_f">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">Model_F</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="linearregression-test-datasets-abaloneds-model_f" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-linearregression-test-datasets-abaloneds-aic">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dlinearregression-test-datasets-abaloneds-aic">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">AIC</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="linearregression-test-datasets-abaloneds-aic" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-linearregression-test-datasets-abaloneds-ftest">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dlinearregression-test-datasets-abaloneds-ftest">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">Ftest</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="linearregression-test-datasets-abaloneds-ftest" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-linearregression-test-datasets-abaloneds-se">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dlinearregression-test-datasets-abaloneds-se">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">SET OF REAL8 SE</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="linearregression-test-datasets-abaloneds-se" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-linearregression-test-datasets-abaloneds-tstat">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dlinearregression-test-datasets-abaloneds-tstat">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">SET OF REAL8 TStat</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="linearregression-test-datasets-abaloneds-tstat" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-linearregression-test-datasets-abaloneds-pval">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dlinearregression-test-datasets-abaloneds-pval">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">SET OF REAL8 Pval</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="linearregression-test-datasets-abaloneds-pval" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-linearregression-test-datasets-abaloneds-confintstarts">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dlinearregression-test-datasets-abaloneds-confintstarts">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">SET OF REAL8 ConfintStarts</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="linearregression-test-datasets-abaloneds-confintstarts" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-linearregression-test-datasets-abaloneds-confintends">
+							
+							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+							
+							<a href="#dlinearregression-test-datasets-abaloneds-confintends">
+								ATTRIBUTE :
+								<span class="sign-pre"></span>
+								<span class="sign-name">SET OF REAL8 ConfintEnds</span>
+								<span class="sign-post"></span>
+							</a>
+							<ul id="linearregression-test-datasets-abaloneds-confintends" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						
+							</ul>
+						</li>
+						</ul>
+				</section>
+				<section id="ecldoc-section-desc">
+					<h3 class="page-header">DESCRIPTIONS</h3>
+					<div class="panel-group">
+						<div class="panel panel-info" id="dLinearRegression-test-Datasets-AbaloneDS">
+							<div class="panel-heading">
+								<div class="type">
+									MODULE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">AbaloneDS</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-LinearRegression-test-Datasets-AbaloneDS" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						<div class="panel panel-info" id="dlinearregression-test-datasets-abaloneds-abalonerecord">
+							<div class="panel-heading">
+								<div class="type">
+									RECORD
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">AbaloneRECORD</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-linearregression-test-datasets-abaloneds-abalonerecord" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dlinearregression-test-datasets-abaloneds-content">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">content</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-linearregression-test-datasets-abaloneds-content" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dlinearregression-test-datasets-abaloneds-betas">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">betas</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-linearregression-test-datasets-abaloneds-betas" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dlinearregression-test-datasets-abaloneds-rsquared">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">Rsquared</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-linearregression-test-datasets-abaloneds-rsquared" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dlinearregression-test-datasets-abaloneds-adjrsquared">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">adjRsquared</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-linearregression-test-datasets-abaloneds-adjrsquared" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dlinearregression-test-datasets-abaloneds-total_ss">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">Total_SS</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-linearregression-test-datasets-abaloneds-total_ss" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dlinearregression-test-datasets-abaloneds-model_ss">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">Model_SS</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-linearregression-test-datasets-abaloneds-model_ss" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dlinearregression-test-datasets-abaloneds-error_ss">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">Error_SS</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-linearregression-test-datasets-abaloneds-error_ss" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dlinearregression-test-datasets-abaloneds-total_df">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">Total_DF</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-linearregression-test-datasets-abaloneds-total_df" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dlinearregression-test-datasets-abaloneds-model_df">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">Model_DF</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-linearregression-test-datasets-abaloneds-model_df" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dlinearregression-test-datasets-abaloneds-error_df">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">Error_DF</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-linearregression-test-datasets-abaloneds-error_df" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dlinearregression-test-datasets-abaloneds-model_ms">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">Model_MS</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-linearregression-test-datasets-abaloneds-model_ms" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dlinearregression-test-datasets-abaloneds-error_ms">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">Error_MS</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-linearregression-test-datasets-abaloneds-error_ms" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dlinearregression-test-datasets-abaloneds-model_f">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">Model_F</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-linearregression-test-datasets-abaloneds-model_f" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dlinearregression-test-datasets-abaloneds-aic">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">AIC</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-linearregression-test-datasets-abaloneds-aic" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dlinearregression-test-datasets-abaloneds-ftest">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">Ftest</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-linearregression-test-datasets-abaloneds-ftest" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dlinearregression-test-datasets-abaloneds-se">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">SET OF REAL8 SE</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-linearregression-test-datasets-abaloneds-se" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dlinearregression-test-datasets-abaloneds-tstat">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">SET OF REAL8 TStat</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-linearregression-test-datasets-abaloneds-tstat" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dlinearregression-test-datasets-abaloneds-pval">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">SET OF REAL8 Pval</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-linearregression-test-datasets-abaloneds-pval" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dlinearregression-test-datasets-abaloneds-confintstarts">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">SET OF REAL8 ConfintStarts</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-linearregression-test-datasets-abaloneds-confintstarts" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dlinearregression-test-datasets-abaloneds-confintends">
+							<div class="panel-heading">
+								<div class="type">
+									ATTRIBUTE
+								</div>
+								<div class="sign">
+									<span class="sign-pre"></span>
+									<span class="sign-name">SET OF REAL8 ConfintEnds</span>
+									<span class="sign-post"></span>
+								</div>
+								<div class="btns">
+									<a href="#t-linearregression-test-datasets-abaloneds-confintends" class="tree-link btn btn-primary">Tree</a>
+									<button class="btn btn-danger"> local</button>
+									</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						
+						</div>
+				</section>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+		$("#menu-toggle").click(function(e) {
+			e.preventDefault();
+			$("#wrapper").toggleClass("toggled");
+		});
+	</script>
+	<script>
+		$(document).ready(function(){
+			$('.tree-link').click(function(e) {
+				var loc = $(this).attr('href');
+				$(loc).parents().collapse('show');
+				return true;
+			});
+		});
+	</script>
+</body>
+</html>
