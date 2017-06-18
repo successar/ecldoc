@@ -9,28 +9,6 @@
    <Documentation> <content>Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes.</content>
    </Documentation>
   </Import>
-  <Definition body="301" end="320" fullname="pbblas.internal.dimension_t" inherit_type="local" line="7" name="dimension_t" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/MakeR8Set.ecl" start="287">
-   <Signature pre="" post="" name="dimension_t">dimension_t</Signature><Type>attribute</Type>
-  </Definition>
-  <Definition body="331" end="346" fullname="pbblas.internal.value_t" inherit_type="local" line="8" name="value_t" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/MakeR8Set.ecl" start="321">
-   <Signature pre="" post="" name="value_t">value_t</Signature><Type>attribute</Type>
-  </Definition>
-  <Definition body="361" end="380" fullname="pbblas.internal.layout_cell" inherit_type="local" line="9" name="Layout_Cell" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/MakeR8Set.ecl" start="347">
-   <Type>record</Type>
-   <Field name="wi_id"/>
-   <Field name="x"/>
-   <Field name="y"/>
-   <Field name="v"/>
-   <Signature pre="" post="" name="Layout_Cell">Layout_Cell</Signature><Documentation> <field><name>wi_id</name><desc>Work Item Number -- An identifier from 1 to 64K-1 that separates and identifies individual matrixes</desc></field>
-    <field><name>x</name><desc>1-based row position within the matrix</desc></field>
-    <field><name>y</name><desc>1-based column position within the matrix</desc></field>
-    <field><name>v</name><desc>Real value for the cell</desc></field>
-    <see>matrix_t</see>
-    <see>Std/PBblas/MakeR8Set.ecl</see>
-    <see>Std/PBblas/Converted.ecl WARNING: Used as C++ attribute. Do not change without corresponding changes to MakeR8Set.</see>
-    <content>Layout for Matrix Cell Main representation of Matrix cell at interface to all PBBlas functions. Matrixes are represented as DATASET(Layout_Cell), where each cell describes the row and column position of the cell as well as its value. Only the non-zero cells need to be contained in the dataset in order to describe the matrix since all unspecified cells are considered to have a value of zero. The cell also contains a work-item number that allows multiple separate matrixes to be carried in the same dataset. This supports the "myriad" style interface that allows the same operations to be performed on many different sets of data at once. Note that these matrixes do not have an explicit size. They are sized implicitly, based on the maximum row and column presented in the data. A matrix can be converted to an explicit dense form (see matrix_t) by using the utility module MakeR8Set. This module should only be used for known small matrixes (&lt; 1M cells) or for partitions of a larger matrix. The Converted module provides utility functions to convert to and from a set of partitions (See Layout_parts).</content>
-   </Documentation>
-  </Definition>
   <Definition body="1327" end="2264" exported="1" fullname="pbblas.internal.maker8set" inherit_type="local" line="24" name="makeR8Set" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/MakeR8Set.ecl" start="1080">
    <Type>embed</Type>
    <Documentation> <content>Take a dataset of cells (or sub-matrix thereof) and pack into a dense matrix. in column major order [r1c1, r2c1, r3c1, ..., rNc1, r1c2, ..., rNcM]. First row and first column are one based.</content>
@@ -42,7 +20,7 @@
     <param><name>D</name><desc>The matrix to convert in Layout_Cell form</desc></param>
     <param><name>transpose</name><desc>Boolean to transpose the matrix during conversion (optional)</desc></param>
    </Documentation>
-   <Signature pre="" post="" name="SET OF REAL8 makeR8Set(dimension_t r, dimension_t s,&#10;                              dimension_t first_row, dimension_t first_col,&#10;                              DATASET(Layout_Cell) D,&#10;                              BOOLEAN transpose=FALSE)">SET OF REAL8 makeR8Set(dimension_t r, dimension_t s,
+   <Signature sign="SET OF REAL8 makeR8Set(dimension_t r, dimension_t s,&#10;                              dimension_t first_row, dimension_t first_col,&#10;                              DATASET(Layout_Cell) D,&#10;                              BOOLEAN transpose=FALSE)" name="makeR8Set">SET OF REAL8 makeR8Set(dimension_t r, dimension_t s,
                               dimension_t first_row, dimension_t first_col,
                               DATASET(Layout_Cell) D,
                               BOOLEAN transpose=FALSE)</Signature><Params>
@@ -54,5 +32,14 @@
     <Param name="transpose"/>
    </Params>
   </Definition>
- </Source>
+ <Documentation> <content>Take a dataset of cells (or sub-matrix thereof) and pack into a dense matrix. in column major order [r1c1, r2c1, r3c1, ..., rNc1, r1c2, ..., rNcM]. First row and first column are one based.</content>
+    <return>Dense matrix or sub-matrix (SET OF REAL8)</return>
+    <param><name>r</name><desc>The number of rows in the matrix or sub-matrix</desc></param>
+    <param><name>s</name><desc>The number of columns in the matrix or sub-matrix</desc></param>
+    <param><name>first_row</name><desc>The first row to include in the submatrix</desc></param>
+    <param><name>first_col</name><desc>The first column to include in the submatrix</desc></param>
+    <param><name>D</name><desc>The matrix to convert in Layout_Cell form</desc></param>
+    <param><name>transpose</name><desc>Boolean to transpose the matrix during conversion (optional)</desc></param>
+   </Documentation>
+   </Source>
  <Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Types.ecl" name="ML_Core.Types" target="../../ml_core/types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Types.ecl" name="PBblas.Types" target="../types.ecl.xml"/></Meta>

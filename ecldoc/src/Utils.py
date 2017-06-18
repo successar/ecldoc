@@ -1,6 +1,6 @@
 import os
 
-def genPathTree(ecl_files, ext) :
+def genPathTree(ecl_files, ext='') :
     path_tree = { "root" : {} }
     for file in ecl_files :
         path = os.path.normpath(file.lower()).split(os.sep)

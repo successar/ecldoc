@@ -43,6 +43,18 @@
 		</div>
 		<div id="page-content-wrapper">
 			<div class="container-fluid">
+				{% if bundle %}
+				<div class="row">
+					<table class="table table-condensed">
+						{% for tag in bundle.iterchildren() %}
+						<tr>
+							<td>{{ tag.tag }}</td>
+							<td>{{ tag.text }}</td>
+						</tr>
+						{% endfor %}
+					</table>
+				</div>
+				{% endif %}
 				<div class="row">
 					<div class="col-lg-12">
 						<table class="table">
@@ -56,6 +68,7 @@
 									{% endif %}
 								</td>
 								<td><a href="{{ d.target }}">{{ d.name }}</a></td>
+								<td>{{ d.doc }}</td>
 							</tr>
 							{% endfor %}
 						</table>

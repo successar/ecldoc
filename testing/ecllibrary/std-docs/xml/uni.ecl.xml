@@ -10,7 +10,7 @@
      <param><name>src</name><desc>The string that is being tested.</desc></param>
      <param><name>filter</name><desc>The string containing the set of characters to be excluded.</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="unicode FilterOut(unicode src, unicode filter)">unicode FilterOut(unicode src, unicode filter)</Signature><Params>
+    <Signature sign="unicode FilterOut(unicode src, unicode filter)" name="FilterOut">unicode FilterOut(unicode src, unicode filter)</Signature><Params>
      <Param name="src"/>
      <Param name="filter"/>
     </Params>
@@ -22,7 +22,7 @@
      <param><name>src</name><desc>The string that is being tested.</desc></param>
      <param><name>filter</name><desc>The string containing the set of characters to be included.</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="unicode Filter(unicode src, unicode filter)">unicode Filter(unicode src, unicode filter)</Signature><Params>
+    <Signature sign="unicode Filter(unicode src, unicode filter)" name="Filter">unicode Filter(unicode src, unicode filter)</Signature><Params>
      <Param name="src"/>
      <Param name="filter"/>
     </Params>
@@ -35,7 +35,7 @@
      <param><name>filter</name><desc>The string containing the set of characters to be included.</desc></param>
      <param><name>replace_char</name><desc>The character to be substituted into the result.</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="unicode SubstituteIncluded(unicode src, unicode filter, unicode replace_char)">unicode SubstituteIncluded(unicode src, unicode filter, unicode replace_char)</Signature><Params>
+    <Signature sign="unicode SubstituteIncluded(unicode src, unicode filter, unicode replace_char)" name="SubstituteIncluded">unicode SubstituteIncluded(unicode src, unicode filter, unicode replace_char)</Signature><Params>
      <Param name="src"/>
      <Param name="Filter"/>
      <Param name="replace_char"/>
@@ -49,7 +49,7 @@
      <param><name>filter</name><desc>The string containing the set of characters to be included.</desc></param>
      <param><name>replace_char</name><desc>The character to be substituted into the result.</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="unicode SubstituteExcluded(unicode src, unicode filter, unicode replace_char)">unicode SubstituteExcluded(unicode src, unicode filter, unicode replace_char)</Signature><Params>
+    <Signature sign="unicode SubstituteExcluded(unicode src, unicode filter, unicode replace_char)" name="SubstituteExcluded">unicode SubstituteExcluded(unicode src, unicode filter, unicode replace_char)</Signature><Params>
      <Param name="src"/>
      <Param name="Filter"/>
      <Param name="replace_char"/>
@@ -62,7 +62,7 @@
      <param><name>sought</name><desc>The string being sought.</desc></param>
      <param><name>instance</name><desc>Which match instance are we interested in?</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="UNSIGNED4 Find(unicode src, unicode sought, unsigned4 instance)">UNSIGNED4 Find(unicode src, unicode sought, unsigned4 instance)</Signature><Params>
+    <Signature sign="UNSIGNED4 Find(unicode src, unicode sought, unsigned4 instance)" name="Find">UNSIGNED4 Find(unicode src, unicode sought, unsigned4 instance)</Signature><Params>
      <Param name="src"/>
      <Param name="sought"/>
      <Param name="instance"/>
@@ -75,7 +75,7 @@
      <param><name>word</name><desc>The word to be searched for.</desc></param>
      <param><name>ignore_case</name><desc>Whether to ignore differences in case between characters.</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="BOOLEAN FindWord(UNICODE src, UNICODE word, BOOLEAN ignore_case=FALSE)">BOOLEAN FindWord(UNICODE src, UNICODE word, BOOLEAN ignore_case=FALSE)</Signature><Params>
+    <Signature sign="BOOLEAN FindWord(UNICODE src, UNICODE word, BOOLEAN ignore_case=FALSE)" name="FindWord">BOOLEAN FindWord(UNICODE src, UNICODE word, BOOLEAN ignore_case=FALSE)</Signature><Params>
      <Param name="src"/>
      <Param name="word"/>
      <Param name="ignore_case"/>
@@ -89,7 +89,7 @@
      <param><name>instance</name><desc>Which match instance are we interested in?</desc></param>
      <param><name>locale_name</name><desc>The locale to use for the comparison</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="UNSIGNED4 LocaleFind(unicode src, unicode sought, unsigned4 instance, varstring locale_name)">UNSIGNED4 LocaleFind(unicode src, unicode sought, unsigned4 instance, varstring locale_name)</Signature><Params>
+    <Signature sign="UNSIGNED4 LocaleFind(unicode src, unicode sought, unsigned4 instance, varstring locale_name)" name="LocaleFind">UNSIGNED4 LocaleFind(unicode src, unicode sought, unsigned4 instance, varstring locale_name)</Signature><Params>
      <Param name="src"/>
      <Param name="sought"/>
      <Param name="instance"/>
@@ -105,7 +105,7 @@
      <param><name>locale_name</name><desc>The locale to use for the comparison</desc></param>
      <param><name>strength</name><desc>The strength of the comparison 1 ignores accents and case, differentiating only between letters 2 ignores case but differentiates between accents. 3 differentiates between accents and case but ignores e.g. differences between Hiragana and Katakana 4 differentiates between accents and case and e.g. Hiragana/Katakana, but ignores e.g. Hebrew cantellation marks 5 differentiates between all strings whose canonically decomposed forms (NFDNormalization Form D) are non-identical</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="UNSIGNED4 LocaleFindAtStrength(unicode src, unicode tofind, unsigned4 instance, varstring locale_name, integer1 strength)">UNSIGNED4 LocaleFindAtStrength(unicode src, unicode tofind, unsigned4 instance, varstring locale_name, integer1 strength)</Signature><Params>
+    <Signature sign="UNSIGNED4 LocaleFindAtStrength(unicode src, unicode tofind, unsigned4 instance, varstring locale_name, integer1 strength)" name="LocaleFindAtStrength">UNSIGNED4 LocaleFindAtStrength(unicode src, unicode tofind, unsigned4 instance, varstring locale_name, integer1 strength)</Signature><Params>
      <Param name="src"/>
      <Param name="tofind"/>
      <Param name="instance"/>
@@ -119,7 +119,7 @@
      <param><name>src</name><desc>The string containing the comma separated list.</desc></param>
      <param><name>instance</name><desc>Which item to select from the list.</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="unicode Extract(unicode src, unsigned4 instance)">unicode Extract(unicode src, unsigned4 instance)</Signature><Params>
+    <Signature sign="unicode Extract(unicode src, unsigned4 instance)" name="Extract">unicode Extract(unicode src, unsigned4 instance)</Signature><Params>
      <Param name="src"/>
      <Param name="instance"/>
     </Params>
@@ -129,7 +129,7 @@
     <Documentation> <content>Returns the argument string with all upper case characters converted to lower case.</content>
      <param><name>src</name><desc>The string that is being converted.</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="unicode ToLowerCase(unicode src)">unicode ToLowerCase(unicode src)</Signature><Params>
+    <Signature sign="unicode ToLowerCase(unicode src)" name="ToLowerCase">unicode ToLowerCase(unicode src)</Signature><Params>
      <Param name="src"/>
     </Params>
    </Definition>
@@ -138,7 +138,7 @@
     <Documentation> <content>Return the argument string with all lower case characters converted to upper case.</content>
      <param><name>src</name><desc>The string that is being converted.</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="unicode ToUpperCase(unicode src)">unicode ToUpperCase(unicode src)</Signature><Params>
+    <Signature sign="unicode ToUpperCase(unicode src)" name="ToUpperCase">unicode ToUpperCase(unicode src)</Signature><Params>
      <Param name="src"/>
     </Params>
    </Definition>
@@ -148,7 +148,7 @@
      <param><name>src</name><desc>The string that is being converted.</desc></param>
      <param><name>locale_name</name><desc>The locale to use for the comparison</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="unicode ToTitleCase(unicode src)">unicode ToTitleCase(unicode src)</Signature><Params>
+    <Signature sign="unicode ToTitleCase(unicode src)" name="ToTitleCase">unicode ToTitleCase(unicode src)</Signature><Params>
      <Param name="src"/>
     </Params>
    </Definition>
@@ -158,7 +158,7 @@
      <param><name>src</name><desc>The string that is being converted.</desc></param>
      <param><name>locale_name</name><desc>The locale to use for the comparison</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="unicode LocaleToLowerCase(unicode src, varstring locale_name)">unicode LocaleToLowerCase(unicode src, varstring locale_name)</Signature><Params>
+    <Signature sign="unicode LocaleToLowerCase(unicode src, varstring locale_name)" name="LocaleToLowerCase">unicode LocaleToLowerCase(unicode src, varstring locale_name)</Signature><Params>
      <Param name="src"/>
      <Param name="locale_name"/>
     </Params>
@@ -169,7 +169,7 @@
      <param><name>src</name><desc>The string that is being converted.</desc></param>
      <param><name>locale_name</name><desc>The locale to use for the comparison</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="unicode LocaleToUpperCase(unicode src, varstring locale_name)">unicode LocaleToUpperCase(unicode src, varstring locale_name)</Signature><Params>
+    <Signature sign="unicode LocaleToUpperCase(unicode src, varstring locale_name)" name="LocaleToUpperCase">unicode LocaleToUpperCase(unicode src, varstring locale_name)</Signature><Params>
      <Param name="src"/>
      <Param name="locale_name"/>
     </Params>
@@ -180,7 +180,7 @@
      <param><name>src</name><desc>The string that is being converted.</desc></param>
      <param><name>locale_name</name><desc>The locale to use for the comparison</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="unicode LocaleToTitleCase(unicode src, varstring locale_name)">unicode LocaleToTitleCase(unicode src, varstring locale_name)</Signature><Params>
+    <Signature sign="unicode LocaleToTitleCase(unicode src, varstring locale_name)" name="LocaleToTitleCase">unicode LocaleToTitleCase(unicode src, varstring locale_name)</Signature><Params>
      <Param name="src"/>
      <Param name="locale_name"/>
     </Params>
@@ -192,7 +192,7 @@
      <param><name>src1</name><desc>The first string to be compared.</desc></param>
      <param><name>src2</name><desc>The second string to be compared.</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="integer4 CompareIgnoreCase(unicode src1, unicode src2)">integer4 CompareIgnoreCase(unicode src1, unicode src2)</Signature><Params>
+    <Signature sign="integer4 CompareIgnoreCase(unicode src1, unicode src2)" name="CompareIgnoreCase">integer4 CompareIgnoreCase(unicode src1, unicode src2)</Signature><Params>
      <Param name="src1"/>
      <Param name="src2"/>
     </Params>
@@ -205,7 +205,7 @@
      <param><name>src2</name><desc>The second string to be compared.</desc></param>
      <param><name>strength</name><desc>The strength of the comparison 1 ignores accents and case, differentiating only between letters 2 ignores case but differentiates between accents. 3 differentiates between accents and case but ignores e.g. differences between Hiragana and Katakana 4 differentiates between accents and case and e.g. Hiragana/Katakana, but ignores e.g. Hebrew cantellation marks 5 differentiates between all strings whose canonically decomposed forms (NFDNormalization Form D) are non-identical</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="integer4 CompareAtStrength(unicode src1, unicode src2, integer1 strength)">integer4 CompareAtStrength(unicode src1, unicode src2, integer1 strength)</Signature><Params>
+    <Signature sign="integer4 CompareAtStrength(unicode src1, unicode src2, integer1 strength)" name="CompareAtStrength">integer4 CompareAtStrength(unicode src1, unicode src2, integer1 strength)</Signature><Params>
      <Param name="src1"/>
      <Param name="src2"/>
      <Param name="strength"/>
@@ -219,7 +219,7 @@
      <param><name>src2</name><desc>The second string to be compared.</desc></param>
      <param><name>locale_name</name><desc>The locale to use for the comparison</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="integer4 LocaleCompareIgnoreCase(unicode src1, unicode src2, varstring locale_name)">integer4 LocaleCompareIgnoreCase(unicode src1, unicode src2, varstring locale_name)</Signature><Params>
+    <Signature sign="integer4 LocaleCompareIgnoreCase(unicode src1, unicode src2, varstring locale_name)" name="LocaleCompareIgnoreCase">integer4 LocaleCompareIgnoreCase(unicode src1, unicode src2, varstring locale_name)</Signature><Params>
      <Param name="src1"/>
      <Param name="src2"/>
      <Param name="locale_name"/>
@@ -233,7 +233,7 @@
      <param><name>locale_name</name><desc>The locale to use for the comparison</desc></param>
      <param><name>strength</name><desc>The strength of the comparison 1 ignores accents and case, differentiating only between letters 2 ignores case but differentiates between accents. 3 differentiates between accents and case but ignores e.g. differences between Hiragana and Katakana 4 differentiates between accents and case and e.g. Hiragana/Katakana, but ignores e.g. Hebrew cantellation marks 5 differentiates between all strings whose canonically decomposed forms (NFDNormalization Form D) are non-identical</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="integer4 LocaleCompareAtStrength(unicode src1, unicode src2, varstring locale_name, integer1 strength)">integer4 LocaleCompareAtStrength(unicode src1, unicode src2, varstring locale_name, integer1 strength)</Signature><Params>
+    <Signature sign="integer4 LocaleCompareAtStrength(unicode src1, unicode src2, varstring locale_name, integer1 strength)" name="LocaleCompareAtStrength">integer4 LocaleCompareAtStrength(unicode src1, unicode src2, varstring locale_name, integer1 strength)</Signature><Params>
      <Param name="src1"/>
      <Param name="src2"/>
      <Param name="locale_name"/>
@@ -245,7 +245,7 @@
     <Documentation> <content>Returns the argument string with all characters in reverse order. Note the argument is not TRIMMED before it is reversed.</content>
      <param><name>src</name><desc>The string that is being reversed.</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="unicode Reverse(unicode src)">unicode Reverse(unicode src)</Signature><Params>
+    <Signature sign="unicode Reverse(unicode src)" name="Reverse">unicode Reverse(unicode src)</Signature><Params>
      <Param name="src"/>
     </Params>
    </Definition>
@@ -256,7 +256,7 @@
      <param><name>sought</name><desc>The string to be replaced.</desc></param>
      <param><name>replacement</name><desc>The string to be substituted into the result.</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="unicode FindReplace(unicode src, unicode sought, unicode replacement)">unicode FindReplace(unicode src, unicode sought, unicode replacement)</Signature><Params>
+    <Signature sign="unicode FindReplace(unicode src, unicode sought, unicode replacement)" name="FindReplace">unicode FindReplace(unicode src, unicode sought, unicode replacement)</Signature><Params>
      <Param name="src"/>
      <Param name="sought"/>
      <Param name="replacement"/>
@@ -270,7 +270,7 @@
      <param><name>replacement</name><desc>The string to be substituted into the result.</desc></param>
      <param><name>locale_name</name><desc>The locale to use for the comparison</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="unicode LocaleFindReplace(unicode src, unicode sought, unicode replacement, varstring locale_name)">unicode LocaleFindReplace(unicode src, unicode sought, unicode replacement, varstring locale_name)</Signature><Params>
+    <Signature sign="unicode LocaleFindReplace(unicode src, unicode sought, unicode replacement, varstring locale_name)" name="LocaleFindReplace">unicode LocaleFindReplace(unicode src, unicode sought, unicode replacement, varstring locale_name)</Signature><Params>
      <Param name="src"/>
      <Param name="sought"/>
      <Param name="replacement"/>
@@ -286,7 +286,7 @@
      <param><name>locale_name</name><desc>The locale to use for the comparison</desc></param>
      <param><name>strength</name><desc>The strength of the comparison</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="unicode LocaleFindAtStrengthReplace(unicode src, unicode sought, unicode replacement, varstring locale_name, integer1 strength)">unicode LocaleFindAtStrengthReplace(unicode src, unicode sought, unicode replacement, varstring locale_name, integer1 strength)</Signature><Params>
+    <Signature sign="unicode LocaleFindAtStrengthReplace(unicode src, unicode sought, unicode replacement, varstring locale_name, integer1 strength)" name="LocaleFindAtStrengthReplace">unicode LocaleFindAtStrengthReplace(unicode src, unicode sought, unicode replacement, varstring locale_name, integer1 strength)</Signature><Params>
      <Param name="src"/>
      <Param name="sought"/>
      <Param name="replacement"/>
@@ -299,7 +299,7 @@
     <Documentation> <content>Returns the source string with all accented characters replaced with unaccented.</content>
      <param><name>src</name><desc>The string that is being transformed.</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="unicode CleanAccents(unicode src)">unicode CleanAccents(unicode src)</Signature><Params>
+    <Signature sign="unicode CleanAccents(unicode src)" name="CleanAccents">unicode CleanAccents(unicode src)</Signature><Params>
      <Param name="src"/>
     </Params>
    </Definition>
@@ -308,7 +308,7 @@
     <Documentation> <content>Returns the source string with all instances of multiple adjacent space characters (2 or more spaces together) reduced to a single space character. Leading and trailing spaces are removed, and tab characters are converted to spaces.</content>
      <param><name>src</name><desc>The string to be cleaned.</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="unicode CleanSpaces(unicode src)">unicode CleanSpaces(unicode src)</Signature><Params>
+    <Signature sign="unicode CleanSpaces(unicode src)" name="CleanSpaces">unicode CleanSpaces(unicode src)</Signature><Params>
      <Param name="src"/>
     </Params>
    </Definition>
@@ -319,7 +319,7 @@
      <param><name>pattern</name><desc>The pattern to match against.</desc></param>
      <param><name>ignore_case</name><desc>Whether to ignore differences in case between characters</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="boolean WildMatch(unicode src, unicode _pattern, boolean _noCase)">boolean WildMatch(unicode src, unicode _pattern, boolean _noCase)</Signature><Params>
+    <Signature sign="boolean WildMatch(unicode src, unicode _pattern, boolean _noCase)" name="WildMatch">boolean WildMatch(unicode src, unicode _pattern, boolean _noCase)</Signature><Params>
      <Param name="src"/>
      <Param name="_pattern"/>
      <Param name="_noCase"/>
@@ -332,7 +332,7 @@
      <param><name>pattern</name><desc>The pattern to match against.</desc></param>
      <param><name>ignore_case</name><desc>Whether to ignore differences in case between characters</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="BOOLEAN Contains(unicode src, unicode _pattern, boolean _noCase)">BOOLEAN Contains(unicode src, unicode _pattern, boolean _noCase)</Signature><Params>
+    <Signature sign="BOOLEAN Contains(unicode src, unicode _pattern, boolean _noCase)" name="Contains">BOOLEAN Contains(unicode src, unicode _pattern, boolean _noCase)</Signature><Params>
      <Param name="src"/>
      <Param name="_pattern"/>
      <Param name="_noCase"/>
@@ -346,7 +346,7 @@
      <param><name>_right</name><desc>The second string to be compared.</desc></param>
      <param><name>localname</name><desc>The locale to use for the comparison. Defaults to ''.</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="UNSIGNED4 EditDistance(unicode _left, unicode _right, varstring localename = '')">UNSIGNED4 EditDistance(unicode _left, unicode _right, varstring localename = '')</Signature><Params>
+    <Signature sign="UNSIGNED4 EditDistance(unicode _left, unicode _right, varstring localename = '')" name="EditDistance">UNSIGNED4 EditDistance(unicode _left, unicode _right, varstring localename = '')</Signature><Params>
      <Param name="_left"/>
      <Param name="_right"/>
      <Param name="localename"/>
@@ -361,7 +361,7 @@
      <param><name>radius</name><desc>The maximum edit distance that is accepable.</desc></param>
      <param><name>localname</name><desc>The locale to use for the comparison. Defaults to ''.</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="BOOLEAN EditDistanceWithinRadius(unicode _left, unicode _right, unsigned4 radius, varstring localename = '')">BOOLEAN EditDistanceWithinRadius(unicode _left, unicode _right, unsigned4 radius, varstring localename = '')</Signature><Params>
+    <Signature sign="BOOLEAN EditDistanceWithinRadius(unicode _left, unicode _right, unsigned4 radius, varstring localename = '')" name="EditDistanceWithinRadius">BOOLEAN EditDistanceWithinRadius(unicode _left, unicode _right, unsigned4 radius, varstring localename = '')</Signature><Params>
      <Param name="_left"/>
      <Param name="_right"/>
      <Param name="radius"/>
@@ -375,7 +375,7 @@
      <param><name>text</name><desc>The string to be broken into words.</desc></param>
      <param><name>localname</name><desc>The locale to use for the break semantics. Defaults to ''.</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="unsigned4 WordCount(unicode text, varstring localename = '')">unsigned4 WordCount(unicode text, varstring localename = '')</Signature><Params>
+    <Signature sign="unsigned4 WordCount(unicode text, varstring localename = '')" name="WordCount">unsigned4 WordCount(unicode text, varstring localename = '')</Signature><Params>
      <Param name="text"/>
      <Param name="localename"/>
     </Params>
@@ -388,16 +388,16 @@
      <param><name>n</name><desc>Which word should be returned from the function.</desc></param>
      <param><name>localname</name><desc>The locale to use for the break semantics. Defaults to ''.</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="unicode GetNthWord(unicode text, unsigned4 n, varstring localename = '')">unicode GetNthWord(unicode text, unsigned4 n, varstring localename = '')</Signature><Params>
+    <Signature sign="unicode GetNthWord(unicode text, unsigned4 n, varstring localename = '')" name="GetNthWord">unicode GetNthWord(unicode text, unsigned4 n, varstring localename = '')</Signature><Params>
      <Param name="text"/>
      <Param name="n"/>
      <Param name="localename"/>
     </Params>
    </Definition>
-   <Signature pre="" post="" name="Uni">Uni</Signature><Parents/>
+   <Signature sign="Uni" name="Uni">Uni</Signature><Parents/>
   </Definition>
   <Import body="0" end="251" fullname="lib_unicodelib" inherit_type="local" line="5" name="lib_unicodelib" ref="lib_unicodelib" remotescope="1" start="251" target="lib_unicodelib/pkg.toc.xml">
    <Type>attribute</Type>
   </Import>
- </Source>
+ <Documentation><content> </content></Documentation></Source>
  </Meta>

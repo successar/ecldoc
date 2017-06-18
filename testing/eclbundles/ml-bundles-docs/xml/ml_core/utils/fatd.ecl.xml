@@ -8,7 +8,7 @@
     <param><name>d0</name><desc>They myriad format Discrete Field dataset to be filled</desc></param>
     <param><name>v</name><desc>The value to assign missing records</desc></param>
    </Documentation>
-   <Signature pre="" post="" name="DATASET(Types.DiscreteField)&#10;      FatD(DATASET(Types.DiscreteField) d0,&#10;           Types.t_Discrete v=0)">DATASET(Types.DiscreteField)
+   <Signature sign="DATASET(Types.DiscreteField)&#10;      FatD(DATASET(Types.DiscreteField) d0,&#10;           Types.t_Discrete v=0)" name="FatD">DATASET(Types.DiscreteField)
       FatD(DATASET(Types.DiscreteField) d0,
            Types.t_Discrete v=0)</Signature><Params>
     <Param name="d0"/>
@@ -18,5 +18,10 @@
   <Import body="0" end="7" fullname="ML_Core.Types" inherit_type="local" line="1" name="Types" ref="ml_core.types" start="7" target="../types.ecl.xml">
    <Type>attribute</Type>
   </Import>
- </Source>
+ <Documentation> <content>Will take a potentially sparse file d and fill in the missing with value v for Discrete Field datasets</content>
+    <return>A full Discrete Field dataset with every field populated</return>
+    <param><name>d0</name><desc>They myriad format Discrete Field dataset to be filled</desc></param>
+    <param><name>v</name><desc>The value to assign missing records</desc></param>
+   </Documentation>
+   </Source>
  </Meta>

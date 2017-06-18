@@ -10,50 +10,6 @@
   <Import body="0" end="49" fullname="ML_Core.Types" inherit_type="local" line="3" name="Core_Types" ref="ml_core.types" start="49" target="../ml_core/types.ecl.xml">
    <Type>attribute</Type>
   </Import>
-  <Definition body="103" end="121" fullname="logisticregression.model_coef" inherit_type="local" line="6" name="Model_Coef" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/ExtractBeta_CI.ecl" start="90">
-   <Type>record</Type>
-   <Field name="wi"/>
-   <Field name="ind_col"/>
-   <Field name="dep_nom"/>
-   <Field name="w"/>
-   <Signature pre="" post="" name="Model_Coef">Model_Coef</Signature><Field name="SE"/>
-  </Definition>
-  <Definition body="132" end="154" fullname="logisticregression.id_base" inherit_type="local" line="7" name="id_base" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/ExtractBeta_CI.ecl" start="122">
-   <Signature pre="" post="" name="id_base">id_base</Signature><Type>attribute</Type>
-  </Definition>
-  <Definition body="169" end="193" fullname="logisticregression.t_work_item" inherit_type="local" line="8" name="t_work_item" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/ExtractBeta_CI.ecl" start="155">
-   <Signature pre="" post="" name="t_work_item">t_work_item</Signature><Type>attribute</Type>
-  </Definition>
-  <Definition body="202" end="227" fullname="logisticregression.model" inherit_type="local" line="9" name="Model" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/ExtractBeta_CI.ecl" start="194">
-   <Type>record</Type>
-   <Field name="wi"/>
-   <Field name="id"/>
-   <Field name="number"/>
-   <Signature pre="" post="" name="Model">Model</Signature><Field name="value"/>
-  </Definition>
-  <Definition body="237" end="266" fullname="logisticregression.ci_rec" inherit_type="local" line="10" name="CI_Rec" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/ExtractBeta_CI.ecl" start="228">
-   <Type>record</Type>
-   <Field name="wi"/>
-   <Field name="ind_col"/>
-   <Field name="dep_nom"/>
-   <Field name="w"/>
-   <Field name="SE"/>
-   <Field name="upper"/>
-   <Signature pre="" post="" name="CI_Rec">CI_Rec</Signature><Field name="lower"/>
-  </Definition>
-  <Definition body="287" end="329" fullname="logisticregression.df_rec" inherit_type="local" line="12" name="df_rec" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/ExtractBeta_CI.ecl" start="278">
-   <Type>record</Type>
-   <Field name="wi"/>
-   <Signature pre="" post="" name="df_rec">df_rec</Signature><Field name="df"/>
-  </Definition>
-  <Definition body="370" end="447" fullname="logisticregression.make_df" inherit_type="local" line="16" name="make_df" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/ExtractBeta_CI.ecl" start="330">
-   <Type>transform</Type>
-   <Params>
-    <Param name="obs"/>
-    <Param name="vars"/>
-   </Params>
-   <Signature pre="" post="" name="df_rec make_df(Model obs, model vars)">df_rec make_df(Model obs, model vars)</Signature><Return>df_rec</Return>
-  </Definition>
   <Definition body="785" end="1440" exported="1" fullname="logisticregression.extractbeta_ci" inherit_type="local" line="28" name="ExtractBeta_CI" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/ExtractBeta_CI.ecl" start="662">
    <Type>function</Type>
    <Documentation> <content>Extract the beta values form the model dataset.</content>
@@ -61,11 +17,16 @@
     <param><name>mod_ds</name><desc>the model dataset</desc></param>
     <param><name>level</name><desc>the significance value for the intervals</desc></param>
    </Documentation>
-   <Signature pre="" post="" name="DATASET(Types.Confidence_Model_Coef)&#10;    ExtractBeta_CI(DATASET(Core_Types.Layout_Model) mod_ds, REAL8 level)">DATASET(Types.Confidence_Model_Coef)
+   <Signature sign="DATASET(Types.Confidence_Model_Coef)&#10;    ExtractBeta_CI(DATASET(Core_Types.Layout_Model) mod_ds, REAL8 level)" name="ExtractBeta_CI">DATASET(Types.Confidence_Model_Coef)
     ExtractBeta_CI(DATASET(Core_Types.Layout_Model) mod_ds, REAL8 level)</Signature><Params>
     <Param name="mod_ds"/>
     <Param name="level"/>
    </Params>
   </Definition>
- </Source>
+ <Documentation> <content>Extract the beta values form the model dataset.</content>
+    <return>the beta values with confidence intervals term.</return>
+    <param><name>mod_ds</name><desc>the model dataset</desc></param>
+    <param><name>level</name><desc>the significance value for the intervals</desc></param>
+   </Documentation>
+   </Source>
  <Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Types.ecl" name="LogisticRegression.Types" target="types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Types.ecl" name="ML_Core.Types" target="../ml_core/types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Constants.ecl" name="LogisticRegression.Constants" target="constants.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/ExtractBeta.ecl" name="LogisticRegression.ExtractBeta" target="extractbeta.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Distributions.ecl" name="LogisticRegression.Distributions" target="distributions.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Math/DoubleFac.ecl" name="ML_Core.Math.DoubleFac" target="../ml_core/math/doublefac.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Constants.ecl" name="ML_Core.Constants" target="../ml_core/constants.ecl.xml"/></Meta>

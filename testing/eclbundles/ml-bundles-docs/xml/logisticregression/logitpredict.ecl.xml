@@ -10,36 +10,6 @@
   <Import body="0" end="40" fullname="ML_Core.Types" inherit_type="local" line="3" name="Core_Types" ref="ml_core.types" start="40" target="../ml_core/types.ecl.xml">
    <Type>attribute</Type>
   </Import>
-  <Definition body="98" end="126" fullname="logisticregression.classify_result" inherit_type="local" line="6" name="Classify_Result" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/LogitPredict.ecl" start="80">
-   <Type>record</Type>
-   <Field name="wi"/>
-   <Field name="id"/>
-   <Field name="number"/>
-   <Field name="value"/>
-   <Signature pre="" post="" name="Classify_Result">Classify_Result</Signature><Field name="conf"/>
-  </Definition>
-  <Definition body="142" end="167" fullname="logisticregression.numericfield" inherit_type="local" line="7" name="NumericField" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/LogitPredict.ecl" start="127">
-   <Type>record</Type>
-   <Field name="wi"/>
-   <Field name="id"/>
-   <Field name="number"/>
-   <Signature pre="" post="" name="NumericField">NumericField</Signature><Field name="value"/>
-  </Definition>
-  <Definition body="185" end="207" fullname="logisticregression.raw_prediction" inherit_type="local" line="8" name="Raw_Prediction" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/LogitPredict.ecl" start="168">
-   <Type>record</Type>
-   <Field name="wi"/>
-   <Field name="id"/>
-   <Field name="number"/>
-   <Signature pre="" post="" name="Raw_Prediction">Raw_Prediction</Signature><Field name="raw"/>
-  </Definition>
-  <Definition body="221" end="239" fullname="logisticregression.model_coef" inherit_type="local" line="9" name="Model_Coef" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/LogitPredict.ecl" start="208">
-   <Type>record</Type>
-   <Field name="wi"/>
-   <Field name="ind_col"/>
-   <Field name="dep_nom"/>
-   <Field name="w"/>
-   <Signature pre="" post="" name="Model_Coef">Model_Coef</Signature><Field name="SE"/>
-  </Definition>
   <Definition body="629" end="904" exported="1" fullname="logisticregression.logitpredict" inherit_type="local" line="18" name="LogitPredict" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/LogitPredict.ecl" start="494">
    <Type>function</Type>
    <Documentation> <content>Predict the category values with the logit function and the the supplied beta coefficients.</content>
@@ -47,12 +17,17 @@
     <param><name>coef</name><desc>the model beta coefficients</desc></param>
     <param><name>independents</name><desc>the observations</desc></param>
    </Documentation>
-   <Signature pre="" post="" name="DATASET(Classify_Result)&#10;      LogitPredict(DATASET(Model_Coef) coef,&#10;                    DATASET(NumericField) independents)">DATASET(Classify_Result)
+   <Signature sign="DATASET(Classify_Result)&#10;      LogitPredict(DATASET(Model_Coef) coef,&#10;                    DATASET(NumericField) independents)" name="LogitPredict">DATASET(Classify_Result)
       LogitPredict(DATASET(Model_Coef) coef,
                     DATASET(NumericField) independents)</Signature><Params>
     <Param name="coef"/>
     <Param name="independents"/>
    </Params>
   </Definition>
- </Source>
+ <Documentation> <content>Predict the category values with the logit function and the the supplied beta coefficients.</content>
+    <return>the predicted category values and a confidence score</return>
+    <param><name>coef</name><desc>the model beta coefficients</desc></param>
+    <param><name>independents</name><desc>the observations</desc></param>
+   </Documentation>
+   </Source>
  <Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Types.ecl" name="LogisticRegression.Types" target="types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/LogitScore.ecl" name="LogisticRegression.LogitScore" target="logitscore.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Types.ecl" name="ML_Core.Types" target="../ml_core/types.ecl.xml"/></Meta>

@@ -15,53 +15,8 @@
   <Import body="0" end="312" fullname="PBblas.test.MakeTestMatrix" inherit_type="local" line="7" name="tm" ref="pbblas.test.maketestmatrix" start="312" target="maketestmatrix.ecl.xml">
    <Type>attribute</Type>
   </Import>
-  <Definition body="351" end="366" fullname="pbblas.test.value_t" inherit_type="local" line="9" name="value_t" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Apply2Elements.ecl" start="341">
-   <Signature pre="" post="" name="value_t">value_t</Signature><Type>attribute</Type>
-  </Definition>
-  <Definition body="381" end="400" fullname="pbblas.test.dimension_t" inherit_type="local" line="10" name="dimension_t" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Apply2Elements.ecl" start="367">
-   <Signature pre="" post="" name="dimension_t">dimension_t</Signature><Type>attribute</Type>
-  </Definition>
-  <Definition body="462" end="469" fullname="pbblas.test.squareit" inherit_type="local" line="12" name="squareIt" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Apply2Elements.ecl" start="402">
-   <Type>function</Type>
-   <Signature pre="" post="" name="value_t squareIt(value_t v, dimension_t r, dimension_t c)">value_t squareIt(value_t v, dimension_t r, dimension_t c)</Signature><Params>
-    <Param name="v"/>
-    <Param name="r"/>
-    <Param name="c"/>
-   </Params>
-  </Definition>
-  <Definition body="476" end="481" fullname="pbblas.test.n1" inherit_type="local" line="14" name="N1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Apply2Elements.ecl" start="471">
-   <Signature pre="" post="" name="N1">N1</Signature><Type>attribute</Type>
-  </Definition>
-  <Definition body="487" end="492" fullname="pbblas.test.m1" inherit_type="local" line="15" name="M1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Apply2Elements.ecl" start="482">
-   <Signature pre="" post="" name="M1">M1</Signature><Type>attribute</Type>
-  </Definition>
-  <Definition body="497" end="524" fullname="pbblas.test.x" inherit_type="local" line="16" name="X" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Apply2Elements.ecl" start="493">
-   <Signature pre="" post="" name="X">X</Signature><Type>attribute</Type>
-  </Definition>
-  <Definition body="533" end="569" fullname="pbblas.test.rslt1" inherit_type="local" line="17" name="rslt1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Apply2Elements.ecl" start="525">
-   <Type>attribute</Type>
-   <Signature pre="" post="" name="rslt1">rslt1</Signature><Documentation> <see>PBblas/IElementFunc</see>
-    <see>PBblas/Types.Layout_Cell</see>
-    <return>A matrix (or multiple matrices) in Layout_Cell form</return>
-    <param><name>X</name><desc>A matrix (or multiple matrices) in Layout_Cell form</desc></param>
-    <param><name>f</name><desc>A function based on the IElementFunc prototype</desc></param>
-    <content>Apply a function to each element of the matrix Use PBblas.IElementFunc as the prototype function. Input and ouput may be a single matrix, or myriad matrixes with different work item ids.</content>
-   </Documentation>
-  </Definition>
-  <Definition body="578" end="608" fullname="pbblas.test.rslt2" inherit_type="local" line="18" name="rslt2" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Apply2Elements.ecl" start="570">
-   <Type>attribute</Type>
-   <Signature pre="" post="" name="rslt2">rslt2</Signature><Documentation> <see>PBblas/Types.Layout_Cell</see>
-    <return>A matrix (or multiple matrices) in Layout_Cell form</return>
-    <param><name>X</name><desc>A matrix (or multiple matrices) in Layout_Cell form</desc></param>
-    <param><name>Y</name><desc>A matrix (or multiple matrices) in Layout_Cell form</desc></param>
-    <content>Element-wise multiplication of X * Y. Supports the "myriad" style interface -- X and Y may contain multiple separate matrixes. Each X will be multiplied by the Y with the same work-item id. Note: This performs element-wise multiplication. For dot-product matrix multiplication, use PBblas.gemm.</content>
-   </Documentation>
-  </Definition>
-  <Definition body="617" end="673" fullname="pbblas.test.rslt" inherit_type="local" line="19" name="rslt" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Apply2Elements.ecl" start="609">
-   <Signature pre="" post="" name="rslt">rslt</Signature><Type>attribute</Type>
-  </Definition>
   <Definition body="698" end="704" exported="1" fullname="pbblas.test.apply2elements" inherit_type="local" line="20" name="Apply2Elements" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Apply2Elements.ecl" start="674">
-   <Signature pre="" post="" name="Apply2Elements">Apply2Elements</Signature><Type>attribute</Type>
+   <Signature sign="Apply2Elements" name="Apply2Elements">Apply2Elements</Signature><Type>attribute</Type>
   </Definition>
- </Source>
+ <Documentation><content> </content></Documentation></Source>
  <Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Types.ecl" name="PBblas.Types" target="../types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Types.ecl" name="ML_Core.Types" target="../../ml_core/types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/MakeTestMatrix.ecl" name="PBblas.test.MakeTestMatrix" target="maketestmatrix.ecl.xml"/><Depends sourcePath="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/system/Thorlib.ecl" name="std.system.Thorlib" target="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/system/Thorlib.ecl"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Apply2Elements.ecl" name="PBblas.Apply2Elements" target="../apply2elements.ecl.xml"/><Depends sourcePath="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/BLAS.ecl" name="std.BLAS" target="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/BLAS.ecl"/><Depends sourcePath="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/plugins/lib_eclblas.ecllib" target="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/plugins/lib_eclblas.ecllib"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/IElementFunc.ecl" name="PBblas.IElementFunc" target="../ielementfunc.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/HadamardProduct.ecl" name="PBblas.HadamardProduct" target="../hadamardproduct.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/MatDims.ecl" name="PBblas.internal.MatDims" target="../internal/matdims.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/Types.ecl" name="PBblas.internal.Types" target="../internal/types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/BlockDimensions.ecl" name="PBblas.internal.BlockDimensions" target="../internal/blockdimensions.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/BlockDimensionsMultiply.ecl" name="PBblas.internal.BlockDimensionsMultiply" target="../internal/blockdimensionsmultiply.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/BlockDimensionsSolve.ecl" name="PBblas.internal.BlockDimensionsSolve" target="../internal/blockdimensionssolve.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/Converted.ecl" name="PBblas.internal.Converted" target="../internal/converted.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/DiffReport.ecl" name="PBblas.test.DiffReport" target="diffreport.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/MakeR8Set.ecl" name="PBblas.internal.MakeR8Set" target="../internal/maker8set.ecl.xml"/></Meta>

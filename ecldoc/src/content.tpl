@@ -23,11 +23,11 @@
 				<span class="navbar-brand">{{ src.attrib['name'] }}</span>
 			</div>
 			<div class="navbar-collapse collapse">
-			<ul class="nav navbar-nav">
-				<li><a href="#ecldoc-section-import" class="topbar">Imports</a></li>
-				<li><a href="#ecldoc-section-tree" class="topbar">Tree</a></li>
-				<li><a href="#ecldoc-section-desc" class="topbar">Descriptions</a></li>
-			</ul>
+				<ul class="nav navbar-nav">
+					<li><a href="#ecldoc-section-import" class="topbar">Imports</a></li>
+					<li><a href="#ecldoc-section-tree" class="topbar">Tree</a></li>
+					<li><a href="#ecldoc-section-desc" class="topbar">Descriptions</a></li>
+				</ul>
 			</div>
 		</div>
 	</nav>
@@ -77,9 +77,7 @@
 							{% endif %}
 							<a href="#d{{ def.attrib['fullname'] }}">
 								{{ def.find('./Type').text.upper() }} :
-								<span class="sign-pre">{{ def.find('./Signature').attrib['pre'] }}</span>
 								<span class="sign-name">{{ def.find('./Signature').attrib['name'] }}</span>
-								<span class="sign-post">{{ def.find('./Signature').attrib['post'] }}</span>
 							</a>
 							<ul id="{{ def.attrib['fullname'] }}" class="accordian-body tree collapse">
 								{{ loop(def.findall('./Definition')) }}
@@ -93,32 +91,28 @@
 					<div class="panel-group">
 						{% for def in src.findall('./Definition') recursive -%}
 						<div class="panel panel-info" id="d{{ def.attrib['fullname'] }}">
-							<div class="panel-heading">
-								<div class="type">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
 									{{ def.find('./Type').text.upper() }}
 								</div>
-								<div class="sign">
-									<span class="sign-pre">{{ def.find('./Signature').attrib['pre'] }}</span>
-									<span class="sign-name">{{ def.find('./Signature').attrib['name'] }}</span>
-									<span class="sign-post">{{ def.find('./Signature').attrib['post'] }}</span>
+								<div class="panel-title sign">
+									<span class="sign-name">{{ def.find('./Signature').attrib['sign'] }}</span>
 								</div>
-								<div class="btns">
-									<a href="#t-{{ def.attrib['fullname'] }}" class="tree-link btn btn-primary">Tree</a>
-									<button class="btn btn-danger"> {{ def.attrib['inherit_type'] }}</button>
-									{% if 'target' in def.attrib -%}
-									<a href="{{ def.attrib['target'] }}" class="btn btn-success">Link</a>
-									{% endif -%}
+								<div class="btns pull-right">
+									{% if def.attrib['inherit_type'] != 'local' %}
+									<span class="inherit_type"> {{ def.attrib['inherit_type'].upper() }}</span>
+									{% endif %}
+									<a href="#ecldoc-section-tree" data-toggle="#t-{{ def.attrib['fullname'] }}" class="tree-link glyphicon glyphicon-chevron-up"></a>
 								</div>
 							</div>
 
 							<div class="panel-body">
 								{% if def.find('./Documentation') -%}
 								<div class="row">
-									<div class="col-md-12">
+									<div class="col-md-12" style="padding-bottom: 10px;">
 										{{ def.find('./Documentation').find('./content').text }}
 									</div>
 								</div>
-								<br/>
 								{% if def.find('./Documentation').find('./param') %}
 								<div class="row">
 									<div class="col-md-1 doc-type">Parameters</div>
@@ -126,7 +120,7 @@
 										<table class="table">
 											{% for tag in def.find('./Documentation').findall('./param') -%}
 											<tr>
-												<td style="width: 20%;"><b>{{ tag.find('./name').text }}</b> </td>
+												<td style="width: 20%; font-weight: bold;">{{ tag.find('./name').text }}</td>
 												<td>{{ tag.find('./desc').text }}</td>
 											</tr>
 											{% endfor -%}
@@ -199,6 +193,14 @@
 									</div>
 								</div>
 								{% endif -%}
+
+								{% if 'target' in def.attrib -%}
+								<div class="row">
+									<div class="col-md-12">
+										<a href="{{ def.attrib['target'] }}" class="btn btn-success" style="background: #00563B;">External Link</a>
+									</div>
+								</div>
+								{% endif -%}
 							</div>
 						</div>
 						{{ loop(def.findall('./Definition')) }}
@@ -222,9 +224,8 @@
 	<script>
 		$(document).ready(function(){
 			$('.tree-link').click(function(e) {
-				var loc = $(this).attr('href');
-				$(loc).parents().collapse('show');
-				return true;
+				var loc = $(this).attr('data-toggle');
+				$(loc).parents('.tree').collapse('show');
 			});
 		});
 	</script>

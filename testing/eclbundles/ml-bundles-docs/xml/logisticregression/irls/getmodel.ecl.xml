@@ -19,63 +19,6 @@
   <Import body="0" end="115" fullname="LogisticRegression.IRLS" inherit_type="local" line="6" name="IRLS" ref="logisticregression.irls" start="115" target="pkg.toc.xml">
    <Type>attribute</Type>
   </Import>
-  <Definition body="167" end="188" fullname="logisticregression.irls.anyfield" inherit_type="local" line="8" name="AnyField" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/IRLS/GetModel.ecl" start="152">
-   <Type>record</Type>
-   <Field name="wi"/>
-   <Field name="id"/>
-   <Signature pre="" post="" name="AnyField">AnyField</Signature><Field name="number"/>
-  </Definition>
-  <Definition body="204" end="229" fullname="logisticregression.irls.numericfield" inherit_type="local" line="9" name="NumericField" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/IRLS/GetModel.ecl" start="189">
-   <Type>record</Type>
-   <Field name="wi"/>
-   <Field name="id"/>
-   <Field name="number"/>
-   <Signature pre="" post="" name="NumericField">NumericField</Signature><Field name="value"/>
-  </Definition>
-  <Definition body="245" end="271" fullname="logisticregression.irls.discretefield" inherit_type="local" line="10" name="DiscreteField" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/IRLS/GetModel.ecl" start="230">
-   <Type>record</Type>
-   <Field name="wi"/>
-   <Field name="id"/>
-   <Field name="number"/>
-   <Signature pre="" post="" name="DiscreteField">DiscreteField</Signature><Field name="value"/>
-  </Definition>
-  <Definition body="287" end="312" fullname="logisticregression.irls.layout_model" inherit_type="local" line="11" name="Layout_Model" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/IRLS/GetModel.ecl" start="272">
-   <Type>record</Type>
-   <Field name="wi"/>
-   <Field name="id"/>
-   <Field name="number"/>
-   <Signature pre="" post="" name="Layout_Model">Layout_Model</Signature><Field name="value"/>
-  </Definition>
-  <Definition body="328" end="352" fullname="logisticregression.irls.t_work_item" inherit_type="local" line="12" name="t_work_item" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/IRLS/GetModel.ecl" start="313">
-   <Signature pre="" post="" name="t_work_item">t_work_item</Signature><Type>attribute</Type>
-  </Definition>
-  <Definition body="368" end="391" fullname="logisticregression.irls.t_recordid" inherit_type="local" line="13" name="t_RecordID" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/IRLS/GetModel.ecl" start="353">
-   <Signature pre="" post="" name="t_RecordID">t_RecordID</Signature><Type>attribute</Type>
-  </Definition>
-  <Definition body="408" end="434" fullname="logisticregression.irls.t_fieldnumber" inherit_type="local" line="14" name="t_FieldNumber" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/IRLS/GetModel.ecl" start="392">
-   <Signature pre="" post="" name="t_FieldNumber">t_FieldNumber</Signature><Type>attribute</Type>
-  </Definition>
-  <Definition body="451" end="475" fullname="logisticregression.irls.t_fieldreal" inherit_type="local" line="15" name="t_FieldReal" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/IRLS/GetModel.ecl" start="435">
-   <Signature pre="" post="" name="t_FieldReal">t_FieldReal</Signature><Type>attribute</Type>
-  </Definition>
-  <Definition body="489" end="516" fullname="logisticregression.irls.empty_data" inherit_type="local" line="16" name="empty_data" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/IRLS/GetModel.ecl" start="476">
-   <Signature pre="" post="" name="empty_data">empty_data</Signature><Type>attribute</Type>
-  </Definition>
-  <Definition body="529" end="546" fullname="logisticregression.irls.data_info" inherit_type="local" line="17" name="Data_Info" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/IRLS/GetModel.ecl" start="517">
-   <Type>record</Type>
-   <Field name="wi"/>
-   <Field name="dependent_fields"/>
-   <Field name="dependent_records"/>
-   <Field name="independent_fields"/>
-   <Field name="independent_records"/>
-   <Field name="dependent_count"/>
-   <Field name="independent_count"/>
-   <Field name="dependent_stats"/>
-   <Signature pre="" post="" name="Data_Info">Data_Info</Signature><Field name="independent_stats"/>
-  </Definition>
-  <Definition body="553" end="574" fullname="logisticregression.irls.cap" inherit_type="local" line="18" name="cap" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/IRLS/GetModel.ecl" start="547">
-   <Signature pre="" post="" name="cap">cap</Signature><Type>attribute</Type>
-  </Definition>
   <Definition body="1547" end="3016" exported="1" fullname="logisticregression.irls.getmodel" inherit_type="local" line="33" name="GetModel" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/IRLS/GetModel.ecl" start="1269">
    <Type>function</Type>
    <Documentation> <content>Generate logistic regression model from training data. The size of the inputs is used to determin which work items are processed with purely local operations (the data is moved once as necessary) or with global operations supporting a work item to use multiple nodes.</content>
@@ -86,7 +29,7 @@
     <param><name>epsilon</name><desc>the minimum change in the Beta value estimate to continue</desc></param>
     <param><name>ridge</name><desc>a value to pupulate a diagonal matrix that is added to a matrix help assure that the matrix is invertible.</desc></param>
    </Documentation>
-   <Signature pre="" post="" name="DATASET(Layout_Model)&#10;      GetModel(DATASET(NumericField) independents,&#10;               DATASET(DiscreteField) dependents,&#10;               UNSIGNED max_iter=200,&#10;               REAL8 epsilon=Constants.default_epsilon,&#10;               REAL8 ridge=Constants.default_ridge)">DATASET(Layout_Model)
+   <Signature sign="DATASET(Layout_Model)&#10;      GetModel(DATASET(NumericField) independents,&#10;               DATASET(DiscreteField) dependents,&#10;               UNSIGNED max_iter=200,&#10;               REAL8 epsilon=Constants.default_epsilon,&#10;               REAL8 ridge=Constants.default_ridge)" name="GetModel">DATASET(Layout_Model)
       GetModel(DATASET(NumericField) independents,
                DATASET(DiscreteField) dependents,
                UNSIGNED max_iter=200,
@@ -99,5 +42,13 @@
     <Param name="ridge"/>
    </Params>
   </Definition>
- </Source>
+ <Documentation> <content>Generate logistic regression model from training data. The size of the inputs is used to determin which work items are processed with purely local operations (the data is moved once as necessary) or with global operations supporting a work item to use multiple nodes.</content>
+    <return>coefficient matrix plus model building stats</return>
+    <param><name>independents</name><desc>the independent values</desc></param>
+    <param><name>dependents</name><desc>the dependent values.</desc></param>
+    <param><name>max_iter</name><desc>maximum number of iterations to try</desc></param>
+    <param><name>epsilon</name><desc>the minimum change in the Beta value estimate to continue</desc></param>
+    <param><name>ridge</name><desc>a value to pupulate a diagonal matrix that is added to a matrix help assure that the matrix is invertible.</desc></param>
+   </Documentation>
+   </Source>
  <Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Types.ecl" name="ML_Core.Types" target="../../ml_core/types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Constants.ecl" name="LogisticRegression.Constants" target="../constants.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Types.ecl" name="LogisticRegression.Types" target="../types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/DataStats.ecl" name="LogisticRegression.DataStats" target="../datastats.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/IRLS/GetModel_local.ecl" name="LogisticRegression.IRLS.getModel_local" target="getmodel_local.ecl.xml"/><Depends sourcePath="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/BLAS.ecl" name="std.BLAS" target="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/BLAS.ecl"/><Depends sourcePath="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/plugins/lib_eclblas.ecllib" target="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/plugins/lib_eclblas.ecllib"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/dimm.ecl" name="LogisticRegression.dimm" target="../dimm.ecl.xml"/><Depends sourcePath="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/system/Thorlib.ecl" name="std.system.thorlib" target="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/system/Thorlib.ecl"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/IRLS/GetModel_global.ecl" name="LogisticRegression.IRLS.getModel_global" target="getmodel_global.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Types.ecl" name="PBblas.Types" target="../../pbblas/types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Converted.ecl" name="PBblas.Converted" target="../../pbblas/converted.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/MatUtils.ecl" name="PBblas.MatUtils" target="../../pbblas/matutils.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/Types.ecl" name="PBblas.internal.Types" target="../../pbblas/internal/types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/MatDims.ecl" name="PBblas.internal.MatDims" target="../../pbblas/internal/matdims.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/BlockDimensions.ecl" name="PBblas.internal.BlockDimensions" target="../../pbblas/internal/blockdimensions.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/BlockDimensionsMultiply.ecl" name="PBblas.internal.BlockDimensionsMultiply" target="../../pbblas/internal/blockdimensionsmultiply.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/BlockDimensionsSolve.ecl" name="PBblas.internal.BlockDimensionsSolve" target="../../pbblas/internal/blockdimensionssolve.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/gemm.ecl" name="PBblas.gemm" target="../../pbblas/gemm.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/Converted.ecl" name="PBblas.internal.Converted" target="../../pbblas/internal/converted.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/MakeR8Set.ecl" name="PBblas.internal.MakeR8Set" target="../../pbblas/internal/maker8set.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/getrf.ecl" name="PBblas.getrf" target="../../pbblas/getrf.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/trsm.ecl" name="PBblas.trsm" target="../../pbblas/trsm.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Vector2Diag.ecl" name="PBblas.Vector2Diag" target="../../pbblas/vector2diag.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Constants.ecl" name="PBblas.Constants" target="../../pbblas/constants.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Apply2Elements.ecl" name="PBblas.Apply2Elements" target="../../pbblas/apply2elements.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/IElementFunc.ecl" name="PBblas.IElementFunc" target="../../pbblas/ielementfunc.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/asum.ecl" name="PBblas.asum" target="../../pbblas/asum.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/axpy.ecl" name="PBblas.axpy" target="../../pbblas/axpy.ecl.xml"/></Meta>

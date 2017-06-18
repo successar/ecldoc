@@ -23,11 +23,11 @@
 				<span class="navbar-brand">ML_Core.AppendSeqID</span>
 			</div>
 			<div class="navbar-collapse collapse">
-			<ul class="nav navbar-nav">
-				<li><a href="#ecldoc-section-import" class="topbar">Imports</a></li>
-				<li><a href="#ecldoc-section-tree" class="topbar">Tree</a></li>
-				<li><a href="#ecldoc-section-desc" class="topbar">Descriptions</a></li>
-			</ul>
+				<ul class="nav navbar-nav">
+					<li><a href="#ecldoc-section-import" class="topbar">Imports</a></li>
+					<li><a href="#ecldoc-section-tree" class="topbar">Tree</a></li>
+					<li><a href="#ecldoc-section-desc" class="topbar">Descriptions</a></li>
+				</ul>
 			</div>
 		</div>
 	</nav>
@@ -43,19 +43,7 @@
 				</li>
 				
 				<li>
-					<a href="discretize.ecl.html">discretize.ecl</a>
-				</li>
-				
-				<li>
-					<a href="constants.ecl.html">constants.ecl</a>
-				</li>
-				
-				<li>
-					<a href="utils/pkg.toc.html">utils</a>
-				</li>
-				
-				<li>
-					<a href="tests/pkg.toc.html">tests</a>
+					<a href="types.ecl.html">types.ecl</a>
 				</li>
 				
 				<li>
@@ -63,19 +51,11 @@
 				</li>
 				
 				<li>
-					<a href="types.ecl.html">types.ecl</a>
-				</li>
-				
-				<li>
-					<a href="interfaces/pkg.toc.html">interfaces</a>
-				</li>
-				
-				<li>
-					<a href="fieldaggregates.ecl.html">fieldaggregates.ecl</a>
-				</li>
-				
-				<li>
 					<a href="appendseqid.ecl.html">appendseqid.ecl</a>
+				</li>
+				
+				<li>
+					<a href="tofield.ecl.html">tofield.ecl</a>
 				</li>
 				
 				<li>
@@ -83,7 +63,11 @@
 				</li>
 				
 				<li>
-					<a href="math/pkg.toc.html">math</a>
+					<a href="fieldaggregates.ecl.html">fieldaggregates.ecl</a>
+				</li>
+				
+				<li>
+					<a href="constants.ecl.html">constants.ecl</a>
 				</li>
 				
 				<li>
@@ -95,7 +79,7 @@
 				</li>
 				
 				<li>
-					<a href="tofield.ecl.html">tofield.ecl</a>
+					<a href="discretize.ecl.html">discretize.ecl</a>
 				</li>
 				
 				<li>
@@ -121,9 +105,7 @@
 							
 							<a href="#dml_core-appendseqid">
 								MACRO :
-								<span class="sign-pre"></span>
-								<span class="sign-name">AppendSeqID(dIn,idfield,dOut)</span>
-								<span class="sign-post"></span>
+								<span class="sign-name">AppendSeqID</span>
 							</a>
 							<ul id="ml_core-appendseqid" class="accordian-body tree collapse">
 								
@@ -135,19 +117,17 @@
 					<h3 class="page-header">DESCRIPTIONS</h3>
 					<div class="panel-group">
 						<div class="panel panel-info" id="dml_core-appendseqid">
-							<div class="panel-heading">
-								<div class="type">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
 									MACRO
 								</div>
-								<div class="sign">
-									<span class="sign-pre"></span>
+								<div class="panel-title sign">
 									<span class="sign-name">AppendSeqID(dIn,idfield,dOut)</span>
-									<span class="sign-post"></span>
 								</div>
-								<div class="btns">
-									<a href="#t-ml_core-appendseqid" class="tree-link btn btn-primary">Tree</a>
-									<button class="btn btn-danger"> local</button>
-									</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-ml_core-appendseqid" class="tree-link glyphicon glyphicon-chevron-up"></a>
+								</div>
 							</div>
 
 							<div class="panel-body">
@@ -175,9 +155,8 @@
 	<script>
 		$(document).ready(function(){
 			$('.tree-link').click(function(e) {
-				var loc = $(this).attr('href');
-				$(loc).parents().collapse('show');
-				return true;
+				var loc = $(this).attr('data-toggle');
+				$(loc).parents('.tree').collapse('show');
 			});
 		});
 	</script>

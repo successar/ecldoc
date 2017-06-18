@@ -9,25 +9,6 @@
    <Documentation> <content>Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes.</content>
    </Documentation>
   </Import>
-  <Definition body="299" end="318" fullname="pbblas.layout_cell" inherit_type="local" line="7" name="Layout_Cell" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/axpy.ecl" start="285">
-   <Type>record</Type>
-   <Field name="wi_id"/>
-   <Field name="x"/>
-   <Field name="y"/>
-   <Field name="v"/>
-   <Signature pre="" post="" name="Layout_Cell">Layout_Cell</Signature><Documentation> <field><name>wi_id</name><desc>Work Item Number -- An identifier from 1 to 64K-1 that separates and identifies individual matrixes</desc></field>
-    <field><name>x</name><desc>1-based row position within the matrix</desc></field>
-    <field><name>y</name><desc>1-based column position within the matrix</desc></field>
-    <field><name>v</name><desc>Real value for the cell</desc></field>
-    <see>matrix_t</see>
-    <see>Std/PBblas/MakeR8Set.ecl</see>
-    <see>Std/PBblas/Converted.ecl WARNING: Used as C++ attribute. Do not change without corresponding changes to MakeR8Set.</see>
-    <content>Layout for Matrix Cell Main representation of Matrix cell at interface to all PBBlas functions. Matrixes are represented as DATASET(Layout_Cell), where each cell describes the row and column position of the cell as well as its value. Only the non-zero cells need to be contained in the dataset in order to describe the matrix since all unspecified cells are considered to have a value of zero. The cell also contains a work-item number that allows multiple separate matrixes to be carried in the same dataset. This supports the "myriad" style interface that allows the same operations to be performed on many different sets of data at once. Note that these matrixes do not have an explicit size. They are sized implicitly, based on the maximum row and column presented in the data. A matrix can be converted to an explicit dense form (see matrix_t) by using the utility module MakeR8Set. This module should only be used for known small matrixes (&lt; 1M cells) or for partitions of a larger matrix. The Converted module provides utility functions to convert to and from a set of partitions (See Layout_parts).</content>
-   </Documentation>
-  </Definition>
-  <Definition body="329" end="344" fullname="pbblas.value_t" inherit_type="local" line="8" name="value_t" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/axpy.ecl" start="319">
-   <Signature pre="" post="" name="value_t">value_t</Signature><Type>attribute</Type>
-  </Definition>
   <Definition body="780" end="1297" exported="1" fullname="pbblas.axpy" inherit_type="local" line="19" name="axpy" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/axpy.ecl" start="682">
    <Type>function</Type>
    <Documentation> <see>PBblas/Types.layout_cell</see>
@@ -37,11 +18,18 @@
     <param><name>Y</name><desc>Y matrix in DATASET(Layout_Call) form</desc></param>
     <content>Implements alpha*X + Y X and Y must have same shape</content>
    </Documentation>
-   <Signature pre="" post="" name="DATASET(Layout_Cell) axpy(value_t alpha, DATASET(Layout_Cell) X, DATASET(Layout_Cell) Y)">DATASET(Layout_Cell) axpy(value_t alpha, DATASET(Layout_Cell) X, DATASET(Layout_Cell) Y)</Signature><Params>
+   <Signature sign="DATASET(Layout_Cell) axpy(value_t alpha, DATASET(Layout_Cell) X, DATASET(Layout_Cell) Y)" name="axpy">DATASET(Layout_Cell) axpy(value_t alpha, DATASET(Layout_Cell) X, DATASET(Layout_Cell) Y)</Signature><Params>
     <Param name="alpha"/>
     <Param name="X"/>
     <Param name="Y"/>
    </Params>
   </Definition>
- </Source>
+ <Documentation> <see>PBblas/Types.layout_cell</see>
+    <return>Matrix in DATASET(Layout_Cell) form</return>
+    <param><name>alpha</name><desc>Scalar multiplier for the X matrix</desc></param>
+    <param><name>X</name><desc>X matrix in DATASET(Layout_Cell) form</desc></param>
+    <param><name>Y</name><desc>Y matrix in DATASET(Layout_Call) form</desc></param>
+    <content>Implements alpha*X + Y X and Y must have same shape</content>
+   </Documentation>
+   </Source>
  <Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Types.ecl" name="ML_Core.Types" target="../ml_core/types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Types.ecl" name="PBblas.Types" target="types.ecl.xml"/></Meta>

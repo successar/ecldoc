@@ -23,11 +23,11 @@
 				<span class="navbar-brand">Inintest.Example_3</span>
 			</div>
 			<div class="navbar-collapse collapse">
-			<ul class="nav navbar-nav">
-				<li><a href="#ecldoc-section-import" class="topbar">Imports</a></li>
-				<li><a href="#ecldoc-section-tree" class="topbar">Tree</a></li>
-				<li><a href="#ecldoc-section-desc" class="topbar">Descriptions</a></li>
-			</ul>
+				<ul class="nav navbar-nav">
+					<li><a href="#ecldoc-section-import" class="topbar">Imports</a></li>
+					<li><a href="#ecldoc-section-tree" class="topbar">Tree</a></li>
+					<li><a href="#ecldoc-section-desc" class="topbar">Descriptions</a></li>
+				</ul>
 			</div>
 		</div>
 	</nav>
@@ -65,9 +65,7 @@
 							
 							<a href="#dInintest-Example_3">
 								MODULE :
-								<span class="sign-pre"></span>
 								<span class="sign-name">Example_3</span>
-								<span class="sign-post"></span>
 							</a>
 							<ul id="Inintest-Example_3" class="accordian-body tree collapse">
 								<li id="t-Inintest-Example_3-mod_1">
@@ -76,9 +74,7 @@
 							
 							<a href="#dInintest-Example_3-mod_1">
 								MODULE :
-								<span class="sign-pre"></span>
 								<span class="sign-name">mod_1</span>
-								<span class="sign-post"></span>
 							</a>
 							<ul id="Inintest-Example_3-mod_1" class="accordian-body tree collapse">
 								<li id="t-inintest-example_3-mod_1-v2_m1_ex3">
@@ -87,9 +83,7 @@
 							
 							<a href="#dinintest-example_3-mod_1-v2_m1_ex3">
 								ATTRIBUTE :
-								<span class="sign-pre"></span>
 								<span class="sign-name">v2_m1_ex3</span>
-								<span class="sign-post"></span>
 							</a>
 							<ul id="inintest-example_3-mod_1-v2_m1_ex3" class="accordian-body tree collapse">
 								
@@ -107,19 +101,17 @@
 					<h3 class="page-header">DESCRIPTIONS</h3>
 					<div class="panel-group">
 						<div class="panel panel-info" id="dInintest-Example_3">
-							<div class="panel-heading">
-								<div class="type">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
 									MODULE
 								</div>
-								<div class="sign">
-									<span class="sign-pre"></span>
+								<div class="panel-title sign">
 									<span class="sign-name">Example_3</span>
-									<span class="sign-post"></span>
 								</div>
-								<div class="btns">
-									<a href="#t-Inintest-Example_3" class="tree-link btn btn-primary">Tree</a>
-									<button class="btn btn-danger"> local</button>
-									</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-Inintest-Example_3" class="tree-link glyphicon glyphicon-chevron-up"></a>
+								</div>
 							</div>
 
 							<div class="panel-body">
@@ -128,19 +120,17 @@
 								</div>
 						</div>
 						<div class="panel panel-info" id="dInintest-Example_3-mod_1">
-							<div class="panel-heading">
-								<div class="type">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
 									MODULE
 								</div>
-								<div class="sign">
-									<span class="sign-pre"></span>
+								<div class="panel-title sign">
 									<span class="sign-name">mod_1</span>
-									<span class="sign-post"></span>
 								</div>
-								<div class="btns">
-									<a href="#t-Inintest-Example_3-mod_1" class="tree-link btn btn-primary">Tree</a>
-									<button class="btn btn-danger"> local</button>
-									</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-Inintest-Example_3-mod_1" class="tree-link glyphicon glyphicon-chevron-up"></a>
+								</div>
 							</div>
 
 							<div class="panel-body">
@@ -149,19 +139,17 @@
 								</div>
 						</div>
 						<div class="panel panel-info" id="dinintest-example_3-mod_1-v2_m1_ex3">
-							<div class="panel-heading">
-								<div class="type">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
 									ATTRIBUTE
 								</div>
-								<div class="sign">
-									<span class="sign-pre"></span>
+								<div class="panel-title sign">
 									<span class="sign-name">v2_m1_ex3</span>
-									<span class="sign-post"></span>
 								</div>
-								<div class="btns">
-									<a href="#t-inintest-example_3-mod_1-v2_m1_ex3" class="tree-link btn btn-primary">Tree</a>
-									<button class="btn btn-danger"> local</button>
-									</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-inintest-example_3-mod_1-v2_m1_ex3" class="tree-link glyphicon glyphicon-chevron-up"></a>
+								</div>
 							</div>
 
 							<div class="panel-body">
@@ -191,9 +179,8 @@
 	<script>
 		$(document).ready(function(){
 			$('.tree-link').click(function(e) {
-				var loc = $(this).attr('href');
-				$(loc).parents().collapse('show');
-				return true;
+				var loc = $(this).attr('data-toggle');
+				$(loc).parents('.tree').collapse('show');
 			});
 		});
 	</script>

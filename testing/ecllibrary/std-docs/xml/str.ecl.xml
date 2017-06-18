@@ -4,22 +4,6 @@
   <Import body="0" end="731" fullname="lib_stringlib" inherit_type="local" line="20" name="lib_stringlib" ref="lib_stringlib" remotescope="1" start="731" target="lib_stringlib/pkg.toc.xml">
    <Type>attribute</Type>
   </Import>
-  <Definition body="260" end="502" inherit_type="local" line="6" name="externals" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl" start="248" fullname="ecldoc-externals">
-   <Type>module</Type>
-   <Definition body="0" end="0" exported="1" fullname="encodebase64" inherit_type="local" line="8" name="EncodeBase64" start="0">
-    <Type>function</Type>
-    <Signature pre="" post="" name="EncodeBase64"></Signature><Params>
-     <Param name="src"/>
-    </Params>
-   </Definition>
-   <Definition body="0" end="0" exported="1" fullname="decodebase64" inherit_type="local" line="9" name="DecodeBase64" start="0">
-    <Type>function</Type>
-    <Signature pre="" post="" name="DecodeBase64"></Signature><Params>
-     <Param name="src"/>
-    </Params>
-   </Definition>
-   <Signature pre="" post="" name="externals">externals</Signature><Parents/>
-  </Definition>
   <Definition body="517" end="17711" exported="1" fullname="Str" inherit_type="local" line="12" name="Str" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl" start="504">
    <Type>module</Type>
    <Definition body="1178" end="1241" exported="1" fullname="str.compareignorecase" inherit_type="local" line="31" name="CompareIgnoreCase" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl" start="1116">
@@ -29,7 +13,7 @@
      <param><name>src1</name><desc>The first string to be compared.</desc></param>
      <param><name>src2</name><desc>The second string to be compared.</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="INTEGER4 CompareIgnoreCase(STRING src1, STRING src2)">INTEGER4 CompareIgnoreCase(STRING src1, STRING src2)</Signature><Params>
+    <Signature sign="INTEGER4 CompareIgnoreCase(STRING src1, STRING src2)" name="CompareIgnoreCase">INTEGER4 CompareIgnoreCase(STRING src1, STRING src2)</Signature><Params>
      <Param name="src1"/>
      <Param name="src2"/>
     </Params>
@@ -41,7 +25,7 @@
      <param><name>src1</name><desc>The first string to be compared.</desc></param>
      <param><name>src2</name><desc>The second string to be compared.</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="BOOLEAN EqualIgnoreCase(STRING src1, STRING src2)">BOOLEAN EqualIgnoreCase(STRING src1, STRING src2)</Signature><Params>
+    <Signature sign="BOOLEAN EqualIgnoreCase(STRING src1, STRING src2)" name="EqualIgnoreCase">BOOLEAN EqualIgnoreCase(STRING src1, STRING src2)</Signature><Params>
      <Param name="src1"/>
      <Param name="src2"/>
     </Params>
@@ -53,7 +37,7 @@
      <param><name>sought</name><desc>The string being sought.</desc></param>
      <param><name>instance</name><desc>Which match instance are we interested in?</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="UNSIGNED4 Find(STRING src, STRING sought, UNSIGNED4 instance = 1)">UNSIGNED4 Find(STRING src, STRING sought, UNSIGNED4 instance = 1)</Signature><Params>
+    <Signature sign="UNSIGNED4 Find(STRING src, STRING sought, UNSIGNED4 instance = 1)" name="Find">UNSIGNED4 Find(STRING src, STRING sought, UNSIGNED4 instance = 1)</Signature><Params>
      <Param name="src"/>
      <Param name="sought"/>
      <Param name="instance"/>
@@ -65,7 +49,7 @@
      <param><name>src</name><desc>The string that is searched</desc></param>
      <param><name>sought</name><desc>The string being sought.</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="UNSIGNED4 FindCount(STRING src, STRING sought)">UNSIGNED4 FindCount(STRING src, STRING sought)</Signature><Params>
+    <Signature sign="UNSIGNED4 FindCount(STRING src, STRING sought)" name="FindCount">UNSIGNED4 FindCount(STRING src, STRING sought)</Signature><Params>
      <Param name="src"/>
      <Param name="sought"/>
     </Params>
@@ -77,7 +61,7 @@
      <param><name>pattern</name><desc>The pattern to match against.</desc></param>
      <param><name>ignore_case</name><desc>Whether to ignore differences in case between characters</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="BOOLEAN WildMatch(STRING src, STRING _pattern, BOOLEAN ignore_case)">BOOLEAN WildMatch(STRING src, STRING _pattern, BOOLEAN ignore_case)</Signature><Params>
+    <Signature sign="BOOLEAN WildMatch(STRING src, STRING _pattern, BOOLEAN ignore_case)" name="WildMatch">BOOLEAN WildMatch(STRING src, STRING _pattern, BOOLEAN ignore_case)</Signature><Params>
      <Param name="src"/>
      <Param name="_pattern"/>
      <Param name="ignore_case"/>
@@ -90,7 +74,7 @@
      <param><name>pattern</name><desc>The pattern to match against.</desc></param>
      <param><name>ignore_case</name><desc>Whether to ignore differences in case between characters</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="BOOLEAN Contains(STRING src, STRING _pattern, BOOLEAN ignore_case)">BOOLEAN Contains(STRING src, STRING _pattern, BOOLEAN ignore_case)</Signature><Params>
+    <Signature sign="BOOLEAN Contains(STRING src, STRING _pattern, BOOLEAN ignore_case)" name="Contains">BOOLEAN Contains(STRING src, STRING _pattern, BOOLEAN ignore_case)</Signature><Params>
      <Param name="src"/>
      <Param name="_pattern"/>
      <Param name="ignore_case"/>
@@ -103,7 +87,7 @@
      <param><name>src</name><desc>The string that is being tested.</desc></param>
      <param><name>filter</name><desc>The string containing the set of characters to be excluded.</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="STRING FilterOut(STRING src, STRING filter)">STRING FilterOut(STRING src, STRING filter)</Signature><Params>
+    <Signature sign="STRING FilterOut(STRING src, STRING filter)" name="FilterOut">STRING FilterOut(STRING src, STRING filter)</Signature><Params>
      <Param name="src"/>
      <Param name="filter"/>
     </Params>
@@ -115,7 +99,7 @@
      <param><name>src</name><desc>The string that is being tested.</desc></param>
      <param><name>filter</name><desc>The string containing the set of characters to be included.</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="STRING Filter(STRING src, STRING filter)">STRING Filter(STRING src, STRING filter)</Signature><Params>
+    <Signature sign="STRING Filter(STRING src, STRING filter)" name="Filter">STRING Filter(STRING src, STRING filter)</Signature><Params>
      <Param name="src"/>
      <Param name="filter"/>
     </Params>
@@ -128,7 +112,7 @@
      <param><name>filter</name><desc>The string containing the set of characters to be included.</desc></param>
      <param><name>replace_char</name><desc>The character to be substituted into the result.</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="STRING SubstituteIncluded(STRING src, STRING filter, STRING1 replace_char)">STRING SubstituteIncluded(STRING src, STRING filter, STRING1 replace_char)</Signature><Params>
+    <Signature sign="STRING SubstituteIncluded(STRING src, STRING filter, STRING1 replace_char)" name="SubstituteIncluded">STRING SubstituteIncluded(STRING src, STRING filter, STRING1 replace_char)</Signature><Params>
      <Param name="src"/>
      <Param name="Filter"/>
      <Param name="replace_char"/>
@@ -142,7 +126,7 @@
      <param><name>filter</name><desc>The string containing the set of characters to be included.</desc></param>
      <param><name>replace_char</name><desc>The character to be substituted into the result.</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="STRING SubstituteExcluded(STRING src, STRING filter, STRING1 replace_char)">STRING SubstituteExcluded(STRING src, STRING filter, STRING1 replace_char)</Signature><Params>
+    <Signature sign="STRING SubstituteExcluded(STRING src, STRING filter, STRING1 replace_char)" name="SubstituteExcluded">STRING SubstituteExcluded(STRING src, STRING filter, STRING1 replace_char)</Signature><Params>
      <Param name="src"/>
      <Param name="Filter"/>
      <Param name="replace_char"/>
@@ -156,7 +140,7 @@
      <param><name>search</name><desc>The string containing the set of characters to be included.</desc></param>
      <param><name>replacement</name><desc>The string containing the characters to act as replacements.</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="STRING Translate(STRING src, STRING search, STRING replacement)">STRING Translate(STRING src, STRING search, STRING replacement)</Signature><Params>
+    <Signature sign="STRING Translate(STRING src, STRING search, STRING replacement)" name="Translate">STRING Translate(STRING src, STRING search, STRING replacement)</Signature><Params>
      <Param name="src"/>
      <Param name="search"/>
      <Param name="replacement"/>
@@ -167,7 +151,7 @@
     <Documentation> <content>Returns the argument string with all upper case characters converted to lower case.</content>
      <param><name>src</name><desc>The string that is being converted.</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="STRING ToLowerCase(STRING src)">STRING ToLowerCase(STRING src)</Signature><Params>
+    <Signature sign="STRING ToLowerCase(STRING src)" name="ToLowerCase">STRING ToLowerCase(STRING src)</Signature><Params>
      <Param name="src"/>
     </Params>
    </Definition>
@@ -176,7 +160,7 @@
     <Documentation> <content>Return the argument string with all lower case characters converted to upper case.</content>
      <param><name>src</name><desc>The string that is being converted.</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="STRING ToUpperCase(STRING src)">STRING ToUpperCase(STRING src)</Signature><Params>
+    <Signature sign="STRING ToUpperCase(STRING src)" name="ToUpperCase">STRING ToUpperCase(STRING src)</Signature><Params>
      <Param name="src"/>
     </Params>
    </Definition>
@@ -185,7 +169,7 @@
     <Documentation> <content>Returns the argument string with the first letter of each word in upper case and all other letters left as-is. A contiguous sequence of alphanumeric characters is treated as a word.</content>
      <param><name>src</name><desc>The string that is being converted.</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="STRING ToCapitalCase(STRING src)">STRING ToCapitalCase(STRING src)</Signature><Params>
+    <Signature sign="STRING ToCapitalCase(STRING src)" name="ToCapitalCase">STRING ToCapitalCase(STRING src)</Signature><Params>
      <Param name="src"/>
     </Params>
    </Definition>
@@ -194,7 +178,7 @@
     <Documentation> <content>Returns the argument string with the first letter of each word in upper case and all other letters lower case. A contiguous sequence of alphanumeric characters is treated as a word.</content>
      <param><name>src</name><desc>The string that is being converted.</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="STRING ToTitleCase(STRING src)">STRING ToTitleCase(STRING src)</Signature><Params>
+    <Signature sign="STRING ToTitleCase(STRING src)" name="ToTitleCase">STRING ToTitleCase(STRING src)</Signature><Params>
      <Param name="src"/>
     </Params>
    </Definition>
@@ -203,7 +187,7 @@
     <Documentation> <content>Returns the argument string with all characters in reverse order. Note the argument is not TRIMMED before it is reversed.</content>
      <param><name>src</name><desc>The string that is being reversed.</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="STRING Reverse(STRING src)">STRING Reverse(STRING src)</Signature><Params>
+    <Signature sign="STRING Reverse(STRING src)" name="Reverse">STRING Reverse(STRING src)</Signature><Params>
      <Param name="src"/>
     </Params>
    </Definition>
@@ -214,7 +198,7 @@
      <param><name>sought</name><desc>The string to be replaced.</desc></param>
      <param><name>replacement</name><desc>The string to be substituted into the result.</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="STRING FindReplace(STRING src, STRING sought, STRING replacement)">STRING FindReplace(STRING src, STRING sought, STRING replacement)</Signature><Params>
+    <Signature sign="STRING FindReplace(STRING src, STRING sought, STRING replacement)" name="FindReplace">STRING FindReplace(STRING src, STRING sought, STRING replacement)</Signature><Params>
      <Param name="src"/>
      <Param name="sought"/>
      <Param name="replacement"/>
@@ -226,7 +210,7 @@
      <param><name>src</name><desc>The string containing the comma separated list.</desc></param>
      <param><name>instance</name><desc>Which item to select from the list.</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="STRING Extract(STRING src, UNSIGNED4 instance)">STRING Extract(STRING src, UNSIGNED4 instance)</Signature><Params>
+    <Signature sign="STRING Extract(STRING src, UNSIGNED4 instance)" name="Extract">STRING Extract(STRING src, UNSIGNED4 instance)</Signature><Params>
      <Param name="src"/>
      <Param name="instance"/>
     </Params>
@@ -236,7 +220,7 @@
     <Documentation> <content>Returns the source string with all instances of multiple adjacent space characters (2 or more spaces together) reduced to a single space character. Leading and trailing spaces are removed, and tab characters are converted to spaces.</content>
      <param><name>src</name><desc>The string to be cleaned.</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="STRING CleanSpaces(STRING src)">STRING CleanSpaces(STRING src)</Signature><Params>
+    <Signature sign="STRING CleanSpaces(STRING src)" name="CleanSpaces">STRING CleanSpaces(STRING src)</Signature><Params>
      <Param name="src"/>
     </Params>
    </Definition>
@@ -246,7 +230,7 @@
      <param><name>src</name><desc>The string being searched in.</desc></param>
      <param><name>prefix</name><desc>The prefix to search for.</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="BOOLEAN StartsWith(STRING src, STRING prefix)">BOOLEAN StartsWith(STRING src, STRING prefix)</Signature><Params>
+    <Signature sign="BOOLEAN StartsWith(STRING src, STRING prefix)" name="StartsWith">BOOLEAN StartsWith(STRING src, STRING prefix)</Signature><Params>
      <Param name="src"/>
      <Param name="prefix"/>
     </Params>
@@ -257,7 +241,7 @@
      <param><name>src</name><desc>The string being searched in.</desc></param>
      <param><name>suffix</name><desc>The prefix to search for.</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="BOOLEAN EndsWith(STRING src, STRING suffix)">BOOLEAN EndsWith(STRING src, STRING suffix)</Signature><Params>
+    <Signature sign="BOOLEAN EndsWith(STRING src, STRING suffix)" name="EndsWith">BOOLEAN EndsWith(STRING src, STRING suffix)</Signature><Params>
      <Param name="src"/>
      <Param name="suffix"/>
     </Params>
@@ -268,7 +252,7 @@
      <param><name>src</name><desc>The string being searched in.</desc></param>
      <param><name>suffix</name><desc>The prefix to search for.</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="STRING RemoveSuffix(STRING src, STRING suffix)">STRING RemoveSuffix(STRING src, STRING suffix)</Signature><Params>
+    <Signature sign="STRING RemoveSuffix(STRING src, STRING suffix)" name="RemoveSuffix">STRING RemoveSuffix(STRING src, STRING suffix)</Signature><Params>
      <Param name="src"/>
      <Param name="suffix"/>
     </Params>
@@ -279,7 +263,7 @@
      <param><name>src</name><desc>The string containing the comma separated list.</desc></param>
      <param><name>mask</name><desc>A bitmask of which elements should be included. Bit 0 is item1, bit1 item 2 etc.</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="STRING ExtractMultiple(STRING src, UNSIGNED8 mask)">STRING ExtractMultiple(STRING src, UNSIGNED8 mask)</Signature><Params>
+    <Signature sign="STRING ExtractMultiple(STRING src, UNSIGNED8 mask)" name="ExtractMultiple">STRING ExtractMultiple(STRING src, UNSIGNED8 mask)</Signature><Params>
      <Param name="src"/>
      <Param name="mask"/>
     </Params>
@@ -291,7 +275,7 @@
      <param><name>separator</name><desc>The string used to separate words</desc></param>
      <param><name>allow_blank</name><desc>Indicates if empty/blank string items are included in the results.</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="UNSIGNED4 CountWords(STRING src, STRING separator, BOOLEAN allow_blank = FALSE)">UNSIGNED4 CountWords(STRING src, STRING separator, BOOLEAN allow_blank = FALSE)</Signature><Params>
+    <Signature sign="UNSIGNED4 CountWords(STRING src, STRING separator, BOOLEAN allow_blank = FALSE)" name="CountWords">UNSIGNED4 CountWords(STRING src, STRING separator, BOOLEAN allow_blank = FALSE)</Signature><Params>
      <Param name="src"/>
      <Param name="separator"/>
      <Param name="allow_blank"/>
@@ -304,7 +288,7 @@
      <param><name>separator</name><desc>The string used to separate words</desc></param>
      <param><name>allow_blank</name><desc>Indicates if empty/blank string items are included in the results.</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="SET OF STRING SplitWords(STRING src, STRING separator, BOOLEAN allow_blank = FALSE)">SET OF STRING SplitWords(STRING src, STRING separator, BOOLEAN allow_blank = FALSE)</Signature><Params>
+    <Signature sign="SET OF STRING SplitWords(STRING src, STRING separator, BOOLEAN allow_blank = FALSE)" name="SplitWords">SET OF STRING SplitWords(STRING src, STRING separator, BOOLEAN allow_blank = FALSE)</Signature><Params>
      <Param name="src"/>
      <Param name="separator"/>
      <Param name="allow_blank"/>
@@ -316,7 +300,7 @@
      <param><name>words</name><desc>The set of strings to be combined.</desc></param>
      <param><name>separator</name><desc>The string used to separate words.</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="STRING CombineWords(SET OF STRING words, STRING separator)">STRING CombineWords(SET OF STRING words, STRING separator)</Signature><Params>
+    <Signature sign="STRING CombineWords(SET OF STRING words, STRING separator)" name="CombineWords">STRING CombineWords(SET OF STRING words, STRING separator)</Signature><Params>
      <Param name="words"/>
      <Param name="separator"/>
     </Params>
@@ -328,7 +312,7 @@
      <param><name>_left</name><desc>The first string to be compared.</desc></param>
      <param><name>_right</name><desc>The second string to be compared.</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="UNSIGNED4 EditDistance(STRING _left, STRING _right)">UNSIGNED4 EditDistance(STRING _left, STRING _right)</Signature><Params>
+    <Signature sign="UNSIGNED4 EditDistance(STRING _left, STRING _right)" name="EditDistance">UNSIGNED4 EditDistance(STRING _left, STRING _right)</Signature><Params>
      <Param name="_left"/>
      <Param name="_right"/>
     </Params>
@@ -341,7 +325,7 @@
      <param><name>_right</name><desc>The second string to be compared.</desc></param>
      <param><name>radius</name><desc>The maximum edit distance that is accepable.</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="BOOLEAN EditDistanceWithinRadius(STRING _left, STRING _right, UNSIGNED4 radius)">BOOLEAN EditDistanceWithinRadius(STRING _left, STRING _right, UNSIGNED4 radius)</Signature><Params>
+    <Signature sign="BOOLEAN EditDistanceWithinRadius(STRING _left, STRING _right, UNSIGNED4 radius)" name="EditDistanceWithinRadius">BOOLEAN EditDistanceWithinRadius(STRING _left, STRING _right, UNSIGNED4 radius)</Signature><Params>
      <Param name="_left"/>
      <Param name="_right"/>
      <Param name="radius"/>
@@ -353,7 +337,7 @@
      <return>The number of words in the string.</return>
      <param><name>text</name><desc>The string to be broken into words.</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="UNSIGNED4 WordCount(STRING text)">UNSIGNED4 WordCount(STRING text)</Signature><Params>
+    <Signature sign="UNSIGNED4 WordCount(STRING text)" name="WordCount">UNSIGNED4 WordCount(STRING text)</Signature><Params>
      <Param name="text"/>
     </Params>
    </Definition>
@@ -364,7 +348,7 @@
      <param><name>text</name><desc>The string to be broken into words.</desc></param>
      <param><name>n</name><desc>Which word should be returned from the function.</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="STRING GetNthWord(STRING text, UNSIGNED4 n)">STRING GetNthWord(STRING text, UNSIGNED4 n)</Signature><Params>
+    <Signature sign="STRING GetNthWord(STRING text, UNSIGNED4 n)" name="GetNthWord">STRING GetNthWord(STRING text, UNSIGNED4 n)</Signature><Params>
      <Param name="text"/>
      <Param name="n"/>
     </Params>
@@ -375,7 +359,7 @@
      <return>The string excluding the first word.</return>
      <param><name>text</name><desc>The string to be broken into words.</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="ExcludeFirstWord(STRING text)">ExcludeFirstWord(STRING text)</Signature><Params>
+    <Signature sign="ExcludeFirstWord(STRING text)" name="ExcludeFirstWord">ExcludeFirstWord(STRING text)</Signature><Params>
      <Param name="text"/>
     </Params>
    </Definition>
@@ -385,7 +369,7 @@
      <return>The string excluding the last word.</return>
      <param><name>text</name><desc>The string to be broken into words.</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="ExcludeLastWord(STRING text)">ExcludeLastWord(STRING text)</Signature><Params>
+    <Signature sign="ExcludeLastWord(STRING text)" name="ExcludeLastWord">ExcludeLastWord(STRING text)</Signature><Params>
      <Param name="text"/>
     </Params>
    </Definition>
@@ -396,7 +380,7 @@
      <param><name>text</name><desc>The string to be broken into words.</desc></param>
      <param><name>n</name><desc>Which word should be returned from the function.</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="ExcludeNthWord(STRING text, UNSIGNED2 n)">ExcludeNthWord(STRING text, UNSIGNED2 n)</Signature><Params>
+    <Signature sign="ExcludeNthWord(STRING text, UNSIGNED2 n)" name="ExcludeNthWord">ExcludeNthWord(STRING text, UNSIGNED2 n)</Signature><Params>
      <Param name="text"/>
      <Param name="n"/>
     </Params>
@@ -408,7 +392,7 @@
      <param><name>word</name><desc>The word to be searched for.</desc></param>
      <param><name>ignore_case</name><desc>Whether to ignore differences in case between characters.</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="BOOLEAN FindWord(STRING src, STRING word, BOOLEAN ignore_case=FALSE)">BOOLEAN FindWord(STRING src, STRING word, BOOLEAN ignore_case=FALSE)</Signature><Params>
+    <Signature sign="BOOLEAN FindWord(STRING src, STRING word, BOOLEAN ignore_case=FALSE)" name="FindWord">BOOLEAN FindWord(STRING src, STRING word, BOOLEAN ignore_case=FALSE)</Signature><Params>
      <Param name="src"/>
      <Param name="word"/>
      <Param name="ignore_case"/>
@@ -416,36 +400,36 @@
    </Definition>
    <Definition body="16037" end="16084" exported="1" fullname="str.repeat" inherit_type="local" line="402" name="Repeat" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl" start="15988">
     <Type>function</Type>
-    <Signature pre="" post="" name="STRING Repeat(STRING text, UNSIGNED4 n)">STRING Repeat(STRING text, UNSIGNED4 n)</Signature><Params>
+    <Signature sign="STRING Repeat(STRING text, UNSIGNED4 n)" name="Repeat">STRING Repeat(STRING text, UNSIGNED4 n)</Signature><Params>
      <Param name="text"/>
      <Param name="n"/>
     </Params>
    </Definition>
    <Definition body="16351" end="16395" exported="1" fullname="str.tohexpairs" inherit_type="local" line="411" name="ToHexPairs" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl" start="16312">
     <Type>function</Type>
-    <Signature pre="" post="" name="STRING ToHexPairs(DATA value)">STRING ToHexPairs(DATA value)</Signature><Params>
+    <Signature sign="STRING ToHexPairs(DATA value)" name="ToHexPairs">STRING ToHexPairs(DATA value)</Signature><Params>
      <Param name="value"/>
     </Params>
    </Definition>
    <Definition body="16824" end="16872" exported="1" fullname="str.fromhexpairs" inherit_type="local" line="424" name="FromHexPairs" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl" start="16779">
     <Type>function</Type>
-    <Signature pre="" post="" name="DATA FromHexPairs(STRING hex_pairs)">DATA FromHexPairs(STRING hex_pairs)</Signature><Params>
+    <Signature sign="DATA FromHexPairs(STRING hex_pairs)" name="FromHexPairs">DATA FromHexPairs(STRING hex_pairs)</Signature><Params>
      <Param name="hex_pairs"/>
     </Params>
    </Definition>
    <Definition body="17240" end="17271" exported="1" fullname="str.encodebase64" inherit_type="local" line="437" name="EncodeBase64" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl" start="17199">
     <Type>function</Type>
-    <Signature pre="" post="" name="STRING EncodeBase64(DATA value)">STRING EncodeBase64(DATA value)</Signature><Params>
+    <Signature sign="STRING EncodeBase64(DATA value)" name="EncodeBase64">STRING EncodeBase64(DATA value)</Signature><Params>
      <Param name="value"/>
     </Params>
    </Definition>
    <Definition body="17674" end="17705" exported="1" fullname="str.decodebase64" inherit_type="local" line="450" name="DecodeBase64" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl" start="17633">
     <Type>function</Type>
-    <Signature pre="" post="" name="DATA DecodeBase64(STRING value)">DATA DecodeBase64(STRING value)</Signature><Params>
+    <Signature sign="DATA DecodeBase64(STRING value)" name="DecodeBase64">DATA DecodeBase64(STRING value)</Signature><Params>
      <Param name="value"/>
     </Params>
    </Definition>
-   <Signature pre="" post="" name="Str">Str</Signature><Parents/>
+   <Signature sign="Str" name="Str">Str</Signature><Parents/>
   </Definition>
- </Source>
+ <Documentation><content> </content></Documentation></Source>
  </Meta>

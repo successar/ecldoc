@@ -23,11 +23,11 @@
 				<span class="navbar-brand">system.Job</span>
 			</div>
 			<div class="navbar-collapse collapse">
-			<ul class="nav navbar-nav">
-				<li><a href="#ecldoc-section-import" class="topbar">Imports</a></li>
-				<li><a href="#ecldoc-section-tree" class="topbar">Tree</a></li>
-				<li><a href="#ecldoc-section-desc" class="topbar">Descriptions</a></li>
-			</ul>
+				<ul class="nav navbar-nav">
+					<li><a href="#ecldoc-section-import" class="topbar">Imports</a></li>
+					<li><a href="#ecldoc-section-tree" class="topbar">Tree</a></li>
+					<li><a href="#ecldoc-section-desc" class="topbar">Descriptions</a></li>
+				</ul>
 			</div>
 		</div>
 	</nav>
@@ -43,23 +43,7 @@
 				</li>
 				
 				<li>
-					<a href="thorlib.ecl.html">thorlib.ecl</a>
-				</li>
-				
-				<li>
-					<a href="workunit.ecl.html">workunit.ecl</a>
-				</li>
-				
-				<li>
 					<a href="debug.ecl.html">debug.ecl</a>
-				</li>
-				
-				<li>
-					<a href="email.ecl.html">email.ecl</a>
-				</li>
-				
-				<li>
-					<a href="job.ecl.html">job.ecl</a>
 				</li>
 				
 				<li>
@@ -68,6 +52,22 @@
 				
 				<li>
 					<a href="log.ecl.html">log.ecl</a>
+				</li>
+				
+				<li>
+					<a href="email.ecl.html">email.ecl</a>
+				</li>
+				
+				<li>
+					<a href="thorlib.ecl.html">thorlib.ecl</a>
+				</li>
+				
+				<li>
+					<a href="job.ecl.html">job.ecl</a>
+				</li>
+				
+				<li>
+					<a href="workunit.ecl.html">workunit.ecl</a>
 				</li>
 				
 			</ul>
@@ -107,9 +107,8 @@
 	<script>
 		$(document).ready(function(){
 			$('.tree-link').click(function(e) {
-				var loc = $(this).attr('href');
-				$(loc).parents().collapse('show');
-				return true;
+				var loc = $(this).attr('data-toggle');
+				$(loc).parents('.tree').collapse('show');
 			});
 		});
 	</script>

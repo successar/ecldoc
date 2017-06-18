@@ -23,11 +23,11 @@
 				<span class="navbar-brand">Audit</span>
 			</div>
 			<div class="navbar-collapse collapse">
-			<ul class="nav navbar-nav">
-				<li><a href="#ecldoc-section-import" class="topbar">Imports</a></li>
-				<li><a href="#ecldoc-section-tree" class="topbar">Tree</a></li>
-				<li><a href="#ecldoc-section-desc" class="topbar">Descriptions</a></li>
-			</ul>
+				<ul class="nav navbar-nav">
+					<li><a href="#ecldoc-section-import" class="topbar">Imports</a></li>
+					<li><a href="#ecldoc-section-tree" class="topbar">Tree</a></li>
+					<li><a href="#ecldoc-section-desc" class="topbar">Descriptions</a></li>
+				</ul>
 			</div>
 		</div>
 	</nav>
@@ -43,23 +43,7 @@
 				</li>
 				
 				<li>
-					<a href="bundlebase.ecl.html">bundlebase.ecl</a>
-				</li>
-				
-				<li>
-					<a href="blas.ecl.html">blas.ecl</a>
-				</li>
-				
-				<li>
-					<a href="str.ecl.html">str.ecl</a>
-				</li>
-				
-				<li>
-					<a href="audit.ecl.html">audit.ecl</a>
-				</li>
-				
-				<li>
-					<a href="math.ecl.html">math.ecl</a>
+					<a href="uni.ecl.html">uni.ecl</a>
 				</li>
 				
 				<li>
@@ -67,7 +51,7 @@
 				</li>
 				
 				<li>
-					<a href="date.ecl.html">date.ecl</a>
+					<a href="metaphone3.ecl.html">metaphone3.ecl</a>
 				</li>
 				
 				<li>
@@ -75,15 +59,31 @@
 				</li>
 				
 				<li>
+					<a href="str.ecl.html">str.ecl</a>
+				</li>
+				
+				<li>
+					<a href="math.ecl.html">math.ecl</a>
+				</li>
+				
+				<li>
+					<a href="blas.ecl.html">blas.ecl</a>
+				</li>
+				
+				<li>
+					<a href="date.ecl.html">date.ecl</a>
+				</li>
+				
+				<li>
+					<a href="audit.ecl.html">audit.ecl</a>
+				</li>
+				
+				<li>
 					<a href="file.ecl.html">file.ecl</a>
 				</li>
 				
 				<li>
-					<a href="uni.ecl.html">uni.ecl</a>
-				</li>
-				
-				<li>
-					<a href="metaphone3.ecl.html">metaphone3.ecl</a>
+					<a href="bundlebase.ecl.html">bundlebase.ecl</a>
 				</li>
 				
 			</ul>
@@ -128,9 +128,8 @@
 	<script>
 		$(document).ready(function(){
 			$('.tree-link').click(function(e) {
-				var loc = $(this).attr('href');
-				$(loc).parents().collapse('show');
-				return true;
+				var loc = $(this).attr('data-toggle');
+				$(loc).parents('.tree').collapse('show');
 			});
 		});
 	</script>

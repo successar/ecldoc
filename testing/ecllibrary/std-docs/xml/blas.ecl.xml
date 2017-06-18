@@ -6,24 +6,24 @@
    <Definition body="925" end="1427" exported="1" fullname="BLAS.Types" inherit_type="local" line="21" name="Types" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/BLAS.ecl" start="910">
     <Type>module</Type>
     <Definition body="959" end="985" exported="1" fullname="blas.types.value_t" inherit_type="local" line="22" name="value_t" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/BLAS.ecl" start="937">
-     <Signature pre="" post="" name="value_t">value_t</Signature><Type>attribute</Type>
+     <Signature sign="value_t" name="value_t">value_t</Signature><Type>attribute</Type>
     </Definition>
     <Definition body="1025" end="1055" exported="1" fullname="blas.types.dimension_t" inherit_type="local" line="23" name="dimension_t" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/BLAS.ecl" start="1003">
-     <Signature pre="" post="" name="dimension_t">dimension_t</Signature><Type>attribute</Type>
+     <Signature sign="dimension_t" name="dimension_t">dimension_t</Signature><Type>attribute</Type>
     </Definition>
     <Definition body="1095" end="1122" exported="1" fullname="blas.types.matrix_t" inherit_type="local" line="24" name="matrix_t" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/BLAS.ecl" start="1073">
-     <Signature pre="" post="" name="matrix_t">matrix_t</Signature><Type>attribute</Type>
+     <Signature sign="matrix_t" name="matrix_t">matrix_t</Signature><Type>attribute</Type>
     </Definition>
     <Definition body="1167" end="1194" exported="1" inherit_type="local" line="25" name="Triangle" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/BLAS.ecl" start="1145" fullname="ecldoc-Triangle">
-     <Signature pre="" post="" name="Triangle">Triangle</Signature><Type>attribute</Type>
+     <Signature sign="Triangle" name="Triangle">Triangle</Signature><Type>attribute</Type>
     </Definition>
     <Definition body="1260" end="1287" exported="1" inherit_type="local" line="26" name="Diagonal" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/BLAS.ecl" start="1238" fullname="ecldoc-Diagonal">
-     <Signature pre="" post="" name="Diagonal">Diagonal</Signature><Type>attribute</Type>
+     <Signature sign="Diagonal" name="Diagonal">Diagonal</Signature><Type>attribute</Type>
     </Definition>
     <Definition body="1360" end="1383" exported="1" inherit_type="local" line="27" name="Side" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/BLAS.ecl" start="1338" fullname="ecldoc-Side">
-     <Signature pre="" post="" name="Side">Side</Signature><Type>attribute</Type>
+     <Signature sign="Side" name="Side">Side</Signature><Type>attribute</Type>
     </Definition>
-    <Signature pre="" post="" name="Types">Types</Signature><Parents/>
+    <Signature sign="Types" name="Types">Types</Signature><Parents/>
    </Definition>
    <Definition body="1759" end="1762" exported="1" fullname="blas.icellfunc" inherit_type="local" line="37" name="ICellFunc" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/BLAS.ecl" start="1601">
     <Type>function</Type>
@@ -33,7 +33,7 @@
      <param><name>r</name><desc>the row ordinal</desc></param>
      <param><name>c</name><desc>the column ordinal</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="Types.value_t ICellFunc(Types.value_t v,&#10;                                 Types.dimension_t r,&#10;                                 Types.dimension_t c)">Types.value_t ICellFunc(Types.value_t v,
+    <Signature sign="Types.value_t ICellFunc(Types.value_t v,&#10;                                 Types.dimension_t r,&#10;                                 Types.dimension_t c)" name="ICellFunc">Types.value_t ICellFunc(Types.value_t v,
                                  Types.dimension_t r,
                                  Types.dimension_t c)</Signature><Params>
      <Param name="v"/>
@@ -50,7 +50,7 @@
      <param><name>x</name><desc>matrix</desc></param>
      <param><name>f</name><desc>function to apply</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="Types.matrix_t Apply2Cells(Types.dimension_t m,&#10;                                    Types.dimension_t n,&#10;                                    Types.matrix_t x,&#10;                                    ICellFunc f)">Types.matrix_t Apply2Cells(Types.dimension_t m,
+    <Signature sign="Types.matrix_t Apply2Cells(Types.dimension_t m,&#10;                                    Types.dimension_t n,&#10;                                    Types.matrix_t x,&#10;                                    ICellFunc f)" name="Apply2Cells">Types.matrix_t Apply2Cells(Types.dimension_t m,
                                     Types.dimension_t n,
                                     Types.matrix_t x,
                                     ICellFunc f)</Signature><Params>
@@ -69,7 +69,7 @@
      <param><name>incx</name><desc>the increment for x, 1 in the case of an actual vector</desc></param>
      <param><name>skipped</name><desc>default is zero, the number of entries stepped over to get to the first entry</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="Types.value_t&#10;      dasum(Types.dimension_t m, Types.matrix_t x,&#10;            Types.dimension_t incx, Types.dimension_t skipped=0)">Types.value_t
+    <Signature sign="Types.value_t&#10;      dasum(Types.dimension_t m, Types.matrix_t x,&#10;            Types.dimension_t incx, Types.dimension_t skipped=0)" name="dasum">Types.value_t
       dasum(Types.dimension_t m, Types.matrix_t x,
             Types.dimension_t incx, Types.dimension_t skipped=0)</Signature><Params>
      <Param name="m"/>
@@ -91,7 +91,7 @@
      <param><name>x_skipped</name><desc>number of entries skipped to get to the first X</desc></param>
      <param><name>y_skipped</name><desc>number of entries skipped to get to the first Y</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="Types.matrix_t&#10;       daxpy(Types.dimension_t N, Types.value_t alpha, Types.matrix_t X,&#10;             Types.dimension_t incX, Types.matrix_t Y, Types.dimension_t incY,&#10;             Types.dimension_t x_skipped=0, Types.dimension_t y_skipped=0)">Types.matrix_t
+    <Signature sign="Types.matrix_t&#10;       daxpy(Types.dimension_t N, Types.value_t alpha, Types.matrix_t X,&#10;             Types.dimension_t incX, Types.matrix_t Y, Types.dimension_t incY,&#10;             Types.dimension_t x_skipped=0, Types.dimension_t y_skipped=0)" name="daxpy">Types.matrix_t
        daxpy(Types.dimension_t N, Types.value_t alpha, Types.matrix_t X,
              Types.dimension_t incX, Types.matrix_t Y, Types.dimension_t incY,
              Types.dimension_t x_skipped=0, Types.dimension_t y_skipped=0)</Signature><Params>
@@ -119,7 +119,7 @@
      <param><name>beta</name><desc>scalar for matrix C</desc></param>
      <param><name>C</name><desc>matrix C or empty</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="Types.matrix_t&#10;         dgemm(BOOLEAN transposeA, BOOLEAN transposeB,&#10;               Types.dimension_t M, Types.dimension_t N, Types.dimension_t K,&#10;               Types.value_t alpha, Types.matrix_t A, Types.matrix_t B,&#10;               Types.value_t beta=0.0, Types.matrix_t C=[])">Types.matrix_t
+    <Signature sign="Types.matrix_t&#10;         dgemm(BOOLEAN transposeA, BOOLEAN transposeB,&#10;               Types.dimension_t M, Types.dimension_t N, Types.dimension_t K,&#10;               Types.value_t alpha, Types.matrix_t A, Types.matrix_t B,&#10;               Types.value_t beta=0.0, Types.matrix_t C=[])" name="dgemm">Types.matrix_t
          dgemm(BOOLEAN transposeA, BOOLEAN transposeB,
                Types.dimension_t M, Types.dimension_t N, Types.dimension_t K,
                Types.value_t alpha, Types.matrix_t A, Types.matrix_t B,
@@ -143,7 +143,7 @@
      <param><name>m</name><desc>number of rows of A</desc></param>
      <param><name>n</name><desc>number of columns of A</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="Types.matrix_t&#10;         dgetf2(Types.dimension_t m, Types.dimension_t n, Types.matrix_t a)">Types.matrix_t
+    <Signature sign="Types.matrix_t&#10;         dgetf2(Types.dimension_t m, Types.dimension_t n, Types.matrix_t a)" name="dgetf2">Types.matrix_t
          dgetf2(Types.dimension_t m, Types.dimension_t n, Types.matrix_t a)</Signature><Params>
      <Param name="m"/>
      <Param name="n"/>
@@ -159,7 +159,7 @@
      <param><name>A</name><desc>the square matrix</desc></param>
      <param><name>clear</name><desc>clears the unused triangle</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="Types.matrix_t&#10;         dpotf2(Types.Triangle tri, Types.dimension_t r, Types.matrix_t A,&#10;                         BOOLEAN clear=TRUE)">Types.matrix_t
+    <Signature sign="Types.matrix_t&#10;         dpotf2(Types.Triangle tri, Types.dimension_t r, Types.matrix_t A,&#10;                         BOOLEAN clear=TRUE)" name="dpotf2">Types.matrix_t
          dpotf2(Types.Triangle tri, Types.dimension_t r, Types.matrix_t A,
                          BOOLEAN clear=TRUE)</Signature><Params>
      <Param name="tri"/>
@@ -178,7 +178,7 @@
      <param><name>incX</name><desc>the stride to get to the next element in the vector</desc></param>
      <param><name>skipped</name><desc>the number of elements skipped to get to the first element</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="Types.matrix_t&#10;         dscal(Types.dimension_t N, Types.value_t alpha, Types.matrix_t X,&#10;               Types.dimension_t incX, Types.dimension_t skipped=0)">Types.matrix_t
+    <Signature sign="Types.matrix_t&#10;         dscal(Types.dimension_t N, Types.value_t alpha, Types.matrix_t X,&#10;               Types.dimension_t incX, Types.dimension_t skipped=0)" name="dscal">Types.matrix_t
          dscal(Types.dimension_t N, Types.value_t alpha, Types.matrix_t X,
                Types.dimension_t incX, Types.dimension_t skipped=0)</Signature><Params>
      <Param name="N"/>
@@ -201,7 +201,7 @@
      <param><name>C</name><desc>the matrix to update</desc></param>
      <param><name>clear</name><desc>clear the triangle that is not updated. BLAS assumes that symmetric matrices have only one of the triangles and this option lets you make that true.</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="Types.matrix_t&#10;         dsyrk(Types.Triangle tri, BOOLEAN transposeA,&#10;               Types.dimension_t N, Types.dimension_t K,&#10;               Types.value_t alpha, Types.matrix_t A,&#10;               Types.value_t beta, Types.matrix_t C, BOOLEAN clear=FALSE)">Types.matrix_t
+    <Signature sign="Types.matrix_t&#10;         dsyrk(Types.Triangle tri, BOOLEAN transposeA,&#10;               Types.dimension_t N, Types.dimension_t K,&#10;               Types.value_t alpha, Types.matrix_t A,&#10;               Types.value_t beta, Types.matrix_t C, BOOLEAN clear=FALSE)" name="dsyrk">Types.matrix_t
          dsyrk(Types.Triangle tri, BOOLEAN transposeA,
                Types.dimension_t N, Types.dimension_t K,
                Types.value_t alpha, Types.matrix_t A,
@@ -232,7 +232,7 @@
      <param><name>A</name><desc>a triangular matrix</desc></param>
      <param><name>B</name><desc>the matrix of values for the solve</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="Types.matrix_t&#10;         dtrsm(Types.Side side, Types.Triangle tri,&#10;               BOOLEAN transposeA, Types.Diagonal diag,&#10;               Types.dimension_t M, Types.dimension_t N, Types.dimension_t lda,&#10;               Types.value_t alpha, Types.matrix_t A, Types.matrix_t B)">Types.matrix_t
+    <Signature sign="Types.matrix_t&#10;         dtrsm(Types.Side side, Types.Triangle tri,&#10;               BOOLEAN transposeA, Types.Diagonal diag,&#10;               Types.dimension_t M, Types.dimension_t N, Types.dimension_t lda,&#10;               Types.value_t alpha, Types.matrix_t A, Types.matrix_t B)" name="dtrsm">Types.matrix_t
          dtrsm(Types.Side side, Types.Triangle tri,
                BOOLEAN transposeA, Types.Diagonal diag,
                Types.dimension_t M, Types.dimension_t N, Types.dimension_t lda,
@@ -257,7 +257,7 @@
      <param><name>n</name><desc>number of columns</desc></param>
      <param><name>x</name><desc>matrix from which to extract the diagonal</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="Types.matrix_t extract_diag(Types.dimension_t m,&#10;                                     Types.dimension_t n,&#10;                                     Types.matrix_t x)">Types.matrix_t extract_diag(Types.dimension_t m,
+    <Signature sign="Types.matrix_t extract_diag(Types.dimension_t m,&#10;                                     Types.dimension_t n,&#10;                                     Types.matrix_t x)" name="extract_diag">Types.matrix_t extract_diag(Types.dimension_t m,
                                      Types.dimension_t n,
                                      Types.matrix_t x)</Signature><Params>
      <Param name="m"/>
@@ -275,7 +275,7 @@
      <param><name>dt</name><desc>Use Diagonal.NotUnitTri or Diagonal.UnitTri</desc></param>
      <param><name>a</name><desc>Matrix, usually a composite from factoring</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="Types.matrix_t&#10;         extract_tri(Types.dimension_t m, Types.dimension_t n,&#10;                     Types.Triangle tri, Types.Diagonal dt,&#10;                     Types.matrix_t a)">Types.matrix_t
+    <Signature sign="Types.matrix_t&#10;         extract_tri(Types.dimension_t m, Types.dimension_t n,&#10;                     Types.Triangle tri, Types.Diagonal dt,&#10;                     Types.matrix_t a)" name="extract_tri">Types.matrix_t
          extract_tri(Types.dimension_t m, Types.dimension_t n,
                      Types.Triangle tri, Types.Diagonal dt,
                      Types.matrix_t a)</Signature><Params>
@@ -294,7 +294,7 @@
      <param><name>v</name><desc>option value, defaults to 1</desc></param>
      <param><name>X</name><desc>optional input of diagonal values, multiplied by v.</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="Types.matrix_t&#10;         make_diag(Types.dimension_t m, Types.value_t v=1.0,&#10;                   Types.matrix_t X=[])">Types.matrix_t
+    <Signature sign="Types.matrix_t&#10;         make_diag(Types.dimension_t m, Types.value_t v=1.0,&#10;                   Types.matrix_t X=[])" name="make_diag">Types.matrix_t
          make_diag(Types.dimension_t m, Types.value_t v=1.0,
                    Types.matrix_t X=[])</Signature><Params>
      <Param name="m"/>
@@ -309,7 +309,7 @@
      <param><name>m</name><desc>number of elements</desc></param>
      <param><name>v</name><desc>the values, defaults to 1</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="Types.matrix_t&#10;      make_vector(Types.dimension_t m,&#10;                  Types.value_t v=1.0)">Types.matrix_t
+    <Signature sign="Types.matrix_t&#10;      make_vector(Types.dimension_t m,&#10;                  Types.value_t v=1.0)" name="make_vector">Types.matrix_t
       make_vector(Types.dimension_t m,
                   Types.value_t v=1.0)</Signature><Params>
      <Param name="m"/>
@@ -324,7 +324,7 @@
      <param><name>n</name><desc>number of columns</desc></param>
      <param><name>x</name><desc>the matrix</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="Types.value_t&#10;      trace(Types.dimension_t m,&#10;            Types.dimension_t n,&#10;            Types.matrix_t x)">Types.value_t
+    <Signature sign="Types.value_t&#10;      trace(Types.dimension_t m,&#10;            Types.dimension_t n,&#10;            Types.matrix_t x)" name="trace">Types.value_t
       trace(Types.dimension_t m,
             Types.dimension_t n,
             Types.matrix_t x)</Signature><Params>
@@ -333,10 +333,10 @@
      <Param name="x"/>
     </Params>
    </Definition>
-   <Signature pre="" post="" name="BLAS">BLAS</Signature><Parents/>
+   <Signature sign="BLAS" name="BLAS">BLAS</Signature><Parents/>
   </Definition>
   <Import body="0" end="790" fullname="lib_eclblas" inherit_type="local" line="17" name="LIB_ECLBLAS" ref="lib_eclblas" remotescope="1" start="790" target="lib_eclblas/pkg.toc.xml">
    <Type>attribute</Type>
   </Import>
- </Source>
+ <Documentation><content> </content></Documentation></Source>
  </Meta>

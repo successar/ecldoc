@@ -11,7 +11,7 @@
      <param><name>observations</name><desc>the observed explanatory values</desc></param>
      <param><name>classifications</name><desc>the observed classification used to build the model</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="DATASET(Types.Layout_Model)&#10;        GetModel(DATASET(Types.NumericField) observations,&#10;                 DATASET(Types.DiscreteField) classifications)">DATASET(Types.Layout_Model)
+    <Signature sign="DATASET(Types.Layout_Model)&#10;        GetModel(DATASET(Types.NumericField) observations,&#10;                 DATASET(Types.DiscreteField) classifications)" name="GetModel">DATASET(Types.Layout_Model)
         GetModel(DATASET(Types.NumericField) observations,
                  DATASET(Types.DiscreteField) classifications)</Signature><Params>
      <Param name="observations"/>
@@ -25,7 +25,7 @@
      <param><name>model</name><desc>The model, which must be produced by a corresponding getModel function.</desc></param>
      <param><name>new_observations</name><desc>observations to be classified</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="DATASET(Types.Classify_Result)&#10;        Classify(DATASET(Types.Layout_Model) model,&#10;                 DATASET(Types.NumericField) new_observations)">DATASET(Types.Classify_Result)
+    <Signature sign="DATASET(Types.Classify_Result)&#10;        Classify(DATASET(Types.Layout_Model) model,&#10;                 DATASET(Types.NumericField) new_observations)" name="Classify">DATASET(Types.Classify_Result)
         Classify(DATASET(Types.Layout_Model) model,
                  DATASET(Types.NumericField) new_observations)</Signature><Params>
      <Param name="model"/>
@@ -40,7 +40,7 @@
      <param><name>observations</name><desc>the explanatory values.</desc></param>
      <param><name>classifications</name><desc>the classifications associated with the observations</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="DATASET(Types.Confusion_Detail)&#10;        Report(DATASET(Types.Layout_Model) model,&#10;               DATASET(Types.NumericField) observations,&#10;               DATASET(Types.DiscreteField) classifications)">DATASET(Types.Confusion_Detail)
+    <Signature sign="DATASET(Types.Confusion_Detail)&#10;        Report(DATASET(Types.Layout_Model) model,&#10;               DATASET(Types.NumericField) observations,&#10;               DATASET(Types.DiscreteField) classifications)" name="Report">DATASET(Types.Confusion_Detail)
         Report(DATASET(Types.Layout_Model) model,
                DATASET(Types.NumericField) observations,
                DATASET(Types.DiscreteField) classifications)</Signature><Params>
@@ -49,7 +49,7 @@
      <Param name="classifications"/>
     </Params>
    </Definition>
-   <Signature pre="" post="" name="IClassify">IClassify</Signature><Documentation> <content>Interface definition for Classification. Actual implementation modules will probably take parameters.</content>
+   <Signature sign="IClassify" name="IClassify">IClassify</Signature><Documentation> <content>Interface definition for Classification. Actual implementation modules will probably take parameters.</content>
    </Documentation>
   </Definition>
   <Import body="0" end="7" fullname="ML_Core" inherit_type="local" line="1" name="ML_Core" ref="ml_core" start="7" target="../pkg.toc.xml">
@@ -58,5 +58,7 @@
   <Import body="0" end="30" fullname="ML_Core.Types" inherit_type="local" line="2" name="Types" ref="ml_core.types" start="30" target="../types.ecl.xml">
    <Type>attribute</Type>
   </Import>
- </Source>
+ <Documentation> <content>Interface definition for Classification. Actual implementation modules will probably take parameters.</content>
+   </Documentation>
+  </Source>
  </Meta>

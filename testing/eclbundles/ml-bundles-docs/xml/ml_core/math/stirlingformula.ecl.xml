@@ -9,32 +9,19 @@
    <Documentation> <content>Useful constants</content>
    </Documentation>
   </Import>
-  <Definition body="59" end="73" fullname="ml_core.math.pi" inherit_type="local" line="3" name="PI" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Math/StirlingFormula.ecl" start="54">
-   <Type>attribute</Type>
-   <Signature pre="" post="" name="PI">PI</Signature><Documentation> <content>Constant PI</content>
-   </Documentation>
-  </Definition>
-  <Definition body="81" end="93" fullname="ml_core.math.poly" inherit_type="local" line="4" name="Poly" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Math/StirlingFormula.ecl" start="74" target="poly.ecl.xml">
-   <Type>embed</Type>
-   <Documentation> <content>Evaluate a polynomial from a set of co-effs. Co-effs 1 is assumed to be the HIGH order of the equation. Thus for ax^2+bx+c - the set would need to be Coef := [a,b,c];</content>
-    <return>value of the polynomial at x</return>
-    <param><name>x</name><desc>the value of x in the polynomial</desc></param>
-    <param><name>Coeffs</name><desc>a set of coefficients forthe polynomial. The ALL set is considered to be all zero values</desc></param>
-   </Documentation>
-   <Signature pre="" post="" name="Poly">Poly</Signature><Params>
-    <Param name="x"/>
-    <Param name="Coeffs"/>
-   </Params>
-  </Definition>
   <Definition body="220" end="760" exported="1" fullname="ml_core.math.stirlingformula" inherit_type="local" line="10" name="StirlingFormula" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Math/StirlingFormula.ecl" start="187">
    <Type>function</Type>
    <Documentation> <content>Stirling's formula</content>
     <return>evaluation result</return>
     <param><name>x</name><desc>the point of evaluation</desc></param>
    </Documentation>
-   <Signature pre="" post="" name="StirlingFormula(REAL x)">StirlingFormula(REAL x)</Signature><Params>
+   <Signature sign="StirlingFormula(REAL x)" name="StirlingFormula">StirlingFormula(REAL x)</Signature><Params>
     <Param name="x"/>
    </Params>
   </Definition>
- </Source>
+ <Documentation> <content>Stirling's formula</content>
+    <return>evaluation result</return>
+    <param><name>x</name><desc>the point of evaluation</desc></param>
+   </Documentation>
+   </Source>
  <Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Math/Poly.ecl" name="ML_Core.Math.Poly" target="poly.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Constants.ecl" name="ML_Core.Constants" target="../constants.ecl.xml"/></Meta>

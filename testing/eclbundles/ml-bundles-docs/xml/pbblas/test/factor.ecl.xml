@@ -20,58 +20,8 @@
    <Documentation> <content>Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes.</content>
    </Documentation>
   </Import>
-  <Definition body="196" end="215" fullname="pbblas.test.layout_cell" inherit_type="local" line="7" name="Layout_Cell" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Factor.ecl" start="182">
-   <Type>record</Type>
-   <Field name="wi_id"/>
-   <Field name="x"/>
-   <Field name="y"/>
-   <Field name="v"/>
-   <Signature pre="" post="" name="Layout_Cell">Layout_Cell</Signature><Documentation> <field><name>wi_id</name><desc>Work Item Number -- An identifier from 1 to 64K-1 that separates and identifies individual matrixes</desc></field>
-    <field><name>x</name><desc>1-based row position within the matrix</desc></field>
-    <field><name>y</name><desc>1-based column position within the matrix</desc></field>
-    <field><name>v</name><desc>Real value for the cell</desc></field>
-    <see>matrix_t</see>
-    <see>Std/PBblas/MakeR8Set.ecl</see>
-    <see>Std/PBblas/Converted.ecl WARNING: Used as C++ attribute. Do not change without corresponding changes to MakeR8Set.</see>
-    <content>Layout for Matrix Cell Main representation of Matrix cell at interface to all PBBlas functions. Matrixes are represented as DATASET(Layout_Cell), where each cell describes the row and column position of the cell as well as its value. Only the non-zero cells need to be contained in the dataset in order to describe the matrix since all unspecified cells are considered to have a value of zero. The cell also contains a work-item number that allows multiple separate matrixes to be carried in the same dataset. This supports the "myriad" style interface that allows the same operations to be performed on many different sets of data at once. Note that these matrixes do not have an explicit size. They are sized implicitly, based on the maximum row and column presented in the data. A matrix can be converted to an explicit dense form (see matrix_t) by using the utility module MakeR8Set. This module should only be used for known small matrixes (&lt; 1M cells) or for partitions of a larger matrix. The Converted module provides utility functions to convert to and from a set of partitions (See Layout_parts).</content>
-   </Documentation>
-  </Definition>
-  <Definition body="227" end="244" fullname="pbblas.test.matrix_t" inherit_type="local" line="8" name="matrix_t" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Factor.ecl" start="216">
-   <Signature pre="" post="" name="matrix_t">matrix_t</Signature><Type>attribute</Type>
-  </Definition>
-  <Definition body="256" end="272" inherit_type="local" line="9" name="Triangle" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Factor.ecl" start="245" fullname="ecldoc-Triangle">
-   <Type>attribute</Type>
-   <Signature pre="" post="" name="Triangle">Triangle</Signature><Documentation> <content>Enumeration for Triangle type WARNING: type used in C++ attribute</content>
-   </Documentation>
-  </Definition>
-  <Definition body="282" end="298" fullname="pbblas.test.upper" inherit_type="local" line="10" name="Upper" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Factor.ecl" start="273">
-   <Signature pre="" post="" name="Upper">Upper</Signature><Type>attribute</Type>
-  </Definition>
-  <Definition body="308" end="324" fullname="pbblas.test.lower" inherit_type="local" line="11" name="Lower" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Factor.ecl" start="299">
-   <Signature pre="" post="" name="Lower">Lower</Signature><Type>attribute</Type>
-  </Definition>
-  <Definition body="336" end="352" inherit_type="local" line="12" name="Diagonal" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Factor.ecl" start="325" fullname="ecldoc-Diagonal">
-   <Type>attribute</Type>
-   <Signature pre="" post="" name="Diagonal">Diagonal</Signature><Documentation> <content>Enumeration for Diagonal type WARNING: type used in C++ attribute</content>
-   </Documentation>
-  </Definition>
-  <Definition body="363" end="387" fullname="pbblas.test.unittri" inherit_type="local" line="13" name="UnitTri" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Factor.ecl" start="353">
-   <Signature pre="" post="" name="UnitTri">UnitTri</Signature><Type>attribute</Type>
-  </Definition>
-  <Definition body="401" end="428" fullname="pbblas.test.notunittri" inherit_type="local" line="14" name="NotUnitTri" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Factor.ecl" start="388">
-   <Signature pre="" post="" name="NotUnitTri">NotUnitTri</Signature><Type>attribute</Type>
-  </Definition>
-  <Definition body="440" end="453" fullname="pbblas.test.lu_test" inherit_type="local" line="16" name="LU_Test" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Factor.ecl" start="430">
-   <Signature pre="" post="" name="LU_Test">LU_Test</Signature><Type>attribute</Type>
-  </Definition>
-  <Definition body="464" end="477" fullname="pbblas.test.ch_test" inherit_type="local" line="17" name="CH_Test" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Factor.ecl" start="454">
-   <Signature pre="" post="" name="CH_Test">CH_Test</Signature><Type>attribute</Type>
-  </Definition>
-  <Definition body="485" end="504" fullname="pbblas.test.rslt" inherit_type="local" line="18" name="rslt" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Factor.ecl" start="478">
-   <Signature pre="" post="" name="rslt">rslt</Signature><Type>attribute</Type>
-  </Definition>
   <Definition body="521" end="527" exported="1" fullname="pbblas.test.factor" inherit_type="local" line="19" name="Factor" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/Factor.ecl" start="505">
-   <Signature pre="" post="" name="Factor">Factor</Signature><Type>attribute</Type>
+   <Signature sign="Factor" name="Factor">Factor</Signature><Type>attribute</Type>
   </Definition>
- </Source>
+ <Documentation><content> </content></Documentation></Source>
  <Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/Types.ecl" name="PBblas.internal.Types" target="../internal/types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Types.ecl" name="PBblas.Types" target="../types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Types.ecl" name="ML_Core.Types" target="../../ml_core/types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/getrf.ecl" name="PBblas.test.getrf" target="getrf.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/MakeTestMatrix.ecl" name="PBblas.test.MakeTestMatrix" target="maketestmatrix.ecl.xml"/><Depends sourcePath="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/system/Thorlib.ecl" name="std.system.Thorlib" target="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/system/Thorlib.ecl"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/DiffReport.ecl" name="PBblas.test.DiffReport" target="diffreport.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/Converted.ecl" name="PBblas.internal.Converted" target="../internal/converted.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/MakeR8Set.ecl" name="PBblas.internal.MakeR8Set" target="../internal/maker8set.ecl.xml"/><Depends sourcePath="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/BLAS.ecl" name="std.BLAS" target="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/BLAS.ecl"/><Depends sourcePath="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/plugins/lib_eclblas.ecllib" target="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/plugins/lib_eclblas.ecllib"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/gemm.ecl" name="PBblas.gemm" target="../gemm.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/MatDims.ecl" name="PBblas.internal.MatDims" target="../internal/matdims.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/BlockDimensions.ecl" name="PBblas.internal.BlockDimensions" target="../internal/blockdimensions.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/BlockDimensionsMultiply.ecl" name="PBblas.internal.BlockDimensionsMultiply" target="../internal/blockdimensionsmultiply.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/BlockDimensionsSolve.ecl" name="PBblas.internal.BlockDimensionsSolve" target="../internal/blockdimensionssolve.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/getrf.ecl" name="PBblas.getrf" target="../getrf.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/ExtractTri.ecl" name="PBblas.ExtractTri" target="../extracttri.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/FromR8Set.ecl" name="PBblas.internal.FromR8Set" target="../internal/fromr8set.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/potrf.ecl" name="PBblas.potrf" target="../potrf.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/potrf.ecl" name="PBblas.test.potrf" target="potrf.ecl.xml"/></Meta>

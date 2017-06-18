@@ -9,7 +9,7 @@
      <returns>probability of exceeding x.</returns>
      <param><name>x</name><desc>the number of standard deviations</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="REAL8 Normal_CDF(REAL8 x)">REAL8 Normal_CDF(REAL8 x)</Signature><Params>
+    <Signature sign="REAL8 Normal_CDF(REAL8 x)" name="Normal_CDF">REAL8 Normal_CDF(REAL8 x)</Signature><Params>
      <Param name="x"/>
     </Params>
    </Definition>
@@ -19,7 +19,7 @@
      <returns>number of standard deviations from the mean</returns>
      <param><name>x</name><desc>probability</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="REAL8 Normal_PPF(REAL8 x)">REAL8 Normal_PPF(REAL8 x)</Signature><Params>
+    <Signature sign="REAL8 Normal_PPF(REAL8 x)" name="Normal_PPF">REAL8 Normal_PPF(REAL8 x)</Signature><Params>
      <Param name="x"/>
     </Params>
    </Definition>
@@ -30,7 +30,7 @@
      <param><name>x</name><desc>value of the evaluation</desc></param>
      <param><name>df</name><desc>degrees of freedom</desc></param>
     </Documentation>
-    <Signature pre="" post="" name="REAL8 T_CDF(REAL8 x, REAL8 df)">REAL8 T_CDF(REAL8 x, REAL8 df)</Signature><Params>
+    <Signature sign="REAL8 T_CDF(REAL8 x, REAL8 df)" name="T_CDF">REAL8 T_CDF(REAL8 x, REAL8 df)</Signature><Params>
      <Param name="x"/>
      <Param name="df"/>
     </Params>
@@ -39,7 +39,7 @@
     <Type>function</Type>
     <Documentation> <content>Percentage point function for the T distribution. Translated from NIST SEL DATAPAC Fortran TPPF.f source</content>
     </Documentation>
-    <Signature pre="" post="" name="REAL8 T_PPF(REAL8 x, REAL8 df)">REAL8 T_PPF(REAL8 x, REAL8 df)</Signature><Params>
+    <Signature sign="REAL8 T_PPF(REAL8 x, REAL8 df)" name="T_PPF">REAL8 T_PPF(REAL8 x, REAL8 df)</Signature><Params>
      <Param name="x"/>
      <Param name="df"/>
     </Params>
@@ -48,7 +48,7 @@
     <Type>function</Type>
     <Documentation> <content>The cumulative distribution function for the Chi Square distribution. the CDF for the specfied degrees of freedom. Translated from the NIST SEL DATAPAC Fortran subroutine CHSCDF.</content>
     </Documentation>
-    <Signature pre="" post="" name="REAL8 Chi2_CDF(REAL8 x, REAL8 df)">REAL8 Chi2_CDF(REAL8 x, REAL8 df)</Signature><Params>
+    <Signature sign="REAL8 Chi2_CDF(REAL8 x, REAL8 df)" name="Chi2_CDF">REAL8 Chi2_CDF(REAL8 x, REAL8 df)</Signature><Params>
      <Param name="x"/>
      <Param name="df"/>
     </Params>
@@ -57,12 +57,12 @@
     <Type>function</Type>
     <Documentation> <content>The Chi Squared PPF function. Translated from the NIST SEL DATAPAC Fortran subroutine CHSPPF.</content>
     </Documentation>
-    <Signature pre="" post="" name="REAL8 Chi2_PPF(REAL8 x, REAL8 df)">REAL8 Chi2_PPF(REAL8 x, REAL8 df)</Signature><Params>
+    <Signature sign="REAL8 Chi2_PPF(REAL8 x, REAL8 df)" name="Chi2_PPF">REAL8 Chi2_PPF(REAL8 x, REAL8 df)</Signature><Params>
      <Param name="x"/>
      <Param name="df"/>
     </Params>
    </Definition>
-   <Signature pre="" post="" name="Distributions">Distributions</Signature><Parents/>
+   <Signature sign="Distributions" name="Distributions">Distributions</Signature><Parents/>
   </Definition>
   <Import body="0" end="65" fullname="ML_Core.Constants" inherit_type="local" line="2" name="Core_Const" ref="ml_core.constants" start="65" target="../ml_core/constants.ecl.xml">
    <Type>attribute</Type>
@@ -72,5 +72,5 @@
   <Import body="0" end="105" fullname="ML_Core.Math" inherit_type="local" line="3" name="Math" ref="ml_core.math" remotescope="1" start="105" target="../ml_core/math/pkg.toc.xml">
    <Type>attribute</Type>
   </Import>
- </Source>
+ <Documentation><content> </content></Documentation></Source>
  <Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Math/DoubleFac.ecl" name="ML_Core.Math.DoubleFac" target="../ml_core/math/doublefac.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Constants.ecl" name="ML_Core.Constants" target="../ml_core/constants.ecl.xml"/></Meta>

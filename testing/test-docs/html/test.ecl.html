@@ -23,11 +23,11 @@
 				<span class="navbar-brand">test</span>
 			</div>
 			<div class="navbar-collapse collapse">
-			<ul class="nav navbar-nav">
-				<li><a href="#ecldoc-section-import" class="topbar">Imports</a></li>
-				<li><a href="#ecldoc-section-tree" class="topbar">Tree</a></li>
-				<li><a href="#ecldoc-section-desc" class="topbar">Descriptions</a></li>
-			</ul>
+				<ul class="nav navbar-nav">
+					<li><a href="#ecldoc-section-import" class="topbar">Imports</a></li>
+					<li><a href="#ecldoc-section-tree" class="topbar">Tree</a></li>
+					<li><a href="#ecldoc-section-desc" class="topbar">Descriptions</a></li>
+				</ul>
 			</div>
 		</div>
 	</nav>
@@ -43,43 +43,11 @@
 				</li>
 				
 				<li>
-					<a href="example.ecl.html">example.ecl</a>
-				</li>
-				
-				<li>
-					<a href="intest/pkg.toc.html">intest</a>
-				</li>
-				
-				<li>
-					<a href="example_2.ecl.html">example_2.ecl</a>
-				</li>
-				
-				<li>
-					<a href="math.ecl.html">math.ecl</a>
+					<a href="example_10.ecl.html">example_10.ecl</a>
 				</li>
 				
 				<li>
 					<a href="example_9.ecl.html">example_9.ecl</a>
-				</li>
-				
-				<li>
-					<a href="example_11.ecl.html">example_11.ecl</a>
-				</li>
-				
-				<li>
-					<a href="inintest/pkg.toc.html">inintest</a>
-				</li>
-				
-				<li>
-					<a href="example_4.ecl.html">example_4.ecl</a>
-				</li>
-				
-				<li>
-					<a href="example_5.ecl.html">example_5.ecl</a>
-				</li>
-				
-				<li>
-					<a href="example_10.ecl.html">example_10.ecl</a>
 				</li>
 				
 				<li>
@@ -91,7 +59,39 @@
 				</li>
 				
 				<li>
+					<a href="example_4.ecl.html">example_4.ecl</a>
+				</li>
+				
+				<li>
+					<a href="example_11.ecl.html">example_11.ecl</a>
+				</li>
+				
+				<li>
+					<a href="example_2.ecl.html">example_2.ecl</a>
+				</li>
+				
+				<li>
+					<a href="math.ecl.html">math.ecl</a>
+				</li>
+				
+				<li>
+					<a href="example_5.ecl.html">example_5.ecl</a>
+				</li>
+				
+				<li>
 					<a href="example_7.ecl.html">example_7.ecl</a>
+				</li>
+				
+				<li>
+					<a href="example.ecl.html">example.ecl</a>
+				</li>
+				
+				<li>
+					<a href="inintest/pkg.toc.html">inintest</a>
+				</li>
+				
+				<li>
+					<a href="intest/pkg.toc.html">intest</a>
 				</li>
 				
 			</ul>
@@ -113,9 +113,7 @@
 							
 							<a href="#dtest">
 								MODULE :
-								<span class="sign-pre"></span>
 								<span class="sign-name">test</span>
-								<span class="sign-post"></span>
 							</a>
 							<ul id="test" class="accordian-body tree collapse">
 								
@@ -127,28 +125,25 @@
 					<h3 class="page-header">DESCRIPTIONS</h3>
 					<div class="panel-group">
 						<div class="panel panel-info" id="dtest">
-							<div class="panel-heading">
-								<div class="type">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
 									MODULE
 								</div>
-								<div class="sign">
-									<span class="sign-pre"></span>
+								<div class="panel-title sign">
 									<span class="sign-name">test</span>
-									<span class="sign-post"></span>
 								</div>
-								<div class="btns">
-									<a href="#t-test" class="tree-link btn btn-primary">Tree</a>
-									<button class="btn btn-danger"> local</button>
-									</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-test" class="tree-link glyphicon glyphicon-chevron-up"></a>
+								</div>
 							</div>
 
 							<div class="panel-body">
 								<div class="row">
-									<div class="col-md-12">
+									<div class="col-md-12" style="padding-bottom: 10px;">
 										test module
 									</div>
 								</div>
-								<br/>
 								
 								
 								
@@ -176,9 +171,8 @@
 	<script>
 		$(document).ready(function(){
 			$('.tree-link').click(function(e) {
-				var loc = $(this).attr('href');
-				$(loc).parents().collapse('show');
-				return true;
+				var loc = $(this).attr('data-toggle');
+				$(loc).parents('.tree').collapse('show');
 			});
 		});
 	</script>

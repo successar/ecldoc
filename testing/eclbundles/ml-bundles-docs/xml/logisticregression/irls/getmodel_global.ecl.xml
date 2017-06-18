@@ -24,121 +24,6 @@
   <Import body="0" end="150" fullname="LogisticRegression.Types" inherit_type="local" line="7" name="Types" ref="logisticregression.types" start="150" target="../types.ecl.xml">
    <Type>attribute</Type>
   </Import>
-  <Definition body="201" end="226" fullname="logisticregression.irls.numericfield" inherit_type="local" line="9" name="NumericField" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/IRLS/GetModel_global.ecl" start="186">
-   <Type>record</Type>
-   <Field name="wi"/>
-   <Field name="id"/>
-   <Field name="number"/>
-   <Signature pre="" post="" name="NumericField">NumericField</Signature><Field name="value"/>
-  </Definition>
-  <Definition body="242" end="268" fullname="logisticregression.irls.discretefield" inherit_type="local" line="10" name="DiscreteField" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/IRLS/GetModel_global.ecl" start="227">
-   <Type>record</Type>
-   <Field name="wi"/>
-   <Field name="id"/>
-   <Field name="number"/>
-   <Signature pre="" post="" name="DiscreteField">DiscreteField</Signature><Field name="value"/>
-  </Definition>
-  <Definition body="284" end="309" fullname="logisticregression.irls.layout_model" inherit_type="local" line="11" name="Layout_Model" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/IRLS/GetModel_global.ecl" start="269">
-   <Type>record</Type>
-   <Field name="wi"/>
-   <Field name="id"/>
-   <Field name="number"/>
-   <Signature pre="" post="" name="Layout_Model">Layout_Model</Signature><Field name="value"/>
-  </Definition>
-  <Definition body="325" end="349" fullname="logisticregression.irls.t_work_item" inherit_type="local" line="12" name="t_work_item" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/IRLS/GetModel_global.ecl" start="310">
-   <Signature pre="" post="" name="t_work_item">t_work_item</Signature><Type>attribute</Type>
-  </Definition>
-  <Definition body="365" end="388" fullname="logisticregression.irls.t_recordid" inherit_type="local" line="13" name="t_RecordID" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/IRLS/GetModel_global.ecl" start="350">
-   <Signature pre="" post="" name="t_RecordID">t_RecordID</Signature><Type>attribute</Type>
-  </Definition>
-  <Definition body="404" end="430" fullname="logisticregression.irls.t_fieldnumber" inherit_type="local" line="14" name="t_FieldNumber" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/IRLS/GetModel_global.ecl" start="389">
-   <Signature pre="" post="" name="t_FieldNumber">t_FieldNumber</Signature><Type>attribute</Type>
-  </Definition>
-  <Definition body="446" end="470" fullname="logisticregression.irls.t_fieldreal" inherit_type="local" line="15" name="t_FieldReal" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/IRLS/GetModel_global.ecl" start="431">
-   <Signature pre="" post="" name="t_FieldReal">t_FieldReal</Signature><Type>attribute</Type>
-  </Definition>
-  <Definition body="478" end="504" fullname="logisticregression.irls.cell" inherit_type="local" line="16" name="Cell" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/IRLS/GetModel_global.ecl" start="471">
-   <Type>record</Type>
-   <Field name="wi_id"/>
-   <Field name="x"/>
-   <Field name="y"/>
-   <Field name="v"/>
-   <Signature pre="" post="" name="Cell">Cell</Signature><Documentation> <field><name>wi_id</name><desc>Work Item Number -- An identifier from 1 to 64K-1 that separates and identifies individual matrixes</desc></field>
-    <field><name>x</name><desc>1-based row position within the matrix</desc></field>
-    <field><name>y</name><desc>1-based column position within the matrix</desc></field>
-    <field><name>v</name><desc>Real value for the cell</desc></field>
-    <see>matrix_t</see>
-    <see>Std/PBblas/MakeR8Set.ecl</see>
-    <see>Std/PBblas/Converted.ecl WARNING: Used as C++ attribute. Do not change without corresponding changes to MakeR8Set.</see>
-    <content>Layout for Matrix Cell Main representation of Matrix cell at interface to all PBBlas functions. Matrixes are represented as DATASET(Layout_Cell), where each cell describes the row and column position of the cell as well as its value. Only the non-zero cells need to be contained in the dataset in order to describe the matrix since all unspecified cells are considered to have a value of zero. The cell also contains a work-item number that allows multiple separate matrixes to be carried in the same dataset. This supports the "myriad" style interface that allows the same operations to be performed on many different sets of data at once. Note that these matrixes do not have an explicit size. They are sized implicitly, based on the maximum row and column presented in the data. A matrix can be converted to an explicit dense form (see matrix_t) by using the utility module MakeR8Set. This module should only be used for known small matrixes (&lt; 1M cells) or for partitions of a larger matrix. The Converted module provides utility functions to convert to and from a set of partitions (See Layout_parts).</content>
-   </Documentation>
-  </Definition>
-  <Definition body="519" end="545" fullname="logisticregression.irls.layout_norm" inherit_type="local" line="17" name="Layout_Norm" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/IRLS/GetModel_global.ecl" start="505">
-   <Type>record</Type>
-   <Field name="wi_id"/>
-   <Field name="v"/>
-   <Signature pre="" post="" name="Layout_Norm">Layout_Norm</Signature><Documentation> <field><name>wi_id</name><desc>Work Item Number -- An identifier from 1 to 64K-1 that separates and identifies individual matrixes</desc></field>
-    <field><name>v</name><desc>Real value for the norm</desc></field>
-    <content>Layout for Norm results.</content>
-   </Documentation>
-  </Definition>
-  <Definition body="560" end="665" fullname="logisticregression.irls.ext_cell" inherit_type="local" line="19" name="Ext_Cell" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/IRLS/GetModel_global.ecl" start="549">
-   <Type>record</Type>
-   <Field name="wi_id"/>
-   <Field name="x"/>
-   <Field name="y"/>
-   <Field name="v"/>
-   <Field name="max_delta"/>
-   <Field name="correct"/>
-   <Field name="incorrect"/>
-   <Signature pre="" post="" name="Ext_Cell">Ext_Cell</Signature><Field name="iterations"/>
-  </Definition>
-  <Definition body="696" end="715" fullname="logisticregression.irls.bernoulli_ev" inherit_type="local" line="25" name="Bernoulli_EV" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/IRLS/GetModel_global.ecl" start="666">
-   <Type>function</Type>
-   <Signature pre="" post="" name="REAL8 Bernoulli_EV(REAL8 v)">REAL8 Bernoulli_EV(REAL8 v)</Signature><Params>
-    <Param name="v"/>
-   </Params>
-  </Definition>
-  <Definition body="839" end="856" fullname="logisticregression.irls.u_i" inherit_type="local" line="26" name="u_i" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/IRLS/GetModel_global.ecl" start="723">
-   <Type>function</Type>
-   <Signature pre="" post="" name="Types.value_t u_i(PBblas.Types.value_t v,&#10;        PBblas.Types.dimension_t r,&#10;        PBblas.Types.dimension_t c)">Types.value_t u_i(PBblas.Types.value_t v,
-        PBblas.Types.dimension_t r,
-        PBblas.Types.dimension_t c)</Signature><Params>
-    <Param name="v"/>
-    <Param name="r"/>
-    <Param name="c"/>
-   </Params>
-  </Definition>
-  <Definition body="980" end="1009" fullname="logisticregression.irls.w_i" inherit_type="local" line="29" name="w_i" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/IRLS/GetModel_global.ecl" start="864">
-   <Type>function</Type>
-   <Signature pre="" post="" name="Types.value_t w_i(PBblas.Types.value_t v,&#10;        PBblas.Types.dimension_t r,&#10;        PBblas.Types.dimension_t c)">Types.value_t w_i(PBblas.Types.value_t v,
-        PBblas.Types.dimension_t r,
-        PBblas.Types.dimension_t c)</Signature><Params>
-    <Param name="v"/>
-    <Param name="r"/>
-    <Param name="c"/>
-   </Params>
-  </Definition>
-  <Definition body="1135" end="1143" fullname="logisticregression.irls.abs_v" inherit_type="local" line="32" name="abs_v" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/IRLS/GetModel_global.ecl" start="1017">
-   <Type>function</Type>
-   <Signature pre="" post="" name="Types.value_t abs_v(PBblas.Types.value_t v,&#10;        PBblas.Types.dimension_t r,&#10;        PBblas.Types.dimension_t c)">Types.value_t abs_v(PBblas.Types.value_t v,
-        PBblas.Types.dimension_t r,
-        PBblas.Types.dimension_t c)</Signature><Params>
-    <Param name="v"/>
-    <Param name="r"/>
-    <Param name="c"/>
-   </Params>
-  </Definition>
-  <Definition body="1269" end="1287" fullname="logisticregression.irls.sig_v" inherit_type="local" line="35" name="sig_v" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/IRLS/GetModel_global.ecl" start="1151">
-   <Type>function</Type>
-   <Signature pre="" post="" name="Types.value_t sig_v(PBblas.Types.value_t v,&#10;        PBblas.Types.dimension_t r,&#10;        PBblas.Types.dimension_t c)">Types.value_t sig_v(PBblas.Types.value_t v,
-        PBblas.Types.dimension_t r,
-        PBblas.Types.dimension_t c)</Signature><Params>
-    <Param name="v"/>
-    <Param name="r"/>
-    <Param name="c"/>
-   </Params>
-  </Definition>
   <Definition body="2107" end="10770" exported="1" fullname="logisticregression.irls.getmodel_global" inherit_type="local" line="49" name="GetModel_global" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/IRLS/GetModel_global.ecl" start="1822">
    <Type>function</Type>
    <Documentation> <content>Internal function to determine values for the model coefficients and selected statistics from building the model.</content>
@@ -149,7 +34,7 @@
     <param><name>epsilon</name><desc>the minimum change in the Beta value estimate to continue</desc></param>
     <param><name>ridge</name><desc>a value to pupulate a diagonal matrix that is added to a matrix help assure that the matrix is invertible.</desc></param>
    </Documentation>
-   <Signature pre="" post="" name="DATASET(Layout_Model)&#10;      GetModel_global(DATASET(NumericField) independents,&#10;               DATASET(DiscreteField) dependents,&#10;               UNSIGNED max_iter=200,&#10;               REAL8 epsilon=Constants.default_epsilon,&#10;               REAL8 ridge=Constants.default_ridge)">DATASET(Layout_Model)
+   <Signature sign="DATASET(Layout_Model)&#10;      GetModel_global(DATASET(NumericField) independents,&#10;               DATASET(DiscreteField) dependents,&#10;               UNSIGNED max_iter=200,&#10;               REAL8 epsilon=Constants.default_epsilon,&#10;               REAL8 ridge=Constants.default_ridge)" name="GetModel_global">DATASET(Layout_Model)
       GetModel_global(DATASET(NumericField) independents,
                DATASET(DiscreteField) dependents,
                UNSIGNED max_iter=200,
@@ -162,5 +47,13 @@
     <Param name="ridge"/>
    </Params>
   </Definition>
- </Source>
+ <Documentation> <content>Internal function to determine values for the model coefficients and selected statistics from building the model.</content>
+    <return>coefficient matrix plus model building statistics</return>
+    <param><name>independents</name><desc>the independent values</desc></param>
+    <param><name>dependents</name><desc>the dependent values</desc></param>
+    <param><name>max_iter</name><desc>maximum number of iterations to try</desc></param>
+    <param><name>epsilon</name><desc>the minimum change in the Beta value estimate to continue</desc></param>
+    <param><name>ridge</name><desc>a value to pupulate a diagonal matrix that is added to a matrix help assure that the matrix is invertible.</desc></param>
+   </Documentation>
+   </Source>
  <Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Types.ecl" name="ML_Core.Types" target="../../ml_core/types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Types.ecl" name="PBblas.Types" target="../../pbblas/types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Constants.ecl" name="LogisticRegression.Constants" target="../constants.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Types.ecl" name="LogisticRegression.Types" target="../types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Converted.ecl" name="PBblas.Converted" target="../../pbblas/converted.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/MatUtils.ecl" name="PBblas.MatUtils" target="../../pbblas/matutils.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/Types.ecl" name="PBblas.internal.Types" target="../../pbblas/internal/types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/MatDims.ecl" name="PBblas.internal.MatDims" target="../../pbblas/internal/matdims.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/BlockDimensions.ecl" name="PBblas.internal.BlockDimensions" target="../../pbblas/internal/blockdimensions.ecl.xml"/><Depends sourcePath="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/system/Thorlib.ecl" name="std.system.Thorlib" target="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/system/Thorlib.ecl"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/BlockDimensionsMultiply.ecl" name="PBblas.internal.BlockDimensionsMultiply" target="../../pbblas/internal/blockdimensionsmultiply.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/BlockDimensionsSolve.ecl" name="PBblas.internal.BlockDimensionsSolve" target="../../pbblas/internal/blockdimensionssolve.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/gemm.ecl" name="PBblas.gemm" target="../../pbblas/gemm.ecl.xml"/><Depends sourcePath="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/BLAS.ecl" name="std.BLAS" target="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/BLAS.ecl"/><Depends sourcePath="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/plugins/lib_eclblas.ecllib" target="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/plugins/lib_eclblas.ecllib"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/Converted.ecl" name="PBblas.internal.Converted" target="../../pbblas/internal/converted.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/MakeR8Set.ecl" name="PBblas.internal.MakeR8Set" target="../../pbblas/internal/maker8set.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/getrf.ecl" name="PBblas.getrf" target="../../pbblas/getrf.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/trsm.ecl" name="PBblas.trsm" target="../../pbblas/trsm.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Vector2Diag.ecl" name="PBblas.Vector2Diag" target="../../pbblas/vector2diag.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Constants.ecl" name="PBblas.Constants" target="../../pbblas/constants.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Apply2Elements.ecl" name="PBblas.Apply2Elements" target="../../pbblas/apply2elements.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/IElementFunc.ecl" name="PBblas.IElementFunc" target="../../pbblas/ielementfunc.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/asum.ecl" name="PBblas.asum" target="../../pbblas/asum.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/axpy.ecl" name="PBblas.axpy" target="../../pbblas/axpy.ecl.xml"/></Meta>

@@ -13,69 +13,6 @@
   <Import body="0" end="75" fullname="LogisticRegression.Types" inherit_type="local" line="4" name="Types" ref="logisticregression.types" start="75" target="types.ecl.xml">
    <Type>attribute</Type>
   </Import>
-  <Definition body="120" end="141" fullname="logisticregression.anyfield" inherit_type="local" line="6" name="AnyField" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Deviance_Detail.ecl" start="105">
-   <Type>record</Type>
-   <Field name="wi"/>
-   <Field name="id"/>
-   <Signature pre="" post="" name="AnyField">AnyField</Signature><Field name="number"/>
-  </Definition>
-  <Definition body="157" end="182" fullname="logisticregression.numericfield" inherit_type="local" line="7" name="NumericField" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Deviance_Detail.ecl" start="142">
-   <Type>record</Type>
-   <Field name="wi"/>
-   <Field name="id"/>
-   <Field name="number"/>
-   <Signature pre="" post="" name="NumericField">NumericField</Signature><Field name="value"/>
-  </Definition>
-  <Definition body="198" end="224" fullname="logisticregression.discretefield" inherit_type="local" line="8" name="DiscreteField" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Deviance_Detail.ecl" start="183">
-   <Type>record</Type>
-   <Field name="wi"/>
-   <Field name="id"/>
-   <Field name="number"/>
-   <Signature pre="" post="" name="DiscreteField">DiscreteField</Signature><Field name="value"/>
-  </Definition>
-  <Definition body="240" end="262" fullname="logisticregression.raw_pred" inherit_type="local" line="9" name="Raw_Pred" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Deviance_Detail.ecl" start="225">
-   <Type>record</Type>
-   <Field name="wi"/>
-   <Field name="id"/>
-   <Field name="number"/>
-   <Signature pre="" post="" name="Raw_Pred">Raw_Pred</Signature><Field name="raw"/>
-  </Definition>
-  <Definition body="278" end="306" fullname="logisticregression.obs_deviance" inherit_type="local" line="10" name="Obs_Deviance" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Deviance_Detail.ecl" start="263">
-   <Type>record</Type>
-   <Field name="wi"/>
-   <Field name="id"/>
-   <Field name="classifier"/>
-   <Field name="actual"/>
-   <Field name="predicted"/>
-   <Field name="mod_ll"/>
-   <Field name="mod_dev_component"/>
-   <Field name="mod_dev_residual"/>
-   <Field name="nil_ll"/>
-   <Field name="nil_dev_component"/>
-   <Signature pre="" post="" name="Obs_Deviance">Obs_Deviance</Signature><Field name="nil_dev_residual"/>
-  </Definition>
-  <Definition body="322" end="347" fullname="logisticregression.layout_model" inherit_type="local" line="11" name="Layout_Model" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Deviance_Detail.ecl" start="307">
-   <Type>record</Type>
-   <Field name="wi"/>
-   <Field name="id"/>
-   <Field name="number"/>
-   <Signature pre="" post="" name="Layout_Model">Layout_Model</Signature><Field name="value"/>
-  </Definition>
-  <Definition body="363" end="387" fullname="logisticregression.t_work_item" inherit_type="local" line="12" name="t_work_item" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Deviance_Detail.ecl" start="348">
-   <Signature pre="" post="" name="t_work_item">t_work_item</Signature><Type>attribute</Type>
-  </Definition>
-  <Definition body="403" end="426" fullname="logisticregression.t_recordid" inherit_type="local" line="13" name="t_RecordID" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Deviance_Detail.ecl" start="388">
-   <Signature pre="" post="" name="t_RecordID">t_RecordID</Signature><Type>attribute</Type>
-  </Definition>
-  <Definition body="442" end="468" fullname="logisticregression.t_fieldnumber" inherit_type="local" line="14" name="t_FieldNumber" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Deviance_Detail.ecl" start="427">
-   <Signature pre="" post="" name="t_FieldNumber">t_FieldNumber</Signature><Type>attribute</Type>
-  </Definition>
-  <Definition body="484" end="508" fullname="logisticregression.t_fieldreal" inherit_type="local" line="15" name="t_FieldReal" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Deviance_Detail.ecl" start="469">
-   <Signature pre="" post="" name="t_FieldReal">t_FieldReal</Signature><Type>attribute</Type>
-  </Definition>
-  <Definition body="524" end="547" fullname="logisticregression.t_discrete" inherit_type="local" line="16" name="t_Discrete" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Deviance_Detail.ecl" start="509">
-   <Signature pre="" post="" name="t_Discrete">t_Discrete</Signature><Type>attribute</Type>
-  </Definition>
   <Definition body="998" end="2256" exported="1" fullname="logisticregression.deviance_detail" inherit_type="local" line="25" name="Deviance_Detail" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Deviance_Detail.ecl" start="827">
    <Type>function</Type>
    <Documentation> <content>Detail deviance for each observation.</content>
@@ -83,12 +20,17 @@
     <param><name>dependents</name><desc>original dependent records for the model</desc></param>
     <param><name>predicts</name><desc>the predicted values of the response variable</desc></param>
    </Documentation>
-   <Signature pre="" post="" name="DATASET(Types.Observation_Deviance)&#10;       Deviance_Detail(DATASET(Core_Types.DiscreteField) dependents,&#10;                 DATASET(Types.Raw_Prediction) predicts)">DATASET(Types.Observation_Deviance)
+   <Signature sign="DATASET(Types.Observation_Deviance)&#10;       Deviance_Detail(DATASET(Core_Types.DiscreteField) dependents,&#10;                 DATASET(Types.Raw_Prediction) predicts)" name="Deviance_Detail">DATASET(Types.Observation_Deviance)
        Deviance_Detail(DATASET(Core_Types.DiscreteField) dependents,
                  DATASET(Types.Raw_Prediction) predicts)</Signature><Params>
     <Param name="dependents"/>
     <Param name="predicts"/>
    </Params>
   </Definition>
- </Source>
+ <Documentation> <content>Detail deviance for each observation.</content>
+    <return>the deviance information by observation and the log likelihood of the predicted result.</return>
+    <param><name>dependents</name><desc>original dependent records for the model</desc></param>
+    <param><name>predicts</name><desc>the predicted values of the response variable</desc></param>
+   </Documentation>
+   </Source>
  <Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Types.ecl" name="LogisticRegression.Types" target="types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Types.ecl" name="ML_Core.Types" target="../ml_core/types.ecl.xml"/></Meta>

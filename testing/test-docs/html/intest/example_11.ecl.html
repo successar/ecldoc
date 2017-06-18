@@ -23,11 +23,11 @@
 				<span class="navbar-brand">intest.example_11</span>
 			</div>
 			<div class="navbar-collapse collapse">
-			<ul class="nav navbar-nav">
-				<li><a href="#ecldoc-section-import" class="topbar">Imports</a></li>
-				<li><a href="#ecldoc-section-tree" class="topbar">Tree</a></li>
-				<li><a href="#ecldoc-section-desc" class="topbar">Descriptions</a></li>
-			</ul>
+				<ul class="nav navbar-nav">
+					<li><a href="#ecldoc-section-import" class="topbar">Imports</a></li>
+					<li><a href="#ecldoc-section-tree" class="topbar">Tree</a></li>
+					<li><a href="#ecldoc-section-desc" class="topbar">Descriptions</a></li>
+				</ul>
 			</div>
 		</div>
 	</nav>
@@ -43,7 +43,11 @@
 				</li>
 				
 				<li>
-					<a href="inintest/pkg.toc.html">inintest</a>
+					<a href="example_11.ecl.html">example_11.ecl</a>
+				</li>
+				
+				<li>
+					<a href="example_5.ecl.html">example_5.ecl</a>
 				</li>
 				
 				<li>
@@ -51,11 +55,15 @@
 				</li>
 				
 				<li>
+					<a href="example_3.ecl.html">example_3.ecl</a>
+				</li>
+				
+				<li>
 					<a href="example_4.ecl.html">example_4.ecl</a>
 				</li>
 				
 				<li>
-					<a href="example_5.ecl.html">example_5.ecl</a>
+					<a href="inintest/pkg.toc.html">inintest</a>
 				</li>
 				
 				<li>
@@ -68,14 +76,6 @@
 				
 				<li>
 					<a href="example_9.ecl.html">example_9.ecl</a>
-				</li>
-				
-				<li>
-					<a href="example_3.ecl.html">example_3.ecl</a>
-				</li>
-				
-				<li>
-					<a href="example_11.ecl.html">example_11.ecl</a>
 				</li>
 				
 			</ul>
@@ -142,9 +142,7 @@
 							
 							<a href="#dintest-example_11">
 								MODULE :
-								<span class="sign-pre"></span>
 								<span class="sign-name">example_11</span>
-								<span class="sign-post"></span>
 							</a>
 							<ul id="intest-example_11" class="accordian-body tree collapse">
 								
@@ -156,19 +154,17 @@
 					<h3 class="page-header">DESCRIPTIONS</h3>
 					<div class="panel-group">
 						<div class="panel panel-info" id="dintest-example_11">
-							<div class="panel-heading">
-								<div class="type">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
 									MODULE
 								</div>
-								<div class="sign">
-									<span class="sign-pre"></span>
+								<div class="panel-title sign">
 									<span class="sign-name">example_11</span>
-									<span class="sign-post"></span>
 								</div>
-								<div class="btns">
-									<a href="#t-intest-example_11" class="tree-link btn btn-primary">Tree</a>
-									<button class="btn btn-danger"> local</button>
-									</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-intest-example_11" class="tree-link glyphicon glyphicon-chevron-up"></a>
+								</div>
 							</div>
 
 							<div class="panel-body">
@@ -196,9 +192,8 @@
 	<script>
 		$(document).ready(function(){
 			$('.tree-link').click(function(e) {
-				var loc = $(this).attr('href');
-				$(loc).parents().collapse('show');
-				return true;
+				var loc = $(this).attr('data-toggle');
+				$(loc).parents('.tree').collapse('show');
 			});
 		});
 	</script>

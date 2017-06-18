@@ -2,7 +2,9 @@ import os
 import re
 import json
 import subprocess
+from copy import deepcopy
 from lxml import etree
+from lxml.builder import E
 from Utils import genPathTree
 
 class ParseXML(object) :
@@ -52,6 +54,7 @@ class ParseXML(object) :
 
 			root.insert(-1, depend)
 
+
 		self.src = root.find('./Source')
 		self.parseSource()
 
@@ -67,13 +70,26 @@ class ParseXML(object) :
 			self.depends[tuple(attribs['name'].lower().split('.'))] = self.src
 
 		for defn in self.src.findall('./Definition') :
-			self.parseDefinition(defn)
+			if 'exported' in defn.attrib :
+				self.parseDefinition(defn)
+			else :
+				self.src.remove(defn)
 
 		for doc in self.src.iter('Documentation') :
 			self.parseDocumentation(doc)
 
 		for imp in self.src.iter('Import') :
 			self.parseImport(imp)
+
+
+		maindefn = self.src.find("./Definition")
+		if maindefn is not None and maindefn.find('Documentation') is not None:
+			docstring = deepcopy(maindefn.find('./Documentation'))
+			self.src.append(docstring)
+		else :
+			self.src.append(E('Documentation', E('content', ' ')))
+
+
 
 	def parseDefinition(self, defn) :
 		attribs = defn.attrib
@@ -90,7 +106,7 @@ class ParseXML(object) :
 			attribs['fullname'] = 'ecldoc-' + attribs['name']
 
 		for childdefn in defn.findall('./Definition') :
-			if attribs['inherit_type'] == 'inherited':
+			if attribs['inherit_type'] == 'inherited' or 'exported' not in attribs:
 				defn.remove(childdefn)
 			else :
 				self.parseDefinition(childdefn)
@@ -121,14 +137,10 @@ class ParseXML(object) :
 		sign.text = re.sub(r';$', '', sign.text, flags=re.I)
 		sign.text = sign.text.strip()
 		split = re.split(name, sign.text, maxsplit=1, flags=re.I)
-		if len(split) == 2 :
-			preamble, postamble = re.split(name, sign.text, maxsplit=1, flags=re.I)
-			name = sign.text
-		else :
-			preamble, postamble = "", ""
+		if len(split) != 2 :
+			sign.text = name
 
-		sign.attrib['pre'] = ""
-		sign.attrib['post'] = ""
+		sign.attrib['sign'] = sign.text
 		sign.attrib['name'] = name
 		return sign
 
@@ -192,7 +204,7 @@ class ParseXML(object) :
 def check_if_modified(fpin, fpout) :
 	return os.path.exists(fpout) and os.path.getmtime(fpout) > os.path.getmtime(fpin)
 
-def genXML(input_root, output_root, ecl_files) :
+def genXML(input_root, output_root, ecl_files, only_bundle) :
 	xml_orig_root = os.path.join(output_root, 'xmlOriginal')
 	os.makedirs(xml_orig_root, exist_ok=True)
 
@@ -207,17 +219,25 @@ def genXML(input_root, output_root, ecl_files) :
 	for ecl_file in ecl_files :
 		input_file = os.path.join(input_root, ecl_file)
 		xml_orig_file = os.path.join(xml_orig_root, (ecl_file + '.xml').lower())
+		os.makedirs(os.path.dirname(xml_orig_file), exist_ok=True)
 		xml_file = os.path.join(xml_root, (ecl_file + '.xml').lower())
+		os.chdir(input_root)
 		# if check_if_modified(input_file, xml_file) :
 		# 	continue
-		os.makedirs(os.path.dirname(xml_orig_file), exist_ok=True)
-		os.chdir(input_root)
-		p = subprocess.call(['~/eclcc -M -o ' + xml_orig_file + ' ' + input_file], shell=True)
-		print("File : ", input_file, "Output Code : ", p)
-		print(input_file)
-		parser = ParseXML(input_root, output_root, ecl_file)
-		parser.parse()
-
+		split = os.path.split(input_file)
+		if split[1].lower() == 'bundle.ecl' :
+			dirpath = os.path.join(split[0], '')
+			bundle_orig_path = os.path.join(os.path.split(xml_orig_file)[0], 'bundle.orig.out')
+			bundle_xml_path = os.path.join(os.path.split(xml_file)[0], 'bundle.xml')
+			p = subprocess.call(['~/ecl-bundle info ' + dirpath + ' > ' + bundle_orig_path], shell=True)
+			print("Output Code : ", p, "Bundle File : ", dirpath)
+			parseBundle(bundle_orig_path, bundle_xml_path)
+		else :
+			p = subprocess.call(['~/eclcc -M -o ' + xml_orig_file + ' ' + input_file], shell=True)
+			print("File : ", input_file, "Output Code : ", p)
+			print(input_file)
+			parser = ParseXML(input_root, output_root, ecl_file)
+			parser.parse()
 
 	parent = path_tree['root']
 	root = etree.Element('folder')
@@ -249,7 +269,18 @@ def genTOC(parent, root, output_root) :
 			fp.close()
 
 
+def parseBundle(bundle_orig_path, bundle_xml_path) :
+	data = open(bundle_orig_path).read().split('\n')
+	data = [x.split(':', 1) for x in data]
+	data = {x[0].strip() : x[1].strip() for x in data if len(x) == 2}
+	root = etree.Element("Bundle")
+	for k in data :
+		node = etree.Element(k)
+		node.text = data[k]
+		root.append(node)
 
+	os.makedirs(os.path.dirname(bundle_xml_path), exist_ok=True)
+	etree.ElementTree(root).write(bundle_xml_path, pretty_print=True, xml_declaration=True, encoding='utf-8')
 
 
 
