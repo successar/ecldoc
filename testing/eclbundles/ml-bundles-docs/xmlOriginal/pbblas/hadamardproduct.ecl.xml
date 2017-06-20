@@ -31,7 +31,9 @@
           start="302">
    <Type>attribute</Type>
    <Documentation>
-    <content>Module to calculate matrix dimensions and matrix partition dimensions from matrix cells.</content>
+    <content>&#10;&#32;&#32;* Module to calculate matrix dimensions and matrix partition dimensions from
+  * matrix cells.
+  *&#10;&#32;&#32;</content>
    </Documentation>
   </Import>
   <Import body="0"
@@ -44,7 +46,9 @@
           start="322">
    <Type>attribute</Type>
    <Documentation>
-    <content>Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes.</content>
+    <content>&#10;&#32;&#32;* Types for the Parallel Block Basic Linear Algebra Sub-programs support
+  * WARNING: attributes marked with WARNING can not be changed without making
+  * corresponding changes to the C++ attributes.&#10;&#32;&#32;</content>
    </Documentation>
   </Import>
   <Import body="0"
@@ -57,7 +61,9 @@
           start="343">
    <Type>attribute</Type>
    <Documentation>
-    <content>Internal Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes.</content>
+    <content>&#10;&#32;&#32;* Internal Types for the Parallel Block Basic Linear Algebra Sub-programs support
+  * WARNING: attributes marked with WARNING can not be changed without making
+  * corresponding changes to the C++ attributes.&#10;&#32;&#32;</content>
    </Documentation>
   </Import>
   <Import body="0"
@@ -104,14 +110,37 @@
    <Field name="y"/>
    <Field name="v"/>
    <Documentation>
-    <field>wi_id  Work Item Number -- An identifier from 1 to 64K-1 that separates and identifies individual matrixes</field>
-    <field>x	    1-based row position within the matrix</field>
-    <field>y	    1-based column position within the matrix</field>
-    <field>v	    Real value for the cell</field>
-    <see>matrix_t</see>
-    <see>Std/PBblas/MakeR8Set.ecl</see>
-    <see>Std/PBblas/Converted.ecl WARNING: Used as C++ attribute.  Do not change without corresponding changes to MakeR8Set.</see>
-    <content>Layout for Matrix Cell Main representation of Matrix cell at interface to all PBBlas functions. Matrixes are represented as DATASET(Layout_Cell), where each cell describes the row and column position of the cell as well as its value. Only the non-zero cells need to be contained in the dataset in order to describe the matrix since all unspecified cells are considered to have a value of zero. The cell also contains a work-item number that allows multiple separate matrixes to be carried in the same dataset.  This supports the &quot;myriad&quot; style interface that allows the same operations to be performed on many different sets of data at once. Note that these matrixes do not have an explicit size.  They are sized implicitly, based on the maximum row and column presented in the data. A matrix can be converted to an explicit dense form (see matrix_t) by  using the utility module MakeR8Set. This module should only be used for known small matrixes (&lt; 1M cells) or for partitions of a larger matrix. The Converted module provides utility functions to convert to and from a set of partitions (See Layout_parts).</content>
+    <content>&#10;&#32;&#32;&#32;&#32;* Layout for Matrix Cell
+    *
+    * Main representation of Matrix cell at interface to all PBBlas functions.
+    * Matrixes are represented as DATASET(Layout_Cell), where each cell describes
+    * the row and column position of the cell as well as its value.
+    * Only the non-zero cells need to be contained in the dataset in order
+    * to describe the matrix since all unspecified cells are considered to
+    * have a value of zero.
+    * The cell also contains a work-item number that allows multiple separate
+    * matrixes to be carried in the same dataset.  This supports the &quot;myriad&quot;
+    * style interface that allows the same operations to be performed on many
+    * different sets of data at once.
+    * Note that these matrixes do not have an explicit size.  They are sized
+    * implicitly, based on the maximum row and column presented in the data.
+    * A matrix can be converted to an explicit dense form (see matrix_t) by 
+    * using the utility module MakeR8Set. This module should only be used for known
+    * small matrixes (&lt; 1M cells) or for partitions of a larger matrix.
+    * The Converted module provides utility
+    * functions to convert to and from a set of partitions (See Layout_parts).
+    *
+    * @field wi_id  Work Item Number -- An identifier from 1 to 64K-1 that
+    *                 separates and identifies individual matrixes
+    * @field x	    1-based row position within the matrix
+    * @field y	    1-based column position within the matrix
+    * @field v	    Real value for the cell
+    * @see		    matrix_t
+    * @see		    Std/PBblas/MakeR8Set.ecl
+    * @see		    Std/PBblas/Converted.ecl
+    *
+    * WARNING: Used as C++ attribute.  Do not change without corresponding changes
+    *  to MakeR8Set.&#10;&#32;&#32;&#32;&#32;</content>
    </Documentation>
   </Definition>
   <Definition body="511"
@@ -139,25 +168,47 @@
    <Field name="first_col"/>
    <Field name="mat_part"/>
    <Documentation>
-    <field>wi_id          Work Item Number -- An identifier from 1 to 64K-1 that separates and identifies individual matrixes</field>
-    <field>m_label        A user provided label indicating to which matrix the dimensions apply, when used to describe a set of related matrixes (e.g., &apos;A&apos;, &apos;B&apos;, and &apos;C&apos;) for the same work item used in an operation.    * @field partition_id	A unique ID for this partition within the matrix</field>
-    <field>partition_id   The 1-based id of this partition, unique within a work-item</field>
-    <field>node_id		The node on which this partition is stored</field>
-    <field>m_rows         The number of rows in the full matrix</field>
-    <field>m_cols         The number of columns in the full matrix</field>
-    <field>row_blocks     The number of row partitions in use</field>
-    <field>col_blocks     The number of column partitions in use</field>
-    <field>block_row		The row of this partition within the block partition matrix</field>
-    <field>block_col		The column of this partition &quot;</field>
-    <field>part_rows		The number of rows stored within this partition</field>
-    <field>part_cols		The number of columns stored within this partition</field>
-    <field>first_row		The first row of the original matrix stored within this partition</field>
-    <field>first_col		The first column of the original matrix stored within this partition</field>
-    <field>mat_part		The dense representation of the cells values within this partition (see matrix_t)</field>
-    <see>matrix_t</see>
-    <see>Layout_Cell</see>
-    <see>Std/PBblas/Converted</see>
-    <content>Alternate form for storage of large matrixes as a set of partitions Each partition holds the dense form of a piece of the matrix (see matrix_t) as well as information about its relationship to the larger matrix. The full matrix is then carried as DATASET(Layout_Part). Utility module Converted provides functions for converting a matrix in cell form (see Layout_cell) to partitions and vice versa. This form is primarily used internally to PBblas functions, but can also be used as an intermediate form to avoid repeated conversions from cell form. A work-item id field allows multiple matrixes to be carried in the same dataset.  This supports the &quot;myriad&quot; style interface whereby the same operation can be performed on multiple sets of matrixes at once. The m_label field allows for the separation of multiple matrixes with the same wi_id for operations requiring multiple matrixes.  This allows multiple work-items with multiple matrixes each to be carried in the same dataset.</content>
+    <content>&#10;&#32;&#32;&#32;&#32;* Alternate form for storage of large matrixes as a set of partitions
+    * Each partition holds the dense form of a piece of the matrix (see matrix_t)
+    * as well as information about its relationship to the larger matrix.
+    * The full matrix is then carried as DATASET(Layout_Part).
+    * Utility module Converted provides functions for converting a matrix in cell
+    * form (see Layout_cell) to partitions and vice versa.
+    * This form is primarily used internally to PBblas functions, but can also
+    * be used as an intermediate form to avoid repeated conversions from cell
+    * form.
+    * A work-item id field allows multiple matrixes to be carried in the
+    * same dataset.  This supports the &quot;myriad&quot; style interface whereby the
+    * same operation can be performed on multiple sets of matrixes at once.
+    * The m_label field allows for the separation of multiple matrixes with the
+    * same wi_id for operations requiring multiple matrixes.  This allows
+    * multiple work-items with multiple matrixes each to be carried in the same
+    * dataset.
+
+    * @field wi_id          Work Item Number -- An identifier from 1 to 64K-1 that
+    *                         separates and identifies individual matrixes
+    * @field m_label        A user provided label indicating to which matrix the dimensions
+    *                       apply, when used to describe a set of related matrixes (e.g.,
+    *                       &apos;A&apos;, &apos;B&apos;, and &apos;C&apos;) for the same work item used in an operation.    * @field partition_id	A unique ID for this partition within the matrix
+    * @field partition_id   The 1-based id of this partition, unique within a work-item
+    * @field node_id		The node on which this partition is stored
+    * @field m_rows         The number of rows in the full matrix
+    * @field m_cols         The number of columns in the full matrix
+    * @field row_blocks     The number of row partitions in use
+    * @field col_blocks     The number of column partitions in use
+    * @field block_row		The row of this partition within the block partition matrix
+    * @field block_col		The column of this partition &quot;
+    * @field part_rows		The number of rows stored within this partition
+    * @field part_cols		The number of columns stored within this partition
+    * @field first_row		The first row of the original matrix stored within this
+    *						partition
+    * @field first_col		The first column of the original matrix stored within this
+    *						partition
+    * @field mat_part		The dense representation of the cells values within this
+    *						partition (see matrix_t)
+    * @see		matrix_t
+    * @see		Layout_Cell
+    * @see		Std/PBblas/Converted&#10;&#32;&#32;&#32;&#32;</content>
    </Documentation>
   </Definition>
   <Definition body="542"
@@ -190,11 +241,19 @@
               start="1188">
    <Type>function</Type>
    <Documentation>
-    <see>PBblas/Types.Layout_Cell</see>
-    <return>A matrix (or multiple matrices) in Layout_Cell form</return>
-    <param>X       A matrix (or multiple matrices) in Layout_Cell form</param>
-    <param>Y       A matrix (or multiple matrices) in Layout_Cell form</param>
-    <content>Element-wise multiplication of X * Y.   Supports the &quot;myriad&quot; style interface -- X and Y may contain  multiple separate matrixes.  Each X will be multiplied by the Y with the same work-item id. Note:  This performs element-wise multiplication. For dot-product matrix multiplication, use PBblas.gemm.</content>
+    <content>&#10;&#32;&#32;* Element-wise multiplication of X * Y.  
+  * 
+  * Supports the &quot;myriad&quot; style interface -- X and Y may contain 
+  * multiple separate matrixes.  Each X will be multiplied by the
+  * Y with the same work-item id.
+  *
+  * Note:  This performs element-wise multiplication. For dot-product
+  * matrix multiplication, use PBblas.gemm.
+  * 
+  * @param X       A matrix (or multiple matrices) in Layout_Cell form
+  * @param Y       A matrix (or multiple matrices) in Layout_Cell form
+  * @return        A matrix (or multiple matrices) in Layout_Cell form
+  * @see           PBblas/Types.Layout_Cell&#10;&#32;&#32;</content>
    </Documentation>
    <Params>
     <Param name="X"/>
@@ -234,7 +293,9 @@
           start="289">
    <Type>attribute</Type>
    <Documentation>
-    <content>Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes.</content>
+    <content>&#10;&#32;&#32;* Types for the Parallel Block Basic Linear Algebra Sub-programs support
+  * WARNING: attributes marked with WARNING can not be changed without making
+  * corresponding changes to the C++ attributes.&#10;&#32;&#32;</content>
    </Documentation>
   </Import>
   <Import body="0"
@@ -247,7 +308,9 @@
           start="310">
    <Type>attribute</Type>
    <Documentation>
-    <content>Internal Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes.</content>
+    <content>&#10;&#32;&#32;* Internal Types for the Parallel Block Basic Linear Algebra Sub-programs support
+  * WARNING: attributes marked with WARNING can not be changed without making
+  * corresponding changes to the C++ attributes.&#10;&#32;&#32;</content>
    </Documentation>
   </Import>
   <Definition body="345"
@@ -284,14 +347,37 @@
    <Field name="y"/>
    <Field name="v"/>
    <Documentation>
-    <field>wi_id  Work Item Number -- An identifier from 1 to 64K-1 that separates and identifies individual matrixes</field>
-    <field>x	    1-based row position within the matrix</field>
-    <field>y	    1-based column position within the matrix</field>
-    <field>v	    Real value for the cell</field>
-    <see>matrix_t</see>
-    <see>Std/PBblas/MakeR8Set.ecl</see>
-    <see>Std/PBblas/Converted.ecl WARNING: Used as C++ attribute.  Do not change without corresponding changes to MakeR8Set.</see>
-    <content>Layout for Matrix Cell Main representation of Matrix cell at interface to all PBBlas functions. Matrixes are represented as DATASET(Layout_Cell), where each cell describes the row and column position of the cell as well as its value. Only the non-zero cells need to be contained in the dataset in order to describe the matrix since all unspecified cells are considered to have a value of zero. The cell also contains a work-item number that allows multiple separate matrixes to be carried in the same dataset.  This supports the &quot;myriad&quot; style interface that allows the same operations to be performed on many different sets of data at once. Note that these matrixes do not have an explicit size.  They are sized implicitly, based on the maximum row and column presented in the data. A matrix can be converted to an explicit dense form (see matrix_t) by  using the utility module MakeR8Set. This module should only be used for known small matrixes (&lt; 1M cells) or for partitions of a larger matrix. The Converted module provides utility functions to convert to and from a set of partitions (See Layout_parts).</content>
+    <content>&#10;&#32;&#32;&#32;&#32;* Layout for Matrix Cell
+    *
+    * Main representation of Matrix cell at interface to all PBBlas functions.
+    * Matrixes are represented as DATASET(Layout_Cell), where each cell describes
+    * the row and column position of the cell as well as its value.
+    * Only the non-zero cells need to be contained in the dataset in order
+    * to describe the matrix since all unspecified cells are considered to
+    * have a value of zero.
+    * The cell also contains a work-item number that allows multiple separate
+    * matrixes to be carried in the same dataset.  This supports the &quot;myriad&quot;
+    * style interface that allows the same operations to be performed on many
+    * different sets of data at once.
+    * Note that these matrixes do not have an explicit size.  They are sized
+    * implicitly, based on the maximum row and column presented in the data.
+    * A matrix can be converted to an explicit dense form (see matrix_t) by 
+    * using the utility module MakeR8Set. This module should only be used for known
+    * small matrixes (&lt; 1M cells) or for partitions of a larger matrix.
+    * The Converted module provides utility
+    * functions to convert to and from a set of partitions (See Layout_parts).
+    *
+    * @field wi_id  Work Item Number -- An identifier from 1 to 64K-1 that
+    *                 separates and identifies individual matrixes
+    * @field x	    1-based row position within the matrix
+    * @field y	    1-based column position within the matrix
+    * @field v	    Real value for the cell
+    * @see		    matrix_t
+    * @see		    Std/PBblas/MakeR8Set.ecl
+    * @see		    Std/PBblas/Converted.ecl
+    *
+    * WARNING: Used as C++ attribute.  Do not change without corresponding changes
+    *  to MakeR8Set.&#10;&#32;&#32;&#32;&#32;</content>
    </Documentation>
   </Definition>
   <Definition body="447"
@@ -312,14 +398,18 @@
    <Field name="row_blocks"/>
    <Field name="col_blocks"/>
    <Documentation>
-    <field>m_label A user provided label indicating to which matrix the dimensions apply, when used to describe a set of related matrixes (e.g., &apos;A&apos;, &apos;B&apos;, and &apos;C&apos;) for the same work item used in an operation.</field>
-    <field>m_rows The number of rows in the full matrix</field>
-    <field>m_cols The number of colums in the full matrix</field>
-    <field>block_rows The number of rows in each partition of the matrix</field>
-    <field>block_cols The number of columns in each partition</field>
-    <field>row_blocks The number of row partitions in use for the matrix</field>
-    <field>col_blocks The number of column partitions in use for the matrix</field>
-    <content>Record format for matrix and matrix partition dimensions.  Each record describes A single matrix or matrix partition.  Partitions use all of the fields, while a non-partitioned matrix only uses the first two (i.e. m_rows and m_cols).</content>
+    <content>&#10;&#32;&#32;&#32;&#32;* Record format for matrix and matrix partition dimensions.  Each record describes
+    * A single matrix or matrix partition.  Partitions use all of the fields, while
+    * a non-partitioned matrix only uses the first two (i.e. m_rows and m_cols).
+    * @field m_label A user provided label indicating to which matrix the dimensions
+    *                apply, when used to describe a set of related matrixes (e.g.,
+    *                &apos;A&apos;, &apos;B&apos;, and &apos;C&apos;) for the same work item used in an operation.
+    * @field m_rows The number of rows in the full matrix
+    * @field m_cols The number of colums in the full matrix
+    * @field block_rows The number of rows in each partition of the matrix
+    * @field block_cols The number of columns in each partition
+    * @field row_blocks The number of row partitions in use for the matrix
+    * @field col_blocks The number of column partitions in use for the matrix&#10;&#32;&#32;&#32;&#32;</content>
    </Documentation>
   </Definition>
   <Definition body="482"
@@ -363,12 +453,17 @@
                start="1409">
     <Type>function</Type>
     <Documentation>
-     <see>Std/PBblas/Types.Layout_Cell</see>
-     <see>Std/PBblas/Types.Layout_Dims</see>
-     <return>DATASET(Layout_Dims), one record per work item</return>
-     <param>cells   dataset of Layout_Cell containing the matrixes to be dimensioned</param>
-     <param>m_label a single text label to be attached to the dimensions so that this set of dimensions can be distinguished from another set used by the same operation (e.g. &apos;A&apos;, &apos;B&apos;, or &apos;C&apos;)</param>
-     <content>Get basic matrix dimensions (m_rows, m_cols) from a dataset of cells (Layout_Cell). Multiple matrices can be included in the dataset separated by wi_id.  One record of  Layout_Dims will be produced for each matrix in the input set.&#32;</content>
+     <content>&#10;&#32;&#32;&#32;&#32;* Get basic matrix dimensions (m_rows, m_cols) from a dataset of cells (Layout_Cell).
+    * Multiple matrices can be included in the dataset separated by wi_id.  One record of 
+    * Layout_Dims will be produced for each matrix in the input set. 
+    * 
+    * @param cells   dataset of Layout_Cell containing the matrixes to be dimensioned
+    * @param m_label a single text label to be attached to the dimensions so that
+    *                this set of dimensions can be distinguished from another set
+    *                used by the same operation (e.g. &apos;A&apos;, &apos;B&apos;, or &apos;C&apos;)
+    * @return        DATASET(Layout_Dims), one record per work item
+    * @see Std/PBblas/Types.Layout_Cell
+    * @see Std/PBblas/Types.Layout_Dims&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
     <Params>
      <Param name="cells"/>
@@ -386,10 +481,12 @@
                start="2182">
     <Type>function</Type>
     <Documentation>
-     <see>Std/PBblas/Types.Layout_Dims</see>
-     <return>DATASET(Layout_Dims), with partition info filled in</return>
-     <param>dims            DATASET(Layout_Dims), typically output from FromCells above</param>
-     <content>Determine optimal partitioning scheme for one or more matrixes based on the dimensions provided.</content>
+     <content>&#10;&#32;&#32;&#32;&#32;* Determine optimal partitioning scheme for one or more matrixes based on the dimensions
+    * provided.
+    * 
+    * @param dims            DATASET(Layout_Dims), typically output from FromCells above
+    * @return                DATASET(Layout_Dims), with partition info filled in
+    * @see Std/PBblas/Types.Layout_Dims&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
     <Params>
      <Param name="dims"/>
@@ -406,14 +503,18 @@
                start="3309">
     <Type>function</Type>
     <Documentation>
-     <see>Std/PBblas/Types.Layout_Dims</see>
-     <see>Std/PBblas/Types.Layout_Cell</see>
-     <see>FromCells</see>
-     <see>PartitionedFromDims</see>
-     <return>DATASET(Layout_Dims) with partition info filled in</return>
-     <param>cells   DATASET(Layout_Cell) representing one or more matrixes</param>
-     <param>m_label a single text label to be attached to the dimensions so that this set of dimensions can be distinguished from another set used by the same operation (e.g. &apos;A&apos;, &apos;B&apos;, or &apos;C&apos;)</param>
-     <content>Generate a partitioning scheme from a set of matrices in cell form. Essentially a shortcut for FromCells followed by PartitionedFromDims</content>
+     <content>&#10;&#32;&#32;&#32;&#32;* Generate a partitioning scheme from a set of matrices in cell form.
+    * Essentially a shortcut for FromCells followed by PartitionedFromDims
+    * 
+    * @param cells   DATASET(Layout_Cell) representing one or more matrixes
+    * @param m_label a single text label to be attached to the dimensions so that
+    *                this set of dimensions can be distinguished from another set
+    *                used by the same operation (e.g. &apos;A&apos;, &apos;B&apos;, or &apos;C&apos;)
+    * @return        DATASET(Layout_Dims) with partition info filled in
+    * @see Std/PBblas/Types.Layout_Dims
+    * @see Std/PBblas/Types.Layout_Cell
+    * @see FromCells
+    * @see PartitionedFromDims&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
     <Params>
      <Param name="cells"/>
@@ -431,14 +532,25 @@
                start="4716">
     <Type>function</Type>
     <Documentation>
-     <see>Std/PBblas/Types.Layout_Dims</see>
-     <see>Std/PBblas/Types.OpType</see>
-     <see>FromCells</see>
-     <see>PartitionedFromDims</see>
-     <return>DATASET(Layout_Dims) with patition info filled in. This will contain one entry per work item, per matrix label.</return>
-     <param>op              The operation requiring partitioning.  See Types.OpType</param>
-     <param>dims            DATASET(Layout_Dims) typically returned by FromCells above</param>
-     <content>Determines an optimal partitioning scheme for a set of matrixes involved in a given operation.  This handles interlocking dimensions such as those involved in a multiplication operation.  Note that calling this function with OpType.single is equivalent to calling PartitionedFromDims above. The input dimensions include dimensions from different work-items (separated by wi_id) as well as dimensions from separate matrixes (e.g. A, B, and C/result) within a work-item (separated by m_label). Each operation-type may have a different expected set of m_labels and will perform its interlock calculations accordingly.</content>
+     <content>&#10;&#32;&#32;&#32;&#32;* Determines an optimal partitioning scheme for a set of matrixes involved in
+    * a given operation.  This handles interlocking dimensions such as those involved
+    * in a multiplication operation.  Note that calling this function with OpType.single
+    * is equivalent to calling PartitionedFromDims above.
+    * The input dimensions include dimensions from different work-items (separated by
+    * wi_id) as well as dimensions from separate matrixes (e.g. A, B, and C/result)
+    * within a work-item (separated by m_label).
+    * Each operation-type may have a different expected set of m_labels and will perform
+    * its interlock calculations accordingly.
+    * 
+    * @param op              The operation requiring partitioning.  See Types.OpType
+    * @param dims            DATASET(Layout_Dims) typically returned by FromCells above
+    * @return                DATASET(Layout_Dims) with patition info filled in.
+    *                        This will contain one entry per work item, per
+    *                        matrix label.
+    * @see Std/PBblas/Types.Layout_Dims
+    * @see Std/PBblas/Types.OpType
+    * @see FromCells
+    * @see PartitionedFromDims&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
     <Params>
      <Param name="op"/>
@@ -456,16 +568,23 @@
                start="14461">
     <Type>function</Type>
     <Documentation>
-     <content>Transpose rows and columns for a set of matrix dimensions. Can be used for single matrix dimensions or partitioned matrixes. Returns one record for each input record.  Many matrixes can be included in one call.</content>
-     <return>DATASET(Layout_Dims), the input dimensions transposed</return>
-     <param>dims_in   The dimensions to be transposed in Layout_Dims format</param>
+     <content>&#10;&#32;&#32;&#32;&#32;* Transpose rows and columns for a set of matrix dimensions.
+    * Can be used for single matrix dimensions or partitioned matrixes.
+    * Returns one record for each input record.  Many matrixes can
+    * be included in one call.
+    *
+    * @param dims_in   The dimensions to be transposed in Layout_Dims format
+    * @return          DATASET(Layout_Dims), the input dimensions transposed
+    *&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
     <Params>
      <Param name="dims_in"/>
     </Params>
    </Definition>
    <Documentation>
-    <content>Module to calculate matrix dimensions and matrix partition dimensions from matrix cells.</content>
+    <content>&#10;&#32;&#32;* Module to calculate matrix dimensions and matrix partition dimensions from
+  * matrix cells.
+  *&#10;&#32;&#32;</content>
    </Documentation>
   </Definition>
  </Source>
@@ -492,7 +611,8 @@
                start="670">
     <Type>attribute</Type>
     <Documentation>
-     <content>Type for matrix dimensions.  Uses UNSIGNED four as matrixes are not designed to support more than 4 B rows or columns.</content>
+     <content>&#10;&#32;&#32;&#32;&#32;* Type for matrix dimensions.  Uses UNSIGNED four as matrixes
+    * are not designed to support more than 4 B rows or columns.&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
    </Definition>
    <Definition body="851"
@@ -506,7 +626,7 @@
                start="829">
     <Type>attribute</Type>
     <Documentation>
-     <content>Type for partition id -- only supports up to 64K partitions</content>
+     <content>&#10;&#32;&#32;&#32;&#32;* Type for partition id -- only supports up to 64K partitions&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
    </Definition>
    <Definition body="967"
@@ -520,7 +640,7 @@
                start="945">
     <Type>attribute</Type>
     <Documentation>
-     <content>Type for work-item id -- only supports up to 64K work items</content>
+     <content>&#10;&#32;&#32;&#32;&#32;* Type for work-item id -- only supports up to 64K work items&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
    </Definition>
    <Definition body="1109"
@@ -534,7 +654,9 @@
                start="1087">
     <Type>attribute</Type>
     <Documentation>
-     <content>Type for matrix cell values WARNING: type used in C++ attribute</content>
+     <content>&#10;&#32;&#32;&#32;&#32;* Type for matrix cell values
+    * 
+    * WARNING: type used in C++ attribute&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
    </Definition>
    <Definition body="1272"
@@ -548,7 +670,8 @@
                start="1250">
     <Type>attribute</Type>
     <Documentation>
-     <content>Type for matrix label.  Used for Matrix dimensions (see Layout_Dims) and for partitions (see Layout_Part)</content>
+     <content>&#10;&#32;&#32;&#32;&#32;* Type for matrix label.  Used for Matrix dimensions (see Layout_Dims)
+    * and for partitions (see Layout_Part)&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
    </Definition>
    <Definition body="1404"
@@ -561,7 +684,9 @@
                start="1382">
     <Type>attribute</Type>
     <Documentation>
-     <content>Enumeration for Triangle type WARNING: type used in C++ attribute</content>
+     <content>&#10;&#32;&#32;&#32;&#32;* Enumeration for Triangle type
+    * 
+    * WARNING: type used in C++ attribute&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
    </Definition>
    <Definition body="1564"
@@ -574,7 +699,9 @@
                start="1542">
     <Type>attribute</Type>
     <Documentation>
-     <content>Enumeration for Diagonal type WARNING: type used in C++ attribute</content>
+     <content>&#10;&#32;&#32;&#32;&#32;* Enumeration for Diagonal type
+    * 
+    * WARNING: type used in C++ attribute&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
    </Definition>
    <Definition body="1729"
@@ -587,7 +714,9 @@
                start="1707">
     <Type>attribute</Type>
     <Documentation>
-     <content>Enumeration for Side type WARNING: type used in C++ attribute</content>
+     <content>&#10;&#32;&#32;&#32;&#32;* Enumeration for Side type
+    * 
+    * WARNING: type used in C++ attribute&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
    </Definition>
    <Definition body="1893"
@@ -601,7 +730,10 @@
                start="1871">
     <Type>attribute</Type>
     <Documentation>
-     <content>Type for matrix universe number Allow up to 64k matrices in one universe</content>
+     <content>&#10;&#32;&#32;&#32;&#32;* Type for matrix universe number
+    *
+    * Allow up to 64k matrices in one universe
+    *&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
    </Definition>
    <Definition body="3736"
@@ -619,14 +751,37 @@
     <Field name="y"/>
     <Field name="v"/>
     <Documentation>
-     <field>wi_id  Work Item Number -- An identifier from 1 to 64K-1 that separates and identifies individual matrixes</field>
-     <field>x	    1-based row position within the matrix</field>
-     <field>y	    1-based column position within the matrix</field>
-     <field>v	    Real value for the cell</field>
-     <see>matrix_t</see>
-     <see>Std/PBblas/MakeR8Set.ecl</see>
-     <see>Std/PBblas/Converted.ecl WARNING: Used as C++ attribute.  Do not change without corresponding changes to MakeR8Set.</see>
-     <content>Layout for Matrix Cell Main representation of Matrix cell at interface to all PBBlas functions. Matrixes are represented as DATASET(Layout_Cell), where each cell describes the row and column position of the cell as well as its value. Only the non-zero cells need to be contained in the dataset in order to describe the matrix since all unspecified cells are considered to have a value of zero. The cell also contains a work-item number that allows multiple separate matrixes to be carried in the same dataset.  This supports the &quot;myriad&quot; style interface that allows the same operations to be performed on many different sets of data at once. Note that these matrixes do not have an explicit size.  They are sized implicitly, based on the maximum row and column presented in the data. A matrix can be converted to an explicit dense form (see matrix_t) by  using the utility module MakeR8Set. This module should only be used for known small matrixes (&lt; 1M cells) or for partitions of a larger matrix. The Converted module provides utility functions to convert to and from a set of partitions (See Layout_parts).</content>
+     <content>&#10;&#32;&#32;&#32;&#32;* Layout for Matrix Cell
+    *
+    * Main representation of Matrix cell at interface to all PBBlas functions.
+    * Matrixes are represented as DATASET(Layout_Cell), where each cell describes
+    * the row and column position of the cell as well as its value.
+    * Only the non-zero cells need to be contained in the dataset in order
+    * to describe the matrix since all unspecified cells are considered to
+    * have a value of zero.
+    * The cell also contains a work-item number that allows multiple separate
+    * matrixes to be carried in the same dataset.  This supports the &quot;myriad&quot;
+    * style interface that allows the same operations to be performed on many
+    * different sets of data at once.
+    * Note that these matrixes do not have an explicit size.  They are sized
+    * implicitly, based on the maximum row and column presented in the data.
+    * A matrix can be converted to an explicit dense form (see matrix_t) by 
+    * using the utility module MakeR8Set. This module should only be used for known
+    * small matrixes (&lt; 1M cells) or for partitions of a larger matrix.
+    * The Converted module provides utility
+    * functions to convert to and from a set of partitions (See Layout_parts).
+    *
+    * @field wi_id  Work Item Number -- An identifier from 1 to 64K-1 that
+    *                 separates and identifies individual matrixes
+    * @field x	    1-based row position within the matrix
+    * @field y	    1-based column position within the matrix
+    * @field v	    Real value for the cell
+    * @see		    matrix_t
+    * @see		    Std/PBblas/MakeR8Set.ecl
+    * @see		    Std/PBblas/Converted.ecl
+    *
+    * WARNING: Used as C++ attribute.  Do not change without corresponding changes
+    *  to MakeR8Set.&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
    </Definition>
    <Definition body="4234"
@@ -642,13 +797,17 @@
     <Field name="wi_id"/>
     <Field name="v"/>
     <Documentation>
-     <field>wi_id  Work Item Number -- An identifier from 1 to 64K-1 that separates and identifies individual matrixes</field>
-     <field>v	    Real value for the norm</field>
-     <content>Layout for Norm results.</content>
+     <content>&#10;&#32;&#32;&#32;&#32;* Layout for Norm results.
+    *
+    * @field wi_id  Work Item Number -- An identifier from 1 to 64K-1 that
+    *                 separates and identifies individual matrixes
+    * @field v	    Real value for the norm&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
    </Definition>
    <Documentation>
-    <content>Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes.</content>
+    <content>&#10;&#32;&#32;* Types for the Parallel Block Basic Linear Algebra Sub-programs support
+  * WARNING: attributes marked with WARNING can not be changed without making
+  * corresponding changes to the C++ attributes.&#10;&#32;&#32;</content>
    </Documentation>
   </Definition>
   <Import body="0"
@@ -954,7 +1113,9 @@
           start="271">
    <Type>attribute</Type>
    <Documentation>
-    <content>Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes.</content>
+    <content>&#10;&#32;&#32;* Types for the Parallel Block Basic Linear Algebra Sub-programs support
+  * WARNING: attributes marked with WARNING can not be changed without making
+  * corresponding changes to the C++ attributes.&#10;&#32;&#32;</content>
    </Documentation>
   </Import>
   <Definition body="309"
@@ -1009,7 +1170,7 @@
                start="725">
     <Type>attribute</Type>
     <Documentation>
-     <content>Type for partition id -- only supports up to 64K partitions</content>
+     <content>&#10;&#32;&#32;&#32;&#32;* Type for partition id -- only supports up to 64K partitions&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
    </Definition>
    <Definition body="852"
@@ -1023,7 +1184,7 @@
                start="830">
     <Type>attribute</Type>
     <Documentation>
-     <content>Type for node id -- only supports up to 64K nodes</content>
+     <content>&#10;&#32;&#32;&#32;&#32;* Type for node id -- only supports up to 64K nodes&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
    </Definition>
    <Definition body="984"
@@ -1037,7 +1198,9 @@
                start="962">
     <Type>attribute</Type>
     <Documentation>
-     <content>Type for matrix cell values WARNING: type used in C++ attribute</content>
+     <content>&#10;&#32;&#32;&#32;&#32;* Type for matrix cell values
+    * 
+    * WARNING: type used in C++ attribute&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
    </Definition>
    <Definition body="1147"
@@ -1051,7 +1214,8 @@
                start="1125">
     <Type>attribute</Type>
     <Documentation>
-     <content>Type for matrix label.  Used for Matrix dimensions (see Layout_Dims) and for partitions (see Layout_Part)</content>
+     <content>&#10;&#32;&#32;&#32;&#32;* Type for matrix label.  Used for Matrix dimensions (see Layout_Dims)
+    * and for partitions (see Layout_Part)&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
    </Definition>
    <Definition body="1893"
@@ -1065,10 +1229,26 @@
                start="1871">
     <Type>attribute</Type>
     <Documentation>
-     <see>Layout_Cell</see>
-     <see>Layout_Part</see>
-     <see>Std/PBblas/FromR8Set.ecl</see>
-     <content>Type for dense matrix storage Stored as a set of values in column/row order: [r1c1, r2c1, ... rMc1, r1c2, r2c2, ... rMc2, . . . r1cN, r2cN, ... rMcN] WARNING: type used in C++ attribute Note: This type is not distributed, so should only be used to represent small matrixes(&lt; 1M cells).  Larger matrixes can be represented using Layout_Cell or Layout_Part, both of which can be distributed. A dense matrix can be converted to a scalable sparse form (DATASET(Layout_Cell)) using the utility module FromR8Set</content>
+     <content>&#10;&#32;&#32;&#32;&#32;* Type for dense matrix storage
+    *
+    * Stored as a set of values in column/row order:
+    * [r1c1, r2c1, ... rMc1,
+    *  r1c2, r2c2, ... rMc2,
+    *  .
+    *  .
+    *  .
+    *  r1cN, r2cN, ... rMcN]
+    * 
+    * WARNING: type used in C++ attribute
+    * Note: This type is not distributed, so should only be used to represent
+    * small matrixes(&lt; 1M cells).  Larger matrixes can be represented
+    * using Layout_Cell or Layout_Part, both of which can be distributed.
+    * A dense matrix can be converted to a scalable sparse form (DATASET(Layout_Cell))
+    * using the utility module FromR8Set
+    *
+    * @see		Layout_Cell
+    * @see		Layout_Part
+    * @see		Std/PBblas/FromR8Set.ecl&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
    </Definition>
    <Definition body="1987"
@@ -1081,7 +1261,7 @@
                start="1964">
     <Type>attribute</Type>
     <Documentation>
-     <content>Enumeration for Partitioning Type</content>
+     <content>&#10;&#32;&#32;&#32;&#32;* Enumeration for Partitioning Type&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
    </Definition>
    <Definition body="2403"
@@ -1095,7 +1275,7 @@
                start="2356">
     <Type>function</Type>
     <Documentation>
-     <content>Translation of PartitionType enumeration</content>
+     <content>&#10;&#32;&#32;&#32;&#32;* Translation of PartitionType enumeration&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
     <Params>
      <Param name="pt"/>
@@ -1122,7 +1302,10 @@
                start="3068">
     <Type>attribute</Type>
     <Documentation>
-     <content>Type for matrix universe number Allow up to 64k matrices in one universe</content>
+     <content>&#10;&#32;&#32;&#32;&#32;* Type for matrix universe number
+    *
+    * Allow up to 64k matrices in one universe
+    *&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
    </Definition>
    <Definition body="5873"
@@ -1151,25 +1334,47 @@
     <Field name="first_col"/>
     <Field name="mat_part"/>
     <Documentation>
-     <field>wi_id          Work Item Number -- An identifier from 1 to 64K-1 that separates and identifies individual matrixes</field>
-     <field>m_label        A user provided label indicating to which matrix the dimensions apply, when used to describe a set of related matrixes (e.g., &apos;A&apos;, &apos;B&apos;, and &apos;C&apos;) for the same work item used in an operation.    * @field partition_id	A unique ID for this partition within the matrix</field>
-     <field>partition_id   The 1-based id of this partition, unique within a work-item</field>
-     <field>node_id		The node on which this partition is stored</field>
-     <field>m_rows         The number of rows in the full matrix</field>
-     <field>m_cols         The number of columns in the full matrix</field>
-     <field>row_blocks     The number of row partitions in use</field>
-     <field>col_blocks     The number of column partitions in use</field>
-     <field>block_row		The row of this partition within the block partition matrix</field>
-     <field>block_col		The column of this partition &quot;</field>
-     <field>part_rows		The number of rows stored within this partition</field>
-     <field>part_cols		The number of columns stored within this partition</field>
-     <field>first_row		The first row of the original matrix stored within this partition</field>
-     <field>first_col		The first column of the original matrix stored within this partition</field>
-     <field>mat_part		The dense representation of the cells values within this partition (see matrix_t)</field>
-     <see>matrix_t</see>
-     <see>Layout_Cell</see>
-     <see>Std/PBblas/Converted</see>
-     <content>Alternate form for storage of large matrixes as a set of partitions Each partition holds the dense form of a piece of the matrix (see matrix_t) as well as information about its relationship to the larger matrix. The full matrix is then carried as DATASET(Layout_Part). Utility module Converted provides functions for converting a matrix in cell form (see Layout_cell) to partitions and vice versa. This form is primarily used internally to PBblas functions, but can also be used as an intermediate form to avoid repeated conversions from cell form. A work-item id field allows multiple matrixes to be carried in the same dataset.  This supports the &quot;myriad&quot; style interface whereby the same operation can be performed on multiple sets of matrixes at once. The m_label field allows for the separation of multiple matrixes with the same wi_id for operations requiring multiple matrixes.  This allows multiple work-items with multiple matrixes each to be carried in the same dataset.</content>
+     <content>&#10;&#32;&#32;&#32;&#32;* Alternate form for storage of large matrixes as a set of partitions
+    * Each partition holds the dense form of a piece of the matrix (see matrix_t)
+    * as well as information about its relationship to the larger matrix.
+    * The full matrix is then carried as DATASET(Layout_Part).
+    * Utility module Converted provides functions for converting a matrix in cell
+    * form (see Layout_cell) to partitions and vice versa.
+    * This form is primarily used internally to PBblas functions, but can also
+    * be used as an intermediate form to avoid repeated conversions from cell
+    * form.
+    * A work-item id field allows multiple matrixes to be carried in the
+    * same dataset.  This supports the &quot;myriad&quot; style interface whereby the
+    * same operation can be performed on multiple sets of matrixes at once.
+    * The m_label field allows for the separation of multiple matrixes with the
+    * same wi_id for operations requiring multiple matrixes.  This allows
+    * multiple work-items with multiple matrixes each to be carried in the same
+    * dataset.
+
+    * @field wi_id          Work Item Number -- An identifier from 1 to 64K-1 that
+    *                         separates and identifies individual matrixes
+    * @field m_label        A user provided label indicating to which matrix the dimensions
+    *                       apply, when used to describe a set of related matrixes (e.g.,
+    *                       &apos;A&apos;, &apos;B&apos;, and &apos;C&apos;) for the same work item used in an operation.    * @field partition_id	A unique ID for this partition within the matrix
+    * @field partition_id   The 1-based id of this partition, unique within a work-item
+    * @field node_id		The node on which this partition is stored
+    * @field m_rows         The number of rows in the full matrix
+    * @field m_cols         The number of columns in the full matrix
+    * @field row_blocks     The number of row partitions in use
+    * @field col_blocks     The number of column partitions in use
+    * @field block_row		The row of this partition within the block partition matrix
+    * @field block_col		The column of this partition &quot;
+    * @field part_rows		The number of rows stored within this partition
+    * @field part_cols		The number of columns stored within this partition
+    * @field first_row		The first row of the original matrix stored within this
+    *						partition
+    * @field first_col		The first column of the original matrix stored within this
+    *						partition
+    * @field mat_part		The dense representation of the cells values within this
+    *						partition (see matrix_t)
+    * @see		matrix_t
+    * @see		Layout_Cell
+    * @see		Std/PBblas/Converted&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
    </Definition>
    <Definition body="7167"
@@ -1203,12 +1408,17 @@
     <Field name="first_col"/>
     <Field name="mat_part"/>
     <Documentation>
-     <field>t_part_id		The output partition to which this partition is related</field>
-     <field>t_node_id		The node on which the output partition is located</field>
-     <field>t_block_row	The row of the output partition within its partition matrix</field>
-     <field>t_block_col	The column of the output partition within its partition matrix</field>
-     <field>t_term			A row/column number used to correlate related input partitions used in calculating the results of the output partition</field>
-     <content>Represents the relationship of a partition to the partition holding the results of a matrix operation.  This is used internally to PBblas functions to tie an input partition to its output.  It is not relevant to users of PBblas.</content>
+     <content>&#10;&#32;&#32;&#32;&#32;* Represents the relationship of a partition to the partition holding the
+    * results of a matrix operation.  This is used internally to PBblas functions
+    * to tie an input partition to its output.  It is not relevant to users of
+    * PBblas.
+    *
+    * @field t_part_id		The output partition to which this partition is related
+    * @field t_node_id		The node on which the output partition is located
+    * @field t_block_row	The row of the output partition within its partition matrix
+    * @field t_block_col	The column of the output partition within its partition matrix
+    * @field t_term			A row/column number used to correlate related input partitions used
+    *						in calculating the results of the output partition&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
    </Definition>
    <Definition body="8306"
@@ -1230,14 +1440,18 @@
     <Field name="row_blocks"/>
     <Field name="col_blocks"/>
     <Documentation>
-     <field>m_label A user provided label indicating to which matrix the dimensions apply, when used to describe a set of related matrixes (e.g., &apos;A&apos;, &apos;B&apos;, and &apos;C&apos;) for the same work item used in an operation.</field>
-     <field>m_rows The number of rows in the full matrix</field>
-     <field>m_cols The number of colums in the full matrix</field>
-     <field>block_rows The number of rows in each partition of the matrix</field>
-     <field>block_cols The number of columns in each partition</field>
-     <field>row_blocks The number of row partitions in use for the matrix</field>
-     <field>col_blocks The number of column partitions in use for the matrix</field>
-     <content>Record format for matrix and matrix partition dimensions.  Each record describes A single matrix or matrix partition.  Partitions use all of the fields, while a non-partitioned matrix only uses the first two (i.e. m_rows and m_cols).</content>
+     <content>&#10;&#32;&#32;&#32;&#32;* Record format for matrix and matrix partition dimensions.  Each record describes
+    * A single matrix or matrix partition.  Partitions use all of the fields, while
+    * a non-partitioned matrix only uses the first two (i.e. m_rows and m_cols).
+    * @field m_label A user provided label indicating to which matrix the dimensions
+    *                apply, when used to describe a set of related matrixes (e.g.,
+    *                &apos;A&apos;, &apos;B&apos;, and &apos;C&apos;) for the same work item used in an operation.
+    * @field m_rows The number of rows in the full matrix
+    * @field m_cols The number of colums in the full matrix
+    * @field block_rows The number of rows in each partition of the matrix
+    * @field block_cols The number of columns in each partition
+    * @field row_blocks The number of row partitions in use for the matrix
+    * @field col_blocks The number of column partitions in use for the matrix&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
    </Definition>
    <Definition body="8837"
@@ -1252,12 +1466,16 @@
     <Type>record</Type>
     <Field name="wi_id"/>
     <Documentation>
-     <field>wi_id  The wi_id, typically from a myriad set of matrixes</field>
-     <content>Record for a list of work-item ids used internally</content>
+     <content>&#32;&#10;&#32;&#32;&#32;&#32;* Record for a list of work-item ids used internally
+    *
+    * @field wi_id  The wi_id, typically from a myriad set of matrixes
+    *&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
    </Definition>
    <Documentation>
-    <content>Internal Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes.</content>
+    <content>&#10;&#32;&#32;* Internal Types for the Parallel Block Basic Linear Algebra Sub-programs support
+  * WARNING: attributes marked with WARNING can not be changed without making
+  * corresponding changes to the C++ attributes.&#10;&#32;&#32;</content>
    </Documentation>
   </Definition>
  </Source>
@@ -1282,7 +1500,9 @@
           start="289">
    <Type>attribute</Type>
    <Documentation>
-    <content>Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes.</content>
+    <content>&#10;&#32;&#32;* Types for the Parallel Block Basic Linear Algebra Sub-programs support
+  * WARNING: attributes marked with WARNING can not be changed without making
+  * corresponding changes to the C++ attributes.&#10;&#32;&#32;</content>
    </Documentation>
   </Import>
   <Import body="0"
@@ -1306,7 +1526,9 @@
           start="310">
    <Type>attribute</Type>
    <Documentation>
-    <content>Internal Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes.</content>
+    <content>&#10;&#32;&#32;* Internal Types for the Parallel Block Basic Linear Algebra Sub-programs support
+  * WARNING: attributes marked with WARNING can not be changed without making
+  * corresponding changes to the C++ attributes.&#10;&#32;&#32;</content>
    </Documentation>
   </Import>
   <Import body="0"
@@ -1338,7 +1560,7 @@
               start="394">
    <Type>attribute</Type>
    <Documentation>
-    <content>Enumeration for Partitioning Type</content>
+    <content>&#10;&#32;&#32;&#32;&#32;* Enumeration for Partitioning Type&#10;&#32;&#32;&#32;&#32;</content>
    </Documentation>
   </Definition>
   <Definition body="1665"
@@ -1485,7 +1707,7 @@
                start="5166">
     <Type>attribute</Type>
     <Documentation>
-     <content>The type of partitioning employed: Types.PartitionType.square, .row, or .column or .single</content>
+     <content>&#10;&#32;&#32;&#32;&#32;* The type of partitioning employed: Types.PartitionType.square, .row, or .column or .single&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
    </Definition>
    <Definition body="5647"
@@ -1499,7 +1721,7 @@
                start="5623">
     <Type>attribute</Type>
     <Documentation>
-     <content>The row dimension of the optimal Partition Matrix</content>
+     <content>&#10;&#32;&#32;&#32;&#32;* The row dimension of the optimal Partition Matrix&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
    </Definition>
    <Definition body="5875"
@@ -1513,7 +1735,7 @@
                start="5851">
     <Type>attribute</Type>
     <Documentation>
-     <content>The column dimension of the optimal Partition Matrix</content>
+     <content>&#10;&#32;&#32;&#32;&#32;* The column dimension of the optimal Partition Matrix&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
    </Definition>
    <Definition body="6096"
@@ -1527,7 +1749,7 @@
                start="6077">
     <Type>attribute</Type>
     <Documentation>
-     <content>The number of rows in each partition (i.e. block)</content>
+     <content>&#10;&#32;&#32;&#32;&#32;* The number of rows in each partition (i.e. block)&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
    </Definition>
    <Definition body="6205"
@@ -1541,15 +1763,28 @@
                start="6186">
     <Type>attribute</Type>
     <Documentation>
-     <content>The number of columns in each partition (i.e. block)</content>
+     <content>&#10;&#32;&#32;&#32;&#32;* The number of columns in each partition (i.e. block)&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
    </Definition>
    <Documentation>
-    <content>Auto-Partitioning for a Single Matrix Given an input of N and M describing the dimensions of a matrix (N rows x M columns), calculate the optimal square (d x d), row (d x 1), or column (1 x d) partition   matrix dimensions: PN and BM,  subject to the following constraints: 1) Cells per partition &lt;= 1,000,000 2) Partitions should not be empty:  At least one row and column in each partition 3) The number of partitions should be a multiple of the number of nodes 4) Partition size as large as possible Note: These constraints are in priority order.  (1) should always be met.  Others are best effort. Note: This module is used internally to PBblas, and should not be needed by users of PBblas</content>
-    <param>N		The row dimension of the matrix to be partitioned</param>
-    <param>M		The column dimension of the matrix to be partitioned</param>
-    <param>max_partition_size The largest allowed partition size.  For advanced use only.</param>
-    <param>nodes_override For testing only.  Overrides the number of nodes in the cluster. Should never be used in production.</param>
+    <content>&#10;&#32;&#32;* Auto-Partitioning for a Single Matrix
+  *
+  * Given an input of N and M describing the dimensions of a matrix (N rows x M columns),
+  * calculate the optimal square (d x d), row (d x 1), or column (1 x d) partition  
+  * matrix dimensions: PN and BM,  subject to the following constraints:
+  * 1) Cells per partition &lt;= 1,000,000
+  * 2) Partitions should not be empty:  At least one row and column in each partition
+  * 3) The number of partitions should be a multiple of the number of nodes
+  * 4) Partition size as large as possible
+  *
+  * Note: These constraints are in priority order.  (1) should always be met.  Others are best effort.
+  * Note: This module is used internally to PBblas, and should not be needed by users of PBblas
+  *
+  * @param N		The row dimension of the matrix to be partitioned
+  * @param M		The column dimension of the matrix to be partitioned
+  * @param max_partition_size The largest allowed partition size.  For advanced use only.
+  * @param nodes_override For testing only.  Overrides the number of nodes in the cluster.
+  *                          Should never be used in production.&#10;&#32;&#32;</content>
    </Documentation>
   </Definition>
  </Source>
@@ -1703,7 +1938,9 @@
           start="289">
    <Type>attribute</Type>
    <Documentation>
-    <content>Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes.</content>
+    <content>&#10;&#32;&#32;* Types for the Parallel Block Basic Linear Algebra Sub-programs support
+  * WARNING: attributes marked with WARNING can not be changed without making
+  * corresponding changes to the C++ attributes.&#10;&#32;&#32;</content>
    </Documentation>
   </Import>
   <Import body="0"
@@ -1716,7 +1953,9 @@
           start="310">
    <Type>attribute</Type>
    <Documentation>
-    <content>Internal Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes.</content>
+    <content>&#10;&#32;&#32;* Internal Types for the Parallel Block Basic Linear Algebra Sub-programs support
+  * WARNING: attributes marked with WARNING can not be changed without making
+  * corresponding changes to the C++ attributes.&#10;&#32;&#32;</content>
    </Documentation>
   </Import>
   <Definition body="345"
@@ -1868,7 +2107,7 @@
                start="4920">
     <Type>attribute</Type>
     <Documentation>
-     <content>The row dimension of A&apos;s partition matrix and of the C and result partition matrixes</content>
+     <content>&#10;&#32;&#32;&#32;&#32;* The row dimension of A&apos;s partition matrix and of the C and result partition matrixes&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
    </Definition>
    <Definition body="5070"
@@ -1882,7 +2121,7 @@
                start="5058">
     <Type>attribute</Type>
     <Documentation>
-     <content>The column dimension of A&apos;s partition matrix and the row dimension of B&apos;s partition matrix</content>
+     <content>&#10;&#32;&#32;&#32;&#32;* The column dimension of A&apos;s partition matrix and the row dimension of B&apos;s partition matrix&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
    </Definition>
    <Definition body="5205"
@@ -1896,7 +2135,7 @@
                start="5193">
     <Type>attribute</Type>
     <Documentation>
-     <content>The column dimension of B&apos;s partition matrix and of the C and result partition matrixes</content>
+     <content>&#10;&#32;&#32;&#32;&#32;* The column dimension of B&apos;s partition matrix and of the C and result partition matrixes&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
    </Definition>
    <Definition body="5325"
@@ -1910,7 +2149,7 @@
                start="5305">
     <Type>attribute</Type>
     <Documentation>
-     <content>The number of rows in each partition of A, C and result matrixes</content>
+     <content>&#10;&#32;&#32;&#32;&#32;* The number of rows in each partition of A, C and result matrixes&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
    </Definition>
    <Definition body="5481"
@@ -1924,7 +2163,7 @@
                start="5461">
     <Type>attribute</Type>
     <Documentation>
-     <content>The number of columns in each partition of A, and the number of rows in each partition of B matrix</content>
+     <content>&#10;&#32;&#32;&#32;&#32;* The number of columns in each partition of A, and the number of rows in each partition of B matrix&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
    </Definition>
    <Definition body="5607"
@@ -1938,7 +2177,7 @@
                start="5587">
     <Type>attribute</Type>
     <Documentation>
-     <content>The number of columns in each partition of B, C, and result matrixes</content>
+     <content>&#10;&#32;&#32;&#32;&#32;* The number of columns in each partition of B, C, and result matrixes&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
    </Definition>
    <Definition body="5780"
@@ -1952,18 +2191,34 @@
                start="5737">
     <Type>attribute</Type>
     <Documentation>
-     <see>Std/PBblas/Types.ecl</see>
-     <content>The type of partitioning used. See Types.PartitionType</content>
+     <content>&#10;&#32;&#32;&#32;&#32;* The type of partitioning used. See Types.PartitionType
+    *
+    * @see Std/PBblas/Types.ecl&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
    </Definition>
    <Documentation>
-    <content>Auto-Partitioning for Multiply operations Given an input of N, M, and P, describing the dimensions of A (N x M), B (M x P), and C (N x P)  matrixes, calculate the optimal square (d x d), row (d x 1), or column (1 x d) partition   matrix dimensions: PN, PM, and PP, representing the dimensions of the three partition matrixes for A, B, and C respectively (P(A): PN x PM, P(B): PM x PP, P(C): PN x PP).  Each of the partition matrixes is subject to the following constraints: 1) Cells per partition &lt;= 1,000,000 2) Partitions should not be empty:  At least one row and column in each partition 3) The number of partitions should be a multiple of the number of nodes 4) Partition size as large as possible Note: These constraints are in priority order.  (1) should always be met.  Others are best effort. Note: This module is used internally to PBblas, and should not be needed by users of PBblas</content>
-    <see>Std/PBblas/BlockDimensions</see>
-    <param>N		The Row dimension of the A matrix (multiplier) and the C (addend) and Result matrixes</param>
-    <param>M		The Column dimension of the A matrix and the Row dimension of the B matrix (multiplicand)</param>
-    <param>P		The Column dimension of the B matrix and of the C and Result matrixes</param>
-    <param>max_part_size_or Overrides the largest allowed partition size.  For advanced use only.</param>
-    <param>nodes_or For testing only.  Overrides the number of nodes in the cluster. Should never be used in production.</param>
+    <content>&#10;* Auto-Partitioning for Multiply operations
+*
+* Given an input of N, M, and P, describing the dimensions of A (N x M), B (M x P), and C (N x P) 
+* matrixes, calculate the optimal square (d x d), row (d x 1), or column (1 x d) partition  
+* matrix dimensions: PN, PM, and PP, representing the dimensions of the three partition
+* matrixes for A, B, and C respectively (P(A): PN x PM, P(B): PM x PP, P(C): PN x PP). 
+* Each of the partition matrixes is subject to the following constraints:
+* 1) Cells per partition &lt;= 1,000,000
+* 2) Partitions should not be empty:  At least one row and column in each partition
+* 3) The number of partitions should be a multiple of the number of nodes
+* 4) Partition size as large as possible
+*
+* Note: These constraints are in priority order.  (1) should always be met.  Others are best effort.
+* Note: This module is used internally to PBblas, and should not be needed by users of PBblas
+*
+* @param N		The Row dimension of the A matrix (multiplier) and the C (addend) and Result matrixes
+* @param M		The Column dimension of the A matrix and the Row dimension of the B matrix (multiplicand)
+* @param P		The Column dimension of the B matrix and of the C and Result matrixes
+* @param max_part_size_or Overrides the largest allowed partition size.  For advanced use only.
+* @param nodes_or For testing only.  Overrides the number of nodes in the cluster.
+*                          Should never be used in production.
+* @see			Std/PBblas/BlockDimensions&#10;</content>
    </Documentation>
   </Definition>
  </Source>
@@ -1999,7 +2254,9 @@
           start="289">
    <Type>attribute</Type>
    <Documentation>
-    <content>Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes.</content>
+    <content>&#10;&#32;&#32;* Types for the Parallel Block Basic Linear Algebra Sub-programs support
+  * WARNING: attributes marked with WARNING can not be changed without making
+  * corresponding changes to the C++ attributes.&#10;&#32;&#32;</content>
    </Documentation>
   </Import>
   <Definition body="345"
@@ -2095,7 +2352,7 @@
                start="2641">
     <Type>attribute</Type>
     <Documentation>
-     <content>The row dimension of the optimal Partition Matrix</content>
+     <content>&#10;&#32;&#32;&#32;&#32;* The row dimension of the optimal Partition Matrix&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
    </Definition>
    <Definition body="2887"
@@ -2120,7 +2377,7 @@
                start="3045">
     <Type>attribute</Type>
     <Documentation>
-     <content>The row and column dimension of A&apos;s partition matrix and either row or column of B&apos;s</content>
+     <content>&#10;&#32;&#32;&#32;&#32;* The row and column dimension of A&apos;s partition matrix and either row or column of B&apos;s&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
    </Definition>
    <Definition body="3215"
@@ -2134,7 +2391,8 @@
                start="3203">
     <Type>attribute</Type>
     <Documentation>
-     <content>The row or column dimension of B and X(result) matrixes depending on the type of solve (see module description).</content>
+     <content>&#10;&#32;&#32;&#32;&#32;* The row or column dimension of B and X(result) matrixes depending on the type
+    * of solve (see module description).&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
    </Definition>
    <Definition body="3377"
@@ -2148,8 +2406,8 @@
                start="3358">
     <Type>attribute</Type>
     <Documentation>
-     <return>The side dimension of &apos;A&apos; matrix (a is square)</return>
-     <content>The number of rows and columns in each partition of A</content>
+     <content>&#10;&#32;&#32;&#32;&#32;* The number of rows and columns in each partition of A
+    * @return  The side dimension of &apos;A&apos; matrix (a is square)&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
    </Definition>
    <Definition body="3564"
@@ -2163,16 +2421,37 @@
                start="3545">
     <Type>attribute</Type>
     <Documentation>
-     <content>The number of rows or columns in each partition of B and X (result) depending on the type of solve (see module description).</content>
+     <content>&#10;&#32;&#32;&#32;&#32;* The number of rows or columns in each partition of B and X (result) depending
+    * on the type of solve (see module description).&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
    </Definition>
    <Documentation>
-    <content>Auto-Partitioning for Solve operations Given an input of N and M, describing the dimensions of A (N x N), B (N x M) or (M x N) matrixes, calculate the optimal square (d x d) partitioning for A and rectangular partitioning for B.  Calculate the partition matrix dimensions: PN and PM representing the dimensions of the partition matrixes for A and B respectively (P(A): PN x PN, P(B): PM x PN or PN x PM. Note that for solving Ax=B, B will be N x M, and for solving xA = B, B will be M x N. Each of the partition matrixes is subject to the following constraints: 1) Cells per partition &lt;= 1,000,000 2) Partitions should not be empty:  At least one row and column in each partition 3) The number of partitions should be a multiple of the number of nodes 4) Partition size as large as possible Note: These constraints are in priority order.  (1) should always be met.  Others are best effort. Note: This module is used internally to PBblas, and should not be needed by users of PBblas</content>
-    <see>Std/PBblas/BlockDimensions</see>
-    <param>N    The Row and Column dimension of the A matrix and either the Row or Column dimension of B (depending on the type of solve).</param>
-    <param>M    The Column or Row dimension of B (depending on the type of solve)</param>
-    <param>max_part_size_or Overrides the largest allowed partition size. For advanced use only.</param>
-    <param>nodes_or For testing only.  Overrides the number of nodes in the cluster. Should never be used in production.</param>
+    <content>&#10;* Auto-Partitioning for Solve operations
+*
+* Given an input of N and M, describing the dimensions of A (N x N), B (N x M) or (M x N)
+* matrixes, calculate the optimal square (d x d) partitioning for A and rectangular
+* partitioning for B.  Calculate the partition matrix dimensions: PN and PM representing the
+* dimensions of the partition
+* matrixes for A and B respectively (P(A): PN x PN, P(B): PM x PN or PN x PM.
+* Note that for solving Ax=B, B will be N x M, and for solving xA = B, B will be M x N.
+* Each of the partition matrixes is subject to the following constraints:
+* 1) Cells per partition &lt;= 1,000,000
+* 2) Partitions should not be empty:  At least one row and column in each partition
+* 3) The number of partitions should be a multiple of the number of nodes
+* 4) Partition size as large as possible
+*
+* Note: These constraints are in priority order.  (1) should always be met.  Others are best effort.
+* Note: This module is used internally to PBblas, and should not be needed by users of PBblas
+*
+* @param N    The Row and Column dimension of the A matrix and either the Row or Column
+*                dimension of B (depending on the type of solve).
+* @param M    The Column or Row dimension of B (depending on the type of
+*                solve)
+* @param max_part_size_or Overrides the largest allowed partition size.
+*                For advanced use only.
+* @param nodes_or For testing only.  Overrides the number of nodes in the cluster.
+*                          Should never be used in production.
+* @see      Std/PBblas/BlockDimensions&#10;</content>
    </Documentation>
   </Definition>
  </Source>
@@ -2197,7 +2476,9 @@
           start="856">
    <Type>attribute</Type>
    <Documentation>
-    <content>Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes.</content>
+    <content>&#10;&#32;&#32;* Types for the Parallel Block Basic Linear Algebra Sub-programs support
+  * WARNING: attributes marked with WARNING can not be changed without making
+  * corresponding changes to the C++ attributes.&#10;&#32;&#32;</content>
    </Documentation>
   </Import>
   <Import body="0"
@@ -2221,7 +2502,9 @@
           start="894">
    <Type>attribute</Type>
    <Documentation>
-    <content>Internal Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes.</content>
+    <content>&#10;&#32;&#32;* Internal Types for the Parallel Block Basic Linear Algebra Sub-programs support
+  * WARNING: attributes marked with WARNING can not be changed without making
+  * corresponding changes to the C++ attributes.&#10;&#32;&#32;</content>
    </Documentation>
   </Import>
   <Import body="0"
@@ -2248,14 +2531,37 @@
    <Field name="y"/>
    <Field name="v"/>
    <Documentation>
-    <field>wi_id  Work Item Number -- An identifier from 1 to 64K-1 that separates and identifies individual matrixes</field>
-    <field>x	    1-based row position within the matrix</field>
-    <field>y	    1-based column position within the matrix</field>
-    <field>v	    Real value for the cell</field>
-    <see>matrix_t</see>
-    <see>Std/PBblas/MakeR8Set.ecl</see>
-    <see>Std/PBblas/Converted.ecl WARNING: Used as C++ attribute.  Do not change without corresponding changes to MakeR8Set.</see>
-    <content>Layout for Matrix Cell Main representation of Matrix cell at interface to all PBBlas functions. Matrixes are represented as DATASET(Layout_Cell), where each cell describes the row and column position of the cell as well as its value. Only the non-zero cells need to be contained in the dataset in order to describe the matrix since all unspecified cells are considered to have a value of zero. The cell also contains a work-item number that allows multiple separate matrixes to be carried in the same dataset.  This supports the &quot;myriad&quot; style interface that allows the same operations to be performed on many different sets of data at once. Note that these matrixes do not have an explicit size.  They are sized implicitly, based on the maximum row and column presented in the data. A matrix can be converted to an explicit dense form (see matrix_t) by  using the utility module MakeR8Set. This module should only be used for known small matrixes (&lt; 1M cells) or for partitions of a larger matrix. The Converted module provides utility functions to convert to and from a set of partitions (See Layout_parts).</content>
+    <content>&#10;&#32;&#32;&#32;&#32;* Layout for Matrix Cell
+    *
+    * Main representation of Matrix cell at interface to all PBBlas functions.
+    * Matrixes are represented as DATASET(Layout_Cell), where each cell describes
+    * the row and column position of the cell as well as its value.
+    * Only the non-zero cells need to be contained in the dataset in order
+    * to describe the matrix since all unspecified cells are considered to
+    * have a value of zero.
+    * The cell also contains a work-item number that allows multiple separate
+    * matrixes to be carried in the same dataset.  This supports the &quot;myriad&quot;
+    * style interface that allows the same operations to be performed on many
+    * different sets of data at once.
+    * Note that these matrixes do not have an explicit size.  They are sized
+    * implicitly, based on the maximum row and column presented in the data.
+    * A matrix can be converted to an explicit dense form (see matrix_t) by 
+    * using the utility module MakeR8Set. This module should only be used for known
+    * small matrixes (&lt; 1M cells) or for partitions of a larger matrix.
+    * The Converted module provides utility
+    * functions to convert to and from a set of partitions (See Layout_parts).
+    *
+    * @field wi_id  Work Item Number -- An identifier from 1 to 64K-1 that
+    *                 separates and identifies individual matrixes
+    * @field x	    1-based row position within the matrix
+    * @field y	    1-based column position within the matrix
+    * @field v	    Real value for the cell
+    * @see		    matrix_t
+    * @see		    Std/PBblas/MakeR8Set.ecl
+    * @see		    Std/PBblas/Converted.ecl
+    *
+    * WARNING: Used as C++ attribute.  Do not change without corresponding changes
+    *  to MakeR8Set.&#10;&#32;&#32;&#32;&#32;</content>
    </Documentation>
   </Definition>
   <Definition body="447"
@@ -2276,14 +2582,18 @@
    <Field name="row_blocks"/>
    <Field name="col_blocks"/>
    <Documentation>
-    <field>m_label A user provided label indicating to which matrix the dimensions apply, when used to describe a set of related matrixes (e.g., &apos;A&apos;, &apos;B&apos;, and &apos;C&apos;) for the same work item used in an operation.</field>
-    <field>m_rows The number of rows in the full matrix</field>
-    <field>m_cols The number of colums in the full matrix</field>
-    <field>block_rows The number of rows in each partition of the matrix</field>
-    <field>block_cols The number of columns in each partition</field>
-    <field>row_blocks The number of row partitions in use for the matrix</field>
-    <field>col_blocks The number of column partitions in use for the matrix</field>
-    <content>Record format for matrix and matrix partition dimensions.  Each record describes A single matrix or matrix partition.  Partitions use all of the fields, while a non-partitioned matrix only uses the first two (i.e. m_rows and m_cols).</content>
+    <content>&#10;&#32;&#32;&#32;&#32;* Record format for matrix and matrix partition dimensions.  Each record describes
+    * A single matrix or matrix partition.  Partitions use all of the fields, while
+    * a non-partitioned matrix only uses the first two (i.e. m_rows and m_cols).
+    * @field m_label A user provided label indicating to which matrix the dimensions
+    *                apply, when used to describe a set of related matrixes (e.g.,
+    *                &apos;A&apos;, &apos;B&apos;, and &apos;C&apos;) for the same work item used in an operation.
+    * @field m_rows The number of rows in the full matrix
+    * @field m_cols The number of colums in the full matrix
+    * @field block_rows The number of rows in each partition of the matrix
+    * @field block_cols The number of columns in each partition
+    * @field row_blocks The number of row partitions in use for the matrix
+    * @field col_blocks The number of column partitions in use for the matrix&#10;&#32;&#32;&#32;&#32;</content>
    </Documentation>
   </Definition>
   <Definition body="956"
@@ -2296,7 +2606,16 @@
               start="942">
    <Type>attribute</Type>
    <Documentation>
-    <content>Module:  Converted Utility module to convert matrixes between Cell-based form and Partition-based form Cell based matrixes provide a (potentially) sparse form organized as  DATASET(Layout_Cell). Partition based matrixes are organized as a set of partitions (DATASET(Layout_Part)), with each partition holding a part of the matrix (in dense form). Both forms allow the matrix to be distributed among nodes so that it can be larger than the memory on any one node. This module provides a FromCells method as well as a FromParts method.</content>
+    <content>&#32;&#10;&#32;&#32;* Module:  Converted
+  *
+  * Utility module to convert matrixes between Cell-based form and Partition-based form
+  * Cell based matrixes provide a (potentially) sparse form organized as 
+  * DATASET(Layout_Cell).
+  * Partition based matrixes are organized as a set of partitions (DATASET(Layout_Part)),
+  * with each partition holding a part of the matrix (in dense form).
+  * Both forms allow the matrix to be distributed among nodes so that it can be larger
+  * than the memory on any one node.
+  * This module provides a FromCells method as well as a FromParts method.&#10;&#32;&#32;</content>
    </Documentation>
   </Definition>
   <Definition body="990"
@@ -2354,25 +2673,47 @@
    <Field name="first_col"/>
    <Field name="mat_part"/>
    <Documentation>
-    <field>wi_id          Work Item Number -- An identifier from 1 to 64K-1 that separates and identifies individual matrixes</field>
-    <field>m_label        A user provided label indicating to which matrix the dimensions apply, when used to describe a set of related matrixes (e.g., &apos;A&apos;, &apos;B&apos;, and &apos;C&apos;) for the same work item used in an operation.    * @field partition_id	A unique ID for this partition within the matrix</field>
-    <field>partition_id   The 1-based id of this partition, unique within a work-item</field>
-    <field>node_id		The node on which this partition is stored</field>
-    <field>m_rows         The number of rows in the full matrix</field>
-    <field>m_cols         The number of columns in the full matrix</field>
-    <field>row_blocks     The number of row partitions in use</field>
-    <field>col_blocks     The number of column partitions in use</field>
-    <field>block_row		The row of this partition within the block partition matrix</field>
-    <field>block_col		The column of this partition &quot;</field>
-    <field>part_rows		The number of rows stored within this partition</field>
-    <field>part_cols		The number of columns stored within this partition</field>
-    <field>first_row		The first row of the original matrix stored within this partition</field>
-    <field>first_col		The first column of the original matrix stored within this partition</field>
-    <field>mat_part		The dense representation of the cells values within this partition (see matrix_t)</field>
-    <see>matrix_t</see>
-    <see>Layout_Cell</see>
-    <see>Std/PBblas/Converted</see>
-    <content>Alternate form for storage of large matrixes as a set of partitions Each partition holds the dense form of a piece of the matrix (see matrix_t) as well as information about its relationship to the larger matrix. The full matrix is then carried as DATASET(Layout_Part). Utility module Converted provides functions for converting a matrix in cell form (see Layout_cell) to partitions and vice versa. This form is primarily used internally to PBblas functions, but can also be used as an intermediate form to avoid repeated conversions from cell form. A work-item id field allows multiple matrixes to be carried in the same dataset.  This supports the &quot;myriad&quot; style interface whereby the same operation can be performed on multiple sets of matrixes at once. The m_label field allows for the separation of multiple matrixes with the same wi_id for operations requiring multiple matrixes.  This allows multiple work-items with multiple matrixes each to be carried in the same dataset.</content>
+    <content>&#10;&#32;&#32;&#32;&#32;* Alternate form for storage of large matrixes as a set of partitions
+    * Each partition holds the dense form of a piece of the matrix (see matrix_t)
+    * as well as information about its relationship to the larger matrix.
+    * The full matrix is then carried as DATASET(Layout_Part).
+    * Utility module Converted provides functions for converting a matrix in cell
+    * form (see Layout_cell) to partitions and vice versa.
+    * This form is primarily used internally to PBblas functions, but can also
+    * be used as an intermediate form to avoid repeated conversions from cell
+    * form.
+    * A work-item id field allows multiple matrixes to be carried in the
+    * same dataset.  This supports the &quot;myriad&quot; style interface whereby the
+    * same operation can be performed on multiple sets of matrixes at once.
+    * The m_label field allows for the separation of multiple matrixes with the
+    * same wi_id for operations requiring multiple matrixes.  This allows
+    * multiple work-items with multiple matrixes each to be carried in the same
+    * dataset.
+
+    * @field wi_id          Work Item Number -- An identifier from 1 to 64K-1 that
+    *                         separates and identifies individual matrixes
+    * @field m_label        A user provided label indicating to which matrix the dimensions
+    *                       apply, when used to describe a set of related matrixes (e.g.,
+    *                       &apos;A&apos;, &apos;B&apos;, and &apos;C&apos;) for the same work item used in an operation.    * @field partition_id	A unique ID for this partition within the matrix
+    * @field partition_id   The 1-based id of this partition, unique within a work-item
+    * @field node_id		The node on which this partition is stored
+    * @field m_rows         The number of rows in the full matrix
+    * @field m_cols         The number of columns in the full matrix
+    * @field row_blocks     The number of row partitions in use
+    * @field col_blocks     The number of column partitions in use
+    * @field block_row		The row of this partition within the block partition matrix
+    * @field block_col		The column of this partition &quot;
+    * @field part_rows		The number of rows stored within this partition
+    * @field part_cols		The number of columns stored within this partition
+    * @field first_row		The first row of the original matrix stored within this
+    *						partition
+    * @field first_col		The first column of the original matrix stored within this
+    *						partition
+    * @field mat_part		The dense representation of the cells values within this
+    *						partition (see matrix_t)
+    * @see		matrix_t
+    * @see		Layout_Cell
+    * @see		Std/PBblas/Converted&#10;&#32;&#32;&#32;&#32;</content>
    </Documentation>
   </Definition>
   <Definition body="1196"
@@ -2422,13 +2763,24 @@
                start="2617">
     <Type>function</Type>
     <Documentation>
-     <see>PBblas/Types.Layout_Cell</see>
-     <see>PBblas/internal/Types.Layout_Part</see>
-     <see>PBblas/internal/Types.Layout_Dims</see>
-     <return>DATASET(Layout_Part) -- A dataset of partitions describing the same matrix(es) as the input cells.</return>
-     <param>dims    A DATASET(Layout_Dims) of partitioned dimensions</param>
-     <param>cells   A DATASET(Layout_Cell) containing the cells of the matrix</param>
-     <content>Convert a matrix in cell-based form (i.e. DATASET(Layout_Cell)) to a partition-based form (i.e. DATASET(Layout_Part).  Partition sizes will be automatically determined. See PBblas/Internal/MatDims. Note that the cell-based form may be sparse (i.e. contains only non-zero cells). The resulting partition-based matrix will contain zero in any cell not specified. Partitions will no non-zero cells will be omitted. This module supports the &quot;myriad&quot; style interface in that both dimension and matrix parameters may describe many separate matrices with different work item ids.</content>
+     <content>&#10;&#32;&#32;&#32;&#32;* Convert a matrix in cell-based form (i.e. DATASET(Layout_Cell)) to a partition-based
+    * form (i.e. DATASET(Layout_Part).  Partition sizes will be automatically determined.
+    * See PBblas/Internal/MatDims.
+    * Note that the cell-based form may be sparse (i.e. contains only non-zero cells).
+    * The resulting partition-based matrix will contain zero in any cell not specified.
+    * Partitions will no non-zero cells will be omitted.
+    *
+    * This module supports the &quot;myriad&quot; style interface in that both dimension
+    * and matrix parameters may describe many separate matrices with different
+    * work item ids.
+    *
+    * @param dims    A DATASET(Layout_Dims) of partitioned dimensions
+    * @param cells   A DATASET(Layout_Cell) containing the cells of the matrix
+    * @return        DATASET(Layout_Part) -- A dataset of partitions describing
+    *                the same matrix(es) as the input cells.
+    * @see PBblas/Types.Layout_Cell
+    * @see PBblas/internal/Types.Layout_Part
+    * @see PBblas/internal/Types.Layout_Dims&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
     <Params>
      <Param name="dims"/>
@@ -2447,11 +2799,20 @@
                start="6477">
     <Type>function</Type>
     <Documentation>
-     <content>Convert a matrix in Partition-based form (i.e. DATASET(Layout_Part)) to Cell-based form (i.e. DATASET(Layout_Cell)). Note that the returned cell-based matrix is sparse, in that it will only  contain rows for cells that were non-zero in the original matrix. This interface supports &quot;myriad&quot; style, in that the partitions may  represent many independent matrixes separated by different work item ids.</content>
-     <see>Std/PBblas/Types.Layout_Cell</see>
-     <see>Std/PBblas/Types.Layout_Part</see>
-     <param>parts_recs     A DATASET(Layout_Parts) specifying the matrix(es) to be converted</param>
-     <param>transpose      BOOLEAN parameter causes each matrix to be transposed during conversion</param>
+     <content>&#10;&#32;&#32;&#32;&#32;* Convert a matrix in Partition-based form (i.e. DATASET(Layout_Part))
+    * to Cell-based form (i.e. DATASET(Layout_Cell)).
+    * Note that the returned cell-based matrix is sparse, in that it will only 
+    * contain rows for cells that were non-zero in the original matrix.
+    *
+    * This interface supports &quot;myriad&quot; style, in that the partitions may 
+    * represent many independent matrixes separated by different work item ids.
+    * 
+    * @param parts_recs     A DATASET(Layout_Parts) specifying the matrix(es) to
+    *                       be converted
+    * @param transpose      BOOLEAN parameter causes each matrix to be transposed
+    *                       during conversion
+    * @see Std/PBblas/Types.Layout_Cell
+    * @see Std/PBblas/Types.Layout_Part&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
     <Params>
      <Param name="part_recs"/>
@@ -2482,7 +2843,9 @@
           start="856">
    <Type>attribute</Type>
    <Documentation>
-    <content>Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes.</content>
+    <content>&#10;&#32;&#32;* Types for the Parallel Block Basic Linear Algebra Sub-programs support
+  * WARNING: attributes marked with WARNING can not be changed without making
+  * corresponding changes to the C++ attributes.&#10;&#32;&#32;</content>
    </Documentation>
   </Import>
   <Definition body="331"
@@ -2509,14 +2872,37 @@
    <Field name="y"/>
    <Field name="v"/>
    <Documentation>
-    <field>wi_id  Work Item Number -- An identifier from 1 to 64K-1 that separates and identifies individual matrixes</field>
-    <field>x	    1-based row position within the matrix</field>
-    <field>y	    1-based column position within the matrix</field>
-    <field>v	    Real value for the cell</field>
-    <see>matrix_t</see>
-    <see>Std/PBblas/MakeR8Set.ecl</see>
-    <see>Std/PBblas/Converted.ecl WARNING: Used as C++ attribute.  Do not change without corresponding changes to MakeR8Set.</see>
-    <content>Layout for Matrix Cell Main representation of Matrix cell at interface to all PBBlas functions. Matrixes are represented as DATASET(Layout_Cell), where each cell describes the row and column position of the cell as well as its value. Only the non-zero cells need to be contained in the dataset in order to describe the matrix since all unspecified cells are considered to have a value of zero. The cell also contains a work-item number that allows multiple separate matrixes to be carried in the same dataset.  This supports the &quot;myriad&quot; style interface that allows the same operations to be performed on many different sets of data at once. Note that these matrixes do not have an explicit size.  They are sized implicitly, based on the maximum row and column presented in the data. A matrix can be converted to an explicit dense form (see matrix_t) by  using the utility module MakeR8Set. This module should only be used for known small matrixes (&lt; 1M cells) or for partitions of a larger matrix. The Converted module provides utility functions to convert to and from a set of partitions (See Layout_parts).</content>
+    <content>&#10;&#32;&#32;&#32;&#32;* Layout for Matrix Cell
+    *
+    * Main representation of Matrix cell at interface to all PBBlas functions.
+    * Matrixes are represented as DATASET(Layout_Cell), where each cell describes
+    * the row and column position of the cell as well as its value.
+    * Only the non-zero cells need to be contained in the dataset in order
+    * to describe the matrix since all unspecified cells are considered to
+    * have a value of zero.
+    * The cell also contains a work-item number that allows multiple separate
+    * matrixes to be carried in the same dataset.  This supports the &quot;myriad&quot;
+    * style interface that allows the same operations to be performed on many
+    * different sets of data at once.
+    * Note that these matrixes do not have an explicit size.  They are sized
+    * implicitly, based on the maximum row and column presented in the data.
+    * A matrix can be converted to an explicit dense form (see matrix_t) by 
+    * using the utility module MakeR8Set. This module should only be used for known
+    * small matrixes (&lt; 1M cells) or for partitions of a larger matrix.
+    * The Converted module provides utility
+    * functions to convert to and from a set of partitions (See Layout_parts).
+    *
+    * @field wi_id  Work Item Number -- An identifier from 1 to 64K-1 that
+    *                 separates and identifies individual matrixes
+    * @field x	    1-based row position within the matrix
+    * @field y	    1-based column position within the matrix
+    * @field v	    Real value for the cell
+    * @see		    matrix_t
+    * @see		    Std/PBblas/MakeR8Set.ecl
+    * @see		    Std/PBblas/Converted.ecl
+    *
+    * WARNING: Used as C++ attribute.  Do not change without corresponding changes
+    *  to MakeR8Set.&#10;&#32;&#32;&#32;&#32;</content>
    </Documentation>
   </Definition>
   <Definition body="990"
@@ -2540,14 +2926,17 @@
               start="1080">
    <Type>embed</Type>
    <Documentation>
-    <content>Take a dataset of cells (or sub-matrix thereof) and pack into a dense matrix. in column major order [r1c1, r2c1, r3c1, ..., rNc1, r1c2, ..., rNcM]. First row and first column are one based.</content>
-    <return>Dense matrix or sub-matrix (SET OF REAL8)</return>
-    <param>r         The number of rows in the matrix or sub-matrix</param>
-    <param>s         The number of columns in the matrix or sub-matrix</param>
-    <param>first_row  The first row to include in the submatrix</param>
-    <param>first_col  The first column to include in the submatrix</param>
-    <param>D          The matrix to convert in Layout_Cell form</param>
-    <param>transpose  Boolean to transpose the matrix during conversion (optional)</param>
+    <content>&#10;&#32;&#32;* Take a dataset of cells (or sub-matrix thereof) and pack into a dense matrix.
+  * in column major order [r1c1, r2c1, r3c1, ..., rNc1, r1c2, ..., rNcM].
+  * First row and first column are one based.
+  *
+  * @param  r         The number of rows in the matrix or sub-matrix
+  * @param  s         The number of columns in the matrix or sub-matrix
+  * @param first_row  The first row to include in the submatrix
+  * @param first_col  The first column to include in the submatrix
+  * @param D          The matrix to convert in Layout_Cell form
+  * @param transpose  Boolean to transpose the matrix during conversion (optional)
+  * @return           Dense matrix or sub-matrix (SET OF REAL8)&#10;&#32;&#32;</content>
    </Documentation>
    <Params>
     <Param name="r"/>
@@ -2656,11 +3045,11 @@
                start="1639">
     <Type>function</Type>
     <Documentation>
-     <content>Function prototype for Apply2Cell.</content>
-     <return>the updated value</return>
-     <param>v the value</param>
-     <param>r the row ordinal</param>
-     <param>c the column ordinal</param>
+     <content>&#13;&#10;&#32;&#32;&#32;* Function prototype for Apply2Cell.
+   * @param v the value
+   * @param r the row ordinal
+   * @param c the column ordinal
+   * @return the updated value&#13;&#10;&#32;&#32;&#32;</content>
     </Documentation>
     <Params>
      <Param name="v"/>
@@ -2679,12 +3068,12 @@
                start="2017">
     <Type>function</Type>
     <Documentation>
-     <content>Iterate matrix and apply function to each cell</content>
-     <return>updated matrix</return>
-     <param>m number of rows</param>
-     <param>n number of columns</param>
-     <param>x matrix</param>
-     <param>f function to apply</param>
+     <content>&#13;&#10;&#32;&#32;&#32;* Iterate matrix and apply function to each cell
+   *@param m number of rows
+   *@param n number of columns
+   *@param x matrix
+   *@param f function to apply
+   *@return updated matrix&#13;&#10;&#32;&#32;&#32;</content>
     </Documentation>
     <Params>
      <Param name="m"/>
@@ -2704,12 +3093,13 @@
                start="2934">
     <Type>function</Type>
     <Documentation>
-     <content>Absolute sum, the 1 norm of a vector.</content>
-     <return>the sum of the absolute values</return>
-     <param>m the number of entries</param>
-     <param>x the column major matrix holding the vector</param>
-     <param>incx the increment for x, 1 in the case of an actual vector</param>
-     <param>skipped default is zero, the number of entries stepped over to get to the first entry</param>
+     <content>&#13;&#10;&#32;&#32;&#32;* Absolute sum, the 1 norm of a vector.
+   *@param m the number of entries
+   *@param x the column major matrix holding the vector
+   *@param incx the increment for x, 1 in the case of an actual vector
+   *@param skipped default is zero, the number of entries stepped over
+   * to get to the first entry
+   *@return the sum of the absolute values&#13;&#10;&#32;&#32;&#32;</content>
     </Documentation>
     <Params>
      <Param name="m"/>
@@ -2729,16 +3119,16 @@
                start="3626">
     <Type>function</Type>
     <Documentation>
-     <content>alpha*X + Y</content>
-     <return>the updated matrix</return>
-     <param>N number of elements in vector</param>
-     <param>alpha the scalar multiplier</param>
-     <param>X the column major matrix holding the vector X</param>
-     <param>incX the increment or stride for the vector</param>
-     <param>Y the column major matrix holding the vector Y</param>
-     <param>incY the increment or stride of Y</param>
-     <param>x_skipped number of entries skipped to get to the first X</param>
-     <param>y_skipped number of entries skipped to get to the first Y</param>
+     <content>&#13;&#10;&#32;* alpha*X + Y
+ * @param N number of elements in vector
+ * @param alpha the scalar multiplier
+ * @param X the column major matrix holding the vector X
+ * @param incX the increment or stride for the vector
+ * @param Y the column major matrix holding the vector Y
+ * @param incY the increment or stride of Y
+ * @param x_skipped number of entries skipped to get to the first X
+ * @param y_skipped number of entries skipped to get to the first Y
+ * @return the updated matrix&#13;&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="N"/>
@@ -2762,17 +3152,17 @@
                start="4465">
     <Type>function</Type>
     <Documentation>
-     <content>alpha*op(A) op(B) + beta*C where op() is transpose</content>
-     <param>transposeA true when transpose of A is used</param>
-     <param>transposeB true when transpose of B is used</param>
-     <param>M number of rows in product</param>
-     <param>N number of columns in product</param>
-     <param>K number of columns/rows for the multiplier/multiplicand</param>
-     <param>alpha scalar used on A</param>
-     <param>A matrix A</param>
-     <param>B matrix B</param>
-     <param>beta scalar for matrix C</param>
-     <param>C matrix C or empty</param>
+     <content>&#13;&#10;&#32;&#32;&#32;* alpha*op(A) op(B) + beta*C where op() is transpose
+   * @param transposeA true when transpose of A is used
+   * @param transposeB true when transpose of B is used
+   * @param M number of rows in product
+   * @param N number of columns in product
+   * @param K number of columns/rows for the multiplier/multiplicand
+   * @param alpha scalar used on A
+   * @param A matrix A
+   * @param B matrix B
+   * @param beta scalar for matrix C
+   * @param C matrix C or empty&#13;&#10;&#32;&#32;&#32;</content>
     </Documentation>
     <Params>
      <Param name="transposeA"/>
@@ -2798,10 +3188,12 @@
                start="5153">
     <Type>function</Type>
     <Documentation>
-     <content>Compute LU Factorization of matrix A.</content>
-     <return>composite matrix of factors, lower triangle has an implied diagonal of ones.  Upper triangle has the diagonal of the composite.</return>
-     <param>m number of rows of A</param>
-     <param>n number of columns of A</param>
+     <content>&#13;&#10;&#32;&#32;&#32;* Compute LU Factorization of matrix A.
+   * @param m number of rows of A
+   * @param n number of columns of A
+   * @return composite matrix of factors, lower triangle has an
+   *         implied diagonal of ones.  Upper triangle has the diagonal of the
+   *         composite.&#13;&#10;&#32;&#32;&#32;</content>
     </Documentation>
     <Params>
      <Param name="m"/>
@@ -2820,12 +3212,18 @@
                start="5934">
     <Type>function</Type>
     <Documentation>
-     <content>DPOTF2 computes the Cholesky factorization of a real symmetric positive definite matrix A. The factorization has the form A = U**T * U ,  if UPLO = &apos;U&apos;, or A = L  * L**T,  if UPLO = &apos;L&apos;, where U is an upper triangular matrix and L is lower triangular. This is the unblocked version of the algorithm, calling Level 2 BLAS.</content>
-     <return>the triangular matrix requested.</return>
-     <param>tri indicate whether upper or lower triangle is used</param>
-     <param>r number of rows/columns in the square matrix</param>
-     <param>A the square matrix</param>
-     <param>clear clears the unused triangle</param>
+     <content>&#13;&#10;&#32;&#32;&#32;* DPOTF2 computes the Cholesky factorization of a real symmetric
+   * positive definite matrix A.
+   *The factorization has the form
+   * A = U**T * U ,  if UPLO = &apos;U&apos;, or
+   * A = L  * L**T,  if UPLO = &apos;L&apos;,
+   * where U is an upper triangular matrix and L is lower triangular.
+   * This is the unblocked version of the algorithm, calling Level 2 BLAS.
+   * @param tri indicate whether upper or lower triangle is used
+   * @param r number of rows/columns in the square matrix
+   * @param A the square matrix
+   * @param clear clears the unused triangle
+   * @return the triangular matrix requested.&#13;&#10;&#32;&#32;&#32;</content>
     </Documentation>
     <Params>
      <Param name="tri"/>
@@ -2845,13 +3243,13 @@
                start="6507">
     <Type>function</Type>
     <Documentation>
-     <content>Scale a vector alpha</content>
-     <return>the updated matrix</return>
-     <param>N number of elements in the vector</param>
-     <param>alpha the scaling factor</param>
-     <param>X the column major matrix holding the vector</param>
-     <param>incX the stride to get to the next element in the vector</param>
-     <param>skipped the number of elements skipped to get to the first element</param>
+     <content>&#13;&#10;&#32;&#32;&#32;* Scale a vector alpha
+   * @param N number of elements in the vector
+   * @param alpha the scaling factor
+   * @param X the column major matrix holding the vector
+   * @param incX the stride to get to the next element in the vector
+   * @param skipped the number of elements skipped to get to the first element
+   * @return the updated matrix&#13;&#10;&#32;&#32;&#32;</content>
     </Documentation>
     <Params>
      <Param name="N"/>
@@ -2872,16 +3270,19 @@
                start="7415">
     <Type>function</Type>
     <Documentation>
-     <content>Implements symmetric rank update C &lt;- alpha A**T A + beta C or c &lt;- alpha A A**T + beta C.  C is N x N.</content>
-     <param>tri update upper or lower triangle</param>
-     <param>transposeA Transpose the A matrix to be NxK</param>
-     <param>N number of rows</param>
-     <param>K number of columns in the update matrix or transpose</param>
-     <param>alpha the alpha scalar</param>
-     <param>A the update matrix, either NxK or KxN</param>
-     <param>beta the beta scalar</param>
-     <param>C the matrix to update</param>
-     <param>clear clear the triangle that is not updated.  BLAS assumes that symmetric matrices have only one of the triangles and this option lets you make that true.</param>
+     <content>&#13;&#10;&#32;&#32;&#32;* Implements symmetric rank update C &lt;- alpha A**T A + beta C or
+   * c &lt;- alpha A A**T + beta C.  C is N x N.
+   * @param tri update upper or lower triangle
+   * @param transposeA Transpose the A matrix to be NxK
+   * @param N number of rows
+   * @param K number of columns in the update matrix or transpose
+   * @param alpha the alpha scalar
+   * @param A the update matrix, either NxK or KxN
+   * @param beta the beta scalar
+   * @param C the matrix to update
+   * @param clear clear the triangle that is not updated.  BLAS assumes
+   * that symmetric matrices have only one of the triangles and this
+   * option lets you make that true.&#13;&#10;&#32;&#32;&#32;</content>
     </Documentation>
     <Params>
      <Param name="tri"/>
@@ -2906,18 +3307,19 @@
                start="8458">
     <Type>function</Type>
     <Documentation>
-     <content>Triangular matrix solver.  op(A) X = alpha B or X op(A) = alpha B where op is Transpose, X and B is MxN</content>
-     <return>the matrix of coefficients to get B.</return>
-     <param>side side for A, Side.Ax is op(A) X = alpha B</param>
-     <param>tri Says whether A is Upper or Lower triangle</param>
-     <param>transposeA is op(A) the transpose of A</param>
-     <param>diag is the diagonal an implied unit diagonal or supplied</param>
-     <param>M number of rows</param>
-     <param>N number of columns</param>
-     <param>lda the leading dimension of the A matrix, either M or N</param>
-     <param>alpha the scalar multiplier for B</param>
-     <param>A a triangular matrix</param>
-     <param>B the matrix of values for the solve</param>
+     <content>&#13;&#10;&#32;&#32;&#32;* Triangular matrix solver.  op(A) X = alpha B or X op(A) = alpha B
+   * where op is Transpose, X and B is MxN
+   * @param side side for A, Side.Ax is op(A) X = alpha B
+   * @param tri Says whether A is Upper or Lower triangle
+   * @param transposeA is op(A) the transpose of A
+   * @param diag is the diagonal an implied unit diagonal or supplied
+   * @param M number of rows
+   * @param N number of columns
+   * @param lda the leading dimension of the A matrix, either M or N
+   * @param alpha the scalar multiplier for B
+   * @param A a triangular matrix
+   * @param B the matrix of values for the solve
+   * @return the matrix of coefficients to get B.&#13;&#10;&#32;&#32;&#32;</content>
     </Documentation>
     <Params>
      <Param name="side"/>
@@ -2943,11 +3345,11 @@
                start="9043">
     <Type>function</Type>
     <Documentation>
-     <content>Extract the diagonal of he matrix</content>
-     <return>diagonal matrix</return>
-     <param>m number of rows</param>
-     <param>n number of columns</param>
-     <param>x matrix from which to extract the diagonal</param>
+     <content>&#13;&#10;&#32;&#32;&#32;* Extract the diagonal of he matrix
+   * @param m number of rows
+   * @param n number of columns
+   * @param x matrix from which to extract the diagonal
+   * @return diagonal matrix&#13;&#10;&#32;&#32;&#32;</content>
     </Documentation>
     <Params>
      <Param name="m"/>
@@ -2966,13 +3368,14 @@
                start="9932">
     <Type>function</Type>
     <Documentation>
-     <content>Extract the upper or lower triangle.  Diagonal can be actual or implied unit diagonal.</content>
-     <return>the triangle</return>
-     <param>m number of rows</param>
-     <param>n number of columns</param>
-     <param>tri Upper or Lower specifier, Triangle.Lower or Triangle.Upper</param>
-     <param>dt Use Diagonal.NotUnitTri or Diagonal.UnitTri</param>
-     <param>a Matrix, usually a composite from factoring</param>
+     <content>&#13;&#10;&#32;&#32;&#32;* Extract the upper or lower triangle.  Diagonal can be actual or implied
+   * unit diagonal.
+   * @param m number of rows
+   * @param n number of columns
+   * @param tri Upper or Lower specifier, Triangle.Lower or Triangle.Upper
+   * @param dt Use Diagonal.NotUnitTri or Diagonal.UnitTri
+   * @param a Matrix, usually a composite from factoring
+   * @return the triangle&#13;&#10;&#32;&#32;&#32;</content>
     </Documentation>
     <Params>
      <Param name="m"/>
@@ -2993,11 +3396,11 @@
                start="10418">
     <Type>function</Type>
     <Documentation>
-     <content>Generate a diagonal matrix.</content>
-     <return>a diagonal matrix</return>
-     <param>m number of diagonal entries</param>
-     <param>v option value, defaults to 1</param>
-     <param>X optional input of diagonal values, multiplied by v.</param>
+     <content>&#13;&#10;&#32;&#32;&#32;* Generate a diagonal matrix.
+   * @param m number of diagonal entries
+   * @param v option value, defaults to 1
+   * @param X optional input of diagonal values, multiplied by v.
+   * @return a diagonal matrix&#13;&#10;&#32;&#32;&#32;</content>
     </Documentation>
     <Params>
      <Param name="m"/>
@@ -3016,10 +3419,10 @@
                start="10967">
     <Type>function</Type>
     <Documentation>
-     <content>Make a vector of dimension m</content>
-     <return>the vector</return>
-     <param>m number of elements</param>
-     <param>v the values, defaults to 1</param>
+     <content>&#13;&#10;&#32;&#32;&#32;* Make a vector of dimension m
+   * @param m number of elements
+   * @param v the values, defaults to 1
+   * @return the vector&#13;&#10;&#32;&#32;&#32;</content>
     </Documentation>
     <Params>
      <Param name="m"/>
@@ -3037,11 +3440,11 @@
                start="11297">
     <Type>function</Type>
     <Documentation>
-     <content>The trace of the input matrix</content>
-     <return>the trace (sum of the diagonal entries)</return>
-     <param>m number of rows</param>
-     <param>n number of columns</param>
-     <param>x the matrix</param>
+     <content>&#13;&#10;&#32;&#32;&#32;* The trace of the input matrix
+   * @param m number of rows
+   * @param n number of columns
+   * @param x the matrix
+   * @return the trace (sum of the diagonal entries)&#13;&#10;&#32;&#32;&#32;</content>
     </Documentation>
     <Params>
      <Param name="m"/>

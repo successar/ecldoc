@@ -36,15 +36,7 @@
 				</li>
 				
 				<li>
-					<a href="constants.ecl.html">constants.ecl</a>
-				</li>
-				
-				<li>
-					<a href="types.ecl.html">types.ecl</a>
-				</li>
-				
-				<li>
-					<a href="trsm.ecl.html">trsm.ecl</a>
+					<a href="vector2diag.ecl.html">vector2diag.ecl</a>
 				</li>
 				
 				<li>
@@ -52,7 +44,7 @@
 				</li>
 				
 				<li>
-					<a href="tran.ecl.html">tran.ecl</a>
+					<a href="potrf.ecl.html">potrf.ecl</a>
 				</li>
 				
 				<li>
@@ -60,19 +52,11 @@
 				</li>
 				
 				<li>
+					<a href="constants.ecl.html">constants.ecl</a>
+				</li>
+				
+				<li>
 					<a href="axpy.ecl.html">axpy.ecl</a>
-				</li>
-				
-				<li>
-					<a href="ielementfunc.ecl.html">ielementfunc.ecl</a>
-				</li>
-				
-				<li>
-					<a href="vector2diag.ecl.html">vector2diag.ecl</a>
-				</li>
-				
-				<li>
-					<a href="matutils.ecl.html">matutils.ecl</a>
 				</li>
 				
 				<li>
@@ -80,7 +64,23 @@
 				</li>
 				
 				<li>
-					<a href="asum.ecl.html">asum.ecl</a>
+					<a href="ielementfunc.ecl.html">ielementfunc.ecl</a>
+				</li>
+				
+				<li>
+					<a href="trsm.ecl.html">trsm.ecl</a>
+				</li>
+				
+				<li>
+					<a href="hadamardproduct.ecl.html">hadamardproduct.ecl</a>
+				</li>
+				
+				<li>
+					<a href="converted.ecl.html">converted.ecl</a>
+				</li>
+				
+				<li>
+					<a href="types.ecl.html">types.ecl</a>
 				</li>
 				
 				<li>
@@ -92,15 +92,15 @@
 				</li>
 				
 				<li>
-					<a href="potrf.ecl.html">potrf.ecl</a>
+					<a href="asum.ecl.html">asum.ecl</a>
 				</li>
 				
 				<li>
-					<a href="converted.ecl.html">converted.ecl</a>
+					<a href="matutils.ecl.html">matutils.ecl</a>
 				</li>
 				
 				<li>
-					<a href="hadamardproduct.ecl.html">hadamardproduct.ecl</a>
+					<a href="tran.ecl.html">tran.ecl</a>
 				</li>
 				
 			</ul>
@@ -112,43 +112,59 @@
 					<table class="table table-condensed">
 						
 						<tr>
-							<td>Version</td>
-							<td>3.0.1</td>
-						</tr>
-						
-						<tr>
-							<td>Description</td>
-							<td>Parallel Block Basic Linear Algebra Subsystem</td>
-						</tr>
-						
-						<tr>
 							<td>Platform</td>
-							<td>6.2.0</td>
+							<td>
+								6.2.0
+							</td>
+						</tr>
+						
+						<tr>
+							<td>Version</td>
+							<td>
+								3.0.1
+							</td>
 						</tr>
 						
 						<tr>
 							<td>DependsOn</td>
-							<td>ML_Core</td>
-						</tr>
-						
-						<tr>
-							<td>License</td>
-							<td>http://www.apache.org/licenses/LICENSE-2.0</td>
-						</tr>
-						
-						<tr>
-							<td>Copyright</td>
-							<td>Copyright (C) 2016, 2017 HPCC Systems</td>
-						</tr>
-						
-						<tr>
-							<td>Authors</td>
-							<td>HPCCSystems</td>
+							<td>
+								ML_Core
+							</td>
 						</tr>
 						
 						<tr>
 							<td>Name</td>
-							<td>PBblas</td>
+							<td>
+								PBblas
+							</td>
+						</tr>
+						
+						<tr>
+							<td>Copyright</td>
+							<td>
+								Copyright (C) 2016, 2017 HPCC Systems
+							</td>
+						</tr>
+						
+						<tr>
+							<td>Description</td>
+							<td>
+								Parallel Block Basic Linear Algebra Subsystem
+							</td>
+						</tr>
+						
+						<tr>
+							<td>Authors</td>
+							<td>
+								HPCCSystems
+							</td>
+						</tr>
+						
+						<tr>
+							<td>License</td>
+							<td>
+								http://www.apache.org/licenses/LICENSE-2.0
+							</td>
 						</tr>
 						
 					</table>
@@ -164,28 +180,8 @@
 									<span class="glyphicon glyphicon-file"></span>
 									
 								</td>
-								<td><a href="constants.ecl.html">constants.ecl</a></td>
-								<td> </td>
-							</tr>
-							
-							<tr>
-								<td>
-									
-									<span class="glyphicon glyphicon-file"></span>
-									
-								</td>
-								<td><a href="types.ecl.html">types.ecl</a></td>
-								<td>Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes.</td>
-							</tr>
-							
-							<tr>
-								<td>
-									
-									<span class="glyphicon glyphicon-file"></span>
-									
-								</td>
-								<td><a href="trsm.ecl.html">trsm.ecl</a></td>
-								<td>Partitioned block parallel triangular matrix solver. Solves for X using: AX = B or XA = B A is is a square triangular matrix, X and B have the same dimensions. A may be an upper triangular matrix (UX = B or XU = B), or a lower triangular matrix (LX = B or XL = B). Allows optional transposing and scaling of A. Partially based upon an approach discussed by MJ DAYDE, IS DUFF, AP CERFACS. A Parallel Block implementation of Level-3 BLAS for MIMD Vector Processors ACM Tran. Mathematical Software, Vol 20, No 2, June 1994 pp 178-193 and other papers about PB-BLAS by Choi and Dongarra This module supports the "Myriad" style interface, allowing many independent problems to be worked on at once. Corresponding A and B matrixes are related by a common work-item identifier (wi_id) within each cell of the matrix. The returned X matrix will contain cells for the same set of work-items as specified for the A and B matrices.</td>
+								<td><a href="vector2diag.ecl.html">vector2diag.ecl</a></td>
+								<td>Convert a vector into a diagonal matrix. The typical notation is D = diag(V). The input X must be a 1 x N column vector or an N x 1 row vector. The resulting matrix, in either case will be N x N, with zero everywhere except the diagonal.</td>
 							</tr>
 							
 							<tr>
@@ -195,7 +191,7 @@
 									
 								</td>
 								<td><a href="gemm.ecl.html">gemm.ecl</a></td>
-								<td>Extended Parallel Block Matrix Multiplication Module Implements: Result <- alpha * op(A)op(B) + beta * C. op is No Transpose or Transpose. Multiplies two matrixes A and B, with an optional pre-multiply transpose for each Optionally scales the product by the scalar "alpha". Then adds an optional C matrix to the product after scaling C by the scalar "beta". A, B, and C are specified as DATASET(Layout_Cell), as is the Resulting matrix. Layout_Cell describes a sparse matrix stored as a list of x, y, and value. This interface also provides a "Myriad" capability allowing multiple similar operations to be performed on independent sets of matrixes in parallel. This is done by use of the work-item id (wi_id) in each cell of the matrixes. Cells with the same wi_id are considered part of the same matrix. In the myriad form, each input matrix A, B, and (optionally) C can contain many independent matrixes. The wi_ids are matched up such that each operation involves the A, B, and C with the same wi_id. A and B must therefore contain the same set of wi_ids, while C is optional for any wi_id. The same parameters: alpha, beta, transposeA, and transposeB are used for all work-items. The result will contain cells from all provided work-items. Result has same shape as C if provided. Note that matrixes are not explicitly dimensioned. The shape is determined by the highest value of x and y for each work-item.</td>
+								<td>Extended Parallel Block Matrix Multiplication Module Implements: Result </td>
 							</tr>
 							
 							<tr>
@@ -204,8 +200,8 @@
 									<span class="glyphicon glyphicon-file"></span>
 									
 								</td>
-								<td><a href="tran.ecl.html">tran.ecl</a></td>
-								<td>Transpose a matrix and sum into base matrix result <== alpha * A**t + beta * C, A is n by m, C is m by n A**T (A Transpose) and C must have same shape</td>
+								<td><a href="potrf.ecl.html">potrf.ecl</a></td>
+								<td>Implements Cholesky factorization of A = U**T * U if Triangular.Upper requested or A = L * L**T if Triangualr.Lower is requested. The matrix A must be symmetric positive definite. <pre><br/>  | A11   A12 |      |  L11   0   |    | L11**T     L21**T |<br/>  | A21   A22 |  ==  |  L21   L22 | *  |  0           L22  |<br/><br/>                     | L11*L11**T          L11*L21**T      |<br/>                 ==  | L21*L11**T  L21*L21**T + L22*L22**T |<br/> </pre> So, use Cholesky on the first block to get L11. L21 = A21*L11**T**-1 which can be found by dtrsm on each column block A22' is A22 - L21*L21**T <p> Based upon PB-BLAS: A set of parallel block basic linear algebra subprograms by Choi and Dongarra </p><p> This module supports the "Myriad" style interface, allowing many independent problems to be worked on at once. The A matrix can contain multiple matrixes to be factored, indicated by different values for work-item id (wi_id).</p></td>
 							</tr>
 							
 							<tr>
@@ -224,38 +220,18 @@
 									<span class="glyphicon glyphicon-file"></span>
 									
 								</td>
+								<td><a href="constants.ecl.html">constants.ecl</a></td>
+								<td> </td>
+							</tr>
+							
+							<tr>
+								<td>
+									
+									<span class="glyphicon glyphicon-file"></span>
+									
+								</td>
 								<td><a href="axpy.ecl.html">axpy.ecl</a></td>
 								<td>Implements alpha*X + Y X and Y must have same shape</td>
-							</tr>
-							
-							<tr>
-								<td>
-									
-									<span class="glyphicon glyphicon-file"></span>
-									
-								</td>
-								<td><a href="ielementfunc.ecl.html">ielementfunc.ecl</a></td>
-								<td>Function prototype for a function to apply to each element of the distributed matrix Base your function on this prototype:</td>
-							</tr>
-							
-							<tr>
-								<td>
-									
-									<span class="glyphicon glyphicon-file"></span>
-									
-								</td>
-								<td><a href="vector2diag.ecl.html">vector2diag.ecl</a></td>
-								<td>Convert a vector into a diagonal matrix. The typical notation is D = diag(V). The input X must be a 1 x N column vector or an N x 1 row vector. The resulting matrix, in either case will be N x N, with zero everywhere except the diagonal.</td>
-							</tr>
-							
-							<tr>
-								<td>
-									
-									<span class="glyphicon glyphicon-file"></span>
-									
-								</td>
-								<td><a href="matutils.ecl.html">matutils.ecl</a></td>
-								<td>Provides various utility attributes for manipulating cell-based matrixes</td>
 							</tr>
 							
 							<tr>
@@ -274,8 +250,48 @@
 									<span class="glyphicon glyphicon-file"></span>
 									
 								</td>
-								<td><a href="asum.ecl.html">asum.ecl</a></td>
-								<td>Absolute sum -- the "Entrywise" 1-norm Compute SUM(ABS(X))</td>
+								<td><a href="ielementfunc.ecl.html">ielementfunc.ecl</a></td>
+								<td>Function prototype for a function to apply to each element of the distributed matrix Base your function on this prototype:</td>
+							</tr>
+							
+							<tr>
+								<td>
+									
+									<span class="glyphicon glyphicon-file"></span>
+									
+								</td>
+								<td><a href="trsm.ecl.html">trsm.ecl</a></td>
+								<td>Partitioned block parallel triangular matrix solver. Solves for X using: AX = B or XA = B A is is a square triangular matrix, X and B have the same dimensions. A may be an upper triangular matrix (UX = B or XU = B), or a lower triangular matrix (LX = B or XL = B). Allows optional transposing and scaling of A. Partially based upon an approach discussed by MJ DAYDE, IS DUFF, AP CERFACS. A Parallel Block implementation of Level-3 BLAS for MIMD Vector Processors ACM Tran. Mathematical Software, Vol 20, No 2, June 1994 pp 178-193 and other papers about PB-BLAS by Choi and Dongarra This module supports the "Myriad" style interface, allowing many independent problems to be worked on at once. Corresponding A and B matrixes are related by a common work-item identifier (wi_id) within each cell of the matrix. The returned X matrix will contain cells for the same set of work-items as specified for the A and B matrices.</td>
+							</tr>
+							
+							<tr>
+								<td>
+									
+									<span class="glyphicon glyphicon-file"></span>
+									
+								</td>
+								<td><a href="hadamardproduct.ecl.html">hadamardproduct.ecl</a></td>
+								<td>Element-wise multiplication of X * Y. Supports the "myriad" style interface -- X and Y may contain multiple separate matrixes. Each X will be multiplied by the Y with the same work-item id. Note: This performs element-wise multiplication. For dot-product matrix multiplication, use PBblas.gemm.</td>
+							</tr>
+							
+							<tr>
+								<td>
+									
+									<span class="glyphicon glyphicon-file"></span>
+									
+								</td>
+								<td><a href="converted.ecl.html">converted.ecl</a></td>
+								<td>Module to convert between ML_Core/Types Field layouts (i.e. NumericField and DiscreteField) and PBblas matrix layout (i.e. Layout_Cell)</td>
+							</tr>
+							
+							<tr>
+								<td>
+									
+									<span class="glyphicon glyphicon-file"></span>
+									
+								</td>
+								<td><a href="types.ecl.html">types.ecl</a></td>
+								<td>Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes.</td>
 							</tr>
 							
 							<tr>
@@ -304,8 +320,8 @@
 									<span class="glyphicon glyphicon-file"></span>
 									
 								</td>
-								<td><a href="potrf.ecl.html">potrf.ecl</a></td>
-								<td>Implements Cholesky factorization of A = U**T * U if Triangular.Upper requested or A = L * L**T if Triangualr.Lower is requested. The matrix A must be symmetric positive definite. | A11 A12 | | L11 0 | | L11**T L21**T | | A21 A22 | == | L21 L22 | * | 0 L22 | | L11*L11**T L11*L21**T | == | L21*L11**T L21*L21**T + L22*L22**T | So, use Cholesky on the first block to get L11. L21 = A21*L11**T**-1 which can be found by dtrsm on each column block A22' is A22 - L21*L21**T Based upon PB-BLAS: A set of parallel block basic linear algebra subprograms by Choi and Dongarra This module supports the "Myriad" style interface, allowing many independent problems to be worked on at once. The A matrix can contain multiple matrixes to be factored, indicated by different values for work-item id (wi_id). </td>
+								<td><a href="asum.ecl.html">asum.ecl</a></td>
+								<td>Absolute sum -- the "Entrywise" 1-norm Compute SUM(ABS(X))</td>
 							</tr>
 							
 							<tr>
@@ -314,8 +330,8 @@
 									<span class="glyphicon glyphicon-file"></span>
 									
 								</td>
-								<td><a href="converted.ecl.html">converted.ecl</a></td>
-								<td>Module to convert between ML_Core/Types Field layouts (i.e. NumericField and DiscreteField) and PBblas matrix layout (i.e. Layout_Cell)</td>
+								<td><a href="matutils.ecl.html">matutils.ecl</a></td>
+								<td>Provides various utility attributes for manipulating cell-based matrixes</td>
 							</tr>
 							
 							<tr>
@@ -324,8 +340,8 @@
 									<span class="glyphicon glyphicon-file"></span>
 									
 								</td>
-								<td><a href="hadamardproduct.ecl.html">hadamardproduct.ecl</a></td>
-								<td>Element-wise multiplication of X * Y. Supports the "myriad" style interface -- X and Y may contain multiple separate matrixes. Each X will be multiplied by the Y with the same work-item id. Note: This performs element-wise multiplication. For dot-product matrix multiplication, use PBblas.gemm.</td>
+								<td><a href="tran.ecl.html">tran.ecl</a></td>
+								<td>Transpose a matrix and sum into base matrix result &lt;== alpha * A**t + beta * C, A is n by m, C is m by n A**T (A Transpose) and C must have same shape</td>
 							</tr>
 							
 						</table>

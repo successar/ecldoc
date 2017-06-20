@@ -127,11 +127,17 @@
               start="1059">
    <Type>function</Type>
    <Documentation>
-    <content>Information about the datasets.  Without details the range for the x and y (independent and dependent) columns.  Note that a column of all zero values cannot be distinguished from a missing column. When details are requested, the cardinality, minimum, and maximum values are returned.  A zero cardinality is returned when the field cardinality exceeds the Constants.limit_card value.</content>
-    <returns>a data set of information on each work item</returns>
-    <param>indep data set of independent variables</param>
-    <param>dep data set of dependent variables</param>
-    <param>field_details Boolean directive to provide field level info</param>
+    <content>&#10;&#32;* Information about the datasets.  Without details the range
+ *for the x and y (independent and dependent) columns.  Note that
+ *a column of all zero values cannot be distinguished from a missing
+ *column.
+ * When details are requested, the cardinality, minimum, and maximum
+ *values are returned.  A zero cardinality is returned when the field
+ *cardinality exceeds the Constants.limit_card value.
+ * @param indep data set of independent variables
+ * @param dep data set of dependent variables
+ * @param field_details Boolean directive to provide field level info
+ * @returns a data set of information on each work item&#10;&#32;</content>
    </Documentation>
    <Params>
     <Param name="indep"/>

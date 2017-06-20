@@ -5,11 +5,8 @@
    <Type>module</Type>
    <Definition body="620" end="681" exported="1" fullname="uni.filterout" inherit_type="local" line="17" name="FilterOut" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/Uni.ecl" start="564">
     <Type>function</Type>
-    <Documentation> <content>Returns the first string with all characters within the second string removed.</content>
-     <see>Std.Uni.Filter</see>
-     <param><name>src</name><desc>The string that is being tested.</desc></param>
-     <param><name>filter</name><desc>The string containing the set of characters to be excluded.</desc></param>
-    </Documentation>
+    <Documentation>
+     <see>Std.Uni.Filter</see><content>Returns the first string with all characters within the second string removed.</content><param><name>src</name><desc>The string that is being tested.</desc></param><param><name>filter</name><desc>The string containing the set of characters to be excluded.</desc></param></Documentation>
     <Signature sign="unicode FilterOut(unicode src, unicode filter)" name="FilterOut">unicode FilterOut(unicode src, unicode filter)</Signature><Params>
      <Param name="src"/>
      <Param name="filter"/>
@@ -17,11 +14,8 @@
    </Definition>
    <Definition body="1017" end="1075" exported="1" fullname="uni.filter" inherit_type="local" line="28" name="Filter" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/Uni.ecl" start="964">
     <Type>function</Type>
-    <Documentation> <content>Returns the first string with all characters not within the second string removed.</content>
-     <see>Std.Uni.FilterOut</see>
-     <param><name>src</name><desc>The string that is being tested.</desc></param>
-     <param><name>filter</name><desc>The string containing the set of characters to be included.</desc></param>
-    </Documentation>
+    <Documentation>
+     <see>Std.Uni.FilterOut</see><content>Returns the first string with all characters not within the second string removed.</content><param><name>src</name><desc>The string that is being tested.</desc></param><param><name>filter</name><desc>The string containing the set of characters to be included.</desc></param></Documentation>
     <Signature sign="unicode Filter(unicode src, unicode filter)" name="Filter">unicode Filter(unicode src, unicode filter)</Signature><Params>
      <Param name="src"/>
      <Param name="filter"/>
@@ -29,12 +23,8 @@
    </Definition>
    <Definition body="1616" end="1695" exported="1" fullname="uni.substituteincluded" inherit_type="local" line="42" name="SubstituteIncluded" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/Uni.ecl" start="1529">
     <Type>function</Type>
-    <Documentation> <content>Returns the source string with the replacement character substituted for all characters included in the filter string. MORE: Should this be a general string substitution?</content>
-     <see>Std.Uni.SubstituteOut</see>
-     <param><name>src</name><desc>The string that is being tested.</desc></param>
-     <param><name>filter</name><desc>The string containing the set of characters to be included.</desc></param>
-     <param><name>replace_char</name><desc>The character to be substituted into the result.</desc></param>
-    </Documentation>
+    <Documentation>
+     <see>Std.Uni.SubstituteOut</see><content>Returns the source string with the replacement character substituted for all characters included in the filter string. MORE: Should this be a general string substitution?</content><param><name>src</name><desc>The string that is being tested.</desc></param><param><name>filter</name><desc>The string containing the set of characters to be included.</desc></param><param><name>replace_char</name><desc>The character to be substituted into the result.</desc></param></Documentation>
     <Signature sign="unicode SubstituteIncluded(unicode src, unicode filter, unicode replace_char)" name="SubstituteIncluded">unicode SubstituteIncluded(unicode src, unicode filter, unicode replace_char)</Signature><Params>
      <Param name="src"/>
      <Param name="Filter"/>
@@ -43,12 +33,8 @@
    </Definition>
    <Definition body="2245" end="2321" exported="1" fullname="uni.substituteexcluded" inherit_type="local" line="56" name="SubstituteExcluded" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/Uni.ecl" start="2158">
     <Type>function</Type>
-    <Documentation> <content>Returns the source string with the replacement character substituted for all characters not included in the filter string. MORE: Should this be a general string substitution?</content>
-     <see>Std.Uni.SubstituteIncluded</see>
-     <param><name>src</name><desc>The string that is being tested.</desc></param>
-     <param><name>filter</name><desc>The string containing the set of characters to be included.</desc></param>
-     <param><name>replace_char</name><desc>The character to be substituted into the result.</desc></param>
-    </Documentation>
+    <Documentation>
+     <see>Std.Uni.SubstituteIncluded</see><content>Returns the source string with the replacement character substituted for all characters not included in the filter string. MORE: Should this be a general string substitution?</content><param><name>src</name><desc>The string that is being tested.</desc></param><param><name>filter</name><desc>The string containing the set of characters to be included.</desc></param><param><name>replace_char</name><desc>The character to be substituted into the result.</desc></param></Documentation>
     <Signature sign="unicode SubstituteExcluded(unicode src, unicode filter, unicode replace_char)" name="SubstituteExcluded">unicode SubstituteExcluded(unicode src, unicode filter, unicode replace_char)</Signature><Params>
      <Param name="src"/>
      <Param name="Filter"/>
@@ -57,11 +43,8 @@
    </Definition>
    <Definition body="2797" end="2863" exported="1" fullname="uni.find" inherit_type="local" line="69" name="Find" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/Uni.ecl" start="2724">
     <Type>function</Type>
-    <Documentation> <content>Returns the character position of the nth match of the search string with the first string. If no match is found the attribute returns 0. If an instance is omitted the position of the first instance is returned.</content>
-     <param><name>src</name><desc>The string that is searched</desc></param>
-     <param><name>sought</name><desc>The string being sought.</desc></param>
-     <param><name>instance</name><desc>Which match instance are we interested in?</desc></param>
-    </Documentation>
+    <Documentation>
+     <content>Returns the character position of the nth match of the search string with the first string. If no match is found the attribute returns 0. If an instance is omitted the position of the first instance is returned.</content><param><name>src</name><desc>The string that is searched</desc></param><param><name>sought</name><desc>The string being sought.</desc></param><param><name>instance</name><desc>Which match instance are we interested in?</desc></param></Documentation>
     <Signature sign="UNSIGNED4 Find(unicode src, unicode sought, unsigned4 instance)" name="Find">UNSIGNED4 Find(unicode src, unicode sought, unsigned4 instance)</Signature><Params>
      <Param name="src"/>
      <Param name="sought"/>
@@ -70,11 +53,8 @@
    </Definition>
    <Definition body="3223" end="3373" exported="1" fullname="uni.findword" inherit_type="local" line="80" name="FindWord" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/Uni.ecl" start="3143">
     <Type>function</Type>
-    <Documentation> <content>Tests if the search string contains the supplied word as a whole word.</content>
-     <param><name>src</name><desc>The string that is being tested.</desc></param>
-     <param><name>word</name><desc>The word to be searched for.</desc></param>
-     <param><name>ignore_case</name><desc>Whether to ignore differences in case between characters.</desc></param>
-    </Documentation>
+    <Documentation>
+     <content>Tests if the search string contains the supplied word as a whole word.</content><param><name>src</name><desc>The string that is being tested.</desc></param><param><name>word</name><desc>The word to be searched for.</desc></param><param><name>ignore_case</name><desc>Whether to ignore differences in case between characters.</desc></param></Documentation>
     <Signature sign="BOOLEAN FindWord(UNICODE src, UNICODE word, BOOLEAN ignore_case=FALSE)" name="FindWord">BOOLEAN FindWord(UNICODE src, UNICODE word, BOOLEAN ignore_case=FALSE)</Signature><Params>
      <Param name="src"/>
      <Param name="word"/>
@@ -83,12 +63,8 @@
    </Definition>
    <Definition body="3939" end="4024" exported="1" fullname="uni.localefind" inherit_type="local" line="97" name="LocaleFind" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/Uni.ecl" start="3837">
     <Type>function</Type>
-    <Documentation> <content>Returns the character position of the nth match of the search string with the first string. If no match is found the attribute returns 0. If an instance is omitted the position of the first instance is returned.</content>
-     <param><name>src</name><desc>The string that is searched</desc></param>
-     <param><name>sought</name><desc>The string being sought.</desc></param>
-     <param><name>instance</name><desc>Which match instance are we interested in?</desc></param>
-     <param><name>locale_name</name><desc>The locale to use for the comparison</desc></param>
-    </Documentation>
+    <Documentation>
+     <content>Returns the character position of the nth match of the search string with the first string. If no match is found the attribute returns 0. If an instance is omitted the position of the first instance is returned.</content><param><name>src</name><desc>The string that is searched</desc></param><param><name>sought</name><desc>The string being sought.</desc></param><param><name>instance</name><desc>Which match instance are we interested in?</desc></param><param><name>locale_name</name><desc>The locale to use for the comparison</desc></param></Documentation>
     <Signature sign="UNSIGNED4 LocaleFind(unicode src, unicode sought, unsigned4 instance, varstring locale_name)" name="LocaleFind">UNSIGNED4 LocaleFind(unicode src, unicode sought, unsigned4 instance, varstring locale_name)</Signature><Params>
      <Param name="src"/>
      <Param name="sought"/>
@@ -98,13 +74,8 @@
    </Definition>
    <Definition body="5239" end="5344" exported="1" fullname="uni.localefindatstrength" inherit_type="local" line="117" name="LocaleFindAtStrength" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/Uni.ecl" start="5108">
     <Type>function</Type>
-    <Documentation> <content>Returns the character position of the nth match of the search string with the first string. If no match is found the attribute returns 0. If an instance is omitted the position of the first instance is returned.</content>
-     <param><name>src</name><desc>The string that is searched</desc></param>
-     <param><name>sought</name><desc>The string being sought.</desc></param>
-     <param><name>instance</name><desc>Which match instance are we interested in?</desc></param>
-     <param><name>locale_name</name><desc>The locale to use for the comparison</desc></param>
-     <param><name>strength</name><desc>The strength of the comparison 1 ignores accents and case, differentiating only between letters 2 ignores case but differentiates between accents. 3 differentiates between accents and case but ignores e.g. differences between Hiragana and Katakana 4 differentiates between accents and case and e.g. Hiragana/Katakana, but ignores e.g. Hebrew cantellation marks 5 differentiates between all strings whose canonically decomposed forms (NFDNormalization Form D) are non-identical</desc></param>
-    </Documentation>
+    <Documentation>
+     <content>Returns the character position of the nth match of the search string with the first string. If no match is found the attribute returns 0. If an instance is omitted the position of the first instance is returned.</content><param><name>src</name><desc>The string that is searched</desc></param><param><name>sought</name><desc>The string being sought.</desc></param><param><name>instance</name><desc>Which match instance are we interested in?</desc></param><param><name>locale_name</name><desc>The locale to use for the comparison</desc></param><param><name>strength</name><desc>The strength of the comparison 1 ignores accents and case, differentiating only between letters 2 ignores case but differentiates between accents. 3 differentiates between accents and case but ignores e.g. differences between Hiragana and Katakana 4 differentiates between accents and case and e.g. Hiragana/Katakana, but ignores e.g. Hebrew cantellation marks 5 differentiates between all strings whose canonically decomposed forms (NFDNormalization Form D) are non-identical</desc></param></Documentation>
     <Signature sign="UNSIGNED4 LocaleFindAtStrength(unicode src, unicode tofind, unsigned4 instance, varstring locale_name, integer1 strength)" name="LocaleFindAtStrength">UNSIGNED4 LocaleFindAtStrength(unicode src, unicode tofind, unsigned4 instance, varstring locale_name, integer1 strength)</Signature><Params>
      <Param name="src"/>
      <Param name="tofind"/>
@@ -115,10 +86,8 @@
    </Definition>
    <Definition body="5606" end="5667" exported="1" fullname="uni.extract" inherit_type="local" line="127" name="Extract" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/Uni.ecl" start="5548">
     <Type>function</Type>
-    <Documentation> <content>Returns the nth element from a comma separated string.</content>
-     <param><name>src</name><desc>The string containing the comma separated list.</desc></param>
-     <param><name>instance</name><desc>Which item to select from the list.</desc></param>
-    </Documentation>
+    <Documentation>
+     <content>Returns the nth element from a comma separated string.</content><param><name>src</name><desc>The string containing the comma separated list.</desc></param><param><name>instance</name><desc>Which item to select from the list.</desc></param></Documentation>
     <Signature sign="unicode Extract(unicode src, unsigned4 instance)" name="Extract">unicode Extract(unicode src, unsigned4 instance)</Signature><Params>
      <Param name="src"/>
      <Param name="instance"/>
@@ -126,38 +95,32 @@
    </Definition>
    <Definition body="5870" end="5925" exported="1" fullname="uni.tolowercase" inherit_type="local" line="136" name="ToLowerCase" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/Uni.ecl" start="5828">
     <Type>function</Type>
-    <Documentation> <content>Returns the argument string with all upper case characters converted to lower case.</content>
-     <param><name>src</name><desc>The string that is being converted.</desc></param>
-    </Documentation>
+    <Documentation>
+     <content>Returns the argument string with all upper case characters converted to lower case.</content><param><name>src</name><desc>The string that is being converted.</desc></param></Documentation>
     <Signature sign="unicode ToLowerCase(unicode src)" name="ToLowerCase">unicode ToLowerCase(unicode src)</Signature><Params>
      <Param name="src"/>
     </Params>
    </Definition>
    <Definition body="6127" end="6182" exported="1" fullname="uni.touppercase" inherit_type="local" line="145" name="ToUpperCase" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/Uni.ecl" start="6085">
     <Type>function</Type>
-    <Documentation> <content>Return the argument string with all lower case characters converted to upper case.</content>
-     <param><name>src</name><desc>The string that is being converted.</desc></param>
-    </Documentation>
+    <Documentation>
+     <content>Return the argument string with all lower case characters converted to upper case.</content><param><name>src</name><desc>The string that is being converted.</desc></param></Documentation>
     <Signature sign="unicode ToUpperCase(unicode src)" name="ToUpperCase">unicode ToUpperCase(unicode src)</Signature><Params>
      <Param name="src"/>
     </Params>
    </Definition>
    <Definition body="6448" end="6504" exported="1" fullname="uni.totitlecase" inherit_type="local" line="155" name="ToTitleCase" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/Uni.ecl" start="6406">
     <Type>function</Type>
-    <Documentation> <content>Returns the upper case variant of the string using the rules for a particular locale.</content>
-     <param><name>src</name><desc>The string that is being converted.</desc></param>
-     <param><name>locale_name</name><desc>The locale to use for the comparison</desc></param>
-    </Documentation>
+    <Documentation>
+     <content>Returns the upper case variant of the string using the rules for a particular locale.</content><param><name>src</name><desc>The string that is being converted.</desc></param><param><name>locale_name</name><desc>The locale to use for the comparison</desc></param></Documentation>
     <Signature sign="unicode ToTitleCase(unicode src)" name="ToTitleCase">unicode ToTitleCase(unicode src)</Signature><Params>
      <Param name="src"/>
     </Params>
    </Definition>
    <Definition body="6799" end="6873" exported="1" fullname="uni.localetolowercase" inherit_type="local" line="165" name="LocaleToLowerCase" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/Uni.ecl" start="6728">
     <Type>function</Type>
-    <Documentation> <content>Returns the lower case variant of the string using the rules for a particular locale.</content>
-     <param><name>src</name><desc>The string that is being converted.</desc></param>
-     <param><name>locale_name</name><desc>The locale to use for the comparison</desc></param>
-    </Documentation>
+    <Documentation>
+     <content>Returns the lower case variant of the string using the rules for a particular locale.</content><param><name>src</name><desc>The string that is being converted.</desc></param><param><name>locale_name</name><desc>The locale to use for the comparison</desc></param></Documentation>
     <Signature sign="unicode LocaleToLowerCase(unicode src, varstring locale_name)" name="LocaleToLowerCase">unicode LocaleToLowerCase(unicode src, varstring locale_name)</Signature><Params>
      <Param name="src"/>
      <Param name="locale_name"/>
@@ -165,10 +128,8 @@
    </Definition>
    <Definition body="7168" end="7242" exported="1" fullname="uni.localetouppercase" inherit_type="local" line="175" name="LocaleToUpperCase" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/Uni.ecl" start="7097">
     <Type>function</Type>
-    <Documentation> <content>Returns the upper case variant of the string using the rules for a particular locale.</content>
-     <param><name>src</name><desc>The string that is being converted.</desc></param>
-     <param><name>locale_name</name><desc>The locale to use for the comparison</desc></param>
-    </Documentation>
+    <Documentation>
+     <content>Returns the upper case variant of the string using the rules for a particular locale.</content><param><name>src</name><desc>The string that is being converted.</desc></param><param><name>locale_name</name><desc>The locale to use for the comparison</desc></param></Documentation>
     <Signature sign="unicode LocaleToUpperCase(unicode src, varstring locale_name)" name="LocaleToUpperCase">unicode LocaleToUpperCase(unicode src, varstring locale_name)</Signature><Params>
      <Param name="src"/>
      <Param name="locale_name"/>
@@ -176,10 +137,8 @@
    </Definition>
    <Definition body="7537" end="7612" exported="1" fullname="uni.localetotitlecase" inherit_type="local" line="185" name="LocaleToTitleCase" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/Uni.ecl" start="7466">
     <Type>function</Type>
-    <Documentation> <content>Returns the upper case variant of the string using the rules for a particular locale.</content>
-     <param><name>src</name><desc>The string that is being converted.</desc></param>
-     <param><name>locale_name</name><desc>The locale to use for the comparison</desc></param>
-    </Documentation>
+    <Documentation>
+     <content>Returns the upper case variant of the string using the rules for a particular locale.</content><param><name>src</name><desc>The string that is being converted.</desc></param><param><name>locale_name</name><desc>The locale to use for the comparison</desc></param></Documentation>
     <Signature sign="unicode LocaleToTitleCase(unicode src, varstring locale_name)" name="LocaleToTitleCase">unicode LocaleToTitleCase(unicode src, varstring locale_name)</Signature><Params>
      <Param name="src"/>
      <Param name="locale_name"/>
@@ -187,11 +146,8 @@
    </Definition>
    <Definition body="7943" end="8011" exported="1" fullname="uni.compareignorecase" inherit_type="local" line="196" name="CompareIgnoreCase" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/Uni.ecl" start="7879">
     <Type>function</Type>
-    <Documentation> <content>Compares the two strings case insensitively. Equivalent to comparing at strength 2.</content>
-     <see>Std.Uni.CompareAtStrength</see>
-     <param><name>src1</name><desc>The first string to be compared.</desc></param>
-     <param><name>src2</name><desc>The second string to be compared.</desc></param>
-    </Documentation>
+    <Documentation>
+     <see>Std.Uni.CompareAtStrength</see><content>Compares the two strings case insensitively. Equivalent to comparing at strength 2.</content><param><name>src1</name><desc>The first string to be compared.</desc></param><param><name>src2</name><desc>The second string to be compared.</desc></param></Documentation>
     <Signature sign="integer4 CompareIgnoreCase(unicode src1, unicode src2)" name="CompareIgnoreCase">integer4 CompareIgnoreCase(unicode src1, unicode src2)</Signature><Params>
      <Param name="src1"/>
      <Param name="src2"/>
@@ -199,12 +155,8 @@
    </Definition>
    <Definition body="8981" end="9059" exported="1" fullname="uni.compareatstrength" inherit_type="local" line="213" name="CompareAtStrength" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/Uni.ecl" start="8898">
     <Type>function</Type>
-    <Documentation> <content>Compares the two strings case insensitively. Equivalent to comparing at strength 2.</content>
-     <see>Std.Uni.CompareAtStrength</see>
-     <param><name>src1</name><desc>The first string to be compared.</desc></param>
-     <param><name>src2</name><desc>The second string to be compared.</desc></param>
-     <param><name>strength</name><desc>The strength of the comparison 1 ignores accents and case, differentiating only between letters 2 ignores case but differentiates between accents. 3 differentiates between accents and case but ignores e.g. differences between Hiragana and Katakana 4 differentiates between accents and case and e.g. Hiragana/Katakana, but ignores e.g. Hebrew cantellation marks 5 differentiates between all strings whose canonically decomposed forms (NFDNormalization Form D) are non-identical</desc></param>
-    </Documentation>
+    <Documentation>
+     <see>Std.Uni.CompareAtStrength</see><content>Compares the two strings case insensitively. Equivalent to comparing at strength 2.</content><param><name>src1</name><desc>The first string to be compared.</desc></param><param><name>src2</name><desc>The second string to be compared.</desc></param><param><name>strength</name><desc>The strength of the comparison 1 ignores accents and case, differentiating only between letters 2 ignores case but differentiates between accents. 3 differentiates between accents and case but ignores e.g. differences between Hiragana and Katakana 4 differentiates between accents and case and e.g. Hiragana/Katakana, but ignores e.g. Hebrew cantellation marks 5 differentiates between all strings whose canonically decomposed forms (NFDNormalization Form D) are non-identical</desc></param></Documentation>
     <Signature sign="integer4 CompareAtStrength(unicode src1, unicode src2, integer1 strength)" name="CompareAtStrength">integer4 CompareAtStrength(unicode src1, unicode src2, integer1 strength)</Signature><Params>
      <Param name="src1"/>
      <Param name="src2"/>
@@ -213,12 +165,8 @@
    </Definition>
    <Definition body="9480" end="9567" exported="1" fullname="uni.localecompareignorecase" inherit_type="local" line="225" name="LocaleCompareIgnoreCase" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/Uni.ecl" start="9387">
     <Type>function</Type>
-    <Documentation> <content>Compares the two strings case insensitively. Equivalent to comparing at strength 2.</content>
-     <see>Std.Uni.CompareAtStrength</see>
-     <param><name>src1</name><desc>The first string to be compared.</desc></param>
-     <param><name>src2</name><desc>The second string to be compared.</desc></param>
-     <param><name>locale_name</name><desc>The locale to use for the comparison</desc></param>
-    </Documentation>
+    <Documentation>
+     <see>Std.Uni.CompareAtStrength</see><content>Compares the two strings case insensitively. Equivalent to comparing at strength 2.</content><param><name>src1</name><desc>The first string to be compared.</desc></param><param><name>src2</name><desc>The second string to be compared.</desc></param><param><name>locale_name</name><desc>The locale to use for the comparison</desc></param></Documentation>
     <Signature sign="integer4 LocaleCompareIgnoreCase(unicode src1, unicode src2, varstring locale_name)" name="LocaleCompareIgnoreCase">integer4 LocaleCompareIgnoreCase(unicode src1, unicode src2, varstring locale_name)</Signature><Params>
      <Param name="src1"/>
      <Param name="src2"/>
@@ -227,12 +175,8 @@
    </Definition>
    <Definition body="10577" end="10674" exported="1" fullname="uni.localecompareatstrength" inherit_type="local" line="242" name="LocaleCompareAtStrength" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/Uni.ecl" start="10465">
     <Type>function</Type>
-    <Documentation> <content>Compares the two strings case insensitively. Equivalent to comparing at strength 2.</content>
-     <param><name>src1</name><desc>The first string to be compared.</desc></param>
-     <param><name>src2</name><desc>The second string to be compared.</desc></param>
-     <param><name>locale_name</name><desc>The locale to use for the comparison</desc></param>
-     <param><name>strength</name><desc>The strength of the comparison 1 ignores accents and case, differentiating only between letters 2 ignores case but differentiates between accents. 3 differentiates between accents and case but ignores e.g. differences between Hiragana and Katakana 4 differentiates between accents and case and e.g. Hiragana/Katakana, but ignores e.g. Hebrew cantellation marks 5 differentiates between all strings whose canonically decomposed forms (NFDNormalization Form D) are non-identical</desc></param>
-    </Documentation>
+    <Documentation>
+     <content>Compares the two strings case insensitively. Equivalent to comparing at strength 2.</content><param><name>src1</name><desc>The first string to be compared.</desc></param><param><name>src2</name><desc>The second string to be compared.</desc></param><param><name>locale_name</name><desc>The locale to use for the comparison</desc></param><param><name>strength</name><desc>The strength of the comparison 1 ignores accents and case, differentiating only between letters 2 ignores case but differentiates between accents. 3 differentiates between accents and case but ignores e.g. differences between Hiragana and Katakana 4 differentiates between accents and case and e.g. Hiragana/Katakana, but ignores e.g. Hebrew cantellation marks 5 differentiates between all strings whose canonically decomposed forms (NFDNormalization Form D) are non-identical</desc></param></Documentation>
     <Signature sign="integer4 LocaleCompareAtStrength(unicode src1, unicode src2, varstring locale_name, integer1 strength)" name="LocaleCompareAtStrength">integer4 LocaleCompareAtStrength(unicode src1, unicode src2, varstring locale_name, integer1 strength)</Signature><Params>
      <Param name="src1"/>
      <Param name="src2"/>
@@ -242,20 +186,16 @@
    </Definition>
    <Definition body="10913" end="10964" exported="1" fullname="uni.reverse" inherit_type="local" line="252" name="Reverse" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/Uni.ecl" start="10875">
     <Type>function</Type>
-    <Documentation> <content>Returns the argument string with all characters in reverse order. Note the argument is not TRIMMED before it is reversed.</content>
-     <param><name>src</name><desc>The string that is being reversed.</desc></param>
-    </Documentation>
+    <Documentation>
+     <content>Returns the argument string with all characters in reverse order. Note the argument is not TRIMMED before it is reversed.</content><param><name>src</name><desc>The string that is being reversed.</desc></param></Documentation>
     <Signature sign="unicode Reverse(unicode src)" name="Reverse">unicode Reverse(unicode src)</Signature><Params>
      <Param name="src"/>
     </Params>
    </Definition>
    <Definition body="11349" end="11425" exported="1" fullname="uni.findreplace" inherit_type="local" line="263" name="FindReplace" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/Uni.ecl" start="11270">
     <Type>function</Type>
-    <Documentation> <content>Returns the source string with the replacement string substituted for all instances of the search string.</content>
-     <param><name>src</name><desc>The string that is being transformed.</desc></param>
-     <param><name>sought</name><desc>The string to be replaced.</desc></param>
-     <param><name>replacement</name><desc>The string to be substituted into the result.</desc></param>
-    </Documentation>
+    <Documentation>
+     <content>Returns the source string with the replacement string substituted for all instances of the search string.</content><param><name>src</name><desc>The string that is being transformed.</desc></param><param><name>sought</name><desc>The string to be replaced.</desc></param><param><name>replacement</name><desc>The string to be substituted into the result.</desc></param></Documentation>
     <Signature sign="unicode FindReplace(unicode src, unicode sought, unicode replacement)" name="FindReplace">unicode FindReplace(unicode src, unicode sought, unicode replacement)</Signature><Params>
      <Param name="src"/>
      <Param name="sought"/>
@@ -264,12 +204,8 @@
    </Definition>
    <Definition body="11900" end="11995" exported="1" fullname="uni.localefindreplace" inherit_type="local" line="275" name="LocaleFindReplace" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/Uni.ecl" start="11792">
     <Type>function</Type>
-    <Documentation> <content>Returns the source string with the replacement string substituted for all instances of the search string.</content>
-     <param><name>src</name><desc>The string that is being transformed.</desc></param>
-     <param><name>sought</name><desc>The string to be replaced.</desc></param>
-     <param><name>replacement</name><desc>The string to be substituted into the result.</desc></param>
-     <param><name>locale_name</name><desc>The locale to use for the comparison</desc></param>
-    </Documentation>
+    <Documentation>
+     <content>Returns the source string with the replacement string substituted for all instances of the search string.</content><param><name>src</name><desc>The string that is being transformed.</desc></param><param><name>sought</name><desc>The string to be replaced.</desc></param><param><name>replacement</name><desc>The string to be substituted into the result.</desc></param><param><name>locale_name</name><desc>The locale to use for the comparison</desc></param></Documentation>
     <Signature sign="unicode LocaleFindReplace(unicode src, unicode sought, unicode replacement, varstring locale_name)" name="LocaleFindReplace">unicode LocaleFindReplace(unicode src, unicode sought, unicode replacement, varstring locale_name)</Signature><Params>
      <Param name="src"/>
      <Param name="sought"/>
@@ -279,13 +215,8 @@
    </Definition>
    <Definition body="12554" end="12669" exported="1" fullname="uni.localefindatstrengthreplace" inherit_type="local" line="288" name="LocaleFindAtStrengthReplace" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/Uni.ecl" start="12417">
     <Type>function</Type>
-    <Documentation> <content>Returns the source string with the replacement string substituted for all instances of the search string.</content>
-     <param><name>src</name><desc>The string that is being transformed.</desc></param>
-     <param><name>sought</name><desc>The string to be replaced.</desc></param>
-     <param><name>replacement</name><desc>The string to be substituted into the result.</desc></param>
-     <param><name>locale_name</name><desc>The locale to use for the comparison</desc></param>
-     <param><name>strength</name><desc>The strength of the comparison</desc></param>
-    </Documentation>
+    <Documentation>
+     <content>Returns the source string with the replacement string substituted for all instances of the search string.</content><param><name>src</name><desc>The string that is being transformed.</desc></param><param><name>sought</name><desc>The string to be replaced.</desc></param><param><name>replacement</name><desc>The string to be substituted into the result.</desc></param><param><name>locale_name</name><desc>The locale to use for the comparison</desc></param><param><name>strength</name><desc>The strength of the comparison</desc></param></Documentation>
     <Signature sign="unicode LocaleFindAtStrengthReplace(unicode src, unicode sought, unicode replacement, varstring locale_name, integer1 strength)" name="LocaleFindAtStrengthReplace">unicode LocaleFindAtStrengthReplace(unicode src, unicode sought, unicode replacement, varstring locale_name, integer1 strength)</Signature><Params>
      <Param name="src"/>
      <Param name="sought"/>
@@ -296,29 +227,24 @@
    </Definition>
    <Definition body="12872" end="12928" exported="1" fullname="uni.cleanaccents" inherit_type="local" line="297" name="CleanAccents" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/Uni.ecl" start="12829">
     <Type>function</Type>
-    <Documentation> <content>Returns the source string with all accented characters replaced with unaccented.</content>
-     <param><name>src</name><desc>The string that is being transformed.</desc></param>
-    </Documentation>
+    <Documentation>
+     <content>Returns the source string with all accented characters replaced with unaccented.</content><param><name>src</name><desc>The string that is being transformed.</desc></param></Documentation>
     <Signature sign="unicode CleanAccents(unicode src)" name="CleanAccents">unicode CleanAccents(unicode src)</Signature><Params>
      <Param name="src"/>
     </Params>
    </Definition>
    <Definition body="13277" end="13332" exported="1" fullname="uni.cleanspaces" inherit_type="local" line="308" name="CleanSpaces" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/Uni.ecl" start="13235">
     <Type>function</Type>
-    <Documentation> <content>Returns the source string with all instances of multiple adjacent space characters (2 or more spaces together) reduced to a single space character. Leading and trailing spaces are removed, and tab characters are converted to spaces.</content>
-     <param><name>src</name><desc>The string to be cleaned.</desc></param>
-    </Documentation>
+    <Documentation>
+     <content>Returns the source string with all instances of multiple adjacent space characters (2 or more spaces together) reduced to a single space character. Leading and trailing spaces are removed, and tab characters are converted to spaces.</content><param><name>src</name><desc>The string to be cleaned.</desc></param></Documentation>
     <Signature sign="unicode CleanSpaces(unicode src)" name="CleanSpaces">unicode CleanSpaces(unicode src)</Signature><Params>
      <Param name="src"/>
     </Params>
    </Definition>
    <Definition body="13754" end="13826" exported="1" fullname="uni.wildmatch" inherit_type="local" line="320" name="WildMatch" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/Uni.ecl" start="13679">
     <Type>function</Type>
-    <Documentation> <content>Tests if the search string matches the pattern. The pattern can contain wildcards '?' (single character) and '*' (multiple character).</content>
-     <param><name>src</name><desc>The string that is being tested.</desc></param>
-     <param><name>pattern</name><desc>The pattern to match against.</desc></param>
-     <param><name>ignore_case</name><desc>Whether to ignore differences in case between characters</desc></param>
-    </Documentation>
+    <Documentation>
+     <content>Tests if the search string matches the pattern. The pattern can contain wildcards '?' (single character) and '*' (multiple character).</content><param><name>src</name><desc>The string that is being tested.</desc></param><param><name>pattern</name><desc>The pattern to match against.</desc></param><param><name>ignore_case</name><desc>Whether to ignore differences in case between characters</desc></param></Documentation>
     <Signature sign="boolean WildMatch(unicode src, unicode _pattern, boolean _noCase)" name="WildMatch">boolean WildMatch(unicode src, unicode _pattern, boolean _noCase)</Signature><Params>
      <Param name="src"/>
      <Param name="_pattern"/>
@@ -327,11 +253,8 @@
    </Definition>
    <Definition body="14300" end="14371" exported="1" fullname="uni.contains" inherit_type="local" line="332" name="Contains" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/Uni.ecl" start="14226">
     <Type>function</Type>
-    <Documentation> <content>Tests if the search string contains each of the characters in the pattern. If the pattern contains duplicate characters those characters will match once for each occurence in the pattern.</content>
-     <param><name>src</name><desc>The string that is being tested.</desc></param>
-     <param><name>pattern</name><desc>The pattern to match against.</desc></param>
-     <param><name>ignore_case</name><desc>Whether to ignore differences in case between characters</desc></param>
-    </Documentation>
+    <Documentation>
+     <content>Tests if the search string contains each of the characters in the pattern. If the pattern contains duplicate characters those characters will match once for each occurence in the pattern.</content><param><name>src</name><desc>The string that is being tested.</desc></param><param><name>pattern</name><desc>The pattern to match against.</desc></param><param><name>ignore_case</name><desc>Whether to ignore differences in case between characters</desc></param></Documentation>
     <Signature sign="BOOLEAN Contains(unicode src, unicode _pattern, boolean _noCase)" name="Contains">BOOLEAN Contains(unicode src, unicode _pattern, boolean _noCase)</Signature><Params>
      <Param name="src"/>
      <Param name="_pattern"/>
@@ -340,12 +263,8 @@
    </Definition>
    <Definition body="14908" end="14992" exported="1" fullname="uni.editdistance" inherit_type="local" line="345" name="EditDistance" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/Uni.ecl" start="14818">
     <Type>function</Type>
-    <Documentation> <content>Returns the minimum edit distance between the two strings. An insert change or delete counts as a single edit. The two strings are trimmed before comparing.</content>
-     <return>The minimum edit distance between the two strings.</return>
-     <param><name>_left</name><desc>The first string to be compared.</desc></param>
-     <param><name>_right</name><desc>The second string to be compared.</desc></param>
-     <param><name>localname</name><desc>The locale to use for the comparison. Defaults to ''.</desc></param>
-    </Documentation>
+    <Documentation>
+     <content>Returns the minimum edit distance between the two strings. An insert change or delete counts as a single edit. The two strings are trimmed before comparing.</content><return>The minimum edit distance between the two strings.</return><param><name>_left</name><desc>The first string to be compared.</desc></param><param><name>_right</name><desc>The second string to be compared.</desc></param><param><name>localname</name><desc>The locale to use for the comparison. Defaults to ''.</desc></param></Documentation>
     <Signature sign="UNSIGNED4 EditDistance(unicode _left, unicode _right, varstring localename = '')" name="EditDistance">UNSIGNED4 EditDistance(unicode _left, unicode _right, varstring localename = '')</Signature><Params>
      <Param name="_left"/>
      <Param name="_right"/>
@@ -354,13 +273,8 @@
    </Definition>
    <Definition body="15632" end="15736" exported="1" fullname="uni.editdistancewithinradius" inherit_type="local" line="359" name="EditDistanceWithinRadius" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/Uni.ecl" start="15514">
     <Type>function</Type>
-    <Documentation> <content>Returns true if the minimum edit distance between the two strings is with a specific range. The two strings are trimmed before comparing.</content>
-     <return>Whether or not the two strings are within the given specified edit distance.</return>
-     <param><name>_left</name><desc>The first string to be compared.</desc></param>
-     <param><name>_right</name><desc>The second string to be compared.</desc></param>
-     <param><name>radius</name><desc>The maximum edit distance that is accepable.</desc></param>
-     <param><name>localname</name><desc>The locale to use for the comparison. Defaults to ''.</desc></param>
-    </Documentation>
+    <Documentation>
+     <content>Returns true if the minimum edit distance between the two strings is with a specific range. The two strings are trimmed before comparing.</content><return>Whether or not the two strings are within the given specified edit distance.</return><param><name>_left</name><desc>The first string to be compared.</desc></param><param><name>_right</name><desc>The second string to be compared.</desc></param><param><name>radius</name><desc>The maximum edit distance that is accepable.</desc></param><param><name>localname</name><desc>The locale to use for the comparison. Defaults to ''.</desc></param></Documentation>
     <Signature sign="BOOLEAN EditDistanceWithinRadius(unicode _left, unicode _right, unsigned4 radius, varstring localename = '')" name="EditDistanceWithinRadius">BOOLEAN EditDistanceWithinRadius(unicode _left, unicode _right, unsigned4 radius, varstring localename = '')</Signature><Params>
      <Param name="_left"/>
      <Param name="_right"/>
@@ -370,11 +284,8 @@
    </Definition>
    <Definition body="16129" end="16201" exported="1" fullname="uni.wordcount" inherit_type="local" line="370" name="WordCount" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/Uni.ecl" start="16059">
     <Type>function</Type>
-    <Documentation> <content>Returns the number of words in the string. Word boundaries are marked by the unicode break semantics.</content>
-     <return>The number of words in the string.</return>
-     <param><name>text</name><desc>The string to be broken into words.</desc></param>
-     <param><name>localname</name><desc>The locale to use for the break semantics. Defaults to ''.</desc></param>
-    </Documentation>
+    <Documentation>
+     <content>Returns the number of words in the string. Word boundaries are marked by the unicode break semantics.</content><return>The number of words in the string.</return><param><name>text</name><desc>The string to be broken into words.</desc></param><param><name>localname</name><desc>The locale to use for the break semantics. Defaults to ''.</desc></param></Documentation>
     <Signature sign="unsigned4 WordCount(unicode text, varstring localename = '')" name="WordCount">unsigned4 WordCount(unicode text, varstring localename = '')</Signature><Params>
      <Param name="text"/>
      <Param name="localename"/>
@@ -382,12 +293,8 @@
    </Definition>
    <Definition body="16675" end="16751" exported="1" fullname="uni.getnthword" inherit_type="local" line="382" name="GetNthWord" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/Uni.ecl" start="16593">
     <Type>function</Type>
-    <Documentation> <content>Returns the n-th word from the string. Word boundaries are marked by the unicode break semantics.</content>
-     <return>The number of words in the string.</return>
-     <param><name>text</name><desc>The string to be broken into words.</desc></param>
-     <param><name>n</name><desc>Which word should be returned from the function.</desc></param>
-     <param><name>localname</name><desc>The locale to use for the break semantics. Defaults to ''.</desc></param>
-    </Documentation>
+    <Documentation>
+     <content>Returns the n-th word from the string. Word boundaries are marked by the unicode break semantics.</content><return>The number of words in the string.</return><param><name>text</name><desc>The string to be broken into words.</desc></param><param><name>n</name><desc>Which word should be returned from the function.</desc></param><param><name>localname</name><desc>The locale to use for the break semantics. Defaults to ''.</desc></param></Documentation>
     <Signature sign="unicode GetNthWord(unicode text, unsigned4 n, varstring localename = '')" name="GetNthWord">unicode GetNthWord(unicode text, unsigned4 n, varstring localename = '')</Signature><Params>
      <Param name="text"/>
      <Param name="n"/>

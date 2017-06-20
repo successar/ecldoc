@@ -6,6 +6,7 @@ from copy import deepcopy
 from lxml import etree
 from lxml.builder import E
 from Utils import genPathTree
+from parseDoc import parseDocstring
 
 class ParseXML(object) :
 	def __init__(self, input_root, output_root, ecl_file) :
@@ -145,8 +146,12 @@ class ParseXML(object) :
 		return sign
 
 	def parseDocumentation(self, doc) :
-		for child in doc.iter() :
-			child.text = re.sub(r'\s+', ' ', child.text)
+		content = doc.find('./content')
+		elements = parseDocstring(content.text)
+		for tag in elements :
+			for desc in elements[tag] :
+				doc.append(desc)
+		doc.remove(content)
 
 		for p in (doc.findall('./param') + doc.findall('./field')):
 			text = p.text.split(' ')

@@ -20,7 +20,9 @@
           start="272">
    <Type>attribute</Type>
    <Documentation>
-    <content>Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes.</content>
+    <content>&#10;&#32;&#32;* Types for the Parallel Block Basic Linear Algebra Sub-programs support
+  * WARNING: attributes marked with WARNING can not be changed without making
+  * corresponding changes to the C++ attributes.&#10;&#32;&#32;</content>
    </Documentation>
   </Import>
   <Definition body="300"
@@ -57,14 +59,37 @@
    <Field name="y"/>
    <Field name="v"/>
    <Documentation>
-    <field>wi_id  Work Item Number -- An identifier from 1 to 64K-1 that separates and identifies individual matrixes</field>
-    <field>x	    1-based row position within the matrix</field>
-    <field>y	    1-based column position within the matrix</field>
-    <field>v	    Real value for the cell</field>
-    <see>matrix_t</see>
-    <see>Std/PBblas/MakeR8Set.ecl</see>
-    <see>Std/PBblas/Converted.ecl WARNING: Used as C++ attribute.  Do not change without corresponding changes to MakeR8Set.</see>
-    <content>Layout for Matrix Cell Main representation of Matrix cell at interface to all PBBlas functions. Matrixes are represented as DATASET(Layout_Cell), where each cell describes the row and column position of the cell as well as its value. Only the non-zero cells need to be contained in the dataset in order to describe the matrix since all unspecified cells are considered to have a value of zero. The cell also contains a work-item number that allows multiple separate matrixes to be carried in the same dataset.  This supports the &quot;myriad&quot; style interface that allows the same operations to be performed on many different sets of data at once. Note that these matrixes do not have an explicit size.  They are sized implicitly, based on the maximum row and column presented in the data. A matrix can be converted to an explicit dense form (see matrix_t) by  using the utility module MakeR8Set. This module should only be used for known small matrixes (&lt; 1M cells) or for partitions of a larger matrix. The Converted module provides utility functions to convert to and from a set of partitions (See Layout_parts).</content>
+    <content>&#10;&#32;&#32;&#32;&#32;* Layout for Matrix Cell
+    *
+    * Main representation of Matrix cell at interface to all PBBlas functions.
+    * Matrixes are represented as DATASET(Layout_Cell), where each cell describes
+    * the row and column position of the cell as well as its value.
+    * Only the non-zero cells need to be contained in the dataset in order
+    * to describe the matrix since all unspecified cells are considered to
+    * have a value of zero.
+    * The cell also contains a work-item number that allows multiple separate
+    * matrixes to be carried in the same dataset.  This supports the &quot;myriad&quot;
+    * style interface that allows the same operations to be performed on many
+    * different sets of data at once.
+    * Note that these matrixes do not have an explicit size.  They are sized
+    * implicitly, based on the maximum row and column presented in the data.
+    * A matrix can be converted to an explicit dense form (see matrix_t) by 
+    * using the utility module MakeR8Set. This module should only be used for known
+    * small matrixes (&lt; 1M cells) or for partitions of a larger matrix.
+    * The Converted module provides utility
+    * functions to convert to and from a set of partitions (See Layout_parts).
+    *
+    * @field wi_id  Work Item Number -- An identifier from 1 to 64K-1 that
+    *                 separates and identifies individual matrixes
+    * @field x	    1-based row position within the matrix
+    * @field y	    1-based column position within the matrix
+    * @field v	    Real value for the cell
+    * @see		    matrix_t
+    * @see		    Std/PBblas/MakeR8Set.ecl
+    * @see		    Std/PBblas/Converted.ecl
+    *
+    * WARNING: Used as C++ attribute.  Do not change without corresponding changes
+    *  to MakeR8Set.&#10;&#32;&#32;&#32;&#32;</content>
    </Documentation>
   </Definition>
   <Definition body="1166"
@@ -78,13 +103,18 @@
               start="1023">
    <Type>function</Type>
    <Documentation>
-    <see>PBblas/Types.Layout_Cell</see>
-    <return>DATASET(Layout_Cell) -- A sparse matrix.</return>
-    <param>mat_data   A set of REAL8 values representing a matrix in column major order [r1c1, r2c1, r3c1, ..., rNc1, r1c2, ..., rNcM]</param>
-    <param>num_rows   The number of rows in the matrix</param>
-    <param>row_offset The offset to the starting row of this sub-matrix  (optional)</param>
-    <param>col_offset The offset to starting column of this sub-matrix (optional)</param>
-    <content>Take a dense matrix or submatrix and convert it to a sparse matrix in Layout_Cell format.</content>
+    <content>&#10;&#32;&#32;* Take a dense matrix or submatrix and convert it to a sparse matrix in
+  * Layout_Cell format.
+  *
+  * @param mat_data   A set of REAL8 values representing a matrix in column
+  *                   major order [r1c1, r2c1, r3c1, ..., rNc1, r1c2, ..., rNcM]
+  * @param num_rows   The number of rows in the matrix
+  * @param row_offset The offset to the starting row of this sub-matrix 
+  *                   (optional)
+  * @param col_offset The offset to starting column of this sub-matrix
+  *                   (optional)
+  * @return           DATASET(Layout_Cell) -- A sparse matrix.
+  * @see              PBblas/Types.Layout_Cell&#10;&#32;&#32;</content>
    </Documentation>
    <Params>
     <Param name="mat_data"/>
@@ -117,7 +147,8 @@
                start="670">
     <Type>attribute</Type>
     <Documentation>
-     <content>Type for matrix dimensions.  Uses UNSIGNED four as matrixes are not designed to support more than 4 B rows or columns.</content>
+     <content>&#10;&#32;&#32;&#32;&#32;* Type for matrix dimensions.  Uses UNSIGNED four as matrixes
+    * are not designed to support more than 4 B rows or columns.&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
    </Definition>
    <Definition body="851"
@@ -131,7 +162,7 @@
                start="829">
     <Type>attribute</Type>
     <Documentation>
-     <content>Type for partition id -- only supports up to 64K partitions</content>
+     <content>&#10;&#32;&#32;&#32;&#32;* Type for partition id -- only supports up to 64K partitions&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
    </Definition>
    <Definition body="967"
@@ -145,7 +176,7 @@
                start="945">
     <Type>attribute</Type>
     <Documentation>
-     <content>Type for work-item id -- only supports up to 64K work items</content>
+     <content>&#10;&#32;&#32;&#32;&#32;* Type for work-item id -- only supports up to 64K work items&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
    </Definition>
    <Definition body="1109"
@@ -159,7 +190,9 @@
                start="1087">
     <Type>attribute</Type>
     <Documentation>
-     <content>Type for matrix cell values WARNING: type used in C++ attribute</content>
+     <content>&#10;&#32;&#32;&#32;&#32;* Type for matrix cell values
+    * 
+    * WARNING: type used in C++ attribute&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
    </Definition>
    <Definition body="1272"
@@ -173,7 +206,8 @@
                start="1250">
     <Type>attribute</Type>
     <Documentation>
-     <content>Type for matrix label.  Used for Matrix dimensions (see Layout_Dims) and for partitions (see Layout_Part)</content>
+     <content>&#10;&#32;&#32;&#32;&#32;* Type for matrix label.  Used for Matrix dimensions (see Layout_Dims)
+    * and for partitions (see Layout_Part)&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
    </Definition>
    <Definition body="1404"
@@ -186,7 +220,9 @@
                start="1382">
     <Type>attribute</Type>
     <Documentation>
-     <content>Enumeration for Triangle type WARNING: type used in C++ attribute</content>
+     <content>&#10;&#32;&#32;&#32;&#32;* Enumeration for Triangle type
+    * 
+    * WARNING: type used in C++ attribute&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
    </Definition>
    <Definition body="1564"
@@ -199,7 +235,9 @@
                start="1542">
     <Type>attribute</Type>
     <Documentation>
-     <content>Enumeration for Diagonal type WARNING: type used in C++ attribute</content>
+     <content>&#10;&#32;&#32;&#32;&#32;* Enumeration for Diagonal type
+    * 
+    * WARNING: type used in C++ attribute&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
    </Definition>
    <Definition body="1729"
@@ -212,7 +250,9 @@
                start="1707">
     <Type>attribute</Type>
     <Documentation>
-     <content>Enumeration for Side type WARNING: type used in C++ attribute</content>
+     <content>&#10;&#32;&#32;&#32;&#32;* Enumeration for Side type
+    * 
+    * WARNING: type used in C++ attribute&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
    </Definition>
    <Definition body="1893"
@@ -226,7 +266,10 @@
                start="1871">
     <Type>attribute</Type>
     <Documentation>
-     <content>Type for matrix universe number Allow up to 64k matrices in one universe</content>
+     <content>&#10;&#32;&#32;&#32;&#32;* Type for matrix universe number
+    *
+    * Allow up to 64k matrices in one universe
+    *&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
    </Definition>
    <Definition body="3736"
@@ -244,14 +287,37 @@
     <Field name="y"/>
     <Field name="v"/>
     <Documentation>
-     <field>wi_id  Work Item Number -- An identifier from 1 to 64K-1 that separates and identifies individual matrixes</field>
-     <field>x	    1-based row position within the matrix</field>
-     <field>y	    1-based column position within the matrix</field>
-     <field>v	    Real value for the cell</field>
-     <see>matrix_t</see>
-     <see>Std/PBblas/MakeR8Set.ecl</see>
-     <see>Std/PBblas/Converted.ecl WARNING: Used as C++ attribute.  Do not change without corresponding changes to MakeR8Set.</see>
-     <content>Layout for Matrix Cell Main representation of Matrix cell at interface to all PBBlas functions. Matrixes are represented as DATASET(Layout_Cell), where each cell describes the row and column position of the cell as well as its value. Only the non-zero cells need to be contained in the dataset in order to describe the matrix since all unspecified cells are considered to have a value of zero. The cell also contains a work-item number that allows multiple separate matrixes to be carried in the same dataset.  This supports the &quot;myriad&quot; style interface that allows the same operations to be performed on many different sets of data at once. Note that these matrixes do not have an explicit size.  They are sized implicitly, based on the maximum row and column presented in the data. A matrix can be converted to an explicit dense form (see matrix_t) by  using the utility module MakeR8Set. This module should only be used for known small matrixes (&lt; 1M cells) or for partitions of a larger matrix. The Converted module provides utility functions to convert to and from a set of partitions (See Layout_parts).</content>
+     <content>&#10;&#32;&#32;&#32;&#32;* Layout for Matrix Cell
+    *
+    * Main representation of Matrix cell at interface to all PBBlas functions.
+    * Matrixes are represented as DATASET(Layout_Cell), where each cell describes
+    * the row and column position of the cell as well as its value.
+    * Only the non-zero cells need to be contained in the dataset in order
+    * to describe the matrix since all unspecified cells are considered to
+    * have a value of zero.
+    * The cell also contains a work-item number that allows multiple separate
+    * matrixes to be carried in the same dataset.  This supports the &quot;myriad&quot;
+    * style interface that allows the same operations to be performed on many
+    * different sets of data at once.
+    * Note that these matrixes do not have an explicit size.  They are sized
+    * implicitly, based on the maximum row and column presented in the data.
+    * A matrix can be converted to an explicit dense form (see matrix_t) by 
+    * using the utility module MakeR8Set. This module should only be used for known
+    * small matrixes (&lt; 1M cells) or for partitions of a larger matrix.
+    * The Converted module provides utility
+    * functions to convert to and from a set of partitions (See Layout_parts).
+    *
+    * @field wi_id  Work Item Number -- An identifier from 1 to 64K-1 that
+    *                 separates and identifies individual matrixes
+    * @field x	    1-based row position within the matrix
+    * @field y	    1-based column position within the matrix
+    * @field v	    Real value for the cell
+    * @see		    matrix_t
+    * @see		    Std/PBblas/MakeR8Set.ecl
+    * @see		    Std/PBblas/Converted.ecl
+    *
+    * WARNING: Used as C++ attribute.  Do not change without corresponding changes
+    *  to MakeR8Set.&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
    </Definition>
    <Definition body="4234"
@@ -267,13 +333,17 @@
     <Field name="wi_id"/>
     <Field name="v"/>
     <Documentation>
-     <field>wi_id  Work Item Number -- An identifier from 1 to 64K-1 that separates and identifies individual matrixes</field>
-     <field>v	    Real value for the norm</field>
-     <content>Layout for Norm results.</content>
+     <content>&#10;&#32;&#32;&#32;&#32;* Layout for Norm results.
+    *
+    * @field wi_id  Work Item Number -- An identifier from 1 to 64K-1 that
+    *                 separates and identifies individual matrixes
+    * @field v	    Real value for the norm&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
    </Definition>
    <Documentation>
-    <content>Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes.</content>
+    <content>&#10;&#32;&#32;* Types for the Parallel Block Basic Linear Algebra Sub-programs support
+  * WARNING: attributes marked with WARNING can not be changed without making
+  * corresponding changes to the C++ attributes.&#10;&#32;&#32;</content>
    </Documentation>
   </Definition>
   <Import body="0"

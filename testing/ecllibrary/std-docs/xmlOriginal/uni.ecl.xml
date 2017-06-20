@@ -21,10 +21,11 @@
                start="564">
     <Type>function</Type>
     <Documentation>
-     <content>Returns the first string with all characters within the second string removed.</content>
-     <see>Std.Uni.Filter</see>
-     <param>src           The string that is being tested.</param>
-     <param>filter        The string containing the set of characters to be excluded.</param>
+     <content>&#10;&#32;* Returns the first string with all characters within the second string removed.
+ *
+ * @param src           The string that is being tested.
+ * @param filter        The string containing the set of characters to be excluded.
+ * @see                 Std.Uni.Filter&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="src"/>
@@ -42,10 +43,11 @@
                start="964">
     <Type>function</Type>
     <Documentation>
-     <content>Returns the first string with all characters not within the second string removed.</content>
-     <see>Std.Uni.FilterOut</see>
-     <param>src           The string that is being tested.</param>
-     <param>filter        The string containing the set of characters to be included.</param>
+     <content>&#10;&#32;* Returns the first string with all characters not within the second string removed.
+ *
+ * @param src           The string that is being tested.
+ * @param filter        The string containing the set of characters to be included.
+ * @see                 Std.Uni.FilterOut&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="src"/>
@@ -63,11 +65,14 @@
                start="1529">
     <Type>function</Type>
     <Documentation>
-     <content>Returns the source string with the replacement character substituted for all characters included in the filter string. MORE: Should this be a general string substitution?</content>
-     <see>Std.Uni.SubstituteOut</see>
-     <param>src           The string that is being tested.</param>
-     <param>filter        The string containing the set of characters to be included.</param>
-     <param>replace_char  The character to be substituted into the result.</param>
+     <content>&#10;&#32;* Returns the source string with the replacement character substituted for all characters included in the
+ * filter string.
+ * MORE: Should this be a general string substitution?
+ *
+ * @param src           The string that is being tested.
+ * @param filter        The string containing the set of characters to be included.
+ * @param replace_char  The character to be substituted into the result.
+ * @see                 Std.Uni.SubstituteOut&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="src"/>
@@ -86,11 +91,14 @@
                start="2158">
     <Type>function</Type>
     <Documentation>
-     <content>Returns the source string with the replacement character substituted for all characters not included in the filter string. MORE: Should this be a general string substitution?</content>
-     <see>Std.Uni.SubstituteIncluded</see>
-     <param>src           The string that is being tested.</param>
-     <param>filter        The string containing the set of characters to be included.</param>
-     <param>replace_char  The character to be substituted into the result.</param>
+     <content>&#10;&#32;* Returns the source string with the replacement character substituted for all characters not included in the
+ * filter string.
+ * MORE: Should this be a general string substitution?
+ *
+ * @param src           The string that is being tested.
+ * @param filter        The string containing the set of characters to be included.
+ * @param replace_char  The character to be substituted into the result.
+ * @see                 Std.Uni.SubstituteIncluded&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="src"/>
@@ -109,10 +117,13 @@
                start="2724">
     <Type>function</Type>
     <Documentation>
-     <content>Returns the character position of the nth match of the search string with the first string. If no match is found the attribute returns 0. If an instance is omitted the position of the first instance is returned.</content>
-     <param>src           The string that is searched</param>
-     <param>sought        The string being sought.</param>
-     <param>instance      Which match instance are we interested in?</param>
+     <content>&#10;&#32;* Returns the character position of the nth match of the search string with the first string.
+ * If no match is found the attribute returns 0.
+ * If an instance is omitted the position of the first instance is returned.
+ *
+ * @param src           The string that is searched
+ * @param sought        The string being sought.
+ * @param instance      Which match instance are we interested in?&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="src"/>
@@ -131,10 +142,11 @@
                start="3143">
     <Type>function</Type>
     <Documentation>
-     <content>Tests if the search string contains the supplied word as a whole word.</content>
-     <param>src           The string that is being tested.</param>
-     <param>word          The word to be searched for.</param>
-     <param>ignore_case   Whether to ignore differences in case between characters.</param>
+     <content>&#10;&#32;* Tests if the search string contains the supplied word as a whole word.
+ *
+ * @param src           The string that is being tested.
+ * @param word          The word to be searched for.
+ * @param ignore_case   Whether to ignore differences in case between characters.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="src"/>
@@ -153,11 +165,14 @@
                start="3837">
     <Type>function</Type>
     <Documentation>
-     <content>Returns the character position of the nth match of the search string with the first string. If no match is found the attribute returns 0. If an instance is omitted the position of the first instance is returned.</content>
-     <param>src           The string that is searched</param>
-     <param>sought        The string being sought.</param>
-     <param>instance      Which match instance are we interested in?</param>
-     <param>locale_name   The locale to use for the comparison</param>
+     <content>&#10;&#32;* Returns the character position of the nth match of the search string with the first string.
+ * If no match is found the attribute returns 0.
+ * If an instance is omitted the position of the first instance is returned.
+ *
+ * @param src           The string that is searched
+ * @param sought        The string being sought.
+ * @param instance      Which match instance are we interested in?
+ * @param locale_name   The locale to use for the comparison&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="src"/>
@@ -177,12 +192,20 @@
                start="5108">
     <Type>function</Type>
     <Documentation>
-     <content>Returns the character position of the nth match of the search string with the first string. If no match is found the attribute returns 0. If an instance is omitted the position of the first instance is returned.</content>
-     <param>src           The string that is searched</param>
-     <param>sought        The string being sought.</param>
-     <param>instance      Which match instance are we interested in?</param>
-     <param>locale_name   The locale to use for the comparison</param>
-     <param>strength      The strength of the comparison 1 ignores accents and case, differentiating only between letters 2 ignores case but differentiates between accents. 3 differentiates between accents and case but ignores e.g. differences between Hiragana and Katakana 4 differentiates between accents and case and e.g. Hiragana/Katakana, but ignores e.g. Hebrew cantellation marks 5 differentiates between all strings whose canonically decomposed forms (NFDNormalization Form D) are non-identical</param>
+     <content>&#10;&#32;* Returns the character position of the nth match of the search string with the first string.
+ * If no match is found the attribute returns 0.
+ * If an instance is omitted the position of the first instance is returned.
+ *
+ * @param src           The string that is searched
+ * @param sought        The string being sought.
+ * @param instance      Which match instance are we interested in?
+ * @param locale_name   The locale to use for the comparison
+ * @param strength      The strength of the comparison
+                        1 ignores accents and case, differentiating only between letters
+                        2 ignores case but differentiates between accents.
+                        3 differentiates between accents and case but ignores e.g. differences between Hiragana and Katakana
+                        4 differentiates between accents and case and e.g. Hiragana/Katakana, but ignores e.g. Hebrew cantellation marks
+                        5 differentiates between all strings whose canonically decomposed forms (NFDNormalization Form D) are non-identical&#10;</content>
     </Documentation>
     <Params>
      <Param name="src"/>
@@ -203,9 +226,10 @@
                start="5548">
     <Type>function</Type>
     <Documentation>
-     <content>Returns the nth element from a comma separated string.</content>
-     <param>src           The string containing the comma separated list.</param>
-     <param>instance      Which item to select from the list.</param>
+     <content>&#10;&#32;* Returns the nth element from a comma separated string.
+ *
+ * @param src           The string containing the comma separated list.
+ * @param instance      Which item to select from the list.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="src"/>
@@ -223,8 +247,9 @@
                start="5828">
     <Type>function</Type>
     <Documentation>
-     <content>Returns the argument string with all upper case characters converted to lower case.</content>
-     <param>src           The string that is being converted.</param>
+     <content>&#10;&#32;* Returns the argument string with all upper case characters converted to lower case.
+ *
+ * @param src           The string that is being converted.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="src"/>
@@ -241,8 +266,9 @@
                start="6085">
     <Type>function</Type>
     <Documentation>
-     <content>Return the argument string with all lower case characters converted to upper case.</content>
-     <param>src           The string that is being converted.</param>
+     <content>&#10;&#32;* Return the argument string with all lower case characters converted to upper case.
+ *
+ * @param src           The string that is being converted.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="src"/>
@@ -259,9 +285,10 @@
                start="6406">
     <Type>function</Type>
     <Documentation>
-     <content>Returns the upper case variant of the string using the rules for a particular locale.</content>
-     <param>src           The string that is being converted.</param>
-     <param>locale_name   The locale to use for the comparison</param>
+     <content>&#10;&#32;* Returns the upper case variant of the string using the rules for a particular locale.
+ *
+ * @param src           The string that is being converted.
+ * @param locale_name   The locale to use for the comparison&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="src"/>
@@ -278,9 +305,10 @@
                start="6728">
     <Type>function</Type>
     <Documentation>
-     <content>Returns the lower case variant of the string using the rules for a particular locale.</content>
-     <param>src           The string that is being converted.</param>
-     <param>locale_name   The locale to use for the comparison</param>
+     <content>&#10;&#32;* Returns the lower case variant of the string using the rules for a particular locale.
+ *
+ * @param src           The string that is being converted.
+ * @param locale_name   The locale to use for the comparison&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="src"/>
@@ -298,9 +326,10 @@
                start="7097">
     <Type>function</Type>
     <Documentation>
-     <content>Returns the upper case variant of the string using the rules for a particular locale.</content>
-     <param>src           The string that is being converted.</param>
-     <param>locale_name   The locale to use for the comparison</param>
+     <content>&#10;&#32;* Returns the upper case variant of the string using the rules for a particular locale.
+ *
+ * @param src           The string that is being converted.
+ * @param locale_name   The locale to use for the comparison&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="src"/>
@@ -318,9 +347,10 @@
                start="7466">
     <Type>function</Type>
     <Documentation>
-     <content>Returns the upper case variant of the string using the rules for a particular locale.</content>
-     <param>src           The string that is being converted.</param>
-     <param>locale_name   The locale to use for the comparison</param>
+     <content>&#10;&#32;* Returns the upper case variant of the string using the rules for a particular locale.
+ *
+ * @param src           The string that is being converted.
+ * @param locale_name   The locale to use for the comparison&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="src"/>
@@ -338,10 +368,11 @@
                start="7879">
     <Type>function</Type>
     <Documentation>
-     <content>Compares the two strings case insensitively.  Equivalent to comparing at strength 2.</content>
-     <see>Std.Uni.CompareAtStrength</see>
-     <param>src1          The first string to be compared.</param>
-     <param>src2          The second string to be compared.</param>
+     <content>&#10;&#32;* Compares the two strings case insensitively.  Equivalent to comparing at strength 2.
+ *
+ * @param src1          The first string to be compared.
+ * @param src2          The second string to be compared.
+ * @see                 Std.Uni.CompareAtStrength&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="src1"/>
@@ -359,11 +390,17 @@
                start="8898">
     <Type>function</Type>
     <Documentation>
-     <content>Compares the two strings case insensitively.  Equivalent to comparing at strength 2.</content>
-     <see>Std.Uni.CompareAtStrength</see>
-     <param>src1          The first string to be compared.</param>
-     <param>src2          The second string to be compared.</param>
-     <param>strength      The strength of the comparison 1 ignores accents and case, differentiating only between letters 2 ignores case but differentiates between accents. 3 differentiates between accents and case but ignores e.g. differences between Hiragana and Katakana 4 differentiates between accents and case and e.g. Hiragana/Katakana, but ignores e.g. Hebrew cantellation marks 5 differentiates between all strings whose canonically decomposed forms (NFDNormalization Form D) are non-identical</param>
+     <content>&#10;&#32;* Compares the two strings case insensitively.  Equivalent to comparing at strength 2.
+ *
+ * @param src1          The first string to be compared.
+ * @param src2          The second string to be compared.
+ * @param strength      The strength of the comparison
+                        1 ignores accents and case, differentiating only between letters
+                        2 ignores case but differentiates between accents.
+                        3 differentiates between accents and case but ignores e.g. differences between Hiragana and Katakana
+                        4 differentiates between accents and case and e.g. Hiragana/Katakana, but ignores e.g. Hebrew cantellation marks
+                        5 differentiates between all strings whose canonically decomposed forms (NFDNormalization Form D) are non-identical
+ * @see                 Std.Uni.CompareAtStrength&#10;</content>
     </Documentation>
     <Params>
      <Param name="src1"/>
@@ -382,11 +419,12 @@
                start="9387">
     <Type>function</Type>
     <Documentation>
-     <content>Compares the two strings case insensitively.  Equivalent to comparing at strength 2.</content>
-     <see>Std.Uni.CompareAtStrength</see>
-     <param>src1          The first string to be compared.</param>
-     <param>src2          The second string to be compared.</param>
-     <param>locale_name   The locale to use for the comparison</param>
+     <content>&#10;&#32;* Compares the two strings case insensitively.  Equivalent to comparing at strength 2.
+ *
+ * @param src1          The first string to be compared.
+ * @param src2          The second string to be compared.
+ * @param locale_name   The locale to use for the comparison
+ * @see                 Std.Uni.CompareAtStrength&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="src1"/>
@@ -405,11 +443,17 @@
                start="10465">
     <Type>function</Type>
     <Documentation>
-     <content>Compares the two strings case insensitively.  Equivalent to comparing at strength 2.</content>
-     <param>src1          The first string to be compared.</param>
-     <param>src2          The second string to be compared.</param>
-     <param>locale_name   The locale to use for the comparison</param>
-     <param>strength      The strength of the comparison 1 ignores accents and case, differentiating only between letters 2 ignores case but differentiates between accents. 3 differentiates between accents and case but ignores e.g. differences between Hiragana and Katakana 4 differentiates between accents and case and e.g. Hiragana/Katakana, but ignores e.g. Hebrew cantellation marks 5 differentiates between all strings whose canonically decomposed forms (NFDNormalization Form D) are non-identical</param>
+     <content>&#10;&#32;* Compares the two strings case insensitively.  Equivalent to comparing at strength 2.
+ *
+ * @param src1          The first string to be compared.
+ * @param src2          The second string to be compared.
+ * @param locale_name   The locale to use for the comparison
+ * @param strength      The strength of the comparison
+                        1 ignores accents and case, differentiating only between letters
+                        2 ignores case but differentiates between accents.
+                        3 differentiates between accents and case but ignores e.g. differences between Hiragana and Katakana
+                        4 differentiates between accents and case and e.g. Hiragana/Katakana, but ignores e.g. Hebrew cantellation marks
+                        5 differentiates between all strings whose canonically decomposed forms (NFDNormalization Form D) are non-identical&#10;</content>
     </Documentation>
     <Params>
      <Param name="src1"/>
@@ -429,8 +473,10 @@
                start="10875">
     <Type>function</Type>
     <Documentation>
-     <content>Returns the argument string with all characters in reverse order. Note the argument is not TRIMMED before it is reversed.</content>
-     <param>src           The string that is being reversed.</param>
+     <content>&#10;&#32;* Returns the argument string with all characters in reverse order.
+ * Note the argument is not TRIMMED before it is reversed.
+ *
+ * @param src           The string that is being reversed.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="src"/>
@@ -447,10 +493,11 @@
                start="11270">
     <Type>function</Type>
     <Documentation>
-     <content>Returns the source string with the replacement string substituted for all instances of the search string.</content>
-     <param>src           The string that is being transformed.</param>
-     <param>sought        The string to be replaced.</param>
-     <param>replacement   The string to be substituted into the result.</param>
+     <content>&#10;&#32;* Returns the source string with the replacement string substituted for all instances of the search string.
+ *
+ * @param src           The string that is being transformed.
+ * @param sought        The string to be replaced.
+ * @param replacement   The string to be substituted into the result.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="src"/>
@@ -469,11 +516,12 @@
                start="11792">
     <Type>function</Type>
     <Documentation>
-     <content>Returns the source string with the replacement string substituted for all instances of the search string.</content>
-     <param>src           The string that is being transformed.</param>
-     <param>sought        The string to be replaced.</param>
-     <param>replacement   The string to be substituted into the result.</param>
-     <param>locale_name   The locale to use for the comparison</param>
+     <content>&#10;&#32;* Returns the source string with the replacement string substituted for all instances of the search string.
+ *
+ * @param src           The string that is being transformed.
+ * @param sought        The string to be replaced.
+ * @param replacement   The string to be substituted into the result.
+ * @param locale_name   The locale to use for the comparison&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="src"/>
@@ -493,12 +541,13 @@
                start="12417">
     <Type>function</Type>
     <Documentation>
-     <content>Returns the source string with the replacement string substituted for all instances of the search string.</content>
-     <param>src           The string that is being transformed.</param>
-     <param>sought        The string to be replaced.</param>
-     <param>replacement   The string to be substituted into the result.</param>
-     <param>locale_name   The locale to use for the comparison</param>
-     <param>strength      The strength of the comparison</param>
+     <content>&#10;&#32;* Returns the source string with the replacement string substituted for all instances of the search string.
+ *
+ * @param src           The string that is being transformed.
+ * @param sought        The string to be replaced.
+ * @param replacement   The string to be substituted into the result.
+ * @param locale_name   The locale to use for the comparison
+ * @param strength      The strength of the comparison&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="src"/>
@@ -519,8 +568,9 @@
                start="12829">
     <Type>function</Type>
     <Documentation>
-     <content>Returns the source string with all accented characters replaced with unaccented.</content>
-     <param>src           The string that is being transformed.</param>
+     <content>&#10;&#32;* Returns the source string with all accented characters replaced with unaccented.
+ *
+ * @param src           The string that is being transformed.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="src"/>
@@ -537,8 +587,11 @@
                start="13235">
     <Type>function</Type>
     <Documentation>
-     <content>Returns the source string with all instances of multiple adjacent space characters (2 or more spaces together) reduced to a single space character.  Leading and trailing spaces are removed, and tab characters are converted to spaces.</content>
-     <param>src           The string to be cleaned.</param>
+     <content>&#10;&#32;* Returns the source string with all instances of multiple adjacent space characters (2 or more spaces together)
+ * reduced to a single space character.  Leading and trailing spaces are removed, and tab characters are converted
+ * to spaces.
+ *
+ * @param src           The string to be cleaned.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="src"/>
@@ -555,10 +608,12 @@
                start="13679">
     <Type>function</Type>
     <Documentation>
-     <content>Tests if the search string matches the pattern. The pattern can contain wildcards &apos;?&apos; (single character) and &apos;*&apos; (multiple character).</content>
-     <param>src           The string that is being tested.</param>
-     <param>pattern       The pattern to match against.</param>
-     <param>ignore_case   Whether to ignore differences in case between characters</param>
+     <content>&#10;&#32;* Tests if the search string matches the pattern.
+ * The pattern can contain wildcards &apos;?&apos; (single character) and &apos;*&apos; (multiple character).
+ *
+ * @param src           The string that is being tested.
+ * @param pattern       The pattern to match against.
+ * @param ignore_case   Whether to ignore differences in case between characters&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="src"/>
@@ -577,10 +632,12 @@
                start="14226">
     <Type>function</Type>
     <Documentation>
-     <content>Tests if the search string contains each of the characters in the pattern. If the pattern contains duplicate characters those characters will match once for each occurence in the pattern.</content>
-     <param>src           The string that is being tested.</param>
-     <param>pattern       The pattern to match against.</param>
-     <param>ignore_case   Whether to ignore differences in case between characters</param>
+     <content>&#10;&#32;* Tests if the search string contains each of the characters in the pattern.
+ * If the pattern contains duplicate characters those characters will match once for each occurence in the pattern.
+ *
+ * @param src           The string that is being tested.
+ * @param pattern       The pattern to match against.
+ * @param ignore_case   Whether to ignore differences in case between characters&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="src"/>
@@ -599,11 +656,13 @@
                start="14818">
     <Type>function</Type>
     <Documentation>
-     <content>Returns the minimum edit distance between the two strings.  An insert change or delete counts as a single edit. The two strings are trimmed before comparing.</content>
-     <return>The minimum edit distance between the two strings.</return>
-     <param>_left         The first string to be compared.</param>
-     <param>_right        The second string to be compared.</param>
-     <param>localname     The locale to use for the comparison.  Defaults to &apos;&apos;.</param>
+     <content>&#10;&#32;* Returns the minimum edit distance between the two strings.  An insert change or delete counts as a single edit.
+ * The two strings are trimmed before comparing.
+ *
+ * @param _left         The first string to be compared.
+ * @param _right        The second string to be compared.
+ * @param localname     The locale to use for the comparison.  Defaults to &apos;&apos;.
+ * @return              The minimum edit distance between the two strings.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="_left"/>
@@ -622,12 +681,14 @@
                start="15514">
     <Type>function</Type>
     <Documentation>
-     <content>Returns true if the minimum edit distance between the two strings is with a specific range. The two strings are trimmed before comparing.</content>
-     <return>Whether or not the two strings are within the given specified edit distance.</return>
-     <param>_left         The first string to be compared.</param>
-     <param>_right        The second string to be compared.</param>
-     <param>radius        The maximum edit distance that is accepable.</param>
-     <param>localname     The locale to use for the comparison.  Defaults to &apos;&apos;.</param>
+     <content>&#10;&#32;* Returns true if the minimum edit distance between the two strings is with a specific range.
+ * The two strings are trimmed before comparing.
+ *
+ * @param _left         The first string to be compared.
+ * @param _right        The second string to be compared.
+ * @param radius        The maximum edit distance that is accepable.
+ * @param localname     The locale to use for the comparison.  Defaults to &apos;&apos;.
+ * @return              Whether or not the two strings are within the given specified edit distance.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="_left"/>
@@ -647,10 +708,11 @@
                start="16059">
     <Type>function</Type>
     <Documentation>
-     <content>Returns the number of words in the string.  Word boundaries are marked by the unicode break semantics.</content>
-     <return>The number of words in the string.</return>
-     <param>text          The string to be broken into words.</param>
-     <param>localname     The locale to use for the break semantics.  Defaults to &apos;&apos;.</param>
+     <content>&#10;&#32;* Returns the number of words in the string.  Word boundaries are marked by the unicode break semantics.
+ *
+ * @param text          The string to be broken into words.
+ * @param localname     The locale to use for the break semantics.  Defaults to &apos;&apos;.
+ * @return              The number of words in the string.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="text"/>
@@ -668,11 +730,12 @@
                start="16593">
     <Type>function</Type>
     <Documentation>
-     <content>Returns the n-th word from the string.  Word boundaries are marked by the unicode break semantics.</content>
-     <return>The number of words in the string.</return>
-     <param>text          The string to be broken into words.</param>
-     <param>n             Which word should be returned from the function.</param>
-     <param>localname     The locale to use for the break semantics.  Defaults to &apos;&apos;.</param>
+     <content>&#10;&#32;* Returns the n-th word from the string.  Word boundaries are marked by the unicode break semantics.
+ *
+ * @param text          The string to be broken into words.
+ * @param n             Which word should be returned from the function.
+ * @param localname     The locale to use for the break semantics.  Defaults to &apos;&apos;.
+ * @return              The number of words in the string.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="text"/>

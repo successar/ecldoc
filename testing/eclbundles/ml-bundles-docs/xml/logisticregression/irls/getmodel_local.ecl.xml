@@ -27,14 +27,8 @@
   </Import>
   <Definition body="2575" end="15109" exported="1" fullname="logisticregression.irls.getmodel_local" inherit_type="local" line="73" name="GetModel_local" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/IRLS/GetModel_local.ecl" start="2289">
    <Type>function</Type>
-   <Documentation> <content>Internal function to determine values for the model co-efficients and selected stats from building the model.</content>
-    <return>coefficient matrix plus model building stats</return>
-    <param><name>independents</name><desc>the independent values</desc></param>
-    <param><name>dependents</name><desc>the dependent values.</desc></param>
-    <param><name>max_iter</name><desc>maximum number of iterations to try</desc></param>
-    <param><name>epsilon</name><desc>the minimum change in the Beta value estimate to continue</desc></param>
-    <param><name>ridge</name><desc>a value to populate a diagonal matrix that is added to a matrix help assure that the matrix is invertible.</desc></param>
-   </Documentation>
+   <Documentation>
+    <return>coefficient matrix plus model building stats</return><param><name>independents</name><desc>the independent values</desc></param><param><name>dependents</name><desc>the dependent values.</desc></param><param><name>max_iter</name><desc>maximum number of iterations to try</desc></param><param><name>epsilon</name><desc>the minimum change in the Beta value estimate to continue</desc></param><param><name>ridge</name><desc>a value to populate a diagonal matrix that is added to a matrix help assure that the matrix is invertible.</desc></param><content>Internal function to determine values for the model co-efficients and selected stats from building the model.</content></Documentation>
    <Signature sign="DATASET(Layout_Model)&#10;       GetModel_local(DATASET(NumericField) independents,&#10;               DATASET(DiscreteField) dependents,&#10;               UNSIGNED2 max_iter=200,&#10;               REAL8 epsilon=Constants.default_epsilon,&#10;               REAL8 ridge=Constants.default_ridge)" name="GetModel_local">DATASET(Layout_Model)
        GetModel_local(DATASET(NumericField) independents,
                DATASET(DiscreteField) dependents,
@@ -48,13 +42,7 @@
     <Param name="ridge"/>
    </Params>
   </Definition>
- <Documentation> <content>Internal function to determine values for the model co-efficients and selected stats from building the model.</content>
-    <return>coefficient matrix plus model building stats</return>
-    <param><name>independents</name><desc>the independent values</desc></param>
-    <param><name>dependents</name><desc>the dependent values.</desc></param>
-    <param><name>max_iter</name><desc>maximum number of iterations to try</desc></param>
-    <param><name>epsilon</name><desc>the minimum change in the Beta value estimate to continue</desc></param>
-    <param><name>ridge</name><desc>a value to populate a diagonal matrix that is added to a matrix help assure that the matrix is invertible.</desc></param>
-   </Documentation>
+ <Documentation>
+    <return>coefficient matrix plus model building stats</return><param><name>independents</name><desc>the independent values</desc></param><param><name>dependents</name><desc>the dependent values.</desc></param><param><name>max_iter</name><desc>maximum number of iterations to try</desc></param><param><name>epsilon</name><desc>the minimum change in the Beta value estimate to continue</desc></param><param><name>ridge</name><desc>a value to populate a diagonal matrix that is added to a matrix help assure that the matrix is invertible.</desc></param><content>Internal function to determine values for the model co-efficients and selected stats from building the model.</content></Documentation>
    </Source>
  <Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Types.ecl" name="ML_Core.Types" target="../../ml_core/types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Constants.ecl" name="LogisticRegression.Constants" target="../constants.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Types.ecl" name="LogisticRegression.Types" target="../types.ecl.xml"/><Depends sourcePath="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/BLAS.ecl" name="std.BLAS" target="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/BLAS.ecl"/><Depends sourcePath="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/plugins/lib_eclblas.ecllib" target="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/plugins/lib_eclblas.ecllib"/><Depends sourcePath="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/system/Thorlib.ecl" name="std.system.thorlib" target="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/system/Thorlib.ecl"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/dimm.ecl" name="LogisticRegression.dimm" target="../dimm.ecl.xml"/></Meta>

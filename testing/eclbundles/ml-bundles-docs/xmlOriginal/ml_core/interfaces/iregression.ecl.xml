@@ -148,8 +148,12 @@
                start="1836">
     <Type>attribute</Type>
     <Documentation>
-     <return>DATASET(LayoutModel) describing the learned model parameters</return>
-     <content>Calculate and return the &apos;learned&apos; model The model may be persisted and later used to make predictions using &apos;Predict&apos; below.</content>
+     <content>&#10;&#32;&#32;&#32;&#32;* Calculate and return the &apos;learned&apos; model
+    *
+    * The model may be persisted and later used to make predictions
+    * using &apos;Predict&apos; below.
+    *
+    * @return DATASET(LayoutModel) describing the learned model parameters&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
    </Definition>
    <Definition body="2349"
@@ -163,9 +167,12 @@
                start="2215">
     <Type>function</Type>
     <Documentation>
-     <content>Predict the output variable(s) based on a previously learned model</content>
-     <return>DATASET(NumericField) containing one entry per observation (i.e. id) in newX.  This represents the predicted values for Y.</return>
-     <param>newX DATASET(NumericField) containing the X values to b predicted.</param>
+     <content>&#10;&#32;&#32;&#32;&#32;* Predict the output variable(s) based on a previously learned model
+    *
+    * @param newX DATASET(NumericField) containing the X values to b predicted.
+    * @return DATASET(NumericField) containing one entry per observation (i.e. id)
+    *                  in newX.  This represents the predicted values for Y.
+    *&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
     <Params>
      <Param name="newX"/>
@@ -173,9 +180,23 @@
     </Params>
    </Definition>
    <Documentation>
-    <content>Interface Definition for Regression Modules Regression learns a function that maps a set of input data to one or more output variables.  The resulting learned function is known as the model.  That model can then be used repetitively to predict (i.e. estimate) the output value(s) based on new input data.</content>
-    <param>X The independent data in DATASET(NumericField) format. Each statistical unit (e.g. record) is identified by &apos;id&apos;, and each feature is identified by field number (i.e. &apos;number&apos;).</param>
-    <param>Y The dependent variable(s) in DATASET(NumericField) format. Each statistical unit (e.g. record) is identified by &apos;id&apos;, and each feature is identified by field number (i.e. &apos;number&apos;).</param>
+    <content>&#10;&#32;&#32;* Interface Definition for Regression Modules
+  *
+  * Regression learns a function that maps a set of input data
+  * to one or more output variables.  The resulting learned function is
+  * known as the model.  That model can then be used repetitively to predict
+  * (i.e. estimate) the output value(s) based on new input data.
+  *
+  * @param X The independent data in DATASET(NumericField) format.
+  *          Each statistical unit (e.g. record) is identified by
+  *          &apos;id&apos;, and each feature is identified by field number (i.e.
+  *          &apos;number&apos;).
+  *
+  * @param Y The dependent variable(s) in DATASET(NumericField) format.
+  *          Each statistical unit (e.g. record) is identified by
+  *          &apos;id&apos;, and each feature is identified by field number (i.e.
+  *          &apos;number&apos;).
+  *&#10;&#32;&#32;</content>
    </Documentation>
   </Definition>
  </Source>

@@ -121,9 +121,10 @@
                start="1755">
     <Type>function</Type>
     <Documentation>
-     <content>Extracts the year from a date type.</content>
-     <return>An integer representing the year.</return>
-     <param>date          The date.</param>
+     <content>&#10;&#32;* Extracts the year from a date type.
+ *
+ * @param date          The date.
+ * @return              An integer representing the year.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="date"/>
@@ -140,9 +141,10 @@
                start="1954">
     <Type>function</Type>
     <Documentation>
-     <content>Extracts the month from a date type.</content>
-     <return>An integer representing the year.</return>
-     <param>date          The date.</param>
+     <content>&#10;&#32;* Extracts the month from a date type.
+ *
+ * @param date          The date.
+ * @return              An integer representing the year.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="date"/>
@@ -159,9 +161,10 @@
                start="2172">
     <Type>function</Type>
     <Documentation>
-     <content>Extracts the day of the month from a date type.</content>
-     <return>An integer representing the year.</return>
-     <param>date          The date.</param>
+     <content>&#10;&#32;* Extracts the day of the month from a date type.
+ *
+ * @param date          The date.
+ * @return              An integer representing the year.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="date"/>
@@ -178,9 +181,10 @@
                start="2366">
     <Type>function</Type>
     <Documentation>
-     <content>Extracts the hour from a time type.</content>
-     <return>An integer representing the hour.</return>
-     <param>time          The time.</param>
+     <content>&#10;&#32;* Extracts the hour from a time type.
+ *
+ * @param time          The time.
+ * @return              An integer representing the hour.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="time"/>
@@ -197,9 +201,10 @@
                start="2571">
     <Type>function</Type>
     <Documentation>
-     <content>Extracts the minutes from a time type.</content>
-     <return>An integer representing the minutes.</return>
-     <param>time          The time.</param>
+     <content>&#10;&#32;* Extracts the minutes from a time type.
+ *
+ * @param time          The time.
+ * @return              An integer representing the minutes.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="time"/>
@@ -216,9 +221,10 @@
                start="2784">
     <Type>function</Type>
     <Documentation>
-     <content>Extracts the seconds from a time type.</content>
-     <return>An integer representing the seconds.</return>
-     <param>time          The time.</param>
+     <content>&#10;&#32;* Extracts the seconds from a time type.
+ *
+ * @param time          The time.
+ * @return              An integer representing the seconds.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="time"/>
@@ -235,11 +241,12 @@
                start="3100">
     <Type>function</Type>
     <Documentation>
-     <content>Combines year, month day to create a date type.</content>
-     <return>A date created by combining the fields.</return>
-     <param>year          The year (0-9999).</param>
-     <param>month         The month (1-12).</param>
-     <param>day           The day (1..daysInMonth).</param>
+     <content>&#10;&#32;* Combines year, month day to create a date type.
+ *
+ * @param year          The year (0-9999).
+ * @param month         The month (1-12).
+ * @param day           The day (1..daysInMonth).
+ * @return              A date created by combining the fields.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="Year"/>
@@ -258,11 +265,12 @@
                start="3472">
     <Type>function</Type>
     <Documentation>
-     <content>Combines hour, minute second to create a time type.</content>
-     <return>A time created by combining the fields.</return>
-     <param>hour          The hour (0-23).</param>
-     <param>minute        The minute (0-59).</param>
-     <param>second        The second (0-59).</param>
+     <content>&#10;&#32;* Combines hour, minute second to create a time type.
+ *
+ * @param hour          The hour (0-23).
+ * @param minute        The minute (0-59).
+ * @param second        The second (0-59).
+ * @return              A time created by combining the fields.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="Hour"/>
@@ -281,15 +289,20 @@
                start="4432">
     <Type>function</Type>
     <Documentation>
-     <content>Combines date and time components to create a seconds type.  The date must be represented within the Gregorian calendar after the year 1600.</content>
-     <return>A Seconds_t value created by combining the fields.</return>
-     <param>year                  The year (1601-30827).</param>
-     <param>month                 The month (1-12).</param>
-     <param>day                   The day (1..daysInMonth).</param>
-     <param>hour                  The hour (0-23).</param>
-     <param>minute                The minute (0-59).</param>
-     <param>second                The second (0-59).</param>
-     <param>is_local_time         TRUE if the datetime components are expressed in local time rather than UTC, FALSE if the components are expressed in UTC.  Optional, defaults to FALSE.</param>
+     <content>&#10;&#32;* Combines date and time components to create a seconds type.  The date must
+ * be represented within the Gregorian calendar after the year 1600.
+ *
+ * @param year                  The year (1601-30827).
+ * @param month                 The month (1-12).
+ * @param day                   The day (1..daysInMonth).
+ * @param hour                  The hour (0-23).
+ * @param minute                The minute (0-59).
+ * @param second                The second (0-59).
+ * @param is_local_time         TRUE if the datetime components are expressed
+ *                              in local time rather than UTC, FALSE if the
+ *                              components are expressed in UTC.  Optional,
+ *                              defaults to FALSE.
+ * @return                      A Seconds_t value created by combining the fields.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="Year"/>
@@ -403,11 +416,12 @@
                 start="5824">
      <Type>attribute</Type>
      <Documentation>
-      <content>Combines year, month day to create a date type.</content>
-      <return>A date created by combining the fields.</return>
-      <param>year          The year (0-9999).</param>
-      <param>month         The month (1-12).</param>
-      <param>day           The day (1..daysInMonth).</param>
+      <content>&#10;&#32;* Combines year, month day to create a date type.
+ *
+ * @param year          The year (0-9999).
+ * @param month         The month (1-12).
+ * @param day           The day (1..daysInMonth).
+ * @return              A date created by combining the fields.&#10;&#32;</content>
      </Documentation>
     </Definition>
     <Definition body="5906"
@@ -421,17 +435,23 @@
                 start="5885">
      <Type>attribute</Type>
      <Documentation>
-      <content>Combines hour, minute second to create a time type.</content>
-      <return>A time created by combining the fields.</return>
-      <param>hour          The hour (0-23).</param>
-      <param>minute        The minute (0-59).</param>
-      <param>second        The second (0-59).</param>
+      <content>&#10;&#32;* Combines hour, minute second to create a time type.
+ *
+ * @param hour          The hour (0-23).
+ * @param minute        The minute (0-59).
+ * @param second        The second (0-59).
+ * @return              A time created by combining the fields.&#10;&#32;</content>
      </Documentation>
     </Definition>
     <Documentation>
-     <content>Converts the number of seconds since epoch to a structure containing date and time parts.  The result must be representable within the Gregorian calendar after the year 1600.</content>
-     <return>Module with exported attributes for year, month, day, hour, minute, second, day_of_week, date and time.</return>
-     <param>seconds               The number of seconds since epoch.</param>
+     <content>&#10;&#32;* Converts the number of seconds since epoch to a structure containing
+ * date and time parts.  The result must be representable within the
+ * Gregorian calendar after the year 1600.
+ *
+ * @param seconds               The number of seconds since epoch.
+ * @return                      Module with exported attributes for year, month,
+ *                              day, hour, minute, second, day_of_week, date
+ *                              and time.&#10;&#32;</content>
     </Documentation>
    </Definition>
    <Definition body="6282"
@@ -445,9 +465,11 @@
                start="6221">
     <Type>function</Type>
     <Documentation>
-     <content>Converts the number of microseconds since epoch to the number of seconds since epoch.</content>
-     <return>The number of seconds since epoch.</return>
-     <param>timestamp             The number of microseconds since epoch.</param>
+     <content>&#10;&#32;* Converts the number of microseconds since epoch to the number of seconds
+ * since epoch.
+ *
+ * @param timestamp             The number of microseconds since epoch.
+ * @return                      The number of seconds since epoch.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="timestamp"/>
@@ -464,9 +486,10 @@
                start="6487">
     <Type>function</Type>
     <Documentation>
-     <content>Tests whether the year is a leap year in the Gregorian calendar.</content>
-     <return>True if the year is a leap year.</return>
-     <param>year          The year (0-9999).</param>
+     <content>&#10;&#32;* Tests whether the year is a leap year in the Gregorian calendar.
+ *
+ * @param year          The year (0-9999).
+ * @return              True if the year is a leap year.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="Year"/>
@@ -483,9 +506,10 @@
                start="6762">
     <Type>function</Type>
     <Documentation>
-     <content>Tests whether a date is a leap year in the Gregorian calendar.</content>
-     <return>True if the year is a leap year.</return>
-     <param>date          The date.</param>
+     <content>&#10;&#32;* Tests whether a date is a leap year in the Gregorian calendar.
+ *
+ * @param date          The date.
+ * @return              True if the year is a leap year.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="date"/>
@@ -524,11 +548,13 @@
                start="7384">
     <Type>function</Type>
     <Documentation>
-     <content>Combines year, month, day in the Gregorian calendar to create the number days since 31st December 1BC.</content>
-     <return>The number of elapsed days (1 Jan 1AD = 1)</return>
-     <param>year          The year (-4713..9999).</param>
-     <param>month         The month (1-12).  A missing value (0) is treated as 1.</param>
-     <param>day           The day (1..daysInMonth).  A missing value (0) is treated as 1.</param>
+     <content>&#10;&#32;* Combines year, month, day in the Gregorian calendar to create the number
+ * days since 31st December 1BC.
+ *
+ * @param year          The year (-4713..9999).
+ * @param month         The month (1-12).  A missing value (0) is treated as 1.
+ * @param day           The day (1..daysInMonth).  A missing value (0) is treated as 1.
+ * @return              The number of elapsed days (1 Jan 1AD = 1)&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="Year"/>
@@ -584,9 +610,10 @@
      <Type>attribute</Type>
     </Definition>
     <Documentation>
-     <content>Converts the number days since 31st December 1BC to a date in the Gregorian calendar.</content>
-     <return>Module containing Year, Month, Day in the Gregorian calendar</return>
-     <param>days          The number of elapsed days (1 Jan 1AD = 1)</param>
+     <content>&#10;&#32;* Converts the number days since 31st December 1BC to a date in the Gregorian calendar.
+ *
+ * @param days          The number of elapsed days (1 Jan 1AD = 1)
+ * @return              Module containing Year, Month, Day in the Gregorian calendar&#10;&#32;</content>
     </Documentation>
    </Definition>
    <Definition body="9643"
@@ -600,9 +627,10 @@
                start="9596">
     <Type>function</Type>
     <Documentation>
-     <content>Converts a date in the Gregorian calendar to the number days since 31st December 1BC.</content>
-     <return>The number of elapsed days (1 Jan 1AD = 1)</return>
-     <param>date          The date (using the Gregorian calendar)</param>
+     <content>&#10;&#32;* Converts a date in the Gregorian calendar to the number days since 31st December 1BC.
+ *
+ * @param date          The date (using the Gregorian calendar)
+ * @return              The number of elapsed days (1 Jan 1AD = 1)&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="date"/>
@@ -619,9 +647,10 @@
                start="9938">
     <Type>function</Type>
     <Documentation>
-     <content>Converts the number days since 31st December 1BC to a date in the Gregorian calendar.</content>
-     <return>A Date_t in the Gregorian calendar</return>
-     <param>days          The number of elapsed days (1 Jan 1AD = 1)</param>
+     <content>&#10;&#32;* Converts the number days since 31st December 1BC to a date in the Gregorian calendar.
+ *
+ * @param days          The number of elapsed days (1 Jan 1AD = 1)
+ * @return              A Date_t in the Gregorian calendar&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="days"/>
@@ -638,9 +667,12 @@
                start="10432">
     <Type>function</Type>
     <Documentation>
-     <content>Returns a number representing the day of the year indicated by the given date. The date must be in the Gregorian calendar after the year 1600.</content>
-     <return>A number (1-366) representing the number of days since the beginning of the year.</return>
-     <param>date          A Date_t value.</param>
+     <content>&#10;&#32;* Returns a number representing the day of the year indicated by the given date.
+ * The date must be in the Gregorian calendar after the year 1600.
+ *
+ * @param date          A Date_t value.
+ * @return              A number (1-366) representing the number of days since
+ *                      the beginning of the year.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="date"/>
@@ -657,9 +689,11 @@
                start="10950">
     <Type>function</Type>
     <Documentation>
-     <content>Returns a number representing the day of the week indicated by the given date. The date must be in the Gregorian calendar after the year 1600.</content>
-     <return>A number 1-7 representing the day of the week, where 1 = Sunday.</return>
-     <param>date          A Date_t value.</param>
+     <content>&#10;&#32;* Returns a number representing the day of the week indicated by the given date.
+ * The date must be in the Gregorian calendar after the year 1600.
+ *
+ * @param date          A Date_t value.
+ * @return              A number 1-7 representing the day of the week, where 1 = Sunday.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="date"/>
@@ -676,9 +710,10 @@
                start="11357">
     <Type>function</Type>
     <Documentation>
-     <content>Tests whether the year is a leap year in the Julian calendar.</content>
-     <return>True if the year is a leap year.</return>
-     <param>year          The year (0-9999).</param>
+     <content>&#10;&#32;* Tests whether the year is a leap year in the Julian calendar.
+ *
+ * @param year          The year (0-9999).
+ * @return              True if the year is a leap year.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="Year"/>
@@ -706,11 +741,13 @@
                start="11821">
     <Type>function</Type>
     <Documentation>
-     <content>Combines year, month, day in the Julian calendar to create the number days since 31st December 1BC.</content>
-     <return>The number of elapsed days (1 Jan 1AD = 1)</return>
-     <param>year          The year (-4800..9999).</param>
-     <param>month         The month (1-12).</param>
-     <param>day           The day (1..daysInMonth).</param>
+     <content>&#10;&#32;* Combines year, month, day in the Julian calendar to create the number
+ * days since 31st December 1BC.
+ *
+ * @param year          The year (-4800..9999).
+ * @param month         The month (1-12).
+ * @param day           The day (1..daysInMonth).
+ * @return              The number of elapsed days (1 Jan 1AD = 1)&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="Year"/>
@@ -766,9 +803,10 @@
      <Type>attribute</Type>
     </Definition>
     <Documentation>
-     <content>Converts the number days since 31st December 1BC to a date in the Julian calendar.</content>
-     <return>Module containing Year, Month, Day in the Julian calendar</return>
-     <param>days          The number of elapsed days (1 Jan 1AD = 1)</param>
+     <content>&#10;&#32;* Converts the number days since 31st December 1BC to a date in the Julian calendar.
+ *
+ * @param days          The number of elapsed days (1 Jan 1AD = 1)
+ * @return              Module containing Year, Month, Day in the Julian calendar&#10;&#32;</content>
     </Documentation>
    </Definition>
    <Definition body="13220"
@@ -782,9 +820,10 @@
                start="13176">
     <Type>function</Type>
     <Documentation>
-     <content>Converts a date in the Julian calendar to the number days since 31st December 1BC.</content>
-     <return>The number of elapsed days (1 Jan 1AD = 1)</return>
-     <param>date          The date (using the Julian calendar)</param>
+     <content>&#10;&#32;* Converts a date in the Julian calendar to the number days since 31st December 1BC.
+ *
+ * @param date          The date (using the Julian calendar)
+ * @return              The number of elapsed days (1 Jan 1AD = 1)&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="date"/>
@@ -801,9 +840,10 @@
                start="13502">
     <Type>function</Type>
     <Documentation>
-     <content>Converts the number days since 31st December 1BC to a date in the Julian calendar.</content>
-     <return>A Date_t in the Julian calendar</return>
-     <param>days          The number of elapsed days (1 Jan 1AD = 1)</param>
+     <content>&#10;&#32;* Converts the number days since 31st December 1BC to a date in the Julian calendar.
+ *
+ * @param days          The number of elapsed days (1 Jan 1AD = 1)
+ * @return              A Date_t in the Julian calendar&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="days"/>
@@ -831,11 +871,12 @@
                start="14101">
     <Type>function</Type>
     <Documentation>
-     <content>Returns the number of days since 1st January 1900 (using the Gregorian Calendar)</content>
-     <return>The number of elapsed days since 1st January 1900</return>
-     <param>year          The year (-4713..9999).</param>
-     <param>month         The month (1-12).  A missing value (0) is treated as 1.</param>
-     <param>day           The day (1..daysInMonth).  A missing value (0) is treated as 1.</param>
+     <content>&#10;&#32;* Returns the number of days since 1st January 1900 (using the Gregorian Calendar)
+ *
+ * @param year          The year (-4713..9999).
+ * @param month         The month (1-12).  A missing value (0) is treated as 1.
+ * @param day           The day (1..daysInMonth).  A missing value (0) is treated as 1.
+ * @return              The number of elapsed days since 1st January 1900&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="Year"/>
@@ -854,9 +895,10 @@
                start="14440">
     <Type>function</Type>
     <Documentation>
-     <content>Returns the number of days since 1st January 1900 (using the Gregorian Calendar)</content>
-     <return>The number of elapsed days since 1st January 1900</return>
-     <param>date          The date</param>
+     <content>&#10;&#32;* Returns the number of days since 1st January 1900 (using the Gregorian Calendar)
+ *
+ * @param date          The date
+ * @return              The number of elapsed days since 1st January 1900&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="date"/>
@@ -873,9 +915,10 @@
                start="14760">
     <Type>function</Type>
     <Documentation>
-     <content>Converts the number days since 1st January 1900 to a date in the Julian calendar.</content>
-     <return>A Date_t in the Julian calendar</return>
-     <param>days          The number of elapsed days since 1st Jan 1900</param>
+     <content>&#10;&#32;* Converts the number days since 1st January 1900 to a date in the Julian calendar.
+ *
+ * @param days          The number of elapsed days since 1st Jan 1900
+ * @return              A Date_t in the Julian calendar&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="days"/>
@@ -892,10 +935,11 @@
                start="15054">
     <Type>function</Type>
     <Documentation>
-     <content>Calculate the number of whole years between two dates.</content>
-     <return>The number of years between them.</return>
-     <param>from          The first date</param>
-     <param>to            The last date</param>
+     <content>&#10;&#32;* Calculate the number of whole years between two dates.
+ *
+ * @param from          The first date
+ * @param to            The last date
+ * @return              The number of years between them.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="from"/>
@@ -913,10 +957,11 @@
                start="15628">
     <Type>function</Type>
     <Documentation>
-     <content>Calculate the number of whole months between two dates.</content>
-     <return>The number of months between them.</return>
-     <param>from          The first date</param>
-     <param>to            The last date</param>
+     <content>&#10;&#32;* Calculate the number of whole months between two dates.
+ *
+ * @param from          The first date
+ * @param to            The last date
+ * @return              The number of months between them.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="from"/>
@@ -934,10 +979,11 @@
                start="16204">
     <Type>function</Type>
     <Documentation>
-     <content>Calculate the number of days between two dates.</content>
-     <return>The number of days between them.</return>
-     <param>from          The first date</param>
-     <param>to            The last date</param>
+     <content>&#10;&#32;* Calculate the number of days between two dates.
+ *
+ * @param from          The first date
+ * @param to            The last date
+ * @return              The number of days between them.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="from"/>
@@ -955,9 +1001,10 @@
                start="16575">
     <Type>function</Type>
     <Documentation>
-     <content>Combines the fields from a Date_rec to create a Date_t</content>
-     <return>A Date_t representing the combined values.</return>
-     <param>date          The row containing the date.</param>
+     <content>&#10;&#32;* Combines the fields from a Date_rec to create a Date_t
+ *
+ * @param date          The row containing the date.
+ * @return              A Date_t representing the combined values.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="date"/>
@@ -974,9 +1021,10 @@
                start="16864">
     <Type>function</Type>
     <Documentation>
-     <content>Combines the fields from a Date_rec to create a Date_t</content>
-     <return>A Date_t representing the combined values.</return>
-     <param>date          The row containing the date.</param>
+     <content>&#10;&#32;* Combines the fields from a Date_rec to create a Date_t
+ *
+ * @param date          The row containing the date.
+ * @return              A Date_t representing the combined values.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="date"/>
@@ -993,9 +1041,10 @@
                start="17180">
     <Type>function</Type>
     <Documentation>
-     <content>Combines the fields from a Time_rec to create a Time_t</content>
-     <return>A Time_t representing the combined values.</return>
-     <param>time          The row containing the time.</param>
+     <content>&#10;&#32;* Combines the fields from a Time_rec to create a Time_t
+ *
+ * @param time          The row containing the time.
+ * @return              A Time_t representing the combined values.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="time"/>
@@ -1012,9 +1061,10 @@
                start="17486">
     <Type>function</Type>
     <Documentation>
-     <content>Combines the date fields from a DateTime_rec to create a Date_t</content>
-     <return>A Date_t representing the combined values.</return>
-     <param>datetime      The row containing the datetime.</param>
+     <content>&#10;&#32;* Combines the date fields from a DateTime_rec to create a Date_t
+ *
+ * @param datetime      The row containing the datetime.
+ * @return              A Date_t representing the combined values.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="datetime"/>
@@ -1031,9 +1081,10 @@
                start="17812">
     <Type>function</Type>
     <Documentation>
-     <content>Combines the time fields from a DateTime_rec to create a Time_t</content>
-     <return>A Time_t representing the combined values.</return>
-     <param>datetime      The row containing the datetime.</param>
+     <content>&#10;&#32;* Combines the time fields from a DateTime_rec to create a Time_t
+ *
+ * @param datetime      The row containing the datetime.
+ * @return              A Time_t representing the combined values.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="datetime"/>
@@ -1050,10 +1101,13 @@
                start="18382">
     <Type>function</Type>
     <Documentation>
-     <content>Combines the date and time fields from a DateTime_rec to create a Seconds_t</content>
-     <return>A Seconds_t representing the combined values.</return>
-     <param>datetime      The row containing the datetime.</param>
-     <param>is_local_time TRUE if the datetime components are expressed in local time rather than UTC, FALSE if the components are expressed in UTC.  Optional, defaults to FALSE.</param>
+     <content>&#10;&#32;* Combines the date and time fields from a DateTime_rec to create a Seconds_t
+ *
+ * @param datetime      The row containing the datetime.
+ * @param is_local_time TRUE if the datetime components are expressed in local
+ *                      time rather than UTC, FALSE if the components are
+ *                      expressed in UTC.  Optional, defaults to FALSE.
+ * @return              A Seconds_t representing the combined values.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="datetime"/>
@@ -1071,10 +1125,32 @@
                start="19772">
     <Type>function</Type>
     <Documentation>
-     <content>Converts a string to a Date_t using the relevant string format.  The resulting date must be representable within the Gregorian calendar after the year 1600.</content>
-     <return>The date that was matched in the string.  Returns 0 if failed to match or if the date components match but the result is an invalid date. Supported characters: %B          Full month name %b or %h    Abbreviated month name %d          Day of month (two digits) %e          Day of month (two digits, or a space followed by a single digit) %m          Month (two digits) %t          Whitespace %y          year within century (00-99) %Y          Full year (yyyy) %j          Julian day (1-366) Common date formats American    &apos;%m/%d/%Y&apos;  mm/dd/yyyy Euro        &apos;%d/%m/%Y&apos;  dd/mm/yyyy Iso format  &apos;%Y-%m-%d&apos;  yyyy-mm-dd Iso basic   &apos;Y%m%d&apos;     yyyymmdd &apos;%d-%b-%Y&apos;  dd-mon-yyyy    e.g., &apos;21-Mar-1954&apos;</return>
-     <param>date_text     The string to be converted.</param>
-     <param>format        The format of the input string. (See documentation for strftime)</param>
+     <content>&#10;&#32;* Converts a string to a Date_t using the relevant string format.  The resulting
+ * date must be representable within the Gregorian calendar after the year 1600.
+ *
+ * @param date_text     The string to be converted.
+ * @param format        The format of the input string.
+ *                      (See documentation for strftime)
+ * @return              The date that was matched in the string.  Returns 0 if failed to match
+ *                      or if the date components match but the result is an invalid date.
+ *
+ * Supported characters:
+    %B          Full month name
+    %b or %h    Abbreviated month name
+    %d          Day of month (two digits)
+    %e          Day of month (two digits, or a space followed by a single digit)
+    %m          Month (two digits)
+    %t          Whitespace
+    %y          year within century (00-99)
+    %Y          Full year (yyyy)
+    %j          Julian day (1-366)
+
+Common date formats
+    American    &apos;%m/%d/%Y&apos;  mm/dd/yyyy
+    Euro        &apos;%d/%m/%Y&apos;  dd/mm/yyyy
+    Iso format  &apos;%Y-%m-%d&apos;  yyyy-mm-dd
+    Iso basic   &apos;Y%m%d&apos;     yyyymmdd
+                &apos;%d-%b-%Y&apos;  dd-mon-yyyy    e.g., &apos;21-Mar-1954&apos;&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="date_text"/>
@@ -1092,10 +1168,13 @@
                start="20252">
     <Type>function</Type>
     <Documentation>
-     <content>Converts a string to a date using the relevant string format.</content>
-     <return>The date that was matched in the string. Returns 0 if failed to match.</return>
-     <param>date_text     The string to be converted.</param>
-     <param>format        The format of the input string. (See documentation for strftime)</param>
+     <content>&#10;&#32;* Converts a string to a date using the relevant string format.
+ *
+ * @param date_text     The string to be converted.
+ * @param format        The format of the input string.
+ *                      (See documentation for strftime)
+ * @return              The date that was matched in the string.
+ *                      Returns 0 if failed to match.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="date_text"/>
@@ -1113,10 +1192,19 @@
                start="20986">
     <Type>function</Type>
     <Documentation>
-     <content>Converts a string to a Time_t using the relevant string format.</content>
-     <return>The time that was matched in the string.  Returns 0 if failed to match. Supported characters: %H          Hour (two digits) %k          (two digits, or a space followed by a single digit) %M          Minute (two digits) %S          Second (two digits) %t          Whitespace</return>
-     <param>date_text     The string to be converted.</param>
-     <param>format        The format of the input string. (See documentation for strftime)</param>
+     <content>&#10;&#32;* Converts a string to a Time_t using the relevant string format.
+ *
+ * @param date_text     The string to be converted.
+ * @param format        The format of the input string.
+ *                      (See documentation for strftime)
+ * @return              The time that was matched in the string.  Returns 0 if failed to match.
+ *
+ * Supported characters:
+    %H          Hour (two digits)
+    %k          (two digits, or a space followed by a single digit)
+    %M          Minute (two digits)
+    %S          Second (two digits)
+    %t          Whitespace&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="time_text"/>
@@ -1134,10 +1222,14 @@
                start="21573">
     <Type>function</Type>
     <Documentation>
-     <content>Matches a string against a set of date string formats and returns a valid Date_t object from the first format that successfully parses the string.</content>
-     <return>The date that was matched in the string. Returns 0 if failed to match.</return>
-     <param>date_text     The string to be converted.</param>
-     <param>formats       A set of formats to check against the string. (See documentation for strftime)</param>
+     <content>&#10;&#32;* Matches a string against a set of date string formats and returns a valid
+ * Date_t object from the first format that successfully parses the string.
+ *
+ * @param date_text     The string to be converted.
+ * @param formats       A set of formats to check against the string.
+ *                      (See documentation for strftime)
+ * @return              The date that was matched in the string.
+ *                      Returns 0 if failed to match.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="date_text"/>
@@ -1155,10 +1247,14 @@
                start="22160">
     <Type>function</Type>
     <Documentation>
-     <content>Matches a string against a set of time string formats and returns a valid Time_t object from the first format that successfully parses the string.</content>
-     <return>The time that was matched in the string. Returns 0 if failed to match.</return>
-     <param>time_text     The string to be converted.</param>
-     <param>formats       A set of formats to check against the string. (See documentation for strftime)</param>
+     <content>&#10;&#32;* Matches a string against a set of time string formats and returns a valid
+ * Time_t object from the first format that successfully parses the string.
+ *
+ * @param time_text     The string to be converted.
+ * @param formats       A set of formats to check against the string.
+ *                      (See documentation for strftime)
+ * @return              The time that was matched in the string.
+ *                      Returns 0 if failed to match.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="time_text"/>
@@ -1176,10 +1272,15 @@
                start="22801">
     <Type>function</Type>
     <Documentation>
-     <content>Formats a date as a string.</content>
-     <return>Blank if date cannot be formatted, or the date in the requested format.</return>
-     <param>date          The date to be converted.</param>
-     <param>format        The format template to use for the conversion; see strftime() for appropriate values.  The maximum length of the resulting string is 255 characters. Optional; defaults to &apos;%Y-%m-%d&apos; which is YYYY-MM-DD.</param>
+     <content>&#10;&#32;* Formats a date as a string.
+ *
+ * @param date          The date to be converted.
+ * @param format        The format template to use for the conversion;
+ *                      see strftime() for appropriate values.  The maximum
+ *                      length of the resulting string is 255 characters.
+ *                      Optional; defaults to &apos;%Y-%m-%d&apos; which is YYYY-MM-DD.
+ * @return              Blank if date cannot be formatted, or the date in the
+ *                      requested format.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="date"/>
@@ -1197,10 +1298,15 @@
                start="23431">
     <Type>function</Type>
     <Documentation>
-     <content>Formats a time as a string.</content>
-     <return>Blank if the time cannot be formatted, or the time in the requested format.</return>
-     <param>time          The time to be converted.</param>
-     <param>format        The format template to use for the conversion; see strftime() for appropriate values.  The maximum length of the resulting string is 255 characters. Optional; defaults to &apos;%H:%M:%S&apos; which is HH:MM:SS.</param>
+     <content>&#10;&#32;* Formats a time as a string.
+ *
+ * @param time          The time to be converted.
+ * @param format        The format template to use for the conversion;
+ *                      see strftime() for appropriate values.  The maximum
+ *                      length of the resulting string is 255 characters.
+ *                      Optional; defaults to &apos;%H:%M:%S&apos; which is HH:MM:SS.
+ * @return              Blank if the time cannot be formatted, or the time
+ *                      in the requested format.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="time"/>
@@ -1218,10 +1324,14 @@
                start="24068">
     <Type>function</Type>
     <Documentation>
-     <content>Converts a Seconds_t value into a human-readable string using a format template.</content>
-     <return>The converted seconds as a string.</return>
-     <param>seconds       The seconds since epoch.</param>
-     <param>format        The format template to use for the conversion; see strftime() for appropriate values.  The maximum length of the resulting string is 255 characters. Optional; defaults to &apos;%Y-%m-%dT%H:%M:%S&apos; which is YYYY-MM-DDTHH:MM:SS.</param>
+     <content>&#10;&#32;* Converts a Seconds_t value into a human-readable string using a format template.
+ *
+ * @param seconds       The seconds since epoch.
+ * @param format        The format template to use for the conversion; see
+ *                      strftime() for appropriate values.  The maximum length
+ *                      of the resulting string is 255 characters.
+ *                      Optional; defaults to &apos;%Y-%m-%dT%H:%M:%S&apos; which is YYYY-MM-DDTHH:MM:SS.
+ * @return              The converted seconds as a string.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="seconds"/>
@@ -1239,10 +1349,13 @@
                start="24536">
     <Type>function</Type>
     <Documentation>
-     <content>Formats a date as a string.</content>
-     <return>Blank if date cannot be formatted, or the date in the requested format.</return>
-     <param>date          The date to be converted.</param>
-     <param>format        The format the date is output in. (See documentation for strftime)</param>
+     <content>&#10;&#32;* Formats a date as a string.
+ *
+ * @param date          The date to be converted.
+ * @param format        The format the date is output in.
+ *                      (See documentation for strftime)
+ * @return              Blank if date cannot be formatted, or the date in the
+ *                      requested format.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="date"/>
@@ -1260,11 +1373,12 @@
                start="25032">
     <Type>function</Type>
     <Documentation>
-     <content>Converts a date from one format to another</content>
-     <return>The converted string, or blank if it failed to match the format.</return>
-     <param>date_text     The string containing the date to be converted.</param>
-     <param>from_format   The format the date is to be converted from.</param>
-     <param>to_format     The format the date is to be converted to.</param>
+     <content>&#10;&#32;* Converts a date from one format to another
+ *
+ * @param date_text     The string containing the date to be converted.
+ * @param from_format   The format the date is to be converted from.
+ * @param to_format     The format the date is to be converted to.
+ * @return              The converted string, or blank if it failed to match the format.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="date_text"/>
@@ -1283,11 +1397,12 @@
                start="25577">
     <Type>function</Type>
     <Documentation>
-     <content>Converts a date from one format to another</content>
-     <return>The converted string, or blank if it failed to match the format.</return>
-     <param>date_text     The string containing the date to be converted.</param>
-     <param>from_format   The format the date is to be converted from.</param>
-     <param>to_format     The format the date is to be converted to.</param>
+     <content>&#10;&#32;* Converts a date from one format to another
+ *
+ * @param date_text     The string containing the date to be converted.
+ * @param from_format   The format the date is to be converted from.
+ * @param to_format     The format the date is to be converted to.
+ * @return              The converted string, or blank if it failed to match the format.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="date_text"/>
@@ -1306,11 +1421,12 @@
                start="26164">
     <Type>function</Type>
     <Documentation>
-     <content>Converts a time from one format to another</content>
-     <return>The converted string, or blank if it failed to match the format.</return>
-     <param>time_text     The string containing the time to be converted.</param>
-     <param>from_format   The format the time is to be converted from.</param>
-     <param>to_format     The format the time is to be converted to.</param>
+     <content>&#10;&#32;* Converts a time from one format to another
+ *
+ * @param time_text     The string containing the time to be converted.
+ * @param from_format   The format the time is to be converted from.
+ * @param to_format     The format the time is to be converted to.
+ * @return              The converted string, or blank if it failed to match the format.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="time_text"/>
@@ -1329,11 +1445,12 @@
                start="26740">
     <Type>function</Type>
     <Documentation>
-     <content>Converts a date that matches one of a set of formats to another.</content>
-     <return>The converted string, or blank if it failed to match the format.</return>
-     <param>date_text     The string containing the date to be converted.</param>
-     <param>from_formats  The list of formats the date is to be converted from.</param>
-     <param>to_format     The format the date is to be converted to.</param>
+     <content>&#10;&#32;* Converts a date that matches one of a set of formats to another.
+ *
+ * @param date_text     The string containing the date to be converted.
+ * @param from_formats  The list of formats the date is to be converted from.
+ * @param to_format     The format the date is to be converted to.
+ * @return              The converted string, or blank if it failed to match the format.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="date_text"/>
@@ -1352,11 +1469,12 @@
                start="27447">
     <Type>function</Type>
     <Documentation>
-     <content>Converts a date that matches one of a set of formats to another.</content>
-     <return>The converted string, or blank if it failed to match the format.</return>
-     <param>date_text     The string containing the date to be converted.</param>
-     <param>from_formats  The list of formats the date is to be converted from.</param>
-     <param>to_format     The format the date is to be converted to.</param>
+     <content>&#10;&#32;* Converts a date that matches one of a set of formats to another.
+ *
+ * @param date_text     The string containing the date to be converted.
+ * @param from_formats  The list of formats the date is to be converted from.
+ * @param to_format     The format the date is to be converted to.
+ * @return              The converted string, or blank if it failed to match the format.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="date_text"/>
@@ -1375,11 +1493,12 @@
                start="28087">
     <Type>function</Type>
     <Documentation>
-     <content>Converts a time that matches one of a set of formats to another.</content>
-     <return>The converted string, or blank if it failed to match the format.</return>
-     <param>time_text     The string containing the time to be converted.</param>
-     <param>from_formats  The list of formats the time is to be converted from.</param>
-     <param>to_format     The format the time is to be converted to.</param>
+     <content>&#10;&#32;* Converts a time that matches one of a set of formats to another.
+ *
+ * @param time_text     The string containing the time to be converted.
+ * @param from_formats  The list of formats the time is to be converted from.
+ * @param to_format     The format the time is to be converted to.
+ * @return              The converted string, or blank if it failed to match the format.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="time_text"/>
@@ -1398,12 +1517,19 @@
                start="29037">
     <Type>function</Type>
     <Documentation>
-     <content>Adjusts a date by incrementing or decrementing year, month and/or day values. The date must be in the Gregorian calendar after the year 1600. If the new calculated date is invalid then it will be normalized according to mktime() rules.  Example: 20140130 + 1 month = 20140302.</content>
-     <return>The adjusted Date_t value.</return>
-     <param>date          The date to adjust.</param>
-     <param>year_delta    The requested change to the year value; optional, defaults to zero.</param>
-     <param>month_delta   The requested change to the month value; optional, defaults to zero.</param>
-     <param>day_delta     The requested change to the day of month value; optional, defaults to zero.</param>
+     <content>&#10;&#32;* Adjusts a date by incrementing or decrementing year, month and/or day values.
+ * The date must be in the Gregorian calendar after the year 1600.
+ * If the new calculated date is invalid then it will be normalized according
+ * to mktime() rules.  Example: 20140130 + 1 month = 20140302.
+ *
+ * @param date          The date to adjust.
+ * @param year_delta    The requested change to the year value;
+ *                      optional, defaults to zero.
+ * @param month_delta   The requested change to the month value;
+ *                      optional, defaults to zero.
+ * @param day_delta     The requested change to the day of month value;
+ *                      optional, defaults to zero.
+ * @return              The adjusted Date_t value.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="date"/>
@@ -1423,10 +1549,14 @@
                start="29741">
     <Type>function</Type>
     <Documentation>
-     <content>Adjusts a date by adding or subtracting seconds.  The date must be in the Gregorian calendar after the year 1600.  If the new calculated date is invalid then it will be normalized according to mktime() rules. Example: 20140130 + 172800 seconds = 20140201.</content>
-     <return>The adjusted Date_t value.</return>
-     <param>date          The date to adjust.</param>
-     <param>seconds_delta The requested change to the date, in seconds.</param>
+     <content>&#10;&#32;* Adjusts a date by adding or subtracting seconds.  The date must be in the
+ * Gregorian calendar after the year 1600.  If the new calculated
+ * date is invalid then it will be normalized according to mktime() rules.
+ * Example: 20140130 + 172800 seconds = 20140201.
+ *
+ * @param date          The date to adjust.
+ * @param seconds_delta The requested change to the date, in seconds.
+ * @return              The adjusted Date_t value.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="date"/>
@@ -1444,12 +1574,18 @@
                start="30525">
     <Type>function</Type>
     <Documentation>
-     <content>Adjusts a time by incrementing or decrementing hour, minute and/or second values.  If the new calculated time is invalid then it will be normalized according to mktime() rules.</content>
-     <return>The adjusted Time_t value.</return>
-     <param>time          The time to adjust.</param>
-     <param>hour_delta    The requested change to the hour value; optional, defaults to zero.</param>
-     <param>minute_delta  The requested change to the minute value; optional, defaults to zero.</param>
-     <param>second_delta  The requested change to the second of month value; optional, defaults to zero.</param>
+     <content>&#10;&#32;* Adjusts a time by incrementing or decrementing hour, minute and/or second
+ * values.  If the new calculated time is invalid then it will be normalized
+ * according to mktime() rules.
+ *
+ * @param time          The time to adjust.
+ * @param hour_delta    The requested change to the hour value;
+ *                      optional, defaults to zero.
+ * @param minute_delta  The requested change to the minute value;
+ *                      optional, defaults to zero.
+ * @param second_delta  The requested change to the second of month value;
+ *                      optional, defaults to zero.
+ * @return              The adjusted Time_t value.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="time"/>
@@ -1469,10 +1605,12 @@
                start="31119">
     <Type>function</Type>
     <Documentation>
-     <content>Adjusts a time by adding or subtracting seconds.  If the new calculated time is invalid then it will be normalized according to mktime() rules.</content>
-     <return>The adjusted Time_t value.</return>
-     <param>time          The time to adjust.</param>
-     <param>seconds_delta The requested change to the time, in seconds.</param>
+     <content>&#10;&#32;* Adjusts a time by adding or subtracting seconds.  If the new calculated
+ * time is invalid then it will be normalized according to mktime() rules.
+ *
+ * @param time          The time to adjust.
+ * @param seconds_delta The requested change to the time, in seconds.
+ * @return              The adjusted Time_t value.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="time"/>
@@ -1490,15 +1628,30 @@
                start="32732">
     <Type>function</Type>
     <Documentation>
-     <content>Adjusts a Seconds_t value by adding or subtracting years, months, days, hours, minutes and/or seconds.  This is performed by first converting the seconds into a full date/time structure, applying any delta values to individual date/time components, then converting the structure back to the number of seconds.  This interim date must lie within Gregorian calendar after the year 1600.  If the interim structure is found to have an invalid date/time then it will be normalized according to mktime() rules.  Therefore, some delta values (such as &quot;1 month&quot;) are actually relative to the value of the seconds argument.</content>
-     <return>The adjusted Seconds_t value.</return>
-     <param>seconds       The number of seconds to adjust.</param>
-     <param>year_delta    The requested change to the year value; optional, defaults to zero.</param>
-     <param>month_delta   The requested change to the month value; optional, defaults to zero.</param>
-     <param>day_delta     The requested change to the day of month value; optional, defaults to zero.</param>
-     <param>hour_delta    The requested change to the hour value; optional, defaults to zero.</param>
-     <param>minute_delta  The requested change to the minute value; optional, defaults to zero.</param>
-     <param>second_delta  The requested change to the second of month value; optional, defaults to zero.</param>
+     <content>&#10;&#32;* Adjusts a Seconds_t value by adding or subtracting years, months, days,
+ * hours, minutes and/or seconds.  This is performed by first converting the
+ * seconds into a full date/time structure, applying any delta values to
+ * individual date/time components, then converting the structure back to the
+ * number of seconds.  This interim date must lie within Gregorian calendar
+ * after the year 1600.  If the interim structure is found to have an invalid
+ * date/time then it will be normalized according to mktime() rules.  Therefore,
+ * some delta values (such as &quot;1 month&quot;) are actually relative to the value of
+ * the seconds argument.
+ *
+ * @param seconds       The number of seconds to adjust.
+ * @param year_delta    The requested change to the year value;
+ *                      optional, defaults to zero.
+ * @param month_delta   The requested change to the month value;
+ *                      optional, defaults to zero.
+ * @param day_delta     The requested change to the day of month value;
+ *                      optional, defaults to zero.
+ * @param hour_delta    The requested change to the hour value;
+ *                      optional, defaults to zero.
+ * @param minute_delta  The requested change to the minute value;
+ *                      optional, defaults to zero.
+ * @param second_delta  The requested change to the second of month value;
+ *                      optional, defaults to zero.
+ * @return              The adjusted Seconds_t value.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="seconds"/>
@@ -1521,12 +1674,27 @@
                start="34601">
     <Type>function</Type>
     <Documentation>
-     <content>Adjusts a date by incrementing or decrementing months and/or years.  This routine uses the rule outlined in McGinn v. State, 46 Neb. 427, 65 N.W. 46 (1895): &quot;The term calendar month, whether employed in statutes or contracts, and not appearing to have been used in a different sense, denotes a period terminating with the day of the succeeding month numerically corresponding to the day of its beginning, less one. If there be no corresponding day of the succeeding month, it terminates with the last day thereof.&quot;  The internet suggests similar legal positions exist in the Commonwealth and Germany.  Note that day adjustments are performed after year and month adjustments using the preceding rules.  As an example, Jan. 31, 2014 + 1 month will result in Feb. 28, 2014; Jan. 31, 2014 + 1 month + 1 day will result in Mar. 1, 2014.</content>
-     <return>The adjusted Date_t value.</return>
-     <param>date          The date to adjust, in the Gregorian calendar after 1600.</param>
-     <param>year_delta    The requested change to the year value; optional, defaults to zero.</param>
-     <param>month_delta   The requested change to the month value; optional, defaults to zero.</param>
-     <param>day_delta     The requested change to the day value; optional, defaults to zero.</param>
+     <content>&#10;&#32;* Adjusts a date by incrementing or decrementing months and/or years.  This
+ * routine uses the rule outlined in McGinn v. State, 46 Neb. 427, 65 N.W. 46 (1895):
+ * &quot;The term calendar month, whether employed in statutes or contracts, and
+ * not appearing to have been used in a different sense, denotes a period
+ * terminating with the day of the succeeding month numerically corresponding
+ * to the day of its beginning, less one. If there be no corresponding day of
+ * the succeeding month, it terminates with the last day thereof.&quot;  The
+ * internet suggests similar legal positions exist in the Commonwealth
+ * and Germany.  Note that day adjustments are performed after year and month
+ * adjustments using the preceding rules.  As an example, Jan. 31, 2014 + 1 month
+ * will result in Feb. 28, 2014; Jan. 31, 2014 + 1 month + 1 day will result
+ * in Mar. 1, 2014.
+ *
+ * @param date          The date to adjust, in the Gregorian calendar after 1600.
+ * @param year_delta    The requested change to the year value;
+ *                      optional, defaults to zero.
+ * @param month_delta   The requested change to the month value;
+ *                      optional, defaults to zero.
+ * @param day_delta     The requested change to the day value;
+ *                      optional, defaults to zero.
+ * @return              The adjusted Date_t value.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="date"/>
@@ -1546,8 +1714,10 @@
                start="35076">
     <Type>function</Type>
     <Documentation>
-     <return>TRUE if daylight savings time is currently in effect, FALSE otherwise.</return>
-     <content>Returns a boolean indicating whether daylight savings time is currently in effect locally.</content>
+     <content>&#10;&#32;* Returns a boolean indicating whether daylight savings time is currently
+ * in effect locally.
+ *
+ * @return      TRUE if daylight savings time is currently in effect, FALSE otherwise.&#10;&#32;</content>
     </Documentation>
     <Params/>
    </Definition>
@@ -1562,8 +1732,12 @@
                start="35522">
     <Type>function</Type>
     <Documentation>
-     <return>The number of seconds offset from UTC.</return>
-     <content>Returns the offset (in seconds) of the time represented from UTC, with positive values indicating locations east of the Prime Meridian.  Given a UTC time in seconds since epoch, you can find the local time by adding the result of this function to the seconds.</content>
+     <content>&#10;&#32;* Returns the offset (in seconds) of the time represented from UTC, with
+ * positive values indicating locations east of the Prime Meridian.  Given a
+ * UTC time in seconds since epoch, you can find the local time by adding the
+ * result of this function to the seconds.
+ *
+ * @return              The number of seconds offset from UTC.&#10;&#32;</content>
     </Documentation>
     <Params/>
    </Definition>
@@ -1578,9 +1752,12 @@
                start="35915">
     <Type>function</Type>
     <Documentation>
-     <content>Returns the current date.</content>
-     <return>A Date_t representing the current date.</return>
-     <param>in_local_time     TRUE if the returned value should be local to the cluster computing the date, FALSE for UTC. Optional, defaults to FALSE.</param>
+     <content>&#10;&#32;* Returns the current date.
+ *
+ * @param in_local_time     TRUE if the returned value should be local to the
+ *                          cluster computing the date, FALSE for UTC.
+ *                          Optional, defaults to FALSE.
+ * @return                  A Date_t representing the current date.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="in_local_time"/>
@@ -1597,8 +1774,9 @@
                start="36145">
     <Type>function</Type>
     <Documentation>
-     <return>A Date_t representing the current date.</return>
-     <content>Returns the current date in the local time zone.</content>
+     <content>&#10;&#32;* Returns the current date in the local time zone.
+ *
+ * @return              A Date_t representing the current date.&#10;&#32;</content>
     </Documentation>
     <Params/>
    </Definition>
@@ -1613,9 +1791,12 @@
                start="36519">
     <Type>function</Type>
     <Documentation>
-     <content>Returns the current time of day</content>
-     <return>A Time_t representing the current time of day.</return>
-     <param>in_local_time     TRUE if the returned value should be local to the cluster computing the time, FALSE for UTC. Optional, defaults to FALSE.</param>
+     <content>&#10;&#32;* Returns the current time of day
+ *
+ * @param in_local_time     TRUE if the returned value should be local to the
+ *                          cluster computing the time, FALSE for UTC.
+ *                          Optional, defaults to FALSE.
+ * @return                  A Time_t representing the current time of day.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="in_local_time"/>
@@ -1632,9 +1813,13 @@
                start="37061">
     <Type>function</Type>
     <Documentation>
-     <content>Returns the current date and time as the number of seconds since epoch.</content>
-     <return>A Seconds_t representing the current time in UTC or local time, depending on the argument.</return>
-     <param>in_local_time     TRUE if the returned value should be local to the cluster computing the time, FALSE for UTC. Optional, defaults to FALSE.</param>
+     <content>&#10;&#32;* Returns the current date and time as the number of seconds since epoch.
+ *
+ * @param in_local_time     TRUE if the returned value should be local to the
+ *                          cluster computing the time, FALSE for UTC.
+ *                          Optional, defaults to FALSE.
+ * @return                  A Seconds_t representing the current time in
+ *                          UTC or local time, depending on the argument.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="in_local_time"/>
@@ -1651,9 +1836,14 @@
                start="37663">
     <Type>function</Type>
     <Documentation>
-     <content>Returns the current date and time as the number of microseconds since epoch.</content>
-     <return>A Timestamp_t representing the current time in microseconds in UTC or local time, depending on the argument.</return>
-     <param>in_local_time     TRUE if the returned value should be local to the cluster computing the time, FALSE for UTC. Optional, defaults to FALSE.</param>
+     <content>&#10;&#32;* Returns the current date and time as the number of microseconds since epoch.
+ *
+ * @param in_local_time     TRUE if the returned value should be local to the
+ *                          cluster computing the time, FALSE for UTC.
+ *                          Optional, defaults to FALSE.
+ * @return                  A Timestamp_t representing the current time in
+ *                          microseconds in UTC or local time, depending on
+ *                          the argument.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="in_local_time"/>
@@ -1696,9 +1886,13 @@
      <Type>attribute</Type>
     </Definition>
     <Documentation>
-     <content>Returns the beginning and ending dates for the month surrounding the given date.</content>
-     <return>Module with exported attributes for startDate and endDate.</return>
-     <param>as_of_date    The reference date from which the month will be calculated.  This date must be a date within the Gregorian calendar.  Optional, defaults to the current date in UTC.</param>
+     <content>&#10;&#32;* Returns the beginning and ending dates for the month surrounding the given date.
+ *
+ * @param as_of_date    The reference date from which the month will be
+ *                      calculated.  This date must be a date within the
+ *                      Gregorian calendar.  Optional, defaults to the
+ *                      current date in UTC.
+ * @return              Module with exported attributes for startDate and endDate.&#10;&#32;</content>
     </Documentation>
    </Definition>
    <Definition body="39079"
@@ -1738,9 +1932,14 @@
      <Type>attribute</Type>
     </Definition>
     <Documentation>
-     <content>Returns the beginning and ending dates for the week surrounding the given date (Sunday marks the beginning of a week).</content>
-     <return>Module with exported attributes for startDate and endDate.</return>
-     <param>as_of_date    The reference date from which the week will be calculated.  This date must be a date within the Gregorian calendar.  Optional, defaults to the current date in UTC.</param>
+     <content>&#10;&#32;* Returns the beginning and ending dates for the week surrounding the given date
+ * (Sunday marks the beginning of a week).
+ *
+ * @param as_of_date    The reference date from which the week will be
+ *                      calculated.  This date must be a date within the
+ *                      Gregorian calendar.  Optional, defaults to the
+ *                      current date in UTC.
+ * @return              Module with exported attributes for startDate and endDate.&#10;&#32;</content>
     </Documentation>
    </Definition>
    <Definition body="39971"
@@ -1754,11 +1953,15 @@
                start="39811">
     <Type>function</Type>
     <Documentation>
-     <content>Tests whether a date is valid, both by range-checking the year and by validating each of the other individual components.</content>
-     <return>TRUE if the date is valid, FALSE otherwise.</return>
-     <param>date              The date to validate.</param>
-     <param>yearLowerBound    The minimum acceptable year. Optional; defaults to 1800.</param>
-     <param>yearUpperBound    The maximum acceptable year. Optional; defaults to 2100.</param>
+     <content>&#10;&#32;* Tests whether a date is valid, both by range-checking the year and by
+ * validating each of the other individual components.
+ *
+ * @param date              The date to validate.
+ * @param yearLowerBound    The minimum acceptable year.
+ *                          Optional; defaults to 1800.
+ * @param yearUpperBound    The maximum acceptable year.
+ *                          Optional; defaults to 2100.
+ * @return                  TRUE if the date is valid, FALSE otherwise.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="date"/>
@@ -1777,9 +1980,11 @@
                start="40586">
     <Type>function</Type>
     <Documentation>
-     <content>Tests whether a date is valid in the Gregorian calendar.  The year must be between 1601 and 30827.</content>
-     <return>TRUE if the date is valid, FALSE otherwise.</return>
-     <param>date              The Date_t to validate.</param>
+     <content>&#10;&#32;* Tests whether a date is valid in the Gregorian calendar.  The year
+ * must be between 1601 and 30827.
+ *
+ * @param date              The Date_t to validate.
+ * @return                  TRUE if the date is valid, FALSE otherwise.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="date"/>
@@ -1796,9 +2001,10 @@
                start="41035">
     <Type>function</Type>
     <Documentation>
-     <content>Tests whether a time is valid.</content>
-     <return>TRUE if the time is valid, FALSE otherwise.</return>
-     <param>time              The time to validate.</param>
+     <content>&#10;&#32;* Tests whether a time is valid.
+ *
+ * @param time              The time to validate.
+ * @return                  TRUE if the time is valid, FALSE otherwise.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="time"/>
@@ -1821,11 +2027,12 @@
     </Params>
     <Return>date_rec</Return>
     <Documentation>
-     <content>A transform to create a Date_rec from the individual elements</content>
-     <return>A transform that creates a Date_rec containing the date.</return>
-     <param>year          The year</param>
-     <param>month         The month (1-12).</param>
-     <param>day           The day (1..daysInMonth).</param>
+     <content>&#10;&#32;* A transform to create a Date_rec from the individual elements
+ *
+ * @param year          The year
+ * @param month         The month (1-12).
+ * @param day           The day (1..daysInMonth).
+ * @return              A transform that creates a Date_rec containing the date.&#10;&#32;</content>
     </Documentation>
    </Definition>
    <Definition body="42209"
@@ -1843,9 +2050,10 @@
     </Params>
     <Return>date_rec</Return>
     <Documentation>
-     <content>A transform to create a Date_rec from a Seconds_t value.</content>
-     <return>A transform that creates a Date_rec containing the date.</return>
-     <param>seconds       The number seconds since epoch.</param>
+     <content>&#10;&#32;* A transform to create a Date_rec from a Seconds_t value.
+ *
+ * @param seconds       The number seconds since epoch.
+ * @return              A transform that creates a Date_rec containing the date.&#10;&#32;</content>
     </Documentation>
    </Definition>
    <Definition body="42742"
@@ -1865,11 +2073,12 @@
     </Params>
     <Return>time_rec</Return>
     <Documentation>
-     <content>A transform to create a Time_rec from the individual elements</content>
-     <return>A transform that creates a Time_rec containing the time of day.</return>
-     <param>hour          The hour (0-23).</param>
-     <param>minute        The minute (0-59).</param>
-     <param>second        The second (0-59).</param>
+     <content>&#10;&#32;* A transform to create a Time_rec from the individual elements
+ *
+ * @param hour          The hour (0-23).
+ * @param minute        The minute (0-59).
+ * @param second        The second (0-59).
+ * @return              A transform that creates a Time_rec containing the time of day.&#10;&#32;</content>
     </Documentation>
    </Definition>
    <Definition body="43112"
@@ -1887,9 +2096,10 @@
     </Params>
     <Return>time_rec</Return>
     <Documentation>
-     <content>A transform to create a Time_rec from a Seconds_t value.</content>
-     <return>A transform that creates a Time_rec containing the time of day.</return>
-     <param>seconds       The number seconds since epoch.</param>
+     <content>&#10;&#32;* A transform to create a Time_rec from a Seconds_t value.
+ *
+ * @param seconds       The number seconds since epoch.
+ * @return              A transform that creates a Time_rec containing the time of day.&#10;&#32;</content>
     </Documentation>
    </Definition>
    <Definition body="44049"
@@ -1912,14 +2122,16 @@
     </Params>
     <Return>datetime_rec</Return>
     <Documentation>
-     <content>A transform to create a DateTime_rec from the individual elements</content>
-     <return>A transform that creates a DateTime_rec containing date and time components.</return>
-     <param>year          The year</param>
-     <param>month         The month (1-12).</param>
-     <param>day           The day (1..daysInMonth).</param>
-     <param>hour          The hour (0-23).</param>
-     <param>minute        The minute (0-59).</param>
-     <param>second        The second (0-59).</param>
+     <content>&#10;&#32;* A transform to create a DateTime_rec from the individual elements
+ *
+ * @param year          The year
+ * @param month         The month (1-12).
+ * @param day           The day (1..daysInMonth).
+ * @param hour          The hour (0-23).
+ * @param minute        The minute (0-59).
+ * @param second        The second (0-59).
+ * @return              A transform that creates a DateTime_rec containing date
+ *                      and time components.&#10;&#32;</content>
     </Documentation>
    </Definition>
    <Definition body="44537"
@@ -1937,9 +2149,11 @@
     </Params>
     <Return>datetime_rec</Return>
     <Documentation>
-     <content>A transform to create a DateTime_rec from a Seconds_t value.</content>
-     <return>A transform that creates a DateTime_rec containing date and time components.</return>
-     <param>seconds       The number seconds since epoch.</param>
+     <content>&#10;&#32;* A transform to create a DateTime_rec from a Seconds_t value.
+ *
+ * @param seconds       The number seconds since epoch.
+ * @return              A transform that creates a DateTime_rec containing
+ *                      date and time components.&#10;&#32;</content>
     </Documentation>
    </Definition>
    <Parents/>

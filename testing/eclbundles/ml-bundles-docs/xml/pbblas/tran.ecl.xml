@@ -6,21 +6,21 @@
   </Import>
   <Import body="0" end="271" fullname="PBblas.Types" inherit_type="local" line="6" name="Types" ref="pbblas.types" start="271" target="types.ecl.xml">
    <Type>attribute</Type>
-   <Documentation> <content>Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes.</content>
-   </Documentation>
+   <Documentation>
+    <content>Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes.</content></Documentation>
   </Import>
   <Import body="0" end="292" fullname="PBblas.internal" inherit_type="local" line="7" name="int" ref="pbblas.internal" remotescope="1" start="292" target="internal/pkg.toc.xml">
    <Type>attribute</Type>
   </Import>
   <Import body="0" end="323" fullname="PBblas.internal.Types" inherit_type="local" line="8" name="iTypes" ref="pbblas.internal.types" start="323" target="internal/types.ecl.xml">
    <Type>attribute</Type>
-   <Documentation> <content>Internal Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes.</content>
-   </Documentation>
+   <Documentation>
+    <content>Internal Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes.</content></Documentation>
   </Import>
   <Import body="0" end="351" fullname="PBblas.internal.MatDims" inherit_type="local" line="9" name="MatDims" ref="pbblas.internal.matdims" start="351" target="internal/matdims.ecl.xml">
    <Type>attribute</Type>
-   <Documentation> <content>Module to calculate matrix dimensions and matrix partition dimensions from matrix cells.</content>
-   </Documentation>
+   <Documentation>
+    <content>Module to calculate matrix dimensions and matrix partition dimensions from matrix cells.</content></Documentation>
   </Import>
   <Import body="0" end="371" fullname="PBblas.internal.Converted" inherit_type="local" line="10" name="Converted" ref="pbblas.internal.converted" start="371" target="internal/converted.ecl.xml">
    <Type>attribute</Type>
@@ -33,14 +33,8 @@
   </Import>
   <Definition body="1288" end="2002" exported="1" fullname="pbblas.tran" inherit_type="local" line="31" name="tran" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/tran.ecl" start="1141">
    <Type>function</Type>
-   <Documentation> <see>PBblas/Types.layout_cell</see>
-    <return>Matrix in DATASET(Layout_Cell) form alpha * A**T + beta * C</return>
-    <param><name>alpha</name><desc>Scalar multiplier for the A**T matrix</desc></param>
-    <param><name>A</name><desc>A matrix in DATASET(Layout_Cell) form</desc></param>
-    <param><name>beta</name><desc>Scalar multiplier for the C matrix</desc></param>
-    <param><name>C</name><desc>C matrix in DATASET(Layout_Call) form</desc></param>
-    <content>Transpose a matrix and sum into base matrix result &lt;== alpha * A**t + beta * C, A is n by m, C is m by n A**T (A Transpose) and C must have same shape</content>
-   </Documentation>
+   <Documentation>
+    <return>Matrix in DATASET(Layout_Cell) form alpha * A**T + beta * C</return><param><name>alpha</name><desc>Scalar multiplier for the A**T matrix</desc></param><param><name>A</name><desc>A matrix in DATASET(Layout_Cell) form</desc></param><param><name>beta</name><desc>Scalar multiplier for the C matrix</desc></param><param><name>C</name><desc>C matrix in DATASET(Layout_Call) form</desc></param><content>Transpose a matrix and sum into base matrix result &amp;lt;== alpha * A**t + beta * C, A is n by m, C is m by n A**T (A Transpose) and C must have same shape</content><see>PBblas/Types.layout_cell</see></Documentation>
    <Signature sign="DATASET(Layout_Cell)&#10;      tran(value_t alpha, DATASET(Layout_Cell) A, value_t beta=0,&#10;                   DATASET(Layout_Cell) C=empty_c)" name="tran">DATASET(Layout_Cell)
       tran(value_t alpha, DATASET(Layout_Cell) A, value_t beta=0,
                    DATASET(Layout_Cell) C=empty_c)</Signature><Params>
@@ -50,13 +44,7 @@
     <Param name="C"/>
    </Params>
   </Definition>
- <Documentation> <see>PBblas/Types.layout_cell</see>
-    <return>Matrix in DATASET(Layout_Cell) form alpha * A**T + beta * C</return>
-    <param><name>alpha</name><desc>Scalar multiplier for the A**T matrix</desc></param>
-    <param><name>A</name><desc>A matrix in DATASET(Layout_Cell) form</desc></param>
-    <param><name>beta</name><desc>Scalar multiplier for the C matrix</desc></param>
-    <param><name>C</name><desc>C matrix in DATASET(Layout_Call) form</desc></param>
-    <content>Transpose a matrix and sum into base matrix result &lt;== alpha * A**t + beta * C, A is n by m, C is m by n A**T (A Transpose) and C must have same shape</content>
-   </Documentation>
+ <Documentation>
+    <return>Matrix in DATASET(Layout_Cell) form alpha * A**T + beta * C</return><param><name>alpha</name><desc>Scalar multiplier for the A**T matrix</desc></param><param><name>A</name><desc>A matrix in DATASET(Layout_Cell) form</desc></param><param><name>beta</name><desc>Scalar multiplier for the C matrix</desc></param><param><name>C</name><desc>C matrix in DATASET(Layout_Call) form</desc></param><content>Transpose a matrix and sum into base matrix result &amp;lt;== alpha * A**t + beta * C, A is n by m, C is m by n A**T (A Transpose) and C must have same shape</content><see>PBblas/Types.layout_cell</see></Documentation>
    </Source>
  <Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Types.ecl" name="PBblas.Types" target="types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Types.ecl" name="ML_Core.Types" target="../ml_core/types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/Types.ecl" name="PBblas.internal.Types" target="internal/types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/MatDims.ecl" name="PBblas.internal.MatDims" target="internal/matdims.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/BlockDimensions.ecl" name="PBblas.internal.BlockDimensions" target="internal/blockdimensions.ecl.xml"/><Depends sourcePath="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/system/Thorlib.ecl" name="std.system.Thorlib" target="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/system/Thorlib.ecl"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/BlockDimensionsMultiply.ecl" name="PBblas.internal.BlockDimensionsMultiply" target="internal/blockdimensionsmultiply.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/BlockDimensionsSolve.ecl" name="PBblas.internal.BlockDimensionsSolve" target="internal/blockdimensionssolve.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/Converted.ecl" name="PBblas.internal.Converted" target="internal/converted.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/MakeR8Set.ecl" name="PBblas.internal.MakeR8Set" target="internal/maker8set.ecl.xml"/><Depends sourcePath="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/plugins/lib_eclblas.ecllib" target="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/plugins/lib_eclblas.ecllib"/><Depends sourcePath="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/BLAS.ecl" name="std.BLAS" target="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/BLAS.ecl"/></Meta>

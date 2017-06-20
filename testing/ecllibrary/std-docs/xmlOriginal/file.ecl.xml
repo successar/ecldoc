@@ -35,7 +35,12 @@
     <Field name="size"/>
     <Field name="modified"/>
     <Documentation>
-     <content>A record containing information about filename.  Includes name, size and when last modified. export FsFilenameRecord := RECORD string name; integer8 size; string19 modified; END;</content>
+     <content>&#10;&#32;* A record containing information about filename.  Includes name, size and when last modified.
+ * export FsFilenameRecord := RECORD
+ *     string name;
+ *     integer8 size;
+ *     string19 modified;
+ * END;&#10;&#32;</content>
     </Documentation>
    </Definition>
    <Definition body="788"
@@ -49,7 +54,7 @@
                start="761">
     <Type>attribute</Type>
     <Documentation>
-     <content>An alias for a logical filename that is stored in a row.</content>
+     <content>&#10;&#32;* An alias for a logical filename that is stored in a row.&#10;&#32;</content>
     </Documentation>
    </Definition>
    <Definition body="1002"
@@ -64,8 +69,9 @@
     <Type>record</Type>
     <Field name="name"/>
     <Documentation>
-     <field>name          The logical name of the file;</field>
-     <content>A record containing a logical filename. It contains the following fields:</content>
+     <content>&#10;&#32;* A record containing a logical filename. It contains the following fields:
+ *
+ * @field name          The logical name of the file;&#10;&#32;</content>
     </Documentation>
    </Definition>
    <Definition body="1615"
@@ -86,14 +92,15 @@
     <Field name="owner"/>
     <Field name="cluster"/>
     <Documentation>
-     <inherits>Contains all the fields in FsLogicalFileNameRecord)</inherits>
-     <content>A record containing information about a logical file.</content>
-     <field>superfile     Is this a superfile?</field>
-     <field>size          Number of bytes in the file (before compression)</field>
-     <field>rowcount      Number of rows in the file.</field>
-     <modified>Timestamp when the file was last modified;</modified>
-     <cluster>The cluster that this file was created on.</cluster>
-     <owner>The username of the owner who ran the job to create this file.</owner>
+     <content>&#10;&#32;* A record containing information about a logical file.
+ *
+ * @inherits            Contains all the fields in FsLogicalFileNameRecord)
+ * @field superfile     Is this a superfile?
+ * @field size          Number of bytes in the file (before compression)
+ * @field rowcount      Number of rows in the file.
+ * @modified            Timestamp when the file was last modified;
+ * @owner               The username of the owner who ran the job to create this file.
+ * @cluster             The cluster that this file was created on.&#10;&#32;</content>
     </Documentation>
    </Definition>
    <Definition body="1874"
@@ -109,9 +116,10 @@
     <Field name="supername"/>
     <Field name="subname"/>
     <Documentation>
-     <field>supername     The name of the superfile</field>
-     <field>subname       The name of the sub-file</field>
-     <content>A record containing information about a superfile and its contents.</content>
+     <content>&#10;&#32;* A record containing information about a superfile and its contents.
+ *
+ * @field supername     The name of the superfile
+ * @field subname       The name of the sub-file&#10;&#32;</content>
     </Documentation>
    </Definition>
    <Definition body="2930"
@@ -133,15 +141,19 @@
     <Field name="payload"/>
     <Field name="description"/>
     <Documentation>
-     <field>primaryfile   The logical filename of the primary file</field>
-     <field>secondaryfile The logical filename of the secondary file.</field>
-     <field>primaryflds   The name of the primary key field for the primary file. The value &quot;__fileposition__&quot; indicates the secondary is an INDEX that must use FETCH to access non-keyed fields.</field>
-     <field>secondaryflds The name of the foreign key field relating to the primary file.</field>
-     <field>kind          The type of relationship between the primary and secondary files. Containing either &apos;link&apos; or &apos;view&apos;.</field>
-     <field>cardinality   The cardinality of the relationship.  The format is &lt;primary&gt;:&lt;secondary&gt;. Valid values are &quot;1&quot; or &quot;M&quot;.</field>
-     <field>payload       Indicates whether the primary or secondary are payload INDEXes.</field>
-     <field>description   The description of the relationship.</field>
-     <content>A record containing information about the relationship between two files.</content>
+     <content>&#10;&#32;* A record containing information about the relationship between two files.
+ *
+ * @field primaryfile   The logical filename of the primary file
+ * @field secondaryfile The logical filename of the secondary file.
+ * @field primaryflds   The name of the primary key field for the primary file. The value &quot;__fileposition__&quot;
+ *                      indicates the secondary is an INDEX that must use FETCH to access non-keyed fields.
+ * @field secondaryflds The name of the foreign key field relating to the primary file.
+ * @field kind          The type of relationship between the primary and secondary files.
+ *                      Containing either &apos;link&apos; or &apos;view&apos;.
+ * @field cardinality   The cardinality of the relationship.  The format is &lt;primary&gt;:&lt;secondary&gt;. Valid values are
+ *                      &quot;1&quot; or &quot;M&quot;.
+ * @field payload       Indicates whether the primary or secondary are payload INDEXes.
+ * @field description   The description of the relationship.&#10;&#32;</content>
     </Documentation>
    </Definition>
    <Definition body="3110"
@@ -155,7 +167,7 @@
                start="3086">
     <Type>attribute</Type>
     <Documentation>
-     <content>Constant that indicates IBM RECFM V format file.  Can be passed to SprayFixed for the record size.</content>
+     <content>&#10;&#32;* Constant that indicates IBM RECFM V format file.  Can be passed to SprayFixed for the record size.&#10;&#32;</content>
     </Documentation>
    </Definition>
    <Definition body="3282"
@@ -169,7 +181,7 @@
                start="3257">
     <Type>attribute</Type>
     <Documentation>
-     <content>Constant that indicates IBM RECFM VB format file.  Can be passed to SprayFixed for the record size.</content>
+     <content>&#10;&#32;* Constant that indicates IBM RECFM VB format file.  Can be passed to SprayFixed for the record size.&#10;&#32;</content>
     </Documentation>
    </Definition>
    <Definition body="3500"
@@ -183,7 +195,7 @@
                start="3458">
     <Type>attribute</Type>
     <Documentation>
-     <content>Constant that indicates a variable little endian 4 byte length prefixed file.  Can be passed to SprayFixed for the record size.</content>
+     <content>&#10;&#32;* Constant that indicates a variable little endian 4 byte length prefixed file.  Can be passed to SprayFixed for the record size.&#10;&#32;</content>
     </Documentation>
    </Definition>
    <Definition body="3733"
@@ -197,7 +209,7 @@
                start="3681">
     <Type>attribute</Type>
     <Documentation>
-     <content>Constant that indicates a variable big endian 4 byte length prefixed file.  Can be passed to SprayFixed for the record size.</content>
+     <content>&#10;&#32;* Constant that indicates a variable big endian 4 byte length prefixed file.  Can be passed to SprayFixed for the record size.&#10;&#32;</content>
     </Documentation>
    </Definition>
    <Definition body="4226"
@@ -211,10 +223,11 @@
                start="4159">
     <Type>function</Type>
     <Documentation>
-     <content>Returns whether the file exists.</content>
-     <return>Whether the file exists.</return>
-     <param>lfn           The logical name of the file.</param>
-     <param>physical      Whether to also check for the physical existence on disk.  Defaults to FALSE.</param>
+     <content>&#10;&#32;* Returns whether the file exists.
+ *
+ * @param lfn           The logical name of the file.
+ * @param physical      Whether to also check for the physical existence on disk.  Defaults to FALSE.
+ * @return              Whether the file exists.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="lfn"/>
@@ -232,9 +245,10 @@
                start="4531">
     <Type>function</Type>
     <Documentation>
-     <content>Removes the logical file from the system, and deletes from the disk.</content>
-     <param>lfn           The logical name of the file.</param>
-     <param>allowMissing  Whether to suppress an error if the filename does not exist. Defaults to FALSE.</param>
+     <content>&#10;&#32;* Removes the logical file from the system, and deletes from the disk.
+ *
+ * @param lfn           The logical name of the file.
+ * @param allowMissing  Whether to suppress an error if the filename does not exist. Defaults to FALSE.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="lfn"/>
@@ -252,9 +266,10 @@
                start="4884">
     <Type>function</Type>
     <Documentation>
-     <content>Changes whether access to a file is read only or not.</content>
-     <param>lfn           The logical name of the file.</param>
-     <param>ro            Whether updates to the file are disallowed.  Defaults to TRUE.</param>
+     <content>&#10;&#32;* Changes whether access to a file is read only or not.
+ *
+ * @param lfn           The logical name of the file.
+ * @param ro            Whether updates to the file are disallowed.  Defaults to TRUE.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="lfn"/>
@@ -272,9 +287,10 @@
                start="5172">
     <Type>function</Type>
     <Documentation>
-     <content>Changes the name of a logical file.</content>
-     <param>oldname       The current name of the file to be renamed.</param>
-     <param>newname       The new logical name of the file.</param>
+     <content>&#10;&#32;* Changes the name of a logical file.
+ *
+ * @param oldname       The current name of the file to be renamed.
+ * @param newname       The new logical name of the file.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="oldname"/>
@@ -292,10 +308,12 @@
                start="5763">
     <Type>function</Type>
     <Documentation>
-     <content>Returns a logical filename that can be used to refer to a logical file in a local or remote dali.</content>
-     <param>name          The logical name of the file.</param>
-     <param>foreigndali   The IP address of the foreign dali used to resolve the file.  If blank then the file is resolved locally.  Defaults to blank.</param>
-     <param>abspath       Should a tilde (~) be prepended to the resulting logical file name.  Defaults to FALSE.</param>
+     <content>&#10;&#32;* Returns a logical filename that can be used to refer to a logical file in a local or remote dali.
+ *
+ * @param name          The logical name of the file.
+ * @param foreigndali   The IP address of the foreign dali used to resolve the file.  If blank then the file is resolved
+ *                      locally.  Defaults to blank.
+ * @param abspath       Should a tilde (~) be prepended to the resulting logical file name.  Defaults to FALSE.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="name"/>
@@ -314,11 +332,13 @@
                start="6507">
     <Type>function</Type>
     <Documentation>
-     <content>Returns an encoded logical filename that can be used to refer to a external file.  Examples include directly reading from a landing zone.  Upper case characters and other details are escaped.</content>
-     <return>The encoded logical filename.</return>
-     <param>location      The IP address of the remote machine. &apos;.&apos; can be used for the local machine.</param>
-     <param>path          The path/name of the file on the remote machine.</param>
-     <param>abspath       Should a tilde (~) be prepended to the resulting logical file name.  Defaults to TRUE.</param>
+     <content>&#10;&#32;* Returns an encoded logical filename that can be used to refer to a external file.  Examples include directly
+ * reading from a landing zone.  Upper case characters and other details are escaped.
+ *
+ * @param location      The IP address of the remote machine. &apos;.&apos; can be used for the local machine.
+ * @param path          The path/name of the file on the remote machine.
+ * @param abspath       Should a tilde (~) be prepended to the resulting logical file name.  Defaults to TRUE.
+ * @return              The encoded logical filename.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="location"/>
@@ -337,8 +357,10 @@
                start="6969">
     <Type>function</Type>
     <Documentation>
-     <content>Returns a string containing the description information associated with the specified filename. This description is set either through ECL watch or by using the FileServices.SetFileDescription function.</content>
-     <param>lfn           The logical name of the file.</param>
+     <content>&#10;&#32;* Returns a string containing the description information associated with the specified filename. This description
+ * is set either through ECL watch or by using the FileServices.SetFileDescription function.
+ *
+ * @param lfn           The logical name of the file.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="lfn"/>
@@ -355,9 +377,10 @@
                start="7285">
     <Type>function</Type>
     <Documentation>
-     <content>Sets the description associated with the specified filename.</content>
-     <param>lfn           The logical name of the file.</param>
-     <param>val           The description to be associated with the file.</param>
+     <content>&#10;&#32;* Sets the description associated with the specified filename.
+ *
+ * @param lfn           The logical name of the file.
+ * @param val           The description to be associated with the file.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="lfn"/>
@@ -375,11 +398,13 @@
                start="7976">
     <Type>function</Type>
     <Documentation>
-     <content>Returns a dataset containing a list of files from the specified machineIP and directory.</content>
-     <param>machineIP     The IP address of the remote machine.</param>
-     <param>directory     The path to the directory to read. This must be in the appropriate format for the operating system running on the remote machine.</param>
-     <param>mask          The filemask specifying which files to include in the result. Defaults to &apos;*&apos; (all files).</param>
-     <param>recurse       Whether to include files from subdirectories under the directory. Defaults to FALSE.</param>
+     <content>&#10;&#32;* Returns a dataset containing a list of files from the specified machineIP and directory.
+ *
+ * @param machineIP     The IP address of the remote machine.
+ * @param directory     The path to the directory to read. This must be in the appropriate format for the operating
+ *                      system running on the remote machine.
+ * @param mask          The filemask specifying which files to include in the result. Defaults to &apos;*&apos; (all files).
+ * @param recurse       Whether to include files from subdirectories under the directory. Defaults to FALSE.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="machineIP"/>
@@ -399,12 +424,14 @@
                start="8815">
     <Type>function</Type>
     <Documentation>
-     <content>Returns a dataset of information about the logical files known to the system.</content>
-     <param>namepattern   The mask of the files to list. Defaults to &apos;*&apos; (all files).</param>
-     <param>includenormal Whether to include &apos;normal&apos; files. Defaults to TRUE.</param>
-     <param>includesuper  Whether to include SuperFiles. Defaults to FALSE.</param>
-     <param>unknownszero  Whether to set file sizes that are unknown to zero(0) instead of minus-one (-1). Defaults to FALSE.</param>
-     <param>foreigndali   The IP address of the foreign dali used to resolve the file.  If blank then the file is resolved locally.  Defaults to blank.</param>
+     <content>&#10;&#32;* Returns a dataset of information about the logical files known to the system.
+ *
+ * @param namepattern   The mask of the files to list. Defaults to &apos;*&apos; (all files).
+ * @param includenormal Whether to include &apos;normal&apos; files. Defaults to TRUE.
+ * @param includesuper  Whether to include SuperFiles. Defaults to FALSE.
+ * @param unknownszero  Whether to set file sizes that are unknown to zero(0) instead of minus-one (-1). Defaults to FALSE.
+ * @param foreigndali   The IP address of the foreign dali used to resolve the file.  If blank then the file is resolved
+ *                      locally.  Defaults to blank.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="namepattern"/>
@@ -425,12 +452,19 @@
                start="10117">
     <Type>function</Type>
     <Documentation>
-     <content>Compares two files, and returns a result indicating how well they match.</content>
-     <return>0 if file1 and file2 match exactly 1 if file1 and file2 contents match, but file1 is newer than file2 -1 if file1 and file2 contents match, but file2 is newer than file1 2 if file1 and file2 contents do not match and file1 is newer than file2 -2 if file1 and file2 contents do not match and file2 is newer than file1</return>
-     <param>file1         The logical name of the first file.</param>
-     <param>file2         The logical name of the second file.</param>
-     <param>logical_only  Whether to only compare logical information in the system datastore (Dali), and ignore physical information on disk. [Default TRUE]</param>
-     <param>use_crcs      Whether to compare physical CRCs of all the parts on disk. This may be slow on large files. Defaults to FALSE.</param>
+     <content>&#10;&#32;* Compares two files, and returns a result indicating how well they match.
+ *
+ * @param file1         The logical name of the first file.
+ * @param file2         The logical name of the second file.
+ * @param logical_only  Whether to only compare logical information in the system datastore (Dali), and ignore physical
+                        information on disk. [Default TRUE]
+ * @param use_crcs      Whether to compare physical CRCs of all the parts on disk. This may be slow on large files.
+                        Defaults to FALSE.
+ * @return              0 if file1 and file2 match exactly
+ *                      1 if file1 and file2 contents match, but file1 is newer than file2
+ *                      -1 if file1 and file2 contents match, but file2 is newer than file1
+ *                      2 if file1 and file2 contents do not match and file1 is newer than file2
+ *                      -2 if file1 and file2 contents do not match and file2 is newer than file1&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="lfn1"/>
@@ -450,10 +484,16 @@
                start="11154">
     <Type>function</Type>
     <Documentation>
-     <content>Checks the system datastore (Dali) information for the file against the physical parts on disk.</content>
-     <return>&apos;OK&apos; - The file parts match the datastore information &apos;Could not find file: &lt;filename&gt;&apos; - The logical filename was not found &apos;Could not find part file: &lt;partname&gt;&apos; - The partname was not found &apos;Modified time differs for: &lt;partname&gt;&apos; - The partname has a different timestamp &apos;File size differs for: &lt;partname&gt;&apos; - The partname has a file size &apos;File CRC differs for: &lt;partname&gt;&apos; - The partname has a different CRC</return>
-     <param>lfn           The name of the file to check.</param>
-     <param>use_crcs      Whether to compare physical CRCs of all the parts on disk. This may be slow on large files.</param>
+     <content>&#10;&#32;* Checks the system datastore (Dali) information for the file against the physical parts on disk.
+ *
+ * @param lfn           The name of the file to check.
+ * @param use_crcs      Whether to compare physical CRCs of all the parts on disk. This may be slow on large files.
+ * @return              &apos;OK&apos; - The file parts match the datastore information
+ *                      &apos;Could not find file: &lt;filename&gt;&apos; - The logical filename was not found
+ *                      &apos;Could not find part file: &lt;partname&gt;&apos; - The partname was not found
+ *                      &apos;Modified time differs for: &lt;partname&gt;&apos; - The partname has a different timestamp
+ *                      &apos;File size differs for: &lt;partname&gt;&apos; - The partname has a file size
+ *                      &apos;File CRC differs for: &lt;partname&gt;&apos; - The partname has a different CRC&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="lfn"/>
@@ -471,15 +511,21 @@
                start="12475">
     <Type>function</Type>
     <Documentation>
-     <content>Defines the relationship between two files. These may be DATASETs or INDEXes. Each record in the primary file should be uniquely defined by the primaryfields (ideally), preferably efficiently.  This information is used by the roxie browser to link files together.</content>
-     <param>primary       The logical filename of the primary file.</param>
-     <param>secondary     The logical filename of the secondary file.</param>
-     <param>primaryfields The name of the primary key field for the primary file. The value &quot;__fileposition__&quot; indicates the secondary is an INDEX that must use FETCH to access non-keyed fields.</param>
-     <param>secondaryfields The name of the foreign key field relating to the primary file.</param>
-     <param>relationship  The type of relationship between the primary and secondary files. Containing either &apos;link&apos; or &apos;view&apos;.  Default is &quot;link&quot;.</param>
-     <param>cardinality   The cardinality of the relationship.  The format is &lt;primary&gt;:&lt;secondary&gt;. Valid values are &quot;1&quot; or &quot;M&quot;.</param>
-     <param>payload       Indicates whether the primary or secondary are payload INDEXes.</param>
-     <param>description   The description of the relationship.</param>
+     <content>&#10;&#32;* Defines the relationship between two files. These may be DATASETs or INDEXes. Each record in the primary file
+ * should be uniquely defined by the primaryfields (ideally), preferably efficiently.  This information is used
+ * by the roxie browser to link files together.
+ *
+ * @param primary       The logical filename of the primary file.
+ * @param secondary     The logical filename of the secondary file.
+ * @param primaryfields The name of the primary key field for the primary file. The value &quot;__fileposition__&quot;
+ *                      indicates the secondary is an INDEX that must use FETCH to access non-keyed fields.
+ * @param secondaryfields The name of the foreign key field relating to the primary file.
+ * @param relationship  The type of relationship between the primary and secondary files.
+ *                      Containing either &apos;link&apos; or &apos;view&apos;.  Default is &quot;link&quot;.
+ * @param cardinality   The cardinality of the relationship.  The format is &lt;primary&gt;:&lt;secondary&gt;. Valid values are
+ *                      &quot;1&quot; or &quot;M&quot;.
+ * @param payload       Indicates whether the primary or secondary are payload INDEXes.
+ * @param description   The description of the relationship.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="primary"/>
@@ -503,12 +549,14 @@
                start="13437">
     <Type>function</Type>
     <Documentation>
-     <content>Returns a dataset of relationships.   The return records are structured in the FsFileRelationshipRecord format.</content>
-     <param>primary       The logical filename of the primary file.</param>
-     <param>secondary     The logical filename of the secondary file.&lt;/para&gt;</param>
-     <param>primaryfields The name of the primary key field for the primary file.</param>
-     <param>secondaryfields The name of the foreign key field relating to the primary file.</param>
-     <param>relationship  The type of relationship between the primary and secondary files. Containing either &apos;link&apos; or &apos;view&apos;.  Default is &quot;link&quot;.</param>
+     <content>&#10;&#32;* Returns a dataset of relationships.   The return records are structured in the FsFileRelationshipRecord format.
+ *
+ * @param primary       The logical filename of the primary file.
+ * @param secondary     The logical filename of the secondary file.&lt;/para&gt;
+ * @param primaryfields The name of the primary key field for the primary file.
+ * @param secondaryfields The name of the foreign key field relating to the primary file.
+ * @param relationship  The type of relationship between the primary and secondary files.
+ *                      Containing either &apos;link&apos; or &apos;view&apos;.  Default is &quot;link&quot;.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="primary"/>
@@ -529,12 +577,14 @@
                start="14256">
     <Type>function</Type>
     <Documentation>
-     <content>Removes a relationship between two files.</content>
-     <param>primary       The logical filename of the primary file.</param>
-     <param>secondary     The logical filename of the secondary file.</param>
-     <param>primaryfields The name of the primary key field for the primary file.</param>
-     <param>secondaryfields The name of the foreign key field relating to the primary file.</param>
-     <param>relationship  The type of relationship between the primary and secondary files. Containing either &apos;link&apos; or &apos;view&apos;.  Default is &quot;link&quot;.</param>
+     <content>&#10;&#32;* Removes a relationship between two files.
+ *
+ * @param primary       The logical filename of the primary file.
+ * @param secondary     The logical filename of the secondary file.
+ * @param primaryfields The name of the primary key field for the primary file.
+ * @param secondaryfields The name of the foreign key field relating to the primary file.
+ * @param relationship  The type of relationship between the primary and secondary files.
+ *                      Containing either &apos;link&apos; or &apos;view&apos;.  Default is &quot;link&quot;.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="primary"/>
@@ -555,8 +605,9 @@
                start="14709">
     <Type>function</Type>
     <Documentation>
-     <content>Returns the field mappings for the file, in the same format specified for the SetColumnMapping function.</content>
-     <param>lfn           The logical filename of the primary file.</param>
+     <content>&#10;&#32;* Returns the field mappings for the file, in the same format specified for the SetColumnMapping function.
+ *
+ * @param lfn           The logical filename of the primary file.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="lfn"/>
@@ -573,9 +624,11 @@
                start="15199">
     <Type>function</Type>
     <Documentation>
-     <content>Defines how the data in the fields of the file mist be transformed between the actual data storage format and the input format used to query that data.  This is used by the user interface of the roxie browser.</content>
-     <param>lfn           The logical filename of the primary file.</param>
-     <param>mapping       A string containing a comma separated list of field mappings.</param>
+     <content>&#10;&#32;* Defines how the data in the fields of the file mist be transformed between the actual data storage format and the
+ * input format used to query that data.  This is used by the user interface of the roxie browser.
+ *
+ * @param lfn           The logical filename of the primary file.
+ * @param mapping       A string containing a comma separated list of field mappings.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="lfn"/>
@@ -593,9 +646,11 @@
                start="15652">
     <Type>function</Type>
     <Documentation>
-     <content>Returns a string that can be used in a DATASET declaration to read data from an RFS (Remote File Server) instance (e.g. rfsmysql) on another node.</content>
-     <param>server        A string containing the ip:port address for the remote file server.</param>
-     <param>query         The text of the query to send to the server</param>
+     <content>&#10;&#32;* Returns a string that can be used in a DATASET declaration to read data from an RFS (Remote File Server) instance
+ * (e.g. rfsmysql) on another node.
+ *
+ * @param server        A string containing the ip:port address for the remote file server.
+ * @param query         The text of the query to send to the server&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="server"/>
@@ -613,9 +668,10 @@
                start="15992">
     <Type>function</Type>
     <Documentation>
-     <content>Sends the query to the rfs server.</content>
-     <param>server        A string containing the ip:port address for the remote file server.</param>
-     <param>query         The text of the query to send to the server</param>
+     <content>&#10;&#32;* Sends the query to the rfs server.
+ *
+ * @param server        A string containing the ip:port address for the remote file server.
+ * @param query         The text of the query to send to the server&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="server"/>
@@ -633,10 +689,12 @@
                start="16457">
     <Type>function</Type>
     <Documentation>
-     <content>Moves the single physical file between two locations on the same remote machine. The dafileserv utility program must be running on the location machine.</content>
-     <param>location      The IP address of the remote machine.</param>
-     <param>frompath      The path/name of the file to move.</param>
-     <param>topath        The path/name of the target file.</param>
+     <content>&#10;&#32;* Moves the single physical file between two locations on the same remote machine. The
+ * dafileserv utility program must be running on the location machine.
+ *
+ * @param location      The IP address of the remote machine.
+ * @param frompath      The path/name of the file to move.
+ * @param topath        The path/name of the target file.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="location"/>
@@ -655,9 +713,11 @@
                start="16889">
     <Type>function</Type>
     <Documentation>
-     <content>Removes a single physical file from a remote machine. The dafileserv utility program must be running on the location machine.</content>
-     <param>location      The IP address of the remote machine.</param>
-     <param>path          The path/name of the file to remove.</param>
+     <content>&#10;&#32;* Removes a single physical file from a remote machine. The
+ * dafileserv utility program must be running on the location machine.
+ *
+ * @param location      The IP address of the remote machine.
+ * @param path          The path/name of the file to remove.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="location"/>
@@ -675,9 +735,11 @@
                start="17302">
     <Type>function</Type>
     <Documentation>
-     <content>Creates the path on the location (if it does not already exist). The dafileserv utility program must be running on the location machine.</content>
-     <param>location      The IP address of the remote machine.</param>
-     <param>path          The path/name of the file to remove.</param>
+     <content>&#10;&#32;* Creates the path on the location (if it does not already exist). The
+ * dafileserv utility program must be running on the location machine.
+ *
+ * @param location      The IP address of the remote machine.
+ * @param path          The path/name of the file to remove.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="location"/>
@@ -695,9 +757,10 @@
                start="17658">
     <Type>function</Type>
     <Documentation>
-     <content>Returns the value of the given attribute for the specified logicalfilename.</content>
-     <param>lfn           The name of the logical file.</param>
-     <param>attrname      The name of the file attribute to return.</param>
+     <content>&#10;&#32;* Returns the value of the given attribute for the specified logicalfilename.
+ *
+ * @param lfn           The name of the logical file.
+ * @param attrname      The name of the file attribute to return.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="lfn"/>
@@ -715,9 +778,10 @@
                start="18014">
     <Type>function</Type>
     <Documentation>
-     <content>Toggles protection on and off for the specified logicalfilename.</content>
-     <param>lfn           The name of the logical file.</param>
-     <param>value         TRUE to enable protection, FALSE to disable.</param>
+     <content>&#10;&#32;* Toggles protection on and off for the specified logicalfilename.
+ *
+ * @param lfn           The name of the logical file.
+ * @param value         TRUE to enable protection, FALSE to disable.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="lfn"/>
@@ -735,7 +799,11 @@
                start="18571">
     <Type>function</Type>
     <Documentation>
-     <content>The DfuPlusExec action executes the specified command line just as the DfuPLus.exe program would do. This allows you to have all the functionality of the DfuPLus.exe program available within your ECL code. param cmdline        The DFUPlus.exe command line to execute. The valid arguments are documented in the Client Tools manual, in the section describing the DfuPlus.exe program.</content>
+     <content>&#10;&#32;* The DfuPlusExec action executes the specified command line just as the DfuPLus.exe program would do. This
+ * allows you to have all the functionality of the DfuPLus.exe program available within your ECL code.
+ *
+ * param cmdline        The DFUPlus.exe command line to execute. The valid arguments are documented in the Client
+ *                      Tools manual, in the section describing the DfuPlus.exe program.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="cmdline"/>
@@ -752,21 +820,24 @@
                start="20184">
     <Type>function</Type>
     <Documentation>
-     <content>Sprays a file of fixed length records from a single machine and distributes it across the nodes of the destination group.</content>
-     <return>The DFU workunit id for the job.</return>
-     <param>sourceIP      The IP address of the file.</param>
-     <param>sourcePath    The path and name of the file.</param>
-     <param>recordsize    The size (in bytes) of the records in the file.</param>
-     <param>destinationGroup The name of the group to distribute the file across.</param>
-     <param>destinationLogicalName The logical name of the file to create.</param>
-     <param>timeOut       The time in ms to wait for the operation to complete.  A value of 0 causes the call to return immediately. Defaults to no timeout (-1).</param>
-     <param>espServerIpPort The url of the ESP file copying service. Defaults to the value of ws_fs_server in the environment.</param>
-     <param>maxConnections The maximum number of target nodes to write to concurrently.  Defaults to 1.</param>
-     <param>allowOverwrite Is it valid to overwrite an existing file of the same name?  Defaults to FALSE</param>
-     <param>replicate     Whether to replicate the new file. Defaults to FALSE.</param>
-     <param>compress      Whether to compress the new file. Defaults to FALSE.</param>
-     <param>failIfNoSourceFile If TRUE it causes a missing source file to trigger a failure.  Defaults to FALSE.</param>
-     <param>expireDays    Number of days to auto-remove file. Default is -1, not expire.</param>
+     <content>&#10;&#32;* Sprays a file of fixed length records from a single machine and distributes it across the nodes of the
+ * destination group.
+ *
+ * @param sourceIP      The IP address of the file.
+ * @param sourcePath    The path and name of the file.
+ * @param recordsize    The size (in bytes) of the records in the file.
+ * @param destinationGroup The name of the group to distribute the file across.
+ * @param destinationLogicalName The logical name of the file to create.
+ * @param timeOut       The time in ms to wait for the operation to complete.  A value of 0 causes the call to return immediately.
+ *                      Defaults to no timeout (-1).
+ * @param espServerIpPort The url of the ESP file copying service. Defaults to the value of ws_fs_server in the environment.
+ * @param maxConnections The maximum number of target nodes to write to concurrently.  Defaults to 1.
+ * @param allowOverwrite Is it valid to overwrite an existing file of the same name?  Defaults to FALSE
+ * @param replicate     Whether to replicate the new file. Defaults to FALSE.
+ * @param compress      Whether to compress the new file. Defaults to FALSE.
+ * @param failIfNoSourceFile If TRUE it causes a missing source file to trigger a failure.  Defaults to FALSE.
+ * @param expireDays    Number of days to auto-remove file. Default is -1, not expire.
+ * @return              The DFU workunit id for the job.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="sourceIP"/>
@@ -795,8 +866,9 @@
                start="20909">
     <Type>function</Type>
     <Documentation>
-     <see>fSprayFixed</see>
-     <content>Same as fSprayFixed, but does not return the DFU Workunit ID.</content>
+     <content>&#10;&#32;* Same as fSprayFixed, but does not return the DFU Workunit ID.
+ *
+ * @see fSprayFixed&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="sourceIP"/>
@@ -891,27 +963,31 @@
                start="25846">
     <Type>function</Type>
     <Documentation>
-     <content>Sprays a file of fixed delimited records from a single machine and distributes it across the nodes of the destination group.</content>
-     <return>The DFU workunit id for the job.</return>
-     <param>sourceIP      The IP address of the file.</param>
-     <param>sourcePath    The path and name of the file.</param>
-     <param>sourceCsvSeparate The character sequence which separates fields in the file.</param>
-     <param>sourceCsvTerminate The character sequence which separates records in the file.</param>
-     <param>sourceCsvQuote A string which can be used to delimit fields in the file.</param>
-     <param>sourceMaxRecordSize    The maximum size (in bytes) of the records in the file.</param>
-     <param>destinationGroup The name of the group to distribute the file across.</param>
-     <param>destinationLogicalName The logical name of the file to create.</param>
-     <param>timeOut       The time in ms to wait for the operation to complete.  A value of 0 causes the call to return immediately. Defaults to no timeout (-1).</param>
-     <param>espServerIpPort The url of the ESP file copying service. Defaults to the value of ws_fs_server in the environment.</param>
-     <param>maxConnections The maximum number of target nodes to write to concurrently.  Defaults to 1.</param>
-     <param>allowOverwrite Is it valid to overwrite an existing file of the same name?  Defaults to FALSE</param>
-     <param>replicate     Whether to replicate the new file. Defaults to FALSE.</param>
-     <param>compress      Whether to compress the new file. Defaults to FALSE.</param>
-     <param>sourceCsvEscape A character that is used to escape quote characters.  Defaults to none.</param>
-     <param>failIfNoSourceFile If TRUE it causes a missing source file to trigger a failure.  Defaults to FALSE.</param>
-     <param>recordStructurePresent If TRUE derives the record structure from the header of the file.</param>
-     <param>quotedTerminator Can the terminator character be included in a quoted field.  Defaults to TRUE. If FALSE it allows quicker partitioning of the file (avoiding a complete file scan).</param>
-     <param>expireDays    Number of days to auto-remove file. Default is -1, not expire.</param>
+     <content>&#10;&#32;* Sprays a file of fixed delimited records from a single machine and distributes it across the nodes of the
+ * destination group.
+ *
+ * @param sourceIP      The IP address of the file.
+ * @param sourcePath    The path and name of the file.
+ * @param sourceCsvSeparate The character sequence which separates fields in the file.
+ * @param sourceCsvTerminate The character sequence which separates records in the file.
+ * @param sourceCsvQuote A string which can be used to delimit fields in the file.
+ * @param sourceMaxRecordSize    The maximum size (in bytes) of the records in the file.
+ * @param destinationGroup The name of the group to distribute the file across.
+ * @param destinationLogicalName The logical name of the file to create.
+ * @param timeOut       The time in ms to wait for the operation to complete.  A value of 0 causes the call to return immediately.
+ *                      Defaults to no timeout (-1).
+ * @param espServerIpPort The url of the ESP file copying service. Defaults to the value of ws_fs_server in the environment.
+ * @param maxConnections The maximum number of target nodes to write to concurrently.  Defaults to 1.
+ * @param allowOverwrite Is it valid to overwrite an existing file of the same name?  Defaults to FALSE
+ * @param replicate     Whether to replicate the new file. Defaults to FALSE.
+ * @param compress      Whether to compress the new file. Defaults to FALSE.
+ * @param sourceCsvEscape A character that is used to escape quote characters.  Defaults to none.
+ * @param failIfNoSourceFile If TRUE it causes a missing source file to trigger a failure.  Defaults to FALSE.
+ * @param recordStructurePresent If TRUE derives the record structure from the header of the file.
+ * @param quotedTerminator Can the terminator character be included in a quoted field.  Defaults to TRUE.
+ *                      If FALSE it allows quicker partitioning of the file (avoiding a complete file scan).
+ * @param expireDays    Number of days to auto-remove file. Default is -1, not expire.
+ * @return              The DFU workunit id for the job.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="sourceIP"/>
@@ -947,8 +1023,9 @@
                start="26969">
     <Type>function</Type>
     <Documentation>
-     <see>fSprayDelimited</see>
-     <content>Same as fSprayDelimited, but does not return the DFU Workunit ID.</content>
+     <content>&#10;&#32;* Same as fSprayDelimited, but does not return the DFU Workunit ID.
+ *
+ * @see fSprayDelimited&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="sourceIP"/>
@@ -984,23 +1061,25 @@
                start="29602">
     <Type>function</Type>
     <Documentation>
-     <content>Sprays an xml file from a single machine and distributes it across the nodes of the destination group.</content>
-     <return>The DFU workunit id for the job.</return>
-     <param>sourceIP      The IP address of the file.</param>
-     <param>sourcePath    The path and name of the file.</param>
-     <param>sourceMaxRecordSize    The maximum size (in bytes) of the records in the file.</param>
-     <param>sourceRowTag  The xml tag that is used to delimit records in the source file.  (This tag cannot recursivly nest.)</param>
-     <param>sourceEncoding The unicode encoding of the file.  (utf8,utf8n,utf16be,utf16le,utf32be,utf32le)</param>
-     <param>destinationGroup The name of the group to distribute the file across.</param>
-     <param>destinationLogicalName The logical name of the file to create.</param>
-     <param>timeOut       The time in ms to wait for the operation to complete.  A value of 0 causes the call to return immediately. Defaults to no timeout (-1).</param>
-     <param>espServerIpPort The url of the ESP file copying service. Defaults to the value of ws_fs_server in the environment.</param>
-     <param>maxConnections The maximum number of target nodes to write to concurrently.  Defaults to 1.</param>
-     <param>allowOverwrite Is it valid to overwrite an existing file of the same name?  Defaults to FALSE</param>
-     <param>replicate     Whether to replicate the new file. Defaults to FALSE.</param>
-     <param>compress      Whether to compress the new file. Defaults to FALSE.</param>
-     <param>failIfNoSourceFile If TRUE it causes a missing source file to trigger a failure.  Defaults to FALSE.</param>
-     <param>expireDays    Number of days to auto-remove file. Default is -1, not expire.</param>
+     <content>&#10;&#32;* Sprays an xml file from a single machine and distributes it across the nodes of the destination group.
+ *
+ * @param sourceIP      The IP address of the file.
+ * @param sourcePath    The path and name of the file.
+ * @param sourceMaxRecordSize    The maximum size (in bytes) of the records in the file.
+ * @param sourceRowTag  The xml tag that is used to delimit records in the source file.  (This tag cannot recursivly nest.)
+ * @param sourceEncoding The unicode encoding of the file.  (utf8,utf8n,utf16be,utf16le,utf32be,utf32le)
+ * @param destinationGroup The name of the group to distribute the file across.
+ * @param destinationLogicalName The logical name of the file to create.
+ * @param timeOut       The time in ms to wait for the operation to complete.  A value of 0 causes the call to return immediately.
+ *                      Defaults to no timeout (-1).
+ * @param espServerIpPort The url of the ESP file copying service. Defaults to the value of ws_fs_server in the environment.
+ * @param maxConnections The maximum number of target nodes to write to concurrently.  Defaults to 1.
+ * @param allowOverwrite Is it valid to overwrite an existing file of the same name?  Defaults to FALSE
+ * @param replicate     Whether to replicate the new file. Defaults to FALSE.
+ * @param compress      Whether to compress the new file. Defaults to FALSE.
+ * @param failIfNoSourceFile If TRUE it causes a missing source file to trigger a failure.  Defaults to FALSE.
+ * @param expireDays    Number of days to auto-remove file. Default is -1, not expire.
+ * @return              The DFU workunit id for the job.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="sourceIP"/>
@@ -1031,8 +1110,9 @@
                start="30429">
     <Type>function</Type>
     <Documentation>
-     <see>fSprayXml</see>
-     <content>Same as fSprayXml, but does not return the DFU Workunit ID.</content>
+     <content>&#10;&#32;* Same as fSprayXml, but does not return the DFU Workunit ID.
+ *
+ * @see fSprayXml&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="sourceIP"/>
@@ -1063,15 +1143,17 @@
                start="32038">
     <Type>function</Type>
     <Documentation>
-     <content>Copies a distributed file from multiple machines, and desprays it to a single file on a single machine.</content>
-     <return>The DFU workunit id for the job.</return>
-     <param>logicalName   The name of the file to despray.</param>
-     <param>destinationIP The IP of the target machine.</param>
-     <param>destinationPath The path of the file to create on the destination machine.</param>
-     <param>timeOut       The time in ms to wait for the operation to complete.  A value of 0 causes the call to return immediately. Defaults to no timeout (-1).</param>
-     <param>espServerIpPort The url of the ESP file copying service. Defaults to the value of ws_fs_server in the environment.</param>
-     <param>maxConnections The maximum number of target nodes to write to concurrently.  Defaults to 1.</param>
-     <param>allowOverwrite Is it valid to overwrite an existing file of the same name?  Defaults to FALSE</param>
+     <content>&#10;&#32;* Copies a distributed file from multiple machines, and desprays it to a single file on a single machine.
+ *
+ * @param logicalName   The name of the file to despray.
+ * @param destinationIP The IP of the target machine.
+ * @param destinationPath The path of the file to create on the destination machine.
+ * @param timeOut       The time in ms to wait for the operation to complete.  A value of 0 causes the call to return immediately.
+ *                      Defaults to no timeout (-1).
+ * @param espServerIpPort The url of the ESP file copying service. Defaults to the value of ws_fs_server in the environment.
+ * @param maxConnections The maximum number of target nodes to write to concurrently.  Defaults to 1.
+ * @param allowOverwrite Is it valid to overwrite an existing file of the same name?  Defaults to FALSE
+ * @return              The DFU workunit id for the job.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="logicalName"/>
@@ -1094,8 +1176,9 @@
                start="32510">
     <Type>function</Type>
     <Documentation>
-     <see>fDespray</see>
-     <content>Same as fDespray, but does not return the DFU Workunit ID.</content>
+     <content>&#10;&#32;* Same as fDespray, but does not return the DFU Workunit ID.
+ *
+ * @see fDespray&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="logicalName"/>
@@ -1118,21 +1201,26 @@
                start="34676">
     <Type>function</Type>
     <Documentation>
-     <content>Copies a distributed file to another distributed file.</content>
-     <return>The DFU workunit id for the job.</return>
-     <param>sourceLogicalName The name of the file to despray.</param>
-     <param>destinationGroup The name of the group to distribute the file across.</param>
-     <param>destinationLogicalName The logical name of the file to create.</param>
-     <param>sourceDali    The dali that contains the source file (blank implies same dali).  Defaults to same dali.</param>
-     <param>timeOut       The time in ms to wait for the operation to complete.  A value of 0 causes the call to return immediately. Defaults to no timeout (-1).</param>
-     <param>espServerIpPort The url of the ESP file copying service. Defaults to the value of ws_fs_server in the environment.</param>
-     <param>maxConnections The maximum number of target nodes to write to concurrently.  Defaults to 1.</param>
-     <param>allowOverwrite Is it valid to overwrite an existing file of the same name?  Defaults to FALSE</param>
-     <param>replicate     Should the copied file also be replicated on the destination?  Defaults to FALSE</param>
-     <param>asSuperfile   Should the file be copied as a superfile?  If TRUE and source is a superfile, then the operation creates a superfile on the target, creating sub-files as needed and only overwriting existing sub-files whose content has changed. If FALSE, a single file is created.  Defaults to FALSE.</param>
-     <param>compress      Whether to compress the new file. Defaults to FALSE.</param>
-     <param>forcePush     Should the copy process be executed on the source nodes (push) or on the destination nodes (pull)? Default is to pull.</param>
-     <param>transferBufferSize Overrides the size (in bytes) of the internal buffer used to copy the file.  Default is 64k.</param>
+     <content>&#10;&#32;* Copies a distributed file to another distributed file.
+ *
+ * @param sourceLogicalName The name of the file to despray.
+ * @param destinationGroup The name of the group to distribute the file across.
+ * @param destinationLogicalName The logical name of the file to create.
+ * @param sourceDali    The dali that contains the source file (blank implies same dali).  Defaults to same dali.
+ * @param timeOut       The time in ms to wait for the operation to complete.  A value of 0 causes the call to return immediately.
+ *                      Defaults to no timeout (-1).
+ * @param espServerIpPort The url of the ESP file copying service. Defaults to the value of ws_fs_server in the environment.
+ * @param maxConnections The maximum number of target nodes to write to concurrently.  Defaults to 1.
+ * @param allowOverwrite Is it valid to overwrite an existing file of the same name?  Defaults to FALSE
+ * @param replicate     Should the copied file also be replicated on the destination?  Defaults to FALSE
+ * @param asSuperfile   Should the file be copied as a superfile?  If TRUE and source is a superfile, then the
+ *                      operation creates a superfile on the target, creating sub-files as needed and only overwriting
+ *                      existing sub-files whose content has changed. If FALSE, a single file is created.  Defaults to FALSE.
+ * @param compress      Whether to compress the new file. Defaults to FALSE.
+ * @param forcePush     Should the copy process be executed on the source nodes (push) or on the destination nodes (pull)?
+ *                      Default is to pull.
+ * @param transferBufferSize Overrides the size (in bytes) of the internal buffer used to copy the file.  Default is 64k.
+ * @return              The DFU workunit id for the job.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="sourceLogicalName"/>
@@ -1162,8 +1250,9 @@
                start="35457">
     <Type>function</Type>
     <Documentation>
-     <see>fCopy</see>
-     <content>Same as fCopy, but does not return the DFU Workunit ID.</content>
+     <content>&#10;&#32;* Same as fCopy, but does not return the DFU Workunit ID.
+ *
+ * @see fCopy&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="sourceLogicalName"/>
@@ -1193,11 +1282,13 @@
                start="36644">
     <Type>function</Type>
     <Documentation>
-     <content>Ensures the specified file is replicated to its mirror copies.</content>
-     <return>The DFU workunit id for the job.</return>
-     <param>logicalName   The name of the file to replicate.</param>
-     <param>timeOut       The time in ms to wait for the operation to complete.  A value of 0 causes the call to return immediately. Defaults to no timeout (-1).</param>
-     <param>espServerIpPort The url of the ESP file copying service. Defaults to the value of ws_fs_server in the environment.</param>
+     <content>&#10;&#32;* Ensures the specified file is replicated to its mirror copies.
+ *
+ * @param logicalName   The name of the file to replicate.
+ * @param timeOut       The time in ms to wait for the operation to complete.  A value of 0 causes the call to return immediately.
+ *                      Defaults to no timeout (-1).
+ * @param espServerIpPort The url of the ESP file copying service. Defaults to the value of ws_fs_server in the environment.
+ * @return              The DFU workunit id for the job.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="logicalName"/>
@@ -1216,8 +1307,9 @@
                start="36951">
     <Type>function</Type>
     <Documentation>
-     <see>fReplicate</see>
-     <content>Same as fReplicated, but does not return the DFU Workunit ID.</content>
+     <content>&#10;&#32;* Same as fReplicated, but does not return the DFU Workunit ID.
+ *
+ * @see fReplicate&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="logicalName"/>
@@ -1236,21 +1328,28 @@
                start="39161">
     <Type>function</Type>
     <Documentation>
-     <content>Copies a distributed file to a distributed file on remote system.  Similar to fCopy, except the copy executes remotely.  Since the DFU workunit executes on the remote DFU server, the user name authentication must be the same on both systems, and the user must have rights to copy files on both systems.</content>
-     <return>The DFU workunit id for the job.</return>
-     <param>remoteEspFsURL The url of the remote ESP file copying service.</param>
-     <param>sourceLogicalName The name of the file to despray.</param>
-     <param>destinationGroup The name of the group to distribute the file across.</param>
-     <param>destinationLogicalName The logical name of the file to create.</param>
-     <param>timeOut       The time in ms to wait for the operation to complete.  A value of 0 causes the call to return immediately. Defaults to no timeout (-1).</param>
-     <param>maxConnections The maximum number of target nodes to write to concurrently.  Defaults to 1.</param>
-     <param>allowOverwrite Is it valid to overwrite an existing file of the same name?  Defaults to FALSE</param>
-     <param>replicate     Should the copied file also be replicated on the destination?  Defaults to FALSE</param>
-     <param>asSuperfile   Should the file be copied as a superfile?  If TRUE and source is a superfile, then the operation creates a superfile on the target, creating sub-files as needed and only overwriting existing sub-files whose content has changed. If FALSE a single file is created.  Defaults to FALSE.</param>
-     <param>compress      Whether to compress the new file. Defaults to FALSE.</param>
-     <param>forcePush     Should the copy process should be executed on the source nodes (push) or on the destination nodes (pull)? Default is to pull.</param>
-     <param>transferBufferSize Overrides the size (in bytes) of the internal buffer used to copy the file.  Default is 64k.</param>
-     <param>wrap          Should the fileparts be wrapped when copying to a smaller sized cluster?  The default is FALSE.</param>
+     <content>&#10;&#32;* Copies a distributed file to a distributed file on remote system.  Similar to fCopy, except the copy executes
+ * remotely.  Since the DFU workunit executes on the remote DFU server, the user name authentication must be the same
+ * on both systems, and the user must have rights to copy files on both systems.
+ *
+ * @param remoteEspFsURL The url of the remote ESP file copying service.
+ * @param sourceLogicalName The name of the file to despray.
+ * @param destinationGroup The name of the group to distribute the file across.
+ * @param destinationLogicalName The logical name of the file to create.
+ * @param timeOut       The time in ms to wait for the operation to complete.  A value of 0 causes the call to return immediately.
+ *                      Defaults to no timeout (-1).
+ * @param maxConnections The maximum number of target nodes to write to concurrently.  Defaults to 1.
+ * @param allowOverwrite Is it valid to overwrite an existing file of the same name?  Defaults to FALSE
+ * @param replicate     Should the copied file also be replicated on the destination?  Defaults to FALSE
+ * @param asSuperfile   Should the file be copied as a superfile?  If TRUE and source is a superfile, then the
+ *                      operation creates a superfile on the target, creating sub-files as needed and only overwriting
+ *                      existing sub-files whose content has changed. If FALSE a single file is created.  Defaults to FALSE.
+ * @param compress      Whether to compress the new file. Defaults to FALSE.
+ * @param forcePush     Should the copy process should be executed on the source nodes (push) or on the destination nodes (pull)?
+ *                      Default is to pull.
+ * @param transferBufferSize Overrides the size (in bytes) of the internal buffer used to copy the file.  Default is 64k.
+ * @param wrap          Should the fileparts be wrapped when copying to a smaller sized cluster?  The default is FALSE.
+ * @return              The DFU workunit id for the job.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="remoteEspFsURL"/>
@@ -1279,8 +1378,9 @@
                start="39875">
     <Type>function</Type>
     <Documentation>
-     <see>fRemotePull</see>
-     <content>Same as fRemotePull, but does not return the DFU Workunit ID.</content>
+     <content>&#10;&#32;* Same as fRemotePull, but does not return the DFU Workunit ID.
+ *
+ * @see fRemotePull&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="remoteEspFsURL"/>
@@ -1309,12 +1409,16 @@
                start="41535">
     <Type>function</Type>
     <Documentation>
-     <content>Creates a file monitor job in the DFU Server. If an appropriately named file arrives in this interval it will fire the event with the name of the triggering object as the event subtype (see the EVENT function).</content>
-     <return>The DFU workunit id for the job.</return>
-     <param>eventToFire   The user-defined name of the event to fire when the filename appears. This value is used as the first parameter to the EVENT function.</param>
-     <param>name          The name of the logical file to monitor.  This may contain wildcard characters ( * and ?)</param>
-     <param>shotCount     The number of times to generate the event before the monitoring job completes. A value of -1 indicates the monitoring job continues until manually aborted. The default is 1.</param>
-     <param>espServerIpPort The url of the ESP file copying service. Defaults to the value of ws_fs_server in the environment.</param>
+     <content>&#10;&#32;* Creates a file monitor job in the DFU Server. If an appropriately named file arrives in this interval it will fire
+ * the event with the name of the triggering object as the event subtype (see the EVENT function).
+ *
+ * @param eventToFire   The user-defined name of the event to fire when the filename appears. This value is used as
+ *                      the first parameter to the EVENT function.
+ * @param name          The name of the logical file to monitor.  This may contain wildcard characters ( * and ?)
+ * @param shotCount     The number of times to generate the event before the monitoring job completes. A value
+ *                      of -1 indicates the monitoring job continues until manually aborted. The default is 1.
+ * @param espServerIpPort The url of the ESP file copying service. Defaults to the value of ws_fs_server in the environment.
+ * @return              The DFU workunit id for the job.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="eventToFire"/>
@@ -1334,8 +1438,9 @@
                start="41918">
     <Type>function</Type>
     <Documentation>
-     <see>fMonitorLogicalFileName</see>
-     <content>Same as fMonitorLogicalFileName, but does not return the DFU Workunit ID.</content>
+     <content>&#10;&#32;* Same as fMonitorLogicalFileName, but does not return the DFU Workunit ID.
+ *
+ * @see fMonitorLogicalFileName&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="eventToFire"/>
@@ -1355,14 +1460,19 @@
                start="43389">
     <Type>function</Type>
     <Documentation>
-     <content>Creates a file monitor job in the DFU Server. If an appropriately named file arrives in this interval it will fire the event with the name of the triggering object as the event subtype (see the EVENT function).</content>
-     <return>The DFU workunit id for the job.</return>
-     <param>eventToFire   The user-defined name of the event to fire when the filename appears. This value is used as the first parameter to the EVENT function.</param>
-     <param>ip            The the IP address for the file to monitor. This may be omitted if the filename parameter contains a complete URL.</param>
-     <param>filename      The full path of the file(s) to monitor.  This may contain wildcard characters ( * and ?)</param>
-     <param>subDirs       Whether to include files in sub-directories (when the filename contains wildcards).  Defaults to FALSE.</param>
-     <param>shotCount     The number of times to generate the event before the monitoring job completes. A value of -1 indicates the monitoring job continues until manually aborted. The default is 1.</param>
-     <param>espServerIpPort The url of the ESP file copying service. Defaults to the value of ws_fs_server in the environment.</param>
+     <content>&#10;&#32;* Creates a file monitor job in the DFU Server. If an appropriately named file arrives in this interval it will fire
+ * the event with the name of the triggering object as the event subtype (see the EVENT function).
+ *
+ * @param eventToFire   The user-defined name of the event to fire when the filename appears. This value is used as
+ *                      the first parameter to the EVENT function.
+ * @param ip            The the IP address for the file to monitor. This may be omitted if the filename parameter
+ *                      contains a complete URL.
+ * @param filename      The full path of the file(s) to monitor.  This may contain wildcard characters ( * and ?)
+ * @param subDirs       Whether to include files in sub-directories (when the filename contains wildcards).  Defaults to FALSE.
+ * @param shotCount     The number of times to generate the event before the monitoring job completes. A value
+ *                      of -1 indicates the monitoring job continues until manually aborted. The default is 1.
+ * @param espServerIpPort The url of the ESP file copying service. Defaults to the value of ws_fs_server in the environment.
+ * @return              The DFU workunit id for the job.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="eventToFire"/>
@@ -1384,8 +1494,9 @@
                start="43786">
     <Type>function</Type>
     <Documentation>
-     <see>fMonitorFile</see>
-     <content>Same as fMonitorFile, but does not return the DFU Workunit ID.</content>
+     <content>&#10;&#32;* Same as fMonitorFile, but does not return the DFU Workunit ID.
+ *
+ * @see fMonitorFile&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="eventToFire"/>
@@ -1407,11 +1518,13 @@
                start="44583">
     <Type>function</Type>
     <Documentation>
-     <content>Waits for the specified DFU workunit to finish.</content>
-     <return>A string containing the final status string of the DFU workunit.</return>
-     <param>wuid          The dfu wfid to wait for.</param>
-     <param>timeOut       The time in ms to wait for the operation to complete.  A value of 0 causes the call to return immediately. Defaults to no timeout (-1).</param>
-     <param>espServerIpPort The url of the ESP file copying service. Defaults to the value of ws_fs_server in the environment.</param>
+     <content>&#10;&#32;* Waits for the specified DFU workunit to finish.
+ *
+ * @param wuid          The dfu wfid to wait for.
+ * @param timeOut       The time in ms to wait for the operation to complete.  A value of 0 causes the call to return immediately.
+ *                      Defaults to no timeout (-1).
+ * @param espServerIpPort The url of the ESP file copying service. Defaults to the value of ws_fs_server in the environment.
+ * @return              A string containing the final status string of the DFU workunit.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="wuid"/>
@@ -1430,9 +1543,10 @@
                start="45012">
     <Type>function</Type>
     <Documentation>
-     <content>Aborts the specified DFU workunit.</content>
-     <param>wuid          The dfu wfid to abort.</param>
-     <param>espServerIpPort The url of the ESP file copying service. Defaults to the value of ws_fs_server in the environment.</param>
+     <content>&#10;&#32;* Aborts the specified DFU workunit.
+ *
+ * @param wuid          The dfu wfid to abort.
+ * @param espServerIpPort The url of the ESP file copying service. Defaults to the value of ws_fs_server in the environment.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="wuid"/>
@@ -1450,10 +1564,12 @@
                start="45721">
     <Type>function</Type>
     <Documentation>
-     <content>Creates an empty superfile. This function is not included in a superfile transaction.</content>
-     <param>superName     The logical name of the superfile.</param>
-     <param>sequentialParts Whether the sub-files must be sequentially ordered. Default to FALSE.</param>
-     <param>allowExist    Indicating whether to post an error if the superfile already exists. If TRUE, no error is posted. Defaults to FALSE.</param>
+     <content>&#10;&#32;* Creates an empty superfile. This function is not included in a superfile transaction.
+ *
+ * @param superName     The logical name of the superfile.
+ * @param sequentialParts Whether the sub-files must be sequentially ordered. Default to FALSE.
+ * @param allowExist    Indicating whether to post an error if the superfile already exists. If TRUE, no error is
+ *                      posted. Defaults to FALSE.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="superName"/>
@@ -1472,10 +1588,12 @@
                start="46164">
     <Type>function</Type>
     <Documentation>
-     <see>FileExists</see>
-     <return>Whether the file exists.</return>
-     <param>superName     The logical name of the superfile.</param>
-     <content>Checks if the specified filename is present in the Distributed File Utility (DFU) and is a SuperFile.</content>
+     <content>&#10;&#32;* Checks if the specified filename is present in the Distributed File Utility (DFU) and is a SuperFile.
+ *
+ * @param superName     The logical name of the superfile.
+ * @return              Whether the file exists.
+ *
+ * @see FileExists&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="superName"/>
@@ -1492,9 +1610,11 @@
                start="46401">
     <Type>function</Type>
     <Documentation>
-     <content>Deletes the superfile.</content>
-     <see>FileExists</see>
-     <param>superName     The logical name of the superfile.</param>
+     <content>&#10;&#32;* Deletes the superfile.
+ *
+ * @param superName     The logical name of the superfile.
+ *
+ * @see FileExists&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="superName"/>
@@ -1512,9 +1632,10 @@
                start="46753">
     <Type>function</Type>
     <Documentation>
-     <content>Returns the number of sub-files contained within a superfile.</content>
-     <return>The number of sub-files within the superfile.</return>
-     <param>superName     The logical name of the superfile.</param>
+     <content>&#10;&#32;* Returns the number of sub-files contained within a superfile.
+ *
+ * @param superName     The logical name of the superfile.
+ * @return              The number of sub-files within the superfile.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="superName"/>
@@ -1531,11 +1652,12 @@
                start="47260">
     <Type>function</Type>
     <Documentation>
-     <content>Returns the name of the Nth sub-file within a superfile.</content>
-     <return>The logical name of the selected sub-file.</return>
-     <param>superName     The logical name of the superfile.</param>
-     <param>fileNum       The 1-based position of the sub-file to return the name of.</param>
-     <param>absPath       Whether to prepend &apos;~&apos; to the name of the resulting logical file name.</param>
+     <content>&#10;&#32;* Returns the name of the Nth sub-file within a superfile.
+ *
+ * @param superName     The logical name of the superfile.
+ * @param fileNum       The 1-based position of the sub-file to return the name of.
+ * @param absPath       Whether to prepend &apos;~&apos; to the name of the resulting logical file name.
+ * @return              The logical name of the selected sub-file.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="superName"/>
@@ -1554,10 +1676,11 @@
                start="47714">
     <Type>function</Type>
     <Documentation>
-     <content>Returns the position of a file within a superfile.</content>
-     <return>The 1-based position of the sub-file within the superfile.</return>
-     <param>superName     The logical name of the superfile.</param>
-     <param>subName       The logical name of the sub-file.</param>
+     <content>&#10;&#32;* Returns the position of a file within a superfile.
+ *
+ * @param superName     The logical name of the superfile.
+ * @param subName       The logical name of the sub-file.
+ * @return              The 1-based position of the sub-file within the superfile.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="superName"/>
@@ -1575,7 +1698,8 @@
                start="48052">
     <Type>function</Type>
     <Documentation>
-     <content>Starts a superfile transaction.  All superfile operations within the transaction will either be executed atomically or rolled back when the transaction is finished.</content>
+     <content>&#10;&#32;* Starts a superfile transaction.  All superfile operations within the transaction will either be
+ * executed atomically or rolled back when the transaction is finished.&#10;&#32;</content>
     </Documentation>
     <Params/>
    </Definition>
@@ -1590,12 +1714,13 @@
                start="48643">
     <Type>function</Type>
     <Documentation>
-     <content>Adds a file to a superfile.</content>
-     <param>superName     The logical name of the superfile.</param>
-     <param>subName       The name of the logical file to add.</param>
-     <param>atPos         The position to add the sub-file, or 0 to append.  Defaults to 0.</param>
-     <param>addContents   Controls whether adding a superfile adds the superfile, or its contents.  Defaults to FALSE (do not expand).</param>
-     <param>strict        Check addContents only if subName is a superfile, and ensure superfiles exist.</param>
+     <content>&#10;&#32;* Adds a file to a superfile.
+ *
+ * @param superName     The logical name of the superfile.
+ * @param subName       The name of the logical file to add.
+ * @param atPos         The position to add the sub-file, or 0 to append.  Defaults to 0.
+ * @param addContents   Controls whether adding a superfile adds the superfile, or its contents.  Defaults to FALSE (do not expand).
+ * @param strict        Check addContents only if subName is a superfile, and ensure superfiles exist.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="superName"/>
@@ -1616,11 +1741,12 @@
                start="49296">
     <Type>function</Type>
     <Documentation>
-     <content>Removes a sub-file from a superfile.</content>
-     <param>superName     The logical name of the superfile.</param>
-     <param>subName       The name of the sub-file to remove.</param>
-     <param>del           Indicates whether the sub-file should also be removed from the disk.  Defaults to FALSE.</param>
-     <param>removeContents Controls whether the contents of a sub-file which is a superfile should be recursively removed.  Defaults to FALSE.</param>
+     <content>&#10;&#32;* Removes a sub-file from a superfile.
+ *
+ * @param superName     The logical name of the superfile.
+ * @param subName       The name of the sub-file to remove.
+ * @param del           Indicates whether the sub-file should also be removed from the disk.  Defaults to FALSE.
+ * @param removeContents Controls whether the contents of a sub-file which is a superfile should be recursively removed.  Defaults to FALSE.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="superName"/>
@@ -1640,9 +1766,10 @@
                start="49732">
     <Type>function</Type>
     <Documentation>
-     <content>Removes all sub-files from a superfile.</content>
-     <param>superName     The logical name of the superfile.</param>
-     <param>del           Indicates whether the sub-files should also be removed from the disk.  Defaults to FALSE.</param>
+     <content>&#10;&#32;* Removes all sub-files from a superfile.
+ *
+ * @param superName     The logical name of the superfile.
+ * @param del           Indicates whether the sub-files should also be removed from the disk.  Defaults to FALSE.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="superName"/>
@@ -1660,8 +1787,10 @@
                start="50072">
     <Type>function</Type>
     <Documentation>
-     <content>Removes all soley-owned sub-files from a superfile.  If a sub-file is also contained within another superfile then it is retained.</content>
-     <param>superName     The logical name of the superfile.</param>
+     <content>&#10;&#32;* Removes all soley-owned sub-files from a superfile.  If a sub-file is also contained within another superfile
+ * then it is retained.
+ *
+ * @param superName     The logical name of the superfile.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="superName"/>
@@ -1679,8 +1808,9 @@
                start="50346">
     <Type>function</Type>
     <Documentation>
-     <see>RemoveOwnedSubFIles</see>
-     <content>Legacy version of RemoveOwnedSubFiles which was incorrectly named in a previous version.</content>
+     <content>&#10;&#32;* Legacy version of RemoveOwnedSubFiles which was incorrectly named in a previous version.
+ *
+ * @see RemoveOwnedSubFIles&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="superName"/>
@@ -1697,9 +1827,10 @@
                start="50685">
     <Type>function</Type>
     <Documentation>
-     <content>Swap the contents of two superfiles.</content>
-     <param>superName1    The logical name of the first superfile.</param>
-     <param>superName2    The logical name of the second superfile.</param>
+     <content>&#10;&#32;* Swap the contents of two superfiles.
+ *
+ * @param superName1    The logical name of the first superfile.
+ * @param superName2    The logical name of the second superfile.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="superName1"/>
@@ -1717,10 +1848,11 @@
                start="51125">
     <Type>function</Type>
     <Documentation>
-     <content>Removes a sub-file from a superfile and replaces it with another.</content>
-     <param>superName     The logical name of the superfile.</param>
-     <param>oldSubFile    The logical name of the sub-file to remove.</param>
-     <param>newSubFile    The logical name of the sub-file to replace within the superfile.</param>
+     <content>&#10;&#32;* Removes a sub-file from a superfile and replaces it with another.
+ *
+ * @param superName     The logical name of the superfile.
+ * @param oldSubFile    The logical name of the sub-file to remove.
+ * @param newSubFile    The logical name of the sub-file to replace within the superfile.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="superName"/>
@@ -1739,7 +1871,8 @@
                start="51505">
     <Type>function</Type>
     <Documentation>
-     <content>Finishes a superfile transaction.  This executes all the operations since the matching StartSuperFileTransaction(). If there are any errors, then all of the operations are rolled back.</content>
+     <content>&#10;&#32;* Finishes a superfile transaction.  This executes all the operations since the matching StartSuperFileTransaction().
+ * If there are any errors, then all of the operations are rolled back.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="rollback"/>
@@ -1756,10 +1889,11 @@
                start="51942">
     <Type>function</Type>
     <Documentation>
-     <content>Returns the list of sub-files contained within a superfile.</content>
-     <return>A dataset containing the names of the sub-files.</return>
-     <param>superName     The logical name of the superfile.</param>
-     <param>recurse       Should the contents of child-superfiles be expanded.  Default is FALSE.</param>
+     <content>&#10;&#32;* Returns the list of sub-files contained within a superfile.
+ *
+ * @param superName     The logical name of the superfile.
+ * @param recurse       Should the contents of child-superfiles be expanded.  Default is FALSE.
+ * @return              A dataset containing the names of the sub-files.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="superName"/>
@@ -1777,9 +1911,10 @@
                start="52336">
     <Type>function</Type>
     <Documentation>
-     <content>Returns the list of superfiles that a logical file is contained within.</content>
-     <return>A dataset containing the names of the superfiles.</return>
-     <param>name          The name of the logical file.</param>
+     <content>&#10;&#32;* Returns the list of superfiles that a logical file is contained within.
+ *
+ * @param name          The name of the logical file.
+ * @return              A dataset containing the names of the superfiles.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="name"/>
@@ -1796,8 +1931,9 @@
                start="52679">
     <Type>function</Type>
     <Documentation>
-     <return>A dataset containing pairs of superName,subName for each component file.</return>
-     <content>Returns the list of all the superfiles in the system and their component sub-files.</content>
+     <content>&#10;&#32;* Returns the list of all the superfiles in the system and their component sub-files.
+ *
+ * @return              A dataset containing pairs of superName,subName for each component file.&#10;&#32;</content>
     </Documentation>
     <Params/>
    </Definition>
@@ -1812,13 +1948,19 @@
                start="53979">
     <Type>function</Type>
     <Documentation>
-     <content>Moves the sub-files from the first entry in the list of superfiles to the next in the list, repeating the process through the list of superfiles.</content>
-     <return>A string containing a comma separated list of the previous sub-file contents of the emptied superfile.</return>
-     <param>superNames    A set of the names of the superfiles to act on. Any that do not exist will be created. The contents of each superfile will be moved to the next in the list.</param>
-     <param>addHead       A string containing a comma-delimited list of logical file names to add to the first superfile after the promotion process is complete.  Defaults to &apos;&apos;.</param>
-     <param>delTail       Indicates whether to physically delete the contents moved out of the last superfile. The default is FALSE.</param>
-     <param>createOnlyOne Specifies whether to only create a single superfile (truncate the list at the first non-existent superfile). The default is FALSE.</param>
-     <param>reverse       Reverse the order of processing the superfiles list, effectively &apos;demoting&apos; instead of &apos;promoting&apos; the sub-files. The default is FALSE.</param>
+     <content>&#10;&#32;* Moves the sub-files from the first entry in the list of superfiles to the next in the list, repeating the process
+ * through the list of superfiles.
+ *
+ * @param superNames    A set of the names of the superfiles to act on. Any that do not exist will be created.
+ *                      The contents of each superfile will be moved to the next in the list.
+ * @param addHead       A string containing a comma-delimited list of logical file names to add to the first superfile
+ *                      after the promotion process is complete.  Defaults to &apos;&apos;.
+ * @param delTail       Indicates whether to physically delete the contents moved out of the last superfile. The default is FALSE.
+ * @param createOnlyOne Specifies whether to only create a single superfile (truncate the list at the first
+ *                      non-existent superfile). The default is FALSE.
+ * @param reverse       Reverse the order of processing the superfiles list, effectively &apos;demoting&apos; instead of &apos;promoting&apos; the sub-files. The default is FALSE.
+ *
+ * @return              A string containing a comma separated list of the previous sub-file contents of the emptied superfile.&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="superNames"/>
@@ -1839,8 +1981,9 @@
                start="54376">
     <Type>function</Type>
     <Documentation>
-     <see>fPromoteSuperFileList</see>
-     <content>Same as fPromoteSuperFileList, but does not return the DFU Workunit ID.</content>
+     <content>&#10;&#32;* Same as fPromoteSuperFileList, but does not return the DFU Workunit ID.
+ *
+ * @see fPromoteSuperFileList&#10;&#32;</content>
     </Documentation>
     <Params>
      <Param name="superNames"/>

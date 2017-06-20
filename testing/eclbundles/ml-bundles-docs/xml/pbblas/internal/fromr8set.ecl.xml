@@ -6,19 +6,13 @@
   </Import>
   <Import body="0" end="272" fullname="PBblas.Types" inherit_type="local" line="5" name="Types" ref="pbblas.types" start="272" target="../types.ecl.xml">
    <Type>attribute</Type>
-   <Documentation> <content>Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes.</content>
-   </Documentation>
+   <Documentation>
+    <content>Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes.</content></Documentation>
   </Import>
   <Definition body="1166" end="1798" exported="1" fullname="pbblas.internal.fromr8set" inherit_type="local" line="23" name="FromR8Set" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/FromR8Set.ecl" start="1023">
    <Type>function</Type>
-   <Documentation> <see>PBblas/Types.Layout_Cell</see>
-    <return>DATASET(Layout_Cell) -- A sparse matrix.</return>
-    <param><name>mat_data</name><desc>A set of REAL8 values representing a matrix in column major order [r1c1, r2c1, r3c1, ..., rNc1, r1c2, ..., rNcM]</desc></param>
-    <param><name>num_rows</name><desc>The number of rows in the matrix</desc></param>
-    <param><name>row_offset</name><desc>The offset to the starting row of this sub-matrix (optional)</desc></param>
-    <param><name>col_offset</name><desc>The offset to starting column of this sub-matrix (optional)</desc></param>
-    <content>Take a dense matrix or submatrix and convert it to a sparse matrix in Layout_Cell format.</content>
-   </Documentation>
+   <Documentation>
+    <return>DATASET(Layout_Cell) -- A sparse matrix.</return><param><name>mat_data</name><desc>A set of REAL8 values representing a matrix in column major order [r1c1, r2c1, r3c1, ..., rNc1, r1c2, ..., rNcM]</desc></param><param><name>num_rows</name><desc>The number of rows in the matrix</desc></param><param><name>row_offset</name><desc>The offset to the starting row of this sub-matrix (optional)</desc></param><param><name>col_offset</name><desc>The offset to starting column of this sub-matrix (optional)</desc></param><content>Take a dense matrix or submatrix and convert it to a sparse matrix in Layout_Cell format.</content><see>PBblas/Types.Layout_Cell</see></Documentation>
    <Signature sign="DATASET(Layout_Cell) FromR8Set(SET OF REAL8 mat_data,&#10;&#9;&#9;&#9;dimension_t num_rows,&#10;&#9;&#9;&#9;dimension_t row_offset=0, dimension_t col_offset=0)" name="FromR8Set">DATASET(Layout_Cell) FromR8Set(SET OF REAL8 mat_data,
 			dimension_t num_rows,
 			dimension_t row_offset=0, dimension_t col_offset=0)</Signature><Params>
@@ -28,13 +22,7 @@
     <Param name="col_offset"/>
    </Params>
   </Definition>
- <Documentation> <see>PBblas/Types.Layout_Cell</see>
-    <return>DATASET(Layout_Cell) -- A sparse matrix.</return>
-    <param><name>mat_data</name><desc>A set of REAL8 values representing a matrix in column major order [r1c1, r2c1, r3c1, ..., rNc1, r1c2, ..., rNcM]</desc></param>
-    <param><name>num_rows</name><desc>The number of rows in the matrix</desc></param>
-    <param><name>row_offset</name><desc>The offset to the starting row of this sub-matrix (optional)</desc></param>
-    <param><name>col_offset</name><desc>The offset to starting column of this sub-matrix (optional)</desc></param>
-    <content>Take a dense matrix or submatrix and convert it to a sparse matrix in Layout_Cell format.</content>
-   </Documentation>
+ <Documentation>
+    <return>DATASET(Layout_Cell) -- A sparse matrix.</return><param><name>mat_data</name><desc>A set of REAL8 values representing a matrix in column major order [r1c1, r2c1, r3c1, ..., rNc1, r1c2, ..., rNcM]</desc></param><param><name>num_rows</name><desc>The number of rows in the matrix</desc></param><param><name>row_offset</name><desc>The offset to the starting row of this sub-matrix (optional)</desc></param><param><name>col_offset</name><desc>The offset to starting column of this sub-matrix (optional)</desc></param><content>Take a dense matrix or submatrix and convert it to a sparse matrix in Layout_Cell format.</content><see>PBblas/Types.Layout_Cell</see></Documentation>
    </Source>
  <Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Types.ecl" name="ML_Core.Types" target="../../ml_core/types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Types.ecl" name="PBblas.Types" target="../types.ecl.xml"/></Meta>

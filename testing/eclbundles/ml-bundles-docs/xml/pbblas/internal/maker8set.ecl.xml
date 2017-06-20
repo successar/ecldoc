@@ -6,20 +6,13 @@
   </Import>
   <Import body="0" end="273" fullname="PBblas.Types" inherit_type="local" line="6" name="Types" ref="pbblas.types" start="273" target="../types.ecl.xml">
    <Type>attribute</Type>
-   <Documentation> <content>Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes.</content>
-   </Documentation>
+   <Documentation>
+    <content>Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes.</content></Documentation>
   </Import>
   <Definition body="1327" end="2264" exported="1" fullname="pbblas.internal.maker8set" inherit_type="local" line="24" name="makeR8Set" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/MakeR8Set.ecl" start="1080">
    <Type>embed</Type>
-   <Documentation> <content>Take a dataset of cells (or sub-matrix thereof) and pack into a dense matrix. in column major order [r1c1, r2c1, r3c1, ..., rNc1, r1c2, ..., rNcM]. First row and first column are one based.</content>
-    <return>Dense matrix or sub-matrix (SET OF REAL8)</return>
-    <param><name>r</name><desc>The number of rows in the matrix or sub-matrix</desc></param>
-    <param><name>s</name><desc>The number of columns in the matrix or sub-matrix</desc></param>
-    <param><name>first_row</name><desc>The first row to include in the submatrix</desc></param>
-    <param><name>first_col</name><desc>The first column to include in the submatrix</desc></param>
-    <param><name>D</name><desc>The matrix to convert in Layout_Cell form</desc></param>
-    <param><name>transpose</name><desc>Boolean to transpose the matrix during conversion (optional)</desc></param>
-   </Documentation>
+   <Documentation>
+    <return>Dense matrix or sub-matrix (SET OF REAL8)</return><param><name>r</name><desc>The number of rows in the matrix or sub-matrix</desc></param><param><name>s</name><desc>The number of columns in the matrix or sub-matrix</desc></param><param><name>first_row</name><desc>The first row to include in the submatrix</desc></param><param><name>first_col</name><desc>The first column to include in the submatrix</desc></param><param><name>D</name><desc>The matrix to convert in Layout_Cell form</desc></param><param><name>transpose</name><desc>Boolean to transpose the matrix during conversion (optional)</desc></param><content>Take a dataset of cells (or sub-matrix thereof) and pack into a dense matrix. in column major order [r1c1, r2c1, r3c1, ..., rNc1, r1c2, ..., rNcM]. First row and first column are one based.</content></Documentation>
    <Signature sign="SET OF REAL8 makeR8Set(dimension_t r, dimension_t s,&#10;                              dimension_t first_row, dimension_t first_col,&#10;                              DATASET(Layout_Cell) D,&#10;                              BOOLEAN transpose=FALSE)" name="makeR8Set">SET OF REAL8 makeR8Set(dimension_t r, dimension_t s,
                               dimension_t first_row, dimension_t first_col,
                               DATASET(Layout_Cell) D,
@@ -32,14 +25,7 @@
     <Param name="transpose"/>
    </Params>
   </Definition>
- <Documentation> <content>Take a dataset of cells (or sub-matrix thereof) and pack into a dense matrix. in column major order [r1c1, r2c1, r3c1, ..., rNc1, r1c2, ..., rNcM]. First row and first column are one based.</content>
-    <return>Dense matrix or sub-matrix (SET OF REAL8)</return>
-    <param><name>r</name><desc>The number of rows in the matrix or sub-matrix</desc></param>
-    <param><name>s</name><desc>The number of columns in the matrix or sub-matrix</desc></param>
-    <param><name>first_row</name><desc>The first row to include in the submatrix</desc></param>
-    <param><name>first_col</name><desc>The first column to include in the submatrix</desc></param>
-    <param><name>D</name><desc>The matrix to convert in Layout_Cell form</desc></param>
-    <param><name>transpose</name><desc>Boolean to transpose the matrix during conversion (optional)</desc></param>
-   </Documentation>
+ <Documentation>
+    <return>Dense matrix or sub-matrix (SET OF REAL8)</return><param><name>r</name><desc>The number of rows in the matrix or sub-matrix</desc></param><param><name>s</name><desc>The number of columns in the matrix or sub-matrix</desc></param><param><name>first_row</name><desc>The first row to include in the submatrix</desc></param><param><name>first_col</name><desc>The first column to include in the submatrix</desc></param><param><name>D</name><desc>The matrix to convert in Layout_Cell form</desc></param><param><name>transpose</name><desc>Boolean to transpose the matrix during conversion (optional)</desc></param><content>Take a dataset of cells (or sub-matrix thereof) and pack into a dense matrix. in column major order [r1c1, r2c1, r3c1, ..., rNc1, r1c2, ..., rNcM]. First row and first column are one based.</content></Documentation>
    </Source>
  <Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Types.ecl" name="ML_Core.Types" target="../../ml_core/types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Types.ecl" name="PBblas.Types" target="../types.ecl.xml"/></Meta>
