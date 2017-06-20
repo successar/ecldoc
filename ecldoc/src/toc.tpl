@@ -49,7 +49,9 @@
 						{% for tag in bundle.iterchildren() %}
 						<tr>
 							<td>{{ tag.tag }}</td>
-							<td>{{ tag.text }}</td>
+							<td>
+								{{ tag.text }}
+							</td>
 						</tr>
 						{% endfor %}
 					</table>

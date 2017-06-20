@@ -14,48 +14,6 @@
   </Import>
   <Definition body="151" end="3332" exported="1" fullname="PBblas.test.MakeTestMatrix" inherit_type="local" line="7" name="MakeTestMatrix" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/MakeTestMatrix.ecl" start="127">
    <Type>module</Type>
-   <Definition body="208" end="226" fullname="pbblas.test.maketestmatrix.rmax" inherit_type="local" line="9" name="rmax" shared="1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/MakeTestMatrix.ecl" start="185">
-    <Signature sign="UNSIGNED rmax" name="rmax">UNSIGNED rmax</Signature><Type>attribute</Type>
-   </Definition>
-   <Definition body="281" end="286" fullname="pbblas.test.maketestmatrix.modulus" inherit_type="local" line="10" name="modulus" shared="1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/MakeTestMatrix.ecl" start="264">
-    <Signature sign="modulus" name="modulus">modulus</Signature><Type>attribute</Type>
-   </Definition>
-   <Definition body="388" end="418" fullname="pbblas.test.maketestmatrix.w_rec" inherit_type="local" line="11" name="W_Rec" shared="1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/MakeTestMatrix.ecl" start="373">
-    <Type>record</Type>
-    <Signature sign="W_Rec" name="W_Rec">W_Rec</Signature><Field name="x"/>
-   </Definition>
-   <Definition body="433" end="456" fullname="pbblas.test.maketestmatrix.w0" inherit_type="local" line="14" name="W0" shared="1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/MakeTestMatrix.ecl" start="421">
-    <Signature sign="W0" name="W0">W0</Signature><Type>attribute</Type>
-   </Definition>
-   <Definition body="474" end="491" fullname="pbblas.test.maketestmatrix.nodes" inherit_type="local" line="15" name="nodes" shared="1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/MakeTestMatrix.ecl" start="459">
-    <Signature sign="nodes" name="nodes">nodes</Signature><Type>attribute</Type>
-   </Definition>
-   <Definition body="506" end="579" fullname="pbblas.test.maketestmatrix.w1" inherit_type="local" line="16" name="W1" shared="1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/MakeTestMatrix.ecl" start="494">
-    <Signature sign="W1" name="W1">W1</Signature><Type>attribute</Type>
-   </Definition>
-   <Definition body="594" end="613" fullname="pbblas.test.maketestmatrix.w2" inherit_type="local" line="17" name="W2" shared="1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/MakeTestMatrix.ecl" start="582">
-    <Signature sign="W2" name="W2">W2</Signature><Type>attribute</Type>
-   </Definition>
-   <Definition body="630" end="646" fullname="pbblas.test.maketestmatrix.node" inherit_type="local" line="18" name="node" shared="1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/MakeTestMatrix.ecl" start="616">
-    <Signature sign="node" name="node">node</Signature><Type>attribute</Type>
-   </Definition>
-   <Definition body="747" end="1183" fullname="pbblas.test.maketestmatrix.gen" inherit_type="local" line="20" name="gen" shared="1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/MakeTestMatrix.ecl" start="650">
-    <Type>transform</Type>
-    <Params>
-     <Param name="c"/>
-     <Param name="NumRows"/>
-     <Param name="v"/>
-     <Param name="density"/>
-     <Param name="wi_id"/>
-    </Params>
-    <Signature sign="Layout_Cell gen(UNSIGNED4 c, UNSIGNED4 NumRows, REAL8 v, REAL density, UNSIGNED wi_id=1)" name="gen">Layout_Cell gen(UNSIGNED4 c, UNSIGNED4 NumRows, REAL8 v, REAL density, UNSIGNED wi_id=1)</Signature><Return>layout_cell</Return>
-   </Definition>
-   <Definition body="1235" end="1285" fullname="pbblas.test.maketestmatrix.f_a" inherit_type="local" line="30" name="F_A" shared="1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/MakeTestMatrix.ecl" start="1203">
-    <Type>function</Type>
-    <Signature sign="REAL8 F_A(UNSIGNED4 c)" name="F_A">REAL8 F_A(UNSIGNED4 c)</Signature><Params>
-     <Param name="c"/>
-    </Params>
-   </Definition>
    <Definition body="1365" end="1837" exported="1" fullname="pbblas.test.maketestmatrix.matrix" inherit_type="local" line="32" name="Matrix" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/MakeTestMatrix.ecl" start="1289">
     <Type>function</Type>
     <Signature sign="Matrix(UNSIGNED N, UNSIGNED M, REAL density=1.0, UNSIGNED wi_id=1)" name="Matrix">Matrix(UNSIGNED N, UNSIGNED M, REAL density=1.0, UNSIGNED wi_id=1)</Signature><Params>
@@ -74,16 +32,6 @@
      <Param name="wi_id"/>
      <Param name="test_id"/>
     </Params>
-   </Definition>
-   <Definition body="2227" end="2516" fullname="pbblas.test.maketestmatrix.genrandom" inherit_type="local" line="52" name="genRandom" shared="1" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/MakeTestMatrix.ecl" start="2134">
-    <Type>transform</Type>
-    <Params>
-     <Param name="c"/>
-     <Param name="NumRows"/>
-     <Param name="density"/>
-     <Param name="wi_id"/>
-    </Params>
-    <Signature sign="Layout_Cell genRandom(UNSIGNED c, UNSIGNED NumRows, REAL density, UNSIGNED wi_id=1)" name="genRandom">Layout_Cell genRandom(UNSIGNED c, UNSIGNED NumRows, REAL density, UNSIGNED wi_id=1)</Signature><Return>layout_cell</Return>
    </Definition>
    <Definition body="2602" end="3051" exported="1" fullname="pbblas.test.maketestmatrix.randommatrix" inherit_type="local" line="61" name="RandomMatrix" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/test/MakeTestMatrix.ecl" start="2520">
     <Type>function</Type>

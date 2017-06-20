@@ -106,7 +106,7 @@ class ParseXML(object) :
 			attribs['fullname'] = 'ecldoc-' + attribs['name']
 
 		for childdefn in defn.findall('./Definition') :
-			if attribs['inherit_type'] == 'inherited' or 'exported' not in attribs:
+			if attribs['inherit_type'] == 'inherited' or 'exported' not in childdefn.attrib:
 				defn.remove(childdefn)
 			else :
 				self.parseDefinition(childdefn)

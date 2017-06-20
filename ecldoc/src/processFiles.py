@@ -18,12 +18,16 @@ def doMain() :
         input_root = os.path.realpath(cfgparser['INPUT']['root'])
         only_bundle = cfgparser['INPUT'].getboolean('bundle', fallback=True)
 
+        include = []
         if 'include' in cfgparser['INPUT'] :
             include = json.loads(cfgparser['INPUT']['include'])
-            for pattern in include :
-                filenames = glob.glob(input_root + pattern, recursive=True)
-                filenames = [os.path.realpath(f) for f in filenames]
-                ecl_files += [os.path.relpath(f, input_root) for f in filenames]
+        else :
+            include = ['/**/*.ecl']
+
+        for pattern in include :
+            filenames = glob.glob(input_root + pattern, recursive=True)
+            filenames = [os.path.realpath(f) for f in filenames]
+            ecl_files += [os.path.relpath(f, input_root) for f in filenames]
 
         if 'exclude' in cfgparser['INPUT'] :
             exclude = json.loads(cfgparser['INPUT']['exclude'])
