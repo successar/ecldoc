@@ -28,7 +28,7 @@
    <Definition body="1185" end="1412" exported="1" fullname="pbblas.matutils.getworkitems" inherit_type="local" line="35" name="GetWorkItems" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/MatUtils.ecl" start="1113">
     <Type>function</Type>
     <Documentation>
-     <param><name>cells</name><desc>A matrix in Layout_Cell format</desc></param><firstline>Get a list of work-item ids from a matrix containing one or more work items</firstline><see>PBblas/Types.Layout_Cell</see><see>PBblas/Types.Layout_WI_ID</see><content>Get a list of work-item ids from a matrix containing one or more work items</content><return>DATASET(Layout_WI_ID), one record per work-item</return></Documentation>
+     <firstline>Get a list of work-item ids from a matrix containing one or more work items</firstline><content>Get a list of work-item ids from a matrix containing one or more work items</content><param><name>cells</name><desc>A matrix in Layout_Cell format</desc></param><return>DATASET(Layout_WI_ID), one record per work-item</return><see>PBblas/Types.Layout_Cell</see><see>PBblas/Types.Layout_WI_ID</see></Documentation>
     <Signature sign="DATASET(Layout_WI_ID) GetWorkItems(DATASET(Layout_Cell) cells)" name="GetWorkItems">DATASET(Layout_WI_ID) GetWorkItems(DATASET(Layout_Cell) cells)</Signature><Params>
      <Param name="cells"/>
     </Params>
@@ -36,7 +36,7 @@
    <Definition body="2122" end="3175" exported="1" fullname="pbblas.matutils.insertcols" inherit_type="local" line="57" name="InsertCols" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/MatUtils.ecl" start="2003">
     <Type>function</Type>
     <Documentation>
-     <param><name>M</name><desc>the input matrix</desc></param><param><name>cols_to_insert</name><desc>the number of columns to insert, default 1</desc></param><param><name>insert_val</name><desc>the value for each cell of the new column(s), default 0</desc></param><firstline>Insert one or more columns of a fixed value into a matrix</firstline><content>Insert one or more columns of a fixed value into a matrix. Columns are inserted before the first original column. This attribute supports the myriad interface. Multiple independent matrixes can be represented by M.</content><return>matrix in Layout_Cell format with additional column(s)</return></Documentation>
+     <firstline>Insert one or more columns of a fixed value into a matrix</firstline><content>Insert one or more columns of a fixed value into a matrix. Columns are inserted before the first original column. This attribute supports the myriad interface. Multiple independent matrixes can be represented by M.</content><param><name>M</name><desc>the input matrix</desc></param><param><name>cols_to_insert</name><desc>the number of columns to insert, default 1</desc></param><param><name>insert_val</name><desc>the value for each cell of the new column(s), default 0</desc></param><return>matrix in Layout_Cell format with additional column(s)</return></Documentation>
     <Signature sign="DATASET(Layout_Cell) InsertCols(DATASET(Layout_Cell) M, UNSIGNED cols_to_insert=1, &#10;    value_t insert_val=1)" name="InsertCols">DATASET(Layout_Cell) InsertCols(DATASET(Layout_Cell) M, UNSIGNED cols_to_insert=1, 
     value_t insert_val=1)</Signature><Params>
      <Param name="M"/>
@@ -47,15 +47,15 @@
    <Definition body="3565" end="3759" exported="1" fullname="pbblas.matutils.transpose" inherit_type="local" line="96" name="Transpose" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/MatUtils.ecl" start="3501">
     <Type>function</Type>
     <Documentation>
-     <param><name>M</name><desc>A matrix represented as DATASET(Layout_Cell)</desc></param><firstline>Transpose a matrix This attribute supports the myriad interface</firstline><see>PBblas/Types.Layout_Cell</see><content>Transpose a matrix This attribute supports the myriad interface. Multiple independent matrixes can be represented by M.</content><return>Transposed matrix in Layout_Cell format</return></Documentation>
+     <firstline>Transpose a matrix This attribute supports the myriad interface</firstline><content>Transpose a matrix This attribute supports the myriad interface. Multiple independent matrixes can be represented by M.</content><param><name>M</name><desc>A matrix represented as DATASET(Layout_Cell)</desc></param><return>Transposed matrix in Layout_Cell format</return><see>PBblas/Types.Layout_Cell</see></Documentation>
     <Signature sign="DATASET(Layout_Cell) Transpose(DATASET(Layout_Cell) M)" name="Transpose">DATASET(Layout_Cell) Transpose(DATASET(Layout_Cell) M)</Signature><Params>
      <Param name="M"/>
     </Params>
    </Definition>
    <Signature sign="MatUtils" name="MatUtils">MatUtils</Signature><Documentation>
-    <firstline>Provides various utility attributes for manipulating cell-based matrixes</firstline><see>Std/PBblas/Types.Layout_Cell</see><content>Provides various utility attributes for manipulating cell-based matrixes</content></Documentation>
+    <firstline>Provides various utility attributes for manipulating cell-based matrixes</firstline><content>Provides various utility attributes for manipulating cell-based matrixes</content><see>Std/PBblas/Types.Layout_Cell</see></Documentation>
   </Definition>
  <Documentation>
-    <firstline>Provides various utility attributes for manipulating cell-based matrixes</firstline><see>Std/PBblas/Types.Layout_Cell</see><content>Provides various utility attributes for manipulating cell-based matrixes</content></Documentation>
+    <firstline>Provides various utility attributes for manipulating cell-based matrixes</firstline><content>Provides various utility attributes for manipulating cell-based matrixes</content><see>Std/PBblas/Types.Layout_Cell</see></Documentation>
   </Source>
  <Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Types.ecl" name="PBblas.Types" target="types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Types.ecl" name="ML_Core.Types" target="../ml_core/types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/Types.ecl" name="PBblas.internal.Types" target="internal/types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/MatDims.ecl" name="PBblas.internal.MatDims" target="internal/matdims.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/BlockDimensions.ecl" name="PBblas.internal.BlockDimensions" target="internal/blockdimensions.ecl.xml"/><Depends sourcePath="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/system/Thorlib.ecl" name="std.system.Thorlib" target="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/system/Thorlib.ecl"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/BlockDimensionsSolve.ecl" name="PBblas.internal.BlockDimensionsSolve" target="internal/blockdimensionssolve.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/internal/BlockDimensionsMultiply.ecl" name="PBblas.internal.BlockDimensionsMultiply" target="internal/blockdimensionsmultiply.ecl.xml"/></Meta>

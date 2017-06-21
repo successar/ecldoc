@@ -43,19 +43,11 @@
 				</li>
 				
 				<li>
-					<a href="converted.ecl.html">converted.ecl</a>
+					<a href="types.ecl.html">types.ecl</a>
 				</li>
 				
 				<li>
-					<a href="getrf.ecl.html">getrf.ecl</a>
-				</li>
-				
-				<li>
-					<a href="extracttri.ecl.html">extracttri.ecl</a>
-				</li>
-				
-				<li>
-					<a href="scal.ecl.html">scal.ecl</a>
+					<a href="matutils.ecl.html">matutils.ecl</a>
 				</li>
 				
 				<li>
@@ -63,19 +55,15 @@
 				</li>
 				
 				<li>
-					<a href="tran.ecl.html">tran.ecl</a>
+					<a href="getrf.ecl.html">getrf.ecl</a>
 				</li>
 				
 				<li>
-					<a href="bundle.ecl.html">bundle.ecl</a>
+					<a href="gemm.ecl.html">gemm.ecl</a>
 				</li>
 				
 				<li>
-					<a href="constants.ecl.html">constants.ecl</a>
-				</li>
-				
-				<li>
-					<a href="axpy.ecl.html">axpy.ecl</a>
+					<a href="extracttri.ecl.html">extracttri.ecl</a>
 				</li>
 				
 				<li>
@@ -83,11 +71,15 @@
 				</li>
 				
 				<li>
+					<a href="constants.ecl.html">constants.ecl</a>
+				</li>
+				
+				<li>
 					<a href="asum.ecl.html">asum.ecl</a>
 				</li>
 				
 				<li>
-					<a href="apply2elements.ecl.html">apply2elements.ecl</a>
+					<a href="converted.ecl.html">converted.ecl</a>
 				</li>
 				
 				<li>
@@ -99,15 +91,23 @@
 				</li>
 				
 				<li>
-					<a href="types.ecl.html">types.ecl</a>
+					<a href="scal.ecl.html">scal.ecl</a>
 				</li>
 				
 				<li>
-					<a href="matutils.ecl.html">matutils.ecl</a>
+					<a href="tran.ecl.html">tran.ecl</a>
 				</li>
 				
 				<li>
-					<a href="gemm.ecl.html">gemm.ecl</a>
+					<a href="apply2elements.ecl.html">apply2elements.ecl</a>
+				</li>
+				
+				<li>
+					<a href="bundle.ecl.html">bundle.ecl</a>
+				</li>
+				
+				<li>
+					<a href="axpy.ecl.html">axpy.ecl</a>
 				</li>
 				
 				<li>
@@ -136,144 +136,276 @@
 				</section>
 				<section id="ecldoc-section-tree">
 					<h3 class="page-header">DEFINITION TREE</h3>
-					<ul class="tree">
+					<ul class="tree" style="padding : 0px;">
 						<li id="t-PBblas-Types">
-							
-							<a href="#PBblas-Types" data-toggle="collapse" class="glyphicon glyphicon-folder-open" style="margin-right: 6px;"></a>
-							
-							<a href="#dPBblas-Types">
-								MODULE :
-								<span class="sign-name">Types</span>
-							</a>
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<a href="#PBblas-Types" data-toggle="collapse" class="glyphicon glyphicon-folder-open" style="margin-right: 6px;"></a>
+								
+								<a href="#dPBblas-Types">
+									<span class="tree-type">MODULE : </span>
+									Types
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes
+								</div>
+								
+								
+							</div>
 							<ul id="PBblas-Types" class="accordian-body tree collapse">
 								<li id="t-pbblas-types-dimension_t">
-							
-							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
-							
-							<a href="#dpbblas-types-dimension_t">
-								ATTRIBUTE :
-								<span class="sign-name">dimension_t</span>
-							</a>
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dpbblas-types-dimension_t">
+									<span class="tree-type">ATTRIBUTE : </span>
+									dimension_t
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Type for matrix dimensions
+								</div>
+								
+								
+							</div>
 							<ul id="pbblas-types-dimension_t" class="accordian-body tree collapse">
 								
 							</ul>
 						</li>
 						<li id="t-pbblas-types-partition_t">
-							
-							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
-							
-							<a href="#dpbblas-types-partition_t">
-								ATTRIBUTE :
-								<span class="sign-name">partition_t</span>
-							</a>
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dpbblas-types-partition_t">
+									<span class="tree-type">ATTRIBUTE : </span>
+									partition_t
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Type for partition id -- only supports up to 64K partitions
+								</div>
+								
+								
+							</div>
 							<ul id="pbblas-types-partition_t" class="accordian-body tree collapse">
 								
 							</ul>
 						</li>
 						<li id="t-pbblas-types-work_item_t">
-							
-							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
-							
-							<a href="#dpbblas-types-work_item_t">
-								ATTRIBUTE :
-								<span class="sign-name">work_item_t</span>
-							</a>
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dpbblas-types-work_item_t">
+									<span class="tree-type">ATTRIBUTE : </span>
+									work_item_t
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Type for work-item id -- only supports up to 64K work items
+								</div>
+								
+								
+							</div>
 							<ul id="pbblas-types-work_item_t" class="accordian-body tree collapse">
 								
 							</ul>
 						</li>
 						<li id="t-pbblas-types-value_t">
-							
-							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
-							
-							<a href="#dpbblas-types-value_t">
-								ATTRIBUTE :
-								<span class="sign-name">value_t</span>
-							</a>
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dpbblas-types-value_t">
+									<span class="tree-type">ATTRIBUTE : </span>
+									value_t
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Type for matrix cell values
+								</div>
+								
+								
+							</div>
 							<ul id="pbblas-types-value_t" class="accordian-body tree collapse">
 								
 							</ul>
 						</li>
 						<li id="t-pbblas-types-m_label_t">
-							
-							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
-							
-							<a href="#dpbblas-types-m_label_t">
-								ATTRIBUTE :
-								<span class="sign-name">m_label_t</span>
-							</a>
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dpbblas-types-m_label_t">
+									<span class="tree-type">ATTRIBUTE : </span>
+									m_label_t
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Type for matrix label
+								</div>
+								
+								
+							</div>
 							<ul id="pbblas-types-m_label_t" class="accordian-body tree collapse">
 								
 							</ul>
 						</li>
 						<li id="t-ecldoc-Triangle">
-							
-							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
-							
-							<a href="#decldoc-Triangle">
-								ATTRIBUTE :
-								<span class="sign-name">Triangle</span>
-							</a>
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#decldoc-Triangle">
+									<span class="tree-type">ATTRIBUTE : </span>
+									Triangle
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Enumeration for Triangle type
+								</div>
+								
+								
+							</div>
 							<ul id="ecldoc-Triangle" class="accordian-body tree collapse">
 								
 							</ul>
 						</li>
 						<li id="t-ecldoc-Diagonal">
-							
-							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
-							
-							<a href="#decldoc-Diagonal">
-								ATTRIBUTE :
-								<span class="sign-name">Diagonal</span>
-							</a>
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#decldoc-Diagonal">
+									<span class="tree-type">ATTRIBUTE : </span>
+									Diagonal
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Enumeration for Diagonal type
+								</div>
+								
+								
+							</div>
 							<ul id="ecldoc-Diagonal" class="accordian-body tree collapse">
 								
 							</ul>
 						</li>
 						<li id="t-ecldoc-Side">
-							
-							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
-							
-							<a href="#decldoc-Side">
-								ATTRIBUTE :
-								<span class="sign-name">Side</span>
-							</a>
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#decldoc-Side">
+									<span class="tree-type">ATTRIBUTE : </span>
+									Side
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Enumeration for Side type
+								</div>
+								
+								
+							</div>
 							<ul id="ecldoc-Side" class="accordian-body tree collapse">
 								
 							</ul>
 						</li>
 						<li id="t-pbblas-types-t_mu_no">
-							
-							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
-							
-							<a href="#dpbblas-types-t_mu_no">
-								ATTRIBUTE :
-								<span class="sign-name">t_mu_no</span>
-							</a>
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dpbblas-types-t_mu_no">
+									<span class="tree-type">ATTRIBUTE : </span>
+									t_mu_no
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Type for matrix universe number
+								</div>
+								
+								
+							</div>
 							<ul id="pbblas-types-t_mu_no" class="accordian-body tree collapse">
 								
 							</ul>
 						</li>
 						<li id="t-pbblas-types-layout_cell">
-							
-							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
-							
-							<a href="#dpbblas-types-layout_cell">
-								RECORD :
-								<span class="sign-name">Layout_Cell</span>
-							</a>
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dpbblas-types-layout_cell">
+									<span class="tree-type">RECORD : </span>
+									Layout_Cell
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Layout for Matrix Cell Main representation of Matrix cell at interface to all PBBlas functions
+								</div>
+								
+								
+							</div>
 							<ul id="pbblas-types-layout_cell" class="accordian-body tree collapse">
 								
 							</ul>
 						</li>
 						<li id="t-pbblas-types-layout_norm">
-							
-							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
-							
-							<a href="#dpbblas-types-layout_norm">
-								RECORD :
-								<span class="sign-name">Layout_Norm</span>
-							</a>
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dpbblas-types-layout_norm">
+									<span class="tree-type">RECORD : </span>
+									Layout_Norm
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Layout for Norm results
+								</div>
+								
+								
+							</div>
 							<ul id="pbblas-types-layout_norm" class="accordian-body tree collapse">
 								
 							</ul>

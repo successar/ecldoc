@@ -67,18 +67,30 @@
 				</section>
 				<section id="ecldoc-section-tree">
 					<h3 class="page-header">DEFINITION TREE</h3>
-					<ul class="tree">
+					<ul class="tree" style="padding : 0px;">
 						{% for def in src.findall('./Definition') recursive -%}
 						<li id="t-{{ def.attrib['fullname'] }}">
-							{% if def.findall('./Definition') %}
-							<a href="#{{ def.attrib['fullname'] }}" data-toggle="collapse" class="glyphicon glyphicon-folder-open" style="margin-right: 6px;"></a>
-							{% else %}
-							<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
-							{% endif %}
-							<a href="#d{{ def.attrib['fullname'] }}">
-								{{ def.find('./Type').text.upper() }} :
-								<span class="sign-name">{{ def.find('./Signature').attrib['name'] }}</span>
-							</a>
+							<div class="tree-sign">
+								<div class="tree-head">
+								{% if def.findall('./Definition') %}
+								<a href="#{{ def.attrib['fullname'] }}" data-toggle="collapse" class="glyphicon glyphicon-folder-open" style="margin-right: 6px;"></a>
+								{% else %}
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								{% endif %}
+								<a href="#d{{ def.attrib['fullname'] }}">
+									<span class="tree-type">{{ def.find('./Type').text.upper() }} : </span>
+									{{ def.find('./Signature').attrib['name'] }}
+								</a>
+								</div>
+
+								{% if def.find('./Documentation') %}
+								{% if def.find('./Documentation').findall('./firstline') -%}
+								<div class="tree-desc">
+								{{ def.find('./Documentation').find('./firstline').text }}
+								</div>
+								{% endif %}
+								{% endif %}
+							</div>
 							<ul id="{{ def.attrib['fullname'] }}" class="accordian-body tree collapse">
 								{{ loop(def.findall('./Definition')) }}
 							</ul>

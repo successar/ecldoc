@@ -41,19 +41,11 @@
 				</li>
 				
 				<li>
-					<a href="converted.ecl.html">converted.ecl</a>
+					<a href="types.ecl.html">types.ecl</a>
 				</li>
 				
 				<li>
-					<a href="getrf.ecl.html">getrf.ecl</a>
-				</li>
-				
-				<li>
-					<a href="extracttri.ecl.html">extracttri.ecl</a>
-				</li>
-				
-				<li>
-					<a href="scal.ecl.html">scal.ecl</a>
+					<a href="matutils.ecl.html">matutils.ecl</a>
 				</li>
 				
 				<li>
@@ -61,15 +53,15 @@
 				</li>
 				
 				<li>
-					<a href="tran.ecl.html">tran.ecl</a>
+					<a href="getrf.ecl.html">getrf.ecl</a>
 				</li>
 				
 				<li>
-					<a href="constants.ecl.html">constants.ecl</a>
+					<a href="gemm.ecl.html">gemm.ecl</a>
 				</li>
 				
 				<li>
-					<a href="axpy.ecl.html">axpy.ecl</a>
+					<a href="extracttri.ecl.html">extracttri.ecl</a>
 				</li>
 				
 				<li>
@@ -77,11 +69,15 @@
 				</li>
 				
 				<li>
+					<a href="constants.ecl.html">constants.ecl</a>
+				</li>
+				
+				<li>
 					<a href="asum.ecl.html">asum.ecl</a>
 				</li>
 				
 				<li>
-					<a href="apply2elements.ecl.html">apply2elements.ecl</a>
+					<a href="converted.ecl.html">converted.ecl</a>
 				</li>
 				
 				<li>
@@ -93,15 +89,19 @@
 				</li>
 				
 				<li>
-					<a href="types.ecl.html">types.ecl</a>
+					<a href="scal.ecl.html">scal.ecl</a>
 				</li>
 				
 				<li>
-					<a href="matutils.ecl.html">matutils.ecl</a>
+					<a href="tran.ecl.html">tran.ecl</a>
 				</li>
 				
 				<li>
-					<a href="gemm.ecl.html">gemm.ecl</a>
+					<a href="apply2elements.ecl.html">apply2elements.ecl</a>
+				</li>
+				
+				<li>
+					<a href="axpy.ecl.html">axpy.ecl</a>
 				</li>
 				
 				<li>
@@ -117,20 +117,6 @@
 					<table class="table table-condensed">
 						
 						<tr>
-							<td>DependsOn</td>
-							<td>
-								ML_Core
-							</td>
-						</tr>
-						
-						<tr>
-							<td>Description</td>
-							<td>
-								Parallel Block Basic Linear Algebra Subsystem
-							</td>
-						</tr>
-						
-						<tr>
 							<td>Version</td>
 							<td>
 								3.0.1
@@ -138,16 +124,9 @@
 						</tr>
 						
 						<tr>
-							<td>License</td>
+							<td>DependsOn</td>
 							<td>
-								http://www.apache.org/licenses/LICENSE-2.0
-							</td>
-						</tr>
-						
-						<tr>
-							<td>Name</td>
-							<td>
-								PBblas
+								ML_Core
 							</td>
 						</tr>
 						
@@ -159,9 +138,9 @@
 						</tr>
 						
 						<tr>
-							<td>Platform</td>
+							<td>Name</td>
 							<td>
-								6.2.0
+								PBblas
 							</td>
 						</tr>
 						
@@ -169,6 +148,27 @@
 							<td>Authors</td>
 							<td>
 								HPCCSystems
+							</td>
+						</tr>
+						
+						<tr>
+							<td>Description</td>
+							<td>
+								Parallel Block Basic Linear Algebra Subsystem
+							</td>
+						</tr>
+						
+						<tr>
+							<td>Platform</td>
+							<td>
+								6.2.0
+							</td>
+						</tr>
+						
+						<tr>
+							<td>License</td>
+							<td>
+								http://www.apache.org/licenses/LICENSE-2.0
 							</td>
 						</tr>
 						
@@ -185,8 +185,8 @@
 									<span class="glyphicon glyphicon-file"></span>
 									
 								</td>
-								<td><a href="converted.ecl.html">converted.ecl</a></td>
-								<td>Module to convert between ML_Core/Types Field layouts (i.e</td>
+								<td><a href="types.ecl.html">types.ecl</a></td>
+								<td>Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes</td>
 							</tr>
 							
 							<tr>
@@ -195,28 +195,8 @@
 									<span class="glyphicon glyphicon-file"></span>
 									
 								</td>
-								<td><a href="getrf.ecl.html">getrf.ecl</a></td>
-								<td>LU Factorization Splits a matrix into Lower and Upper triangular factors Produces composite LU matrix for the diagonal blocks</td>
-							</tr>
-							
-							<tr>
-								<td>
-									
-									<span class="glyphicon glyphicon-file"></span>
-									
-								</td>
-								<td><a href="extracttri.ecl.html">extracttri.ecl</a></td>
-								<td>Extract the upper or lower triangle from the composite output from getrf (LU Factorization)</td>
-							</tr>
-							
-							<tr>
-								<td>
-									
-									<span class="glyphicon glyphicon-file"></span>
-									
-								</td>
-								<td><a href="scal.ecl.html">scal.ecl</a></td>
-								<td>Scale a matrix by a constant Result is alpha * X This supports a "myriad" style interface in that X may be a set of independent matrices separated by different work-item ids</td>
+								<td><a href="matutils.ecl.html">matutils.ecl</a></td>
+								<td>Provides various utility attributes for manipulating cell-based matrixes</td>
 							</tr>
 							
 							<tr>
@@ -235,8 +215,8 @@
 									<span class="glyphicon glyphicon-file"></span>
 									
 								</td>
-								<td><a href="tran.ecl.html">tran.ecl</a></td>
-								<td>Transpose a matrix and sum into base matrix</td>
+								<td><a href="getrf.ecl.html">getrf.ecl</a></td>
+								<td>LU Factorization Splits a matrix into Lower and Upper triangular factors Produces composite LU matrix for the diagonal blocks</td>
 							</tr>
 							
 							<tr>
@@ -245,8 +225,8 @@
 									<span class="glyphicon glyphicon-file"></span>
 									
 								</td>
-								<td><a href="constants.ecl.html">constants.ecl</a></td>
-								<td></td>
+								<td><a href="gemm.ecl.html">gemm.ecl</a></td>
+								<td>Extended Parallel Block Matrix Multiplication Module Implements: Result </td>
 							</tr>
 							
 							<tr>
@@ -255,8 +235,8 @@
 									<span class="glyphicon glyphicon-file"></span>
 									
 								</td>
-								<td><a href="axpy.ecl.html">axpy.ecl</a></td>
-								<td>Implements alpha*X + Y</td>
+								<td><a href="extracttri.ecl.html">extracttri.ecl</a></td>
+								<td>Extract the upper or lower triangle from the composite output from getrf (LU Factorization)</td>
 							</tr>
 							
 							<tr>
@@ -275,6 +255,16 @@
 									<span class="glyphicon glyphicon-file"></span>
 									
 								</td>
+								<td><a href="constants.ecl.html">constants.ecl</a></td>
+								<td></td>
+							</tr>
+							
+							<tr>
+								<td>
+									
+									<span class="glyphicon glyphicon-file"></span>
+									
+								</td>
 								<td><a href="asum.ecl.html">asum.ecl</a></td>
 								<td>Absolute sum -- the "Entrywise" 1-norm</td>
 							</tr>
@@ -285,8 +275,8 @@
 									<span class="glyphicon glyphicon-file"></span>
 									
 								</td>
-								<td><a href="apply2elements.ecl.html">apply2elements.ecl</a></td>
-								<td>Apply a function to each element of the matrix Use PBblas.IElementFunc as the prototype function</td>
+								<td><a href="converted.ecl.html">converted.ecl</a></td>
+								<td>Module to convert between ML_Core/Types Field layouts (i.e</td>
 							</tr>
 							
 							<tr>
@@ -315,8 +305,8 @@
 									<span class="glyphicon glyphicon-file"></span>
 									
 								</td>
-								<td><a href="types.ecl.html">types.ecl</a></td>
-								<td>Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes</td>
+								<td><a href="scal.ecl.html">scal.ecl</a></td>
+								<td>Scale a matrix by a constant Result is alpha * X This supports a "myriad" style interface in that X may be a set of independent matrices separated by different work-item ids</td>
 							</tr>
 							
 							<tr>
@@ -325,8 +315,8 @@
 									<span class="glyphicon glyphicon-file"></span>
 									
 								</td>
-								<td><a href="matutils.ecl.html">matutils.ecl</a></td>
-								<td>Provides various utility attributes for manipulating cell-based matrixes</td>
+								<td><a href="tran.ecl.html">tran.ecl</a></td>
+								<td>Transpose a matrix and sum into base matrix</td>
 							</tr>
 							
 							<tr>
@@ -335,8 +325,18 @@
 									<span class="glyphicon glyphicon-file"></span>
 									
 								</td>
-								<td><a href="gemm.ecl.html">gemm.ecl</a></td>
-								<td>Extended Parallel Block Matrix Multiplication Module Implements: Result </td>
+								<td><a href="apply2elements.ecl.html">apply2elements.ecl</a></td>
+								<td>Apply a function to each element of the matrix Use PBblas.IElementFunc as the prototype function</td>
+							</tr>
+							
+							<tr>
+								<td>
+									
+									<span class="glyphicon glyphicon-file"></span>
+									
+								</td>
+								<td><a href="axpy.ecl.html">axpy.ecl</a></td>
+								<td>Implements alpha*X + Y</td>
 							</tr>
 							
 							<tr>

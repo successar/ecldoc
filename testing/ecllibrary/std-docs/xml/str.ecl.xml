@@ -9,7 +9,7 @@
    <Definition body="1178" end="1241" exported="1" fullname="str.compareignorecase" inherit_type="local" line="31" name="CompareIgnoreCase" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl" start="1116">
     <Type>function</Type>
     <Documentation>
-     <param><name>src1</name><desc>The first string to be compared.</desc></param><param><name>src2</name><desc>The second string to be compared.</desc></param><see>Str.EqualIgnoreCase</see><content>Compares the two strings case insensitively. Returns a negative integer, zero, or a positive integer according to whether the first string is less than, equal to, or greater than the second.</content><firstline>Compares the two strings case insensitively</firstline></Documentation>
+     <firstline>Compares the two strings case insensitively</firstline><content>Compares the two strings case insensitively. Returns a negative integer, zero, or a positive integer according to whether the first string is less than, equal to, or greater than the second.</content><param><name>src1</name><desc>The first string to be compared.</desc></param><param><name>src2</name><desc>The second string to be compared.</desc></param><see>Str.EqualIgnoreCase</see></Documentation>
     <Signature sign="INTEGER4 CompareIgnoreCase(STRING src1, STRING src2)" name="CompareIgnoreCase">INTEGER4 CompareIgnoreCase(STRING src1, STRING src2)</Signature><Params>
      <Param name="src1"/>
      <Param name="src2"/>
@@ -18,7 +18,7 @@
    <Definition body="1552" end="1587" exported="1" fullname="str.equalignorecase" inherit_type="local" line="42" name="EqualIgnoreCase" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl" start="1493">
     <Type>function</Type>
     <Documentation>
-     <param><name>src1</name><desc>The first string to be compared.</desc></param><param><name>src2</name><desc>The second string to be compared.</desc></param><see>Str.CompareIgnoreCase</see><content>Tests whether the two strings are identical ignoring differences in case.</content><firstline>Tests whether the two strings are identical ignoring differences in case</firstline></Documentation>
+     <firstline>Tests whether the two strings are identical ignoring differences in case</firstline><content>Tests whether the two strings are identical ignoring differences in case.</content><param><name>src1</name><desc>The first string to be compared.</desc></param><param><name>src2</name><desc>The second string to be compared.</desc></param><see>Str.CompareIgnoreCase</see></Documentation>
     <Signature sign="BOOLEAN EqualIgnoreCase(STRING src1, STRING src2)" name="EqualIgnoreCase">BOOLEAN EqualIgnoreCase(STRING src1, STRING src2)</Signature><Params>
      <Param name="src1"/>
      <Param name="src2"/>
@@ -27,7 +27,7 @@
    <Definition body="2065" end="2126" exported="1" fullname="str.find" inherit_type="local" line="54" name="Find" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl" start="1990">
     <Type>function</Type>
     <Documentation>
-     <param><name>src</name><desc>The string that is searched</desc></param><param><name>sought</name><desc>The string being sought.</desc></param><param><name>instance</name><desc>Which match instance are we interested in?</desc></param><content>Returns the character position of the nth match of the search string with the first string. If no match is found the attribute returns 0. If an instance is omitted the position of the first instance is returned.</content><firstline>Returns the character position of the nth match of the search string with the first string</firstline></Documentation>
+     <firstline>Returns the character position of the nth match of the search string with the first string</firstline><content>Returns the character position of the nth match of the search string with the first string. If no match is found the attribute returns 0. If an instance is omitted the position of the first instance is returned.</content><param><name>src</name><desc>The string that is searched</desc></param><param><name>sought</name><desc>The string being sought.</desc></param><param><name>instance</name><desc>Which match instance are we interested in?</desc></param></Documentation>
     <Signature sign="UNSIGNED4 Find(STRING src, STRING sought, UNSIGNED4 instance = 1)" name="Find">UNSIGNED4 Find(STRING src, STRING sought, UNSIGNED4 instance = 1)</Signature><Params>
      <Param name="src"/>
      <Param name="sought"/>
@@ -37,7 +37,7 @@
    <Definition body="2379" end="2433" exported="1" fullname="str.findcount" inherit_type="local" line="64" name="FindCount" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl" start="2323">
     <Type>function</Type>
     <Documentation>
-     <param><name>src</name><desc>The string that is searched</desc></param><param><name>sought</name><desc>The string being sought.</desc></param><content>Returns the number of occurences of the second string within the first string.</content><firstline>Returns the number of occurences of the second string within the first string</firstline></Documentation>
+     <firstline>Returns the number of occurences of the second string within the first string</firstline><content>Returns the number of occurences of the second string within the first string.</content><param><name>src</name><desc>The string that is searched</desc></param><param><name>sought</name><desc>The string being sought.</desc></param></Documentation>
     <Signature sign="UNSIGNED4 FindCount(STRING src, STRING sought)" name="FindCount">UNSIGNED4 FindCount(STRING src, STRING sought)</Signature><Params>
      <Param name="src"/>
      <Param name="sought"/>
@@ -46,7 +46,7 @@
    <Definition body="2857" end="2933" exported="1" fullname="str.wildmatch" inherit_type="local" line="75" name="WildMatch" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl" start="2780">
     <Type>function</Type>
     <Documentation>
-     <param><name>src</name><desc>The string that is being tested.</desc></param><param><name>pattern</name><desc>The pattern to match against.</desc></param><param><name>ignore_case</name><desc>Whether to ignore differences in case between characters</desc></param><content>Tests if the search string matches the pattern. The pattern can contain wildcards '?' (single character) and '*' (multiple character).</content><firstline>Tests if the search string matches the pattern</firstline></Documentation>
+     <firstline>Tests if the search string matches the pattern</firstline><content>Tests if the search string matches the pattern. The pattern can contain wildcards '?' (single character) and '*' (multiple character).</content><param><name>src</name><desc>The string that is being tested.</desc></param><param><name>pattern</name><desc>The pattern to match against.</desc></param><param><name>ignore_case</name><desc>Whether to ignore differences in case between characters</desc></param></Documentation>
     <Signature sign="BOOLEAN WildMatch(STRING src, STRING _pattern, BOOLEAN ignore_case)" name="WildMatch">BOOLEAN WildMatch(STRING src, STRING _pattern, BOOLEAN ignore_case)</Signature><Params>
      <Param name="src"/>
      <Param name="_pattern"/>
@@ -56,7 +56,7 @@
    <Definition body="3409" end="3479" exported="1" fullname="str.contains" inherit_type="local" line="87" name="Contains" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl" start="3333">
     <Type>function</Type>
     <Documentation>
-     <param><name>src</name><desc>The string that is being tested.</desc></param><param><name>pattern</name><desc>The pattern to match against.</desc></param><param><name>ignore_case</name><desc>Whether to ignore differences in case between characters</desc></param><content>Tests if the search string contains each of the characters in the pattern. If the pattern contains duplicate characters those characters will match once for each occurence in the pattern.</content><firstline>Tests if the search string contains each of the characters in the pattern</firstline></Documentation>
+     <firstline>Tests if the search string contains each of the characters in the pattern</firstline><content>Tests if the search string contains each of the characters in the pattern. If the pattern contains duplicate characters those characters will match once for each occurence in the pattern.</content><param><name>src</name><desc>The string that is being tested.</desc></param><param><name>pattern</name><desc>The pattern to match against.</desc></param><param><name>ignore_case</name><desc>Whether to ignore differences in case between characters</desc></param></Documentation>
     <Signature sign="BOOLEAN Contains(STRING src, STRING _pattern, BOOLEAN ignore_case)" name="Contains">BOOLEAN Contains(STRING src, STRING _pattern, BOOLEAN ignore_case)</Signature><Params>
      <Param name="src"/>
      <Param name="_pattern"/>
@@ -66,7 +66,7 @@
    <Definition body="3804" end="3858" exported="1" fullname="str.filterout" inherit_type="local" line="98" name="FilterOut" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl" start="3751">
     <Type>function</Type>
     <Documentation>
-     <param><name>src</name><desc>The string that is being tested.</desc></param><param><name>filter</name><desc>The string containing the set of characters to be excluded.</desc></param><see>Str.Filter</see><content>Returns the first string with all characters within the second string removed.</content><firstline>Returns the first string with all characters within the second string removed</firstline></Documentation>
+     <firstline>Returns the first string with all characters within the second string removed</firstline><content>Returns the first string with all characters within the second string removed.</content><param><name>src</name><desc>The string that is being tested.</desc></param><param><name>filter</name><desc>The string containing the set of characters to be excluded.</desc></param><see>Str.Filter</see></Documentation>
     <Signature sign="STRING FilterOut(STRING src, STRING filter)" name="FilterOut">STRING FilterOut(STRING src, STRING filter)</Signature><Params>
      <Param name="src"/>
      <Param name="filter"/>
@@ -75,7 +75,7 @@
    <Definition body="4187" end="4238" exported="1" fullname="str.filter" inherit_type="local" line="108" name="Filter" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl" start="4137">
     <Type>function</Type>
     <Documentation>
-     <param><name>src</name><desc>The string that is being tested.</desc></param><param><name>filter</name><desc>The string containing the set of characters to be included.</desc></param><see>Str.FilterOut</see><content>Returns the first string with all characters not within the second string removed.</content><firstline>Returns the first string with all characters not within the second string removed</firstline></Documentation>
+     <firstline>Returns the first string with all characters not within the second string removed</firstline><content>Returns the first string with all characters not within the second string removed.</content><param><name>src</name><desc>The string that is being tested.</desc></param><param><name>filter</name><desc>The string containing the set of characters to be included.</desc></param><see>Str.FilterOut</see></Documentation>
     <Signature sign="STRING Filter(STRING src, STRING filter)" name="Filter">STRING Filter(STRING src, STRING filter)</Signature><Params>
      <Param name="src"/>
      <Param name="filter"/>
@@ -84,7 +84,7 @@
    <Definition body="4800" end="4874" exported="1" fullname="str.substituteincluded" inherit_type="local" line="121" name="SubstituteIncluded" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl" start="4716">
     <Type>function</Type>
     <Documentation>
-     <param><name>src</name><desc>The string that is being tested.</desc></param><param><name>filter</name><desc>The string containing the set of characters to be included.</desc></param><param><name>replace_char</name><desc>The character to be substituted into the result.</desc></param><see>Std.Str.Translate, Std.Str.SubstituteExcluded</see><content>Returns the source string with the replacement character substituted for all characters included in the filter string. MORE: Should this be a general string substitution?</content><firstline>Returns the source string with the replacement character substituted for all characters included in the filter string</firstline></Documentation>
+     <firstline>Returns the source string with the replacement character substituted for all characters included in the filter string</firstline><content>Returns the source string with the replacement character substituted for all characters included in the filter string. MORE: Should this be a general string substitution?</content><param><name>src</name><desc>The string that is being tested.</desc></param><param><name>filter</name><desc>The string containing the set of characters to be included.</desc></param><param><name>replace_char</name><desc>The character to be substituted into the result.</desc></param><see>Std.Str.Translate, Std.Str.SubstituteExcluded</see></Documentation>
     <Signature sign="STRING SubstituteIncluded(STRING src, STRING filter, STRING1 replace_char)" name="SubstituteIncluded">STRING SubstituteIncluded(STRING src, STRING filter, STRING1 replace_char)</Signature><Params>
      <Param name="src"/>
      <Param name="Filter"/>
@@ -94,7 +94,7 @@
    <Definition body="5421" end="5492" exported="1" fullname="str.substituteexcluded" inherit_type="local" line="135" name="SubstituteExcluded" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl" start="5337">
     <Type>function</Type>
     <Documentation>
-     <param><name>src</name><desc>The string that is being tested.</desc></param><param><name>filter</name><desc>The string containing the set of characters to be included.</desc></param><param><name>replace_char</name><desc>The character to be substituted into the result.</desc></param><see>Std.Str.SubstituteIncluded</see><content>Returns the source string with the replacement character substituted for all characters not included in the filter string. MORE: Should this be a general string substitution?</content><firstline>Returns the source string with the replacement character substituted for all characters not included in the filter string</firstline></Documentation>
+     <firstline>Returns the source string with the replacement character substituted for all characters not included in the filter string</firstline><content>Returns the source string with the replacement character substituted for all characters not included in the filter string. MORE: Should this be a general string substitution?</content><param><name>src</name><desc>The string that is being tested.</desc></param><param><name>filter</name><desc>The string containing the set of characters to be included.</desc></param><param><name>replace_char</name><desc>The character to be substituted into the result.</desc></param><see>Std.Str.SubstituteIncluded</see></Documentation>
     <Signature sign="STRING SubstituteExcluded(STRING src, STRING filter, STRING1 replace_char)" name="SubstituteExcluded">STRING SubstituteExcluded(STRING src, STRING filter, STRING1 replace_char)</Signature><Params>
      <Param name="src"/>
      <Param name="Filter"/>
@@ -104,7 +104,7 @@
    <Definition body="6143" end="6212" exported="1" fullname="str.translate" inherit_type="local" line="149" name="Translate" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl" start="6070">
     <Type>function</Type>
     <Documentation>
-     <param><name>src</name><desc>The string that is being tested.</desc></param><param><name>search</name><desc>The string containing the set of characters to be included.</desc></param><param><name>replacement</name><desc>The string containing the characters to act as replacements.</desc></param><see>Std.Str.SubstituteIncluded</see><content>Returns the source string with the all characters that match characters in the search string replaced with the character at the corresponding position in the replacement string.</content><firstline>Returns the source string with the all characters that match characters in the search string replaced with the character at the corresponding position in the replacement string</firstline></Documentation>
+     <firstline>Returns the source string with the all characters that match characters in the search string replaced with the character at the corresponding position in the replacement string</firstline><content>Returns the source string with the all characters that match characters in the search string replaced with the character at the corresponding position in the replacement string.</content><param><name>src</name><desc>The string that is being tested.</desc></param><param><name>search</name><desc>The string containing the set of characters to be included.</desc></param><param><name>replacement</name><desc>The string containing the characters to act as replacements.</desc></param><see>Std.Str.SubstituteIncluded</see></Documentation>
     <Signature sign="STRING Translate(STRING src, STRING search, STRING replacement)" name="Translate">STRING Translate(STRING src, STRING search, STRING replacement)</Signature><Params>
      <Param name="src"/>
      <Param name="search"/>
@@ -114,7 +114,7 @@
    <Definition body="6413" end="6461" exported="1" fullname="str.tolowercase" inherit_type="local" line="158" name="ToLowerCase" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl" start="6373">
     <Type>function</Type>
     <Documentation>
-     <param><name>src</name><desc>The string that is being converted.</desc></param><content>Returns the argument string with all upper case characters converted to lower case.</content><firstline>Returns the argument string with all upper case characters converted to lower case</firstline></Documentation>
+     <firstline>Returns the argument string with all upper case characters converted to lower case</firstline><content>Returns the argument string with all upper case characters converted to lower case.</content><param><name>src</name><desc>The string that is being converted.</desc></param></Documentation>
     <Signature sign="STRING ToLowerCase(STRING src)" name="ToLowerCase">STRING ToLowerCase(STRING src)</Signature><Params>
      <Param name="src"/>
     </Params>
@@ -122,7 +122,7 @@
    <Definition body="6661" end="6709" exported="1" fullname="str.touppercase" inherit_type="local" line="166" name="ToUpperCase" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl" start="6621">
     <Type>function</Type>
     <Documentation>
-     <param><name>src</name><desc>The string that is being converted.</desc></param><content>Return the argument string with all lower case characters converted to upper case.</content><firstline>Return the argument string with all lower case characters converted to upper case</firstline></Documentation>
+     <firstline>Return the argument string with all lower case characters converted to upper case</firstline><content>Return the argument string with all lower case characters converted to upper case.</content><param><name>src</name><desc>The string that is being converted.</desc></param></Documentation>
     <Signature sign="STRING ToUpperCase(STRING src)" name="ToUpperCase">STRING ToUpperCase(STRING src)</Signature><Params>
      <Param name="src"/>
     </Params>
@@ -130,7 +130,7 @@
    <Definition body="7016" end="7066" exported="1" fullname="str.tocapitalcase" inherit_type="local" line="176" name="ToCapitalCase" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl" start="6974">
     <Type>function</Type>
     <Documentation>
-     <param><name>src</name><desc>The string that is being converted.</desc></param><content>Returns the argument string with the first letter of each word in upper case and all other letters left as-is. A contiguous sequence of alphanumeric characters is treated as a word.</content><firstline>Returns the argument string with the first letter of each word in upper case and all other letters left as-is</firstline></Documentation>
+     <firstline>Returns the argument string with the first letter of each word in upper case and all other letters left as-is</firstline><content>Returns the argument string with the first letter of each word in upper case and all other letters left as-is. A contiguous sequence of alphanumeric characters is treated as a word.</content><param><name>src</name><desc>The string that is being converted.</desc></param></Documentation>
     <Signature sign="STRING ToCapitalCase(STRING src)" name="ToCapitalCase">STRING ToCapitalCase(STRING src)</Signature><Params>
      <Param name="src"/>
     </Params>
@@ -138,7 +138,7 @@
    <Definition body="7371" end="7419" exported="1" fullname="str.totitlecase" inherit_type="local" line="186" name="ToTitleCase" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl" start="7331">
     <Type>function</Type>
     <Documentation>
-     <param><name>src</name><desc>The string that is being converted.</desc></param><content>Returns the argument string with the first letter of each word in upper case and all other letters lower case. A contiguous sequence of alphanumeric characters is treated as a word.</content><firstline>Returns the argument string with the first letter of each word in upper case and all other letters lower case</firstline></Documentation>
+     <firstline>Returns the argument string with the first letter of each word in upper case and all other letters lower case</firstline><content>Returns the argument string with the first letter of each word in upper case and all other letters lower case. A contiguous sequence of alphanumeric characters is treated as a word.</content><param><name>src</name><desc>The string that is being converted.</desc></param></Documentation>
     <Signature sign="STRING ToTitleCase(STRING src)" name="ToTitleCase">STRING ToTitleCase(STRING src)</Signature><Params>
      <Param name="src"/>
     </Params>
@@ -146,7 +146,7 @@
    <Definition body="7656" end="7700" exported="1" fullname="str.reverse" inherit_type="local" line="195" name="Reverse" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl" start="7620">
     <Type>function</Type>
     <Documentation>
-     <param><name>src</name><desc>The string that is being reversed.</desc></param><content>Returns the argument string with all characters in reverse order. Note the argument is not TRIMMED before it is reversed.</content><firstline>Returns the argument string with all characters in reverse order</firstline></Documentation>
+     <firstline>Returns the argument string with all characters in reverse order</firstline><content>Returns the argument string with all characters in reverse order. Note the argument is not TRIMMED before it is reversed.</content><param><name>src</name><desc>The string that is being reversed.</desc></param></Documentation>
     <Signature sign="STRING Reverse(STRING src)" name="Reverse">STRING Reverse(STRING src)</Signature><Params>
      <Param name="src"/>
     </Params>
@@ -154,7 +154,7 @@
    <Definition body="8081" end="8152" exported="1" fullname="str.findreplace" inherit_type="local" line="205" name="FindReplace" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl" start="8006">
     <Type>function</Type>
     <Documentation>
-     <param><name>src</name><desc>The string that is being transformed.</desc></param><param><name>sought</name><desc>The string to be replaced.</desc></param><param><name>replacement</name><desc>The string to be substituted into the result.</desc></param><content>Returns the source string with the replacement string substituted for all instances of the search string.</content><firstline>Returns the source string with the replacement string substituted for all instances of the search string</firstline></Documentation>
+     <firstline>Returns the source string with the replacement string substituted for all instances of the search string</firstline><content>Returns the source string with the replacement string substituted for all instances of the search string.</content><param><name>src</name><desc>The string that is being transformed.</desc></param><param><name>sought</name><desc>The string to be replaced.</desc></param><param><name>replacement</name><desc>The string to be substituted into the result.</desc></param></Documentation>
     <Signature sign="STRING FindReplace(STRING src, STRING sought, STRING replacement)" name="FindReplace">STRING FindReplace(STRING src, STRING sought, STRING replacement)</Signature><Params>
      <Param name="src"/>
      <Param name="sought"/>
@@ -164,7 +164,7 @@
    <Definition body="8412" end="8466" exported="1" fullname="str.extract" inherit_type="local" line="215" name="Extract" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl" start="8356">
     <Type>function</Type>
     <Documentation>
-     <param><name>src</name><desc>The string containing the comma separated list.</desc></param><param><name>instance</name><desc>Which item to select from the list.</desc></param><content>Returns the nth element from a comma separated string.</content><firstline>Returns the nth element from a comma separated string</firstline></Documentation>
+     <firstline>Returns the nth element from a comma separated string</firstline><content>Returns the nth element from a comma separated string.</content><param><name>src</name><desc>The string containing the comma separated list.</desc></param><param><name>instance</name><desc>Which item to select from the list.</desc></param></Documentation>
     <Signature sign="STRING Extract(STRING src, UNSIGNED4 instance)" name="Extract">STRING Extract(STRING src, UNSIGNED4 instance)</Signature><Params>
      <Param name="src"/>
      <Param name="instance"/>
@@ -173,7 +173,7 @@
    <Definition body="8813" end="8861" exported="1" fullname="str.cleanspaces" inherit_type="local" line="225" name="CleanSpaces" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl" start="8773">
     <Type>function</Type>
     <Documentation>
-     <param><name>src</name><desc>The string to be cleaned.</desc></param><content>Returns the source string with all instances of multiple adjacent space characters (2 or more spaces together) reduced to a single space character. Leading and trailing spaces are removed, and tab characters are converted to spaces.</content><firstline>Returns the source string with all instances of multiple adjacent space characters (2 or more spaces together) reduced to a single space character</firstline></Documentation>
+     <firstline>Returns the source string with all instances of multiple adjacent space characters (2 or more spaces together) reduced to a single space character</firstline><content>Returns the source string with all instances of multiple adjacent space characters (2 or more spaces together) reduced to a single space character. Leading and trailing spaces are removed, and tab characters are converted to spaces.</content><param><name>src</name><desc>The string to be cleaned.</desc></param></Documentation>
     <Signature sign="STRING CleanSpaces(STRING src)" name="CleanSpaces">STRING CleanSpaces(STRING src)</Signature><Params>
      <Param name="src"/>
     </Params>
@@ -181,7 +181,7 @@
    <Definition body="9269" end="9306" exported="1" fullname="str.startswith" inherit_type="local" line="236" name="StartsWith" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl" start="9214">
     <Type>function</Type>
     <Documentation>
-     <param><name>src</name><desc>The string being searched in.</desc></param><param><name>prefix</name><desc>The prefix to search for.</desc></param><content>Returns true if the prefix string matches the leading characters in the source string. Trailing spaces are stripped from the prefix before matching. // x.myString.StartsWith('x') as an alternative syntax would be even better</content><firstline>Returns true if the prefix string matches the leading characters in the source string</firstline></Documentation>
+     <firstline>Returns true if the prefix string matches the leading characters in the source string</firstline><content>Returns true if the prefix string matches the leading characters in the source string. Trailing spaces are stripped from the prefix before matching. // x.myString.StartsWith('x') as an alternative syntax would be even better</content><param><name>src</name><desc>The string being searched in.</desc></param><param><name>prefix</name><desc>The prefix to search for.</desc></param></Documentation>
     <Signature sign="BOOLEAN StartsWith(STRING src, STRING prefix)" name="StartsWith">BOOLEAN StartsWith(STRING src, STRING prefix)</Signature><Params>
      <Param name="src"/>
      <Param name="prefix"/>
@@ -190,7 +190,7 @@
    <Definition body="9635" end="9691" exported="1" fullname="str.endswith" inherit_type="local" line="245" name="EndsWith" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl" start="9582">
     <Type>function</Type>
     <Documentation>
-     <param><name>src</name><desc>The string being searched in.</desc></param><param><name>suffix</name><desc>The prefix to search for.</desc></param><content>Returns true if the suffix string matches the trailing characters in the source string. Trailing spaces are stripped from both strings before matching.</content><firstline>Returns true if the suffix string matches the trailing characters in the source string</firstline></Documentation>
+     <firstline>Returns true if the suffix string matches the trailing characters in the source string</firstline><content>Returns true if the suffix string matches the trailing characters in the source string. Trailing spaces are stripped from both strings before matching.</content><param><name>src</name><desc>The string being searched in.</desc></param><param><name>suffix</name><desc>The prefix to search for.</desc></param></Documentation>
     <Signature sign="BOOLEAN EndsWith(STRING src, STRING suffix)" name="EndsWith">BOOLEAN EndsWith(STRING src, STRING suffix)</Signature><Params>
      <Param name="src"/>
      <Param name="suffix"/>
@@ -199,7 +199,7 @@
    <Definition body="10015" end="10107" exported="1" fullname="str.removesuffix" inherit_type="local" line="255" name="RemoveSuffix" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl" start="9959">
     <Type>function</Type>
     <Documentation>
-     <param><name>src</name><desc>The string being searched in.</desc></param><param><name>suffix</name><desc>The prefix to search for.</desc></param><content>Removes the suffix from the search string, if present, and returns the result. Trailing spaces are stripped from both strings before matching.</content><firstline>Removes the suffix from the search string, if present, and returns the result</firstline></Documentation>
+     <firstline>Removes the suffix from the search string, if present, and returns the result</firstline><content>Removes the suffix from the search string, if present, and returns the result. Trailing spaces are stripped from both strings before matching.</content><param><name>src</name><desc>The string being searched in.</desc></param><param><name>suffix</name><desc>The prefix to search for.</desc></param></Documentation>
     <Signature sign="STRING RemoveSuffix(STRING src, STRING suffix)" name="RemoveSuffix">STRING RemoveSuffix(STRING src, STRING suffix)</Signature><Params>
      <Param name="src"/>
      <Param name="suffix"/>
@@ -208,7 +208,7 @@
    <Definition body="10441" end="10499" exported="1" fullname="str.extractmultiple" inherit_type="local" line="266" name="ExtractMultiple" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl" start="10381">
     <Type>function</Type>
     <Documentation>
-     <param><name>src</name><desc>The string containing the comma separated list.</desc></param><param><name>mask</name><desc>A bitmask of which elements should be included. Bit 0 is item1, bit1 item 2 etc.</desc></param><content>Returns a string containing a list of elements from a comma separated string.</content><firstline>Returns a string containing a list of elements from a comma separated string</firstline></Documentation>
+     <firstline>Returns a string containing a list of elements from a comma separated string</firstline><content>Returns a string containing a list of elements from a comma separated string.</content><param><name>src</name><desc>The string containing the comma separated list.</desc></param><param><name>mask</name><desc>A bitmask of which elements should be included. Bit 0 is item1, bit1 item 2 etc.</desc></param></Documentation>
     <Signature sign="STRING ExtractMultiple(STRING src, UNSIGNED8 mask)" name="ExtractMultiple">STRING ExtractMultiple(STRING src, UNSIGNED8 mask)</Signature><Params>
      <Param name="src"/>
      <Param name="mask"/>
@@ -217,7 +217,7 @@
    <Definition body="10979" end="11044" exported="1" fullname="str.countwords" inherit_type="local" line="277" name="CountWords" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl" start="10890">
     <Type>function</Type>
     <Documentation>
-     <param><name>src</name><desc>The string being searched in.</desc></param><param><name>separator</name><desc>The string used to separate words</desc></param><param><name>allow_blank</name><desc>Indicates if empty/blank string items are included in the results.</desc></param><content>Returns the number of words that the string contains. Words are separated by one or more separator strings. No spaces are stripped from either string before matching.</content><firstline>Returns the number of words that the string contains</firstline></Documentation>
+     <firstline>Returns the number of words that the string contains</firstline><content>Returns the number of words that the string contains. Words are separated by one or more separator strings. No spaces are stripped from either string before matching.</content><param><name>src</name><desc>The string being searched in.</desc></param><param><name>separator</name><desc>The string used to separate words</desc></param><param><name>allow_blank</name><desc>Indicates if empty/blank string items are included in the results.</desc></param></Documentation>
     <Signature sign="UNSIGNED4 CountWords(STRING src, STRING separator, BOOLEAN allow_blank = FALSE)" name="CountWords">UNSIGNED4 CountWords(STRING src, STRING separator, BOOLEAN allow_blank = FALSE)</Signature><Params>
      <Param name="src"/>
      <Param name="separator"/>
@@ -227,7 +227,7 @@
    <Definition body="11527" end="11592" exported="1" fullname="str.splitwords" inherit_type="local" line="288" name="SplitWords" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl" start="11434">
     <Type>function</Type>
     <Documentation>
-     <param><name>src</name><desc>The string being searched in.</desc></param><param><name>separator</name><desc>The string used to separate words</desc></param><param><name>allow_blank</name><desc>Indicates if empty/blank string items are included in the results.</desc></param><content>Returns the list of words extracted from the string. Words are separated by one or more separator strings. No spaces are stripped from either string before matching.</content><firstline>Returns the list of words extracted from the string</firstline></Documentation>
+     <firstline>Returns the list of words extracted from the string</firstline><content>Returns the list of words extracted from the string. Words are separated by one or more separator strings. No spaces are stripped from either string before matching.</content><param><name>src</name><desc>The string being searched in.</desc></param><param><name>separator</name><desc>The string used to separate words</desc></param><param><name>allow_blank</name><desc>Indicates if empty/blank string items are included in the results.</desc></param></Documentation>
     <Signature sign="SET OF STRING SplitWords(STRING src, STRING separator, BOOLEAN allow_blank = FALSE)" name="SplitWords">SET OF STRING SplitWords(STRING src, STRING separator, BOOLEAN allow_blank = FALSE)</Signature><Params>
      <Param name="src"/>
      <Param name="separator"/>
@@ -237,7 +237,7 @@
    <Definition body="11966" end="12022" exported="1" fullname="str.combinewords" inherit_type="local" line="299" name="CombineWords" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl" start="11898">
     <Type>function</Type>
     <Documentation>
-     <param><name>words</name><desc>The set of strings to be combined.</desc></param><param><name>separator</name><desc>The string used to separate words.</desc></param><content>Returns the list of words extracted from the string. Words are separated by one or more separator strings. No spaces are stripped from either string before matching.</content><firstline>Returns the list of words extracted from the string</firstline></Documentation>
+     <firstline>Returns the list of words extracted from the string</firstline><content>Returns the list of words extracted from the string. Words are separated by one or more separator strings. No spaces are stripped from either string before matching.</content><param><name>words</name><desc>The set of strings to be combined.</desc></param><param><name>separator</name><desc>The string used to separate words.</desc></param></Documentation>
     <Signature sign="STRING CombineWords(SET OF STRING words, STRING separator)" name="CombineWords">STRING CombineWords(SET OF STRING words, STRING separator)</Signature><Params>
      <Param name="words"/>
      <Param name="separator"/>
@@ -246,7 +246,7 @@
    <Definition body="12452" end="12511" exported="1" fullname="str.editdistance" inherit_type="local" line="311" name="EditDistance" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl" start="12391">
     <Type>function</Type>
     <Documentation>
-     <param><name>_left</name><desc>The first string to be compared.</desc></param><param><name>_right</name><desc>The second string to be compared.</desc></param><content>Returns the minimum edit distance between the two strings. An insert change or delete counts as a single edit. The two strings are trimmed before comparing.</content><firstline>Returns the minimum edit distance between the two strings</firstline><return>The minimum edit distance between the two strings.</return></Documentation>
+     <firstline>Returns the minimum edit distance between the two strings</firstline><return>The minimum edit distance between the two strings.</return><content>Returns the minimum edit distance between the two strings. An insert change or delete counts as a single edit. The two strings are trimmed before comparing.</content><param><name>_left</name><desc>The first string to be compared.</desc></param><param><name>_right</name><desc>The second string to be compared.</desc></param></Documentation>
     <Signature sign="UNSIGNED4 EditDistance(STRING _left, STRING _right)" name="EditDistance">UNSIGNED4 EditDistance(STRING _left, STRING _right)</Signature><Params>
      <Param name="_left"/>
      <Param name="_right"/>
@@ -255,7 +255,7 @@
    <Definition body="13043" end="13122" exported="1" fullname="str.editdistancewithinradius" inherit_type="local" line="324" name="EditDistanceWithinRadius" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl" start="12954">
     <Type>function</Type>
     <Documentation>
-     <param><name>_left</name><desc>The first string to be compared.</desc></param><param><name>_right</name><desc>The second string to be compared.</desc></param><param><name>radius</name><desc>The maximum edit distance that is accepable.</desc></param><content>Returns true if the minimum edit distance between the two strings is with a specific range. The two strings are trimmed before comparing.</content><firstline>Returns true if the minimum edit distance between the two strings is with a specific range</firstline><return>Whether or not the two strings are within the given specified edit distance.</return></Documentation>
+     <firstline>Returns true if the minimum edit distance between the two strings is with a specific range</firstline><return>Whether or not the two strings are within the given specified edit distance.</return><content>Returns true if the minimum edit distance between the two strings is with a specific range. The two strings are trimmed before comparing.</content><param><name>_left</name><desc>The first string to be compared.</desc></param><param><name>_right</name><desc>The second string to be compared.</desc></param><param><name>radius</name><desc>The maximum edit distance that is accepable.</desc></param></Documentation>
     <Signature sign="BOOLEAN EditDistanceWithinRadius(STRING _left, STRING _right, UNSIGNED4 radius)" name="EditDistanceWithinRadius">BOOLEAN EditDistanceWithinRadius(STRING _left, STRING _right, UNSIGNED4 radius)</Signature><Params>
      <Param name="_left"/>
      <Param name="_right"/>
@@ -265,7 +265,7 @@
    <Definition body="13388" end="13439" exported="1" fullname="str.wordcount" inherit_type="local" line="335" name="WordCount" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl" start="13346">
     <Type>function</Type>
     <Documentation>
-     <param><name>text</name><desc>The string to be broken into words.</desc></param><content>Returns the number of words in the string. Words are separated by one or more spaces.</content><firstline>Returns the number of words in the string</firstline><return>The number of words in the string.</return></Documentation>
+     <firstline>Returns the number of words in the string</firstline><return>The number of words in the string.</return><content>Returns the number of words in the string. Words are separated by one or more spaces.</content><param><name>text</name><desc>The string to be broken into words.</desc></param></Documentation>
     <Signature sign="UNSIGNED4 WordCount(STRING text)" name="WordCount">UNSIGNED4 WordCount(STRING text)</Signature><Params>
      <Param name="text"/>
     </Params>
@@ -273,7 +273,7 @@
    <Definition body="13784" end="13839" exported="1" fullname="str.getnthword" inherit_type="local" line="346" name="GetNthWord" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl" start="13731">
     <Type>function</Type>
     <Documentation>
-     <param><name>text</name><desc>The string to be broken into words.</desc></param><param><name>n</name><desc>Which word should be returned from the function.</desc></param><content>Returns the n-th word from the string. Words are separated by one or more spaces.</content><firstline>Returns the n-th word from the string</firstline><return>The number of words in the string.</return></Documentation>
+     <firstline>Returns the n-th word from the string</firstline><return>The number of words in the string.</return><content>Returns the n-th word from the string. Words are separated by one or more spaces.</content><param><name>text</name><desc>The string to be broken into words.</desc></param><param><name>n</name><desc>Which word should be returned from the function.</desc></param></Documentation>
     <Signature sign="STRING GetNthWord(STRING text, UNSIGNED4 n)" name="GetNthWord">STRING GetNthWord(STRING text, UNSIGNED4 n)</Signature><Params>
      <Param name="text"/>
      <Param name="n"/>
@@ -282,7 +282,7 @@
    <Definition body="14196" end="14251" exported="1" fullname="str.excludefirstword" inherit_type="local" line="357" name="ExcludeFirstWord" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl" start="14157">
     <Type>function</Type>
     <Documentation>
-     <param><name>text</name><desc>The string to be broken into words.</desc></param><content>Returns everything except the first word from the string. Words are separated by one or more whitespace characters. Whitespace before and after the first word is also removed.</content><firstline>Returns everything except the first word from the string</firstline><return>The string excluding the first word.</return></Documentation>
+     <firstline>Returns everything except the first word from the string</firstline><return>The string excluding the first word.</return><content>Returns everything except the first word from the string. Words are separated by one or more whitespace characters. Whitespace before and after the first word is also removed.</content><param><name>text</name><desc>The string to be broken into words.</desc></param></Documentation>
     <Signature sign="ExcludeFirstWord(STRING text)" name="ExcludeFirstWord">ExcludeFirstWord(STRING text)</Signature><Params>
      <Param name="text"/>
     </Params>
@@ -290,7 +290,7 @@
    <Definition body="14649" end="14702" exported="1" fullname="str.excludelastword" inherit_type="local" line="367" name="ExcludeLastWord" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl" start="14611">
     <Type>function</Type>
     <Documentation>
-     <param><name>text</name><desc>The string to be broken into words.</desc></param><content>Returns everything except the last word from the string. Words are separated by one or more whitespace characters. Whitespace after a word is removed with the word and leading whitespace is removed with the first word.</content><firstline>Returns everything except the last word from the string</firstline><return>The string excluding the last word.</return></Documentation>
+     <firstline>Returns everything except the last word from the string</firstline><return>The string excluding the last word.</return><content>Returns everything except the last word from the string. Words are separated by one or more whitespace characters. Whitespace after a word is removed with the word and leading whitespace is removed with the first word.</content><param><name>text</name><desc>The string to be broken into words.</desc></param></Documentation>
     <Signature sign="ExcludeLastWord(STRING text)" name="ExcludeLastWord">ExcludeLastWord(STRING text)</Signature><Params>
      <Param name="text"/>
     </Params>
@@ -298,7 +298,7 @@
    <Definition body="15183" end="15238" exported="1" fullname="str.excludenthword" inherit_type="local" line="378" name="ExcludeNthWord" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl" start="15133">
     <Type>function</Type>
     <Documentation>
-     <param><name>text</name><desc>The string to be broken into words.</desc></param><param><name>n</name><desc>Which word should be returned from the function.</desc></param><content>Returns everything except the nth word from the string. Words are separated by one or more whitespace characters. Whitespace after a word is removed with the word and leading whitespace is removed with the first word.</content><firstline>Returns everything except the nth word from the string</firstline><return>The string excluding the nth word.</return></Documentation>
+     <firstline>Returns everything except the nth word from the string</firstline><return>The string excluding the nth word.</return><content>Returns everything except the nth word from the string. Words are separated by one or more whitespace characters. Whitespace after a word is removed with the word and leading whitespace is removed with the first word.</content><param><name>text</name><desc>The string to be broken into words.</desc></param><param><name>n</name><desc>Which word should be returned from the function.</desc></param></Documentation>
     <Signature sign="ExcludeNthWord(STRING text, UNSIGNED2 n)" name="ExcludeNthWord">ExcludeNthWord(STRING text, UNSIGNED2 n)</Signature><Params>
      <Param name="text"/>
      <Param name="n"/>
@@ -307,7 +307,7 @@
    <Definition body="15596" end="15742" exported="1" fullname="str.findword" inherit_type="local" line="388" name="FindWord" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl" start="15518">
     <Type>function</Type>
     <Documentation>
-     <param><name>src</name><desc>The string that is being tested.</desc></param><param><name>word</name><desc>The word to be searched for.</desc></param><param><name>ignore_case</name><desc>Whether to ignore differences in case between characters.</desc></param><content>Tests if the search string contains the supplied word as a whole word.</content><firstline>Tests if the search string contains the supplied word as a whole word</firstline></Documentation>
+     <firstline>Tests if the search string contains the supplied word as a whole word</firstline><content>Tests if the search string contains the supplied word as a whole word.</content><param><name>src</name><desc>The string that is being tested.</desc></param><param><name>word</name><desc>The word to be searched for.</desc></param><param><name>ignore_case</name><desc>Whether to ignore differences in case between characters.</desc></param></Documentation>
     <Signature sign="BOOLEAN FindWord(STRING src, STRING word, BOOLEAN ignore_case=FALSE)" name="FindWord">BOOLEAN FindWord(STRING src, STRING word, BOOLEAN ignore_case=FALSE)</Signature><Params>
      <Param name="src"/>
      <Param name="word"/>
