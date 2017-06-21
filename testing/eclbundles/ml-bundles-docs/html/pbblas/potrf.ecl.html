@@ -43,35 +43,7 @@
 				</li>
 				
 				<li>
-					<a href="axpy.ecl.html">axpy.ecl</a>
-				</li>
-				
-				<li>
-					<a href="potrf.ecl.html">potrf.ecl</a>
-				</li>
-				
-				<li>
-					<a href="matutils.ecl.html">matutils.ecl</a>
-				</li>
-				
-				<li>
-					<a href="ielementfunc.ecl.html">ielementfunc.ecl</a>
-				</li>
-				
-				<li>
-					<a href="constants.ecl.html">constants.ecl</a>
-				</li>
-				
-				<li>
-					<a href="scal.ecl.html">scal.ecl</a>
-				</li>
-				
-				<li>
-					<a href="apply2elements.ecl.html">apply2elements.ecl</a>
-				</li>
-				
-				<li>
-					<a href="asum.ecl.html">asum.ecl</a>
+					<a href="converted.ecl.html">converted.ecl</a>
 				</li>
 				
 				<li>
@@ -79,19 +51,11 @@
 				</li>
 				
 				<li>
-					<a href="gemm.ecl.html">gemm.ecl</a>
+					<a href="extracttri.ecl.html">extracttri.ecl</a>
 				</li>
 				
 				<li>
-					<a href="types.ecl.html">types.ecl</a>
-				</li>
-				
-				<li>
-					<a href="converted.ecl.html">converted.ecl</a>
-				</li>
-				
-				<li>
-					<a href="hadamardproduct.ecl.html">hadamardproduct.ecl</a>
+					<a href="scal.ecl.html">scal.ecl</a>
 				</li>
 				
 				<li>
@@ -103,15 +67,51 @@
 				</li>
 				
 				<li>
-					<a href="extracttri.ecl.html">extracttri.ecl</a>
-				</li>
-				
-				<li>
 					<a href="bundle.ecl.html">bundle.ecl</a>
 				</li>
 				
 				<li>
+					<a href="constants.ecl.html">constants.ecl</a>
+				</li>
+				
+				<li>
+					<a href="axpy.ecl.html">axpy.ecl</a>
+				</li>
+				
+				<li>
 					<a href="trsm.ecl.html">trsm.ecl</a>
+				</li>
+				
+				<li>
+					<a href="asum.ecl.html">asum.ecl</a>
+				</li>
+				
+				<li>
+					<a href="apply2elements.ecl.html">apply2elements.ecl</a>
+				</li>
+				
+				<li>
+					<a href="ielementfunc.ecl.html">ielementfunc.ecl</a>
+				</li>
+				
+				<li>
+					<a href="hadamardproduct.ecl.html">hadamardproduct.ecl</a>
+				</li>
+				
+				<li>
+					<a href="types.ecl.html">types.ecl</a>
+				</li>
+				
+				<li>
+					<a href="matutils.ecl.html">matutils.ecl</a>
+				</li>
+				
+				<li>
+					<a href="gemm.ecl.html">gemm.ecl</a>
+				</li>
+				
+				<li>
+					<a href="potrf.ecl.html">potrf.ecl</a>
 				</li>
 				
 			</ul>
@@ -201,7 +201,7 @@
 							<div class="panel-body">
 								<div class="row">
 									<div class="col-md-12" style="padding-bottom: 10px;">
-										Implements Cholesky factorization of A = U**T * U if Triangular.Upper requested or A = L * L**T if Triangualr.Lower is requested. The matrix A must be symmetric positive definite. <pre><br/>  | A11   A12 |      |  L11   0   |    | L11**T     L21**T |<br/>  | A21   A22 |  ==  |  L21   L22 | *  |  0           L22  |<br/><br/>                     | L11*L11**T          L11*L21**T      |<br/>                 ==  | L21*L11**T  L21*L21**T + L22*L22**T |<br/> </pre> So, use Cholesky on the first block to get L11. L21 = A21*L11**T**-1 which can be found by dtrsm on each column block A22' is A22 - L21*L21**T <p> Based upon PB-BLAS: A set of parallel block basic linear algebra subprograms by Choi and Dongarra </p><p> This module supports the "Myriad" style interface, allowing many independent problems to be worked on at once. The A matrix can contain multiple matrixes to be factored, indicated by different values for work-item id (wi_id).</p>
+										Implements Cholesky factorization of A = U**T * U if Triangular.Upper requested or A = L * L**T if Triangualr.Lower is requested. The matrix A must be symmetric positive definite. <pre>  | A11   A12 |      |  L11   0   |    | L11**T     L21**T |<br/>  | A21   A22 |  ==  |  L21   L22 | *  |  0           L22  |<br/><br/>                     | L11*L11**T          L11*L21**T      |<br/>                 ==  | L21*L11**T  L21*L21**T + L22*L22**T |</pre> So, use Cholesky on the first block to get L11. L21 = A21*L11**T**-1 which can be found by dtrsm on each column block A22' is A22 - L21*L21**T <p> Based upon PB-BLAS: A set of parallel block basic linear algebra subprograms by Choi and Dongarra </p><p> This module supports the "Myriad" style interface, allowing many independent problems to be worked on at once. The A matrix can contain multiple matrixes to be factored, indicated by different values for work-item id (wi_id).</p>
 									</div>
 								</div>
 								

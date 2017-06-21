@@ -1,0 +1,302 @@
+<Meta>
+ <Source name="ML_Core.Tests.Validate_Gammas" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Tests/Validate_Gammas.ecl">
+  <Import body="0"
+          end="135"
+          fullname="ML_Core"
+          inherit_type="local"
+          line="3"
+          name="ML_Core"
+          ref="ML_Core"
+          start="135">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0"
+          end="158"
+          fullname="ML_Core.Math"
+          inherit_type="local"
+          line="4"
+          name="Math"
+          ref="ML_Core.Math"
+          remotescope="1"
+          start="158">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0"
+          end="179"
+          fullname="python"
+          inherit_type="local"
+          line="5"
+          name="python"
+          ref="python"
+          remotescope="1"
+          start="179">
+   <Type>attribute</Type>
+  </Import>
+  <Definition body="217"
+              end="314"
+              fullname="ml_core.tests.scipy_gamma"
+              inherit_type="local"
+              line="7"
+              name="scipy_gamma"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Tests/Validate_Gammas.ecl"
+              start="188">
+   <Type>embed</Type>
+   <Params>
+    <Param name="x"/>
+   </Params>
+  </Definition>
+  <Definition body="358"
+              end="486"
+              fullname="ml_core.tests.scipy_lowergamma"
+              inherit_type="local"
+              line="12"
+              name="scipy_lowerGamma"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Tests/Validate_Gammas.ecl"
+              start="315">
+   <Type>embed</Type>
+   <Params>
+    <Param name="x"/>
+    <Param name="z"/>
+   </Params>
+  </Definition>
+  <Definition body="530"
+              end="659"
+              fullname="ml_core.tests.scipy_uppergamma"
+              inherit_type="local"
+              line="17"
+              name="scipy_upperGamma"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Tests/Validate_Gammas.ecl"
+              start="487">
+   <Type>embed</Type>
+   <Params>
+    <Param name="x"/>
+    <Param name="z"/>
+   </Params>
+  </Definition>
+  <Definition body="679"
+              end="878"
+              fullname="ml_core.tests.tv"
+              inherit_type="local"
+              line="23"
+              name="tv"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Tests/Validate_Gammas.ecl"
+              start="661">
+   <Type>attribute</Type>
+  </Definition>
+  <Definition body="897"
+              end="944"
+              fullname="ml_core.tests.sv"
+              inherit_type="local"
+              line="27"
+              name="sv"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Tests/Validate_Gammas.ecl"
+              start="879">
+   <Type>attribute</Type>
+  </Definition>
+  <Definition body="961"
+              end="974"
+              fullname="ml_core.tests.epsilon"
+              inherit_type="local"
+              line="28"
+              name="epsilon"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Tests/Validate_Gammas.ecl"
+              start="945">
+   <Type>attribute</Type>
+  </Definition>
+  <Definition body="983"
+              end="1140"
+              fullname="ml_core.tests.work1"
+              inherit_type="local"
+              line="29"
+              name="Work1"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Tests/Validate_Gammas.ecl"
+              start="975">
+   <Type>record</Type>
+   <Field name="x"/>
+   <Field name="z"/>
+   <Field name="g"/>
+   <Field name="l"/>
+   <Field name="u"/>
+   <Field name="g_diff"/>
+   <Field name="l_diff"/>
+   <Field name="u_diff"/>
+   <Field name="py_g"/>
+   <Field name="py_l"/>
+   <Field name="py_u"/>
+  </Definition>
+  <Definition body="1169"
+              end="2094"
+              fullname="ml_core.tests.maket"
+              inherit_type="local"
+              line="43"
+              name="makeT"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Tests/Validate_Gammas.ecl"
+              start="1142">
+   <Type>transform</Type>
+   <Params>
+    <Param name="ts"/>
+   </Params>
+   <Return>work1</Return>
+  </Definition>
+  <Definition body="2140"
+              end="2440"
+              fullname="ml_core.tests.range_cat"
+              inherit_type="local"
+              line="66"
+              name="range_cat"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Tests/Validate_Gammas.ecl"
+              start="2095">
+   <Type>function</Type>
+   <Params>
+    <Param name="x"/>
+    <Param name="z"/>
+   </Params>
+  </Definition>
+  <Definition body="2472"
+              end="2786"
+              fullname="ml_core.tests.cat"
+              inherit_type="local"
+              line="76"
+              name="cat"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Tests/Validate_Gammas.ecl"
+              start="2441">
+   <Type>function</Type>
+   <Params>
+    <Param name="x"/>
+    <Param name="z"/>
+   </Params>
+  </Definition>
+  <Definition body="2799"
+              end="2845"
+              fullname="ml_core.tests.test_set"
+              inherit_type="local"
+              line="85"
+              name="test_set"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Tests/Validate_Gammas.ecl"
+              start="2788">
+   <Type>attribute</Type>
+  </Definition>
+  <Definition body="2859"
+              end="2906"
+              fullname="ml_core.tests.bad_result"
+              inherit_type="local"
+              line="86"
+              name="bad_result"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Tests/Validate_Gammas.ecl"
+              start="2846">
+   <Type>attribute</Type>
+  </Definition>
+  <Definition body="2918"
+              end="3363"
+              fullname="ml_core.tests.test_sum"
+              inherit_type="local"
+              line="87"
+              name="test_sum"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Tests/Validate_Gammas.ecl"
+              start="2907">
+   <Type>attribute</Type>
+  </Definition>
+  <Definition body="3381"
+              end="3427"
+              fullname="ml_core.tests.passed_action"
+              inherit_type="local"
+              line="97"
+              name="Passed_Action"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Tests/Validate_Gammas.ecl"
+              start="3365">
+   <Type>attribute</Type>
+  </Definition>
+  <Definition body="3444"
+              end="3957"
+              fullname="ml_core.tests.failed_action"
+              inherit_type="local"
+              line="98"
+              name="Failed_Action"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Tests/Validate_Gammas.ecl"
+              start="3428">
+   <Type>attribute</Type>
+  </Definition>
+  <Definition body="3985"
+              end="4097"
+              exported="1"
+              fullname="ml_core.tests.validate_gammas"
+              inherit_type="local"
+              line="110"
+              name="Validate_Gammas"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Tests/Validate_Gammas.ecl"
+              start="3960">
+   <Type>attribute</Type>
+  </Definition>
+ </Source>
+ <Source sourcePath="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/plugins/python.ecllib"/>
+ <Source name="ML_Core.Math.gamma" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Math/gamma.ecl">
+  <Definition body="209"
+              end="281"
+              exported="1"
+              fullname="ml_core.math.gamma"
+              inherit_type="local"
+              line="7"
+              name="gamma"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Math/gamma.ecl"
+              start="179">
+   <Type>embed</Type>
+   <Documentation>
+    <content>&#10;&#32;* Return the value of gamma function of real number x
+ * A wrapper for the standard C tgamma function.
+ *@param x the input x
+ *@return the value of GAMMA evaluated at x&#10;&#32;</content>
+   </Documentation>
+   <Params>
+    <Param name="x"/>
+   </Params>
+  </Definition>
+ </Source>
+ <Source name="ML_Core.Math.lowerGamma" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Math/lowerGamma.ecl">
+  <Definition body="258"
+              end="780"
+              exported="1"
+              fullname="ml_core.math.lowergamma"
+              inherit_type="local"
+              line="8"
+              name="lowerGamma"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Math/lowerGamma.ecl"
+              start="214">
+   <Type>embed</Type>
+   <Documentation>
+    <content>&#10;&#32;* Return the lower incomplete gamma value of two real numbers,
+ *  x and y
+ *@param x  the value of the first number
+ *@param y  the value of the second number
+ *@return   the lower incomplete gamma value&#10;&#32;</content>
+   </Documentation>
+   <Params>
+    <Param name="x"/>
+    <Param name="y"/>
+   </Params>
+  </Definition>
+ </Source>
+ <Source name="ML_Core.Math.upperGamma" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Math/upperGamma.ecl">
+  <Definition body="258"
+              end="784"
+              exported="1"
+              fullname="ml_core.math.uppergamma"
+              inherit_type="local"
+              line="8"
+              name="upperGamma"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Math/upperGamma.ecl"
+              start="214">
+   <Type>embed</Type>
+   <Documentation>
+    <content>&#10;&#32;* Return the upper incomplete gamma value of two real numbers,
+ * x and y.
+ *@param x  the value of the first number
+ *@param y  the value of the second number
+ *@return   the upper incomplete gamma value&#10;&#32;</content>
+   </Documentation>
+   <Params>
+    <Param name="x"/>
+    <Param name="y"/>
+   </Params>
+  </Definition>
+ </Source>
+</Meta>
