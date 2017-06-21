@@ -16,23 +16,24 @@ def doMain() :
     ecl_files = []
     if 'INPUT' in cfgparser.sections() :
         input_root = os.path.realpath(cfgparser['INPUT']['root'])
-        only_bundle = cfgparser['INPUT'].getboolean('bundle', fallback=True)
 
         include = []
         if 'include' in cfgparser['INPUT'] :
-            include = json.loads(cfgparser['INPUT']['include'])
+            include = [x.strip() for x in cfgparser['INPUT']['include'].split(',')]
         else :
-            include = ['/**/*.ecl']
+            include = ['**/*.ecl']
 
         for pattern in include :
-            filenames = glob.glob(input_root + pattern, recursive=True)
+            pattern = os.path.join(input_root, pattern)
+            filenames = glob.glob(pattern, recursive=True)
             filenames = [os.path.realpath(f) for f in filenames]
             ecl_files += [os.path.relpath(f, input_root) for f in filenames]
 
         if 'exclude' in cfgparser['INPUT'] :
-            exclude = json.loads(cfgparser['INPUT']['exclude'])
+            exclude = [x.strip() for x in cfgparser['INPUT']['exclude'].split(',')]
             for pattern in exclude :
-                filenames = glob.glob(input_root + pattern, recursive=True)
+                pattern = os.path.join(input_root, pattern)
+                filenames = glob.glob(pattern, recursive=True)
                 filenames = [os.path.realpath(f) for f in filenames]
                 filenames = [os.path.relpath(f, input_root) for f in filenames]
                 ecl_files = list(set(ecl_files) - set(filenames))
@@ -41,9 +42,9 @@ def doMain() :
         output_root = cfgparser['OUTPUT']['root']
         if not os.path.exists(output_root) :
             os.makedirs(output_root, exist_ok=True)
-        print(only_bundle)
-        genXML.genXML(input_root, output_root, ecl_files, only_bundle)
-        genHTML.GenHTML(input_root, output_root, ecl_files, only_bundle).genHTML()
+
+        genXML.genXML(input_root, output_root, ecl_files)
+        genHTML.GenHTML(input_root, output_root, ecl_files).genHTML()
 
 
 if __name__ == '__main__' :

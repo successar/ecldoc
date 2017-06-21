@@ -20,7 +20,12 @@
 				<a href="#menu-toggle" id="menu-toggle" class="navbar-brand glyphicon glyphicon-menu-hamburger ham"></a>
 			</div>
 			<div class="navbar-header" style="margin-left : 20px;">
-				<span class="navbar-brand">{{ name }}</span>
+				<span class="navbar-brand">
+				{% if bundle %}
+				BUNDLE :
+				{% endif %}
+				{{ name }}
+				</span>
 			</div>
 		</div>
 	</nav>
@@ -65,8 +70,10 @@
 								<td>
 									{% if d.type == 'file' %}
 									<span class="glyphicon glyphicon-file"></span>
+									{% elif d.type == 'bundle' %}
+									<span class="glyphicon glyphicon-briefcase"></span>
 									{% else %}
-									<span class="glyphicon glyphicon-folder-close"></span>
+									<span class="glyphicon glyphicon-folder-open"></span>
 									{% endif %}
 								</td>
 								<td><a href="{{ d.target }}">{{ d.name }}</a></td>

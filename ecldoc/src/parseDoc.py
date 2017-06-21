@@ -7,24 +7,28 @@ from collections import defaultdict
 def parseDocstring(docstring) :
 	docstring = re.sub(r'\n\s*\*', '\n', docstring)
 	docstring = re.sub(r'\r', ' ', docstring)
-	docstring = docstring.strip()
-	docstring = docstring.split('\n')
+	docstring = docstring.strip().split('\n')
+
 	docdict = defaultdict(list)
 	current_tag = 'content'
 	current_text = ''
 	for line in docstring :
 		is_tag = re.search(r'^\s*@', line)
 		if is_tag :
+			if current_tag == 'content' :
+				docdict['firstline'] = [findFirstLine(current_text)]
 			docdict[current_tag].append(current_text.strip())
-			line = line.lstrip()
-			line = re.split(r'\s', line, maxsplit=1)
+			line = re.split(r'\s', line.lstrip(), maxsplit=1)
 			tag = line[0][1:]
-			current_text = ''
 			text = line[1]
 			current_tag = tag
-			current_text += text + '\n'
+			current_text = text + '\n'
 		else :
 			current_text += line + '\n'
+
+
+	if current_tag == 'content' :
+		docdict['firstline'] = [findFirstLine(current_text)]
 	docdict[current_tag].append(current_text.strip())
 
 	for tag in docdict :
@@ -59,4 +63,11 @@ def removeWS(element) :
 
 		removeWS(e)
 
+def findFirstLine(current_text) :
+	split_1 = re.split(r'\.\s|\.$', current_text.strip(), maxsplit=1)
+	if len(split_1) == 2 :
+		return split_1[0]
+
+	split_2 = re.split(r'\n', current_text.strip(), maxsplit=1)
+	return split_2[0]
 

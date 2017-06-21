@@ -209,7 +209,7 @@ class ParseXML(object) :
 def check_if_modified(fpin, fpout) :
 	return os.path.exists(fpout) and os.path.getmtime(fpout) > os.path.getmtime(fpin)
 
-def genXML(input_root, output_root, ecl_files, only_bundle) :
+def genXML(input_root, output_root, ecl_files) :
 	xml_orig_root = os.path.join(output_root, 'xmlOriginal')
 	os.makedirs(xml_orig_root, exist_ok=True)
 
@@ -240,7 +240,6 @@ def genXML(input_root, output_root, ecl_files, only_bundle) :
 		else :
 			p = subprocess.call(['~/eclcc -M -o ' + xml_orig_file + ' ' + input_file], shell=True)
 			print("File : ", input_file, "Output Code : ", p)
-			print(input_file)
 			parser = ParseXML(input_root, output_root, ecl_file)
 			parser.parse()
 

@@ -102,7 +102,7 @@
 									{% if def.attrib['inherit_type'] != 'local' %}
 									<span class="inherit_type"> {{ def.attrib['inherit_type'].upper() }}</span>
 									{% endif %}
-									<a href="#ecldoc-section-tree" data-toggle="#t-{{ def.attrib['fullname'] }}" class="tree-link glyphicon glyphicon-chevron-up"></a>
+									<a href="#ecldoc-section-tree" data-toggle="#t-{{ def.attrib['fullname'] }}" class="tree-link glyphicon glyphicon-menu-up"></a>
 								</div>
 							</div>
 

@@ -69,13 +69,13 @@ class ParseHTML(object) :
 	def docstring(self) :
 		text = ''
 		if self.doc is not None :
-			content = self.doc.find('./content')
+			content = self.doc.find('./firstline')
 			if content is not None :
 				text = content.text
 		return text
 
 class GenHTML(object) :
-	def __init__(self, input_root, output_root, ecl_files, only_bundle) :
+	def __init__(self, input_root, output_root, ecl_files) :
 		self.input_root = input_root
 		self.output_root = output_root
 		self.ecl_files = ecl_files
@@ -84,7 +84,6 @@ class GenHTML(object) :
 		self.content_template = Template(open('/media/sarthak/Data/ecldoc/ecldoc/src/content.tpl').read())
 		self.toc_template = Template(open('/media/sarthak/Data/ecldoc/ecldoc/src/toc.tpl').read())
 		self.ecl_file_tree = genPathTree(ecl_files)
-		self.only_bundle = only_bundle
 
 	def gen(self, node, content_root) :
 		files = []
@@ -100,13 +99,13 @@ class GenHTML(object) :
 			else :
 				child = node[key]
 				file = { 'name' : key,'target': os.path.join(key, 'pkg.toc.html'), 'type': 'dir', 'doc' : '' }
-				files.append(file)
 
 				bundle = None
 				if 'bundle.ecl' in child :
 					bundle_xml_path = os.path.join(self.xml_root, os.path.dirname(child['bundle.ecl'].lower()), 'bundle.xml')
 					tree = etree.parse(bundle_xml_path)
 					bundle = tree.getroot()
+					file['type'] = 'bundle'
 
 				child_root = os.path.join(content_root, key)
 				root_relpath = os.path.relpath(self.output_root, child_root)
@@ -126,12 +125,13 @@ class GenHTML(object) :
 				fp.write(render)
 				fp.close()
 
+				files.append(file)
+
 		return files
 
 
 
 	def genHTML(self) :
-		self.filter_path_tree(self.ecl_file_tree['root'])
 		files = self.gen(self.ecl_file_tree['root'], self.html_root)
 		files = sorted(files, key=lambda x : x['type'])
 		render = self.toc_template.render(name='root',
@@ -148,14 +148,3 @@ class GenHTML(object) :
 		if os.path.exists(os.path.join(self.output_root, 'js')) :
 			shutil.rmtree(os.path.join(self.output_root, 'js'))
 		shutil.copytree('/media/sarthak/Data/ecldoc/ecldoc/src/js', os.path.join(self.output_root, 'js'))
-
-	def filter_path_tree(self, node) :
-		is_bundle = True if 'bundle.ecl' in node else False
-		keys = list(node.keys())
-		for key in keys :
-			if type(node[key]) == dict :
-				if is_bundle and self.only_bundle :
-					del node[key]
-				else :
-					self.filter_path_tree(node[key])
-
