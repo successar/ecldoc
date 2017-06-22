@@ -276,11 +276,11 @@ def genTOC(parent, root, output_root) :
 def parseBundle(bundle_orig_path, bundle_xml_path) :
 	data = open(bundle_orig_path).read().split('\n')
 	data = [x.split(':', 1) for x in data]
-	data = {x[0].strip() : x[1].strip() for x in data if len(x) == 2}
+	data = [(x[0].strip(), x[1].strip()) for x in data if len(x) == 2]
 	root = etree.Element("Bundle")
 	for k in data :
-		node = etree.Element(k)
-		node.text = data[k]
+		node = etree.Element(k[0])
+		node.text = k[1]
 		root.append(node)
 
 	os.makedirs(os.path.dirname(bundle_xml_path), exist_ok=True)
