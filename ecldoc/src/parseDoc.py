@@ -49,12 +49,6 @@ def removeWS(element) :
 	if element.tag == 'pre' :
 		lines = element.text.split('\n')
 		element.text = lines[0]
-		while len(element.text.strip()) == 0 :
-			del lines[0]
-			element.text = lines[0]
-
-		while len(lines[-1].strip()) == 0 :
-			del lines[-1]
 
 		for line in lines[1:] :
 			br = etree.Element('br')

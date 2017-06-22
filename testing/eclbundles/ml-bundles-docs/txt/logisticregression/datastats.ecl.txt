@@ -1,0 +1,23 @@
+IMPORTS
+=======
+
+
+logisticregression <pkg.toc.txt>
+logisticregression.types <types.ecl.txt>
+logisticregression.constants <constants.ecl.txt>
+ml_core.types <../ml_core/types.ecl.txt>
+
+DESCRIPTIONS
+============
+
+
+FUNCTION : DATASET(Types.Data_Info) DataStats(DATASET(Core_Types.NumericField) indep, DATASET(Core_Types.DiscreteField) dep, BOOLEAN field_details=FALSE) 
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Information about the datasets. Without details the range for the x and y (independent and dependent) columns. Note that a column of all zero values cannot be distinguished from a missing column. When details are requested, the cardinality, minimum, and maximum values are returned. A zero cardinality is returned when the field cardinality exceeds the Constants.limit_card value.
+
+Parameter : <indep> data set of independent variables
+
+Parameter : <dep> data set of dependent variables
+
+Parameter : <field_details> Boolean directive to provide field level info

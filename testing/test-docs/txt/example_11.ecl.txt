@@ -1,0 +1,33 @@
+IMPORTS
+=======
+
+
+inintest <inintest/pkg.toc.txt>
+example_3 <example_3.ecl.txt>
+intest.example_3 <intest/example_3.ecl.txt>
+intest.inintest.example_3 <intest/inintest/example_3.ecl.txt>
+inintest.example_3 <inintest/example_3.ecl.txt>
+
+DESCRIPTIONS
+============
+
+
+MODULE : example_11 
+-------------------
+
+Parent : inintest <inintest/pkg.toc.txt>
+    
+    MODULE : Example_3 | OVERRIDE
+    ------------------
+    
+    Link : <inintest/example_3.ecl.txt>
+        
+        MODULE : mod_1 
+        --------------
+        
+        Link : <inintest/example_3.ecl.txt>
+            
+            ATTRIBUTE : v2_m1_ex3 
+            ---------------------
+            
+            Link : <inintest/example_3.ecl.txt>

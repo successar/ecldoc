@@ -1,0 +1,38 @@
+IMPORTS
+=======
+
+
+pbblas <pkg.toc.txt>
+pbblas.types <types.ecl.txt>
+pbblas.internal <internal/pkg.toc.txt>
+pbblas.internal.types <internal/types.ecl.txt>
+std.blas </home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/BLAS.ecl>
+pbblas.internal.matdims <internal/matdims.ecl.txt>
+std.system.thorlib </home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/system/Thorlib.ecl>
+
+DESCRIPTIONS
+============
+
+
+FUNCTION : DATASET(Layout_Cell) gemm(BOOLEAN transposeA, BOOLEAN transposeB, value_t alpha, DATASET(Layout_Cell) A_in, DATASET(Layout_Cell) B_in, DATASET(Layout_Cell) C_in=emptyC, value_t beta=0.0) 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Extended Parallel Block Matrix Multiplication Module Implements: Result 
+
+Parameter : <transposeA> Boolean indicating whether matrix A should be transposed before multiplying
+
+Parameter : <transposeB> Same as above but for matrix B
+
+Parameter : <alpha> Scalar multiplier for alpha * A * B
+
+Parameter : <A_in> 'A' matrix (multiplier) in Layout_Cell format
+
+Parameter : <B_in> Same as above for the 'B' matrix (multiplicand)
+
+Parameter : <C_in> Same as above for the 'C' matrix (addend). May be omitted.
+
+Parameter : <beta> A scalar multiplier for beta * C, scales the C matrix before addition. May be omitted.
+
+Return : Result matrix in Layout_Cell format.
+
+See : PBblas/Types.Layout_Cell

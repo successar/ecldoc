@@ -141,6 +141,7 @@ class ParseXML(object) :
 		if len(split) != 2 :
 			sign.text = name
 
+		sign.text = re.sub(r'\s+', ' ', sign.text)
 		sign.attrib['sign'] = sign.text
 		sign.attrib['name'] = name
 		return sign

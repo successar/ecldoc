@@ -1,0 +1,22 @@
+IMPORTS
+=======
+
+
+logisticregression <pkg.toc.txt>
+logisticregression.types <types.ecl.txt>
+ml_core.types <../ml_core/types.ecl.txt>
+
+DESCRIPTIONS
+============
+
+
+FUNCTION : DATASET(Classify_Result) LogitPredict(DATASET(Model_Coef) coef, DATASET(NumericField) independents) 
+--------------------------------------------------------------------------------------------------------------
+
+Predict the category values with the logit function and the the supplied beta coefficients.
+
+Parameter : <coef> the model beta coefficients
+
+Parameter : <independents> the observations
+
+Return : the predicted category values and a confidence score

@@ -1,0 +1,76 @@
+IMPORTS
+=======
+
+
+
+DESCRIPTIONS
+============
+
+
+MODULE : example_2 
+------------------
+
+Basic Inheritance documentation : mod_3 inherits both mod_1 and mod_2 . Inherits v2_m1, v2_m2, Overrides v1_m1, new locals v2_m3 . Interface Inheritance : mod_4 inherits interface iface_1, overrides v1_i1
+    
+    RECORD : rec_1 
+    --------------
+    
+    RECORD : rec_2 
+    --------------
+    
+    RECORD : rec_3 
+    --------------
+    
+    MODULE : mod_1 
+    --------------
+        
+        ATTRIBUTE : real8 v1_m1 
+        -----------------------
+        
+        ATTRIBUTE : v2_m1 
+        -----------------
+    
+    MODULE : mod_2 
+    --------------
+        
+        ATTRIBUTE : v1_m1 
+        -----------------
+        
+        ATTRIBUTE : v2_m2 
+        -----------------
+    
+    MODULE : mod_3 
+    --------------
+    
+    Parent : intest.in1intest.example_2.mod_1 <example_2.ecl.txt>
+    
+    Parent : intest.in1intest.example_2.mod_2 <example_2.ecl.txt>
+        
+        ATTRIBUTE : v2_m1 | INHERITED
+        -----------------
+        
+        ATTRIBUTE : v2_m2 | INHERITED
+        -----------------
+        
+        ATTRIBUTE : v1_m1 | OVERRIDE
+        -----------------
+        
+        ATTRIBUTE : v2_m3 
+        -----------------
+    
+    INTERFACE : iface_1 
+    -------------------
+        
+        ATTRIBUTE : real8 v1_i1 
+        -----------------------
+    
+    MODULE : mod_4 
+    --------------
+    
+    Parent : intest.in1intest.example_2.iface_1 <example_2.ecl.txt>
+        
+        ATTRIBUTE : v1_i1 | OVERRIDE
+        -----------------
+        
+        ATTRIBUTE : STRING20 v2_m4 
+        --------------------------

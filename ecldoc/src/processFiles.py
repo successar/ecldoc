@@ -3,7 +3,7 @@ import glob
 import json
 import argparse
 import configparser
-import genXML, genHTML
+import genXML, genHTML, genTXT
 
 def doMain() :
     parser = argparse.ArgumentParser(description='Parser for ECLDOC')
@@ -45,7 +45,7 @@ def doMain() :
 
         genXML.genXML(input_root, output_root, ecl_files)
         genHTML.GenHTML(input_root, output_root, ecl_files).genHTML()
-
+        genTXT.GenTXT(input_root, output_root, ecl_files).genTXT()
 
 if __name__ == '__main__' :
     doMain()

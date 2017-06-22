@@ -1,0 +1,25 @@
+IMPORTS
+=======
+
+
+pbblas <pkg.toc.txt>
+pbblas.types <types.ecl.txt>
+
+DESCRIPTIONS
+============
+
+
+FUNCTION : DATASET(Layout_Cell) axpy(value_t alpha, DATASET(Layout_Cell) X, DATASET(Layout_Cell) Y) 
+---------------------------------------------------------------------------------------------------
+
+Implements alpha*X + Y X and Y must have same shape
+
+Parameter : <alpha> Scalar multiplier for the X matrix
+
+Parameter : <X> X matrix in DATASET(Layout_Cell) form
+
+Parameter : <Y> Y matrix in DATASET(Layout_Call) form
+
+Return : Matrix in DATASET(Layout_Cell) form
+
+See : PBblas/Types.layout_cell
