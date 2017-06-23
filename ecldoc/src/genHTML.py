@@ -9,18 +9,19 @@ from lxml import etree
 from Utils import genPathTree, getRoot
 
 class ParseHTML(object) :
-	def __init__(self, input_root, output_root, ecl_file, template, ecl_file_tree) :
-		self.input_root = input_root
-		self.output_root = output_root
+	def __init__(self, generator, ecl_file) :
+		self.input_root = generator.input_root
+		self.output_root = generator.output_root
 		self.ecl_file = ecl_file
-		self.xml_root = os.path.join(output_root, 'xml')
-		self.html_root = os.path.join(output_root, 'html')
-		self.xml_file = os.path.join(self.xml_root, (self.ecl_file + '.xml').lower())
-		self.html_file = os.path.join(self.html_root, (self.ecl_file + '.html').lower())
+		self.xml_root = generator.xml_root
+		self.html_root = generator.html_root
+		self.xml_file = os.path.join(self.xml_root, (self.ecl_file + '.xml'))
+		self.html_file = os.path.join(self.html_root, (self.ecl_file + '.html'))
 		os.makedirs(os.path.dirname(self.html_file), exist_ok=True)
-		self.template = template
-		parent = getRoot(ecl_file_tree, ecl_file)
+		self.template = generator.content_template
+		parent = getRoot(generator.ecl_file_tree, ecl_file)
 		self.parent = parent
+		self.options = generator.options
 
 	def parse(self) :
 		tree = etree.parse(self.xml_file)
@@ -75,7 +76,7 @@ class ParseHTML(object) :
 		return text
 
 class GenHTML(object) :
-	def __init__(self, input_root, output_root, ecl_files) :
+	def __init__(self, input_root, output_root, ecl_files, options) :
 		self.input_root = input_root
 		self.output_root = output_root
 		self.ecl_files = ecl_files
@@ -84,6 +85,7 @@ class GenHTML(object) :
 		self.content_template = Template(open('/media/sarthak/Data/ecldoc/ecldoc/src/content.tpl').read())
 		self.toc_template = Template(open('/media/sarthak/Data/ecldoc/ecldoc/src/toc.tpl').read())
 		self.ecl_file_tree = genPathTree(ecl_files)
+		self.options = options
 
 	def gen(self, node, content_root) :
 		files = []
@@ -92,7 +94,7 @@ class GenHTML(object) :
 				if key == 'bundle.ecl' :
 					continue
 				ecl_file = node[key]
-				parser = ParseHTML(self.input_root, self.output_root, ecl_file, self.content_template, self.ecl_file_tree)
+				parser = ParseHTML(self, ecl_file)
 				parser.parse()
 				file = { 'name' : key, 'target' : key + '.html', 'type' : 'file', 'doc' : parser.docstring() }
 				files.append(file)
@@ -102,9 +104,11 @@ class GenHTML(object) :
 
 				bundle = None
 				if 'bundle.ecl' in child :
-					bundle_xml_path = os.path.join(self.xml_root, os.path.dirname(child['bundle.ecl'].lower()), 'bundle.xml')
+					bundle_xml_path = os.path.join(self.xml_root, os.path.dirname(child['bundle.ecl']), 'bundle.xml')
 					tree = etree.parse(bundle_xml_path)
 					bundle = tree.getroot()
+					license = bundle.find('License')
+					license.text = '<a href="' + license.text + '">' + license.text + '</a>'
 					file['type'] = 'bundle'
 
 				child_root = os.path.join(content_root, key)

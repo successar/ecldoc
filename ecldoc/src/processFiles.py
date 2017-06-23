@@ -14,8 +14,10 @@ def doMain() :
     cfgparser.read(args.config)
 
     ecl_files = []
+    options = {}
     if 'INPUT' in cfgparser.sections() :
         input_root = os.path.realpath(cfgparser['INPUT']['root'])
+        options['nodoc'] = cfgparser['INPUT'].getboolean('nodoc', False)
 
         include = []
         if 'include' in cfgparser['INPUT'] :
@@ -44,8 +46,8 @@ def doMain() :
             os.makedirs(output_root, exist_ok=True)
 
         genXML.genXML(input_root, output_root, ecl_files)
-        genHTML.GenHTML(input_root, output_root, ecl_files).genHTML()
-        genTXT.GenTXT(input_root, output_root, ecl_files).genTXT()
+        genHTML.GenHTML(input_root, output_root, ecl_files, options).genHTML()
+        genTXT.GenTXT(input_root, output_root, ecl_files, options).genTXT()
 
 if __name__ == '__main__' :
     doMain()

@@ -9,18 +9,19 @@ from lxml import etree
 from Utils import genPathTree, getRoot
 
 class ParseTXT(object) :
-	def __init__(self, input_root, output_root, ecl_file, template, ecl_file_tree) :
-		self.input_root = input_root
-		self.output_root = output_root
+	def __init__(self, generator, ecl_file) :
+		self.input_root = generator.input_root
+		self.output_root = generator.output_root
 		self.ecl_file = ecl_file
-		self.xml_root = os.path.join(output_root, 'xml')
-		self.txt_root = os.path.join(output_root, 'txt')
-		self.xml_file = os.path.join(self.xml_root, (self.ecl_file + '.xml').lower())
-		self.txt_file = os.path.join(self.txt_root, (self.ecl_file + '.txt').lower())
+		self.xml_root = generator.xml_root
+		self.txt_root = generator.txt_root
+		self.xml_file = os.path.join(self.xml_root, (self.ecl_file + '.xml'))
+		self.txt_file = os.path.join(self.txt_root, (self.ecl_file + '.txt'))
 		os.makedirs(os.path.dirname(self.txt_file), exist_ok=True)
-		self.template = template
-		parent = getRoot(ecl_file_tree, ecl_file)
+		self.template = generator.content_template
+		parent = getRoot(generator.ecl_file_tree, ecl_file)
 		self.parent = parent
+		self.options = generator.options
 
 	def parse(self) :
 		tree = etree.parse(self.xml_file)
@@ -75,7 +76,7 @@ class ParseTXT(object) :
 		return text
 
 class GenTXT(object) :
-	def __init__(self, input_root, output_root, ecl_files) :
+	def __init__(self, input_root, output_root, ecl_files, options) :
 		self.input_root = input_root
 		self.output_root = output_root
 		self.ecl_files = ecl_files
@@ -84,6 +85,7 @@ class GenTXT(object) :
 		self.content_template = Template(open('/media/sarthak/Data/ecldoc/ecldoc/src/content.txt.tpl').read())
 		self.toc_template = Template(open('/media/sarthak/Data/ecldoc/ecldoc/src/toc.txt.tpl').read())
 		self.ecl_file_tree = genPathTree(ecl_files)
+		self.options = options
 
 	def gen(self, node, content_root) :
 		files = []
@@ -92,7 +94,7 @@ class GenTXT(object) :
 				if key == 'bundle.ecl' :
 					continue
 				ecl_file = node[key]
-				parser = ParseTXT(self.input_root, self.output_root, ecl_file, self.content_template, self.ecl_file_tree)
+				parser = ParseTXT(self, ecl_file)
 				parser.parse()
 				file = { 'name' : key, 'target' : key + '.txt', 'type' : 'file', 'doc' : parser.docstring() }
 				files.append(file)
@@ -102,7 +104,7 @@ class GenTXT(object) :
 
 				bundle = None
 				if 'bundle.ecl' in child :
-					bundle_xml_path = os.path.join(self.xml_root, os.path.dirname(child['bundle.ecl'].lower()), 'bundle.xml')
+					bundle_xml_path = os.path.join(self.xml_root, os.path.dirname(child['bundle.ecl']), 'bundle.xml')
 					tree = etree.parse(bundle_xml_path)
 					bundle = tree.getroot()
 					file['type'] = 'bundle'

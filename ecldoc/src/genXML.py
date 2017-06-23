@@ -14,8 +14,8 @@ class ParseXML(object) :
 		self.output_root = output_root
 		self.ecl_file = ecl_file
 		self.xml_root = os.path.join(output_root, 'xml')
-		self.xml_orig_file = os.path.join(output_root, 'xmlOriginal', (ecl_file + '.xml').lower())
-		self.xml_file = os.path.join(self.xml_root, (self.ecl_file + '.xml').lower())
+		self.xml_orig_file = os.path.join(output_root, 'xmlOriginal', (ecl_file + '.xml'))
+		self.xml_file = os.path.join(self.xml_root, (self.ecl_file + '.xml'))
 		self.xml_dir = os.path.dirname(self.xml_file)
 
 	def parse(self) :
@@ -31,7 +31,7 @@ class ParseXML(object) :
 			if os.path.exists(srcpath) and srcpath.startswith(self.input_root):
 				attribs['sourcePath'] = srcpath
 				relpath = os.path.relpath(srcpath, self.input_root)
-				tgtpath = os.path.join(self.xml_root, (relpath + '.xml').lower())
+				tgtpath = os.path.join(self.xml_root, (relpath + '.xml'))
 				tgtpath = os.path.realpath(tgtpath)
 				tgtpath = os.path.relpath(tgtpath, self.xml_dir)
 				attribs['target'] = tgtpath
@@ -99,7 +99,7 @@ class ParseXML(object) :
 			defn.insert(-1, sign)
 
 		if 'fullname' in attribs :
-			fullname = attribs['fullname'].lower()
+			fullname = attribs['fullname']
 			best_depend = self.parsePath(fullname)
 			if best_depend is not None and best_depend != self.src :
 				attribs['target'] = best_depend.attrib['target']
@@ -168,12 +168,11 @@ class ParseXML(object) :
 		attribs = imp.attrib
 		if 'ref' in attribs :
 			refpath = attribs['ref']
-			attribs['ref'] = refpath.lower()
 			best_depend = self.parsePath(refpath)
 			if best_depend is not None :
 				attribs['target'] = best_depend.attrib['target']
 			else :
-				refpath = refpath.lower().split('.')
+				refpath = refpath.split('.')
 				refpath.append('pkg.toc.xml')
 				attribs['target'] = os.path.join(self.xml_root, *refpath)
 				attribs['target'] = os.path.relpath(attribs['target'], self.xml_dir)
@@ -182,12 +181,11 @@ class ParseXML(object) :
 		attribs = parent.attrib
 		if 'ref' in attribs :
 			refpath = attribs['ref']
-			attribs['ref'] = refpath.lower()
 			best_depend = self.parsePath(refpath)
 			if best_depend is not None:
 				attribs['target'] = best_depend.attrib['target']
 			else :
-				refpath = refpath.lower().split('.')
+				refpath = refpath.split('.')
 				refpath.append('pkg.toc.xml')
 				attribs['target'] = os.path.join(self.xml_root, *refpath)
 				attribs['target'] = os.path.relpath(attribs['target'], self.xml_dir)
@@ -224,9 +222,9 @@ def genXML(input_root, output_root, ecl_files) :
 
 	for ecl_file in ecl_files :
 		input_file = os.path.join(input_root, ecl_file)
-		xml_orig_file = os.path.join(xml_orig_root, (ecl_file + '.xml').lower())
+		xml_orig_file = os.path.join(xml_orig_root, (ecl_file + '.xml'))
 		os.makedirs(os.path.dirname(xml_orig_file), exist_ok=True)
-		xml_file = os.path.join(xml_root, (ecl_file + '.xml').lower())
+		xml_file = os.path.join(xml_root, (ecl_file + '.xml'))
 		os.chdir(input_root)
 		# if check_if_modified(input_file, xml_file) :
 		# 	continue
