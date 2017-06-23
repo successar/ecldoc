@@ -43,31 +43,15 @@
 				</li>
 				
 				<li>
+					<a href="ExtractTri.ecl.html">ExtractTri.ecl</a>
+				</li>
+				
+				<li>
+					<a href="MatUtils.ecl.html">MatUtils.ecl</a>
+				</li>
+				
+				<li>
 					<a href="IElementFunc.ecl.html">IElementFunc.ecl</a>
-				</li>
-				
-				<li>
-					<a href="axpy.ecl.html">axpy.ecl</a>
-				</li>
-				
-				<li>
-					<a href="Types.ecl.html">Types.ecl</a>
-				</li>
-				
-				<li>
-					<a href="Apply2Elements.ecl.html">Apply2Elements.ecl</a>
-				</li>
-				
-				<li>
-					<a href="bundle.ecl.html">bundle.ecl</a>
-				</li>
-				
-				<li>
-					<a href="Vector2Diag.ecl.html">Vector2Diag.ecl</a>
-				</li>
-				
-				<li>
-					<a href="scal.ecl.html">scal.ecl</a>
 				</li>
 				
 				<li>
@@ -75,7 +59,19 @@
 				</li>
 				
 				<li>
-					<a href="ExtractTri.ecl.html">ExtractTri.ecl</a>
+					<a href="gemm.ecl.html">gemm.ecl</a>
+				</li>
+				
+				<li>
+					<a href="bundle.ecl.html">bundle.ecl</a>
+				</li>
+				
+				<li>
+					<a href="axpy.ecl.html">axpy.ecl</a>
+				</li>
+				
+				<li>
+					<a href="Apply2Elements.ecl.html">Apply2Elements.ecl</a>
 				</li>
 				
 				<li>
@@ -87,19 +83,7 @@
 				</li>
 				
 				<li>
-					<a href="Constants.ecl.html">Constants.ecl</a>
-				</li>
-				
-				<li>
-					<a href="gemm.ecl.html">gemm.ecl</a>
-				</li>
-				
-				<li>
-					<a href="potrf.ecl.html">potrf.ecl</a>
-				</li>
-				
-				<li>
-					<a href="MatUtils.ecl.html">MatUtils.ecl</a>
+					<a href="tran.ecl.html">tran.ecl</a>
 				</li>
 				
 				<li>
@@ -107,11 +91,27 @@
 				</li>
 				
 				<li>
-					<a href="tran.ecl.html">tran.ecl</a>
+					<a href="potrf.ecl.html">potrf.ecl</a>
+				</li>
+				
+				<li>
+					<a href="Types.ecl.html">Types.ecl</a>
+				</li>
+				
+				<li>
+					<a href="Vector2Diag.ecl.html">Vector2Diag.ecl</a>
+				</li>
+				
+				<li>
+					<a href="Constants.ecl.html">Constants.ecl</a>
 				</li>
 				
 				<li>
 					<a href="Converted.ecl.html">Converted.ecl</a>
+				</li>
+				
+				<li>
+					<a href="scal.ecl.html">scal.ecl</a>
 				</li>
 				
 			</ul>
@@ -176,7 +176,7 @@
 
 								
 								<div class="tree-desc">
-								Extended Parallel Block Matrix Multiplication Module Implements: Result 
+								Extended Parallel Block Matrix Multiplication Module Implements: Result = alpha * op(A)op(B) + beta * C
 								</div>
 								
 								
@@ -207,7 +207,7 @@
 							<div class="panel-body">
 								<div class="row">
 									<div class="col-md-12" style="padding-bottom: 10px;">
-										Extended Parallel Block Matrix Multiplication Module Implements: Result 
+										Extended Parallel Block Matrix Multiplication Module Implements: Result = alpha * op(A)op(B) + beta * C. op is No Transpose or Transpose. Multiplies two matrixes A and B, with an optional pre-multiply transpose for each Optionally scales the product by the scalar "alpha". Then adds an optional C matrix to the product after scaling C by the scalar "beta". A, B, and C are specified as DATASET(Layout_Cell), as is the Resulting matrix. Layout_Cell describes a sparse matrix stored as a list of x, y, and value. This interface also provides a "Myriad" capability allowing multiple similar operations to be performed on independent sets of matrixes in parallel. This is done by use of the work-item id (wi_id) in each cell of the matrixes. Cells with the same wi_id are considered part of the same matrix. In the myriad form, each input matrix A, B, and (optionally) C can contain many independent matrixes. The wi_ids are matched up such that each operation involves the A, B, and C with the same wi_id. A and B must therefore contain the same set of wi_ids, while C is optional for any wi_id. The same parameters: alpha, beta, transposeA, and transposeB are used for all work-items. The result will contain cells from all provided work-items. Result has same shape as C if provided. Note that matrixes are not explicitly dimensioned. The shape is determined by the highest value of x and y for each work-item.
 									</div>
 								</div>
 								

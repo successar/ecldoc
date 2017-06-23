@@ -14,7 +14,7 @@
    <Definition body="1073" end="1148" exported="1" fullname="logisticregression.binomiallogisticregression.getmodel" inherit_type="override" line="26" name="GetModel" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/BinomialLogisticRegression.ecl" start="910">
     <Type>function</Type>
     <Documentation>
-     <param><name>observations</name><desc>the observed explanatory values</desc></param><param><name>classifications</name><desc>the observed classification used to build the model</desc></param><content>Calculate the model to fit the observation data to the observed classes.</content><firstline>Calculate the model to fit the observation data to the observed classes</firstline><return>the encoded model</return></Documentation>
+     <return>the encoded model</return><param><name>observations</name><desc>the observed explanatory values</desc></param><param><name>classifications</name><desc>the observed classification used to build the model</desc></param><content>Calculate the model to fit the observation data to the observed classes.</content><firstline>Calculate the model to fit the observation data to the observed classes</firstline></Documentation>
     <Signature sign="DATASET(Types.Layout_Model) GetModel(DATASET(Types.NumericField) observations, DATASET(Types.DiscreteField) classifications)" name="GetModel">DATASET(Types.Layout_Model) GetModel(DATASET(Types.NumericField) observations, DATASET(Types.DiscreteField) classifications)</Signature><Params>
      <Param name="observations"/>
      <Param name="classifications"/>
@@ -23,7 +23,7 @@
    <Definition body="1574" end="1632" exported="1" fullname="logisticregression.binomiallogisticregression.classify" inherit_type="override" line="37" name="Classify" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/BinomialLogisticRegression.ecl" start="1415">
     <Type>function</Type>
     <Documentation>
-     <param><name>model</name><desc>The model, which must be produced by a corresponding getModel function.</desc></param><param><name>new_observations</name><desc>observations to be classified</desc></param><content>Classify the observations using a model.</content><firstline>Classify the observations using a model</firstline><return>Classification with a confidence value</return></Documentation>
+     <return>Classification with a confidence value</return><param><name>model</name><desc>The model, which must be produced by a corresponding getModel function.</desc></param><param><name>new_observations</name><desc>observations to be classified</desc></param><content>Classify the observations using a model.</content><firstline>Classify the observations using a model</firstline></Documentation>
     <Signature sign="DATASET(Types.Classify_Result) Classify(DATASET(Types.Layout_Model) model, DATASET(Types.NumericField) new_observations)" name="Classify">DATASET(Types.Classify_Result) Classify(DATASET(Types.Layout_Model) model, DATASET(Types.NumericField) new_observations)</Signature><Params>
      <Param name="model"/>
      <Param name="new_observations"/>
@@ -32,7 +32,7 @@
    <Definition body="2179" end="2283" exported="1" fullname="logisticregression.binomiallogisticregression.report" inherit_type="override" line="50" name="Report" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/BinomialLogisticRegression.ecl" start="1966">
     <Type>function</Type>
     <Documentation>
-     <param><name>model</name><desc>the encoded model</desc></param><param><name>observations</name><desc>the explanatory values.</desc></param><param><name>classifications</name><desc>the classifications associated with the observations</desc></param><content>Report the confusion matrix for the classifier and training data.</content><firstline>Report the confusion matrix for the classifier and training data</firstline><return>the confusion matrix showing correct and incorrect results</return></Documentation>
+     <return>the confusion matrix showing correct and incorrect results</return><param><name>model</name><desc>the encoded model</desc></param><param><name>observations</name><desc>the explanatory values.</desc></param><param><name>classifications</name><desc>the classifications associated with the observations</desc></param><content>Report the confusion matrix for the classifier and training data.</content><firstline>Report the confusion matrix for the classifier and training data</firstline></Documentation>
     <Signature sign="DATASET(Types.Confusion_Detail) Report(DATASET(Types.Layout_Model) model, DATASET(Types.NumericField) observations, DATASET(Types.DiscreteField) classifications)" name="Report">DATASET(Types.Confusion_Detail) Report(DATASET(Types.Layout_Model) model, DATASET(Types.NumericField) observations, DATASET(Types.DiscreteField) classifications)</Signature><Params>
      <Param name="model"/>
      <Param name="observations"/>

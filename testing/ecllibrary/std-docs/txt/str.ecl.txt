@@ -8,358 +8,510 @@ DESCRIPTIONS
 ============
 
 
-MODULE : Str 
-------------
+MODULE : Str
+----------------------------------------------------------------------------------------------------------------------------------
+
+Link : <None>
     
-    FUNCTION : INTEGER4 CompareIgnoreCase(STRING src1, STRING src2) 
-    ---------------------------------------------------------------
+    FUNCTION : INTEGER4 CompareIgnoreCase(STRING src1, STRING src2)
+    ----------------------------------------------------------------------------------------------------------------------------------
     
-    Compares the two strings case insensitively. Returns a negative integer, zero, or a positive integer according to whether the first string is less than, equal to, or greater than the second.
+    Compares the two strings case insensitively. Returns a negative i
+    nteger, zero, or a positive integer according to whether the firs
+    t string is less than, equal to, or greater than the second.
     
-    Parameter : <src1> The first string to be compared.
+    Parameter : src1 The first string to be compared.
     
-    Parameter : <src2> The second string to be compared.
+    Parameter : src2 The second string to be compared.
     
     See : Str.EqualIgnoreCase
     
-    FUNCTION : BOOLEAN EqualIgnoreCase(STRING src1, STRING src2) 
-    ------------------------------------------------------------
+    Link : <None>
     
-    Tests whether the two strings are identical ignoring differences in case.
+    FUNCTION : BOOLEAN EqualIgnoreCase(STRING src1, STRING src2)
+    ----------------------------------------------------------------------------------------------------------------------------------
     
-    Parameter : <src1> The first string to be compared.
+    Tests whether the two strings are identical ignoring differences 
+    in case.
     
-    Parameter : <src2> The second string to be compared.
+    Parameter : src1 The first string to be compared.
+    
+    Parameter : src2 The second string to be compared.
     
     See : Str.CompareIgnoreCase
     
-    FUNCTION : UNSIGNED4 Find(STRING src, STRING sought, UNSIGNED4 instance = 1) 
-    ----------------------------------------------------------------------------
+    Link : <None>
     
-    Returns the character position of the nth match of the search string with the first string. If no match is found the attribute returns 0. If an instance is omitted the position of the first instance is returned.
+    FUNCTION : UNSIGNED4 Find(STRING src, STRING sought, UNSIGNED4 instance = 1)
+    ----------------------------------------------------------------------------------------------------------------------------------
     
-    Parameter : <src> The string that is searched
+    Returns the character position of the nth match of the search str
+    ing with the first string. If no match is found the attribute ret
+    urns 0. If an instance is omitted the position of the first insta
+    nce is returned.
     
-    Parameter : <sought> The string being sought.
+    Parameter : src The string that is searched
     
-    Parameter : <instance> Which match instance are we interested in?
+    Parameter : sought The string being sought.
     
-    FUNCTION : UNSIGNED4 FindCount(STRING src, STRING sought) 
-    ---------------------------------------------------------
+    Parameter : instance Which match instance are we interested in?
     
-    Returns the number of occurences of the second string within the first string.
+    Link : <None>
     
-    Parameter : <src> The string that is searched
+    FUNCTION : UNSIGNED4 FindCount(STRING src, STRING sought)
+    ----------------------------------------------------------------------------------------------------------------------------------
     
-    Parameter : <sought> The string being sought.
+    Returns the number of occurences of the second string within the 
+    first string.
     
-    FUNCTION : BOOLEAN WildMatch(STRING src, STRING _pattern, BOOLEAN ignore_case) 
-    ------------------------------------------------------------------------------
+    Parameter : src The string that is searched
     
-    Tests if the search string matches the pattern. The pattern can contain wildcards '?' (single character) and '*' (multiple character).
+    Parameter : sought The string being sought.
     
-    Parameter : <src> The string that is being tested.
+    Link : <None>
     
-    Parameter : <pattern> The pattern to match against.
+    FUNCTION : BOOLEAN WildMatch(STRING src, STRING _pattern, BOOLEAN ignore_case)
+    ----------------------------------------------------------------------------------------------------------------------------------
     
-    Parameter : <ignore_case> Whether to ignore differences in case between characters
+    Tests if the search string matches the pattern. The pattern can c
+    ontain wildcards '?' (single character) and '*' (multiple charact
+    er).
     
-    FUNCTION : BOOLEAN Contains(STRING src, STRING _pattern, BOOLEAN ignore_case) 
-    -----------------------------------------------------------------------------
+    Parameter : src The string that is being tested.
     
-    Tests if the search string contains each of the characters in the pattern. If the pattern contains duplicate characters those characters will match once for each occurence in the pattern.
+    Parameter : pattern The pattern to match against.
     
-    Parameter : <src> The string that is being tested.
+    Parameter : ignore_case Whether to ignore differences in case between charact
+                ers
     
-    Parameter : <pattern> The pattern to match against.
+    Link : <None>
     
-    Parameter : <ignore_case> Whether to ignore differences in case between characters
+    FUNCTION : BOOLEAN Contains(STRING src, STRING _pattern, BOOLEAN ignore_case)
+    ----------------------------------------------------------------------------------------------------------------------------------
     
-    FUNCTION : STRING FilterOut(STRING src, STRING filter) 
-    ------------------------------------------------------
+    Tests if the search string contains each of the characters in the
+     pattern. If the pattern contains duplicate characters those char
+    acters will match once for each occurence in the pattern.
     
-    Returns the first string with all characters within the second string removed.
+    Parameter : src The string that is being tested.
     
-    Parameter : <src> The string that is being tested.
+    Parameter : pattern The pattern to match against.
     
-    Parameter : <filter> The string containing the set of characters to be excluded.
+    Parameter : ignore_case Whether to ignore differences in case between charact
+                ers
+    
+    Link : <None>
+    
+    FUNCTION : STRING FilterOut(STRING src, STRING filter)
+    ----------------------------------------------------------------------------------------------------------------------------------
+    
+    Returns the first string with all characters within the second st
+    ring removed.
+    
+    Parameter : src The string that is being tested.
+    
+    Parameter : filter The string containing the set of characters to be excluded
+                .
     
     See : Str.Filter
     
-    FUNCTION : STRING Filter(STRING src, STRING filter) 
-    ---------------------------------------------------
+    Link : <None>
     
-    Returns the first string with all characters not within the second string removed.
+    FUNCTION : STRING Filter(STRING src, STRING filter)
+    ----------------------------------------------------------------------------------------------------------------------------------
     
-    Parameter : <src> The string that is being tested.
+    Returns the first string with all characters not within the secon
+    d string removed.
     
-    Parameter : <filter> The string containing the set of characters to be included.
+    Parameter : src The string that is being tested.
+    
+    Parameter : filter The string containing the set of characters to be included
+                .
     
     See : Str.FilterOut
     
-    FUNCTION : STRING SubstituteIncluded(STRING src, STRING filter, STRING1 replace_char) 
-    -------------------------------------------------------------------------------------
+    Link : <None>
     
-    Returns the source string with the replacement character substituted for all characters included in the filter string. MORE: Should this be a general string substitution?
+    FUNCTION : STRING SubstituteIncluded(STRING src, STRING filter, STRING1 replace_char)
+    ----------------------------------------------------------------------------------------------------------------------------------
     
-    Parameter : <src> The string that is being tested.
+    Returns the source string with the replacement character substitu
+    ted for all characters included in the filter string. MORE: Shoul
+    d this be a general string substitution?
     
-    Parameter : <filter> The string containing the set of characters to be included.
+    Parameter : src The string that is being tested.
     
-    Parameter : <replace_char> The character to be substituted into the result.
+    Parameter : filter The string containing the set of characters to be included
+                .
+    
+    Parameter : replace_char The character to be substituted into the result.
     
     See : Std.Str.Translate, Std.Str.SubstituteExcluded
     
-    FUNCTION : STRING SubstituteExcluded(STRING src, STRING filter, STRING1 replace_char) 
-    -------------------------------------------------------------------------------------
+    Link : <None>
     
-    Returns the source string with the replacement character substituted for all characters not included in the filter string. MORE: Should this be a general string substitution?
+    FUNCTION : STRING SubstituteExcluded(STRING src, STRING filter, STRING1 replace_char)
+    ----------------------------------------------------------------------------------------------------------------------------------
     
-    Parameter : <src> The string that is being tested.
+    Returns the source string with the replacement character substitu
+    ted for all characters not included in the filter string. MORE: S
+    hould this be a general string substitution?
     
-    Parameter : <filter> The string containing the set of characters to be included.
+    Parameter : src The string that is being tested.
     
-    Parameter : <replace_char> The character to be substituted into the result.
+    Parameter : filter The string containing the set of characters to be included
+                .
     
-    See : Std.Str.SubstituteIncluded
-    
-    FUNCTION : STRING Translate(STRING src, STRING search, STRING replacement) 
-    --------------------------------------------------------------------------
-    
-    Returns the source string with the all characters that match characters in the search string replaced with the character at the corresponding position in the replacement string.
-    
-    Parameter : <src> The string that is being tested.
-    
-    Parameter : <search> The string containing the set of characters to be included.
-    
-    Parameter : <replacement> The string containing the characters to act as replacements.
+    Parameter : replace_char The character to be substituted into the result.
     
     See : Std.Str.SubstituteIncluded
     
-    FUNCTION : STRING ToLowerCase(STRING src) 
-    -----------------------------------------
+    Link : <None>
     
-    Returns the argument string with all upper case characters converted to lower case.
+    FUNCTION : STRING Translate(STRING src, STRING search, STRING replacement)
+    ----------------------------------------------------------------------------------------------------------------------------------
     
-    Parameter : <src> The string that is being converted.
+    Returns the source string with the all characters that match char
+    acters in the search string replaced with the character at the co
+    rresponding position in the replacement string.
     
-    FUNCTION : STRING ToUpperCase(STRING src) 
-    -----------------------------------------
+    Parameter : src The string that is being tested.
     
-    Return the argument string with all lower case characters converted to upper case.
+    Parameter : search The string containing the set of characters to be included
+                .
     
-    Parameter : <src> The string that is being converted.
+    Parameter : replacement The string containing the characters to act as replac
+                ements.
     
-    FUNCTION : STRING ToCapitalCase(STRING src) 
-    -------------------------------------------
+    See : Std.Str.SubstituteIncluded
     
-    Returns the argument string with the first letter of each word in upper case and all other letters left as-is. A contiguous sequence of alphanumeric characters is treated as a word.
+    Link : <None>
     
-    Parameter : <src> The string that is being converted.
+    FUNCTION : STRING ToLowerCase(STRING src)
+    ----------------------------------------------------------------------------------------------------------------------------------
     
-    FUNCTION : STRING ToTitleCase(STRING src) 
-    -----------------------------------------
+    Returns the argument string with all upper case characters conver
+    ted to lower case.
     
-    Returns the argument string with the first letter of each word in upper case and all other letters lower case. A contiguous sequence of alphanumeric characters is treated as a word.
+    Parameter : src The string that is being converted.
     
-    Parameter : <src> The string that is being converted.
+    Link : <None>
     
-    FUNCTION : STRING Reverse(STRING src) 
-    -------------------------------------
+    FUNCTION : STRING ToUpperCase(STRING src)
+    ----------------------------------------------------------------------------------------------------------------------------------
     
-    Returns the argument string with all characters in reverse order. Note the argument is not TRIMMED before it is reversed.
+    Return the argument string with all lower case characters convert
+    ed to upper case.
     
-    Parameter : <src> The string that is being reversed.
+    Parameter : src The string that is being converted.
     
-    FUNCTION : STRING FindReplace(STRING src, STRING sought, STRING replacement) 
-    ----------------------------------------------------------------------------
+    Link : <None>
     
-    Returns the source string with the replacement string substituted for all instances of the search string.
+    FUNCTION : STRING ToCapitalCase(STRING src)
+    ----------------------------------------------------------------------------------------------------------------------------------
     
-    Parameter : <src> The string that is being transformed.
+    Returns the argument string with the first letter of each word in
+     upper case and all other letters left as-is. A contiguous sequen
+    ce of alphanumeric characters is treated as a word.
     
-    Parameter : <sought> The string to be replaced.
+    Parameter : src The string that is being converted.
     
-    Parameter : <replacement> The string to be substituted into the result.
+    Link : <None>
     
-    FUNCTION : STRING Extract(STRING src, UNSIGNED4 instance) 
-    ---------------------------------------------------------
+    FUNCTION : STRING ToTitleCase(STRING src)
+    ----------------------------------------------------------------------------------------------------------------------------------
+    
+    Returns the argument string with the first letter of each word in
+     upper case and all other letters lower case. A contiguous sequen
+    ce of alphanumeric characters is treated as a word.
+    
+    Parameter : src The string that is being converted.
+    
+    Link : <None>
+    
+    FUNCTION : STRING Reverse(STRING src)
+    ----------------------------------------------------------------------------------------------------------------------------------
+    
+    Returns the argument string with all characters in reverse order.
+     Note the argument is not TRIMMED before it is reversed.
+    
+    Parameter : src The string that is being reversed.
+    
+    Link : <None>
+    
+    FUNCTION : STRING FindReplace(STRING src, STRING sought, STRING replacement)
+    ----------------------------------------------------------------------------------------------------------------------------------
+    
+    Returns the source string with the replacement string substituted
+     for all instances of the search string.
+    
+    Parameter : src The string that is being transformed.
+    
+    Parameter : sought The string to be replaced.
+    
+    Parameter : replacement The string to be substituted into the result.
+    
+    Link : <None>
+    
+    FUNCTION : STRING Extract(STRING src, UNSIGNED4 instance)
+    ----------------------------------------------------------------------------------------------------------------------------------
     
     Returns the nth element from a comma separated string.
     
-    Parameter : <src> The string containing the comma separated list.
+    Parameter : src The string containing the comma separated list.
     
-    Parameter : <instance> Which item to select from the list.
+    Parameter : instance Which item to select from the list.
     
-    FUNCTION : STRING CleanSpaces(STRING src) 
-    -----------------------------------------
+    Link : <None>
     
-    Returns the source string with all instances of multiple adjacent space characters (2 or more spaces together) reduced to a single space character. Leading and trailing spaces are removed, and tab characters are converted to spaces.
+    FUNCTION : STRING CleanSpaces(STRING src)
+    ----------------------------------------------------------------------------------------------------------------------------------
     
-    Parameter : <src> The string to be cleaned.
+    Returns the source string with all instances of multiple adjacent
+     space characters (2 or more spaces together) reduced to a single
+     space character. Leading and trailing spaces are removed, and ta
+    b characters are converted to spaces.
     
-    FUNCTION : BOOLEAN StartsWith(STRING src, STRING prefix) 
-    --------------------------------------------------------
+    Parameter : src The string to be cleaned.
     
-    Returns true if the prefix string matches the leading characters in the source string. Trailing spaces are stripped from the prefix before matching. // x.myString.StartsWith('x') as an alternative syntax would be even better
+    Link : <None>
     
-    Parameter : <src> The string being searched in.
+    FUNCTION : BOOLEAN StartsWith(STRING src, STRING prefix)
+    ----------------------------------------------------------------------------------------------------------------------------------
     
-    Parameter : <prefix> The prefix to search for.
+    Returns true if the prefix string matches the leading characters 
+    in the source string. Trailing spaces are stripped from the prefi
+    x before matching. // x.myString.StartsWith('x') as an alternativ
+    e syntax would be even better
     
-    FUNCTION : BOOLEAN EndsWith(STRING src, STRING suffix) 
-    ------------------------------------------------------
+    Parameter : src The string being searched in.
     
-    Returns true if the suffix string matches the trailing characters in the source string. Trailing spaces are stripped from both strings before matching.
+    Parameter : prefix The prefix to search for.
     
-    Parameter : <src> The string being searched in.
+    Link : <None>
     
-    Parameter : <suffix> The prefix to search for.
+    FUNCTION : BOOLEAN EndsWith(STRING src, STRING suffix)
+    ----------------------------------------------------------------------------------------------------------------------------------
     
-    FUNCTION : STRING RemoveSuffix(STRING src, STRING suffix) 
-    ---------------------------------------------------------
+    Returns true if the suffix string matches the trailing characters
+     in the source string. Trailing spaces are stripped from both str
+    ings before matching.
     
-    Removes the suffix from the search string, if present, and returns the result. Trailing spaces are stripped from both strings before matching.
+    Parameter : src The string being searched in.
     
-    Parameter : <src> The string being searched in.
+    Parameter : suffix The prefix to search for.
     
-    Parameter : <suffix> The prefix to search for.
+    Link : <None>
     
-    FUNCTION : STRING ExtractMultiple(STRING src, UNSIGNED8 mask) 
-    -------------------------------------------------------------
+    FUNCTION : STRING RemoveSuffix(STRING src, STRING suffix)
+    ----------------------------------------------------------------------------------------------------------------------------------
     
-    Returns a string containing a list of elements from a comma separated string.
+    Removes the suffix from the search string, if present, and return
+    s the result. Trailing spaces are stripped from both strings befo
+    re matching.
     
-    Parameter : <src> The string containing the comma separated list.
+    Parameter : src The string being searched in.
     
-    Parameter : <mask> A bitmask of which elements should be included. Bit 0 is item1, bit1 item 2 etc.
+    Parameter : suffix The prefix to search for.
     
-    FUNCTION : UNSIGNED4 CountWords(STRING src, STRING separator, BOOLEAN allow_blank = FALSE) 
-    ------------------------------------------------------------------------------------------
+    Link : <None>
     
-    Returns the number of words that the string contains. Words are separated by one or more separator strings. No spaces are stripped from either string before matching.
+    FUNCTION : STRING ExtractMultiple(STRING src, UNSIGNED8 mask)
+    ----------------------------------------------------------------------------------------------------------------------------------
     
-    Parameter : <src> The string being searched in.
+    Returns a string containing a list of elements from a comma separ
+    ated string.
     
-    Parameter : <separator> The string used to separate words
+    Parameter : src The string containing the comma separated list.
     
-    Parameter : <allow_blank> Indicates if empty/blank string items are included in the results.
+    Parameter : mask A bitmask of which elements should be included. Bit 0 is ite
+                m1, bit1 item 2 etc.
     
-    FUNCTION : SET OF STRING SplitWords(STRING src, STRING separator, BOOLEAN allow_blank = FALSE) 
-    ----------------------------------------------------------------------------------------------
+    Link : <None>
     
-    Returns the list of words extracted from the string. Words are separated by one or more separator strings. No spaces are stripped from either string before matching.
+    FUNCTION : UNSIGNED4 CountWords(STRING src, STRING separator, BOOLEAN allow_blank = FALSE)
+    ----------------------------------------------------------------------------------------------------------------------------------
     
-    Parameter : <src> The string being searched in.
+    Returns the number of words that the string contains. Words are s
+    eparated by one or more separator strings. No spaces are stripped
+     from either string before matching.
     
-    Parameter : <separator> The string used to separate words
+    Parameter : src The string being searched in.
     
-    Parameter : <allow_blank> Indicates if empty/blank string items are included in the results.
+    Parameter : separator The string used to separate words
     
-    FUNCTION : STRING CombineWords(SET OF STRING words, STRING separator) 
-    ---------------------------------------------------------------------
+    Parameter : allow_blank Indicates if empty/blank string items are included in
+                 the results.
     
-    Returns the list of words extracted from the string. Words are separated by one or more separator strings. No spaces are stripped from either string before matching.
+    Link : <None>
     
-    Parameter : <words> The set of strings to be combined.
+    FUNCTION : SET OF STRING SplitWords(STRING src, STRING separator, BOOLEAN allow_blank = FALSE)
+    ----------------------------------------------------------------------------------------------------------------------------------
     
-    Parameter : <separator> The string used to separate words.
+    Returns the list of words extracted from the string. Words are se
+    parated by one or more separator strings. No spaces are stripped 
+    from either string before matching.
     
-    FUNCTION : UNSIGNED4 EditDistance(STRING _left, STRING _right) 
-    --------------------------------------------------------------
+    Parameter : src The string being searched in.
     
-    Returns the minimum edit distance between the two strings. An insert change or delete counts as a single edit. The two strings are trimmed before comparing.
+    Parameter : separator The string used to separate words
     
-    Parameter : <_left> The first string to be compared.
+    Parameter : allow_blank Indicates if empty/blank string items are included in
+                 the results.
     
-    Parameter : <_right> The second string to be compared.
+    Link : <None>
+    
+    FUNCTION : STRING CombineWords(SET OF STRING words, STRING separator)
+    ----------------------------------------------------------------------------------------------------------------------------------
+    
+    Returns the list of words extracted from the string. Words are se
+    parated by one or more separator strings. No spaces are stripped 
+    from either string before matching.
+    
+    Parameter : words The set of strings to be combined.
+    
+    Parameter : separator The string used to separate words.
+    
+    Link : <None>
+    
+    FUNCTION : UNSIGNED4 EditDistance(STRING _left, STRING _right)
+    ----------------------------------------------------------------------------------------------------------------------------------
+    
+    Returns the minimum edit distance between the two strings. An ins
+    ert change or delete counts as a single edit. The two strings are
+     trimmed before comparing.
+    
+    Parameter : _left The first string to be compared.
+    
+    Parameter : _right The second string to be compared.
     
     Return : The minimum edit distance between the two strings.
     
-    FUNCTION : BOOLEAN EditDistanceWithinRadius(STRING _left, STRING _right, UNSIGNED4 radius) 
-    ------------------------------------------------------------------------------------------
+    Link : <None>
     
-    Returns true if the minimum edit distance between the two strings is with a specific range. The two strings are trimmed before comparing.
+    FUNCTION : BOOLEAN EditDistanceWithinRadius(STRING _left, STRING _right, UNSIGNED4 radius)
+    ----------------------------------------------------------------------------------------------------------------------------------
     
-    Parameter : <_left> The first string to be compared.
+    Returns true if the minimum edit distance between the two strings
+     is with a specific range. The two strings are trimmed before com
+    paring.
     
-    Parameter : <_right> The second string to be compared.
+    Parameter : _left The first string to be compared.
     
-    Parameter : <radius> The maximum edit distance that is accepable.
+    Parameter : _right The second string to be compared.
     
-    Return : Whether or not the two strings are within the given specified edit distance.
+    Parameter : radius The maximum edit distance that is accepable.
     
-    FUNCTION : UNSIGNED4 WordCount(STRING text) 
-    -------------------------------------------
+    Return : Whether or not the two strings are within the given specified edi
+             t distance.
     
-    Returns the number of words in the string. Words are separated by one or more spaces.
+    Link : <None>
     
-    Parameter : <text> The string to be broken into words.
+    FUNCTION : UNSIGNED4 WordCount(STRING text)
+    ----------------------------------------------------------------------------------------------------------------------------------
     
-    Return : The number of words in the string.
+    Returns the number of words in the string. Words are separated by
+     one or more spaces.
     
-    FUNCTION : STRING GetNthWord(STRING text, UNSIGNED4 n) 
-    ------------------------------------------------------
-    
-    Returns the n-th word from the string. Words are separated by one or more spaces.
-    
-    Parameter : <text> The string to be broken into words.
-    
-    Parameter : <n> Which word should be returned from the function.
+    Parameter : text The string to be broken into words.
     
     Return : The number of words in the string.
     
-    FUNCTION : ExcludeFirstWord(STRING text) 
-    ----------------------------------------
+    Link : <None>
     
-    Returns everything except the first word from the string. Words are separated by one or more whitespace characters. Whitespace before and after the first word is also removed.
+    FUNCTION : STRING GetNthWord(STRING text, UNSIGNED4 n)
+    ----------------------------------------------------------------------------------------------------------------------------------
     
-    Parameter : <text> The string to be broken into words.
+    Returns the n-th word from the string. Words are separated by one
+     or more spaces.
+    
+    Parameter : text The string to be broken into words.
+    
+    Parameter : n Which word should be returned from the function.
+    
+    Return : The number of words in the string.
+    
+    Link : <None>
+    
+    FUNCTION : ExcludeFirstWord(STRING text)
+    ----------------------------------------------------------------------------------------------------------------------------------
+    
+    Returns everything except the first word from the string. Words a
+    re separated by one or more whitespace characters. Whitespace bef
+    ore and after the first word is also removed.
+    
+    Parameter : text The string to be broken into words.
     
     Return : The string excluding the first word.
     
-    FUNCTION : ExcludeLastWord(STRING text) 
-    ---------------------------------------
+    Link : <None>
     
-    Returns everything except the last word from the string. Words are separated by one or more whitespace characters. Whitespace after a word is removed with the word and leading whitespace is removed with the first word.
+    FUNCTION : ExcludeLastWord(STRING text)
+    ----------------------------------------------------------------------------------------------------------------------------------
     
-    Parameter : <text> The string to be broken into words.
+    Returns everything except the last word from the string. Words ar
+    e separated by one or more whitespace characters. Whitespace afte
+    r a word is removed with the word and leading whitespace is remov
+    ed with the first word.
+    
+    Parameter : text The string to be broken into words.
     
     Return : The string excluding the last word.
     
-    FUNCTION : ExcludeNthWord(STRING text, UNSIGNED2 n) 
-    ---------------------------------------------------
+    Link : <None>
     
-    Returns everything except the nth word from the string. Words are separated by one or more whitespace characters. Whitespace after a word is removed with the word and leading whitespace is removed with the first word.
+    FUNCTION : ExcludeNthWord(STRING text, UNSIGNED2 n)
+    ----------------------------------------------------------------------------------------------------------------------------------
     
-    Parameter : <text> The string to be broken into words.
+    Returns everything except the nth word from the string. Words are
+     separated by one or more whitespace characters. Whitespace after
+     a word is removed with the word and leading whitespace is remove
+    d with the first word.
     
-    Parameter : <n> Which word should be returned from the function.
+    Parameter : text The string to be broken into words.
+    
+    Parameter : n Which word should be returned from the function.
     
     Return : The string excluding the nth word.
     
-    FUNCTION : BOOLEAN FindWord(STRING src, STRING word, BOOLEAN ignore_case=FALSE) 
-    -------------------------------------------------------------------------------
+    Link : <None>
     
-    Tests if the search string contains the supplied word as a whole word.
+    FUNCTION : BOOLEAN FindWord(STRING src, STRING word, BOOLEAN ignore_case=FALSE)
+    ----------------------------------------------------------------------------------------------------------------------------------
     
-    Parameter : <src> The string that is being tested.
+    Tests if the search string contains the supplied word as a whole 
+    word.
     
-    Parameter : <word> The word to be searched for.
+    Parameter : src The string that is being tested.
     
-    Parameter : <ignore_case> Whether to ignore differences in case between characters.
+    Parameter : word The word to be searched for.
     
-    FUNCTION : STRING Repeat(STRING text, UNSIGNED4 n) 
-    --------------------------------------------------
+    Parameter : ignore_case Whether to ignore differences in case between charact
+                ers.
     
-    FUNCTION : STRING ToHexPairs(DATA value) 
-    ----------------------------------------
+    Link : <None>
     
-    FUNCTION : DATA FromHexPairs(STRING hex_pairs) 
-    ----------------------------------------------
+    FUNCTION : STRING Repeat(STRING text, UNSIGNED4 n)
+    ----------------------------------------------------------------------------------------------------------------------------------
     
-    FUNCTION : STRING EncodeBase64(DATA value) 
-    ------------------------------------------
+    Link : <None>
     
-    FUNCTION : DATA DecodeBase64(STRING value) 
-    ------------------------------------------
+    FUNCTION : STRING ToHexPairs(DATA value)
+    ----------------------------------------------------------------------------------------------------------------------------------
+    
+    Link : <None>
+    
+    FUNCTION : DATA FromHexPairs(STRING hex_pairs)
+    ----------------------------------------------------------------------------------------------------------------------------------
+    
+    Link : <None>
+    
+    FUNCTION : STRING EncodeBase64(DATA value)
+    ----------------------------------------------------------------------------------------------------------------------------------
+    
+    Link : <None>
+    
+    FUNCTION : DATA DecodeBase64(STRING value)
+    ----------------------------------------------------------------------------------------------------------------------------------
+    
+    Link : <None>

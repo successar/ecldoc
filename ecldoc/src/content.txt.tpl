@@ -1,31 +1,31 @@
 {%- macro desc(def) -%}
-{{ '\n' + def.find('./Type').text.upper() + ' : ' + def.find('./Signature').attrib['sign'] + ' ' }}{%- if def.attrib['inherit_type'] != 'local' -%} | {{ def.attrib['inherit_type'].upper() }}
-{%- endif -%}
-{{ '\n' }}{{ '-' * (def.find('./Type').text.upper() + ' : ' + def.find('./Signature').attrib['sign'])|length }}{{ '\n' }}
-{%- if def.find('./Documentation') -%}
-{{ '\n' }}{{ def.find('./Documentation').find('./content').text }}{{ '\n' }}
-{%- for tag in def.find('./Documentation').findall('./param') -%}
-{{ '\n' }}Parameter : <{{ tag.find('./name').text }}> {{ tag.find('./desc').text }}{{ '\n' }}
+{%- for h in def['headers'] -%}
+{{ '\n' + h }}
 {%- endfor -%}
-{%- for tag in def.find('./Documentation').findall('./return') -%}
-{{ '\n' }}Return : {{ tag.text }}{{ '\n' }}
-{%- endfor -%}
-{%- for tag in def.find('./Documentation').findall('./field') -%}
-{{ '\n' }}Field : <{{ tag.find('./name').text }}> {{ tag.find('./desc').text }}{{ '\n' }}
-{%- endfor -%}
-{%- for tag in def.find('./Documentation').findall('./see') -%}
-{{ '\n' }}See : {{ tag.text }}{{ '\n' }}
+{{ '\n' }}{{ '-' * 130 }}{{ '\n' }}
+{%- if 'content' in def['doc'] -%}
+{{ '\n' }}
+{%- for line in def['doc']['content'] -%}
+{{ line }}{{ '\n' }}
 {%- endfor -%}
 {%- endif -%}
-{%- if def.find('./Parents') -%}
-{%- for parent in def.find('./Parents').findall('./Parent') -%}
+{%- if 'tags' in def['doc'] -%}
+{%- for tag in def['doc']['tags'] -%}
+{%- for line in tag -%}
+{{ '\n' }}{{ line }}
+{%- endfor -%}
+{{ '\n' }}
+{%- endfor -%}
+{%- endif -%}
+{%- if def['Parents'] -%}
+{%- for parent in def['Parents'].findall('./Parent') -%}
 {%- if 'ref' in parent.attrib -%}
 {{ '\n' }}Parent : {{ parent.attrib['ref'] }} <{{ parent.attrib['target'] }}>{{ '\n' }}
 {%- endif -%}
 {%- endfor -%}
 {%- endif -%}
-{%- if 'target' in def.attrib -%}
-{{ '\n' }}Link : <{{ def.attrib['target'] }}>{{ '\n' }}
+{%- if 'target' in def -%}
+{{ '\n' }}Link : <{{ def['target'] }}>{{ '\n' }}
 {%- endif -%}
 {%- endmacro -%}
 IMPORTS
@@ -40,7 +40,7 @@ IMPORTS
 DESCRIPTIONS
 ============
 {{ '\n' }}
-{%- for def in src.findall('./Definition') recursive -%}
+{%- for def in render_dict recursive -%}
 {{ desc(def)|indent(loop.depth0*4, true) }}
-{{ loop(def.findall('./Definition')) }}
+{{ loop(def['defns']) }}
 {%- endfor -%}

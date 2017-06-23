@@ -9,27 +9,45 @@ DESCRIPTIONS
 ============
 
 
-MODULE : IRegression(DATASET(NumericField) X=empty_data, DATASET(NumericField) Y=empty_data) 
---------------------------------------------------------------------------------------------
+MODULE : IRegression(DATASET(NumericField) X=empty_data, DATASET(NumericField) Y=empty_data)
+----------------------------------------------------------------------------------------------------------------------------------
 
-Interface Definition for Regression Modules Regression learns a function that maps a set of input data to one or more output variables. The resulting learned function is known as the model. That model can then be used repetitively to predict (i.e. estimate) the output value(s) based on new input data.
+Interface Definition for Regression Modules Regression learns a f
+unction that maps a set of input data to one or more output varia
+bles. The resulting learned function is known as the model. That 
+model can then be used repetitively to predict (i.e. estimate) th
+e output value(s) based on new input data.
 
-Parameter : <X> The independent data in DATASET(NumericField) format. Each statistical unit (e.g. record) is identified by 'id', and each feature is identified by field number (i.e. 'number').
+Parameter : X The independent data in DATASET(NumericField) format. Each stat
+            istical unit (e.g. record) is identified by 'id', and each featur
+            e is identified by field number (i.e. 'number').
 
-Parameter : <Y> The dependent variable(s) in DATASET(NumericField) format. Each statistical unit (e.g. record) is identified by 'id', and each feature is identified by field number (i.e. 'number').
+Parameter : Y The dependent variable(s) in DATASET(NumericField) format. Each
+             statistical unit (e.g. record) is identified by 'id', and each f
+            eature is identified by field number (i.e. 'number').
+
+Link : <None>
     
-    ATTRIBUTE : DATASET(Layout_Model) GetModel 
-    ------------------------------------------
+    ATTRIBUTE : DATASET(Layout_Model) GetModel
+    ----------------------------------------------------------------------------------------------------------------------------------
     
-    Calculate and return the 'learned' model The model may be persisted and later used to make predictions using 'Predict' below.
+    Calculate and return the 'learned' model The model may be persist
+    ed and later used to make predictions using 'Predict' below.
     
     Return : DATASET(LayoutModel) describing the learned model parameters
     
-    FUNCTION : DATASET(NumericField) Predict(DATASET(NumericField) newX, DATASET(Layout_Model) model) 
-    -------------------------------------------------------------------------------------------------
+    Link : <None>
     
-    Predict the output variable(s) based on a previously learned model
+    FUNCTION : DATASET(NumericField) Predict(DATASET(NumericField) newX, DATASET(Layout_Model) model)
+    ----------------------------------------------------------------------------------------------------------------------------------
     
-    Parameter : <newX> DATASET(NumericField) containing the X values to b predicted.
+    Predict the output variable(s) based on a previously learned mode
+    l
     
-    Return : DATASET(NumericField) containing one entry per observation (i.e. id) in newX. This represents the predicted values for Y.
+    Parameter : newX DATASET(NumericField) containing the X values to b predicted
+                .
+    
+    Return : DATASET(NumericField) containing one entry per observation (i.e. 
+             id) in newX. This represents the predicted values for Y.
+    
+    Link : <None>

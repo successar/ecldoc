@@ -6,6 +6,13 @@ from jinja2 import Template
 from lxml import etree
 from Utils import genPathTree, getRoot
 
+CPL = 130
+
+def _break(text, CPL_E) :
+	CPL_E = int(CPL_E)
+	break_text = [text[i:i+CPL_E] for i in range(0, len(text), CPL_E)]
+	return break_text
+
 class ParseTXT(object) :
 	def __init__(self, generator, ecl_file) :
 		self.input_root = generator.input_root
@@ -27,6 +34,7 @@ class ParseTXT(object) :
 		src = root.find('./Source')
 		self.src = src
 		self.doc = src.find('./Documentation')
+		self.parseSource()
 
 		for child in root.iter() :
 			attribs = child.attrib
@@ -60,7 +68,8 @@ class ParseTXT(object) :
 		render = self.template.render(src=src,
 									files=files,
 									parent=parent,
-									output_root=relpath)
+									output_root=relpath,
+									render_dict=self.render_dict)
 		fp = open(self.txt_file, 'w')
 		fp.write(render)
 		fp.close()
@@ -72,6 +81,71 @@ class ParseTXT(object) :
 			if content is not None :
 				text = content.text
 		return text
+
+	def parseSource(self) :
+		src = self.src
+		self.render_dict = []
+		for defn in src.findall('./Definition') :
+			self.parseDefinition(defn, self.render_dict)
+
+	def parseDefinition(self, defn, render_dict) :
+		defn_type = defn.find('./Type').text
+		sign = defn.find('./Signature').text
+		type_text = defn_type.upper() + ' : '
+		spaces = len(type_text)
+		EFF_CPL = CPL - spaces
+		sign_break = _break(sign, EFF_CPL)
+		type_break = [type_text] + ([' '*len(type_text)] * (len(sign_break) - 1))
+		if defn.attrib['inherit_type'] != 'local' :
+			sign_break[-1] += ' | ' + defn.attrib['inherit_type'].upper()
+		assert len(type_break) == len(sign_break)
+		headers = [(a + b) for a,b in zip(type_break, sign_break)]
+
+		doc = self.parseDocs(defn.find('./Documentation'))
+		parents = defn.find('./Parents')
+		target = defn.attrib['target'] if 'target' in defn.attrib else None
+		defn_dict = { 'headers' : headers, 'doc' : doc, 'defns' : [], 'Parents' : parents, 'target' : target}
+		for childdefn in defn.findall('./Definition') :
+			self.parseDefinition(childdefn, defn_dict['defns'])
+
+		render_dict.append(defn_dict)
+
+	def parseDocs(self, doc) :
+		doc_dict = {}
+		if doc is not None:
+			content = doc.find('./content').text
+			content_break = _break(content, CPL/2)
+			doc_dict['content'] = content_break
+			doc_dict['tags'] = []
+			for param in doc.findall('./param') :
+				param = param.find('./name').text + ' ' + param.find('./desc').text
+				param_list = self.parseParam(param, 'Parameter')
+				doc_dict['tags'].append(param_list)
+
+			for param in doc.findall('./field') :
+				param = param.find('./name').text + ' ' + param.find('./desc').text
+				param_list = self.parseParam(param, 'Field')
+				doc_dict['tags'].append(param_list)
+
+			for param in doc.findall('./return') :
+				param_list = self.parseParam(param.text, 'Return')
+				doc_dict['tags'].append(param_list)
+
+			for param in doc.findall('./see') :
+				param_list = self.parseParam(param.text, 'See')
+				doc_dict['tags'].append(param_list)
+
+		return doc_dict
+
+
+	def parseParam(self, param, heading) :
+		heading = heading + ' : '
+		param_break = _break(param, CPL/2)
+		spaces = [heading] + ([' ' * len(heading)] * (len(param_break)-1))
+		param_list = [(a + b) for a, b in zip(spaces, param_break)]
+		return param_list
+
+
 
 class GenTXT(object) :
 	def __init__(self, input_root, output_root, ecl_files, options) :

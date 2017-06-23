@@ -15,24 +15,50 @@ DESCRIPTIONS
 ============
 
 
-FUNCTION : DATASET(Layout_Cell) trsm(Side s, Triangle tri, BOOLEAN transposeA, Diagonal diag, value_t alpha, DATASET(Layout_Cell) A_in, DATASET(Layout_Cell) B_in) 
-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+FUNCTION : DATASET(Layout_Cell) trsm(Side s, Triangle tri, BOOLEAN transposeA, Diagonal diag, value_t alpha, DATASET(Layout_Cell) 
+           A_in, DATASET(Layout_Cell) B_in)
+----------------------------------------------------------------------------------------------------------------------------------
 
-Partitioned block parallel triangular matrix solver. Solves for X using: AX = B or XA = B A is is a square triangular matrix, X and B have the same dimensions. A may be an upper triangular matrix (UX = B or XU = B), or a lower triangular matrix (LX = B or XL = B). Allows optional transposing and scaling of A. Partially based upon an approach discussed by MJ DAYDE, IS DUFF, AP CERFACS. A Parallel Block implementation of Level-3 BLAS for MIMD Vector Processors ACM Tran. Mathematical Software, Vol 20, No 2, June 1994 pp 178-193 and other papers about PB-BLAS by Choi and Dongarra This module supports the "Myriad" style interface, allowing many independent problems to be worked on at once. Corresponding A and B matrixes are related by a common work-item identifier (wi_id) within each cell of the matrix. The returned X matrix will contain cells for the same set of work-items as specified for the A and B matrices.
+Partitioned block parallel triangular matrix solver. Solves for X
+ using: AX = B or XA = B A is is a square triangular matrix, X an
+d B have the same dimensions. A may be an upper triangular matrix
+ (UX = B or XU = B), or a lower triangular matrix (LX = B or XL =
+ B). Allows optional transposing and scaling of A. Partially base
+d upon an approach discussed by MJ DAYDE, IS DUFF, AP CERFACS. A 
+Parallel Block implementation of Level-3 BLAS for MIMD Vector Pro
+cessors ACM Tran. Mathematical Software, Vol 20, No 2, June 1994 
+pp 178-193 and other papers about PB-BLAS by Choi and Dongarra Th
+is module supports the "Myriad" style interface, allowing many in
+dependent problems to be worked on at once. Corresponding A and B
+ matrixes are related by a common work-item identifier (wi_id) wi
+thin each cell of the matrix. The returned X matrix will contain 
+cells for the same set of work-items as specified for the A and B
+ matrices.
 
-Parameter : <s> Types.Side enumeration indicating whether we are solving AX = B or XA = B
+Parameter : s Types.Side enumeration indicating whether we are solving AX = B
+             or XA = B
 
-Parameter : <tri> Types.Triangle enumeration indicating whether we are solving an Upper or Lower triangle.
+Parameter : tri Types.Triangle enumeration indicating whether we are solving 
+            an Upper or Lower triangle.
 
-Parameter : <transposeA> Boolean indicating whether or not to transpose the A matrix before solving
+Parameter : transposeA Boolean indicating whether or not to transpose the A m
+            atrix before solving
 
-Parameter : <diag> Types.Diagonal enumeration indicating whether A is a unit matrix or not. This is primarily used after factoring matrixes using getrf (LU factorization). That module produces a factored matrix stored within the same space as the original matrix. Since the diagonal is used by both factors, by convention, the Lower triangle has a unit matrix (diagonal all 1's) while the Upper triangle uses the diagonal cells. Setting this to UnitTri, causes the contents of the diagonal to be ignored, and assumed to be 1. NotUnitTri should be used for most other cases.
+Parameter : diag Types.Diagonal enumeration indicating whether A is a unit ma
+            trix or not. This is primarily used after factoring matrixes usin
+            g getrf (LU factorization). That module produces a factored matri
+            x stored within the same space as the original matrix. Since the 
+            diagonal is used by both factors, by convention, the Lower triang
+            le has a unit matrix (diagonal all 1's) while the Upper triangle 
+            uses the diagonal cells. Setting this to UnitTri, causes the cont
+            ents of the diagonal to be ignored, and assumed to be 1. NotUnitT
+            ri should be used for most other cases.
 
-Parameter : <alpha> Multiplier to scale A
+Parameter : alpha Multiplier to scale A
 
-Parameter : <A_in> The A matrix in Layout_Cell format
+Parameter : A_in The A matrix in Layout_Cell format
 
-Parameter : <B_in> The B matrix in Layout_Cell format
+Parameter : B_in The B matrix in Layout_Cell format
 
 Return : X solution matrix in Layout_Cell format
 
@@ -41,3 +67,5 @@ See : Types.Layout_Cell
 See : Types.Triangle
 
 See : Types.Side
+
+Link : <None>

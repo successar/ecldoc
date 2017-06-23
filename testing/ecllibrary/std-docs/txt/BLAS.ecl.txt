@@ -8,277 +8,340 @@ DESCRIPTIONS
 ============
 
 
-MODULE : BLAS 
--------------
+MODULE : BLAS
+----------------------------------------------------------------------------------------------------------------------------------
+
+Link : <None>
     
-    MODULE : Types 
-    --------------
-        
-        ATTRIBUTE : value_t 
-        -------------------
-        
-        ATTRIBUTE : dimension_t 
-        -----------------------
-        
-        ATTRIBUTE : matrix_t 
-        --------------------
-        
-        ATTRIBUTE : Triangle 
-        --------------------
-        
-        ATTRIBUTE : Diagonal 
-        --------------------
-        
-        ATTRIBUTE : Side 
-        ----------------
+    MODULE : Types
+    ----------------------------------------------------------------------------------------------------------------------------------
     
-    FUNCTION : Types.value_t ICellFunc(Types.value_t v, Types.dimension_t r, Types.dimension_t c) 
-    ---------------------------------------------------------------------------------------------
+    Link : <None>
+        
+        ATTRIBUTE : value_t
+        ----------------------------------------------------------------------------------------------------------------------------------
+        
+        Link : <None>
+        
+        ATTRIBUTE : dimension_t
+        ----------------------------------------------------------------------------------------------------------------------------------
+        
+        Link : <None>
+        
+        ATTRIBUTE : matrix_t
+        ----------------------------------------------------------------------------------------------------------------------------------
+        
+        Link : <None>
+        
+        ATTRIBUTE : Triangle
+        ----------------------------------------------------------------------------------------------------------------------------------
+        
+        Link : <None>
+        
+        ATTRIBUTE : Diagonal
+        ----------------------------------------------------------------------------------------------------------------------------------
+        
+        Link : <None>
+        
+        ATTRIBUTE : Side
+        ----------------------------------------------------------------------------------------------------------------------------------
+        
+        Link : <None>
+    
+    FUNCTION : Types.value_t ICellFunc(Types.value_t v, Types.dimension_t r, Types.dimension_t c)
+    ----------------------------------------------------------------------------------------------------------------------------------
     
     Function prototype for Apply2Cell.
     
-    Parameter : <v> the value
+    Parameter : v the value
     
-    Parameter : <r> the row ordinal
+    Parameter : r the row ordinal
     
-    Parameter : <c> the column ordinal
+    Parameter : c the column ordinal
     
     Return : the updated value
     
-    FUNCTION : Types.matrix_t Apply2Cells(Types.dimension_t m, Types.dimension_t n, Types.matrix_t x, ICellFunc f) 
-    --------------------------------------------------------------------------------------------------------------
+    Link : <None>
+    
+    FUNCTION : Types.matrix_t Apply2Cells(Types.dimension_t m, Types.dimension_t n, Types.matrix_t x, ICellFunc f)
+    ----------------------------------------------------------------------------------------------------------------------------------
     
     Iterate matrix and apply function to each cell
     
-    Parameter : <m> number of rows
+    Parameter : m number of rows
     
-    Parameter : <n> number of columns
+    Parameter : n number of columns
     
-    Parameter : <x> matrix
+    Parameter : x matrix
     
-    Parameter : <f> function to apply
+    Parameter : f function to apply
     
     Return : updated matrix
     
-    FUNCTION : Types.value_t dasum(Types.dimension_t m, Types.matrix_t x, Types.dimension_t incx, Types.dimension_t skipped=0) 
-    --------------------------------------------------------------------------------------------------------------------------
+    Link : <None>
+    
+    FUNCTION : Types.value_t dasum(Types.dimension_t m, Types.matrix_t x, Types.dimension_t incx, Types.dimension_t skipped=0)
+    ----------------------------------------------------------------------------------------------------------------------------------
     
     Absolute sum, the 1 norm of a vector.
     
-    Parameter : <m> the number of entries
+    Parameter : m the number of entries
     
-    Parameter : <x> the column major matrix holding the vector
+    Parameter : x the column major matrix holding the vector
     
-    Parameter : <incx> the increment for x, 1 in the case of an actual vector
+    Parameter : incx the increment for x, 1 in the case of an actual vector
     
-    Parameter : <skipped> default is zero, the number of entries stepped over to get to the first entry
+    Parameter : skipped default is zero, the number of entries stepped over to ge
+                t to the first entry
     
     Return : the sum of the absolute values
     
-    FUNCTION : Types.matrix_t daxpy(Types.dimension_t N, Types.value_t alpha, Types.matrix_t X, Types.dimension_t incX, Types.matrix_t Y, Types.dimension_t incY, Types.dimension_t x_skipped=0, Types.dimension_t y_skipped=0) 
-    ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    Link : <None>
+    
+    FUNCTION : Types.matrix_t daxpy(Types.dimension_t N, Types.value_t alpha, Types.matrix_t X, Types.dimension_t incX, Types.matrix_t
+                Y, Types.dimension_t incY, Types.dimension_t x_skipped=0, Types.dimension_t y_skipped=0)
+    ----------------------------------------------------------------------------------------------------------------------------------
     
     alpha*X + Y
     
-    Parameter : <N> number of elements in vector
+    Parameter : N number of elements in vector
     
-    Parameter : <alpha> the scalar multiplier
+    Parameter : alpha the scalar multiplier
     
-    Parameter : <X> the column major matrix holding the vector X
+    Parameter : X the column major matrix holding the vector X
     
-    Parameter : <incX> the increment or stride for the vector
+    Parameter : incX the increment or stride for the vector
     
-    Parameter : <Y> the column major matrix holding the vector Y
+    Parameter : Y the column major matrix holding the vector Y
     
-    Parameter : <incY> the increment or stride of Y
+    Parameter : incY the increment or stride of Y
     
-    Parameter : <x_skipped> number of entries skipped to get to the first X
+    Parameter : x_skipped number of entries skipped to get to the first X
     
-    Parameter : <y_skipped> number of entries skipped to get to the first Y
+    Parameter : y_skipped number of entries skipped to get to the first Y
     
     Return : the updated matrix
     
-    FUNCTION : Types.matrix_t dgemm(BOOLEAN transposeA, BOOLEAN transposeB, Types.dimension_t M, Types.dimension_t N, Types.dimension_t K, Types.value_t alpha, Types.matrix_t A, Types.matrix_t B, Types.value_t beta=0.0, Types.matrix_t C=[]) 
-    --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    Link : <None>
+    
+    FUNCTION : Types.matrix_t dgemm(BOOLEAN transposeA, BOOLEAN transposeB, Types.dimension_t M, Types.dimension_t N, Types.dimension_
+               t K, Types.value_t alpha, Types.matrix_t A, Types.matrix_t B, Types.value_t beta=0.0, Types.matrix_t C=[])
+    ----------------------------------------------------------------------------------------------------------------------------------
     
     alpha*op(A) op(B) + beta*C where op() is transpose
     
-    Parameter : <transposeA> true when transpose of A is used
+    Parameter : transposeA true when transpose of A is used
     
-    Parameter : <transposeB> true when transpose of B is used
+    Parameter : transposeB true when transpose of B is used
     
-    Parameter : <M> number of rows in product
+    Parameter : M number of rows in product
     
-    Parameter : <N> number of columns in product
+    Parameter : N number of columns in product
     
-    Parameter : <K> number of columns/rows for the multiplier/multiplicand
+    Parameter : K number of columns/rows for the multiplier/multiplicand
     
-    Parameter : <alpha> scalar used on A
+    Parameter : alpha scalar used on A
     
-    Parameter : <A> matrix A
+    Parameter : A matrix A
     
-    Parameter : <B> matrix B
+    Parameter : B matrix B
     
-    Parameter : <beta> scalar for matrix C
+    Parameter : beta scalar for matrix C
     
-    Parameter : <C> matrix C or empty
+    Parameter : C matrix C or empty
     
-    FUNCTION : Types.matrix_t dgetf2(Types.dimension_t m, Types.dimension_t n, Types.matrix_t a) 
-    --------------------------------------------------------------------------------------------
+    Link : <None>
+    
+    FUNCTION : Types.matrix_t dgetf2(Types.dimension_t m, Types.dimension_t n, Types.matrix_t a)
+    ----------------------------------------------------------------------------------------------------------------------------------
     
     Compute LU Factorization of matrix A.
     
-    Parameter : <m> number of rows of A
+    Parameter : m number of rows of A
     
-    Parameter : <n> number of columns of A
+    Parameter : n number of columns of A
     
-    Return : composite matrix of factors, lower triangle has an implied diagonal of ones. Upper triangle has the diagonal of the composite.
+    Return : composite matrix of factors, lower triangle has an implied diagon
+             al of ones. Upper triangle has the diagonal of the composite.
     
-    FUNCTION : Types.matrix_t dpotf2(Types.Triangle tri, Types.dimension_t r, Types.matrix_t A, BOOLEAN clear=TRUE) 
-    ---------------------------------------------------------------------------------------------------------------
+    Link : <None>
     
-    DPOTF2 computes the Cholesky factorization of a real symmetric positive definite matrix A. The factorization has the form A = U**T * U , if UPLO = 'U', or A = L * L**T, if UPLO = 'L', where U is an upper triangular matrix and L is lower triangular. This is the unblocked version of the algorithm, calling Level 2 BLAS.
+    FUNCTION : Types.matrix_t dpotf2(Types.Triangle tri, Types.dimension_t r, Types.matrix_t A, BOOLEAN clear=TRUE)
+    ----------------------------------------------------------------------------------------------------------------------------------
     
-    Parameter : <tri> indicate whether upper or lower triangle is used
+    DPOTF2 computes the Cholesky factorization of a real symmetric po
+    sitive definite matrix A. The factorization has the form A = U**T
+     * U , if UPLO = 'U', or A = L * L**T, if UPLO = 'L', where U is 
+    an upper triangular matrix and L is lower triangular. This is the
+     unblocked version of the algorithm, calling Level 2 BLAS.
     
-    Parameter : <r> number of rows/columns in the square matrix
+    Parameter : tri indicate whether upper or lower triangle is used
     
-    Parameter : <A> the square matrix
+    Parameter : r number of rows/columns in the square matrix
     
-    Parameter : <clear> clears the unused triangle
+    Parameter : A the square matrix
+    
+    Parameter : clear clears the unused triangle
     
     Return : the triangular matrix requested.
     
-    FUNCTION : Types.matrix_t dscal(Types.dimension_t N, Types.value_t alpha, Types.matrix_t X, Types.dimension_t incX, Types.dimension_t skipped=0) 
-    ------------------------------------------------------------------------------------------------------------------------------------------------
+    Link : <None>
+    
+    FUNCTION : Types.matrix_t dscal(Types.dimension_t N, Types.value_t alpha, Types.matrix_t X, Types.dimension_t incX, Types.dimensio
+               n_t skipped=0)
+    ----------------------------------------------------------------------------------------------------------------------------------
     
     Scale a vector alpha
     
-    Parameter : <N> number of elements in the vector
+    Parameter : N number of elements in the vector
     
-    Parameter : <alpha> the scaling factor
+    Parameter : alpha the scaling factor
     
-    Parameter : <X> the column major matrix holding the vector
+    Parameter : X the column major matrix holding the vector
     
-    Parameter : <incX> the stride to get to the next element in the vector
+    Parameter : incX the stride to get to the next element in the vector
     
-    Parameter : <skipped> the number of elements skipped to get to the first element
+    Parameter : skipped the number of elements skipped to get to the first elemen
+                t
     
     Return : the updated matrix
     
-    FUNCTION : Types.matrix_t dsyrk(Types.Triangle tri, BOOLEAN transposeA, Types.dimension_t N, Types.dimension_t K, Types.value_t alpha, Types.matrix_t A, Types.value_t beta, Types.matrix_t C, BOOLEAN clear=FALSE) 
-    -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    Link : <None>
+    
+    FUNCTION : Types.matrix_t dsyrk(Types.Triangle tri, BOOLEAN transposeA, Types.dimension_t N, Types.dimension_t K, Types.value_t al
+               pha, Types.matrix_t A, Types.value_t beta, Types.matrix_t C, BOOLEAN clear=FALSE)
+    ----------------------------------------------------------------------------------------------------------------------------------
     
     Implements symmetric rank update C 
     
-    Parameter : <tri> update upper or lower triangle
+    Parameter : tri update upper or lower triangle
     
-    Parameter : <transposeA> Transpose the A matrix to be NxK
+    Parameter : transposeA Transpose the A matrix to be NxK
     
-    Parameter : <N> number of rows
+    Parameter : N number of rows
     
-    Parameter : <K> number of columns in the update matrix or transpose
+    Parameter : K number of columns in the update matrix or transpose
     
-    Parameter : <alpha> the alpha scalar
+    Parameter : alpha the alpha scalar
     
-    Parameter : <A> the update matrix, either NxK or KxN
+    Parameter : A the update matrix, either NxK or KxN
     
-    Parameter : <beta> the beta scalar
+    Parameter : beta the beta scalar
     
-    Parameter : <C> the matrix to update
+    Parameter : C the matrix to update
     
-    Parameter : <clear> clear the triangle that is not updated. BLAS assumes that symmetric matrices have only one of the triangles and this option lets you make that true.
+    Parameter : clear clear the triangle that is not updated. BLAS assumes that s
+                ymmetric matrices have only one of the triangles and this option 
+                lets you make that true.
     
-    FUNCTION : Types.matrix_t dtrsm(Types.Side side, Types.Triangle tri, BOOLEAN transposeA, Types.Diagonal diag, Types.dimension_t M, Types.dimension_t N, Types.dimension_t lda, Types.value_t alpha, Types.matrix_t A, Types.matrix_t B) 
-    ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    Link : <None>
     
-    Triangular matrix solver. op(A) X = alpha B or X op(A) = alpha B where op is Transpose, X and B is MxN
+    FUNCTION : Types.matrix_t dtrsm(Types.Side side, Types.Triangle tri, BOOLEAN transposeA, Types.Diagonal diag, Types.dimension_t M,
+                Types.dimension_t N, Types.dimension_t lda, Types.value_t alpha, Types.matrix_t A, Types.matrix_t B)
+    ----------------------------------------------------------------------------------------------------------------------------------
     
-    Parameter : <side> side for A, Side.Ax is op(A) X = alpha B
+    Triangular matrix solver. op(A) X = alpha B or X op(A) = alpha B 
+    where op is Transpose, X and B is MxN
     
-    Parameter : <tri> Says whether A is Upper or Lower triangle
+    Parameter : side side for A, Side.Ax is op(A) X = alpha B
     
-    Parameter : <transposeA> is op(A) the transpose of A
+    Parameter : tri Says whether A is Upper or Lower triangle
     
-    Parameter : <diag> is the diagonal an implied unit diagonal or supplied
+    Parameter : transposeA is op(A) the transpose of A
     
-    Parameter : <M> number of rows
+    Parameter : diag is the diagonal an implied unit diagonal or supplied
     
-    Parameter : <N> number of columns
+    Parameter : M number of rows
     
-    Parameter : <lda> the leading dimension of the A matrix, either M or N
+    Parameter : N number of columns
     
-    Parameter : <alpha> the scalar multiplier for B
+    Parameter : lda the leading dimension of the A matrix, either M or N
     
-    Parameter : <A> a triangular matrix
+    Parameter : alpha the scalar multiplier for B
     
-    Parameter : <B> the matrix of values for the solve
+    Parameter : A a triangular matrix
+    
+    Parameter : B the matrix of values for the solve
     
     Return : the matrix of coefficients to get B.
     
-    FUNCTION : Types.matrix_t extract_diag(Types.dimension_t m, Types.dimension_t n, Types.matrix_t x) 
-    --------------------------------------------------------------------------------------------------
+    Link : <None>
+    
+    FUNCTION : Types.matrix_t extract_diag(Types.dimension_t m, Types.dimension_t n, Types.matrix_t x)
+    ----------------------------------------------------------------------------------------------------------------------------------
     
     Extract the diagonal of he matrix
     
-    Parameter : <m> number of rows
+    Parameter : m number of rows
     
-    Parameter : <n> number of columns
+    Parameter : n number of columns
     
-    Parameter : <x> matrix from which to extract the diagonal
+    Parameter : x matrix from which to extract the diagonal
     
     Return : diagonal matrix
     
-    FUNCTION : Types.matrix_t extract_tri(Types.dimension_t m, Types.dimension_t n, Types.Triangle tri, Types.Diagonal dt, Types.matrix_t a) 
-    ----------------------------------------------------------------------------------------------------------------------------------------
+    Link : <None>
     
-    Extract the upper or lower triangle. Diagonal can be actual or implied unit diagonal.
+    FUNCTION : Types.matrix_t extract_tri(Types.dimension_t m, Types.dimension_t n, Types.Triangle tri, Types.Diagonal dt, Types.matri
+               x_t a)
+    ----------------------------------------------------------------------------------------------------------------------------------
     
-    Parameter : <m> number of rows
+    Extract the upper or lower triangle. Diagonal can be actual or im
+    plied unit diagonal.
     
-    Parameter : <n> number of columns
+    Parameter : m number of rows
     
-    Parameter : <tri> Upper or Lower specifier, Triangle.Lower or Triangle.Upper
+    Parameter : n number of columns
     
-    Parameter : <dt> Use Diagonal.NotUnitTri or Diagonal.UnitTri
+    Parameter : tri Upper or Lower specifier, Triangle.Lower or Triangle.Upper
     
-    Parameter : <a> Matrix, usually a composite from factoring
+    Parameter : dt Use Diagonal.NotUnitTri or Diagonal.UnitTri
+    
+    Parameter : a Matrix, usually a composite from factoring
     
     Return : the triangle
     
-    FUNCTION : Types.matrix_t make_diag(Types.dimension_t m, Types.value_t v=1.0, Types.matrix_t X=[]) 
-    --------------------------------------------------------------------------------------------------
+    Link : <None>
+    
+    FUNCTION : Types.matrix_t make_diag(Types.dimension_t m, Types.value_t v=1.0, Types.matrix_t X=[])
+    ----------------------------------------------------------------------------------------------------------------------------------
     
     Generate a diagonal matrix.
     
-    Parameter : <m> number of diagonal entries
+    Parameter : m number of diagonal entries
     
-    Parameter : <v> option value, defaults to 1
+    Parameter : v option value, defaults to 1
     
-    Parameter : <X> optional input of diagonal values, multiplied by v.
+    Parameter : X optional input of diagonal values, multiplied by v.
     
     Return : a diagonal matrix
     
-    FUNCTION : Types.matrix_t make_vector(Types.dimension_t m, Types.value_t v=1.0) 
-    -------------------------------------------------------------------------------
+    Link : <None>
+    
+    FUNCTION : Types.matrix_t make_vector(Types.dimension_t m, Types.value_t v=1.0)
+    ----------------------------------------------------------------------------------------------------------------------------------
     
     Make a vector of dimension m
     
-    Parameter : <m> number of elements
+    Parameter : m number of elements
     
-    Parameter : <v> the values, defaults to 1
+    Parameter : v the values, defaults to 1
     
     Return : the vector
     
-    FUNCTION : Types.value_t trace(Types.dimension_t m, Types.dimension_t n, Types.matrix_t x) 
-    ------------------------------------------------------------------------------------------
+    Link : <None>
+    
+    FUNCTION : Types.value_t trace(Types.dimension_t m, Types.dimension_t n, Types.matrix_t x)
+    ----------------------------------------------------------------------------------------------------------------------------------
     
     The trace of the input matrix
     
-    Parameter : <m> number of rows
+    Parameter : m number of rows
     
-    Parameter : <n> number of columns
+    Parameter : n number of columns
     
-    Parameter : <x> the matrix
+    Parameter : x the matrix
     
     Return : the trace (sum of the diagonal entries)
+    
+    Link : <None>

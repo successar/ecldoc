@@ -23,7 +23,7 @@
     <Type>record</Type>
     <Field name="name"/>
     <Signature sign="FsLogicalFileNameRecord" name="FsLogicalFileNameRecord">FsLogicalFileNameRecord</Signature><Documentation>
-     <content>A record containing a logical filename. It contains the following fields:</content><firstline>A record containing a logical filename</firstline><field><name>name</name><desc>The logical name of the file;</desc></field></Documentation>
+     <content>A record containing a logical filename. It contains the following fields:</content><field><name>name</name><desc>The logical name of the file;</desc></field><firstline>A record containing a logical filename</firstline></Documentation>
    </Definition>
    <Definition body="1615" end="1657" exported="1" fullname="file.fslogicalfileinforecord" inherit_type="local" line="47" name="FsLogicalFileInfoRecord" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl" start="1582">
     <Type>record</Type>
@@ -35,14 +35,14 @@
     <Field name="owner"/>
     <Field name="cluster"/>
     <Signature sign="FsLogicalFileInfoRecord" name="FsLogicalFileInfoRecord">FsLogicalFileInfoRecord</Signature><Documentation>
-     <inherits>Contains all the fields in FsLogicalFileNameRecord)</inherits><firstline>A record containing information about a logical file</firstline><modified>Timestamp when the file was last modified;</modified><field><name>superfile</name><desc>Is this a superfile?</desc></field><field><name>size</name><desc>Number of bytes in the file (before compression)</desc></field><field><name>rowcount</name><desc>Number of rows in the file.</desc></field><cluster>The cluster that this file was created on.</cluster><content>A record containing information about a logical file.</content><owner>The username of the owner who ran the job to create this file.</owner></Documentation>
+     <modified>Timestamp when the file was last modified;</modified><owner>The username of the owner who ran the job to create this file.</owner><inherits>Contains all the fields in FsLogicalFileNameRecord)</inherits><firstline>A record containing information about a logical file</firstline><content>A record containing information about a logical file.</content><field><name>superfile</name><desc>Is this a superfile?</desc></field><field><name>size</name><desc>Number of bytes in the file (before compression)</desc></field><field><name>rowcount</name><desc>Number of rows in the file.</desc></field><cluster>The cluster that this file was created on.</cluster></Documentation>
    </Definition>
    <Definition body="1874" end="1916" exported="1" fullname="file.fslogicalsupersubrecord" inherit_type="local" line="56" name="FsLogicalSuperSubRecord" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl" start="1841">
     <Type>record</Type>
     <Field name="supername"/>
     <Field name="subname"/>
     <Signature sign="FsLogicalSuperSubRecord" name="FsLogicalSuperSubRecord">FsLogicalSuperSubRecord</Signature><Documentation>
-     <content>A record containing information about a superfile and its contents.</content><firstline>A record containing information about a superfile and its contents</firstline><field><name>supername</name><desc>The name of the superfile</desc></field><field><name>subname</name><desc>The name of the sub-file</desc></field></Documentation>
+     <content>A record containing information about a superfile and its contents.</content><field><name>supername</name><desc>The name of the superfile</desc></field><field><name>subname</name><desc>The name of the sub-file</desc></field><firstline>A record containing information about a superfile and its contents</firstline></Documentation>
    </Definition>
    <Definition body="2930" end="2973" exported="1" fullname="file.fsfilerelationshiprecord" inherit_type="local" line="74" name="FsFileRelationshipRecord" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl" start="2896">
     <Type>record</Type>
@@ -55,7 +55,7 @@
     <Field name="payload"/>
     <Field name="description"/>
     <Signature sign="FsFileRelationshipRecord" name="FsFileRelationshipRecord">FsFileRelationshipRecord</Signature><Documentation>
-     <content>A record containing information about the relationship between two files.</content><firstline>A record containing information about the relationship between two files</firstline><field><name>primaryfile</name><desc>The logical filename of the primary file</desc></field><field><name>secondaryfile</name><desc>The logical filename of the secondary file.</desc></field><field><name>primaryflds</name><desc>The name of the primary key field for the primary file. The value "__fileposition__" indicates the secondary is an INDEX that must use FETCH to access non-keyed fields.</desc></field><field><name>secondaryflds</name><desc>The name of the foreign key field relating to the primary file.</desc></field><field><name>kind</name><desc>The type of relationship between the primary and secondary files. Containing either 'link' or 'view'.</desc></field><field><name>cardinality</name><desc>The cardinality of the relationship. The format is &lt;primary&gt;:&lt;secondary&gt;. Valid values are "1" or "M".&lt;/secondary&gt;&lt;/primary&gt;</desc></field><field><name>payload</name><desc>Indicates whether the primary or secondary are payload INDEXes.</desc></field><field><name>description</name><desc>The description of the relationship.</desc></field></Documentation>
+     <content>A record containing information about the relationship between two files.</content><field><name>primaryfile</name><desc>The logical filename of the primary file</desc></field><field><name>secondaryfile</name><desc>The logical filename of the secondary file.</desc></field><field><name>primaryflds</name><desc>The name of the primary key field for the primary file. The value "__fileposition__" indicates the secondary is an INDEX that must use FETCH to access non-keyed fields.</desc></field><field><name>secondaryflds</name><desc>The name of the foreign key field relating to the primary file.</desc></field><field><name>kind</name><desc>The type of relationship between the primary and secondary files. Containing either 'link' or 'view'.</desc></field><field><name>cardinality</name><desc>The cardinality of the relationship. The format is &lt;primary&gt;:&lt;secondary&gt;. Valid values are "1" or "M".&lt;/secondary&gt;&lt;/primary&gt;</desc></field><field><name>payload</name><desc>Indicates whether the primary or secondary are payload INDEXes.</desc></field><field><name>description</name><desc>The description of the relationship.</desc></field><firstline>A record containing information about the relationship between two files</firstline></Documentation>
    </Definition>
    <Definition body="3110" end="3143" exported="1" fullname="file.recfmv_recsize" inherit_type="local" line="80" name="RECFMV_RECSIZE" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl" start="3086">
     <Type>attribute</Type>
@@ -719,7 +719,7 @@
    <Definition body="46218" end="46280" exported="1" fullname="file.superfileexists" inherit_type="local" line="732" name="SuperFileExists" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl" start="46164">
     <Type>function</Type>
     <Documentation>
-     <param><name>superName</name><desc>The logical name of the superfile.</desc></param><content>Checks if the specified filename is present in the Distributed File Utility (DFU) and is a SuperFile.</content><firstline>Checks if the specified filename is present in the Distributed File Utility (DFU) and is a SuperFile</firstline><see>FileExists</see><return>Whether the file exists.</return></Documentation>
+     <param><name>superName</name><desc>The logical name of the superfile.</desc></param><content>Checks if the specified filename is present in the Distributed File Utility (DFU) and is a SuperFile.</content><see>FileExists</see><firstline>Checks if the specified filename is present in the Distributed File Utility (DFU) and is a SuperFile</firstline><return>Whether the file exists.</return></Documentation>
     <Signature sign="boolean SuperFileExists(varstring superName)" name="SuperFileExists">boolean SuperFileExists(varstring superName)</Signature><Params>
      <Param name="superName"/>
     </Params>
@@ -862,7 +862,7 @@
    <Definition body="52747" end="52808" exported="1" fullname="file.logicalfilesupersublist" inherit_type="local" line="897" name="LogicalFileSuperSubList" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl" start="52679">
     <Type>function</Type>
     <Documentation>
-     <return>A dataset containing pairs of superName,subName for each component file.</return><content>Returns the list of all the superfiles in the system and their component sub-files.</content><firstline>Returns the list of all the superfiles in the system and their component sub-files</firstline></Documentation>
+     <content>Returns the list of all the superfiles in the system and their component sub-files.</content><firstline>Returns the list of all the superfiles in the system and their component sub-files</firstline><return>A dataset containing pairs of superName,subName for each component file.</return></Documentation>
     <Signature sign="dataset(FsLogicalSuperSubRecord) LogicalFileSuperSubList()" name="LogicalFileSuperSubList">dataset(FsLogicalSuperSubRecord) LogicalFileSuperSubList()</Signature><Params/>
    </Definition>
    <Definition body="54146" end="54257" exported="1" fullname="file.fpromotesuperfilelist" inherit_type="local" line="915" name="fPromoteSuperFileList" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl" start="53979">

@@ -17,12 +17,12 @@
    <Definition body="1875" end="1874" exported="1" fullname="ml_core.interfaces.iregression.getmodel" inherit_type="local" line="47" name="GetModel" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Interfaces/IRegression.ecl" start="1836">
     <Type>attribute</Type>
     <Signature sign="DATASET(Layout_Model) GetModel" name="GetModel">DATASET(Layout_Model) GetModel</Signature><Documentation>
-     <content>Calculate and return the 'learned' model The model may be persisted and later used to make predictions using 'Predict' below.</content><firstline>Calculate and return the 'learned' model The model may be persisted and later used to make predictions using 'Predict' below</firstline><return>DATASET(LayoutModel) describing the learned model parameters</return></Documentation>
+     <return>DATASET(LayoutModel) describing the learned model parameters</return><content>Calculate and return the 'learned' model The model may be persisted and later used to make predictions using 'Predict' below.</content><firstline>Calculate and return the 'learned' model The model may be persisted and later used to make predictions using 'Predict' below</firstline></Documentation>
    </Definition>
    <Definition body="2349" end="2348" exported="1" fullname="ml_core.interfaces.iregression.predict" inherit_type="local" line="56" name="Predict" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Interfaces/IRegression.ecl" start="2215">
     <Type>function</Type>
     <Documentation>
-     <param><name>newX</name><desc>DATASET(NumericField) containing the X values to b predicted.</desc></param><content>Predict the output variable(s) based on a previously learned model</content><firstline>Predict the output variable(s) based on a previously learned model</firstline><return>DATASET(NumericField) containing one entry per observation (i.e. id) in newX. This represents the predicted values for Y.</return></Documentation>
+     <return>DATASET(NumericField) containing one entry per observation (i.e. id) in newX. This represents the predicted values for Y.</return><param><name>newX</name><desc>DATASET(NumericField) containing the X values to b predicted.</desc></param><content>Predict the output variable(s) based on a previously learned model</content><firstline>Predict the output variable(s) based on a previously learned model</firstline></Documentation>
     <Signature sign="DATASET(NumericField) Predict(DATASET(NumericField) newX, DATASET(Layout_Model) model)" name="Predict">DATASET(NumericField) Predict(DATASET(NumericField) newX, DATASET(Layout_Model) model)</Signature><Params>
      <Param name="newX"/>
      <Param name="model"/>

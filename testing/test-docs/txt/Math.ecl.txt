@@ -7,56 +7,77 @@ DESCRIPTIONS
 ============
 
 
-MODULE : Math 
--------------
+MODULE : Math
+----------------------------------------------------------------------------------------------------------------------------------
+
+Link : <None>
     
-    ATTRIBUTE : REAL8 Infinity 
-    --------------------------
+    ATTRIBUTE : REAL8 Infinity
+    ----------------------------------------------------------------------------------------------------------------------------------
     
     Return a real "infinity" value.
     
-    ATTRIBUTE : REAL8 NaN 
-    ---------------------
+    Link : <None>
+    
+    ATTRIBUTE : REAL8 NaN
+    ----------------------------------------------------------------------------------------------------------------------------------
     
     Return a non-signalling NaN (Not a Number)value.
     
-    FUNCTION : BOOLEAN isInfinite(REAL8 val) 
-    ----------------------------------------
+    Link : <None>
+    
+    FUNCTION : BOOLEAN isInfinite(REAL8 val)
+    ----------------------------------------------------------------------------------------------------------------------------------
     
     Return whether a real value is infinite (positive or negative).
     
-    Parameter : <val> The value to test.
+    Parameter : val The value to test.
     
-    FUNCTION : BOOLEAN isNaN(REAL8 val) 
-    -----------------------------------
+    Link : <None>
+    
+    FUNCTION : BOOLEAN isNaN(REAL8 val)
+    ----------------------------------------------------------------------------------------------------------------------------------
     
     Return whether a real value is a NaN (not a number) value.
     
-    Parameter : <val> The value to test.
+    Parameter : val The value to test.
     
-    FUNCTION : BOOLEAN isFinite(REAL8 val) 
-    --------------------------------------
+    Link : <None>
     
-    Return whether a real value is a valid value (neither infinite not NaN).
+    FUNCTION : BOOLEAN isFinite(REAL8 val)
+    ----------------------------------------------------------------------------------------------------------------------------------
     
-    Parameter : <val> The value to test.
+    Return whether a real value is a valid value (neither infinite no
+    t NaN).
     
-    FUNCTION : REAL8 FMod(REAL8 numer, REAL8 denom) 
-    -----------------------------------------------
+    Parameter : val The value to test.
     
-    Returns the floating-point remainder of numer/denom (rounded towards zero). If denom is zero, the result depends on the -fdivideByZero flag: 'zero' or unset: return zero. 'nan': return a non-signalling NaN value 'fail': throw an exception
+    Link : <None>
     
-    Parameter : <numer> The numerator.
+    FUNCTION : REAL8 FMod(REAL8 numer, REAL8 denom)
+    ----------------------------------------------------------------------------------------------------------------------------------
     
-    Parameter : <denom> The numerator.
+    Returns the floating-point remainder of numer/denom (rounded towa
+    rds zero). If denom is zero, the result depends on the -fdivideBy
+    Zero flag: 'zero' or unset: return zero. 'nan': return a non-sign
+    alling NaN value 'fail': throw an exception
     
-    FUNCTION : BOOLEAN FMatch(REAL8 a, REAL8 b, REAL8 epsilon=0.0) 
-    --------------------------------------------------------------
+    Parameter : numer The numerator.
     
-    Returns whether two floating point values are the same, within margin of error epsilon.
+    Parameter : denom The numerator.
     
-    Parameter : <a> The first value.
+    Link : <None>
     
-    Parameter : <b> The second value.
+    FUNCTION : BOOLEAN FMatch(REAL8 a, REAL8 b, REAL8 epsilon=0.0)
+    ----------------------------------------------------------------------------------------------------------------------------------
     
-    Parameter : <epsilon> The allowable margin of error.
+    Returns whether two floating point values are the same, within ma
+    rgin of error epsilon.
+    
+    Parameter : a The first value.
+    
+    Parameter : b The second value.
+    
+    Parameter : epsilon The allowable margin of error.
+    
+    Link : <None>
