@@ -119,13 +119,13 @@
 							</div>
 
 							<div class="panel-body">
-								{% if def.find('./Documentation') -%}
+								{% if def.find('./Documentation') is not none -%}
 								<div class="row">
 									<div class="col-md-12" style="padding-bottom: 10px;">
 										{{ def.find('./Documentation').find('./content').text }}
 									</div>
 								</div>
-								{% if def.find('./Documentation').find('./param') %}
+								{% if def.find('./Documentation').findall('./param') %}
 								<div class="row">
 									<div class="col-md-1 doc-type">Parameters</div>
 									<div class="col-md-11">
@@ -154,7 +154,7 @@
 									</div>
 								</div>
 								{% endif %}
-								{% if def.find('./Documentation').find('./field') %}
+								{% if def.find('./Documentation').findall('./field') %}
 								<div class="row">
 									<div class="col-md-1 doc-type">Fields</div>
 									<div class="col-md-11">

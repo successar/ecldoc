@@ -1,6 +1,5 @@
 import os
 import glob
-import json
 import argparse
 import configparser
 import genXML, genHTML, genTXT
@@ -17,7 +16,8 @@ def doMain() :
     options = {}
     if 'INPUT' in cfgparser.sections() :
         input_root = os.path.realpath(cfgparser['INPUT']['root'])
-        options['nodoc'] = cfgparser['INPUT'].getboolean('nodoc', False)
+        options['nodoc'] = cfgparser['INPUT'].getboolean('showNodoc', False)
+        options['internal'] = cfgparser['INPUT'].getboolean('showInternal', False)
 
         include = []
         if 'include' in cfgparser['INPUT'] :
@@ -45,7 +45,7 @@ def doMain() :
         if not os.path.exists(output_root) :
             os.makedirs(output_root, exist_ok=True)
 
-        genXML.genXML(input_root, output_root, ecl_files)
+        genXML.GenXML(input_root, output_root, ecl_files, options).genXML()
         genHTML.GenHTML(input_root, output_root, ecl_files, options).genHTML()
         genTXT.GenTXT(input_root, output_root, ecl_files, options).genTXT()
 

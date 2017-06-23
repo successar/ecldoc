@@ -1,0 +1,1769 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
+	<title>BLAS</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
+	<link href="../css/simple-sidebar.css" rel="stylesheet">
+
+</head>
+
+<body>
+	<nav class="navbar topbar">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a href="#menu-toggle" id="menu-toggle" class="navbar-brand glyphicon glyphicon-menu-hamburger ham"></a>
+			</div>
+			<div class="navbar-header" style="margin-left: 20px;">
+				<span class="navbar-brand">BLAS</span>
+			</div>
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="#ecldoc-section-import" class="topbar">Imports</a></li>
+					<li><a href="#ecldoc-section-tree" class="topbar">Tree</a></li>
+					<li><a href="#ecldoc-section-desc" class="topbar">Descriptions</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		<div id="sidebar-wrapper">
+			<ul class="sidebar-nav">
+				<li class="sidebar-brand">
+					<a href="pkg.toc.html">
+						Up
+					</a>
+				</li>
+				
+				<li>
+					<a href="Uni.ecl.html">Uni.ecl</a>
+				</li>
+				
+				<li>
+					<a href="BLAS.ecl.html">BLAS.ecl</a>
+				</li>
+				
+				<li>
+					<a href="Date.ecl.html">Date.ecl</a>
+				</li>
+				
+				<li>
+					<a href="File.ecl.html">File.ecl</a>
+				</li>
+				
+				<li>
+					<a href="str.ecl.html">str.ecl</a>
+				</li>
+				
+				<li>
+					<a href="Audit.ecl.html">Audit.ecl</a>
+				</li>
+				
+				<li>
+					<a href="math.ecl.html">math.ecl</a>
+				</li>
+				
+				<li>
+					<a href="Metaphone3.ecl.html">Metaphone3.ecl</a>
+				</li>
+				
+				<li>
+					<a href="Metaphone.ecl.html">Metaphone.ecl</a>
+				</li>
+				
+				<li>
+					<a href="system/pkg.toc.html">system</a>
+				</li>
+				
+				<li>
+					<a href="BundleBase.ecl.html">BundleBase.ecl</a>
+				</li>
+				
+			</ul>
+		</div>
+
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<section id="ecldoc-section-import">
+					<h3 class="page-header">IMPORTS</h3>
+					<ul class="pagination">
+						<li>
+							<a href="lib_eclblas/pkg.toc.html">
+								lib_eclblas
+							</a>
+							</li>
+						</ul>
+				</section>
+				<section id="ecldoc-section-tree">
+					<h3 class="page-header">DEFINITION TREE</h3>
+					<ul class="tree" style="padding : 0px;">
+						<li id="t-BLAS">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<a href="#BLAS" data-toggle="collapse" class="glyphicon glyphicon-folder-open" style="margin-right: 6px;"></a>
+								
+								<a href="#dBLAS">
+									<span class="tree-type">MODULE : </span>
+									BLAS
+								</a>
+								</div>
+
+								
+							</div>
+							<ul id="BLAS" class="accordian-body tree collapse">
+								<li id="t-BLAS-Types">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<a href="#BLAS-Types" data-toggle="collapse" class="glyphicon glyphicon-folder-open" style="margin-right: 6px;"></a>
+								
+								<a href="#dBLAS-Types">
+									<span class="tree-type">MODULE : </span>
+									Types
+								</a>
+								</div>
+
+								
+							</div>
+							<ul id="BLAS-Types" class="accordian-body tree collapse">
+								<li id="t-blas-types-value_t">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dblas-types-value_t">
+									<span class="tree-type">ATTRIBUTE : </span>
+									value_t
+								</a>
+								</div>
+
+								
+							</div>
+							<ul id="blas-types-value_t" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-blas-types-dimension_t">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dblas-types-dimension_t">
+									<span class="tree-type">ATTRIBUTE : </span>
+									dimension_t
+								</a>
+								</div>
+
+								
+							</div>
+							<ul id="blas-types-dimension_t" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-blas-types-matrix_t">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dblas-types-matrix_t">
+									<span class="tree-type">ATTRIBUTE : </span>
+									matrix_t
+								</a>
+								</div>
+
+								
+							</div>
+							<ul id="blas-types-matrix_t" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-ecldoc-Triangle">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#decldoc-Triangle">
+									<span class="tree-type">ATTRIBUTE : </span>
+									Triangle
+								</a>
+								</div>
+
+								
+							</div>
+							<ul id="ecldoc-Triangle" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-ecldoc-Diagonal">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#decldoc-Diagonal">
+									<span class="tree-type">ATTRIBUTE : </span>
+									Diagonal
+								</a>
+								</div>
+
+								
+							</div>
+							<ul id="ecldoc-Diagonal" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-ecldoc-Side">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#decldoc-Side">
+									<span class="tree-type">ATTRIBUTE : </span>
+									Side
+								</a>
+								</div>
+
+								
+							</div>
+							<ul id="ecldoc-Side" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						
+							</ul>
+						</li>
+						<li id="t-blas-icellfunc">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dblas-icellfunc">
+									<span class="tree-type">FUNCTION : </span>
+									ICellFunc
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Function prototype for Apply2Cell
+								</div>
+								
+								
+							</div>
+							<ul id="blas-icellfunc" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-blas-apply2cells">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dblas-apply2cells">
+									<span class="tree-type">FUNCTION : </span>
+									Apply2Cells
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Iterate matrix and apply function to each cell
+								</div>
+								
+								
+							</div>
+							<ul id="blas-apply2cells" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-blas-dasum">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dblas-dasum">
+									<span class="tree-type">FUNCTION : </span>
+									dasum
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Absolute sum, the 1 norm of a vector
+								</div>
+								
+								
+							</div>
+							<ul id="blas-dasum" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-blas-daxpy">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dblas-daxpy">
+									<span class="tree-type">FUNCTION : </span>
+									daxpy
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								alpha*X + Y
+								</div>
+								
+								
+							</div>
+							<ul id="blas-daxpy" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-blas-dgemm">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dblas-dgemm">
+									<span class="tree-type">FUNCTION : </span>
+									dgemm
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								alpha*op(A) op(B) + beta*C where op() is transpose
+								</div>
+								
+								
+							</div>
+							<ul id="blas-dgemm" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-blas-dgetf2">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dblas-dgetf2">
+									<span class="tree-type">FUNCTION : </span>
+									dgetf2
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Compute LU Factorization of matrix A
+								</div>
+								
+								
+							</div>
+							<ul id="blas-dgetf2" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-blas-dpotf2">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dblas-dpotf2">
+									<span class="tree-type">FUNCTION : </span>
+									dpotf2
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								DPOTF2 computes the Cholesky factorization of a real symmetric positive definite matrix A
+								</div>
+								
+								
+							</div>
+							<ul id="blas-dpotf2" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-blas-dscal">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dblas-dscal">
+									<span class="tree-type">FUNCTION : </span>
+									dscal
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Scale a vector alpha
+								</div>
+								
+								
+							</div>
+							<ul id="blas-dscal" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-blas-dsyrk">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dblas-dsyrk">
+									<span class="tree-type">FUNCTION : </span>
+									dsyrk
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Implements symmetric rank update C 
+								</div>
+								
+								
+							</div>
+							<ul id="blas-dsyrk" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-blas-dtrsm">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dblas-dtrsm">
+									<span class="tree-type">FUNCTION : </span>
+									dtrsm
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Triangular matrix solver
+								</div>
+								
+								
+							</div>
+							<ul id="blas-dtrsm" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-blas-extract_diag">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dblas-extract_diag">
+									<span class="tree-type">FUNCTION : </span>
+									extract_diag
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Extract the diagonal of he matrix
+								</div>
+								
+								
+							</div>
+							<ul id="blas-extract_diag" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-blas-extract_tri">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dblas-extract_tri">
+									<span class="tree-type">FUNCTION : </span>
+									extract_tri
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Extract the upper or lower triangle
+								</div>
+								
+								
+							</div>
+							<ul id="blas-extract_tri" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-blas-make_diag">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dblas-make_diag">
+									<span class="tree-type">FUNCTION : </span>
+									make_diag
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Generate a diagonal matrix
+								</div>
+								
+								
+							</div>
+							<ul id="blas-make_diag" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-blas-make_vector">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dblas-make_vector">
+									<span class="tree-type">FUNCTION : </span>
+									make_vector
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Make a vector of dimension m
+								</div>
+								
+								
+							</div>
+							<ul id="blas-make_vector" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-blas-trace">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dblas-trace">
+									<span class="tree-type">FUNCTION : </span>
+									trace
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								The trace of the input matrix
+								</div>
+								
+								
+							</div>
+							<ul id="blas-trace" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						
+							</ul>
+						</li>
+						</ul>
+				</section>
+				<section id="ecldoc-section-desc">
+					<h3 class="page-header">DESCRIPTIONS</h3>
+					<div class="panel-group">
+						<div class="panel panel-info" id="dBLAS">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									MODULE
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">BLAS</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-BLAS" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						<div class="panel panel-info" id="dBLAS-Types">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									MODULE
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">Types</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-BLAS-Types" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						<div class="panel panel-info" id="dblas-types-value_t">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									ATTRIBUTE
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">value_t</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-blas-types-value_t" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dblas-types-dimension_t">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									ATTRIBUTE
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">dimension_t</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-blas-types-dimension_t" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dblas-types-matrix_t">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									ATTRIBUTE
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">matrix_t</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-blas-types-matrix_t" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="decldoc-Triangle">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									ATTRIBUTE
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">Triangle</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-ecldoc-Triangle" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="decldoc-Diagonal">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									ATTRIBUTE
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">Diagonal</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-ecldoc-Diagonal" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="decldoc-Side">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									ATTRIBUTE
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">Side</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-ecldoc-Side" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						
+						<div class="panel panel-info" id="dblas-icellfunc">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">Types.value_t ICellFunc(Types.value_t v, Types.dimension_t r, Types.dimension_t c)</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-blas-icellfunc" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Function prototype for Apply2Cell.
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%; font-weight: bold;">v</td>
+												<td>the value</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">r</td>
+												<td>the row ordinal</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">c</td>
+												<td>the column ordinal</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>the updated value</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dblas-apply2cells">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">Types.matrix_t Apply2Cells(Types.dimension_t m, Types.dimension_t n, Types.matrix_t x, ICellFunc f)</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-blas-apply2cells" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Iterate matrix and apply function to each cell
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%; font-weight: bold;">m</td>
+												<td>number of rows</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">n</td>
+												<td>number of columns</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">x</td>
+												<td>matrix</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">f</td>
+												<td>function to apply</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>updated matrix</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dblas-dasum">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">Types.value_t dasum(Types.dimension_t m, Types.matrix_t x, Types.dimension_t incx, Types.dimension_t skipped=0)</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-blas-dasum" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Absolute sum, the 1 norm of a vector.
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%; font-weight: bold;">m</td>
+												<td>the number of entries</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">x</td>
+												<td>the column major matrix holding the vector</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">incx</td>
+												<td>the increment for x, 1 in the case of an actual vector</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">skipped</td>
+												<td>default is zero, the number of entries stepped over to get to the first entry</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>the sum of the absolute values</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dblas-daxpy">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">Types.matrix_t daxpy(Types.dimension_t N, Types.value_t alpha, Types.matrix_t X, Types.dimension_t incX, Types.matrix_t Y, Types.dimension_t incY, Types.dimension_t x_skipped=0, Types.dimension_t y_skipped=0)</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-blas-daxpy" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										alpha*X + Y
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%; font-weight: bold;">N</td>
+												<td>number of elements in vector</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">alpha</td>
+												<td>the scalar multiplier</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">X</td>
+												<td>the column major matrix holding the vector X</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">incX</td>
+												<td>the increment or stride for the vector</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">Y</td>
+												<td>the column major matrix holding the vector Y</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">incY</td>
+												<td>the increment or stride of Y</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">x_skipped</td>
+												<td>number of entries skipped to get to the first X</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">y_skipped</td>
+												<td>number of entries skipped to get to the first Y</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>the updated matrix</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dblas-dgemm">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">Types.matrix_t dgemm(BOOLEAN transposeA, BOOLEAN transposeB, Types.dimension_t M, Types.dimension_t N, Types.dimension_t K, Types.value_t alpha, Types.matrix_t A, Types.matrix_t B, Types.value_t beta=0.0, Types.matrix_t C=[])</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-blas-dgemm" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										alpha*op(A) op(B) + beta*C where op() is transpose
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%; font-weight: bold;">transposeA</td>
+												<td>true when transpose of A is used</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">transposeB</td>
+												<td>true when transpose of B is used</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">M</td>
+												<td>number of rows in product</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">N</td>
+												<td>number of columns in product</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">K</td>
+												<td>number of columns/rows for the multiplier/multiplicand</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">alpha</td>
+												<td>scalar used on A</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">A</td>
+												<td>matrix A</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">B</td>
+												<td>matrix B</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">beta</td>
+												<td>scalar for matrix C</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">C</td>
+												<td>matrix C or empty</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dblas-dgetf2">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">Types.matrix_t dgetf2(Types.dimension_t m, Types.dimension_t n, Types.matrix_t a)</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-blas-dgetf2" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Compute LU Factorization of matrix A.
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%; font-weight: bold;">m</td>
+												<td>number of rows of A</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">n</td>
+												<td>number of columns of A</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>composite matrix of factors, lower triangle has an implied diagonal of ones. Upper triangle has the diagonal of the composite.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dblas-dpotf2">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">Types.matrix_t dpotf2(Types.Triangle tri, Types.dimension_t r, Types.matrix_t A, BOOLEAN clear=TRUE)</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-blas-dpotf2" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										DPOTF2 computes the Cholesky factorization of a real symmetric positive definite matrix A. The factorization has the form A = U**T * U , if UPLO = 'U', or A = L * L**T, if UPLO = 'L', where U is an upper triangular matrix and L is lower triangular. This is the unblocked version of the algorithm, calling Level 2 BLAS.
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%; font-weight: bold;">tri</td>
+												<td>indicate whether upper or lower triangle is used</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">r</td>
+												<td>number of rows/columns in the square matrix</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">A</td>
+												<td>the square matrix</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">clear</td>
+												<td>clears the unused triangle</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>the triangular matrix requested.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dblas-dscal">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">Types.matrix_t dscal(Types.dimension_t N, Types.value_t alpha, Types.matrix_t X, Types.dimension_t incX, Types.dimension_t skipped=0)</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-blas-dscal" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Scale a vector alpha
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%; font-weight: bold;">N</td>
+												<td>number of elements in the vector</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">alpha</td>
+												<td>the scaling factor</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">X</td>
+												<td>the column major matrix holding the vector</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">incX</td>
+												<td>the stride to get to the next element in the vector</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">skipped</td>
+												<td>the number of elements skipped to get to the first element</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>the updated matrix</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dblas-dsyrk">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">Types.matrix_t dsyrk(Types.Triangle tri, BOOLEAN transposeA, Types.dimension_t N, Types.dimension_t K, Types.value_t alpha, Types.matrix_t A, Types.value_t beta, Types.matrix_t C, BOOLEAN clear=FALSE)</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-blas-dsyrk" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Implements symmetric rank update C 
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%; font-weight: bold;">tri</td>
+												<td>update upper or lower triangle</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">transposeA</td>
+												<td>Transpose the A matrix to be NxK</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">N</td>
+												<td>number of rows</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">K</td>
+												<td>number of columns in the update matrix or transpose</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">alpha</td>
+												<td>the alpha scalar</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">A</td>
+												<td>the update matrix, either NxK or KxN</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">beta</td>
+												<td>the beta scalar</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">C</td>
+												<td>the matrix to update</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">clear</td>
+												<td>clear the triangle that is not updated. BLAS assumes that symmetric matrices have only one of the triangles and this option lets you make that true.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dblas-dtrsm">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">Types.matrix_t dtrsm(Types.Side side, Types.Triangle tri, BOOLEAN transposeA, Types.Diagonal diag, Types.dimension_t M, Types.dimension_t N, Types.dimension_t lda, Types.value_t alpha, Types.matrix_t A, Types.matrix_t B)</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-blas-dtrsm" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Triangular matrix solver. op(A) X = alpha B or X op(A) = alpha B where op is Transpose, X and B is MxN
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%; font-weight: bold;">side</td>
+												<td>side for A, Side.Ax is op(A) X = alpha B</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">tri</td>
+												<td>Says whether A is Upper or Lower triangle</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">transposeA</td>
+												<td>is op(A) the transpose of A</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">diag</td>
+												<td>is the diagonal an implied unit diagonal or supplied</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">M</td>
+												<td>number of rows</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">N</td>
+												<td>number of columns</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">lda</td>
+												<td>the leading dimension of the A matrix, either M or N</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">alpha</td>
+												<td>the scalar multiplier for B</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">A</td>
+												<td>a triangular matrix</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">B</td>
+												<td>the matrix of values for the solve</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>the matrix of coefficients to get B.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dblas-extract_diag">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">Types.matrix_t extract_diag(Types.dimension_t m, Types.dimension_t n, Types.matrix_t x)</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-blas-extract_diag" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Extract the diagonal of he matrix
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%; font-weight: bold;">m</td>
+												<td>number of rows</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">n</td>
+												<td>number of columns</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">x</td>
+												<td>matrix from which to extract the diagonal</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>diagonal matrix</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dblas-extract_tri">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">Types.matrix_t extract_tri(Types.dimension_t m, Types.dimension_t n, Types.Triangle tri, Types.Diagonal dt, Types.matrix_t a)</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-blas-extract_tri" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Extract the upper or lower triangle. Diagonal can be actual or implied unit diagonal.
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%; font-weight: bold;">m</td>
+												<td>number of rows</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">n</td>
+												<td>number of columns</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">tri</td>
+												<td>Upper or Lower specifier, Triangle.Lower or Triangle.Upper</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">dt</td>
+												<td>Use Diagonal.NotUnitTri or Diagonal.UnitTri</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">a</td>
+												<td>Matrix, usually a composite from factoring</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>the triangle</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dblas-make_diag">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">Types.matrix_t make_diag(Types.dimension_t m, Types.value_t v=1.0, Types.matrix_t X=[])</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-blas-make_diag" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Generate a diagonal matrix.
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%; font-weight: bold;">m</td>
+												<td>number of diagonal entries</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">v</td>
+												<td>option value, defaults to 1</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">X</td>
+												<td>optional input of diagonal values, multiplied by v.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>a diagonal matrix</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dblas-make_vector">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">Types.matrix_t make_vector(Types.dimension_t m, Types.value_t v=1.0)</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-blas-make_vector" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Make a vector of dimension m
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%; font-weight: bold;">m</td>
+												<td>number of elements</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">v</td>
+												<td>the values, defaults to 1</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>the vector</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dblas-trace">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">Types.value_t trace(Types.dimension_t m, Types.dimension_t n, Types.matrix_t x)</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-blas-trace" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										The trace of the input matrix
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%; font-weight: bold;">m</td>
+												<td>number of rows</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">n</td>
+												<td>number of columns</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">x</td>
+												<td>the matrix</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>the trace (sum of the diagonal entries)</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						
+						</div>
+				</section>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+		$("#menu-toggle").click(function(e) {
+			e.preventDefault();
+			$("#wrapper").toggleClass("toggled");
+		});
+	</script>
+	<script>
+		$(document).ready(function(){
+			$('.tree-link').click(function(e) {
+				var loc = $(this).attr('data-toggle');
+				$(loc).parents('.tree').collapse('show');
+			});
+		});
+	</script>
+</body>
+</html>

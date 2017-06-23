@@ -1,0 +1,724 @@
+<Meta>
+ <Source name="PBblas.Converted" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Converted.ecl">
+  <Import body="0"
+          end="7"
+          fullname="PBblas"
+          inherit_type="local"
+          line="1"
+          name="PBblas"
+          ref="PBblas"
+          start="7">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0"
+          end="27"
+          fullname="PBblas.Types"
+          inherit_type="local"
+          line="2"
+          name="Types"
+          ref="PBblas.Types"
+          start="27">
+   <Type>attribute</Type>
+   <Documentation>
+    <content>&#10;&#32;&#32;* Types for the Parallel Block Basic Linear Algebra Sub-programs support
+  * WARNING: attributes marked with WARNING can not be changed without making
+  * corresponding changes to the C++ attributes.&#10;&#32;&#32;</content>
+   </Documentation>
+  </Import>
+  <Import body="0"
+          end="48"
+          fullname="ML_Core.Types"
+          inherit_type="local"
+          line="3"
+          name="MlTypes"
+          ref="ML_Core.Types"
+          start="48">
+   <Type>attribute</Type>
+  </Import>
+  <Definition body="89"
+              end="111"
+              fullname="pbblas.numericfield"
+              inherit_type="local"
+              line="4"
+              name="NumericField"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Converted.ecl"
+              start="74">
+   <Type>record</Type>
+   <Field name="wi"/>
+   <Field name="id"/>
+   <Field name="number"/>
+   <Field name="value"/>
+  </Definition>
+  <Definition body="128"
+              end="151"
+              fullname="pbblas.discretefield"
+              inherit_type="local"
+              line="5"
+              name="DiscreteField"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Converted.ecl"
+              start="112">
+   <Type>record</Type>
+   <Field name="wi"/>
+   <Field name="id"/>
+   <Field name="number"/>
+   <Field name="value"/>
+  </Definition>
+  <Definition body="167"
+              end="186"
+              fullname="pbblas.layout_cell"
+              inherit_type="local"
+              line="6"
+              name="Layout_Cell"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Converted.ecl"
+              start="152">
+   <Type>record</Type>
+   <Field name="wi_id"/>
+   <Field name="x"/>
+   <Field name="y"/>
+   <Field name="v"/>
+   <Documentation>
+    <content>&#10;&#32;&#32;&#32;&#32;* Layout for Matrix Cell
+    *
+    * Main representation of Matrix cell at interface to all PBBlas functions.
+    * Matrixes are represented as DATASET(Layout_Cell), where each cell describes
+    * the row and column position of the cell as well as its value.
+    * Only the non-zero cells need to be contained in the dataset in order
+    * to describe the matrix since all unspecified cells are considered to
+    * have a value of zero.
+    * The cell also contains a work-item number that allows multiple separate
+    * matrixes to be carried in the same dataset.  This supports the &quot;myriad&quot;
+    * style interface that allows the same operations to be performed on many
+    * different sets of data at once.
+    * Note that these matrixes do not have an explicit size.  They are sized
+    * implicitly, based on the maximum row and column presented in the data.
+    * A matrix can be converted to an explicit dense form (see matrix_t) by 
+    * using the utility module MakeR8Set. This module should only be used for known
+    * small matrixes (&lt; 1M cells) or for partitions of a larger matrix.
+    * The Converted module provides utility
+    * functions to convert to and from a set of partitions (See Layout_parts).
+    *
+    * @field wi_id  Work Item Number -- An identifier from 1 to 64K-1 that
+    *                 separates and identifies individual matrixes
+    * @field x	    1-based row position within the matrix
+    * @field y	    1-based column position within the matrix
+    * @field v	    Real value for the cell
+    * @see		    matrix_t
+    * @see		    Std/PBblas/MakeR8Set.ecl
+    * @see		    Std/PBblas/Converted.ecl
+    *
+    * WARNING: Used as C++ attribute.  Do not change without corresponding changes
+    *  to MakeR8Set.&#10;&#32;&#32;&#32;&#32;</content>
+   </Documentation>
+  </Definition>
+  <Definition body="360"
+              end="2759"
+              exported="1"
+              fullname="PBblas.Converted"
+              inherit_type="local"
+              line="12"
+              name="Converted"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Converted.ecl"
+              start="341">
+   <Type>module</Type>
+   <Parents/>
+   <Definition body="726"
+               end="975"
+               exported="1"
+               fullname="pbblas.converted.nftomatrix"
+               inherit_type="local"
+               line="22"
+               name="NFToMatrix"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Converted.ecl"
+               start="657">
+    <Type>function</Type>
+    <Documentation>
+     <content>&#10;&#32;&#32;&#32;&#32;* Convert NumericField dataset to Matrix
+    *
+    * @param  recs  Record Dataset in DATASET(NumericField) format
+    * @return       Matrix in DATASET(Layout_Cell) format
+    * @see          PBblas/Types.Layout_Cell
+    * @see          ML_Core/Types.NumericField
+    *&#10;&#32;&#32;&#32;&#32;</content>
+    </Documentation>
+    <Params>
+     <Param name="recs"/>
+    </Params>
+   </Definition>
+   <Definition body="1338"
+               end="1588"
+               exported="1"
+               fullname="pbblas.converted.dftomatrix"
+               inherit_type="local"
+               line="41"
+               name="DFToMatrix"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Converted.ecl"
+               start="1268">
+    <Type>function</Type>
+    <Documentation>
+     <content>&#10;&#32;&#32;&#32;&#32;* Convert DiscreteField dataset to Matrix
+    *
+    * @param  recs  Record Dataset in DATASET(DiscreteField) format
+    * @return       Matrix in DATASET(Layout_Cell) format
+    * @see          PBblas/Types.Layout_Cell
+    * @see          ML_Core/Types.DiscreteField
+    *&#10;&#32;&#32;&#32;&#32;</content>
+    </Documentation>
+    <Params>
+     <Param name="recs"/>
+    </Params>
+   </Definition>
+   <Definition body="1910"
+               end="2165"
+               exported="1"
+               fullname="pbblas.converted.matrixtonf"
+               inherit_type="local"
+               line="59"
+               name="MatrixToNF"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Converted.ecl"
+               start="1842">
+    <Type>function</Type>
+    <Documentation>
+     <content>&#10;&#32;&#32;&#32;&#32;* Convert Matrix to NumericField dataset
+    *
+    * @param  mat  Matrix in DATASET(Layout_Cell) format
+    * @return      NumericField Dataset
+    * @see         PBblas/Types.Layout_Cell
+    * @see         ML_Core/Types.NumericField&#10;&#32;&#32;&#32;&#32;</content>
+    </Documentation>
+    <Params>
+     <Param name="mat"/>
+    </Params>
+   </Definition>
+   <Definition body="2491"
+               end="2754"
+               exported="1"
+               fullname="pbblas.converted.matrixtodf"
+               inherit_type="local"
+               line="77"
+               name="MatrixToDF"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Converted.ecl"
+               start="2422">
+    <Type>function</Type>
+    <Documentation>
+     <content>&#10;&#32;&#32;&#32;&#32;* Convert Matrix to DiscreteField dataset
+    *
+    * @param  mat  Matrix in DATASET(Layout_Cell) format
+    * @return      DiscreteField Dataset
+    * @see         PBblas/Types.Layout_Cell
+    * @see         ML_Core/Types.DiscreteField&#10;&#32;&#32;&#32;&#32;</content>
+    </Documentation>
+    <Params>
+     <Param name="mat"/>
+    </Params>
+   </Definition>
+   <Documentation>
+    <content>&#10;&#32;&#32;* Module to convert between ML_Core/Types Field layouts (i.e. NumericField and
+  * DiscreteField) and PBblas matrix layout (i.e. Layout_Cell)&#10;&#32;&#32;</content>
+   </Documentation>
+  </Definition>
+ </Source>
+ <Source name="PBblas.Types" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/Types.ecl">
+  <Definition body="516"
+              end="4363"
+              exported="1"
+              fullname="PBblas.Types"
+              inherit_type="local"
+              line="11"
+              name="Types"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/Types.ecl"
+              start="501">
+   <Type>module</Type>
+   <Parents/>
+   <Definition body="692"
+               end="703"
+               exported="1"
+               fullname="pbblas.types.dimension_t"
+               inherit_type="local"
+               line="16"
+               name="dimension_t"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/Types.ecl"
+               start="670">
+    <Type>attribute</Type>
+    <Documentation>
+     <content>&#10;&#32;&#32;&#32;&#32;* Type for matrix dimensions.  Uses UNSIGNED four as matrixes
+    * are not designed to support more than 4 B rows or columns.&#10;&#32;&#32;&#32;&#32;</content>
+    </Documentation>
+   </Definition>
+   <Definition body="851"
+               end="862"
+               exported="1"
+               fullname="pbblas.types.partition_t"
+               inherit_type="local"
+               line="20"
+               name="partition_t"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/Types.ecl"
+               start="829">
+    <Type>attribute</Type>
+    <Documentation>
+     <content>&#10;&#32;&#32;&#32;&#32;* Type for partition id -- only supports up to 64K partitions&#10;&#32;&#32;&#32;&#32;</content>
+    </Documentation>
+   </Definition>
+   <Definition body="967"
+               end="988"
+               exported="1"
+               fullname="pbblas.types.work_item_t"
+               inherit_type="local"
+               line="24"
+               name="work_item_t"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/Types.ecl"
+               start="945">
+    <Type>attribute</Type>
+    <Documentation>
+     <content>&#10;&#32;&#32;&#32;&#32;* Type for work-item id -- only supports up to 64K work items&#10;&#32;&#32;&#32;&#32;</content>
+    </Documentation>
+   </Definition>
+   <Definition body="1109"
+               end="1116"
+               exported="1"
+               fullname="pbblas.types.value_t"
+               inherit_type="local"
+               line="30"
+               name="value_t"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/Types.ecl"
+               start="1087">
+    <Type>attribute</Type>
+    <Documentation>
+     <content>&#10;&#32;&#32;&#32;&#32;* Type for matrix cell values
+    * 
+    * WARNING: type used in C++ attribute&#10;&#32;&#32;&#32;&#32;</content>
+    </Documentation>
+   </Definition>
+   <Definition body="1272"
+               end="1281"
+               exported="1"
+               fullname="pbblas.types.m_label_t"
+               inherit_type="local"
+               line="35"
+               name="m_label_t"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/Types.ecl"
+               start="1250">
+    <Type>attribute</Type>
+    <Documentation>
+     <content>&#10;&#32;&#32;&#32;&#32;* Type for matrix label.  Used for Matrix dimensions (see Layout_Dims)
+    * and for partitions (see Layout_Part)&#10;&#32;&#32;&#32;&#32;</content>
+    </Documentation>
+   </Definition>
+   <Definition body="1404"
+               end="1439"
+               exported="1"
+               inherit_type="local"
+               line="41"
+               name="Triangle"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/Types.ecl"
+               start="1382">
+    <Type>attribute</Type>
+    <Documentation>
+     <content>&#10;&#32;&#32;&#32;&#32;* Enumeration for Triangle type
+    * 
+    * WARNING: type used in C++ attribute&#10;&#32;&#32;&#32;&#32;</content>
+    </Documentation>
+   </Definition>
+   <Definition body="1564"
+               end="1606"
+               exported="1"
+               inherit_type="local"
+               line="47"
+               name="Diagonal"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/Types.ecl"
+               start="1542">
+    <Type>attribute</Type>
+    <Documentation>
+     <content>&#10;&#32;&#32;&#32;&#32;* Enumeration for Diagonal type
+    * 
+    * WARNING: type used in C++ attribute&#10;&#32;&#32;&#32;&#32;</content>
+    </Documentation>
+   </Definition>
+   <Definition body="1729"
+               end="1758"
+               exported="1"
+               inherit_type="local"
+               line="53"
+               name="Side"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/Types.ecl"
+               start="1707">
+    <Type>attribute</Type>
+    <Documentation>
+     <content>&#10;&#32;&#32;&#32;&#32;* Enumeration for Side type
+    * 
+    * WARNING: type used in C++ attribute&#10;&#32;&#32;&#32;&#32;</content>
+    </Documentation>
+   </Definition>
+   <Definition body="1893"
+               end="1904"
+               exported="1"
+               fullname="pbblas.types.t_mu_no"
+               inherit_type="local"
+               line="60"
+               name="t_mu_no"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/Types.ecl"
+               start="1871">
+    <Type>attribute</Type>
+    <Documentation>
+     <content>&#10;&#32;&#32;&#32;&#32;* Type for matrix universe number
+    *
+    * Allow up to 64k matrices in one universe
+    *&#10;&#32;&#32;&#32;&#32;</content>
+    </Documentation>
+   </Definition>
+   <Definition body="3736"
+               end="3974"
+               exported="1"
+               fullname="pbblas.types.layout_cell"
+               inherit_type="local"
+               line="94"
+               name="Layout_Cell"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/Types.ecl"
+               start="3714">
+    <Type>record</Type>
+    <Field name="wi_id"/>
+    <Field name="x"/>
+    <Field name="y"/>
+    <Field name="v"/>
+    <Documentation>
+     <content>&#10;&#32;&#32;&#32;&#32;* Layout for Matrix Cell
+    *
+    * Main representation of Matrix cell at interface to all PBBlas functions.
+    * Matrixes are represented as DATASET(Layout_Cell), where each cell describes
+    * the row and column position of the cell as well as its value.
+    * Only the non-zero cells need to be contained in the dataset in order
+    * to describe the matrix since all unspecified cells are considered to
+    * have a value of zero.
+    * The cell also contains a work-item number that allows multiple separate
+    * matrixes to be carried in the same dataset.  This supports the &quot;myriad&quot;
+    * style interface that allows the same operations to be performed on many
+    * different sets of data at once.
+    * Note that these matrixes do not have an explicit size.  They are sized
+    * implicitly, based on the maximum row and column presented in the data.
+    * A matrix can be converted to an explicit dense form (see matrix_t) by 
+    * using the utility module MakeR8Set. This module should only be used for known
+    * small matrixes (&lt; 1M cells) or for partitions of a larger matrix.
+    * The Converted module provides utility
+    * functions to convert to and from a set of partitions (See Layout_parts).
+    *
+    * @field wi_id  Work Item Number -- An identifier from 1 to 64K-1 that
+    *                 separates and identifies individual matrixes
+    * @field x	    1-based row position within the matrix
+    * @field y	    1-based column position within the matrix
+    * @field v	    Real value for the cell
+    * @see		    matrix_t
+    * @see		    Std/PBblas/MakeR8Set.ecl
+    * @see		    Std/PBblas/Converted.ecl
+    *
+    * WARNING: Used as C++ attribute.  Do not change without corresponding changes
+    *  to MakeR8Set.&#10;&#32;&#32;&#32;&#32;</content>
+    </Documentation>
+   </Definition>
+   <Definition body="4234"
+               end="4358"
+               exported="1"
+               fullname="pbblas.types.layout_norm"
+               inherit_type="local"
+               line="108"
+               name="Layout_Norm"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/Types.ecl"
+               start="4213">
+    <Type>record</Type>
+    <Field name="wi_id"/>
+    <Field name="v"/>
+    <Documentation>
+     <content>&#10;&#32;&#32;&#32;&#32;* Layout for Norm results.
+    *
+    * @field wi_id  Work Item Number -- An identifier from 1 to 64K-1 that
+    *                 separates and identifies individual matrixes
+    * @field v	    Real value for the norm&#10;&#32;&#32;&#32;&#32;</content>
+    </Documentation>
+   </Definition>
+   <Documentation>
+    <content>&#10;&#32;&#32;* Types for the Parallel Block Basic Linear Algebra Sub-programs support
+  * WARNING: attributes marked with WARNING can not be changed without making
+  * corresponding changes to the C++ attributes.&#10;&#32;&#32;</content>
+   </Documentation>
+  </Definition>
+  <Import body="0"
+          end="248"
+          fullname="ML_Core"
+          inherit_type="local"
+          line="4"
+          name="ML_Core"
+          ref="ML_Core"
+          remotescope="1"
+          start="248">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0"
+          end="264"
+          fullname="ML_Core.Types"
+          inherit_type="local"
+          line="5"
+          name="MlTypes"
+          ref="ML_Core.Types"
+          start="264">
+   <Type>attribute</Type>
+  </Import>
+ </Source>
+ <Source name="ML_Core.Types" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl">
+  <Definition body="37"
+              end="3074"
+              exported="1"
+              fullname="ML_Core.Types"
+              inherit_type="local"
+              line="2"
+              name="Types"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+              start="22">
+   <Type>module</Type>
+   <Definition body="944"
+               end="955"
+               exported="1"
+               fullname="ml_core.types.t_recordid"
+               inherit_type="local"
+               line="22"
+               name="t_RecordID"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="924">
+    <Type>attribute</Type>
+   </Definition>
+   <Definition body="981"
+               end="992"
+               exported="1"
+               fullname="ml_core.types.t_fieldnumber"
+               inherit_type="local"
+               line="23"
+               name="t_FieldNumber"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="958">
+    <Type>attribute</Type>
+   </Definition>
+   <Definition body="1016"
+               end="1023"
+               exported="1"
+               fullname="ml_core.types.t_fieldreal"
+               inherit_type="local"
+               line="24"
+               name="t_FieldReal"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="995">
+    <Type>attribute</Type>
+   </Definition>
+   <Definition body="1047"
+               end="1057"
+               exported="1"
+               fullname="ml_core.types.t_fieldsign"
+               inherit_type="local"
+               line="25"
+               name="t_FieldSign"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="1026">
+    <Type>attribute</Type>
+   </Definition>
+   <Definition body="1080"
+               end="1090"
+               exported="1"
+               fullname="ml_core.types.t_discrete"
+               inherit_type="local"
+               line="26"
+               name="t_Discrete"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="1060">
+    <Type>attribute</Type>
+   </Definition>
+   <Definition body="1109"
+               end="1120"
+               exported="1"
+               fullname="ml_core.types.t_item"
+               inherit_type="local"
+               line="27"
+               name="t_Item"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="1093">
+    <Type>attribute</Type>
+   </Definition>
+   <Definition body="1188"
+               end="1200"
+               exported="1"
+               fullname="ml_core.types.t_count"
+               inherit_type="local"
+               line="28"
+               name="t_Count"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="1171">
+    <Type>attribute</Type>
+   </Definition>
+   <Definition body="1258"
+               end="1269"
+               exported="1"
+               fullname="ml_core.types.t_work_item"
+               inherit_type="local"
+               line="29"
+               name="t_Work_Item"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="1237">
+    <Type>attribute</Type>
+   </Definition>
+   <Definition body="1391"
+               end="1600"
+               exported="1"
+               fullname="ml_core.types.anyfield"
+               inherit_type="local"
+               line="32"
+               name="AnyField"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="1369">
+    <Type>record</Type>
+    <Field name="wi"/>
+    <Field name="id"/>
+    <Field name="number"/>
+   </Definition>
+   <Definition body="1673"
+               end="1720"
+               exported="1"
+               fullname="ml_core.types.numericfield"
+               inherit_type="local"
+               line="39"
+               name="NumericField"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="1651">
+    <Type>record</Type>
+    <Field name="wi"/>
+    <Field name="id"/>
+    <Field name="number"/>
+    <Field name="value"/>
+   </Definition>
+   <Definition body="1797"
+               end="1843"
+               exported="1"
+               fullname="ml_core.types.discretefield"
+               inherit_type="local"
+               line="44"
+               name="DiscreteField"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="1774">
+    <Type>record</Type>
+    <Field name="wi"/>
+    <Field name="id"/>
+    <Field name="number"/>
+    <Field name="value"/>
+   </Definition>
+   <Definition body="1953"
+               end="2200"
+               exported="1"
+               fullname="ml_core.types.layout_model"
+               inherit_type="local"
+               line="49"
+               name="Layout_Model"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="1931">
+    <Type>record</Type>
+    <Field name="wi"/>
+    <Field name="id"/>
+    <Field name="number"/>
+    <Field name="value"/>
+   </Definition>
+   <Definition body="2261"
+               end="2336"
+               exported="1"
+               fullname="ml_core.types.classify_result"
+               inherit_type="local"
+               line="57"
+               name="Classify_Result"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="2236">
+    <Type>record</Type>
+    <Field name="wi"/>
+    <Field name="id"/>
+    <Field name="number"/>
+    <Field name="value"/>
+    <Field name="conf"/>
+   </Definition>
+   <Definition body="2357"
+               end="2410"
+               exported="1"
+               fullname="ml_core.types.l_result"
+               inherit_type="local"
+               line="60"
+               name="l_result"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="2339">
+    <Type>record</Type>
+    <Field name="wi"/>
+    <Field name="id"/>
+    <Field name="number"/>
+    <Field name="value"/>
+    <Field name="conf"/>
+   </Definition>
+   <Definition body="2440"
+               end="2639"
+               exported="1"
+               fullname="ml_core.types.confusion_detail"
+               inherit_type="local"
+               line="62"
+               name="Confusion_Detail"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="2414">
+    <Type>record</Type>
+    <Field name="wi"/>
+    <Field name="classifier"/>
+    <Field name="actual_class"/>
+    <Field name="predict_class"/>
+    <Field name="occurs"/>
+    <Field name="correct"/>
+   </Definition>
+   <Definition body="2711"
+               end="2782"
+               exported="1"
+               fullname="ml_core.types.itemelement"
+               inherit_type="local"
+               line="72"
+               name="ItemElement"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="2690">
+    <Type>record</Type>
+    <Field name="wi"/>
+    <Field name="value"/>
+    <Field name="id"/>
+   </Definition>
+   <Definition body="2848"
+               end="2858"
+               exported="1"
+               fullname="ml_core.types.t_node"
+               inherit_type="local"
+               line="79"
+               name="t_node"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="2831">
+    <Type>attribute</Type>
+   </Definition>
+   <Definition body="2942"
+               end="2953"
+               exported="1"
+               fullname="ml_core.types.t_level"
+               inherit_type="local"
+               line="80"
+               name="t_level"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="2925">
+    <Type>attribute</Type>
+   </Definition>
+   <Definition body="2995"
+               end="3069"
+               exported="1"
+               fullname="ml_core.types.nodeid"
+               inherit_type="local"
+               line="81"
+               name="NodeID"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="2978">
+    <Type>record</Type>
+    <Field name="wi"/>
+    <Field name="node_id"/>
+    <Field name="level"/>
+   </Definition>
+   <Parents/>
+  </Definition>
+ </Source>
+</Meta>

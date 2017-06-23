@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
+	<title>LogisticRegression.BinomialLogisticRegression</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
+	<link href="../../css/simple-sidebar.css" rel="stylesheet">
+
+</head>
+
+<body>
+	<nav class="navbar topbar">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a href="#menu-toggle" id="menu-toggle" class="navbar-brand glyphicon glyphicon-menu-hamburger ham"></a>
+			</div>
+			<div class="navbar-header" style="margin-left: 20px;">
+				<span class="navbar-brand">LogisticRegression.BinomialLogisticRegression</span>
+			</div>
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="#ecldoc-section-import" class="topbar">Imports</a></li>
+					<li><a href="#ecldoc-section-tree" class="topbar">Tree</a></li>
+					<li><a href="#ecldoc-section-desc" class="topbar">Descriptions</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		<div id="sidebar-wrapper">
+			<ul class="sidebar-nav">
+				<li class="sidebar-brand">
+					<a href="pkg.toc.html">
+						Up
+					</a>
+				</li>
+				
+				<li>
+					<a href="LogitScore.ecl.html">LogitScore.ecl</a>
+				</li>
+				
+				<li>
+					<a href="ExtractBeta.ecl.html">ExtractBeta.ecl</a>
+				</li>
+				
+				<li>
+					<a href="BinomialLogisticRegression.ecl.html">BinomialLogisticRegression.ecl</a>
+				</li>
+				
+				<li>
+					<a href="DataStats.ecl.html">DataStats.ecl</a>
+				</li>
+				
+				<li>
+					<a href="bundle.ecl.html">bundle.ecl</a>
+				</li>
+				
+				<li>
+					<a href="dimm.ecl.html">dimm.ecl</a>
+				</li>
+				
+				<li>
+					<a href="Null_Deviance.ecl.html">Null_Deviance.ecl</a>
+				</li>
+				
+				<li>
+					<a href="ExtractReport.ecl.html">ExtractReport.ecl</a>
+				</li>
+				
+				<li>
+					<a href="LogitPredict.ecl.html">LogitPredict.ecl</a>
+				</li>
+				
+				<li>
+					<a href="Constants.ecl.html">Constants.ecl</a>
+				</li>
+				
+				<li>
+					<a href="Deviance_Analysis.ecl.html">Deviance_Analysis.ecl</a>
+				</li>
+				
+				<li>
+					<a href="Model_Deviance.ecl.html">Model_Deviance.ecl</a>
+				</li>
+				
+				<li>
+					<a href="Deviance_Detail.ecl.html">Deviance_Detail.ecl</a>
+				</li>
+				
+				<li>
+					<a href="ExtractBeta_pval.ecl.html">ExtractBeta_pval.ecl</a>
+				</li>
+				
+				<li>
+					<a href="ExtractBeta_CI.ecl.html">ExtractBeta_CI.ecl</a>
+				</li>
+				
+				<li>
+					<a href="Types.ecl.html">Types.ecl</a>
+				</li>
+				
+				<li>
+					<a href="Distributions.ecl.html">Distributions.ecl</a>
+				</li>
+				
+				<li>
+					<a href="BinomialConfusion.ecl.html">BinomialConfusion.ecl</a>
+				</li>
+				
+				<li>
+					<a href="Confusion.ecl.html">Confusion.ecl</a>
+				</li>
+				
+			</ul>
+		</div>
+
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<section id="ecldoc-section-import">
+					<h3 class="page-header">IMPORTS</h3>
+					<ul class="pagination">
+						<li>
+							<a href="pkg.toc.html">
+								LogisticRegression
+							</a>
+							</li>
+						<li>
+							<a href="Constants.ecl.html">
+								LogisticRegression.Constants
+							</a>
+							</li>
+						<li>
+							<a href="../ML_Core/Interfaces/pkg.toc.html">
+								ML_Core.Interfaces
+							</a>
+							</li>
+						<li>
+							<a href="../ML_Core/Types.ecl.html">
+								ML_Core.Types
+							</a>
+							</li>
+						</ul>
+				</section>
+				<section id="ecldoc-section-tree">
+					<h3 class="page-header">DEFINITION TREE</h3>
+					<ul class="tree" style="padding : 0px;">
+						<li id="t-logisticregression-binomiallogisticregression">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<a href="#logisticregression-binomiallogisticregression" data-toggle="collapse" class="glyphicon glyphicon-folder-open" style="margin-right: 6px;"></a>
+								
+								<a href="#dlogisticregression-binomiallogisticregression">
+									<span class="tree-type">MODULE : </span>
+									BinomialLogisticRegression
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Binomial logistic regression using iteratively re-weighted least squares
+								</div>
+								
+								
+							</div>
+							<ul id="logisticregression-binomiallogisticregression" class="accordian-body tree collapse">
+								<li id="t-logisticregression-binomiallogisticregression-getmodel">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dlogisticregression-binomiallogisticregression-getmodel">
+									<span class="tree-type">FUNCTION : </span>
+									GetModel
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Calculate the model to fit the observation data to the observed classes
+								</div>
+								
+								
+							</div>
+							<ul id="logisticregression-binomiallogisticregression-getmodel" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-logisticregression-binomiallogisticregression-classify">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dlogisticregression-binomiallogisticregression-classify">
+									<span class="tree-type">FUNCTION : </span>
+									Classify
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Classify the observations using a model
+								</div>
+								
+								
+							</div>
+							<ul id="logisticregression-binomiallogisticregression-classify" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-logisticregression-binomiallogisticregression-report">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dlogisticregression-binomiallogisticregression-report">
+									<span class="tree-type">FUNCTION : </span>
+									Report
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Report the confusion matrix for the classifier and training data
+								</div>
+								
+								
+							</div>
+							<ul id="logisticregression-binomiallogisticregression-report" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						
+							</ul>
+						</li>
+						</ul>
+				</section>
+				<section id="ecldoc-section-desc">
+					<h3 class="page-header">DESCRIPTIONS</h3>
+					<div class="panel-group">
+						<div class="panel panel-info" id="dlogisticregression-binomiallogisticregression">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									MODULE
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">BinomialLogisticRegression(UNSIGNED max_iter=200, REAL8 epsilon=Constants.default_epsilon, REAL8 ridge=Constants.default_ridge)</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-logisticregression-binomiallogisticregression" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Binomial logistic regression using iteratively re-weighted least squares.
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%; font-weight: bold;">max_iter</td>
+												<td>maximum number of iterations to try</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">epsilon</td>
+												<td>the minimum change in the Beta value estimate to continue</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">ridge</td>
+												<td>a value to populate a diagonal matrix that is added to a matrix help assure that the matrix is invertible.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-md-1">Parent</div>
+									<div class="col-md-11">
+										<ul>
+											<li>
+												<a href="../ML_Core/Interfaces/IClassify.ecl.html">
+													ML_Core.Interfaces.IClassify
+												</a>
+												</li>
+											</ul>
+									</div>
+								</div>
+								</div>
+						</div>
+						<div class="panel panel-info" id="dlogisticregression-binomiallogisticregression-getmodel">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">DATASET(Types.Layout_Model) GetModel(DATASET(Types.NumericField) observations, DATASET(Types.DiscreteField) classifications)</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<span class="inherit_type"> OVERRIDE</span>
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-logisticregression-binomiallogisticregression-getmodel" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Calculate the model to fit the observation data to the observed classes.
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%; font-weight: bold;">observations</td>
+												<td>the observed explanatory values</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">classifications</td>
+												<td>the observed classification used to build the model</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>the encoded model</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dlogisticregression-binomiallogisticregression-classify">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">DATASET(Types.Classify_Result) Classify(DATASET(Types.Layout_Model) model, DATASET(Types.NumericField) new_observations)</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<span class="inherit_type"> OVERRIDE</span>
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-logisticregression-binomiallogisticregression-classify" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Classify the observations using a model.
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%; font-weight: bold;">model</td>
+												<td>The model, which must be produced by a corresponding getModel function.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">new_observations</td>
+												<td>observations to be classified</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>Classification with a confidence value</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dlogisticregression-binomiallogisticregression-report">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">DATASET(Types.Confusion_Detail) Report(DATASET(Types.Layout_Model) model, DATASET(Types.NumericField) observations, DATASET(Types.DiscreteField) classifications)</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<span class="inherit_type"> OVERRIDE</span>
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-logisticregression-binomiallogisticregression-report" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Report the confusion matrix for the classifier and training data.
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%; font-weight: bold;">model</td>
+												<td>the encoded model</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">observations</td>
+												<td>the explanatory values.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">classifications</td>
+												<td>the classifications associated with the observations</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>the confusion matrix showing correct and incorrect results</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						
+						</div>
+				</section>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+		$("#menu-toggle").click(function(e) {
+			e.preventDefault();
+			$("#wrapper").toggleClass("toggled");
+		});
+	</script>
+	<script>
+		$(document).ready(function(){
+			$('.tree-link').click(function(e) {
+				var loc = $(this).attr('data-toggle');
+				$(loc).parents('.tree').collapse('show');
+			});
+		});
+	</script>
+</body>
+</html>

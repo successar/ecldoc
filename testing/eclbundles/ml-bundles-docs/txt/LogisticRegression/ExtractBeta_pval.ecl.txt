@@ -1,0 +1,20 @@
+IMPORTS
+=======
+
+
+LogisticRegression <pkg.toc.txt>
+LogisticRegression.Types <Types.ecl.txt>
+ML_Core.Types <../ML_Core/Types.ecl.txt>
+
+DESCRIPTIONS
+============
+
+
+FUNCTION : DATASET(Types.pval_Model_Coef) ExtractBeta_pval(DATASET(Core_Types.Layout_Model) mod_ds) 
+---------------------------------------------------------------------------------------------------
+
+Extract the beta values form the model dataset.
+
+Parameter : <mod_ds> the model dataset
+
+Return : the beta values with p-values as Model Coefficient records, zero as the constant term.

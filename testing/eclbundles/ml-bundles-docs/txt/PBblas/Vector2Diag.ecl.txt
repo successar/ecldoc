@@ -1,0 +1,25 @@
+IMPORTS
+=======
+
+
+PBblas <pkg.toc.txt>
+PBblas.internal <internal/pkg.toc.txt>
+PBblas.internal.MatDims <internal/MatDims.ecl.txt>
+PBblas.Types <Types.ecl.txt>
+PBblas.internal.Types <internal/Types.ecl.txt>
+PBblas.Constants <Constants.ecl.txt>
+
+DESCRIPTIONS
+============
+
+
+FUNCTION : DATASET(Layout_Cell) Vector2Diag(DATASET(Layout_Cell) X) 
+-------------------------------------------------------------------
+
+Convert a vector into a diagonal matrix. The typical notation is D = diag(V). The input X must be a 1 x N column vector or an N x 1 row vector. The resulting matrix, in either case will be N x N, with zero everywhere except the diagonal.
+
+Parameter : <X> A row or column vector (i.e. N x 1 or 1 x N) in Layout_Cell format
+
+Return : An N x N matrix in Layout_Cell format
+
+See : PBblas/Types.Layout_cell

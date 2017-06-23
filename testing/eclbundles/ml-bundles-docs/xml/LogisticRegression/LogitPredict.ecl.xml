@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Meta>
+ <Source name="LogisticRegression.LogitPredict" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/LogitPredict.ecl" target="LogitPredict.ecl.xml">
+  <Import body="0" end="7" fullname="LogisticRegression" inherit_type="local" line="1" name="LR" ref="LogisticRegression" start="7" target="pkg.toc.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0" end="23" fullname="LogisticRegression.Types" inherit_type="local" line="2" name="Types" ref="LogisticRegression.Types" start="23" target="Types.ecl.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0" end="40" fullname="ML_Core.Types" inherit_type="local" line="3" name="Core_Types" ref="ML_Core.Types" start="40" target="../ML_Core/Types.ecl.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Definition body="629" end="904" exported="1" fullname="logisticregression.logitpredict" inherit_type="local" line="18" name="LogitPredict" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/LogitPredict.ecl" start="494">
+   <Type>function</Type>
+   <Documentation>
+    <param><name>coef</name><desc>the model beta coefficients</desc></param><param><name>independents</name><desc>the observations</desc></param><content>Predict the category values with the logit function and the the supplied beta coefficients.</content><firstline>Predict the category values with the logit function and the the supplied beta coefficients</firstline><return>the predicted category values and a confidence score</return></Documentation>
+   <Signature sign="DATASET(Classify_Result) LogitPredict(DATASET(Model_Coef) coef, DATASET(NumericField) independents)" name="LogitPredict">DATASET(Classify_Result) LogitPredict(DATASET(Model_Coef) coef, DATASET(NumericField) independents)</Signature><Params>
+    <Param name="coef"/>
+    <Param name="independents"/>
+   </Params>
+  </Definition>
+ <Documentation>
+    <param><name>coef</name><desc>the model beta coefficients</desc></param><param><name>independents</name><desc>the observations</desc></param><content>Predict the category values with the logit function and the the supplied beta coefficients.</content><firstline>Predict the category values with the logit function and the the supplied beta coefficients</firstline><return>the predicted category values and a confidence score</return></Documentation>
+   </Source>
+ <Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Types.ecl" name="LogisticRegression.Types" target="Types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/LogitScore.ecl" name="LogisticRegression.LogitScore" target="LogitScore.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Types.ecl" name="ML_Core.Types" target="../ML_Core/Types.ecl.xml"/></Meta>

@@ -1,0 +1,5718 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
+	<title>File</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
+	<link href="../css/simple-sidebar.css" rel="stylesheet">
+
+</head>
+
+<body>
+	<nav class="navbar topbar">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a href="#menu-toggle" id="menu-toggle" class="navbar-brand glyphicon glyphicon-menu-hamburger ham"></a>
+			</div>
+			<div class="navbar-header" style="margin-left: 20px;">
+				<span class="navbar-brand">File</span>
+			</div>
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="#ecldoc-section-import" class="topbar">Imports</a></li>
+					<li><a href="#ecldoc-section-tree" class="topbar">Tree</a></li>
+					<li><a href="#ecldoc-section-desc" class="topbar">Descriptions</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		<div id="sidebar-wrapper">
+			<ul class="sidebar-nav">
+				<li class="sidebar-brand">
+					<a href="pkg.toc.html">
+						Up
+					</a>
+				</li>
+				
+				<li>
+					<a href="Uni.ecl.html">Uni.ecl</a>
+				</li>
+				
+				<li>
+					<a href="BLAS.ecl.html">BLAS.ecl</a>
+				</li>
+				
+				<li>
+					<a href="Date.ecl.html">Date.ecl</a>
+				</li>
+				
+				<li>
+					<a href="File.ecl.html">File.ecl</a>
+				</li>
+				
+				<li>
+					<a href="str.ecl.html">str.ecl</a>
+				</li>
+				
+				<li>
+					<a href="Audit.ecl.html">Audit.ecl</a>
+				</li>
+				
+				<li>
+					<a href="math.ecl.html">math.ecl</a>
+				</li>
+				
+				<li>
+					<a href="Metaphone3.ecl.html">Metaphone3.ecl</a>
+				</li>
+				
+				<li>
+					<a href="Metaphone.ecl.html">Metaphone.ecl</a>
+				</li>
+				
+				<li>
+					<a href="system/pkg.toc.html">system</a>
+				</li>
+				
+				<li>
+					<a href="BundleBase.ecl.html">BundleBase.ecl</a>
+				</li>
+				
+			</ul>
+		</div>
+
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<section id="ecldoc-section-import">
+					<h3 class="page-header">IMPORTS</h3>
+					<ul class="pagination">
+						<li>
+							<a href="lib_fileservices/pkg.toc.html">
+								lib_fileservices
+							</a>
+							</li>
+						</ul>
+				</section>
+				<section id="ecldoc-section-tree">
+					<h3 class="page-header">DEFINITION TREE</h3>
+					<ul class="tree" style="padding : 0px;">
+						<li id="t-File">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<a href="#File" data-toggle="collapse" class="glyphicon glyphicon-folder-open" style="margin-right: 6px;"></a>
+								
+								<a href="#dFile">
+									<span class="tree-type">MODULE : </span>
+									File
+								</a>
+								</div>
+
+								
+							</div>
+							<ul id="File" class="accordian-body tree collapse">
+								<li id="t-file-fsfilenamerecord">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-fsfilenamerecord">
+									<span class="tree-type">RECORD : </span>
+									FsFilenameRecord
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								A record containing information about filename
+								</div>
+								
+								
+							</div>
+							<ul id="file-fsfilenamerecord" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-fslogicalfilename">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-fslogicalfilename">
+									<span class="tree-type">ATTRIBUTE : </span>
+									FsLogicalFileName
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								An alias for a logical filename that is stored in a row
+								</div>
+								
+								
+							</div>
+							<ul id="file-fslogicalfilename" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-fslogicalfilenamerecord">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-fslogicalfilenamerecord">
+									<span class="tree-type">RECORD : </span>
+									FsLogicalFileNameRecord
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								A record containing a logical filename
+								</div>
+								
+								
+							</div>
+							<ul id="file-fslogicalfilenamerecord" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-fslogicalfileinforecord">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-fslogicalfileinforecord">
+									<span class="tree-type">RECORD : </span>
+									FsLogicalFileInfoRecord
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								A record containing information about a logical file
+								</div>
+								
+								
+							</div>
+							<ul id="file-fslogicalfileinforecord" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-fslogicalsupersubrecord">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-fslogicalsupersubrecord">
+									<span class="tree-type">RECORD : </span>
+									FsLogicalSuperSubRecord
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								A record containing information about a superfile and its contents
+								</div>
+								
+								
+							</div>
+							<ul id="file-fslogicalsupersubrecord" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-fsfilerelationshiprecord">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-fsfilerelationshiprecord">
+									<span class="tree-type">RECORD : </span>
+									FsFileRelationshipRecord
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								A record containing information about the relationship between two files
+								</div>
+								
+								
+							</div>
+							<ul id="file-fsfilerelationshiprecord" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-recfmv_recsize">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-recfmv_recsize">
+									<span class="tree-type">ATTRIBUTE : </span>
+									RECFMV_RECSIZE
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Constant that indicates IBM RECFM V format file
+								</div>
+								
+								
+							</div>
+							<ul id="file-recfmv_recsize" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-recfmvb_recsize">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-recfmvb_recsize">
+									<span class="tree-type">ATTRIBUTE : </span>
+									RECFMVB_RECSIZE
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Constant that indicates IBM RECFM VB format file
+								</div>
+								
+								
+							</div>
+							<ul id="file-recfmvb_recsize" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-prefix_variable_recsize">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-prefix_variable_recsize">
+									<span class="tree-type">ATTRIBUTE : </span>
+									PREFIX_VARIABLE_RECSIZE
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Constant that indicates a variable little endian 4 byte length prefixed file
+								</div>
+								
+								
+							</div>
+							<ul id="file-prefix_variable_recsize" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-prefix_variable_bigendian_recsize">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-prefix_variable_bigendian_recsize">
+									<span class="tree-type">ATTRIBUTE : </span>
+									PREFIX_VARIABLE_BIGENDIAN_RECSIZE
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Constant that indicates a variable big endian 4 byte length prefixed file
+								</div>
+								
+								
+							</div>
+							<ul id="file-prefix_variable_bigendian_recsize" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-fileexists">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-fileexists">
+									<span class="tree-type">FUNCTION : </span>
+									FileExists
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Returns whether the file exists
+								</div>
+								
+								
+							</div>
+							<ul id="file-fileexists" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-deletelogicalfile">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-deletelogicalfile">
+									<span class="tree-type">FUNCTION : </span>
+									DeleteLogicalFile
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Removes the logical file from the system, and deletes from the disk
+								</div>
+								
+								
+							</div>
+							<ul id="file-deletelogicalfile" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-setreadonly">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-setreadonly">
+									<span class="tree-type">FUNCTION : </span>
+									SetReadOnly
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Changes whether access to a file is read only or not
+								</div>
+								
+								
+							</div>
+							<ul id="file-setreadonly" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-renamelogicalfile">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-renamelogicalfile">
+									<span class="tree-type">FUNCTION : </span>
+									RenameLogicalFile
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Changes the name of a logical file
+								</div>
+								
+								
+							</div>
+							<ul id="file-renamelogicalfile" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-foreignlogicalfilename">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-foreignlogicalfilename">
+									<span class="tree-type">FUNCTION : </span>
+									ForeignLogicalFileName
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Returns a logical filename that can be used to refer to a logical file in a local or remote dali
+								</div>
+								
+								
+							</div>
+							<ul id="file-foreignlogicalfilename" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-externallogicalfilename">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-externallogicalfilename">
+									<span class="tree-type">FUNCTION : </span>
+									ExternalLogicalFileName
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Returns an encoded logical filename that can be used to refer to a external file
+								</div>
+								
+								
+							</div>
+							<ul id="file-externallogicalfilename" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-getfiledescription">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-getfiledescription">
+									<span class="tree-type">FUNCTION : </span>
+									GetFileDescription
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Returns a string containing the description information associated with the specified filename
+								</div>
+								
+								
+							</div>
+							<ul id="file-getfiledescription" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-setfiledescription">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-setfiledescription">
+									<span class="tree-type">FUNCTION : </span>
+									SetFileDescription
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Sets the description associated with the specified filename
+								</div>
+								
+								
+							</div>
+							<ul id="file-setfiledescription" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-remotedirectory">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-remotedirectory">
+									<span class="tree-type">FUNCTION : </span>
+									RemoteDirectory
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Returns a dataset containing a list of files from the specified machineIP and directory
+								</div>
+								
+								
+							</div>
+							<ul id="file-remotedirectory" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-logicalfilelist">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-logicalfilelist">
+									<span class="tree-type">FUNCTION : </span>
+									LogicalFileList
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Returns a dataset of information about the logical files known to the system
+								</div>
+								
+								
+							</div>
+							<ul id="file-logicalfilelist" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-comparefiles">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-comparefiles">
+									<span class="tree-type">FUNCTION : </span>
+									CompareFiles
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Compares two files, and returns a result indicating how well they match
+								</div>
+								
+								
+							</div>
+							<ul id="file-comparefiles" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-verifyfile">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-verifyfile">
+									<span class="tree-type">FUNCTION : </span>
+									VerifyFile
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Checks the system datastore (Dali) information for the file against the physical parts on disk
+								</div>
+								
+								
+							</div>
+							<ul id="file-verifyfile" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-addfilerelationship">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-addfilerelationship">
+									<span class="tree-type">FUNCTION : </span>
+									AddFileRelationship
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Defines the relationship between two files
+								</div>
+								
+								
+							</div>
+							<ul id="file-addfilerelationship" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-filerelationshiplist">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-filerelationshiplist">
+									<span class="tree-type">FUNCTION : </span>
+									FileRelationshipList
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Returns a dataset of relationships
+								</div>
+								
+								
+							</div>
+							<ul id="file-filerelationshiplist" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-removefilerelationship">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-removefilerelationship">
+									<span class="tree-type">FUNCTION : </span>
+									RemoveFileRelationship
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Removes a relationship between two files
+								</div>
+								
+								
+							</div>
+							<ul id="file-removefilerelationship" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-getcolumnmapping">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-getcolumnmapping">
+									<span class="tree-type">FUNCTION : </span>
+									GetColumnMapping
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Returns the field mappings for the file, in the same format specified for the SetColumnMapping function
+								</div>
+								
+								
+							</div>
+							<ul id="file-getcolumnmapping" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-setcolumnmapping">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-setcolumnmapping">
+									<span class="tree-type">FUNCTION : </span>
+									SetColumnMapping
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Defines how the data in the fields of the file mist be transformed between the actual data storage format and the input format used to query that data
+								</div>
+								
+								
+							</div>
+							<ul id="file-setcolumnmapping" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-encoderfsquery">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-encoderfsquery">
+									<span class="tree-type">FUNCTION : </span>
+									EncodeRfsQuery
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Returns a string that can be used in a DATASET declaration to read data from an RFS (Remote File Server) instance (e.g
+								</div>
+								
+								
+							</div>
+							<ul id="file-encoderfsquery" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-rfsaction">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-rfsaction">
+									<span class="tree-type">FUNCTION : </span>
+									RfsAction
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Sends the query to the rfs server
+								</div>
+								
+								
+							</div>
+							<ul id="file-rfsaction" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-moveexternalfile">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-moveexternalfile">
+									<span class="tree-type">FUNCTION : </span>
+									MoveExternalFile
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Moves the single physical file between two locations on the same remote machine
+								</div>
+								
+								
+							</div>
+							<ul id="file-moveexternalfile" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-deleteexternalfile">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-deleteexternalfile">
+									<span class="tree-type">FUNCTION : </span>
+									DeleteExternalFile
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Removes a single physical file from a remote machine
+								</div>
+								
+								
+							</div>
+							<ul id="file-deleteexternalfile" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-createexternaldirectory">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-createexternaldirectory">
+									<span class="tree-type">FUNCTION : </span>
+									CreateExternalDirectory
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Creates the path on the location (if it does not already exist)
+								</div>
+								
+								
+							</div>
+							<ul id="file-createexternaldirectory" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-getlogicalfileattribute">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-getlogicalfileattribute">
+									<span class="tree-type">FUNCTION : </span>
+									GetLogicalFileAttribute
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Returns the value of the given attribute for the specified logicalfilename
+								</div>
+								
+								
+							</div>
+							<ul id="file-getlogicalfileattribute" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-protectlogicalfile">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-protectlogicalfile">
+									<span class="tree-type">FUNCTION : </span>
+									ProtectLogicalFile
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Toggles protection on and off for the specified logicalfilename
+								</div>
+								
+								
+							</div>
+							<ul id="file-protectlogicalfile" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-dfuplusexec">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-dfuplusexec">
+									<span class="tree-type">FUNCTION : </span>
+									DfuPlusExec
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								The DfuPlusExec action executes the specified command line just as the DfuPLus.exe program would do
+								</div>
+								
+								
+							</div>
+							<ul id="file-dfuplusexec" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-fsprayfixed">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-fsprayfixed">
+									<span class="tree-type">FUNCTION : </span>
+									fSprayFixed
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Sprays a file of fixed length records from a single machine and distributes it across the nodes of the destination group
+								</div>
+								
+								
+							</div>
+							<ul id="file-fsprayfixed" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-sprayfixed">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-sprayfixed">
+									<span class="tree-type">FUNCTION : </span>
+									SprayFixed
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Same as fSprayFixed, but does not return the DFU Workunit ID
+								</div>
+								
+								
+							</div>
+							<ul id="file-sprayfixed" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-fsprayvariable">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-fsprayvariable">
+									<span class="tree-type">FUNCTION : </span>
+									fSprayVariable
+								</a>
+								</div>
+
+								
+							</div>
+							<ul id="file-fsprayvariable" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-sprayvariable">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-sprayvariable">
+									<span class="tree-type">FUNCTION : </span>
+									SprayVariable
+								</a>
+								</div>
+
+								
+							</div>
+							<ul id="file-sprayvariable" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-fspraydelimited">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-fspraydelimited">
+									<span class="tree-type">FUNCTION : </span>
+									fSprayDelimited
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Sprays a file of fixed delimited records from a single machine and distributes it across the nodes of the destination group
+								</div>
+								
+								
+							</div>
+							<ul id="file-fspraydelimited" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-spraydelimited">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-spraydelimited">
+									<span class="tree-type">FUNCTION : </span>
+									SprayDelimited
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Same as fSprayDelimited, but does not return the DFU Workunit ID
+								</div>
+								
+								
+							</div>
+							<ul id="file-spraydelimited" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-fsprayxml">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-fsprayxml">
+									<span class="tree-type">FUNCTION : </span>
+									fSprayXml
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Sprays an xml file from a single machine and distributes it across the nodes of the destination group
+								</div>
+								
+								
+							</div>
+							<ul id="file-fsprayxml" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-sprayxml">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-sprayxml">
+									<span class="tree-type">FUNCTION : </span>
+									SprayXml
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Same as fSprayXml, but does not return the DFU Workunit ID
+								</div>
+								
+								
+							</div>
+							<ul id="file-sprayxml" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-fdespray">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-fdespray">
+									<span class="tree-type">FUNCTION : </span>
+									fDespray
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Copies a distributed file from multiple machines, and desprays it to a single file on a single machine
+								</div>
+								
+								
+							</div>
+							<ul id="file-fdespray" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-despray">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-despray">
+									<span class="tree-type">FUNCTION : </span>
+									Despray
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Same as fDespray, but does not return the DFU Workunit ID
+								</div>
+								
+								
+							</div>
+							<ul id="file-despray" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-fcopy">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-fcopy">
+									<span class="tree-type">FUNCTION : </span>
+									fCopy
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Copies a distributed file to another distributed file
+								</div>
+								
+								
+							</div>
+							<ul id="file-fcopy" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-copy">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-copy">
+									<span class="tree-type">FUNCTION : </span>
+									Copy
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Same as fCopy, but does not return the DFU Workunit ID
+								</div>
+								
+								
+							</div>
+							<ul id="file-copy" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-freplicate">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-freplicate">
+									<span class="tree-type">FUNCTION : </span>
+									fReplicate
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Ensures the specified file is replicated to its mirror copies
+								</div>
+								
+								
+							</div>
+							<ul id="file-freplicate" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-replicate">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-replicate">
+									<span class="tree-type">FUNCTION : </span>
+									Replicate
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Same as fReplicated, but does not return the DFU Workunit ID
+								</div>
+								
+								
+							</div>
+							<ul id="file-replicate" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-fremotepull">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-fremotepull">
+									<span class="tree-type">FUNCTION : </span>
+									fRemotePull
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Copies a distributed file to a distributed file on remote system
+								</div>
+								
+								
+							</div>
+							<ul id="file-fremotepull" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-remotepull">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-remotepull">
+									<span class="tree-type">FUNCTION : </span>
+									RemotePull
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Same as fRemotePull, but does not return the DFU Workunit ID
+								</div>
+								
+								
+							</div>
+							<ul id="file-remotepull" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-fmonitorlogicalfilename">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-fmonitorlogicalfilename">
+									<span class="tree-type">FUNCTION : </span>
+									fMonitorLogicalFileName
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Creates a file monitor job in the DFU Server
+								</div>
+								
+								
+							</div>
+							<ul id="file-fmonitorlogicalfilename" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-monitorlogicalfilename">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-monitorlogicalfilename">
+									<span class="tree-type">FUNCTION : </span>
+									MonitorLogicalFileName
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Same as fMonitorLogicalFileName, but does not return the DFU Workunit ID
+								</div>
+								
+								
+							</div>
+							<ul id="file-monitorlogicalfilename" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-fmonitorfile">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-fmonitorfile">
+									<span class="tree-type">FUNCTION : </span>
+									fMonitorFile
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Creates a file monitor job in the DFU Server
+								</div>
+								
+								
+							</div>
+							<ul id="file-fmonitorfile" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-monitorfile">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-monitorfile">
+									<span class="tree-type">FUNCTION : </span>
+									MonitorFile
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Same as fMonitorFile, but does not return the DFU Workunit ID
+								</div>
+								
+								
+							</div>
+							<ul id="file-monitorfile" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-waitdfuworkunit">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-waitdfuworkunit">
+									<span class="tree-type">FUNCTION : </span>
+									WaitDfuWorkunit
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Waits for the specified DFU workunit to finish
+								</div>
+								
+								
+							</div>
+							<ul id="file-waitdfuworkunit" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-abortdfuworkunit">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-abortdfuworkunit">
+									<span class="tree-type">FUNCTION : </span>
+									AbortDfuWorkunit
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Aborts the specified DFU workunit
+								</div>
+								
+								
+							</div>
+							<ul id="file-abortdfuworkunit" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-createsuperfile">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-createsuperfile">
+									<span class="tree-type">FUNCTION : </span>
+									CreateSuperFile
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Creates an empty superfile
+								</div>
+								
+								
+							</div>
+							<ul id="file-createsuperfile" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-superfileexists">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-superfileexists">
+									<span class="tree-type">FUNCTION : </span>
+									SuperFileExists
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Checks if the specified filename is present in the Distributed File Utility (DFU) and is a SuperFile
+								</div>
+								
+								
+							</div>
+							<ul id="file-superfileexists" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-deletesuperfile">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-deletesuperfile">
+									<span class="tree-type">FUNCTION : </span>
+									DeleteSuperFile
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Deletes the superfile
+								</div>
+								
+								
+							</div>
+							<ul id="file-deletesuperfile" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-getsuperfilesubcount">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-getsuperfilesubcount">
+									<span class="tree-type">FUNCTION : </span>
+									GetSuperFileSubCount
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Returns the number of sub-files contained within a superfile
+								</div>
+								
+								
+							</div>
+							<ul id="file-getsuperfilesubcount" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-getsuperfilesubname">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-getsuperfilesubname">
+									<span class="tree-type">FUNCTION : </span>
+									GetSuperFileSubName
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Returns the name of the Nth sub-file within a superfile
+								</div>
+								
+								
+							</div>
+							<ul id="file-getsuperfilesubname" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-findsuperfilesubname">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-findsuperfilesubname">
+									<span class="tree-type">FUNCTION : </span>
+									FindSuperFileSubName
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Returns the position of a file within a superfile
+								</div>
+								
+								
+							</div>
+							<ul id="file-findsuperfilesubname" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-startsuperfiletransaction">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-startsuperfiletransaction">
+									<span class="tree-type">FUNCTION : </span>
+									StartSuperFileTransaction
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Starts a superfile transaction
+								</div>
+								
+								
+							</div>
+							<ul id="file-startsuperfiletransaction" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-addsuperfile">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-addsuperfile">
+									<span class="tree-type">FUNCTION : </span>
+									AddSuperFile
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Adds a file to a superfile
+								</div>
+								
+								
+							</div>
+							<ul id="file-addsuperfile" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-removesuperfile">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-removesuperfile">
+									<span class="tree-type">FUNCTION : </span>
+									RemoveSuperFile
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Removes a sub-file from a superfile
+								</div>
+								
+								
+							</div>
+							<ul id="file-removesuperfile" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-clearsuperfile">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-clearsuperfile">
+									<span class="tree-type">FUNCTION : </span>
+									ClearSuperFile
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Removes all sub-files from a superfile
+								</div>
+								
+								
+							</div>
+							<ul id="file-clearsuperfile" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-removeownedsubfiles">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-removeownedsubfiles">
+									<span class="tree-type">FUNCTION : </span>
+									RemoveOwnedSubFiles
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Removes all soley-owned sub-files from a superfile
+								</div>
+								
+								
+							</div>
+							<ul id="file-removeownedsubfiles" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-deleteownedsubfiles">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-deleteownedsubfiles">
+									<span class="tree-type">FUNCTION : </span>
+									DeleteOwnedSubFiles
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Legacy version of RemoveOwnedSubFiles which was incorrectly named in a previous version
+								</div>
+								
+								
+							</div>
+							<ul id="file-deleteownedsubfiles" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-swapsuperfile">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-swapsuperfile">
+									<span class="tree-type">FUNCTION : </span>
+									SwapSuperFile
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Swap the contents of two superfiles
+								</div>
+								
+								
+							</div>
+							<ul id="file-swapsuperfile" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-replacesuperfile">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-replacesuperfile">
+									<span class="tree-type">FUNCTION : </span>
+									ReplaceSuperFile
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Removes a sub-file from a superfile and replaces it with another
+								</div>
+								
+								
+							</div>
+							<ul id="file-replacesuperfile" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-finishsuperfiletransaction">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-finishsuperfiletransaction">
+									<span class="tree-type">FUNCTION : </span>
+									FinishSuperFileTransaction
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Finishes a superfile transaction
+								</div>
+								
+								
+							</div>
+							<ul id="file-finishsuperfiletransaction" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-superfilecontents">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-superfilecontents">
+									<span class="tree-type">FUNCTION : </span>
+									SuperFileContents
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Returns the list of sub-files contained within a superfile
+								</div>
+								
+								
+							</div>
+							<ul id="file-superfilecontents" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-logicalfilesuperowners">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-logicalfilesuperowners">
+									<span class="tree-type">FUNCTION : </span>
+									LogicalFileSuperOwners
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Returns the list of superfiles that a logical file is contained within
+								</div>
+								
+								
+							</div>
+							<ul id="file-logicalfilesuperowners" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-logicalfilesupersublist">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-logicalfilesupersublist">
+									<span class="tree-type">FUNCTION : </span>
+									LogicalFileSuperSubList
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Returns the list of all the superfiles in the system and their component sub-files
+								</div>
+								
+								
+							</div>
+							<ul id="file-logicalfilesupersublist" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-fpromotesuperfilelist">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-fpromotesuperfilelist">
+									<span class="tree-type">FUNCTION : </span>
+									fPromoteSuperFileList
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Moves the sub-files from the first entry in the list of superfiles to the next in the list, repeating the process through the list of superfiles
+								</div>
+								
+								
+							</div>
+							<ul id="file-fpromotesuperfilelist" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						<li id="t-file-promotesuperfilelist">
+							<div class="tree-sign">
+								<div class="tree-head">
+								
+								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
+								
+								<a href="#dfile-promotesuperfilelist">
+									<span class="tree-type">FUNCTION : </span>
+									PromoteSuperFileList
+								</a>
+								</div>
+
+								
+								<div class="tree-desc">
+								Same as fPromoteSuperFileList, but does not return the DFU Workunit ID
+								</div>
+								
+								
+							</div>
+							<ul id="file-promotesuperfilelist" class="accordian-body tree collapse">
+								
+							</ul>
+						</li>
+						
+							</ul>
+						</li>
+						</ul>
+				</section>
+				<section id="ecldoc-section-desc">
+					<h3 class="page-header">DESCRIPTIONS</h3>
+					<div class="panel-group">
+						<div class="panel panel-info" id="dFile">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									MODULE
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">File</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-File" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						<div class="panel panel-info" id="dfile-fsfilenamerecord">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									RECORD
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">FsFilenameRecord</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-fsfilenamerecord" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										A record containing information about filename. Includes name, size and when last modified. export FsFilenameRecord := RECORD string name; integer8 size; string19 modified; END;
+									</div>
+								</div>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-fslogicalfilename">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									ATTRIBUTE
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">FsLogicalFileName</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-fslogicalfilename" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										An alias for a logical filename that is stored in a row.
+									</div>
+								</div>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-fslogicalfilenamerecord">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									RECORD
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">FsLogicalFileNameRecord</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-fslogicalfilenamerecord" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										A record containing a logical filename. It contains the following fields:
+									</div>
+								</div>
+								
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Fields</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td width="20%"><b>name</b> </td>
+												<td>The logical name of the file;</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-fslogicalfileinforecord">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									RECORD
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">FsLogicalFileInfoRecord</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-fslogicalfileinforecord" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										A record containing information about a logical file.
+									</div>
+								</div>
+								
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Fields</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td width="20%"><b>superfile</b> </td>
+												<td>Is this a superfile?</td>
+											</tr>
+											<tr>
+												<td width="20%"><b>size</b> </td>
+												<td>Number of bytes in the file (before compression)</td>
+											</tr>
+											<tr>
+												<td width="20%"><b>rowcount</b> </td>
+												<td>Number of rows in the file.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-fslogicalsupersubrecord">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									RECORD
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">FsLogicalSuperSubRecord</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-fslogicalsupersubrecord" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										A record containing information about a superfile and its contents.
+									</div>
+								</div>
+								
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Fields</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td width="20%"><b>supername</b> </td>
+												<td>The name of the superfile</td>
+											</tr>
+											<tr>
+												<td width="20%"><b>subname</b> </td>
+												<td>The name of the sub-file</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-fsfilerelationshiprecord">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									RECORD
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">FsFileRelationshipRecord</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-fsfilerelationshiprecord" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										A record containing information about the relationship between two files.
+									</div>
+								</div>
+								
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Fields</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td width="20%"><b>primaryfile</b> </td>
+												<td>The logical filename of the primary file</td>
+											</tr>
+											<tr>
+												<td width="20%"><b>secondaryfile</b> </td>
+												<td>The logical filename of the secondary file.</td>
+											</tr>
+											<tr>
+												<td width="20%"><b>primaryflds</b> </td>
+												<td>The name of the primary key field for the primary file. The value "__fileposition__" indicates the secondary is an INDEX that must use FETCH to access non-keyed fields.</td>
+											</tr>
+											<tr>
+												<td width="20%"><b>secondaryflds</b> </td>
+												<td>The name of the foreign key field relating to the primary file.</td>
+											</tr>
+											<tr>
+												<td width="20%"><b>kind</b> </td>
+												<td>The type of relationship between the primary and secondary files. Containing either 'link' or 'view'.</td>
+											</tr>
+											<tr>
+												<td width="20%"><b>cardinality</b> </td>
+												<td>The cardinality of the relationship. The format is <primary>:<secondary>. Valid values are "1" or "M".</secondary></primary></td>
+											</tr>
+											<tr>
+												<td width="20%"><b>payload</b> </td>
+												<td>Indicates whether the primary or secondary are payload INDEXes.</td>
+											</tr>
+											<tr>
+												<td width="20%"><b>description</b> </td>
+												<td>The description of the relationship.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-recfmv_recsize">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									ATTRIBUTE
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">RECFMV_RECSIZE</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-recfmv_recsize" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Constant that indicates IBM RECFM V format file. Can be passed to SprayFixed for the record size.
+									</div>
+								</div>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-recfmvb_recsize">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									ATTRIBUTE
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">RECFMVB_RECSIZE</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-recfmvb_recsize" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Constant that indicates IBM RECFM VB format file. Can be passed to SprayFixed for the record size.
+									</div>
+								</div>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-prefix_variable_recsize">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									ATTRIBUTE
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">INTEGER4 PREFIX_VARIABLE_RECSIZE</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-prefix_variable_recsize" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Constant that indicates a variable little endian 4 byte length prefixed file. Can be passed to SprayFixed for the record size.
+									</div>
+								</div>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-prefix_variable_bigendian_recsize">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									ATTRIBUTE
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">INTEGER4 PREFIX_VARIABLE_BIGENDIAN_RECSIZE</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-prefix_variable_bigendian_recsize" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Constant that indicates a variable big endian 4 byte length prefixed file. Can be passed to SprayFixed for the record size.
+									</div>
+								</div>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-fileexists">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">boolean FileExists(varstring lfn, boolean physical=FALSE)</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-fileexists" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Returns whether the file exists.
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%; font-weight: bold;">lfn</td>
+												<td>The logical name of the file.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">physical</td>
+												<td>Whether to also check for the physical existence on disk. Defaults to FALSE.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>Whether the file exists.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-deletelogicalfile">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">DeleteLogicalFile(varstring lfn, boolean allowMissing=FALSE)</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-deletelogicalfile" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Removes the logical file from the system, and deletes from the disk.
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%; font-weight: bold;">lfn</td>
+												<td>The logical name of the file.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">allowMissing</td>
+												<td>Whether to suppress an error if the filename does not exist. Defaults to FALSE.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-setreadonly">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">SetReadOnly(varstring lfn, boolean ro=TRUE)</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-setreadonly" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Changes whether access to a file is read only or not.
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%; font-weight: bold;">lfn</td>
+												<td>The logical name of the file.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">ro</td>
+												<td>Whether updates to the file are disallowed. Defaults to TRUE.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-renamelogicalfile">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">RenameLogicalFile(varstring oldname, varstring newname)</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-renamelogicalfile" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Changes the name of a logical file.
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%; font-weight: bold;">oldname</td>
+												<td>The current name of the file to be renamed.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">newname</td>
+												<td>The new logical name of the file.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-foreignlogicalfilename">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">varstring ForeignLogicalFileName(varstring name, varstring foreigndali='', boolean abspath=FALSE)</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-foreignlogicalfilename" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Returns a logical filename that can be used to refer to a logical file in a local or remote dali.
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%; font-weight: bold;">name</td>
+												<td>The logical name of the file.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">foreigndali</td>
+												<td>The IP address of the foreign dali used to resolve the file. If blank then the file is resolved locally. Defaults to blank.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">abspath</td>
+												<td>Should a tilde (~) be prepended to the resulting logical file name. Defaults to FALSE.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-externallogicalfilename">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">varstring ExternalLogicalFileName(varstring location, varstring path, boolean abspath=TRUE)</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-externallogicalfilename" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Returns an encoded logical filename that can be used to refer to a external file. Examples include directly reading from a landing zone. Upper case characters and other details are escaped.
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%; font-weight: bold;">location</td>
+												<td>The IP address of the remote machine. '.' can be used for the local machine.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">path</td>
+												<td>The path/name of the file on the remote machine.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">abspath</td>
+												<td>Should a tilde (~) be prepended to the resulting logical file name. Defaults to TRUE.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>The encoded logical filename.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-getfiledescription">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">varstring GetFileDescription(varstring lfn)</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-getfiledescription" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Returns a string containing the description information associated with the specified filename. This description is set either through ECL watch or by using the FileServices.SetFileDescription function.
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%; font-weight: bold;">lfn</td>
+												<td>The logical name of the file.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-setfiledescription">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">SetFileDescription(varstring lfn, varstring val)</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-setfiledescription" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Sets the description associated with the specified filename.
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%; font-weight: bold;">lfn</td>
+												<td>The logical name of the file.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">val</td>
+												<td>The description to be associated with the file.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-remotedirectory">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">dataset(FsFilenameRecord) RemoteDirectory(varstring machineIP, varstring dir, varstring mask='*', boolean recurse=FALSE)</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-remotedirectory" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Returns a dataset containing a list of files from the specified machineIP and directory.
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%; font-weight: bold;">machineIP</td>
+												<td>The IP address of the remote machine.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">directory</td>
+												<td>The path to the directory to read. This must be in the appropriate format for the operating system running on the remote machine.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">mask</td>
+												<td>The filemask specifying which files to include in the result. Defaults to '*' (all files).</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">recurse</td>
+												<td>Whether to include files from subdirectories under the directory. Defaults to FALSE.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-logicalfilelist">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">dataset(FsLogicalFileInfoRecord) LogicalFileList(varstring namepattern='*', boolean includenormal=TRUE, boolean includesuper=FALSE, boolean unknownszero=FALSE, varstring foreigndali='')</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-logicalfilelist" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Returns a dataset of information about the logical files known to the system.
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%; font-weight: bold;">namepattern</td>
+												<td>The mask of the files to list. Defaults to '*' (all files).</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">includenormal</td>
+												<td>Whether to include 'normal' files. Defaults to TRUE.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">includesuper</td>
+												<td>Whether to include SuperFiles. Defaults to FALSE.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">unknownszero</td>
+												<td>Whether to set file sizes that are unknown to zero(0) instead of minus-one (-1). Defaults to FALSE.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">foreigndali</td>
+												<td>The IP address of the foreign dali used to resolve the file. If blank then the file is resolved locally. Defaults to blank.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-comparefiles">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">INTEGER4 CompareFiles(varstring lfn1, varstring lfn2, boolean logical_only=TRUE, boolean use_crcs=FALSE)</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-comparefiles" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Compares two files, and returns a result indicating how well they match.
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%; font-weight: bold;">file1</td>
+												<td>The logical name of the first file.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">file2</td>
+												<td>The logical name of the second file.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">logical_only</td>
+												<td>Whether to only compare logical information in the system datastore (Dali), and ignore physical information on disk. [Default TRUE]</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">use_crcs</td>
+												<td>Whether to compare physical CRCs of all the parts on disk. This may be slow on large files. Defaults to FALSE.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>0 if file1 and file2 match exactly 1 if file1 and file2 contents match, but file1 is newer than file2 -1 if file1 and file2 contents match, but file2 is newer than file1 2 if file1 and file2 contents do not match and file1 is newer than file2 -2 if file1 and file2 contents do not match and file2 is newer than file1</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-verifyfile">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">varstring VerifyFile(varstring lfn, boolean usecrcs)</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-verifyfile" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Checks the system datastore (Dali) information for the file against the physical parts on disk.
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%; font-weight: bold;">lfn</td>
+												<td>The name of the file to check.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">use_crcs</td>
+												<td>Whether to compare physical CRCs of all the parts on disk. This may be slow on large files.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>'OK' - The file parts match the datastore information 'Could not find file: <filename>' - The logical filename was not found 'Could not find part file: <partname>' - The partname was not found 'Modified time differs for: <partname>' - The partname has a different timestamp 'File size differs for: <partname>' - The partname has a file size 'File CRC differs for: <partname>' - The partname has a different CRC</partname></partname></partname></partname></filename></td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-addfilerelationship">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">AddFileRelationship(varstring primary, varstring secondary, varstring primaryflds, varstring secondaryflds, varstring kind='link', varstring cardinality, boolean payload, varstring description='')</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-addfilerelationship" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Defines the relationship between two files. These may be DATASETs or INDEXes. Each record in the primary file should be uniquely defined by the primaryfields (ideally), preferably efficiently. This information is used by the roxie browser to link files together.
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%; font-weight: bold;">primary</td>
+												<td>The logical filename of the primary file.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">secondary</td>
+												<td>The logical filename of the secondary file.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">primaryfields</td>
+												<td>The name of the primary key field for the primary file. The value "__fileposition__" indicates the secondary is an INDEX that must use FETCH to access non-keyed fields.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">secondaryfields</td>
+												<td>The name of the foreign key field relating to the primary file.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">relationship</td>
+												<td>The type of relationship between the primary and secondary files. Containing either 'link' or 'view'. Default is "link".</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">cardinality</td>
+												<td>The cardinality of the relationship. The format is <primary>:<secondary>. Valid values are "1" or "M".</secondary></primary></td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">payload</td>
+												<td>Indicates whether the primary or secondary are payload INDEXes.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">description</td>
+												<td>The description of the relationship.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-filerelationshiplist">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">dataset(FsFileRelationshipRecord) FileRelationshipList(varstring primary, varstring secondary, varstring primflds='', varstring secondaryflds='', varstring kind='link')</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-filerelationshiplist" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Returns a dataset of relationships. The return records are structured in the FsFileRelationshipRecord format.
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%; font-weight: bold;">primary</td>
+												<td>The logical filename of the primary file.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">secondary</td>
+												<td>The logical filename of the secondary file.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">primaryfields</td>
+												<td>The name of the primary key field for the primary file.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">secondaryfields</td>
+												<td>The name of the foreign key field relating to the primary file.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">relationship</td>
+												<td>The type of relationship between the primary and secondary files. Containing either 'link' or 'view'. Default is "link".</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-removefilerelationship">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">RemoveFileRelationship(varstring primary, varstring secondary, varstring primaryflds='', varstring secondaryflds='', varstring kind='link')</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-removefilerelationship" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Removes a relationship between two files.
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%; font-weight: bold;">primary</td>
+												<td>The logical filename of the primary file.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">secondary</td>
+												<td>The logical filename of the secondary file.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">primaryfields</td>
+												<td>The name of the primary key field for the primary file.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">secondaryfields</td>
+												<td>The name of the foreign key field relating to the primary file.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">relationship</td>
+												<td>The type of relationship between the primary and secondary files. Containing either 'link' or 'view'. Default is "link".</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-getcolumnmapping">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">varstring GetColumnMapping(varstring lfn)</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-getcolumnmapping" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Returns the field mappings for the file, in the same format specified for the SetColumnMapping function.
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%; font-weight: bold;">lfn</td>
+												<td>The logical filename of the primary file.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-setcolumnmapping">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">SetColumnMapping(varstring lfn, varstring mapping)</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-setcolumnmapping" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Defines how the data in the fields of the file mist be transformed between the actual data storage format and the input format used to query that data. This is used by the user interface of the roxie browser.
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%; font-weight: bold;">lfn</td>
+												<td>The logical filename of the primary file.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">mapping</td>
+												<td>A string containing a comma separated list of field mappings.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-encoderfsquery">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">varstring EncodeRfsQuery(varstring server, varstring query)</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-encoderfsquery" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Returns a string that can be used in a DATASET declaration to read data from an RFS (Remote File Server) instance (e.g. rfsmysql) on another node.
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%; font-weight: bold;">server</td>
+												<td>A string containing the ip:port address for the remote file server.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">query</td>
+												<td>The text of the query to send to the server</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-rfsaction">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">RfsAction(varstring server, varstring query)</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-rfsaction" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Sends the query to the rfs server.
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%; font-weight: bold;">server</td>
+												<td>A string containing the ip:port address for the remote file server.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">query</td>
+												<td>The text of the query to send to the server</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-moveexternalfile">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">MoveExternalFile(varstring location, varstring frompath, varstring topath)</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-moveexternalfile" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Moves the single physical file between two locations on the same remote machine. The dafileserv utility program must be running on the location machine.
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%; font-weight: bold;">location</td>
+												<td>The IP address of the remote machine.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">frompath</td>
+												<td>The path/name of the file to move.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">topath</td>
+												<td>The path/name of the target file.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-deleteexternalfile">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">DeleteExternalFile(varstring location, varstring path)</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-deleteexternalfile" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Removes a single physical file from a remote machine. The dafileserv utility program must be running on the location machine.
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%; font-weight: bold;">location</td>
+												<td>The IP address of the remote machine.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">path</td>
+												<td>The path/name of the file to remove.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-createexternaldirectory">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">CreateExternalDirectory(varstring location, varstring path)</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-createexternaldirectory" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Creates the path on the location (if it does not already exist). The dafileserv utility program must be running on the location machine.
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%; font-weight: bold;">location</td>
+												<td>The IP address of the remote machine.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">path</td>
+												<td>The path/name of the file to remove.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-getlogicalfileattribute">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">varstring GetLogicalFileAttribute(varstring lfn, varstring attrname)</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-getlogicalfileattribute" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Returns the value of the given attribute for the specified logicalfilename.
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%; font-weight: bold;">lfn</td>
+												<td>The name of the logical file.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">attrname</td>
+												<td>The name of the file attribute to return.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-protectlogicalfile">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">ProtectLogicalFile(varstring lfn, boolean value=TRUE)</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-protectlogicalfile" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Toggles protection on and off for the specified logicalfilename.
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%; font-weight: bold;">lfn</td>
+												<td>The name of the logical file.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">value</td>
+												<td>TRUE to enable protection, FALSE to disable.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-dfuplusexec">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">DfuPlusExec(varstring cmdline)</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-dfuplusexec" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										The DfuPlusExec action executes the specified command line just as the DfuPLus.exe program would do. This allows you to have all the functionality of the DfuPLus.exe program available within your ECL code. param cmdline The DFUPlus.exe command line to execute. The valid arguments are documented in the Client Tools manual, in the section describing the DfuPlus.exe program.
+									</div>
+								</div>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-fsprayfixed">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">varstring fSprayFixed(varstring sourceIP, varstring sourcePath, integer4 recordSize, varstring destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, boolean failIfNoSourceFile=FALSE, integer4 expireDays=-1)</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-fsprayfixed" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Sprays a file of fixed length records from a single machine and distributes it across the nodes of the destination group.
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%; font-weight: bold;">sourceIP</td>
+												<td>The IP address of the file.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">sourcePath</td>
+												<td>The path and name of the file.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">recordsize</td>
+												<td>The size (in bytes) of the records in the file.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">destinationGroup</td>
+												<td>The name of the group to distribute the file across.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">destinationLogicalName</td>
+												<td>The logical name of the file to create.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">timeOut</td>
+												<td>The time in ms to wait for the operation to complete. A value of 0 causes the call to return immediately. Defaults to no timeout (-1).</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">espServerIpPort</td>
+												<td>The url of the ESP file copying service. Defaults to the value of ws_fs_server in the environment.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">maxConnections</td>
+												<td>The maximum number of target nodes to write to concurrently. Defaults to 1.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">allowOverwrite</td>
+												<td>Is it valid to overwrite an existing file of the same name? Defaults to FALSE</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">replicate</td>
+												<td>Whether to replicate the new file. Defaults to FALSE.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">compress</td>
+												<td>Whether to compress the new file. Defaults to FALSE.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">failIfNoSourceFile</td>
+												<td>If TRUE it causes a missing source file to trigger a failure. Defaults to FALSE.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">expireDays</td>
+												<td>Number of days to auto-remove file. Default is -1, not expire.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>The DFU workunit id for the job.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-sprayfixed">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">SprayFixed(varstring sourceIP, varstring sourcePath, integer4 recordSize, varstring destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, boolean failIfNoSourceFile=FALSE, integer4 expireDays=-1)</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-sprayfixed" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Same as fSprayFixed, but does not return the DFU Workunit ID.
+									</div>
+								</div>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-md-1">Also See</div>
+									<div class="col-md-11">
+										<ul>
+											<li><b>fSprayFixed</b></li>
+											</ul>
+									</div>
+								</div>
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-fsprayvariable">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">varstring fSprayVariable(varstring sourceIP, varstring sourcePath, integer4 sourceMaxRecordSize=8192, varstring sourceCsvSeparate='\\,', varstring sourceCsvTerminate='\\n,\\r\\n', varstring sourceCsvQuote='\"', varstring destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, varstring sourceCsvEscape='', boolean failIfNoSourceFile=FALSE, boolean recordStructurePresent=FALSE, boolean quotedTerminator=TRUE, varstring encoding='ascii', integer4 expireDays=-1)</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-fsprayvariable" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-sprayvariable">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">SprayVariable(varstring sourceIP, varstring sourcePath, integer4 sourceMaxRecordSize=8192, varstring sourceCsvSeparate='\\,', varstring sourceCsvTerminate='\\n,\\r\\n', varstring sourceCsvQuote='\"', varstring destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, varstring sourceCsvEscape='', boolean failIfNoSourceFile=FALSE, boolean recordStructurePresent=FALSE, boolean quotedTerminator=TRUE, varstring encoding='ascii', integer4 expireDays=-1)</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-sprayvariable" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-fspraydelimited">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">varstring fSprayDelimited(varstring sourceIP, varstring sourcePath, integer4 sourceMaxRecordSize=8192, varstring sourceCsvSeparate='\\,', varstring sourceCsvTerminate='\\n,\\r\\n', varstring sourceCsvQuote='\"', varstring destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, varstring sourceCsvEscape='', boolean failIfNoSourceFile=FALSE, boolean recordStructurePresent=FALSE, boolean quotedTerminator=TRUE, varstring encoding='ascii', integer4 expireDays=-1)</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-fspraydelimited" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Sprays a file of fixed delimited records from a single machine and distributes it across the nodes of the destination group.
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%; font-weight: bold;">sourceIP</td>
+												<td>The IP address of the file.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">sourcePath</td>
+												<td>The path and name of the file.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">sourceCsvSeparate</td>
+												<td>The character sequence which separates fields in the file.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">sourceCsvTerminate</td>
+												<td>The character sequence which separates records in the file.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">sourceCsvQuote</td>
+												<td>A string which can be used to delimit fields in the file.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">sourceMaxRecordSize</td>
+												<td>The maximum size (in bytes) of the records in the file.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">destinationGroup</td>
+												<td>The name of the group to distribute the file across.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">destinationLogicalName</td>
+												<td>The logical name of the file to create.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">timeOut</td>
+												<td>The time in ms to wait for the operation to complete. A value of 0 causes the call to return immediately. Defaults to no timeout (-1).</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">espServerIpPort</td>
+												<td>The url of the ESP file copying service. Defaults to the value of ws_fs_server in the environment.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">maxConnections</td>
+												<td>The maximum number of target nodes to write to concurrently. Defaults to 1.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">allowOverwrite</td>
+												<td>Is it valid to overwrite an existing file of the same name? Defaults to FALSE</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">replicate</td>
+												<td>Whether to replicate the new file. Defaults to FALSE.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">compress</td>
+												<td>Whether to compress the new file. Defaults to FALSE.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">sourceCsvEscape</td>
+												<td>A character that is used to escape quote characters. Defaults to none.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">failIfNoSourceFile</td>
+												<td>If TRUE it causes a missing source file to trigger a failure. Defaults to FALSE.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">recordStructurePresent</td>
+												<td>If TRUE derives the record structure from the header of the file.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">quotedTerminator</td>
+												<td>Can the terminator character be included in a quoted field. Defaults to TRUE. If FALSE it allows quicker partitioning of the file (avoiding a complete file scan).</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">expireDays</td>
+												<td>Number of days to auto-remove file. Default is -1, not expire.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>The DFU workunit id for the job.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-spraydelimited">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">SprayDelimited(varstring sourceIP, varstring sourcePath, integer4 sourceMaxRecordSize=8192, varstring sourceCsvSeparate='\\,', varstring sourceCsvTerminate='\\n,\\r\\n', varstring sourceCsvQuote='\"', varstring destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, varstring sourceCsvEscape='', boolean failIfNoSourceFile=FALSE, boolean recordStructurePresent=FALSE, boolean quotedTerminator=TRUE, const varstring encoding='ascii', integer4 expireDays=-1)</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-spraydelimited" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Same as fSprayDelimited, but does not return the DFU Workunit ID.
+									</div>
+								</div>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-md-1">Also See</div>
+									<div class="col-md-11">
+										<ul>
+											<li><b>fSprayDelimited</b></li>
+											</ul>
+									</div>
+								</div>
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-fsprayxml">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">varstring fSprayXml(varstring sourceIP, varstring sourcePath, integer4 sourceMaxRecordSize=8192, varstring sourceRowTag, varstring sourceEncoding='utf8', varstring destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, boolean failIfNoSourceFile=FALSE, integer4 expireDays=-1)</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-fsprayxml" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Sprays an xml file from a single machine and distributes it across the nodes of the destination group.
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%; font-weight: bold;">sourceIP</td>
+												<td>The IP address of the file.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">sourcePath</td>
+												<td>The path and name of the file.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">sourceMaxRecordSize</td>
+												<td>The maximum size (in bytes) of the records in the file.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">sourceRowTag</td>
+												<td>The xml tag that is used to delimit records in the source file. (This tag cannot recursivly nest.)</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">sourceEncoding</td>
+												<td>The unicode encoding of the file. (utf8,utf8n,utf16be,utf16le,utf32be,utf32le)</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">destinationGroup</td>
+												<td>The name of the group to distribute the file across.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">destinationLogicalName</td>
+												<td>The logical name of the file to create.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">timeOut</td>
+												<td>The time in ms to wait for the operation to complete. A value of 0 causes the call to return immediately. Defaults to no timeout (-1).</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">espServerIpPort</td>
+												<td>The url of the ESP file copying service. Defaults to the value of ws_fs_server in the environment.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">maxConnections</td>
+												<td>The maximum number of target nodes to write to concurrently. Defaults to 1.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">allowOverwrite</td>
+												<td>Is it valid to overwrite an existing file of the same name? Defaults to FALSE</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">replicate</td>
+												<td>Whether to replicate the new file. Defaults to FALSE.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">compress</td>
+												<td>Whether to compress the new file. Defaults to FALSE.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">failIfNoSourceFile</td>
+												<td>If TRUE it causes a missing source file to trigger a failure. Defaults to FALSE.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">expireDays</td>
+												<td>Number of days to auto-remove file. Default is -1, not expire.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>The DFU workunit id for the job.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-sprayxml">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">SprayXml(varstring sourceIP, varstring sourcePath, integer4 sourceMaxRecordSize=8192, varstring sourceRowTag, varstring sourceEncoding='utf8', varstring destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, boolean failIfNoSourceFile=FALSE, integer4 expireDays=-1)</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-sprayxml" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Same as fSprayXml, but does not return the DFU Workunit ID.
+									</div>
+								</div>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-md-1">Also See</div>
+									<div class="col-md-11">
+										<ul>
+											<li><b>fSprayXml</b></li>
+											</ul>
+									</div>
+								</div>
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-fdespray">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">varstring fDespray(varstring logicalName, varstring destinationIP, varstring destinationPath, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE)</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-fdespray" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Copies a distributed file from multiple machines, and desprays it to a single file on a single machine.
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%; font-weight: bold;">logicalName</td>
+												<td>The name of the file to despray.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">destinationIP</td>
+												<td>The IP of the target machine.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">destinationPath</td>
+												<td>The path of the file to create on the destination machine.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">timeOut</td>
+												<td>The time in ms to wait for the operation to complete. A value of 0 causes the call to return immediately. Defaults to no timeout (-1).</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">espServerIpPort</td>
+												<td>The url of the ESP file copying service. Defaults to the value of ws_fs_server in the environment.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">maxConnections</td>
+												<td>The maximum number of target nodes to write to concurrently. Defaults to 1.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">allowOverwrite</td>
+												<td>Is it valid to overwrite an existing file of the same name? Defaults to FALSE</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>The DFU workunit id for the job.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-despray">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">Despray(varstring logicalName, varstring destinationIP, varstring destinationPath, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE)</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-despray" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Same as fDespray, but does not return the DFU Workunit ID.
+									</div>
+								</div>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-md-1">Also See</div>
+									<div class="col-md-11">
+										<ul>
+											<li><b>fDespray</b></li>
+											</ul>
+									</div>
+								</div>
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-fcopy">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">varstring fCopy(varstring sourceLogicalName, varstring destinationGroup, varstring destinationLogicalName, varstring sourceDali='', integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean asSuperfile=FALSE, boolean compress=FALSE, boolean forcePush=FALSE, integer4 transferBufferSize=0, boolean preserveCompression=TRUE)</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-fcopy" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Copies a distributed file to another distributed file.
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%; font-weight: bold;">sourceLogicalName</td>
+												<td>The name of the file to despray.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">destinationGroup</td>
+												<td>The name of the group to distribute the file across.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">destinationLogicalName</td>
+												<td>The logical name of the file to create.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">sourceDali</td>
+												<td>The dali that contains the source file (blank implies same dali). Defaults to same dali.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">timeOut</td>
+												<td>The time in ms to wait for the operation to complete. A value of 0 causes the call to return immediately. Defaults to no timeout (-1).</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">espServerIpPort</td>
+												<td>The url of the ESP file copying service. Defaults to the value of ws_fs_server in the environment.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">maxConnections</td>
+												<td>The maximum number of target nodes to write to concurrently. Defaults to 1.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">allowOverwrite</td>
+												<td>Is it valid to overwrite an existing file of the same name? Defaults to FALSE</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">replicate</td>
+												<td>Should the copied file also be replicated on the destination? Defaults to FALSE</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">asSuperfile</td>
+												<td>Should the file be copied as a superfile? If TRUE and source is a superfile, then the operation creates a superfile on the target, creating sub-files as needed and only overwriting existing sub-files whose content has changed. If FALSE, a single file is created. Defaults to FALSE.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">compress</td>
+												<td>Whether to compress the new file. Defaults to FALSE.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">forcePush</td>
+												<td>Should the copy process be executed on the source nodes (push) or on the destination nodes (pull)? Default is to pull.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">transferBufferSize</td>
+												<td>Overrides the size (in bytes) of the internal buffer used to copy the file. Default is 64k.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>The DFU workunit id for the job.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-copy">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">Copy(varstring sourceLogicalName, varstring destinationGroup, varstring destinationLogicalName, varstring sourceDali='', integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean asSuperfile=FALSE, boolean compress=FALSE, boolean forcePush=FALSE, integer4 transferBufferSize=0, boolean preserveCompression=TRUE)</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-copy" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Same as fCopy, but does not return the DFU Workunit ID.
+									</div>
+								</div>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-md-1">Also See</div>
+									<div class="col-md-11">
+										<ul>
+											<li><b>fCopy</b></li>
+											</ul>
+									</div>
+								</div>
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-freplicate">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">varstring fReplicate(varstring logicalName, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'))</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-freplicate" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Ensures the specified file is replicated to its mirror copies.
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%; font-weight: bold;">logicalName</td>
+												<td>The name of the file to replicate.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">timeOut</td>
+												<td>The time in ms to wait for the operation to complete. A value of 0 causes the call to return immediately. Defaults to no timeout (-1).</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">espServerIpPort</td>
+												<td>The url of the ESP file copying service. Defaults to the value of ws_fs_server in the environment.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>The DFU workunit id for the job.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-replicate">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">Replicate(varstring logicalName, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'))</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-replicate" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Same as fReplicated, but does not return the DFU Workunit ID.
+									</div>
+								</div>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-md-1">Also See</div>
+									<div class="col-md-11">
+										<ul>
+											<li><b>fReplicate</b></li>
+											</ul>
+									</div>
+								</div>
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-fremotepull">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">varstring fRemotePull(varstring remoteEspFsURL, varstring sourceLogicalName, varstring destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean asSuperfile=FALSE, boolean forcePush=FALSE, integer4 transferBufferSize=0, boolean wrap=FALSE, boolean compress=FALSE)</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-fremotepull" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Copies a distributed file to a distributed file on remote system. Similar to fCopy, except the copy executes remotely. Since the DFU workunit executes on the remote DFU server, the user name authentication must be the same on both systems, and the user must have rights to copy files on both systems.
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%; font-weight: bold;">remoteEspFsURL</td>
+												<td>The url of the remote ESP file copying service.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">sourceLogicalName</td>
+												<td>The name of the file to despray.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">destinationGroup</td>
+												<td>The name of the group to distribute the file across.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">destinationLogicalName</td>
+												<td>The logical name of the file to create.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">timeOut</td>
+												<td>The time in ms to wait for the operation to complete. A value of 0 causes the call to return immediately. Defaults to no timeout (-1).</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">maxConnections</td>
+												<td>The maximum number of target nodes to write to concurrently. Defaults to 1.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">allowOverwrite</td>
+												<td>Is it valid to overwrite an existing file of the same name? Defaults to FALSE</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">replicate</td>
+												<td>Should the copied file also be replicated on the destination? Defaults to FALSE</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">asSuperfile</td>
+												<td>Should the file be copied as a superfile? If TRUE and source is a superfile, then the operation creates a superfile on the target, creating sub-files as needed and only overwriting existing sub-files whose content has changed. If FALSE a single file is created. Defaults to FALSE.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">compress</td>
+												<td>Whether to compress the new file. Defaults to FALSE.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">forcePush</td>
+												<td>Should the copy process should be executed on the source nodes (push) or on the destination nodes (pull)? Default is to pull.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">transferBufferSize</td>
+												<td>Overrides the size (in bytes) of the internal buffer used to copy the file. Default is 64k.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">wrap</td>
+												<td>Should the fileparts be wrapped when copying to a smaller sized cluster? The default is FALSE.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>The DFU workunit id for the job.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-remotepull">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">RemotePull(varstring remoteEspFsURL, varstring sourceLogicalName, varstring destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean asSuperfile=FALSE, boolean forcePush=FALSE, integer4 transferBufferSize=0, boolean wrap=FALSE, boolean compress=FALSE)</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-remotepull" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Same as fRemotePull, but does not return the DFU Workunit ID.
+									</div>
+								</div>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-md-1">Also See</div>
+									<div class="col-md-11">
+										<ul>
+											<li><b>fRemotePull</b></li>
+											</ul>
+									</div>
+								</div>
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-fmonitorlogicalfilename">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">varstring fMonitorLogicalFileName(varstring eventToFire, varstring name, integer4 shotCount=1, varstring espServerIpPort=GETENV('ws_fs_server'))</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-fmonitorlogicalfilename" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Creates a file monitor job in the DFU Server. If an appropriately named file arrives in this interval it will fire the event with the name of the triggering object as the event subtype (see the EVENT function).
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%; font-weight: bold;">eventToFire</td>
+												<td>The user-defined name of the event to fire when the filename appears. This value is used as the first parameter to the EVENT function.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">name</td>
+												<td>The name of the logical file to monitor. This may contain wildcard characters ( * and ?)</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">shotCount</td>
+												<td>The number of times to generate the event before the monitoring job completes. A value of -1 indicates the monitoring job continues until manually aborted. The default is 1.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">espServerIpPort</td>
+												<td>The url of the ESP file copying service. Defaults to the value of ws_fs_server in the environment.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>The DFU workunit id for the job.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-monitorlogicalfilename">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">MonitorLogicalFileName(varstring eventToFire, varstring name, integer4 shotCount=1, varstring espServerIpPort=GETENV('ws_fs_server'))</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-monitorlogicalfilename" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Same as fMonitorLogicalFileName, but does not return the DFU Workunit ID.
+									</div>
+								</div>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-md-1">Also See</div>
+									<div class="col-md-11">
+										<ul>
+											<li><b>fMonitorLogicalFileName</b></li>
+											</ul>
+									</div>
+								</div>
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-fmonitorfile">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">varstring fMonitorFile(varstring eventToFire, varstring ip, varstring filename, boolean subDirs=FALSE, integer4 shotCount=1, varstring espServerIpPort=GETENV('ws_fs_server'))</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-fmonitorfile" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Creates a file monitor job in the DFU Server. If an appropriately named file arrives in this interval it will fire the event with the name of the triggering object as the event subtype (see the EVENT function).
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%; font-weight: bold;">eventToFire</td>
+												<td>The user-defined name of the event to fire when the filename appears. This value is used as the first parameter to the EVENT function.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">ip</td>
+												<td>The the IP address for the file to monitor. This may be omitted if the filename parameter contains a complete URL.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">filename</td>
+												<td>The full path of the file(s) to monitor. This may contain wildcard characters ( * and ?)</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">subDirs</td>
+												<td>Whether to include files in sub-directories (when the filename contains wildcards). Defaults to FALSE.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">shotCount</td>
+												<td>The number of times to generate the event before the monitoring job completes. A value of -1 indicates the monitoring job continues until manually aborted. The default is 1.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">espServerIpPort</td>
+												<td>The url of the ESP file copying service. Defaults to the value of ws_fs_server in the environment.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>The DFU workunit id for the job.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-monitorfile">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">MonitorFile(varstring eventToFire, varstring ip, varstring filename, boolean subdirs=FALSE, integer4 shotCount=1, varstring espServerIpPort=GETENV('ws_fs_server'))</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-monitorfile" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Same as fMonitorFile, but does not return the DFU Workunit ID.
+									</div>
+								</div>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-md-1">Also See</div>
+									<div class="col-md-11">
+										<ul>
+											<li><b>fMonitorFile</b></li>
+											</ul>
+									</div>
+								</div>
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-waitdfuworkunit">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">varstring WaitDfuWorkunit(varstring wuid, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'))</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-waitdfuworkunit" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Waits for the specified DFU workunit to finish.
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%; font-weight: bold;">wuid</td>
+												<td>The dfu wfid to wait for.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">timeOut</td>
+												<td>The time in ms to wait for the operation to complete. A value of 0 causes the call to return immediately. Defaults to no timeout (-1).</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">espServerIpPort</td>
+												<td>The url of the ESP file copying service. Defaults to the value of ws_fs_server in the environment.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>A string containing the final status string of the DFU workunit.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-abortdfuworkunit">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">AbortDfuWorkunit(varstring wuid, varstring espServerIpPort=GETENV('ws_fs_server'))</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-abortdfuworkunit" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Aborts the specified DFU workunit.
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%; font-weight: bold;">wuid</td>
+												<td>The dfu wfid to abort.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">espServerIpPort</td>
+												<td>The url of the ESP file copying service. Defaults to the value of ws_fs_server in the environment.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-createsuperfile">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">CreateSuperFile(varstring superName, boolean sequentialParts=FALSE, boolean allowExist=FALSE)</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-createsuperfile" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Creates an empty superfile. This function is not included in a superfile transaction.
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%; font-weight: bold;">superName</td>
+												<td>The logical name of the superfile.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">sequentialParts</td>
+												<td>Whether the sub-files must be sequentially ordered. Default to FALSE.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">allowExist</td>
+												<td>Indicating whether to post an error if the superfile already exists. If TRUE, no error is posted. Defaults to FALSE.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-superfileexists">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">boolean SuperFileExists(varstring superName)</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-superfileexists" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Checks if the specified filename is present in the Distributed File Utility (DFU) and is a SuperFile.
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%; font-weight: bold;">superName</td>
+												<td>The logical name of the superfile.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>Whether the file exists.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-md-1">Also See</div>
+									<div class="col-md-11">
+										<ul>
+											<li><b>FileExists</b></li>
+											</ul>
+									</div>
+								</div>
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-deletesuperfile">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">DeleteSuperFile(varstring superName, boolean deletesub=FALSE)</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-deletesuperfile" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Deletes the superfile.
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%; font-weight: bold;">superName</td>
+												<td>The logical name of the superfile.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-md-1">Also See</div>
+									<div class="col-md-11">
+										<ul>
+											<li><b>FileExists</b></li>
+											</ul>
+									</div>
+								</div>
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-getsuperfilesubcount">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">unsigned4 GetSuperFileSubCount(varstring superName)</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-getsuperfilesubcount" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Returns the number of sub-files contained within a superfile.
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%; font-weight: bold;">superName</td>
+												<td>The logical name of the superfile.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>The number of sub-files within the superfile.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-getsuperfilesubname">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">varstring GetSuperFileSubName(varstring superName, unsigned4 fileNum, boolean absPath=FALSE)</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-getsuperfilesubname" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Returns the name of the Nth sub-file within a superfile.
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%; font-weight: bold;">superName</td>
+												<td>The logical name of the superfile.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">fileNum</td>
+												<td>The 1-based position of the sub-file to return the name of.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">absPath</td>
+												<td>Whether to prepend '~' to the name of the resulting logical file name.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>The logical name of the selected sub-file.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-findsuperfilesubname">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">unsigned4 FindSuperFileSubName(varstring superName, varstring subName)</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-findsuperfilesubname" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Returns the position of a file within a superfile.
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%; font-weight: bold;">superName</td>
+												<td>The logical name of the superfile.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">subName</td>
+												<td>The logical name of the sub-file.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>The 1-based position of the sub-file within the superfile.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-startsuperfiletransaction">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">StartSuperFileTransaction()</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-startsuperfiletransaction" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Starts a superfile transaction. All superfile operations within the transaction will either be executed atomically or rolled back when the transaction is finished.
+									</div>
+								</div>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-addsuperfile">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">AddSuperFile(varstring superName, varstring subName, unsigned4 atPos=0, boolean addContents=FALSE, boolean strict=FALSE)</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-addsuperfile" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Adds a file to a superfile.
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%; font-weight: bold;">superName</td>
+												<td>The logical name of the superfile.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">subName</td>
+												<td>The name of the logical file to add.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">atPos</td>
+												<td>The position to add the sub-file, or 0 to append. Defaults to 0.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">addContents</td>
+												<td>Controls whether adding a superfile adds the superfile, or its contents. Defaults to FALSE (do not expand).</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">strict</td>
+												<td>Check addContents only if subName is a superfile, and ensure superfiles exist.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-removesuperfile">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">RemoveSuperFile(varstring superName, varstring subName, boolean del=FALSE, boolean removeContents=FALSE)</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-removesuperfile" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Removes a sub-file from a superfile.
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%; font-weight: bold;">superName</td>
+												<td>The logical name of the superfile.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">subName</td>
+												<td>The name of the sub-file to remove.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">del</td>
+												<td>Indicates whether the sub-file should also be removed from the disk. Defaults to FALSE.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">removeContents</td>
+												<td>Controls whether the contents of a sub-file which is a superfile should be recursively removed. Defaults to FALSE.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-clearsuperfile">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">ClearSuperFile(varstring superName, boolean del=FALSE)</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-clearsuperfile" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Removes all sub-files from a superfile.
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%; font-weight: bold;">superName</td>
+												<td>The logical name of the superfile.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">del</td>
+												<td>Indicates whether the sub-files should also be removed from the disk. Defaults to FALSE.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-removeownedsubfiles">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">RemoveOwnedSubFiles(varstring superName, boolean del=FALSE)</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-removeownedsubfiles" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Removes all soley-owned sub-files from a superfile. If a sub-file is also contained within another superfile then it is retained.
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%; font-weight: bold;">superName</td>
+												<td>The logical name of the superfile.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-deleteownedsubfiles">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">DeleteOwnedSubFiles(varstring superName)</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-deleteownedsubfiles" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Legacy version of RemoveOwnedSubFiles which was incorrectly named in a previous version.
+									</div>
+								</div>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-md-1">Also See</div>
+									<div class="col-md-11">
+										<ul>
+											<li><b>RemoveOwnedSubFIles</b></li>
+											</ul>
+									</div>
+								</div>
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-swapsuperfile">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">SwapSuperFile(varstring superName1, varstring superName2)</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-swapsuperfile" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Swap the contents of two superfiles.
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%; font-weight: bold;">superName1</td>
+												<td>The logical name of the first superfile.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">superName2</td>
+												<td>The logical name of the second superfile.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-replacesuperfile">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">ReplaceSuperFile(varstring superName, varstring oldSubFile, varstring newSubFile)</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-replacesuperfile" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Removes a sub-file from a superfile and replaces it with another.
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%; font-weight: bold;">superName</td>
+												<td>The logical name of the superfile.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">oldSubFile</td>
+												<td>The logical name of the sub-file to remove.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">newSubFile</td>
+												<td>The logical name of the sub-file to replace within the superfile.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-finishsuperfiletransaction">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">FinishSuperFileTransaction(boolean rollback=FALSE)</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-finishsuperfiletransaction" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Finishes a superfile transaction. This executes all the operations since the matching StartSuperFileTransaction(). If there are any errors, then all of the operations are rolled back.
+									</div>
+								</div>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-superfilecontents">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">dataset(FsLogicalFileNameRecord) SuperFileContents(varstring superName, boolean recurse=FALSE)</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-superfilecontents" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Returns the list of sub-files contained within a superfile.
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%; font-weight: bold;">superName</td>
+												<td>The logical name of the superfile.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">recurse</td>
+												<td>Should the contents of child-superfiles be expanded. Default is FALSE.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>A dataset containing the names of the sub-files.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-logicalfilesuperowners">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">dataset(FsLogicalFileNameRecord) LogicalFileSuperOwners(varstring name)</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-logicalfilesuperowners" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Returns the list of superfiles that a logical file is contained within.
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%; font-weight: bold;">name</td>
+												<td>The name of the logical file.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>A dataset containing the names of the superfiles.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-logicalfilesupersublist">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">dataset(FsLogicalSuperSubRecord) LogicalFileSuperSubList()</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-logicalfilesupersublist" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Returns the list of all the superfiles in the system and their component sub-files.
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>A dataset containing pairs of superName,subName for each component file.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-fpromotesuperfilelist">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">varstring fPromoteSuperFileList(set of varstring superNames, varstring addHead='', boolean delTail=FALSE, boolean createOnlyOne=FALSE, boolean reverse=FALSE)</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-fpromotesuperfilelist" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Moves the sub-files from the first entry in the list of superfiles to the next in the list, repeating the process through the list of superfiles.
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Parameters</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td style="width: 20%; font-weight: bold;">superNames</td>
+												<td>A set of the names of the superfiles to act on. Any that do not exist will be created. The contents of each superfile will be moved to the next in the list.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">addHead</td>
+												<td>A string containing a comma-delimited list of logical file names to add to the first superfile after the promotion process is complete. Defaults to ''.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">delTail</td>
+												<td>Indicates whether to physically delete the contents moved out of the last superfile. The default is FALSE.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">createOnlyOne</td>
+												<td>Specifies whether to only create a single superfile (truncate the list at the first non-existent superfile). The default is FALSE.</td>
+											</tr>
+											<tr>
+												<td style="width: 20%; font-weight: bold;">reverse</td>
+												<td>Reverse the order of processing the superfiles list, effectively 'demoting' instead of 'promoting' the sub-files. The default is FALSE.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-1 doc-type">Returns</div>
+									<div class="col-md-11">
+										<table class="table">
+											<tr>
+												<td>A string containing a comma separated list of the previous sub-file contents of the emptied superfile.</td>
+											</tr>
+											</table>
+									</div>
+								</div>
+								
+								
+								</div>
+							<div class="panel-footer">
+								</div>
+						</div>
+						
+						<div class="panel panel-info" id="dfile-promotesuperfilelist">
+							<div class="panel-heading clearfix">
+								<div class="panel-title type">
+									FUNCTION
+								</div>
+								<div class="panel-title sign">
+									<span class="sign-name">PromoteSuperFileList(set of varstring superNames, varstring addHead='', boolean delTail=FALSE, boolean createOnlyOne=FALSE, boolean reverse=FALSE)</span>
+								</div>
+								<div class="btns pull-right">
+									
+									<a href="#ecldoc-section-tree" data-toggle="#t-file-promotesuperfilelist" class="tree-link glyphicon glyphicon-menu-up"></a>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" style="padding-bottom: 10px;">
+										Same as fPromoteSuperFileList, but does not return the DFU Workunit ID.
+									</div>
+								</div>
+								
+								
+								
+								</div>
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-md-1">Also See</div>
+									<div class="col-md-11">
+										<ul>
+											<li><b>fPromoteSuperFileList</b></li>
+											</ul>
+									</div>
+								</div>
+								</div>
+						</div>
+						
+						
+						</div>
+				</section>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+		$("#menu-toggle").click(function(e) {
+			e.preventDefault();
+			$("#wrapper").toggleClass("toggled");
+		});
+	</script>
+	<script>
+		$(document).ready(function(){
+			$('.tree-link').click(function(e) {
+				var loc = $(this).attr('data-toggle');
+				$(loc).parents('.tree').collapse('show');
+			});
+		});
+	</script>
+</body>
+</html>

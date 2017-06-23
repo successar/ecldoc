@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Meta>
+ <Source name="LogisticRegression.ExtractBeta_CI" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/ExtractBeta_CI.ecl" target="ExtractBeta_CI.ecl.xml">
+  <Import body="0" end="7" fullname="LogisticRegression" inherit_type="local" line="1" name="LR" ref="LogisticRegression" start="7" target="pkg.toc.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0" end="23" fullname="LogisticRegression.Types" inherit_type="local" line="2" name="Types" ref="LogisticRegression.Types" start="23" target="Types.ecl.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0" end="49" fullname="ML_Core.Types" inherit_type="local" line="3" name="Core_Types" ref="ML_Core.Types" start="49" target="../ML_Core/Types.ecl.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Definition body="785" end="1440" exported="1" fullname="logisticregression.extractbeta_ci" inherit_type="local" line="28" name="ExtractBeta_CI" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/ExtractBeta_CI.ecl" start="662">
+   <Type>function</Type>
+   <Documentation>
+    <param><name>mod_ds</name><desc>the model dataset</desc></param><param><name>level</name><desc>the significance value for the intervals</desc></param><content>Extract the beta values form the model dataset.</content><firstline>Extract the beta values form the model dataset</firstline><return>the beta values with confidence intervals term.</return></Documentation>
+   <Signature sign="DATASET(Types.Confidence_Model_Coef) ExtractBeta_CI(DATASET(Core_Types.Layout_Model) mod_ds, REAL8 level)" name="ExtractBeta_CI">DATASET(Types.Confidence_Model_Coef) ExtractBeta_CI(DATASET(Core_Types.Layout_Model) mod_ds, REAL8 level)</Signature><Params>
+    <Param name="mod_ds"/>
+    <Param name="level"/>
+   </Params>
+  </Definition>
+ <Documentation>
+    <param><name>mod_ds</name><desc>the model dataset</desc></param><param><name>level</name><desc>the significance value for the intervals</desc></param><content>Extract the beta values form the model dataset.</content><firstline>Extract the beta values form the model dataset</firstline><return>the beta values with confidence intervals term.</return></Documentation>
+   </Source>
+ <Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Types.ecl" name="LogisticRegression.Types" target="Types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Types.ecl" name="ML_Core.Types" target="../ML_Core/Types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Constants.ecl" name="LogisticRegression.Constants" target="Constants.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/ExtractBeta.ecl" name="LogisticRegression.ExtractBeta" target="ExtractBeta.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Distributions.ecl" name="LogisticRegression.Distributions" target="Distributions.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Math/DoubleFac.ecl" name="ML_Core.Math.DoubleFac" target="../ML_Core/Math/DoubleFac.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Constants.ecl" name="ML_Core.Constants" target="../ML_Core/Constants.ecl.xml"/></Meta>

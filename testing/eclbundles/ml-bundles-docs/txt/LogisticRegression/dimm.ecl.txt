@@ -1,0 +1,39 @@
+IMPORTS
+=======
+
+
+std.BLAS </home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/BLAS.ecl>
+std.BLAS.Types </home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/BLAS.ecl>
+
+DESCRIPTIONS
+============
+
+
+EMBED : Types.matrix_t dimm(BOOLEAN transposeA, BOOLEAN transposeB, BOOLEAN diagonalA, BOOLEAN diagonalB, Types.dimension_t m, Types.dimension_t n, Types.dimension_t k, Types.value_t alpha, Types.matrix_t A, Types.matrix_t B, Types.value_t beta=0.0, Types.matrix_t C=[]) 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Matrix multiply when either A or B is a diagonal and is passed as a vector. alpha*op(A) op(B) + beta*C where op() is transpose
+
+Parameter : <transposeA> true when transpose of A is used
+
+Parameter : <transposeB> true when transpose of B is used
+
+Parameter : <diagonalA> true when A is the diagonal matrix
+
+Parameter : <diagonalB> true when B is the diagonal matrix
+
+Parameter : <m> number of rows in product
+
+Parameter : <n> number of columns in product
+
+Parameter : <k> number of columns/rows for the multiplier/multiplicand
+
+Parameter : <alpha> scalar used on A
+
+Parameter : <A> matrix A
+
+Parameter : <B> matrix B
+
+Parameter : <beta> scalar for matrix C
+
+Parameter : <C> matrix C or empty

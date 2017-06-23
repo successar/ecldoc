@@ -1,0 +1,165 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Meta>
+ <Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Types.ecl" name="ML_Core.Types" target="../ML_Core/Types.ecl.xml"/><Source name="LogisticRegression.Types" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Types.ecl" target="Types.ecl.xml">
+  <Import body="0" end="7" fullname="ML_Core.Types" inherit_type="local" line="1" name="Core_Types" ref="ML_Core.Types" start="7" target="../ML_Core/Types.ecl.xml">
+   <Type>attribute</Type>
+  </Import>
+  <Definition body="439" end="4032" exported="1" fullname="LogisticRegression.Types" inherit_type="local" line="13" name="Types" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Types.ecl" start="424">
+   <Type>module</Type>
+   <Definition body="469" end="480" exported="1" fullname="logisticregression.types.t_universe" inherit_type="local" line="14" name="t_Universe" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Types.ecl" start="449">
+    <Signature sign="t_Universe" name="t_Universe">t_Universe</Signature><Type>attribute</Type>
+   </Definition>
+   <Definition body="503" end="654" exported="1" fullname="logisticregression.types.field_desc" inherit_type="local" line="15" name="Field_Desc" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Types.ecl" start="483">
+    <Type>record</Type>
+    <Field name="number"/>
+    <Field name="cardinality"/>
+    <Field name="min_value"/>
+    <Signature sign="Field_Desc" name="Field_Desc">Field_Desc</Signature><Field name="max_value"/>
+   </Definition>
+   <Definition body="676" end="1054" exported="1" fullname="logisticregression.types.data_info" inherit_type="local" line="21" name="Data_Info" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Types.ecl" start="657">
+    <Type>record</Type>
+    <Field name="wi"/>
+    <Field name="dependent_fields"/>
+    <Field name="dependent_records"/>
+    <Field name="independent_fields"/>
+    <Field name="independent_records"/>
+    <Field name="dependent_count"/>
+    <Field name="independent_count"/>
+    <Field name="dependent_stats"/>
+    <Signature sign="Data_Info" name="Data_Info">Data_Info</Signature><Field name="independent_stats"/>
+   </Definition>
+   <Definition body="1081" end="1127" exported="1" fullname="logisticregression.types.numericfield_u" inherit_type="local" line="32" name="NumericField_U" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Types.ecl" start="1057">
+    <Type>record</Type>
+    <Field name="wi"/>
+    <Field name="id"/>
+    <Field name="number"/>
+    <Field name="value"/>
+    <Signature sign="NumericField_U" name="NumericField_U">NumericField_U</Signature><Field name="u"/>
+   </Definition>
+   <Definition body="1155" end="1202" exported="1" fullname="logisticregression.types.discretefield_u" inherit_type="local" line="35" name="DiscreteField_U" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Types.ecl" start="1130">
+    <Type>record</Type>
+    <Field name="wi"/>
+    <Field name="id"/>
+    <Field name="number"/>
+    <Field name="value"/>
+    <Signature sign="DiscreteField_U" name="DiscreteField_U">DiscreteField_U</Signature><Field name="u"/>
+   </Definition>
+   <Definition body="1232" end="1329" exported="1" fullname="logisticregression.types.layout_column_map" inherit_type="local" line="38" name="Layout_Column_Map" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Types.ecl" start="1205">
+    <Type>record</Type>
+    <Field name="wi"/>
+    <Field name="orig_number"/>
+    <Signature sign="Layout_Column_Map" name="Layout_Column_Map">Layout_Column_Map</Signature><Field name="remap_number"/>
+   </Definition>
+   <Definition body="1358" end="1523" exported="1" fullname="logisticregression.types.classifier_stats" inherit_type="local" line="43" name="Classifier_Stats" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Types.ecl" start="1332">
+    <Type>record</Type>
+    <Field name="column"/>
+    <Field name="max_delta"/>
+    <Field name="iterations"/>
+    <Field name="correct"/>
+    <Signature sign="Classifier_Stats" name="Classifier_Stats">Classifier_Stats</Signature><Field name="incorrect"/>
+   </Definition>
+   <Definition body="1548" end="1774" exported="1" fullname="logisticregression.types.model_report" inherit_type="local" line="50" name="Model_Report" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Types.ecl" start="1526">
+    <Type>record</Type>
+    <Field name="wi"/>
+    <Field name="max_iterations"/>
+    <Field name="epsilon"/>
+    <Field name="dep_vars"/>
+    <Field name="ind_vars"/>
+    <Field name="obs"/>
+    <Field name="builder"/>
+    <Signature sign="Model_Report" name="Model_Report">Model_Report</Signature><Field name="stats"/>
+   </Definition>
+   <Definition body="1813" end="2925" exported="1" fullname="logisticregression.types.binomial_confusion_summary" inherit_type="local" line="60" name="Binomial_Confusion_Summary" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Types.ecl" start="1777">
+    <Type>record</Type>
+    <Field name="wi"/>
+    <Field name="classifier"/>
+    <Field name="true_positive"/>
+    <Field name="true_negative"/>
+    <Field name="false_positive"/>
+    <Field name="false_negative"/>
+    <Field name="cond_pos"/>
+    <Field name="pred_pos"/>
+    <Field name="cond_neg"/>
+    <Field name="pred_neg"/>
+    <Field name="prevalence"/>
+    <Field name="accuracy"/>
+    <Field name="true_pos_rate"/>
+    <Field name="false_neg_rate"/>
+    <Field name="false_pos_rate"/>
+    <Field name="true_neg_rate"/>
+    <Field name="pos_pred_val"/>
+    <Field name="false_disc_rate"/>
+    <Field name="false_omit_rate"/>
+    <Signature sign="Binomial_Confusion_Summary" name="Binomial_Confusion_Summary">Binomial_Confusion_Summary</Signature><Field name="neg_pred_val"/>
+   </Definition>
+   <Definition body="2948" end="3104" exported="1" fullname="logisticregression.types.model_coef" inherit_type="local" line="82" name="Model_Coef" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Types.ecl" start="2928">
+    <Type>record</Type>
+    <Field name="wi"/>
+    <Field name="ind_col"/>
+    <Field name="dep_nom"/>
+    <Field name="w"/>
+    <Signature sign="Model_Coef" name="Model_Coef">Model_Coef</Signature><Field name="SE"/>
+   </Definition>
+   <Definition body="3138" end="3198" exported="1" fullname="logisticregression.types.confidence_model_coef" inherit_type="local" line="89" name="Confidence_Model_Coef" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Types.ecl" start="3107">
+    <Type>record</Type>
+    <Field name="wi"/>
+    <Field name="ind_col"/>
+    <Field name="dep_nom"/>
+    <Field name="w"/>
+    <Field name="SE"/>
+    <Field name="upper"/>
+    <Signature sign="Confidence_Model_Coef" name="Confidence_Model_Coef">Confidence_Model_Coef</Signature><Field name="lower"/>
+   </Definition>
+   <Definition body="3226" end="3284" exported="1" fullname="logisticregression.types.pval_model_coef" inherit_type="local" line="93" name="pval_Model_Coef" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Types.ecl" start="3201">
+    <Type>record</Type>
+    <Field name="wi"/>
+    <Field name="ind_col"/>
+    <Field name="dep_nom"/>
+    <Field name="w"/>
+    <Field name="SE"/>
+    <Field name="z"/>
+    <Signature sign="pval_Model_Coef" name="pval_Model_Coef">pval_Model_Coef</Signature><Field name="p_value"/>
+   </Definition>
+   <Definition body="3311" end="3350" exported="1" fullname="logisticregression.types.raw_prediction" inherit_type="local" line="97" name="Raw_Prediction" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Types.ecl" start="3287">
+    <Type>record</Type>
+    <Field name="wi"/>
+    <Field name="id"/>
+    <Field name="number"/>
+    <Signature sign="Raw_Prediction" name="Raw_Prediction">Raw_Prediction</Signature><Field name="raw"/>
+   </Definition>
+   <Definition body="3383" end="3665" exported="1" fullname="logisticregression.types.observation_deviance" inherit_type="local" line="100" name="Observation_Deviance" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Types.ecl" start="3353">
+    <Type>record</Type>
+    <Field name="wi"/>
+    <Field name="id"/>
+    <Field name="classifier"/>
+    <Field name="actual"/>
+    <Field name="predicted"/>
+    <Field name="mod_ll"/>
+    <Field name="mod_dev_component"/>
+    <Field name="mod_dev_residual"/>
+    <Field name="nil_ll"/>
+    <Field name="nil_dev_component"/>
+    <Signature sign="Observation_Deviance" name="Observation_Deviance">Observation_Deviance</Signature><Field name="nil_dev_residual"/>
+   </Definition>
+   <Definition body="3693" end="3832" exported="1" fullname="logisticregression.types.deviance_record" inherit_type="local" line="113" name="Deviance_Record" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Types.ecl" start="3668">
+    <Type>record</Type>
+    <Field name="wi"/>
+    <Field name="classifier"/>
+    <Field name="df"/>
+    <Field name="deviance"/>
+    <Signature sign="Deviance_Record" name="Deviance_Record">Deviance_Record</Signature><Field name="AIC"/>
+   </Definition>
+   <Definition body="3855" end="4027" exported="1" fullname="logisticregression.types.aod_record" inherit_type="local" line="120" name="AOD_Record" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Types.ecl" start="3835">
+    <Type>record</Type>
+    <Field name="wi"/>
+    <Field name="classifier"/>
+    <Field name="residual_df"/>
+    <Field name="df"/>
+    <Field name="residual_dev"/>
+    <Field name="deviance"/>
+    <Signature sign="AOD_Record" name="AOD_Record">AOD_Record</Signature><Field name="p_value"/>
+   </Definition>
+   <Signature sign="Types" name="Types">Types</Signature><Parents/>
+  </Definition>
+ <Documentation><content> </content></Documentation></Source>
+ </Meta>

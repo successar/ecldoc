@@ -1,6 +1,5 @@
 import os
 import re
-import json
 import subprocess
 from copy import deepcopy
 from lxml import etree
@@ -9,16 +8,25 @@ from Utils import genPathTree
 from parseDoc import parseDocstring
 
 class ParseXML(object) :
-	def __init__(self, input_root, output_root, ecl_file) :
-		self.input_root = input_root
-		self.output_root = output_root
+	def __init__(self, generator, ecl_file) :
+		self.input_root = generator.input_root
+		self.output_root = generator.output_root
 		self.ecl_file = ecl_file
-		self.xml_root = os.path.join(output_root, 'xml')
-		self.xml_orig_file = os.path.join(output_root, 'xmlOriginal', (ecl_file + '.xml'))
-		self.xml_file = os.path.join(self.xml_root, (self.ecl_file + '.xml'))
+		self.xml_root = generator.xml_root
+		self.xml_orig_root = generator.xml_orig_root
+
+		self.input_file = os.path.join(self.input_root, ecl_file)
+		self.xml_orig_file = os.path.join(self.xml_orig_root, (ecl_file + '.xml'))
+		self.xml_file = os.path.join(self.xml_root, (ecl_file + '.xml'))
 		self.xml_dir = os.path.dirname(self.xml_file)
 
+
 	def parse(self) :
+		os.chdir(self.input_root)
+		os.makedirs(os.path.dirname(self.xml_orig_file), exist_ok=True)
+		p = subprocess.call(['~/eclcc -M -o ' + self.xml_orig_file + ' ' + self.input_file], shell=True)
+		print("File : ", self.input_file, "Output Code : ", p)
+
 		tree = etree.parse(self.xml_orig_file)
 		root = tree.getroot()
 
@@ -89,8 +97,6 @@ class ParseXML(object) :
 			self.src.append(docstring)
 		else :
 			self.src.append(E('Documentation', E('content', ' ')))
-
-
 
 	def parseDefinition(self, defn) :
 		attribs = defn.attrib
@@ -190,7 +196,6 @@ class ParseXML(object) :
 				attribs['target'] = os.path.join(self.xml_root, *refpath)
 				attribs['target'] = os.path.relpath(attribs['target'], self.xml_dir)
 
-
 	def parsePath(self, path) :
 		path = tuple(path.lower().split('.'))
 		current_prefix = ()
@@ -208,71 +213,20 @@ class ParseXML(object) :
 def check_if_modified(fpin, fpout) :
 	return os.path.exists(fpout) and os.path.getmtime(fpout) > os.path.getmtime(fpin)
 
-def genXML(input_root, output_root, ecl_files) :
-	xml_orig_root = os.path.join(output_root, 'xmlOriginal')
-	os.makedirs(xml_orig_root, exist_ok=True)
+def parseBundle(generator, ecl_file) :
+	input_file = os.path.join(generator.input_root, ecl_file)
+	dirpath = os.path.dirname(input_file)
 
-	xml_root = os.path.join(output_root, 'xml')
-	os.makedirs(xml_root, exist_ok=True)
+	dirpath_xml_orig = os.path.dirname(os.path.join(generator.xml_orig_root, ecl_file))
+	dirpath_xml = os.path.dirname(os.path.join(generator.xml_root, ecl_file))
 
-	path_tree = genPathTree(ecl_files, ".xml")
-	json_output = os.path.join(output_root, "index_xml.json")
-	with open(json_output, "w") as index_out :
-		json.dump(path_tree, index_out, indent=4)
+	bundle_orig_path = os.path.join(dirpath_xml_orig, 'bundle.orig.out')
+	bundle_xml_path = os.path.join(dirpath_xml, 'bundle.xml')
 
-	for ecl_file in ecl_files :
-		input_file = os.path.join(input_root, ecl_file)
-		xml_orig_file = os.path.join(xml_orig_root, (ecl_file + '.xml'))
-		os.makedirs(os.path.dirname(xml_orig_file), exist_ok=True)
-		xml_file = os.path.join(xml_root, (ecl_file + '.xml'))
-		os.chdir(input_root)
-		# if check_if_modified(input_file, xml_file) :
-		# 	continue
-		split = os.path.split(input_file)
-		if split[1].lower() == 'bundle.ecl' :
-			dirpath = os.path.join(split[0], '')
-			bundle_orig_path = os.path.join(os.path.split(xml_orig_file)[0], 'bundle.orig.out')
-			bundle_xml_path = os.path.join(os.path.split(xml_file)[0], 'bundle.xml')
-			p = subprocess.call(['~/ecl-bundle info ' + dirpath + ' > ' + bundle_orig_path], shell=True)
-			print("Output Code : ", p, "Bundle File : ", dirpath)
-			parseBundle(bundle_orig_path, bundle_xml_path)
-		else :
-			p = subprocess.call(['~/eclcc -M -o ' + xml_orig_file + ' ' + input_file], shell=True)
-			print("File : ", input_file, "Output Code : ", p)
-			parser = ParseXML(input_root, output_root, ecl_file)
-			parser.parse()
+	os.makedirs(dirpath_xml_orig, exist_ok=True)
+	p = subprocess.call(['~/ecl-bundle info ' + dirpath + ' > ' + bundle_orig_path], shell=True)
+	print("Output Code : ", p, "Bundle File : ", dirpath)
 
-	parent = path_tree['root']
-	root = etree.Element('folder')
-	root.attrib['name'] = 'root'
-	genTOC(parent, root, xml_root)
-	toc_file = os.path.join(xml_root, 'pkg.toc.xml')
-	fp = open(toc_file, 'wb')
-	fp.write(etree.tostring(root))
-	fp.close()
-
-
-def genTOC(parent, root, output_root) :
-	for key in parent :
-		if type(parent[key]) != dict :
-			file = etree.Element('file')
-			file.attrib['name'] = key + '.xml'
-			file.text = parent[key]
-			root.append(file)
-		else :
-			folder = etree.Element('folder')
-			root.append(folder)
-			folder.attrib['name'] = key
-
-			genTOC(parent[key], folder, os.path.join(output_root, key))
-
-			toc_file = os.path.join(output_root, key , 'pkg.toc.xml')
-			fp = open(toc_file, 'wb')
-			fp.write(etree.tostring(folder))
-			fp.close()
-
-
-def parseBundle(bundle_orig_path, bundle_xml_path) :
 	data = open(bundle_orig_path).read().split('\n')
 	data = [x.split(':', 1) for x in data]
 	data = [(x[0].strip(), x[1].strip()) for x in data if len(x) == 2]
@@ -288,6 +242,56 @@ def parseBundle(bundle_orig_path, bundle_xml_path) :
 
 
 
+class GenXML(object) :
+	def __init__(self, input_root, output_root, ecl_files, options) :
+		self.input_root = input_root
+		self.output_root = output_root
+		self.ecl_files = ecl_files
+		self.xml_orig_root = os.path.join(output_root, 'xmlOriginal')
+		os.makedirs(self.xml_orig_root, exist_ok=True)
+
+		self.xml_root = os.path.join(output_root, 'xml')
+		os.makedirs(self.xml_root, exist_ok=True)
+
+		self.ecl_file_tree = genPathTree(ecl_files)
+		self.options = options
+
+	def gen(self, node, xml_root, content_root) :
+		for key in node :
+			if type(node[key]) != dict:
+				if key == 'bundle.ecl' :
+					parseBundle(self, node[key])
+					continue
+				ecl_file = node[key]
+				file = etree.Element('file')
+				file.attrib['name'] = key + '.xml'
+				file.text = node[key]
+				xml_root.append(file)
+
+				parser = ParseXML(self, ecl_file)
+				# if check_if_modified(parser.input_file, parser.xml_file) :
+				# 	continue
+				parser.parse()
+
+			else :
+				child = node[key]
+				folder = etree.Element('folder')
+				xml_root.append(folder)
+				folder.attrib['name'] = key
+
+				child_root = os.path.join(content_root, key)
+				os.makedirs(child_root, exist_ok=True)
+
+				self.gen(child, folder, child_root)
+
+				toc_file = os.path.join(child_root, 'pkg.toc.xml')
+				etree.ElementTree(folder).write(toc_file, pretty_print=True, xml_declaration=True, encoding='utf-8')
 
 
+	def genXML(self) :
+		root = etree.Element('folder')
+		root.attrib['name'] = 'root'
+		self.gen(self.ecl_file_tree['root'], root, self.xml_root)
+		toc_file = os.path.join(self.xml_root, 'pkg.toc.xml')
+		etree.ElementTree(root).write(toc_file, pretty_print=True, xml_declaration=True, encoding='utf-8')
 
