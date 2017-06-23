@@ -18,27 +18,28 @@ DESCRIPTIONS
 FUNCTION : DATASET(Layout_Cell) potrf(Triangle tri, DATASET(Layout_Cell) A_in)
 ----------------------------------------------------------------------------------------------------------------------------------
 
-Implements Cholesky factorization of A = U**T * U if Triangular.U
-pper requested or A = L * L**T if Triangualr.Lower is requested. 
-The matrix A must be symmetric positive definite. <pre><br/>  | A
-11   A12 |      |  L11   0   |    | L11**T     L21**T |<br/>  | A
-21   A22 |  ==  |  L21   L22 | *  |  0           L22  |<br/><br/>
-                     | L11*L11**T          L11*L21**T      |<br/>
-                 ==  | L21*L11**T  L21*L21**T + L22*L22**T |<br/>
- </pre> So, use Cholesky on the first block to get L11. L21 = A21
-*L11**T**-1 which can be found by dtrsm on each column block A22'
- is A22 - L21*L21**T <p> Based upon PB-BLAS: A set of parallel bl
-ock basic linear algebra subprograms by Choi and Dongarra </p><p>
- This module supports the "Myriad" style interface, allowing many
- independent problems to be worked on at once. The A matrix can c
-ontain multiple matrixes to be factored, indicated by different v
-alues for work-item id (wi_id).</p>
+Implements Cholesky factorization of A = U**T * U if
+Triangular.Upper requested or A = L * L**T if Triangualr.Lower is
+requested. The matrix A must be symmetric positive definite.
+<pre><br/>  | A11   A12 |      |  L11   0   |    | L11**T
+L21**T |<br/>  | A21   A22 |  ==  |  L21   L22 | *  |  0
+L22  |<br/><br/>                     | L11*L11**T
+L11*L21**T      |<br/>                 ==  | L21*L11**T
+L21*L21**T + L22*L22**T |<br/> </pre> So, use Cholesky on the
+first block to get L11. L21 = A21*L11**T**-1 which can be found
+by dtrsm on each column block A22' is A22 - L21*L21**T <p> Based
+upon PB-BLAS: A set of parallel block basic linear algebra
+subprograms by Choi and Dongarra </p><p> This module supports the
+"Myriad" style interface, allowing many independent problems to
+be worked on at once. The A matrix can contain multiple matrixes
+to be factored, indicated by different values for work-item id
+(wi_id).</p>
 
-Parameter : tri Types.Triangle enumeration indicating whether we are looking 
-            for the Upper or the Lower factor
+Parameter : tri ||| Types.Triangle enumeration indicating whether we are
+            looking for the Upper or the Lower factor
 
-Parameter : A_in The matrix or matrixes to be factored in Types.Layout_Cell f
-            ormat
+Parameter : A_in ||| The matrix or matrixes to be factored in
+            Types.Layout_Cell format
 
 Return : Triangular matrix in Layout_Cell format
 

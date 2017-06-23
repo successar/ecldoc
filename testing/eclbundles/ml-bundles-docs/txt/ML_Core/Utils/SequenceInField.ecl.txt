@@ -10,21 +10,21 @@ DESCRIPTIONS
 MACRO : SequenceInField(infile,infield,seq,wi_name='wi')
 ----------------------------------------------------------------------------------------------------------------------------------
 
-Given a file which is sorted by the work item identifier and INFI
-ELD (and possibly other values), add sequence numbers within the 
-range of each infield. Slighly elaborate code is to avoid having 
-to partition the data to one value of infield per node and to wor
-k with very large numbers of records where a global count project
- would be inappropriate. This is useful for assigning rank positi
-ons with the groupings.
+Given a file which is sorted by the work item identifier and
+INFIELD (and possibly other values), add sequence numbers within
+the range of each infield. Slighly elaborate code is to avoid
+having to partition the data to one value of infield per node and
+to work with very large numbers of records where a global count
+project would be inappropriate. This is useful for assigning rank
+positions with the groupings.
 
-Parameter : infile the input file, any type
+Parameter : infile ||| the input file, any type
 
-Parameter : infield field name of grouping field
+Parameter : infield ||| field name of grouping field
 
-Parameter : seq name of the field to receive the sequence number
+Parameter : seq ||| name of the field to receive the sequence number
 
-Parameter : wi_name work item field name, default is wi
+Parameter : wi_name ||| work item field name, default is wi
 
 Return : a file of the same type with sequence numbers applied
 

@@ -6,11 +6,13 @@ from jinja2 import Template
 from lxml import etree
 from Utils import genPathTree, getRoot
 
+import textwrap
+
 CPL = 130
 
 def _break(text, CPL_E) :
 	CPL_E = int(CPL_E)
-	break_text = [text[i:i+CPL_E] for i in range(0, len(text), CPL_E)]
+	break_text = textwrap.wrap(text, CPL_E)
 	return break_text
 
 class ParseTXT(object) :
@@ -118,12 +120,12 @@ class ParseTXT(object) :
 			doc_dict['content'] = content_break
 			doc_dict['tags'] = []
 			for param in doc.findall('./param') :
-				param = param.find('./name').text + ' ' + param.find('./desc').text
+				param = param.find('./name').text + ' ||| ' + param.find('./desc').text
 				param_list = self.parseParam(param, 'Parameter')
 				doc_dict['tags'].append(param_list)
 
 			for param in doc.findall('./field') :
-				param = param.find('./name').text + ' ' + param.find('./desc').text
+				param = param.find('./name').text + ' ||| ' + param.find('./desc').text
 				param_list = self.parseParam(param, 'Field')
 				doc_dict['tags'].append(param_list)
 
