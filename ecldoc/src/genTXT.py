@@ -34,8 +34,7 @@ class ParseTXT(object) :
 		self.options = generator.options
 
 	def parse(self) :
-		tree = etree.parse(self.xml_file)
-		root = tree.getroot()
+		root = etree.parse(self.xml_file).getroot()
 		src = root.find('./Source')
 		self.src = src
 		self.doc = src.find('./Documentation')
@@ -44,37 +43,9 @@ class ParseTXT(object) :
 		for child in root.iter() :
 			attribs = child.attrib
 			if 'target' in attribs :
-				target = attribs['target']
-				target = re.sub(r'\.xml$', '.txt', target)
-				attribs['target'] = target
+				attribs['target'] = re.sub(r'\.xml$', '.txt', attribs['target'])
 
-			if 'fullname' in attribs :
-				fullname = attribs['fullname']
-				fullname = re.sub(r'\.', '-', fullname)
-				attribs['fullname'] = fullname
-
-		files = []
-		for key in self.parent :
-			if type(self.parent[key]) != dict :
-				file = {}
-				file['name'] = key
-				file['target'] = key + '.txt'
-				file['type'] = 'file'
-				files.append(file)
-			else :
-				file = {}
-				file['name'] = key
-				file['target'] = os.path.join(key, 'pkg.toc.txt')
-				file['type'] = 'dir'
-				files.append(file)
-
-		parent = 'pkg.toc.txt'
-		relpath = os.path.relpath(self.output_root, os.path.dirname(self.txt_file))
-		render = self.template.render(src=src,
-									files=files,
-									parent=parent,
-									output_root=relpath,
-									render_dict=self.render_dict)
+		render = self.template.render(src=src, render_dict=self.render_dict)
 		fp = open(self.txt_file, 'w')
 		fp.write(render)
 		fp.close()
@@ -88,9 +59,8 @@ class ParseTXT(object) :
 		return text
 
 	def parseSource(self) :
-		src = self.src
 		self.render_dict = []
-		for defn in src.findall('./Definition') :
+		for defn in self.src.findall('./Definition') :
 			self.parseDefinition(defn, self.render_dict)
 
 	def parseDefinition(self, defn, render_dict) :
@@ -101,15 +71,16 @@ class ParseTXT(object) :
 
 		heading = defn_type.upper() + ' : '
 		spaces = len(heading)
-		EFF_CPL = CPL - spaces
-		sign_break = _break(sign, EFF_CPL)
+		sign_break = _break(sign, CPL - spaces)
 		type_break = [heading] + ([' '*spaces] * (len(sign_break) - 1))
 		headers = [(a + b) for a,b in zip(type_break, sign_break)]
 
 		doc = self.parseDocs(defn.find('./Documentation'))
 		parents = defn.find('./Parents')
 		target = defn.attrib['target'] if 'target' in defn.attrib else None
-		defn_dict = { 'headers' : headers, 'doc' : doc, 'defns' : [], 'Parents' : parents, 'target' : target}
+
+		defn_dict = { 'headers' : headers, 'doc' : doc, 'defns' : [], 'Parents' : parents, 'target' : target }
+
 		for childdefn in defn.findall('./Definition') :
 			self.parseDefinition(childdefn, defn_dict['defns'])
 
@@ -192,11 +163,7 @@ class GenTXT(object) :
 				childfiles = self.gen(child, child_root)
 				childfiles = sorted(childfiles, key=lambda x : x['type'])
 
-				render = self.toc_template.render(name=key,
-													files=childfiles,
-													parent=os.path.join(parent_relpath, 'pkg.toc.txt'),
-													output_root=root_relpath,
-													bundle=bundle)
+				render = self.toc_template.render(name=key,	files=childfiles, bundle=bundle)
 				render_path = os.path.join(child_root, 'pkg.toc.txt')
 				fp = open(render_path, 'w')
 				fp.write(render)

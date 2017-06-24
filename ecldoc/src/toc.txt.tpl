@@ -1,1 +1,18 @@
- 
+{{ '+' * (name|length + 4) }}
+  {{ name }}
+{{ '+' * (name|length + 4) }}
+
+{% if bundle -%}
+{%- for tag in bundle.iterchildren() %}
+{{ tag.tag }} : {{ tag.text }}
+{% endfor -%}
+{%- endif %}
+
+CONTENTS
+========
+
+{% for d in files -%}
+{{ d.type }} : {{ d.name }} <{{ d.target }}>    {{ d.doc }}
+
+{% endfor -%}
+
