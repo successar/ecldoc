@@ -7,12 +7,15 @@ from lxml import etree
 from Utils import genPathTree, getRoot
 
 import textwrap
+from parseDoc import convertToMarkdown
 
 CPL = 100
 
 def _break(text, CPL_E) :
 	CPL_E = int(CPL_E)
 	break_text = textwrap.wrap(text, CPL_E)
+	if len(break_text) == 0 :
+		break_text = ['']
 	return break_text
 
 class ParseTXT(object) :
@@ -115,30 +118,32 @@ class ParseTXT(object) :
 	def parseDocs(self, doc) :
 		doc_dict = {}
 		if doc is not None:
-			content = doc.find('./content').text
-			content_break = _break(content, CPL * 0.75)
-			doc_dict['content'] = content_break
+			doc_dict['content'] = []
+			content = convertToMarkdown(doc.find('./content').text).split('\n')
+			for x in content :
+				doc_dict['content'] += _break(x, CPL * 0.75)
+
 			doc_dict['tags'] = []
 			for param in doc.findall('./param') :
 				param = param.find('./name').text + ' ||| ' + param.find('./desc').text
-				doc_dict['tags'].append(self.parseParam(param, 'Parameter'))
+				doc_dict['tags'].append(self.parseTag(param, 'Parameter'))
 
 			for param in doc.findall('./field') :
 				param = param.find('./name').text + ' ||| ' + param.find('./desc').text
-				doc_dict['tags'].append(self.parseParam(param, 'Field'))
+				doc_dict['tags'].append(self.parseTag(param, 'Field'))
 
 			for param in doc.findall('./return') :
-				doc_dict['tags'].append(self.parseParam(param.text, 'Return'))
+				doc_dict['tags'].append(self.parseTag(param.text, 'Return'))
 
 			for param in doc.findall('./see') :
-				doc_dict['tags'].append(self.parseParam(param.text, 'See'))
+				doc_dict['tags'].append(self.parseTag(param.text, 'See'))
 
 		return doc_dict
 
 
-	def parseParam(self, text, heading) :
+	def parseTag(self, text, heading) :
 		heading = heading + ' : '
-		text_break = _break(text, CPL/2)
+		text_break = _break(text, CPL * 0.5)
 		spaces = [heading] + ([' ' * len(heading)] * (len(text_break)-1))
 		text_list = [(a + b) for a, b in zip(spaces, text_break)]
 		return text_list

@@ -46,6 +46,10 @@ def parseDocstring(docstring) :
 	return docdict
 
 def removeWS(element) :
+	'''
+	Format Whitespace in HTML elements in docstring
+	coming from parsed XML Output of ECL File
+	'''
 	if element.tag == 'pre' :
 		lines = element.text.split('\n')
 		element.text = lines[0]
@@ -65,10 +69,65 @@ def removeWS(element) :
 		removeWS(e)
 
 def findFirstLine(current_text) :
+	'''
+	Find First line in docstring content section to be used as caption
+	in TOC and Tree
+	'''
 	split_1 = re.split(r'\.\s|\.$', current_text.strip(), maxsplit=1)
 	if len(split_1) == 2 :
 		return split_1[0]
 
 	split_2 = re.split(r'\n', current_text.strip(), maxsplit=1)
 	return split_2[0]
+
+
+def convertToMarkdown(html_text) :
+	'''
+	Convert HTML String to Markdown Format
+	'''
+	root = H.fragment_fromstring(html_text, create_parent='div')
+	text = parseHTMltoMK(root)
+	return text
+
+def parseHTMltoMK(element) :
+	'''
+	Convert Single HTML element to Markdown Text (recursive)
+	'''
+	text = ''
+	if element.text :
+		text += element.text
+	for e in element.iterchildren() :
+		text += parseHTMltoMK(e)
+		if e.tail :
+			text += e.tail
+
+	if element.tag in ['p', 'pre', 'ul', 'ol', 'table'] :
+		text = '\n' + text + '\n'
+
+	if element.tag == 'br' :
+		text = '\n'
+
+	if element.tag == 'code' :
+		text = '```' + text  + '```'
+
+	if element.tag == 'li' and element.getparent().tag == 'ul':
+		text = '+ ' + text + '\n'
+
+	if element.tag == 'li' and element.getparent().tag == 'ol':
+		text = '# ' + text + '\n'
+
+	if element.tag == 'td' :
+		text = text + ' | '
+
+	if element.tag == 'tr' :
+		text = '| ' + text + '\n'
+
+	if element.tag == 'hr' :
+		text = '\n************\n'
+
+	if element.tag == 'a' :
+		text = text + ' <' + a.attrib['href'] + '>'
+
+	return text
+
 
