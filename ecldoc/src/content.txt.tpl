@@ -1,4 +1,5 @@
 {%- macro desc(def) -%}
+{{ '\n' }}{{ '-' * 130 }}
 {%- for h in def['headers'] -%}
 {{ '\n' + h }}
 {%- endfor -%}

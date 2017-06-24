@@ -9,13 +9,14 @@ DESCRIPTIONS
 ============
 
 
-EMBED : Types.matrix_t dimm(BOOLEAN transposeA, BOOLEAN transposeB, BOOLEAN diagonalA, BOOLEAN diagonalB, Types.dimension_t m,
-        Types.dimension_t n, Types.dimension_t k, Types.value_t alpha, Types.matrix_t A, Types.matrix_t B, Types.value_t beta=0.0,
-        Types.matrix_t C=[])
+----------------------------------------------------------------------------------------------------------------------------------
+EMBED : Types.matrix_t dimm(BOOLEAN transposeA, BOOLEAN transposeB, BOOLEAN diagonalA, BOOLEAN
+        diagonalB, Types.dimension_t m, Types.dimension_t n, Types.dimension_t k, Types.value_t
+        alpha, Types.matrix_t A, Types.matrix_t B, Types.value_t beta=0.0, Types.matrix_t C=[])
 ----------------------------------------------------------------------------------------------------------------------------------
 
-Matrix multiply when either A or B is a diagonal and is passed as
-a vector. alpha*op(A) op(B) + beta*C where op() is transpose
+Matrix multiply when either A or B is a diagonal and is passed as a vector.
+alpha*op(A) op(B) + beta*C where op() is transpose
 
 Parameter : transposeA ||| true when transpose of A is used
 
@@ -29,7 +30,8 @@ Parameter : m ||| number of rows in product
 
 Parameter : n ||| number of columns in product
 
-Parameter : k ||| number of columns/rows for the multiplier/multiplicand
+Parameter : k ||| number of columns/rows for the
+            multiplier/multiplicand
 
 Parameter : alpha ||| scalar used on A
 

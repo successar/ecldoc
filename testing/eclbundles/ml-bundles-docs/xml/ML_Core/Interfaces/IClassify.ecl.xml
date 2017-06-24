@@ -7,7 +7,7 @@
    <Definition body="632" end="631" exported="1" fullname="ml_core.interfaces.iclassify.getmodel" inherit_type="local" line="17" name="GetModel" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Interfaces/IClassify.ecl" start="474">
     <Type>function</Type>
     <Documentation>
-     <param><name>observations</name><desc>the observed explanatory values</desc></param><param><name>classifications</name><desc>the observed classification used to build the model</desc></param><firstline>Calculate the model to fit the observation data to the observed classes</firstline><content>Calculate the model to fit the observation data to the observed classes.</content><return>the encoded model</return></Documentation>
+     <return>the encoded model</return><firstline>Calculate the model to fit the observation data to the observed classes</firstline><param><name>observations</name><desc>the observed explanatory values</desc></param><param><name>classifications</name><desc>the observed classification used to build the model</desc></param><content>Calculate the model to fit the observation data to the observed classes.</content></Documentation>
     <Signature sign="DATASET(Types.Layout_Model) GetModel(DATASET(Types.NumericField) observations, DATASET(Types.DiscreteField) classifications)" name="GetModel">DATASET(Types.Layout_Model) GetModel(DATASET(Types.NumericField) observations, DATASET(Types.DiscreteField) classifications)</Signature><Params>
      <Param name="observations"/>
      <Param name="classifications"/>
@@ -16,7 +16,7 @@
    <Definition body="1052" end="1051" exported="1" fullname="ml_core.interfaces.iclassify.classify" inherit_type="local" line="27" name="Classify" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Interfaces/IClassify.ecl" start="898">
     <Type>function</Type>
     <Documentation>
-     <param><name>model</name><desc>The model, which must be produced by a corresponding getModel function.</desc></param><param><name>new_observations</name><desc>observations to be classified</desc></param><firstline>Classify the observations using a model</firstline><content>Classify the observations using a model.</content><return>Classification with a confidence value</return></Documentation>
+     <return>Classification with a confidence value</return><firstline>Classify the observations using a model</firstline><param><name>model</name><desc>The model, which must be produced by a corresponding getModel function.</desc></param><param><name>new_observations</name><desc>observations to be classified</desc></param><content>Classify the observations using a model.</content></Documentation>
     <Signature sign="DATASET(Types.Classify_Result) Classify(DATASET(Types.Layout_Model) model, DATASET(Types.NumericField) new_observations)" name="Classify">DATASET(Types.Classify_Result) Classify(DATASET(Types.Layout_Model) model, DATASET(Types.NumericField) new_observations)</Signature><Params>
      <Param name="model"/>
      <Param name="new_observations"/>
@@ -25,7 +25,7 @@
    <Definition body="1593" end="1592" exported="1" fullname="ml_core.interfaces.iclassify.report" inherit_type="local" line="39" name="Report" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Interfaces/IClassify.ecl" start="1385">
     <Type>function</Type>
     <Documentation>
-     <param><name>model</name><desc>the encoded model</desc></param><param><name>observations</name><desc>the explanatory values.</desc></param><param><name>classifications</name><desc>the classifications associated with the observations</desc></param><firstline>Report the confusion matrix for the classifier and training data</firstline><content>Report the confusion matrix for the classifier and training data.</content><return>the confusion matrix showing correct and incorrect results</return></Documentation>
+     <return>the confusion matrix showing correct and incorrect results</return><firstline>Report the confusion matrix for the classifier and training data</firstline><param><name>model</name><desc>the encoded model</desc></param><param><name>observations</name><desc>the explanatory values.</desc></param><param><name>classifications</name><desc>the classifications associated with the observations</desc></param><content>Report the confusion matrix for the classifier and training data.</content></Documentation>
     <Signature sign="DATASET(Types.Confusion_Detail) Report(DATASET(Types.Layout_Model) model, DATASET(Types.NumericField) observations, DATASET(Types.DiscreteField) classifications)" name="Report">DATASET(Types.Confusion_Detail) Report(DATASET(Types.Layout_Model) model, DATASET(Types.NumericField) observations, DATASET(Types.DiscreteField) classifications)</Signature><Params>
      <Param name="model"/>
      <Param name="observations"/>

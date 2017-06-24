@@ -15,12 +15,14 @@ DESCRIPTIONS
 ============
 
 
-FUNCTION : DATASET(Layout_Cell) tran(value_t alpha, DATASET(Layout_Cell) A, value_t beta=0, DATASET(Layout_Cell) C=empty_c)
+----------------------------------------------------------------------------------------------------------------------------------
+FUNCTION : DATASET(Layout_Cell) tran(value_t alpha, DATASET(Layout_Cell) A, value_t beta=0,
+           DATASET(Layout_Cell) C=empty_c)
 ----------------------------------------------------------------------------------------------------------------------------------
 
-Transpose a matrix and sum into base matrix result &lt;== alpha *
-A**t + beta * C, A is n by m, C is m by n A**T (A Transpose) and
-C must have same shape
+Transpose a matrix and sum into base matrix result &lt;== alpha * A**t +
+beta * C, A is n by m, C is m by n A**T (A Transpose) and C must have same
+shape
 
 Parameter : alpha ||| Scalar multiplier for the A**T matrix
 
@@ -30,7 +32,8 @@ Parameter : beta ||| Scalar multiplier for the C matrix
 
 Parameter : C ||| C matrix in DATASET(Layout_Call) form
 
-Return : Matrix in DATASET(Layout_Cell) form alpha * A**T + beta * C
+Return : Matrix in DATASET(Layout_Cell) form alpha * A**T +
+         beta * C
 
 See : PBblas/Types.layout_cell
 

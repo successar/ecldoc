@@ -10,14 +10,17 @@ DESCRIPTIONS
 ============
 
 
-FUNCTION : DATASET(Types.Binomial_Confusion_Summary) BinomialConfusion(DATASET(Core_Types.Confusion_Detail) d)
+----------------------------------------------------------------------------------------------------------------------------------
+FUNCTION : DATASET(Types.Binomial_Confusion_Summary)
+           BinomialConfusion(DATASET(Core_Types.Confusion_Detail) d)
 ----------------------------------------------------------------------------------------------------------------------------------
 
-Binomial confusion matrix. Work items with multinomial responses
-are ignored by this function. The higher value lexically is
-considered to be the positive indication.
+Binomial confusion matrix. Work items with multinomial responses are
+ignored by this function. The higher value lexically is considered to be
+the positive indication.
 
-Parameter : d ||| confusion detail for the work item and classifier
+Parameter : d ||| confusion detail for the work item and
+            classifier
 
 Return : confusion matrix for a binomial classifier
 

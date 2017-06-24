@@ -8,7 +8,7 @@ from Utils import genPathTree, getRoot
 
 import textwrap
 
-CPL = 130
+CPL = 100
 
 def _break(text, CPL_E) :
 	CPL_E = int(CPL_E)
@@ -93,14 +93,14 @@ class ParseTXT(object) :
 	def parseDefinition(self, defn, render_dict) :
 		defn_type = defn.find('./Type').text
 		sign = defn.find('./Signature').text
-		type_text = defn_type.upper() + ' : '
-		spaces = len(type_text)
+		if defn.attrib['inherit_type'] != 'local' :
+			sign += ' ||| ' + defn.attrib['inherit_type'].upper()
+
+		heading = defn_type.upper() + ' : '
+		spaces = len(heading)
 		EFF_CPL = CPL - spaces
 		sign_break = _break(sign, EFF_CPL)
-		type_break = [type_text] + ([' '*len(type_text)] * (len(sign_break) - 1))
-		if defn.attrib['inherit_type'] != 'local' :
-			sign_break[-1] += ' | ' + defn.attrib['inherit_type'].upper()
-		assert len(type_break) == len(sign_break)
+		type_break = [heading] + ([' '*spaces] * (len(sign_break) - 1))
 		headers = [(a + b) for a,b in zip(type_break, sign_break)]
 
 		doc = self.parseDocs(defn.find('./Documentation'))
@@ -116,36 +116,32 @@ class ParseTXT(object) :
 		doc_dict = {}
 		if doc is not None:
 			content = doc.find('./content').text
-			content_break = _break(content, CPL/2)
+			content_break = _break(content, CPL * 0.75)
 			doc_dict['content'] = content_break
 			doc_dict['tags'] = []
 			for param in doc.findall('./param') :
 				param = param.find('./name').text + ' ||| ' + param.find('./desc').text
-				param_list = self.parseParam(param, 'Parameter')
-				doc_dict['tags'].append(param_list)
+				doc_dict['tags'].append(self.parseParam(param, 'Parameter'))
 
 			for param in doc.findall('./field') :
 				param = param.find('./name').text + ' ||| ' + param.find('./desc').text
-				param_list = self.parseParam(param, 'Field')
-				doc_dict['tags'].append(param_list)
+				doc_dict['tags'].append(self.parseParam(param, 'Field'))
 
 			for param in doc.findall('./return') :
-				param_list = self.parseParam(param.text, 'Return')
-				doc_dict['tags'].append(param_list)
+				doc_dict['tags'].append(self.parseParam(param.text, 'Return'))
 
 			for param in doc.findall('./see') :
-				param_list = self.parseParam(param.text, 'See')
-				doc_dict['tags'].append(param_list)
+				doc_dict['tags'].append(self.parseParam(param.text, 'See'))
 
 		return doc_dict
 
 
-	def parseParam(self, param, heading) :
+	def parseParam(self, text, heading) :
 		heading = heading + ' : '
-		param_break = _break(param, CPL/2)
-		spaces = [heading] + ([' ' * len(heading)] * (len(param_break)-1))
-		param_list = [(a + b) for a, b in zip(spaces, param_break)]
-		return param_list
+		text_break = _break(text, CPL/2)
+		spaces = [heading] + ([' ' * len(heading)] * (len(text_break)-1))
+		text_list = [(a + b) for a, b in zip(spaces, text_break)]
+		return text_list
 
 
 
