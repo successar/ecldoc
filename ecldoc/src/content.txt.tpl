@@ -25,7 +25,7 @@
 {%- endif -%}
 {%- endfor -%}
 {%- endif -%}
-{%- if 'target' in def -%}
+{%- if def['target'] -%}
 {{ '\n' }}Link : <{{ def['target'] }}>{{ '\n' }}
 {%- endif -%}
 {%- endmacro -%}

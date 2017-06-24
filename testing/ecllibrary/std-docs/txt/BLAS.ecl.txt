@@ -8,46 +8,39 @@ DESCRIPTIONS
 ============
 
 
+----------------------------------------------------------------------------------------------------------------------------------
 MODULE : BLAS
 ----------------------------------------------------------------------------------------------------------------------------------
-
-Link : <None>
     
+    ----------------------------------------------------------------------------------------------------------------------------------
     MODULE : Types
     ----------------------------------------------------------------------------------------------------------------------------------
-    
-    Link : <None>
         
+        ----------------------------------------------------------------------------------------------------------------------------------
         ATTRIBUTE : value_t
         ----------------------------------------------------------------------------------------------------------------------------------
         
-        Link : <None>
-        
+        ----------------------------------------------------------------------------------------------------------------------------------
         ATTRIBUTE : dimension_t
         ----------------------------------------------------------------------------------------------------------------------------------
         
-        Link : <None>
-        
+        ----------------------------------------------------------------------------------------------------------------------------------
         ATTRIBUTE : matrix_t
         ----------------------------------------------------------------------------------------------------------------------------------
         
-        Link : <None>
-        
+        ----------------------------------------------------------------------------------------------------------------------------------
         ATTRIBUTE : Triangle
         ----------------------------------------------------------------------------------------------------------------------------------
         
-        Link : <None>
-        
+        ----------------------------------------------------------------------------------------------------------------------------------
         ATTRIBUTE : Diagonal
         ----------------------------------------------------------------------------------------------------------------------------------
         
-        Link : <None>
-        
+        ----------------------------------------------------------------------------------------------------------------------------------
         ATTRIBUTE : Side
         ----------------------------------------------------------------------------------------------------------------------------------
-        
-        Link : <None>
     
+    ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : Types.value_t ICellFunc(Types.value_t v, Types.dimension_t r, Types.dimension_t c)
     ----------------------------------------------------------------------------------------------------------------------------------
     
@@ -61,9 +54,9 @@ Link : <None>
     
     Return : the updated value
     
-    Link : <None>
-    
-    FUNCTION : Types.matrix_t Apply2Cells(Types.dimension_t m, Types.dimension_t n, Types.matrix_t x, ICellFunc f)
+    ----------------------------------------------------------------------------------------------------------------------------------
+    FUNCTION : Types.matrix_t Apply2Cells(Types.dimension_t m, Types.dimension_t n, Types.matrix_t x,
+               ICellFunc f)
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Iterate matrix and apply function to each cell
@@ -78,9 +71,9 @@ Link : <None>
     
     Return : updated matrix
     
-    Link : <None>
-    
-    FUNCTION : Types.value_t dasum(Types.dimension_t m, Types.matrix_t x, Types.dimension_t incx, Types.dimension_t skipped=0)
+    ----------------------------------------------------------------------------------------------------------------------------------
+    FUNCTION : Types.value_t dasum(Types.dimension_t m, Types.matrix_t x, Types.dimension_t incx,
+               Types.dimension_t skipped=0)
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Absolute sum, the 1 norm of a vector.
@@ -89,17 +82,18 @@ Link : <None>
     
     Parameter : x ||| the column major matrix holding the vector
     
-    Parameter : incx ||| the increment for x, 1 in the case of an actual vector
+    Parameter : incx ||| the increment for x, 1 in the case of an
+                actual vector
     
-    Parameter : skipped ||| default is zero, the number of entries stepped over
-                to get to the first entry
+    Parameter : skipped ||| default is zero, the number of entries
+                stepped over to get to the first entry
     
     Return : the sum of the absolute values
     
-    Link : <None>
-    
-    FUNCTION : Types.matrix_t daxpy(Types.dimension_t N, Types.value_t alpha, Types.matrix_t X, Types.dimension_t incX, Types.matrix_t
-               Y, Types.dimension_t incY, Types.dimension_t x_skipped=0, Types.dimension_t y_skipped=0)
+    ----------------------------------------------------------------------------------------------------------------------------------
+    FUNCTION : Types.matrix_t daxpy(Types.dimension_t N, Types.value_t alpha, Types.matrix_t X,
+               Types.dimension_t incX, Types.matrix_t Y, Types.dimension_t incY, Types.dimension_t
+               x_skipped=0, Types.dimension_t y_skipped=0)
     ----------------------------------------------------------------------------------------------------------------------------------
     
     alpha*X + Y
@@ -116,17 +110,18 @@ Link : <None>
     
     Parameter : incY ||| the increment or stride of Y
     
-    Parameter : x_skipped ||| number of entries skipped to get to the first X
+    Parameter : x_skipped ||| number of entries skipped to get to
+                the first X
     
-    Parameter : y_skipped ||| number of entries skipped to get to the first Y
+    Parameter : y_skipped ||| number of entries skipped to get to
+                the first Y
     
     Return : the updated matrix
     
-    Link : <None>
-    
-    FUNCTION : Types.matrix_t dgemm(BOOLEAN transposeA, BOOLEAN transposeB, Types.dimension_t M, Types.dimension_t N,
-               Types.dimension_t K, Types.value_t alpha, Types.matrix_t A, Types.matrix_t B, Types.value_t beta=0.0, Types.matrix_t
-               C=[])
+    ----------------------------------------------------------------------------------------------------------------------------------
+    FUNCTION : Types.matrix_t dgemm(BOOLEAN transposeA, BOOLEAN transposeB, Types.dimension_t M,
+               Types.dimension_t N, Types.dimension_t K, Types.value_t alpha, Types.matrix_t A,
+               Types.matrix_t B, Types.value_t beta=0.0, Types.matrix_t C=[])
     ----------------------------------------------------------------------------------------------------------------------------------
     
     alpha*op(A) op(B) + beta*C where op() is transpose
@@ -139,7 +134,8 @@ Link : <None>
     
     Parameter : N ||| number of columns in product
     
-    Parameter : K ||| number of columns/rows for the multiplier/multiplicand
+    Parameter : K ||| number of columns/rows for the
+                multiplier/multiplicand
     
     Parameter : alpha ||| scalar used on A
     
@@ -151,8 +147,7 @@ Link : <None>
     
     Parameter : C ||| matrix C or empty
     
-    Link : <None>
-    
+    ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : Types.matrix_t dgetf2(Types.dimension_t m, Types.dimension_t n, Types.matrix_t a)
     ----------------------------------------------------------------------------------------------------------------------------------
     
@@ -162,22 +157,23 @@ Link : <None>
     
     Parameter : n ||| number of columns of A
     
-    Return : composite matrix of factors, lower triangle has an implied
-             diagonal of ones. Upper triangle has the diagonal of the
-             composite.
+    Return : composite matrix of factors, lower triangle has an
+             implied diagonal of ones. Upper triangle has the
+             diagonal of the composite.
     
-    Link : <None>
-    
-    FUNCTION : Types.matrix_t dpotf2(Types.Triangle tri, Types.dimension_t r, Types.matrix_t A, BOOLEAN clear=TRUE)
+    ----------------------------------------------------------------------------------------------------------------------------------
+    FUNCTION : Types.matrix_t dpotf2(Types.Triangle tri, Types.dimension_t r, Types.matrix_t A, BOOLEAN
+               clear=TRUE)
     ----------------------------------------------------------------------------------------------------------------------------------
     
-    DPOTF2 computes the Cholesky factorization of a real symmetric
-    positive definite matrix A. The factorization has the form A =
-    U**T * U , if UPLO = 'U', or A = L * L**T, if UPLO = 'L', where U
-    is an upper triangular matrix and L is lower triangular. This is
-    the unblocked version of the algorithm, calling Level 2 BLAS.
+    DPOTF2 computes the Cholesky factorization of a real symmetric positive
+    definite matrix A. The factorization has the form A = U**T * U , if UPLO =
+    'U', or A = L * L**T, if UPLO = 'L', where U is an upper triangular matrix
+    and L is lower triangular. This is the unblocked version of the algorithm,
+    calling Level 2 BLAS.
     
-    Parameter : tri ||| indicate whether upper or lower triangle is used
+    Parameter : tri ||| indicate whether upper or lower triangle
+                is used
     
     Parameter : r ||| number of rows/columns in the square matrix
     
@@ -187,10 +183,9 @@ Link : <None>
     
     Return : the triangular matrix requested.
     
-    Link : <None>
-    
-    FUNCTION : Types.matrix_t dscal(Types.dimension_t N, Types.value_t alpha, Types.matrix_t X, Types.dimension_t incX,
-               Types.dimension_t skipped=0)
+    ----------------------------------------------------------------------------------------------------------------------------------
+    FUNCTION : Types.matrix_t dscal(Types.dimension_t N, Types.value_t alpha, Types.matrix_t X,
+               Types.dimension_t incX, Types.dimension_t skipped=0)
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Scale a vector alpha
@@ -201,17 +196,18 @@ Link : <None>
     
     Parameter : X ||| the column major matrix holding the vector
     
-    Parameter : incX ||| the stride to get to the next element in the vector
+    Parameter : incX ||| the stride to get to the next element in
+                the vector
     
-    Parameter : skipped ||| the number of elements skipped to get to the first
-                element
+    Parameter : skipped ||| the number of elements skipped to get
+                to the first element
     
     Return : the updated matrix
     
-    Link : <None>
-    
-    FUNCTION : Types.matrix_t dsyrk(Types.Triangle tri, BOOLEAN transposeA, Types.dimension_t N, Types.dimension_t K, Types.value_t
-               alpha, Types.matrix_t A, Types.value_t beta, Types.matrix_t C, BOOLEAN clear=FALSE)
+    ----------------------------------------------------------------------------------------------------------------------------------
+    FUNCTION : Types.matrix_t dsyrk(Types.Triangle tri, BOOLEAN transposeA, Types.dimension_t N,
+               Types.dimension_t K, Types.value_t alpha, Types.matrix_t A, Types.value_t beta,
+               Types.matrix_t C, BOOLEAN clear=FALSE)
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Implements symmetric rank update C
@@ -222,7 +218,8 @@ Link : <None>
     
     Parameter : N ||| number of rows
     
-    Parameter : K ||| number of columns in the update matrix or transpose
+    Parameter : K ||| number of columns in the update matrix or
+                transpose
     
     Parameter : alpha ||| the alpha scalar
     
@@ -232,18 +229,19 @@ Link : <None>
     
     Parameter : C ||| the matrix to update
     
-    Parameter : clear ||| clear the triangle that is not updated. BLAS assumes
-                that symmetric matrices have only one of the triangles and this
-                option lets you make that true.
+    Parameter : clear ||| clear the triangle that is not updated.
+                BLAS assumes that symmetric matrices have only one
+                of the triangles and this option lets you make
+                that true.
     
-    Link : <None>
-    
-    FUNCTION : Types.matrix_t dtrsm(Types.Side side, Types.Triangle tri, BOOLEAN transposeA, Types.Diagonal diag, Types.dimension_t M,
-               Types.dimension_t N, Types.dimension_t lda, Types.value_t alpha, Types.matrix_t A, Types.matrix_t B)
+    ----------------------------------------------------------------------------------------------------------------------------------
+    FUNCTION : Types.matrix_t dtrsm(Types.Side side, Types.Triangle tri, BOOLEAN transposeA,
+               Types.Diagonal diag, Types.dimension_t M, Types.dimension_t N, Types.dimension_t lda,
+               Types.value_t alpha, Types.matrix_t A, Types.matrix_t B)
     ----------------------------------------------------------------------------------------------------------------------------------
     
-    Triangular matrix solver. op(A) X = alpha B or X op(A) = alpha B
-    where op is Transpose, X and B is MxN
+    Triangular matrix solver. op(A) X = alpha B or X op(A) = alpha B where op
+    is Transpose, X and B is MxN
     
     Parameter : side ||| side for A, Side.Ax is op(A) X = alpha B
     
@@ -251,13 +249,15 @@ Link : <None>
     
     Parameter : transposeA ||| is op(A) the transpose of A
     
-    Parameter : diag ||| is the diagonal an implied unit diagonal or supplied
+    Parameter : diag ||| is the diagonal an implied unit diagonal
+                or supplied
     
     Parameter : M ||| number of rows
     
     Parameter : N ||| number of columns
     
-    Parameter : lda ||| the leading dimension of the A matrix, either M or N
+    Parameter : lda ||| the leading dimension of the A matrix,
+                either M or N
     
     Parameter : alpha ||| the scalar multiplier for B
     
@@ -267,8 +267,7 @@ Link : <None>
     
     Return : the matrix of coefficients to get B.
     
-    Link : <None>
-    
+    ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : Types.matrix_t extract_diag(Types.dimension_t m, Types.dimension_t n, Types.matrix_t x)
     ----------------------------------------------------------------------------------------------------------------------------------
     
@@ -282,21 +281,20 @@ Link : <None>
     
     Return : diagonal matrix
     
-    Link : <None>
-    
-    FUNCTION : Types.matrix_t extract_tri(Types.dimension_t m, Types.dimension_t n, Types.Triangle tri, Types.Diagonal dt,
-               Types.matrix_t a)
+    ----------------------------------------------------------------------------------------------------------------------------------
+    FUNCTION : Types.matrix_t extract_tri(Types.dimension_t m, Types.dimension_t n, Types.Triangle tri,
+               Types.Diagonal dt, Types.matrix_t a)
     ----------------------------------------------------------------------------------------------------------------------------------
     
-    Extract the upper or lower triangle. Diagonal can be actual or
-    implied unit diagonal.
+    Extract the upper or lower triangle. Diagonal can be actual or implied unit
+    diagonal.
     
     Parameter : m ||| number of rows
     
     Parameter : n ||| number of columns
     
-    Parameter : tri ||| Upper or Lower specifier, Triangle.Lower or
-                Triangle.Upper
+    Parameter : tri ||| Upper or Lower specifier, Triangle.Lower
+                or Triangle.Upper
     
     Parameter : dt ||| Use Diagonal.NotUnitTri or Diagonal.UnitTri
     
@@ -304,8 +302,7 @@ Link : <None>
     
     Return : the triangle
     
-    Link : <None>
-    
+    ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : Types.matrix_t make_diag(Types.dimension_t m, Types.value_t v=1.0, Types.matrix_t X=[])
     ----------------------------------------------------------------------------------------------------------------------------------
     
@@ -315,12 +312,12 @@ Link : <None>
     
     Parameter : v ||| option value, defaults to 1
     
-    Parameter : X ||| optional input of diagonal values, multiplied by v.
+    Parameter : X ||| optional input of diagonal values,
+                multiplied by v.
     
     Return : a diagonal matrix
     
-    Link : <None>
-    
+    ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : Types.matrix_t make_vector(Types.dimension_t m, Types.value_t v=1.0)
     ----------------------------------------------------------------------------------------------------------------------------------
     
@@ -332,8 +329,7 @@ Link : <None>
     
     Return : the vector
     
-    Link : <None>
-    
+    ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : Types.value_t trace(Types.dimension_t m, Types.dimension_t n, Types.matrix_t x)
     ----------------------------------------------------------------------------------------------------------------------------------
     
@@ -346,5 +342,3 @@ Link : <None>
     Parameter : x ||| the matrix
     
     Return : the trace (sum of the diagonal entries)
-    
-    Link : <None>

@@ -30,8 +30,6 @@ Parameter : Y ||| The dependent variable(s) in
             unit (e.g. record) is identified by 'id', and each
             feature is identified by field number (i.e.
             'number').
-
-Link : <None>
     
     ----------------------------------------------------------------------------------------------------------------------------------
     ATTRIBUTE : DATASET(Layout_Model) GetModel
@@ -42,8 +40,6 @@ Link : <None>
     
     Return : DATASET(LayoutModel) describing the learned model
              parameters
-    
-    Link : <None>
     
     ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : DATASET(NumericField) Predict(DATASET(NumericField) newX, DATASET(Layout_Model) model)
@@ -57,5 +53,3 @@ Link : <None>
     Return : DATASET(NumericField) containing one entry per
              observation (i.e. id) in newX. This represents the
              predicted values for Y.
-    
-    Link : <None>

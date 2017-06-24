@@ -45,8 +45,8 @@ def doMain() :
         if not os.path.exists(output_root) :
             os.makedirs(output_root, exist_ok=True)
 
-        #genXML.GenXML(input_root, output_root, ecl_files, options).genXML()
-        #genHTML.GenHTML(input_root, output_root, ecl_files, options).genHTML()
+        genXML.GenXML(input_root, output_root, ecl_files, options).genXML()
+        genHTML.GenHTML(input_root, output_root, ecl_files, options).genHTML()
         genTXT.GenTXT(input_root, output_root, ecl_files, options).genTXT()
 
 if __name__ == '__main__' :

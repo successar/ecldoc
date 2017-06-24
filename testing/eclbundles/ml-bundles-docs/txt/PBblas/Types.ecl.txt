@@ -16,8 +16,6 @@ MODULE : Types
 Types for the Parallel Block Basic Linear Algebra Sub-programs support
 WARNING: attributes marked with WARNING can not be changed without making
 corresponding changes to the C++ attributes.
-
-Link : <None>
     
     ----------------------------------------------------------------------------------------------------------------------------------
     ATTRIBUTE : dimension_t
@@ -26,15 +24,11 @@ Link : <None>
     Type for matrix dimensions. Uses UNSIGNED four as matrixes are not designed
     to support more than 4 B rows or columns.
     
-    Link : <None>
-    
     ----------------------------------------------------------------------------------------------------------------------------------
     ATTRIBUTE : partition_t
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Type for partition id -- only supports up to 64K partitions
-    
-    Link : <None>
     
     ----------------------------------------------------------------------------------------------------------------------------------
     ATTRIBUTE : work_item_t
@@ -42,15 +36,11 @@ Link : <None>
     
     Type for work-item id -- only supports up to 64K work items
     
-    Link : <None>
-    
     ----------------------------------------------------------------------------------------------------------------------------------
     ATTRIBUTE : value_t
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Type for matrix cell values WARNING: type used in C++ attribute
-    
-    Link : <None>
     
     ----------------------------------------------------------------------------------------------------------------------------------
     ATTRIBUTE : m_label_t
@@ -59,15 +49,11 @@ Link : <None>
     Type for matrix label. Used for Matrix dimensions (see Layout_Dims) and for
     partitions (see Layout_Part)
     
-    Link : <None>
-    
     ----------------------------------------------------------------------------------------------------------------------------------
     ATTRIBUTE : Triangle
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Enumeration for Triangle type WARNING: type used in C++ attribute
-    
-    Link : <None>
     
     ----------------------------------------------------------------------------------------------------------------------------------
     ATTRIBUTE : Diagonal
@@ -75,23 +61,17 @@ Link : <None>
     
     Enumeration for Diagonal type WARNING: type used in C++ attribute
     
-    Link : <None>
-    
     ----------------------------------------------------------------------------------------------------------------------------------
     ATTRIBUTE : Side
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Enumeration for Side type WARNING: type used in C++ attribute
     
-    Link : <None>
-    
     ----------------------------------------------------------------------------------------------------------------------------------
     ATTRIBUTE : t_mu_no
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Type for matrix universe number Allow up to 64k matrices in one universe
-    
-    Link : <None>
     
     ----------------------------------------------------------------------------------------------------------------------------------
     RECORD : Layout_Cell
@@ -132,8 +112,6 @@ Link : <None>
           attribute. Do not change without corresponding
           changes to MakeR8Set.
     
-    Link : <None>
-    
     ----------------------------------------------------------------------------------------------------------------------------------
     RECORD : Layout_Norm
     ----------------------------------------------------------------------------------------------------------------------------------
@@ -145,5 +123,3 @@ Link : <None>
             matrixes
     
     Field : v ||| Real value for the norm
-    
-    Link : <None>

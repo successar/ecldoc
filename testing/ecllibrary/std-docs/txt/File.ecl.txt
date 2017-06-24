@@ -8,37 +8,33 @@ DESCRIPTIONS
 ============
 
 
+----------------------------------------------------------------------------------------------------------------------------------
 MODULE : File
 ----------------------------------------------------------------------------------------------------------------------------------
-
-Link : <None>
     
+    ----------------------------------------------------------------------------------------------------------------------------------
     RECORD : FsFilenameRecord
     ----------------------------------------------------------------------------------------------------------------------------------
     
-    A record containing information about filename. Includes name,
-    size and when last modified. export FsFilenameRecord := RECORD
-    string name; integer8 size; string19 modified; END;
+    A record containing information about filename. Includes name, size and
+    when last modified. export FsFilenameRecord := RECORD string name; integer8
+    size; string19 modified; END;
     
-    Link : <None>
-    
+    ----------------------------------------------------------------------------------------------------------------------------------
     ATTRIBUTE : FsLogicalFileName
     ----------------------------------------------------------------------------------------------------------------------------------
     
     An alias for a logical filename that is stored in a row.
     
-    Link : <None>
-    
+    ----------------------------------------------------------------------------------------------------------------------------------
     RECORD : FsLogicalFileNameRecord
     ----------------------------------------------------------------------------------------------------------------------------------
     
-    A record containing a logical filename. It contains the following
-    fields:
+    A record containing a logical filename. It contains the following fields:
     
     Field : name ||| The logical name of the file;
     
-    Link : <None>
-    
+    ----------------------------------------------------------------------------------------------------------------------------------
     RECORD : FsLogicalFileInfoRecord
     ----------------------------------------------------------------------------------------------------------------------------------
     
@@ -46,87 +42,84 @@ Link : <None>
     
     Field : superfile ||| Is this a superfile?
     
-    Field : size ||| Number of bytes in the file (before compression)
+    Field : size ||| Number of bytes in the file (before
+            compression)
     
     Field : rowcount ||| Number of rows in the file.
     
-    Link : <None>
-    
+    ----------------------------------------------------------------------------------------------------------------------------------
     RECORD : FsLogicalSuperSubRecord
     ----------------------------------------------------------------------------------------------------------------------------------
     
-    A record containing information about a superfile and its
-    contents.
+    A record containing information about a superfile and its contents.
     
     Field : supername ||| The name of the superfile
     
     Field : subname ||| The name of the sub-file
     
-    Link : <None>
-    
+    ----------------------------------------------------------------------------------------------------------------------------------
     RECORD : FsFileRelationshipRecord
     ----------------------------------------------------------------------------------------------------------------------------------
     
-    A record containing information about the relationship between
-    two files.
+    A record containing information about the relationship between two files.
     
-    Field : primaryfile ||| The logical filename of the primary file
+    Field : primaryfile ||| The logical filename of the
+            primary file
     
-    Field : secondaryfile ||| The logical filename of the secondary file.
+    Field : secondaryfile ||| The logical filename of the
+            secondary file.
     
-    Field : primaryflds ||| The name of the primary key field for the primary
-            file. The value "__fileposition__" indicates the secondary is an
-            INDEX that must use FETCH to access non-keyed fields.
+    Field : primaryflds ||| The name of the primary key field
+            for the primary file. The value "__fileposition__"
+            indicates the secondary is an INDEX that must use
+            FETCH to access non-keyed fields.
     
-    Field : secondaryflds ||| The name of the foreign key field relating to
-            the primary file.
+    Field : secondaryflds ||| The name of the foreign key
+            field relating to the primary file.
     
-    Field : kind ||| The type of relationship between the primary and
-            secondary files. Containing either 'link' or 'view'.
+    Field : kind ||| The type of relationship between the
+            primary and secondary files. Containing either
+            'link' or 'view'.
     
-    Field : cardinality ||| The cardinality of the relationship. The format
-            is <primary>:<secondary>. Valid values are "1" or
-            "M".</secondary></primary>
+    Field : cardinality ||| The cardinality of the
+            relationship. The format is <primary>:<secondary>.
+            Valid values are "1" or "M".</secondary></primary>
     
-    Field : payload ||| Indicates whether the primary or secondary are
-            payload INDEXes.
+    Field : payload ||| Indicates whether the primary or
+            secondary are payload INDEXes.
     
-    Field : description ||| The description of the relationship.
+    Field : description ||| The description of the
+            relationship.
     
-    Link : <None>
-    
+    ----------------------------------------------------------------------------------------------------------------------------------
     ATTRIBUTE : RECFMV_RECSIZE
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Constant that indicates IBM RECFM V format file. Can be passed to
     SprayFixed for the record size.
     
-    Link : <None>
-    
+    ----------------------------------------------------------------------------------------------------------------------------------
     ATTRIBUTE : RECFMVB_RECSIZE
     ----------------------------------------------------------------------------------------------------------------------------------
     
-    Constant that indicates IBM RECFM VB format file. Can be passed
-    to SprayFixed for the record size.
+    Constant that indicates IBM RECFM VB format file. Can be passed to
+    SprayFixed for the record size.
     
-    Link : <None>
-    
+    ----------------------------------------------------------------------------------------------------------------------------------
     ATTRIBUTE : INTEGER4 PREFIX_VARIABLE_RECSIZE
     ----------------------------------------------------------------------------------------------------------------------------------
     
-    Constant that indicates a variable little endian 4 byte length
-    prefixed file. Can be passed to SprayFixed for the record size.
+    Constant that indicates a variable little endian 4 byte length prefixed
+    file. Can be passed to SprayFixed for the record size.
     
-    Link : <None>
-    
+    ----------------------------------------------------------------------------------------------------------------------------------
     ATTRIBUTE : INTEGER4 PREFIX_VARIABLE_BIGENDIAN_RECSIZE
     ----------------------------------------------------------------------------------------------------------------------------------
     
-    Constant that indicates a variable big endian 4 byte length
-    prefixed file. Can be passed to SprayFixed for the record size.
+    Constant that indicates a variable big endian 4 byte length prefixed file.
+    Can be passed to SprayFixed for the record size.
     
-    Link : <None>
-    
+    ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : boolean FileExists(varstring lfn, boolean physical=FALSE)
     ----------------------------------------------------------------------------------------------------------------------------------
     
@@ -134,26 +127,23 @@ Link : <None>
     
     Parameter : lfn ||| The logical name of the file.
     
-    Parameter : physical ||| Whether to also check for the physical existence on
-                disk. Defaults to FALSE.
+    Parameter : physical ||| Whether to also check for the
+                physical existence on disk. Defaults to FALSE.
     
     Return : Whether the file exists.
     
-    Link : <None>
-    
+    ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : DeleteLogicalFile(varstring lfn, boolean allowMissing=FALSE)
     ----------------------------------------------------------------------------------------------------------------------------------
     
-    Removes the logical file from the system, and deletes from the
-    disk.
+    Removes the logical file from the system, and deletes from the disk.
     
     Parameter : lfn ||| The logical name of the file.
     
-    Parameter : allowMissing ||| Whether to suppress an error if the filename
-                does not exist. Defaults to FALSE.
+    Parameter : allowMissing ||| Whether to suppress an error if
+                the filename does not exist. Defaults to FALSE.
     
-    Link : <None>
-    
+    ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : SetReadOnly(varstring lfn, boolean ro=TRUE)
     ----------------------------------------------------------------------------------------------------------------------------------
     
@@ -161,70 +151,68 @@ Link : <None>
     
     Parameter : lfn ||| The logical name of the file.
     
-    Parameter : ro ||| Whether updates to the file are disallowed. Defaults to
-                TRUE.
+    Parameter : ro ||| Whether updates to the file are disallowed.
+                Defaults to TRUE.
     
-    Link : <None>
-    
+    ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : RenameLogicalFile(varstring oldname, varstring newname)
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Changes the name of a logical file.
     
-    Parameter : oldname ||| The current name of the file to be renamed.
+    Parameter : oldname ||| The current name of the file to be
+                renamed.
     
     Parameter : newname ||| The new logical name of the file.
     
-    Link : <None>
-    
-    FUNCTION : varstring ForeignLogicalFileName(varstring name, varstring foreigndali='', boolean abspath=FALSE)
+    ----------------------------------------------------------------------------------------------------------------------------------
+    FUNCTION : varstring ForeignLogicalFileName(varstring name, varstring foreigndali='', boolean
+               abspath=FALSE)
     ----------------------------------------------------------------------------------------------------------------------------------
     
-    Returns a logical filename that can be used to refer to a logical
-    file in a local or remote dali.
+    Returns a logical filename that can be used to refer to a logical file in a
+    local or remote dali.
     
     Parameter : name ||| The logical name of the file.
     
-    Parameter : foreigndali ||| The IP address of the foreign dali used to
-                resolve the file. If blank then the file is resolved locally.
-                Defaults to blank.
+    Parameter : foreigndali ||| The IP address of the foreign dali
+                used to resolve the file. If blank then the file
+                is resolved locally. Defaults to blank.
     
-    Parameter : abspath ||| Should a tilde (~) be prepended to the resulting
-                logical file name. Defaults to FALSE.
+    Parameter : abspath ||| Should a tilde (~) be prepended to the
+                resulting logical file name. Defaults to FALSE.
     
-    Link : <None>
-    
-    FUNCTION : varstring ExternalLogicalFileName(varstring location, varstring path, boolean abspath=TRUE)
+    ----------------------------------------------------------------------------------------------------------------------------------
+    FUNCTION : varstring ExternalLogicalFileName(varstring location, varstring path, boolean
+               abspath=TRUE)
     ----------------------------------------------------------------------------------------------------------------------------------
     
-    Returns an encoded logical filename that can be used to refer to
-    a external file. Examples include directly reading from a landing
-    zone. Upper case characters and other details are escaped.
+    Returns an encoded logical filename that can be used to refer to a external
+    file. Examples include directly reading from a landing zone. Upper case
+    characters and other details are escaped.
     
-    Parameter : location ||| The IP address of the remote machine. '.' can be
-                used for the local machine.
+    Parameter : location ||| The IP address of the remote machine.
+                '.' can be used for the local machine.
     
-    Parameter : path ||| The path/name of the file on the remote machine.
+    Parameter : path ||| The path/name of the file on the remote
+                machine.
     
-    Parameter : abspath ||| Should a tilde (~) be prepended to the resulting
-                logical file name. Defaults to TRUE.
+    Parameter : abspath ||| Should a tilde (~) be prepended to the
+                resulting logical file name. Defaults to TRUE.
     
     Return : The encoded logical filename.
     
-    Link : <None>
-    
+    ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : varstring GetFileDescription(varstring lfn)
     ----------------------------------------------------------------------------------------------------------------------------------
     
-    Returns a string containing the description information
-    associated with the specified filename. This description is set
-    either through ECL watch or by using the
-    FileServices.SetFileDescription function.
+    Returns a string containing the description information associated with the
+    specified filename. This description is set either through ECL watch or by
+    using the FileServices.SetFileDescription function.
     
     Parameter : lfn ||| The logical name of the file.
     
-    Link : <None>
-    
+    ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : SetFileDescription(varstring lfn, varstring val)
     ----------------------------------------------------------------------------------------------------------------------------------
     
@@ -232,243 +220,251 @@ Link : <None>
     
     Parameter : lfn ||| The logical name of the file.
     
-    Parameter : val ||| The description to be associated with the file.
+    Parameter : val ||| The description to be associated with the
+                file.
     
-    Link : <None>
-    
-    FUNCTION : dataset(FsFilenameRecord) RemoteDirectory(varstring machineIP, varstring dir, varstring mask='*', boolean
-               recurse=FALSE)
+    ----------------------------------------------------------------------------------------------------------------------------------
+    FUNCTION : dataset(FsFilenameRecord) RemoteDirectory(varstring machineIP, varstring dir, varstring
+               mask='*', boolean recurse=FALSE)
     ----------------------------------------------------------------------------------------------------------------------------------
     
-    Returns a dataset containing a list of files from the specified
-    machineIP and directory.
+    Returns a dataset containing a list of files from the specified machineIP
+    and directory.
     
-    Parameter : machineIP ||| The IP address of the remote machine.
+    Parameter : machineIP ||| The IP address of the remote
+                machine.
     
-    Parameter : directory ||| The path to the directory to read. This must be in
-                the appropriate format for the operating system running on the
-                remote machine.
+    Parameter : directory ||| The path to the directory to read.
+                This must be in the appropriate format for the
+                operating system running on the remote machine.
     
-    Parameter : mask ||| The filemask specifying which files to include in the
-                result. Defaults to '*' (all files).
+    Parameter : mask ||| The filemask specifying which files to
+                include in the result. Defaults to '*' (all
+                files).
     
-    Parameter : recurse ||| Whether to include files from subdirectories under
-                the directory. Defaults to FALSE.
-    
-    Link : <None>
-    
-    FUNCTION : dataset(FsLogicalFileInfoRecord) LogicalFileList(varstring namepattern='*', boolean includenormal=TRUE, boolean
-               includesuper=FALSE, boolean unknownszero=FALSE, varstring foreigndali='')
-    ----------------------------------------------------------------------------------------------------------------------------------
-    
-    Returns a dataset of information about the logical files known to
-    the system.
-    
-    Parameter : namepattern ||| The mask of the files to list. Defaults to '*'
-                (all files).
-    
-    Parameter : includenormal ||| Whether to include 'normal' files. Defaults to
-                TRUE.
-    
-    Parameter : includesuper ||| Whether to include SuperFiles. Defaults to
+    Parameter : recurse ||| Whether to include files from
+                subdirectories under the directory. Defaults to
                 FALSE.
     
-    Parameter : unknownszero ||| Whether to set file sizes that are unknown to
-                zero(0) instead of minus-one (-1). Defaults to FALSE.
-    
-    Parameter : foreigndali ||| The IP address of the foreign dali used to
-                resolve the file. If blank then the file is resolved locally.
-                Defaults to blank.
-    
-    Link : <None>
-    
-    FUNCTION : INTEGER4 CompareFiles(varstring lfn1, varstring lfn2, boolean logical_only=TRUE, boolean use_crcs=FALSE)
+    ----------------------------------------------------------------------------------------------------------------------------------
+    FUNCTION : dataset(FsLogicalFileInfoRecord) LogicalFileList(varstring namepattern='*', boolean
+               includenormal=TRUE, boolean includesuper=FALSE, boolean unknownszero=FALSE, varstring
+               foreigndali='')
     ----------------------------------------------------------------------------------------------------------------------------------
     
-    Compares two files, and returns a result indicating how well they
-    match.
+    Returns a dataset of information about the logical files known to the
+    system.
+    
+    Parameter : namepattern ||| The mask of the files to list.
+                Defaults to '*' (all files).
+    
+    Parameter : includenormal ||| Whether to include 'normal'
+                files. Defaults to TRUE.
+    
+    Parameter : includesuper ||| Whether to include SuperFiles.
+                Defaults to FALSE.
+    
+    Parameter : unknownszero ||| Whether to set file sizes that
+                are unknown to zero(0) instead of minus-one (-1).
+                Defaults to FALSE.
+    
+    Parameter : foreigndali ||| The IP address of the foreign dali
+                used to resolve the file. If blank then the file
+                is resolved locally. Defaults to blank.
+    
+    ----------------------------------------------------------------------------------------------------------------------------------
+    FUNCTION : INTEGER4 CompareFiles(varstring lfn1, varstring lfn2, boolean logical_only=TRUE, boolean
+               use_crcs=FALSE)
+    ----------------------------------------------------------------------------------------------------------------------------------
+    
+    Compares two files, and returns a result indicating how well they match.
     
     Parameter : file1 ||| The logical name of the first file.
     
     Parameter : file2 ||| The logical name of the second file.
     
-    Parameter : logical_only ||| Whether to only compare logical information in
-                the system datastore (Dali), and ignore physical information on
-                disk. [Default TRUE]
+    Parameter : logical_only ||| Whether to only compare logical
+                information in the system datastore (Dali), and
+                ignore physical information on disk. [Default
+                TRUE]
     
-    Parameter : use_crcs ||| Whether to compare physical CRCs of all the parts on
-                disk. This may be slow on large files. Defaults to FALSE.
+    Parameter : use_crcs ||| Whether to compare physical CRCs of
+                all the parts on disk. This may be slow on large
+                files. Defaults to FALSE.
     
-    Return : 0 if file1 and file2 match exactly 1 if file1 and file2 contents
-             match, but file1 is newer than file2 -1 if file1 and file2
-             contents match, but file2 is newer than file1 2 if file1 and
-             file2 contents do not match and file1 is newer than file2 -2 if
-             file1 and file2 contents do not match and file2 is newer than
-             file1
+    Return : 0 if file1 and file2 match exactly 1 if file1 and
+             file2 contents match, but file1 is newer than
+             file2 -1 if file1 and file2 contents match, but
+             file2 is newer than file1 2 if file1 and file2
+             contents do not match and file1 is newer than
+             file2 -2 if file1 and file2 contents do not match
+             and file2 is newer than file1
     
-    Link : <None>
-    
+    ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : varstring VerifyFile(varstring lfn, boolean usecrcs)
     ----------------------------------------------------------------------------------------------------------------------------------
     
-    Checks the system datastore (Dali) information for the file
-    against the physical parts on disk.
+    Checks the system datastore (Dali) information for the file against the
+    physical parts on disk.
     
     Parameter : lfn ||| The name of the file to check.
     
-    Parameter : use_crcs ||| Whether to compare physical CRCs of all the parts on
-                disk. This may be slow on large files.
+    Parameter : use_crcs ||| Whether to compare physical CRCs of
+                all the parts on disk. This may be slow on large
+                files.
     
-    Return : 'OK' - The file parts match the datastore information 'Could not
-             find file: <filename>' - The logical filename was not found
-             'Could not find part file: <partname>' - The partname was not
-             found 'Modified time differs for: <partname>' - The partname has
-             a different timestamp 'File size differs for: <partname>' - The
-             partname has a file size 'File CRC differs for: <partname>' - The
-             partname has a different
-             CRC</partname></partname></partname></partname></filename>
+    Return : 'OK' - The file parts match the datastore
+             information 'Could not find file: <filename>' -
+             The logical filename was not found 'Could not find
+             part file: <partname>' - The partname was not
+             found 'Modified time differs for: <partname>' -
+             The partname has a different timestamp 'File size
+             differs for: <partname>' - The partname has a file
+             size 'File CRC differs for: <partname>' - The
+             partname has a different CRC</partname></partname>
+             </partname></partname></filename>
     
-    Link : <None>
-    
-    FUNCTION : AddFileRelationship(varstring primary, varstring secondary, varstring primaryflds, varstring secondaryflds, varstring
-               kind='link', varstring cardinality, boolean payload, varstring description='')
+    ----------------------------------------------------------------------------------------------------------------------------------
+    FUNCTION : AddFileRelationship(varstring primary, varstring secondary, varstring primaryflds,
+               varstring secondaryflds, varstring kind='link', varstring cardinality, boolean payload,
+               varstring description='')
     ----------------------------------------------------------------------------------------------------------------------------------
     
-    Defines the relationship between two files. These may be DATASETs
-    or INDEXes. Each record in the primary file should be uniquely
-    defined by the primaryfields (ideally), preferably efficiently.
-    This information is used by the roxie browser to link files
-    together.
+    Defines the relationship between two files. These may be DATASETs or
+    INDEXes. Each record in the primary file should be uniquely defined by the
+    primaryfields (ideally), preferably efficiently. This information is used
+    by the roxie browser to link files together.
     
-    Parameter : primary ||| The logical filename of the primary file.
+    Parameter : primary ||| The logical filename of the primary
+                file.
     
-    Parameter : secondary ||| The logical filename of the secondary file.
+    Parameter : secondary ||| The logical filename of the
+                secondary file.
     
-    Parameter : primaryfields ||| The name of the primary key field for the
-                primary file. The value "__fileposition__" indicates the
-                secondary is an INDEX that must use FETCH to access non-keyed
+    Parameter : primaryfields ||| The name of the primary key
+                field for the primary file. The value
+                "__fileposition__" indicates the secondary is an
+                INDEX that must use FETCH to access non-keyed
                 fields.
     
-    Parameter : secondaryfields ||| The name of the foreign key field relating to
-                the primary file.
+    Parameter : secondaryfields ||| The name of the foreign key
+                field relating to the primary file.
     
-    Parameter : relationship ||| The type of relationship between the primary and
-                secondary files. Containing either 'link' or 'view'. Default is
-                "link".
+    Parameter : relationship ||| The type of relationship between
+                the primary and secondary files. Containing either
+                'link' or 'view'. Default is "link".
     
-    Parameter : cardinality ||| The cardinality of the relationship. The format
-                is <primary>:<secondary>. Valid values are "1" or
-                "M".</secondary></primary>
+    Parameter : cardinality ||| The cardinality of the
+                relationship. The format is <primary>:<secondary>.
+                Valid values are "1" or "M".</secondary></primary>
     
-    Parameter : payload ||| Indicates whether the primary or secondary are
-                payload INDEXes.
+    Parameter : payload ||| Indicates whether the primary or
+                secondary are payload INDEXes.
     
-    Parameter : description ||| The description of the relationship.
+    Parameter : description ||| The description of the
+                relationship.
     
-    Link : <None>
-    
-    FUNCTION : dataset(FsFileRelationshipRecord) FileRelationshipList(varstring primary, varstring secondary, varstring primflds='',
-               varstring secondaryflds='', varstring kind='link')
+    ----------------------------------------------------------------------------------------------------------------------------------
+    FUNCTION : dataset(FsFileRelationshipRecord) FileRelationshipList(varstring primary, varstring
+               secondary, varstring primflds='', varstring secondaryflds='', varstring kind='link')
     ----------------------------------------------------------------------------------------------------------------------------------
     
-    Returns a dataset of relationships. The return records are
-    structured in the FsFileRelationshipRecord format.
+    Returns a dataset of relationships. The return records are structured in
+    the FsFileRelationshipRecord format.
     
-    Parameter : primary ||| The logical filename of the primary file.
+    Parameter : primary ||| The logical filename of the primary
+                file.
     
-    Parameter : secondary ||| The logical filename of the secondary file.
+    Parameter : secondary ||| The logical filename of the
+                secondary file.
     
-    Parameter : primaryfields ||| The name of the primary key field for the
-                primary file.
+    Parameter : primaryfields ||| The name of the primary key
+                field for the primary file.
     
-    Parameter : secondaryfields ||| The name of the foreign key field relating to
-                the primary file.
+    Parameter : secondaryfields ||| The name of the foreign key
+                field relating to the primary file.
     
-    Parameter : relationship ||| The type of relationship between the primary and
-                secondary files. Containing either 'link' or 'view'. Default is
-                "link".
+    Parameter : relationship ||| The type of relationship between
+                the primary and secondary files. Containing either
+                'link' or 'view'. Default is "link".
     
-    Link : <None>
-    
-    FUNCTION : RemoveFileRelationship(varstring primary, varstring secondary, varstring primaryflds='', varstring secondaryflds='',
-               varstring kind='link')
+    ----------------------------------------------------------------------------------------------------------------------------------
+    FUNCTION : RemoveFileRelationship(varstring primary, varstring secondary, varstring primaryflds='',
+               varstring secondaryflds='', varstring kind='link')
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Removes a relationship between two files.
     
-    Parameter : primary ||| The logical filename of the primary file.
+    Parameter : primary ||| The logical filename of the primary
+                file.
     
-    Parameter : secondary ||| The logical filename of the secondary file.
+    Parameter : secondary ||| The logical filename of the
+                secondary file.
     
-    Parameter : primaryfields ||| The name of the primary key field for the
-                primary file.
+    Parameter : primaryfields ||| The name of the primary key
+                field for the primary file.
     
-    Parameter : secondaryfields ||| The name of the foreign key field relating to
-                the primary file.
+    Parameter : secondaryfields ||| The name of the foreign key
+                field relating to the primary file.
     
-    Parameter : relationship ||| The type of relationship between the primary and
-                secondary files. Containing either 'link' or 'view'. Default is
-                "link".
+    Parameter : relationship ||| The type of relationship between
+                the primary and secondary files. Containing either
+                'link' or 'view'. Default is "link".
     
-    Link : <None>
-    
+    ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : varstring GetColumnMapping(varstring lfn)
     ----------------------------------------------------------------------------------------------------------------------------------
     
-    Returns the field mappings for the file, in the same format
-    specified for the SetColumnMapping function.
+    Returns the field mappings for the file, in the same format specified for
+    the SetColumnMapping function.
     
     Parameter : lfn ||| The logical filename of the primary file.
     
-    Link : <None>
-    
+    ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : SetColumnMapping(varstring lfn, varstring mapping)
     ----------------------------------------------------------------------------------------------------------------------------------
     
-    Defines how the data in the fields of the file mist be
-    transformed between the actual data storage format and the input
-    format used to query that data. This is used by the user
-    interface of the roxie browser.
+    Defines how the data in the fields of the file mist be transformed between
+    the actual data storage format and the input format used to query that
+    data. This is used by the user interface of the roxie browser.
     
     Parameter : lfn ||| The logical filename of the primary file.
     
-    Parameter : mapping ||| A string containing a comma separated list of field
-                mappings.
+    Parameter : mapping ||| A string containing a comma separated
+                list of field mappings.
     
-    Link : <None>
-    
+    ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : varstring EncodeRfsQuery(varstring server, varstring query)
     ----------------------------------------------------------------------------------------------------------------------------------
     
-    Returns a string that can be used in a DATASET declaration to
-    read data from an RFS (Remote File Server) instance (e.g.
-    rfsmysql) on another node.
+    Returns a string that can be used in a DATASET declaration to read data
+    from an RFS (Remote File Server) instance (e.g. rfsmysql) on another node.
     
-    Parameter : server ||| A string containing the ip:port address for the remote
-                file server.
+    Parameter : server ||| A string containing the ip:port address
+                for the remote file server.
     
-    Parameter : query ||| The text of the query to send to the server
+    Parameter : query ||| The text of the query to send to the
+                server
     
-    Link : <None>
-    
+    ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : RfsAction(varstring server, varstring query)
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Sends the query to the rfs server.
     
-    Parameter : server ||| A string containing the ip:port address for the remote
-                file server.
+    Parameter : server ||| A string containing the ip:port address
+                for the remote file server.
     
-    Parameter : query ||| The text of the query to send to the server
+    Parameter : query ||| The text of the query to send to the
+                server
     
-    Link : <None>
-    
+    ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : MoveExternalFile(varstring location, varstring frompath, varstring topath)
     ----------------------------------------------------------------------------------------------------------------------------------
     
-    Moves the single physical file between two locations on the same
-    remote machine. The dafileserv utility program must be running on
-    the location machine.
+    Moves the single physical file between two locations on the same remote
+    machine. The dafileserv utility program must be running on the location
+    machine.
     
     Parameter : location ||| The IP address of the remote machine.
     
@@ -476,46 +472,40 @@ Link : <None>
     
     Parameter : topath ||| The path/name of the target file.
     
-    Link : <None>
-    
+    ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : DeleteExternalFile(varstring location, varstring path)
     ----------------------------------------------------------------------------------------------------------------------------------
     
-    Removes a single physical file from a remote machine. The
-    dafileserv utility program must be running on the location
-    machine.
+    Removes a single physical file from a remote machine. The dafileserv
+    utility program must be running on the location machine.
     
     Parameter : location ||| The IP address of the remote machine.
     
     Parameter : path ||| The path/name of the file to remove.
     
-    Link : <None>
-    
+    ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : CreateExternalDirectory(varstring location, varstring path)
     ----------------------------------------------------------------------------------------------------------------------------------
     
-    Creates the path on the location (if it does not already exist).
-    The dafileserv utility program must be running on the location
-    machine.
+    Creates the path on the location (if it does not already exist). The
+    dafileserv utility program must be running on the location machine.
     
     Parameter : location ||| The IP address of the remote machine.
     
     Parameter : path ||| The path/name of the file to remove.
     
-    Link : <None>
-    
+    ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : varstring GetLogicalFileAttribute(varstring lfn, varstring attrname)
     ----------------------------------------------------------------------------------------------------------------------------------
     
-    Returns the value of the given attribute for the specified
-    logicalfilename.
+    Returns the value of the given attribute for the specified logicalfilename.
     
     Parameter : lfn ||| The name of the logical file.
     
-    Parameter : attrname ||| The name of the file attribute to return.
+    Parameter : attrname ||| The name of the file attribute to
+                return.
     
-    Link : <None>
-    
+    ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : ProtectLogicalFile(varstring lfn, boolean value=TRUE)
     ----------------------------------------------------------------------------------------------------------------------------------
     
@@ -523,74 +513,79 @@ Link : <None>
     
     Parameter : lfn ||| The name of the logical file.
     
-    Parameter : value ||| TRUE to enable protection, FALSE to disable.
+    Parameter : value ||| TRUE to enable protection, FALSE to
+                disable.
     
-    Link : <None>
-    
+    ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : DfuPlusExec(varstring cmdline)
     ----------------------------------------------------------------------------------------------------------------------------------
     
-    The DfuPlusExec action executes the specified command line just
-    as the DfuPLus.exe program would do. This allows you to have all
-    the functionality of the DfuPLus.exe program available within
-    your ECL code. param cmdline The DFUPlus.exe command line to
-    execute. The valid arguments are documented in the Client Tools
-    manual, in the section describing the DfuPlus.exe program.
+    The DfuPlusExec action executes the specified command line just as the
+    DfuPLus.exe program would do. This allows you to have all the functionality
+    of the DfuPLus.exe program available within your ECL code. param cmdline
+    The DFUPlus.exe command line to execute. The valid arguments are documented
+    in the Client Tools manual, in the section describing the DfuPlus.exe
+    program.
     
-    Link : <None>
-    
-    FUNCTION : varstring fSprayFixed(varstring sourceIP, varstring sourcePath, integer4 recordSize, varstring destinationGroup,
-               varstring destinationLogicalName, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4
-               maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, boolean
+    ----------------------------------------------------------------------------------------------------------------------------------
+    FUNCTION : varstring fSprayFixed(varstring sourceIP, varstring sourcePath, integer4 recordSize,
+               varstring destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1,
+               varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean
+               allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, boolean
                failIfNoSourceFile=FALSE, integer4 expireDays=-1)
     ----------------------------------------------------------------------------------------------------------------------------------
     
-    Sprays a file of fixed length records from a single machine and
-    distributes it across the nodes of the destination group.
+    Sprays a file of fixed length records from a single machine and distributes
+    it across the nodes of the destination group.
     
     Parameter : sourceIP ||| The IP address of the file.
     
     Parameter : sourcePath ||| The path and name of the file.
     
-    Parameter : recordsize ||| The size (in bytes) of the records in the file.
+    Parameter : recordsize ||| The size (in bytes) of the records
+                in the file.
     
-    Parameter : destinationGroup ||| The name of the group to distribute the file
-                across.
+    Parameter : destinationGroup ||| The name of the group to
+                distribute the file across.
     
-    Parameter : destinationLogicalName ||| The logical name of the file to
-                create.
+    Parameter : destinationLogicalName ||| The logical name of the
+                file to create.
     
-    Parameter : timeOut ||| The time in ms to wait for the operation to complete.
-                A value of 0 causes the call to return immediately. Defaults to
-                no timeout (-1).
+    Parameter : timeOut ||| The time in ms to wait for the
+                operation to complete. A value of 0 causes the
+                call to return immediately. Defaults to no timeout
+                (-1).
     
-    Parameter : espServerIpPort ||| The url of the ESP file copying service.
-                Defaults to the value of ws_fs_server in the environment.
+    Parameter : espServerIpPort ||| The url of the ESP file
+                copying service. Defaults to the value of
+                ws_fs_server in the environment.
     
-    Parameter : maxConnections ||| The maximum number of target nodes to write to
-                concurrently. Defaults to 1.
+    Parameter : maxConnections ||| The maximum number of target
+                nodes to write to concurrently. Defaults to 1.
     
-    Parameter : allowOverwrite ||| Is it valid to overwrite an existing file of
-                the same name? Defaults to FALSE
+    Parameter : allowOverwrite ||| Is it valid to overwrite an
+                existing file of the same name? Defaults to FALSE
     
-    Parameter : replicate ||| Whether to replicate the new file. Defaults to
+    Parameter : replicate ||| Whether to replicate the new file.
+                Defaults to FALSE.
+    
+    Parameter : compress ||| Whether to compress the new file.
+                Defaults to FALSE.
+    
+    Parameter : failIfNoSourceFile ||| If TRUE it causes a missing
+                source file to trigger a failure. Defaults to
                 FALSE.
     
-    Parameter : compress ||| Whether to compress the new file. Defaults to FALSE.
-    
-    Parameter : failIfNoSourceFile ||| If TRUE it causes a missing source file to
-                trigger a failure. Defaults to FALSE.
-    
-    Parameter : expireDays ||| Number of days to auto-remove file. Default is -1,
-                not expire.
+    Parameter : expireDays ||| Number of days to auto-remove file.
+                Default is -1, not expire.
     
     Return : The DFU workunit id for the job.
     
-    Link : <None>
-    
-    FUNCTION : SprayFixed(varstring sourceIP, varstring sourcePath, integer4 recordSize, varstring destinationGroup, varstring
-               destinationLogicalName, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4
-               maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, boolean
+    ----------------------------------------------------------------------------------------------------------------------------------
+    FUNCTION : SprayFixed(varstring sourceIP, varstring sourcePath, integer4 recordSize, varstring
+               destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, varstring
+               espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean
+               allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, boolean
                failIfNoSourceFile=FALSE, integer4 expireDays=-1)
     ----------------------------------------------------------------------------------------------------------------------------------
     
@@ -598,486 +593,526 @@ Link : <None>
     
     See : fSprayFixed
     
-    Link : <None>
-    
-    FUNCTION : varstring fSprayVariable(varstring sourceIP, varstring sourcePath, integer4 sourceMaxRecordSize=8192, varstring
-               sourceCsvSeparate='\\,', varstring sourceCsvTerminate='\\n,\\r\\n', varstring sourceCsvQuote='\"', varstring
+    ----------------------------------------------------------------------------------------------------------------------------------
+    FUNCTION : varstring fSprayVariable(varstring sourceIP, varstring sourcePath, integer4
+               sourceMaxRecordSize=8192, varstring sourceCsvSeparate='\\,', varstring
+               sourceCsvTerminate='\\n,\\r\\n', varstring sourceCsvQuote='\"', varstring
                destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, varstring
-               espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean
-               replicate=FALSE, boolean compress=FALSE, varstring sourceCsvEscape='', boolean failIfNoSourceFile=FALSE, boolean
-               recordStructurePresent=FALSE, boolean quotedTerminator=TRUE, varstring encoding='ascii', integer4 expireDays=-1)
+               espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean
+               allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, varstring
+               sourceCsvEscape='', boolean failIfNoSourceFile=FALSE, boolean
+               recordStructurePresent=FALSE, boolean quotedTerminator=TRUE, varstring encoding='ascii',
+               integer4 expireDays=-1)
     ----------------------------------------------------------------------------------------------------------------------------------
     
-    Link : <None>
-    
-    FUNCTION : SprayVariable(varstring sourceIP, varstring sourcePath, integer4 sourceMaxRecordSize=8192, varstring
-               sourceCsvSeparate='\\,', varstring sourceCsvTerminate='\\n,\\r\\n', varstring sourceCsvQuote='\"', varstring
+    ----------------------------------------------------------------------------------------------------------------------------------
+    FUNCTION : SprayVariable(varstring sourceIP, varstring sourcePath, integer4
+               sourceMaxRecordSize=8192, varstring sourceCsvSeparate='\\,', varstring
+               sourceCsvTerminate='\\n,\\r\\n', varstring sourceCsvQuote='\"', varstring
                destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, varstring
-               espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean
-               replicate=FALSE, boolean compress=FALSE, varstring sourceCsvEscape='', boolean failIfNoSourceFile=FALSE, boolean
-               recordStructurePresent=FALSE, boolean quotedTerminator=TRUE, varstring encoding='ascii', integer4 expireDays=-1)
+               espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean
+               allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, varstring
+               sourceCsvEscape='', boolean failIfNoSourceFile=FALSE, boolean
+               recordStructurePresent=FALSE, boolean quotedTerminator=TRUE, varstring encoding='ascii',
+               integer4 expireDays=-1)
     ----------------------------------------------------------------------------------------------------------------------------------
     
-    Link : <None>
-    
-    FUNCTION : varstring fSprayDelimited(varstring sourceIP, varstring sourcePath, integer4 sourceMaxRecordSize=8192, varstring
-               sourceCsvSeparate='\\,', varstring sourceCsvTerminate='\\n,\\r\\n', varstring sourceCsvQuote='\"', varstring
+    ----------------------------------------------------------------------------------------------------------------------------------
+    FUNCTION : varstring fSprayDelimited(varstring sourceIP, varstring sourcePath, integer4
+               sourceMaxRecordSize=8192, varstring sourceCsvSeparate='\\,', varstring
+               sourceCsvTerminate='\\n,\\r\\n', varstring sourceCsvQuote='\"', varstring
                destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, varstring
-               espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean
-               replicate=FALSE, boolean compress=FALSE, varstring sourceCsvEscape='', boolean failIfNoSourceFile=FALSE, boolean
-               recordStructurePresent=FALSE, boolean quotedTerminator=TRUE, varstring encoding='ascii', integer4 expireDays=-1)
+               espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean
+               allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, varstring
+               sourceCsvEscape='', boolean failIfNoSourceFile=FALSE, boolean
+               recordStructurePresent=FALSE, boolean quotedTerminator=TRUE, varstring encoding='ascii',
+               integer4 expireDays=-1)
     ----------------------------------------------------------------------------------------------------------------------------------
     
-    Sprays a file of fixed delimited records from a single machine
-    and distributes it across the nodes of the destination group.
+    Sprays a file of fixed delimited records from a single machine and
+    distributes it across the nodes of the destination group.
     
     Parameter : sourceIP ||| The IP address of the file.
     
     Parameter : sourcePath ||| The path and name of the file.
     
-    Parameter : sourceCsvSeparate ||| The character sequence which separates
-                fields in the file.
+    Parameter : sourceCsvSeparate ||| The character sequence which
+                separates fields in the file.
     
-    Parameter : sourceCsvTerminate ||| The character sequence which separates
-                records in the file.
+    Parameter : sourceCsvTerminate ||| The character sequence
+                which separates records in the file.
     
-    Parameter : sourceCsvQuote ||| A string which can be used to delimit fields
-                in the file.
+    Parameter : sourceCsvQuote ||| A string which can be used to
+                delimit fields in the file.
     
-    Parameter : sourceMaxRecordSize ||| The maximum size (in bytes) of the
-                records in the file.
+    Parameter : sourceMaxRecordSize ||| The maximum size (in
+                bytes) of the records in the file.
     
-    Parameter : destinationGroup ||| The name of the group to distribute the file
-                across.
+    Parameter : destinationGroup ||| The name of the group to
+                distribute the file across.
     
-    Parameter : destinationLogicalName ||| The logical name of the file to
-                create.
+    Parameter : destinationLogicalName ||| The logical name of the
+                file to create.
     
-    Parameter : timeOut ||| The time in ms to wait for the operation to complete.
-                A value of 0 causes the call to return immediately. Defaults to
-                no timeout (-1).
+    Parameter : timeOut ||| The time in ms to wait for the
+                operation to complete. A value of 0 causes the
+                call to return immediately. Defaults to no timeout
+                (-1).
     
-    Parameter : espServerIpPort ||| The url of the ESP file copying service.
-                Defaults to the value of ws_fs_server in the environment.
+    Parameter : espServerIpPort ||| The url of the ESP file
+                copying service. Defaults to the value of
+                ws_fs_server in the environment.
     
-    Parameter : maxConnections ||| The maximum number of target nodes to write to
-                concurrently. Defaults to 1.
+    Parameter : maxConnections ||| The maximum number of target
+                nodes to write to concurrently. Defaults to 1.
     
-    Parameter : allowOverwrite ||| Is it valid to overwrite an existing file of
-                the same name? Defaults to FALSE
+    Parameter : allowOverwrite ||| Is it valid to overwrite an
+                existing file of the same name? Defaults to FALSE
     
-    Parameter : replicate ||| Whether to replicate the new file. Defaults to
+    Parameter : replicate ||| Whether to replicate the new file.
+                Defaults to FALSE.
+    
+    Parameter : compress ||| Whether to compress the new file.
+                Defaults to FALSE.
+    
+    Parameter : sourceCsvEscape ||| A character that is used to
+                escape quote characters. Defaults to none.
+    
+    Parameter : failIfNoSourceFile ||| If TRUE it causes a missing
+                source file to trigger a failure. Defaults to
                 FALSE.
     
-    Parameter : compress ||| Whether to compress the new file. Defaults to FALSE.
+    Parameter : recordStructurePresent ||| If TRUE derives the
+                record structure from the header of the file.
     
-    Parameter : sourceCsvEscape ||| A character that is used to escape quote
-                characters. Defaults to none.
+    Parameter : quotedTerminator ||| Can the terminator character
+                be included in a quoted field. Defaults to TRUE.
+                If FALSE it allows quicker partitioning of the
+                file (avoiding a complete file scan).
     
-    Parameter : failIfNoSourceFile ||| If TRUE it causes a missing source file to
-                trigger a failure. Defaults to FALSE.
-    
-    Parameter : recordStructurePresent ||| If TRUE derives the record structure
-                from the header of the file.
-    
-    Parameter : quotedTerminator ||| Can the terminator character be included in
-                a quoted field. Defaults to TRUE. If FALSE it allows quicker
-                partitioning of the file (avoiding a complete file scan).
-    
-    Parameter : expireDays ||| Number of days to auto-remove file. Default is -1,
-                not expire.
+    Parameter : expireDays ||| Number of days to auto-remove file.
+                Default is -1, not expire.
     
     Return : The DFU workunit id for the job.
     
-    Link : <None>
-    
-    FUNCTION : SprayDelimited(varstring sourceIP, varstring sourcePath, integer4 sourceMaxRecordSize=8192, varstring
-               sourceCsvSeparate='\\,', varstring sourceCsvTerminate='\\n,\\r\\n', varstring sourceCsvQuote='\"', varstring
+    ----------------------------------------------------------------------------------------------------------------------------------
+    FUNCTION : SprayDelimited(varstring sourceIP, varstring sourcePath, integer4
+               sourceMaxRecordSize=8192, varstring sourceCsvSeparate='\\,', varstring
+               sourceCsvTerminate='\\n,\\r\\n', varstring sourceCsvQuote='\"', varstring
                destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, varstring
-               espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean
-               replicate=FALSE, boolean compress=FALSE, varstring sourceCsvEscape='', boolean failIfNoSourceFile=FALSE, boolean
-               recordStructurePresent=FALSE, boolean quotedTerminator=TRUE, const varstring encoding='ascii', integer4 expireDays=-1)
+               espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean
+               allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, varstring
+               sourceCsvEscape='', boolean failIfNoSourceFile=FALSE, boolean
+               recordStructurePresent=FALSE, boolean quotedTerminator=TRUE, const varstring
+               encoding='ascii', integer4 expireDays=-1)
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Same as fSprayDelimited, but does not return the DFU Workunit ID.
     
     See : fSprayDelimited
     
-    Link : <None>
-    
-    FUNCTION : varstring fSprayXml(varstring sourceIP, varstring sourcePath, integer4 sourceMaxRecordSize=8192, varstring
-               sourceRowTag, varstring sourceEncoding='utf8', varstring destinationGroup, varstring destinationLogicalName, integer4
-               timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE,
-               boolean replicate=FALSE, boolean compress=FALSE, boolean failIfNoSourceFile=FALSE, integer4 expireDays=-1)
+    ----------------------------------------------------------------------------------------------------------------------------------
+    FUNCTION : varstring fSprayXml(varstring sourceIP, varstring sourcePath, integer4
+               sourceMaxRecordSize=8192, varstring sourceRowTag, varstring sourceEncoding='utf8',
+               varstring destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1,
+               varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean
+               allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, boolean
+               failIfNoSourceFile=FALSE, integer4 expireDays=-1)
     ----------------------------------------------------------------------------------------------------------------------------------
     
-    Sprays an xml file from a single machine and distributes it
-    across the nodes of the destination group.
+    Sprays an xml file from a single machine and distributes it across the
+    nodes of the destination group.
     
     Parameter : sourceIP ||| The IP address of the file.
     
     Parameter : sourcePath ||| The path and name of the file.
     
-    Parameter : sourceMaxRecordSize ||| The maximum size (in bytes) of the
-                records in the file.
+    Parameter : sourceMaxRecordSize ||| The maximum size (in
+                bytes) of the records in the file.
     
-    Parameter : sourceRowTag ||| The xml tag that is used to delimit records in
-                the source file. (This tag cannot recursivly nest.)
+    Parameter : sourceRowTag ||| The xml tag that is used to
+                delimit records in the source file. (This tag
+                cannot recursivly nest.)
     
-    Parameter : sourceEncoding ||| The unicode encoding of the file.
-                (utf8,utf8n,utf16be,utf16le,utf32be,utf32le)
+    Parameter : sourceEncoding ||| The unicode encoding of the
+                file. (utf8,utf8n,utf16be,utf16le,utf32be,utf32le)
     
-    Parameter : destinationGroup ||| The name of the group to distribute the file
-                across.
+    Parameter : destinationGroup ||| The name of the group to
+                distribute the file across.
     
-    Parameter : destinationLogicalName ||| The logical name of the file to
-                create.
+    Parameter : destinationLogicalName ||| The logical name of the
+                file to create.
     
-    Parameter : timeOut ||| The time in ms to wait for the operation to complete.
-                A value of 0 causes the call to return immediately. Defaults to
-                no timeout (-1).
+    Parameter : timeOut ||| The time in ms to wait for the
+                operation to complete. A value of 0 causes the
+                call to return immediately. Defaults to no timeout
+                (-1).
     
-    Parameter : espServerIpPort ||| The url of the ESP file copying service.
-                Defaults to the value of ws_fs_server in the environment.
+    Parameter : espServerIpPort ||| The url of the ESP file
+                copying service. Defaults to the value of
+                ws_fs_server in the environment.
     
-    Parameter : maxConnections ||| The maximum number of target nodes to write to
-                concurrently. Defaults to 1.
+    Parameter : maxConnections ||| The maximum number of target
+                nodes to write to concurrently. Defaults to 1.
     
-    Parameter : allowOverwrite ||| Is it valid to overwrite an existing file of
-                the same name? Defaults to FALSE
+    Parameter : allowOverwrite ||| Is it valid to overwrite an
+                existing file of the same name? Defaults to FALSE
     
-    Parameter : replicate ||| Whether to replicate the new file. Defaults to
+    Parameter : replicate ||| Whether to replicate the new file.
+                Defaults to FALSE.
+    
+    Parameter : compress ||| Whether to compress the new file.
+                Defaults to FALSE.
+    
+    Parameter : failIfNoSourceFile ||| If TRUE it causes a missing
+                source file to trigger a failure. Defaults to
                 FALSE.
     
-    Parameter : compress ||| Whether to compress the new file. Defaults to FALSE.
-    
-    Parameter : failIfNoSourceFile ||| If TRUE it causes a missing source file to
-                trigger a failure. Defaults to FALSE.
-    
-    Parameter : expireDays ||| Number of days to auto-remove file. Default is -1,
-                not expire.
+    Parameter : expireDays ||| Number of days to auto-remove file.
+                Default is -1, not expire.
     
     Return : The DFU workunit id for the job.
     
-    Link : <None>
-    
-    FUNCTION : SprayXml(varstring sourceIP, varstring sourcePath, integer4 sourceMaxRecordSize=8192, varstring sourceRowTag, varstring
-               sourceEncoding='utf8', varstring destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, varstring
-               espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean
-               replicate=FALSE, boolean compress=FALSE, boolean failIfNoSourceFile=FALSE, integer4 expireDays=-1)
+    ----------------------------------------------------------------------------------------------------------------------------------
+    FUNCTION : SprayXml(varstring sourceIP, varstring sourcePath, integer4 sourceMaxRecordSize=8192,
+               varstring sourceRowTag, varstring sourceEncoding='utf8', varstring destinationGroup,
+               varstring destinationLogicalName, integer4 timeOut=-1, varstring
+               espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean
+               allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, boolean
+               failIfNoSourceFile=FALSE, integer4 expireDays=-1)
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Same as fSprayXml, but does not return the DFU Workunit ID.
     
     See : fSprayXml
     
-    Link : <None>
-    
-    FUNCTION : varstring fDespray(varstring logicalName, varstring destinationIP, varstring destinationPath, integer4 timeOut=-1,
-               varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE)
+    ----------------------------------------------------------------------------------------------------------------------------------
+    FUNCTION : varstring fDespray(varstring logicalName, varstring destinationIP, varstring
+               destinationPath, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'),
+               integer4 maxConnections=-1, boolean allowOverwrite=FALSE)
     ----------------------------------------------------------------------------------------------------------------------------------
     
-    Copies a distributed file from multiple machines, and desprays it
-    to a single file on a single machine.
+    Copies a distributed file from multiple machines, and desprays it to a
+    single file on a single machine.
     
     Parameter : logicalName ||| The name of the file to despray.
     
     Parameter : destinationIP ||| The IP of the target machine.
     
-    Parameter : destinationPath ||| The path of the file to create on the
-                destination machine.
+    Parameter : destinationPath ||| The path of the file to create
+                on the destination machine.
     
-    Parameter : timeOut ||| The time in ms to wait for the operation to complete.
-                A value of 0 causes the call to return immediately. Defaults to
-                no timeout (-1).
+    Parameter : timeOut ||| The time in ms to wait for the
+                operation to complete. A value of 0 causes the
+                call to return immediately. Defaults to no timeout
+                (-1).
     
-    Parameter : espServerIpPort ||| The url of the ESP file copying service.
-                Defaults to the value of ws_fs_server in the environment.
+    Parameter : espServerIpPort ||| The url of the ESP file
+                copying service. Defaults to the value of
+                ws_fs_server in the environment.
     
-    Parameter : maxConnections ||| The maximum number of target nodes to write to
-                concurrently. Defaults to 1.
+    Parameter : maxConnections ||| The maximum number of target
+                nodes to write to concurrently. Defaults to 1.
     
-    Parameter : allowOverwrite ||| Is it valid to overwrite an existing file of
-                the same name? Defaults to FALSE
+    Parameter : allowOverwrite ||| Is it valid to overwrite an
+                existing file of the same name? Defaults to FALSE
     
     Return : The DFU workunit id for the job.
     
-    Link : <None>
-    
-    FUNCTION : Despray(varstring logicalName, varstring destinationIP, varstring destinationPath, integer4 timeOut=-1, varstring
-               espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE)
+    ----------------------------------------------------------------------------------------------------------------------------------
+    FUNCTION : Despray(varstring logicalName, varstring destinationIP, varstring destinationPath,
+               integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4
+               maxConnections=-1, boolean allowOverwrite=FALSE)
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Same as fDespray, but does not return the DFU Workunit ID.
     
     See : fDespray
     
-    Link : <None>
-    
-    FUNCTION : varstring fCopy(varstring sourceLogicalName, varstring destinationGroup, varstring destinationLogicalName, varstring
-               sourceDali='', integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1,
-               boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean asSuperfile=FALSE, boolean compress=FALSE, boolean
-               forcePush=FALSE, integer4 transferBufferSize=0, boolean preserveCompression=TRUE)
+    ----------------------------------------------------------------------------------------------------------------------------------
+    FUNCTION : varstring fCopy(varstring sourceLogicalName, varstring destinationGroup, varstring
+               destinationLogicalName, varstring sourceDali='', integer4 timeOut=-1, varstring
+               espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean
+               allowOverwrite=FALSE, boolean replicate=FALSE, boolean asSuperfile=FALSE, boolean
+               compress=FALSE, boolean forcePush=FALSE, integer4 transferBufferSize=0, boolean
+               preserveCompression=TRUE)
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Copies a distributed file to another distributed file.
     
-    Parameter : sourceLogicalName ||| The name of the file to despray.
+    Parameter : sourceLogicalName ||| The name of the file to
+                despray.
     
-    Parameter : destinationGroup ||| The name of the group to distribute the file
-                across.
+    Parameter : destinationGroup ||| The name of the group to
+                distribute the file across.
     
-    Parameter : destinationLogicalName ||| The logical name of the file to
-                create.
+    Parameter : destinationLogicalName ||| The logical name of the
+                file to create.
     
-    Parameter : sourceDali ||| The dali that contains the source file (blank
-                implies same dali). Defaults to same dali.
+    Parameter : sourceDali ||| The dali that contains the source
+                file (blank implies same dali). Defaults to same
+                dali.
     
-    Parameter : timeOut ||| The time in ms to wait for the operation to complete.
-                A value of 0 causes the call to return immediately. Defaults to
-                no timeout (-1).
+    Parameter : timeOut ||| The time in ms to wait for the
+                operation to complete. A value of 0 causes the
+                call to return immediately. Defaults to no timeout
+                (-1).
     
-    Parameter : espServerIpPort ||| The url of the ESP file copying service.
-                Defaults to the value of ws_fs_server in the environment.
+    Parameter : espServerIpPort ||| The url of the ESP file
+                copying service. Defaults to the value of
+                ws_fs_server in the environment.
     
-    Parameter : maxConnections ||| The maximum number of target nodes to write to
-                concurrently. Defaults to 1.
+    Parameter : maxConnections ||| The maximum number of target
+                nodes to write to concurrently. Defaults to 1.
     
-    Parameter : allowOverwrite ||| Is it valid to overwrite an existing file of
-                the same name? Defaults to FALSE
+    Parameter : allowOverwrite ||| Is it valid to overwrite an
+                existing file of the same name? Defaults to FALSE
     
-    Parameter : replicate ||| Should the copied file also be replicated on the
-                destination? Defaults to FALSE
+    Parameter : replicate ||| Should the copied file also be
+                replicated on the destination? Defaults to FALSE
     
-    Parameter : asSuperfile ||| Should the file be copied as a superfile? If TRUE
-                and source is a superfile, then the operation creates a superfile
-                on the target, creating sub-files as needed and only overwriting
-                existing sub-files whose content has changed. If FALSE, a single
-                file is created. Defaults to FALSE.
+    Parameter : asSuperfile ||| Should the file be copied as a
+                superfile? If TRUE and source is a superfile, then
+                the operation creates a superfile on the target,
+                creating sub-files as needed and only overwriting
+                existing sub-files whose content has changed. If
+                FALSE, a single file is created. Defaults to
+                FALSE.
     
-    Parameter : compress ||| Whether to compress the new file. Defaults to FALSE.
+    Parameter : compress ||| Whether to compress the new file.
+                Defaults to FALSE.
     
-    Parameter : forcePush ||| Should the copy process be executed on the source
-                nodes (push) or on the destination nodes (pull)? Default is to
-                pull.
+    Parameter : forcePush ||| Should the copy process be executed
+                on the source nodes (push) or on the destination
+                nodes (pull)? Default is to pull.
     
-    Parameter : transferBufferSize ||| Overrides the size (in bytes) of the
-                internal buffer used to copy the file. Default is 64k.
+    Parameter : transferBufferSize ||| Overrides the size (in
+                bytes) of the internal buffer used to copy the
+                file. Default is 64k.
     
     Return : The DFU workunit id for the job.
     
-    Link : <None>
-    
-    FUNCTION : Copy(varstring sourceLogicalName, varstring destinationGroup, varstring destinationLogicalName, varstring
-               sourceDali='', integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1,
-               boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean asSuperfile=FALSE, boolean compress=FALSE, boolean
-               forcePush=FALSE, integer4 transferBufferSize=0, boolean preserveCompression=TRUE)
+    ----------------------------------------------------------------------------------------------------------------------------------
+    FUNCTION : Copy(varstring sourceLogicalName, varstring destinationGroup, varstring
+               destinationLogicalName, varstring sourceDali='', integer4 timeOut=-1, varstring
+               espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean
+               allowOverwrite=FALSE, boolean replicate=FALSE, boolean asSuperfile=FALSE, boolean
+               compress=FALSE, boolean forcePush=FALSE, integer4 transferBufferSize=0, boolean
+               preserveCompression=TRUE)
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Same as fCopy, but does not return the DFU Workunit ID.
     
     See : fCopy
     
-    Link : <None>
-    
-    FUNCTION : varstring fReplicate(varstring logicalName, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'))
+    ----------------------------------------------------------------------------------------------------------------------------------
+    FUNCTION : varstring fReplicate(varstring logicalName, integer4 timeOut=-1, varstring
+               espServerIpPort=GETENV('ws_fs_server'))
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Ensures the specified file is replicated to its mirror copies.
     
     Parameter : logicalName ||| The name of the file to replicate.
     
-    Parameter : timeOut ||| The time in ms to wait for the operation to complete.
-                A value of 0 causes the call to return immediately. Defaults to
-                no timeout (-1).
+    Parameter : timeOut ||| The time in ms to wait for the
+                operation to complete. A value of 0 causes the
+                call to return immediately. Defaults to no timeout
+                (-1).
     
-    Parameter : espServerIpPort ||| The url of the ESP file copying service.
-                Defaults to the value of ws_fs_server in the environment.
+    Parameter : espServerIpPort ||| The url of the ESP file
+                copying service. Defaults to the value of
+                ws_fs_server in the environment.
     
     Return : The DFU workunit id for the job.
     
-    Link : <None>
-    
-    FUNCTION : Replicate(varstring logicalName, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'))
+    ----------------------------------------------------------------------------------------------------------------------------------
+    FUNCTION : Replicate(varstring logicalName, integer4 timeOut=-1, varstring
+               espServerIpPort=GETENV('ws_fs_server'))
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Same as fReplicated, but does not return the DFU Workunit ID.
     
     See : fReplicate
     
-    Link : <None>
-    
-    FUNCTION : varstring fRemotePull(varstring remoteEspFsURL, varstring sourceLogicalName, varstring destinationGroup, varstring
-               destinationLogicalName, integer4 timeOut=-1, integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean
-               replicate=FALSE, boolean asSuperfile=FALSE, boolean forcePush=FALSE, integer4 transferBufferSize=0, boolean wrap=FALSE,
-               boolean compress=FALSE)
+    ----------------------------------------------------------------------------------------------------------------------------------
+    FUNCTION : varstring fRemotePull(varstring remoteEspFsURL, varstring sourceLogicalName, varstring
+               destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, integer4
+               maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean
+               asSuperfile=FALSE, boolean forcePush=FALSE, integer4 transferBufferSize=0, boolean
+               wrap=FALSE, boolean compress=FALSE)
     ----------------------------------------------------------------------------------------------------------------------------------
     
-    Copies a distributed file to a distributed file on remote system.
-    Similar to fCopy, except the copy executes remotely. Since the
-    DFU workunit executes on the remote DFU server, the user name
-    authentication must be the same on both systems, and the user
-    must have rights to copy files on both systems.
+    Copies a distributed file to a distributed file on remote system. Similar
+    to fCopy, except the copy executes remotely. Since the DFU workunit
+    executes on the remote DFU server, the user name authentication must be the
+    same on both systems, and the user must have rights to copy files on both
+    systems.
     
-    Parameter : remoteEspFsURL ||| The url of the remote ESP file copying
-                service.
+    Parameter : remoteEspFsURL ||| The url of the remote ESP file
+                copying service.
     
-    Parameter : sourceLogicalName ||| The name of the file to despray.
+    Parameter : sourceLogicalName ||| The name of the file to
+                despray.
     
-    Parameter : destinationGroup ||| The name of the group to distribute the file
-                across.
+    Parameter : destinationGroup ||| The name of the group to
+                distribute the file across.
     
-    Parameter : destinationLogicalName ||| The logical name of the file to
-                create.
+    Parameter : destinationLogicalName ||| The logical name of the
+                file to create.
     
-    Parameter : timeOut ||| The time in ms to wait for the operation to complete.
-                A value of 0 causes the call to return immediately. Defaults to
-                no timeout (-1).
+    Parameter : timeOut ||| The time in ms to wait for the
+                operation to complete. A value of 0 causes the
+                call to return immediately. Defaults to no timeout
+                (-1).
     
-    Parameter : maxConnections ||| The maximum number of target nodes to write to
-                concurrently. Defaults to 1.
+    Parameter : maxConnections ||| The maximum number of target
+                nodes to write to concurrently. Defaults to 1.
     
-    Parameter : allowOverwrite ||| Is it valid to overwrite an existing file of
-                the same name? Defaults to FALSE
+    Parameter : allowOverwrite ||| Is it valid to overwrite an
+                existing file of the same name? Defaults to FALSE
     
-    Parameter : replicate ||| Should the copied file also be replicated on the
-                destination? Defaults to FALSE
+    Parameter : replicate ||| Should the copied file also be
+                replicated on the destination? Defaults to FALSE
     
-    Parameter : asSuperfile ||| Should the file be copied as a superfile? If TRUE
-                and source is a superfile, then the operation creates a superfile
-                on the target, creating sub-files as needed and only overwriting
-                existing sub-files whose content has changed. If FALSE a single
-                file is created. Defaults to FALSE.
+    Parameter : asSuperfile ||| Should the file be copied as a
+                superfile? If TRUE and source is a superfile, then
+                the operation creates a superfile on the target,
+                creating sub-files as needed and only overwriting
+                existing sub-files whose content has changed. If
+                FALSE a single file is created. Defaults to FALSE.
     
-    Parameter : compress ||| Whether to compress the new file. Defaults to FALSE.
+    Parameter : compress ||| Whether to compress the new file.
+                Defaults to FALSE.
     
-    Parameter : forcePush ||| Should the copy process should be executed on the
-                source nodes (push) or on the destination nodes (pull)? Default
-                is to pull.
+    Parameter : forcePush ||| Should the copy process should be
+                executed on the source nodes (push) or on the
+                destination nodes (pull)? Default is to pull.
     
-    Parameter : transferBufferSize ||| Overrides the size (in bytes) of the
-                internal buffer used to copy the file. Default is 64k.
+    Parameter : transferBufferSize ||| Overrides the size (in
+                bytes) of the internal buffer used to copy the
+                file. Default is 64k.
     
-    Parameter : wrap ||| Should the fileparts be wrapped when copying to a
-                smaller sized cluster? The default is FALSE.
+    Parameter : wrap ||| Should the fileparts be wrapped when
+                copying to a smaller sized cluster? The default is
+                FALSE.
     
     Return : The DFU workunit id for the job.
     
-    Link : <None>
-    
-    FUNCTION : RemotePull(varstring remoteEspFsURL, varstring sourceLogicalName, varstring destinationGroup, varstring
-               destinationLogicalName, integer4 timeOut=-1, integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean
-               replicate=FALSE, boolean asSuperfile=FALSE, boolean forcePush=FALSE, integer4 transferBufferSize=0, boolean wrap=FALSE,
-               boolean compress=FALSE)
+    ----------------------------------------------------------------------------------------------------------------------------------
+    FUNCTION : RemotePull(varstring remoteEspFsURL, varstring sourceLogicalName, varstring
+               destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, integer4
+               maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean
+               asSuperfile=FALSE, boolean forcePush=FALSE, integer4 transferBufferSize=0, boolean
+               wrap=FALSE, boolean compress=FALSE)
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Same as fRemotePull, but does not return the DFU Workunit ID.
     
     See : fRemotePull
     
-    Link : <None>
-    
-    FUNCTION : varstring fMonitorLogicalFileName(varstring eventToFire, varstring name, integer4 shotCount=1, varstring
-               espServerIpPort=GETENV('ws_fs_server'))
     ----------------------------------------------------------------------------------------------------------------------------------
-    
-    Creates a file monitor job in the DFU Server. If an appropriately
-    named file arrives in this interval it will fire the event with
-    the name of the triggering object as the event subtype (see the
-    EVENT function).
-    
-    Parameter : eventToFire ||| The user-defined name of the event to fire when
-                the filename appears. This value is used as the first parameter
-                to the EVENT function.
-    
-    Parameter : name ||| The name of the logical file to monitor. This may
-                contain wildcard characters ( * and ?)
-    
-    Parameter : shotCount ||| The number of times to generate the event before
-                the monitoring job completes. A value of -1 indicates the
-                monitoring job continues until manually aborted. The default is
-                1.
-    
-    Parameter : espServerIpPort ||| The url of the ESP file copying service.
-                Defaults to the value of ws_fs_server in the environment.
-    
-    Return : The DFU workunit id for the job.
-    
-    Link : <None>
-    
-    FUNCTION : MonitorLogicalFileName(varstring eventToFire, varstring name, integer4 shotCount=1, varstring
-               espServerIpPort=GETENV('ws_fs_server'))
-    ----------------------------------------------------------------------------------------------------------------------------------
-    
-    Same as fMonitorLogicalFileName, but does not return the DFU
-    Workunit ID.
-    
-    See : fMonitorLogicalFileName
-    
-    Link : <None>
-    
-    FUNCTION : varstring fMonitorFile(varstring eventToFire, varstring ip, varstring filename, boolean subDirs=FALSE, integer4
+    FUNCTION : varstring fMonitorLogicalFileName(varstring eventToFire, varstring name, integer4
                shotCount=1, varstring espServerIpPort=GETENV('ws_fs_server'))
     ----------------------------------------------------------------------------------------------------------------------------------
     
-    Creates a file monitor job in the DFU Server. If an appropriately
-    named file arrives in this interval it will fire the event with
-    the name of the triggering object as the event subtype (see the
-    EVENT function).
+    Creates a file monitor job in the DFU Server. If an appropriately named
+    file arrives in this interval it will fire the event with the name of the
+    triggering object as the event subtype (see the EVENT function).
     
-    Parameter : eventToFire ||| The user-defined name of the event to fire when
-                the filename appears. This value is used as the first parameter
-                to the EVENT function.
+    Parameter : eventToFire ||| The user-defined name of the event
+                to fire when the filename appears. This value is
+                used as the first parameter to the EVENT function.
     
-    Parameter : ip ||| The the IP address for the file to monitor. This may be
-                omitted if the filename parameter contains a complete URL.
+    Parameter : name ||| The name of the logical file to monitor.
+                This may contain wildcard characters ( * and ?)
     
-    Parameter : filename ||| The full path of the file(s) to monitor. This may
-                contain wildcard characters ( * and ?)
+    Parameter : shotCount ||| The number of times to generate the
+                event before the monitoring job completes. A value
+                of -1 indicates the monitoring job continues until
+                manually aborted. The default is 1.
     
-    Parameter : subDirs ||| Whether to include files in sub-directories (when the
-                filename contains wildcards). Defaults to FALSE.
-    
-    Parameter : shotCount ||| The number of times to generate the event before
-                the monitoring job completes. A value of -1 indicates the
-                monitoring job continues until manually aborted. The default is
-                1.
-    
-    Parameter : espServerIpPort ||| The url of the ESP file copying service.
-                Defaults to the value of ws_fs_server in the environment.
+    Parameter : espServerIpPort ||| The url of the ESP file
+                copying service. Defaults to the value of
+                ws_fs_server in the environment.
     
     Return : The DFU workunit id for the job.
     
-    Link : <None>
-    
-    FUNCTION : MonitorFile(varstring eventToFire, varstring ip, varstring filename, boolean subdirs=FALSE, integer4 shotCount=1,
+    ----------------------------------------------------------------------------------------------------------------------------------
+    FUNCTION : MonitorLogicalFileName(varstring eventToFire, varstring name, integer4 shotCount=1,
                varstring espServerIpPort=GETENV('ws_fs_server'))
+    ----------------------------------------------------------------------------------------------------------------------------------
+    
+    Same as fMonitorLogicalFileName, but does not return the DFU Workunit ID.
+    
+    See : fMonitorLogicalFileName
+    
+    ----------------------------------------------------------------------------------------------------------------------------------
+    FUNCTION : varstring fMonitorFile(varstring eventToFire, varstring ip, varstring filename, boolean
+               subDirs=FALSE, integer4 shotCount=1, varstring espServerIpPort=GETENV('ws_fs_server'))
+    ----------------------------------------------------------------------------------------------------------------------------------
+    
+    Creates a file monitor job in the DFU Server. If an appropriately named
+    file arrives in this interval it will fire the event with the name of the
+    triggering object as the event subtype (see the EVENT function).
+    
+    Parameter : eventToFire ||| The user-defined name of the event
+                to fire when the filename appears. This value is
+                used as the first parameter to the EVENT function.
+    
+    Parameter : ip ||| The the IP address for the file to monitor.
+                This may be omitted if the filename parameter
+                contains a complete URL.
+    
+    Parameter : filename ||| The full path of the file(s) to
+                monitor. This may contain wildcard characters ( *
+                and ?)
+    
+    Parameter : subDirs ||| Whether to include files in sub-
+                directories (when the filename contains
+                wildcards). Defaults to FALSE.
+    
+    Parameter : shotCount ||| The number of times to generate the
+                event before the monitoring job completes. A value
+                of -1 indicates the monitoring job continues until
+                manually aborted. The default is 1.
+    
+    Parameter : espServerIpPort ||| The url of the ESP file
+                copying service. Defaults to the value of
+                ws_fs_server in the environment.
+    
+    Return : The DFU workunit id for the job.
+    
+    ----------------------------------------------------------------------------------------------------------------------------------
+    FUNCTION : MonitorFile(varstring eventToFire, varstring ip, varstring filename, boolean
+               subdirs=FALSE, integer4 shotCount=1, varstring espServerIpPort=GETENV('ws_fs_server'))
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Same as fMonitorFile, but does not return the DFU Workunit ID.
     
     See : fMonitorFile
     
-    Link : <None>
-    
-    FUNCTION : varstring WaitDfuWorkunit(varstring wuid, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'))
+    ----------------------------------------------------------------------------------------------------------------------------------
+    FUNCTION : varstring WaitDfuWorkunit(varstring wuid, integer4 timeOut=-1, varstring
+               espServerIpPort=GETENV('ws_fs_server'))
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Waits for the specified DFU workunit to finish.
     
     Parameter : wuid ||| The dfu wfid to wait for.
     
-    Parameter : timeOut ||| The time in ms to wait for the operation to complete.
-                A value of 0 causes the call to return immediately. Defaults to
-                no timeout (-1).
+    Parameter : timeOut ||| The time in ms to wait for the
+                operation to complete. A value of 0 causes the
+                call to return immediately. Defaults to no timeout
+                (-1).
     
-    Parameter : espServerIpPort ||| The url of the ESP file copying service.
-                Defaults to the value of ws_fs_server in the environment.
+    Parameter : espServerIpPort ||| The url of the ESP file
+                copying service. Defaults to the value of
+                ws_fs_server in the environment.
     
-    Return : A string containing the final status string of the DFU workunit.
+    Return : A string containing the final status string of the
+             DFU workunit.
     
-    Link : <None>
-    
+    ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : AbortDfuWorkunit(varstring wuid, varstring espServerIpPort=GETENV('ws_fs_server'))
     ----------------------------------------------------------------------------------------------------------------------------------
     
@@ -1085,33 +1120,33 @@ Link : <None>
     
     Parameter : wuid ||| The dfu wfid to abort.
     
-    Parameter : espServerIpPort ||| The url of the ESP file copying service.
-                Defaults to the value of ws_fs_server in the environment.
+    Parameter : espServerIpPort ||| The url of the ESP file
+                copying service. Defaults to the value of
+                ws_fs_server in the environment.
     
-    Link : <None>
-    
-    FUNCTION : CreateSuperFile(varstring superName, boolean sequentialParts=FALSE, boolean allowExist=FALSE)
+    ----------------------------------------------------------------------------------------------------------------------------------
+    FUNCTION : CreateSuperFile(varstring superName, boolean sequentialParts=FALSE, boolean
+               allowExist=FALSE)
     ----------------------------------------------------------------------------------------------------------------------------------
     
-    Creates an empty superfile. This function is not included in a
-    superfile transaction.
+    Creates an empty superfile. This function is not included in a superfile
+    transaction.
     
     Parameter : superName ||| The logical name of the superfile.
     
-    Parameter : sequentialParts ||| Whether the sub-files must be sequentially
-                ordered. Default to FALSE.
+    Parameter : sequentialParts ||| Whether the sub-files must be
+                sequentially ordered. Default to FALSE.
     
-    Parameter : allowExist ||| Indicating whether to post an error if the
-                superfile already exists. If TRUE, no error is posted. Defaults
-                to FALSE.
+    Parameter : allowExist ||| Indicating whether to post an error
+                if the superfile already exists. If TRUE, no error
+                is posted. Defaults to FALSE.
     
-    Link : <None>
-    
+    ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : boolean SuperFileExists(varstring superName)
     ----------------------------------------------------------------------------------------------------------------------------------
     
-    Checks if the specified filename is present in the Distributed
-    File Utility (DFU) and is a SuperFile.
+    Checks if the specified filename is present in the Distributed File Utility
+    (DFU) and is a SuperFile.
     
     Parameter : superName ||| The logical name of the superfile.
     
@@ -1119,8 +1154,7 @@ Link : <None>
     
     See : FileExists
     
-    Link : <None>
-    
+    ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : DeleteSuperFile(varstring superName, boolean deletesub=FALSE)
     ----------------------------------------------------------------------------------------------------------------------------------
     
@@ -1130,8 +1164,7 @@ Link : <None>
     
     See : FileExists
     
-    Link : <None>
-    
+    ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : unsigned4 GetSuperFileSubCount(varstring superName)
     ----------------------------------------------------------------------------------------------------------------------------------
     
@@ -1141,25 +1174,24 @@ Link : <None>
     
     Return : The number of sub-files within the superfile.
     
-    Link : <None>
-    
-    FUNCTION : varstring GetSuperFileSubName(varstring superName, unsigned4 fileNum, boolean absPath=FALSE)
+    ----------------------------------------------------------------------------------------------------------------------------------
+    FUNCTION : varstring GetSuperFileSubName(varstring superName, unsigned4 fileNum, boolean
+               absPath=FALSE)
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Returns the name of the Nth sub-file within a superfile.
     
     Parameter : superName ||| The logical name of the superfile.
     
-    Parameter : fileNum ||| The 1-based position of the sub-file to return the
-                name of.
+    Parameter : fileNum ||| The 1-based position of the sub-file
+                to return the name of.
     
-    Parameter : absPath ||| Whether to prepend '~' to the name of the resulting
-                logical file name.
+    Parameter : absPath ||| Whether to prepend '~' to the name of
+                the resulting logical file name.
     
     Return : The logical name of the selected sub-file.
     
-    Link : <None>
-    
+    ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : unsigned4 FindSuperFileSubName(varstring superName, varstring subName)
     ----------------------------------------------------------------------------------------------------------------------------------
     
@@ -1169,21 +1201,20 @@ Link : <None>
     
     Parameter : subName ||| The logical name of the sub-file.
     
-    Return : The 1-based position of the sub-file within the superfile.
+    Return : The 1-based position of the sub-file within the
+             superfile.
     
-    Link : <None>
-    
+    ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : StartSuperFileTransaction()
     ----------------------------------------------------------------------------------------------------------------------------------
     
-    Starts a superfile transaction. All superfile operations within
-    the transaction will either be executed atomically or rolled back
-    when the transaction is finished.
+    Starts a superfile transaction. All superfile operations within the
+    transaction will either be executed atomically or rolled back when the
+    transaction is finished.
     
-    Link : <None>
-    
-    FUNCTION : AddSuperFile(varstring superName, varstring subName, unsigned4 atPos=0, boolean addContents=FALSE, boolean
-               strict=FALSE)
+    ----------------------------------------------------------------------------------------------------------------------------------
+    FUNCTION : AddSuperFile(varstring superName, varstring subName, unsigned4 atPos=0, boolean
+               addContents=FALSE, boolean strict=FALSE)
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Adds a file to a superfile.
@@ -1192,18 +1223,19 @@ Link : <None>
     
     Parameter : subName ||| The name of the logical file to add.
     
-    Parameter : atPos ||| The position to add the sub-file, or 0 to append.
-                Defaults to 0.
+    Parameter : atPos ||| The position to add the sub-file, or 0
+                to append. Defaults to 0.
     
-    Parameter : addContents ||| Controls whether adding a superfile adds the
-                superfile, or its contents. Defaults to FALSE (do not expand).
+    Parameter : addContents ||| Controls whether adding a
+                superfile adds the superfile, or its contents.
+                Defaults to FALSE (do not expand).
     
-    Parameter : strict ||| Check addContents only if subName is a superfile, and
-                ensure superfiles exist.
+    Parameter : strict ||| Check addContents only if subName is a
+                superfile, and ensure superfiles exist.
     
-    Link : <None>
-    
-    FUNCTION : RemoveSuperFile(varstring superName, varstring subName, boolean del=FALSE, boolean removeContents=FALSE)
+    ----------------------------------------------------------------------------------------------------------------------------------
+    FUNCTION : RemoveSuperFile(varstring superName, varstring subName, boolean del=FALSE, boolean
+               removeContents=FALSE)
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Removes a sub-file from a superfile.
@@ -1212,15 +1244,14 @@ Link : <None>
     
     Parameter : subName ||| The name of the sub-file to remove.
     
-    Parameter : del ||| Indicates whether the sub-file should also be removed
-                from the disk. Defaults to FALSE.
+    Parameter : del ||| Indicates whether the sub-file should also
+                be removed from the disk. Defaults to FALSE.
     
-    Parameter : removeContents ||| Controls whether the contents of a sub-file
-                which is a superfile should be recursively removed. Defaults to
-                FALSE.
+    Parameter : removeContents ||| Controls whether the contents
+                of a sub-file which is a superfile should be
+                recursively removed. Defaults to FALSE.
     
-    Link : <None>
-    
+    ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : ClearSuperFile(varstring superName, boolean del=FALSE)
     ----------------------------------------------------------------------------------------------------------------------------------
     
@@ -1228,42 +1259,40 @@ Link : <None>
     
     Parameter : superName ||| The logical name of the superfile.
     
-    Parameter : del ||| Indicates whether the sub-files should also be removed
-                from the disk. Defaults to FALSE.
+    Parameter : del ||| Indicates whether the sub-files should
+                also be removed from the disk. Defaults to FALSE.
     
-    Link : <None>
-    
+    ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : RemoveOwnedSubFiles(varstring superName, boolean del=FALSE)
     ----------------------------------------------------------------------------------------------------------------------------------
     
-    Removes all soley-owned sub-files from a superfile. If a sub-file
-    is also contained within another superfile then it is retained.
+    Removes all soley-owned sub-files from a superfile. If a sub-file is also
+    contained within another superfile then it is retained.
     
     Parameter : superName ||| The logical name of the superfile.
     
-    Link : <None>
-    
+    ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : DeleteOwnedSubFiles(varstring superName)
     ----------------------------------------------------------------------------------------------------------------------------------
     
-    Legacy version of RemoveOwnedSubFiles which was incorrectly named
-    in a previous version.
+    Legacy version of RemoveOwnedSubFiles which was incorrectly named in a
+    previous version.
     
     See : RemoveOwnedSubFIles
     
-    Link : <None>
-    
+    ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : SwapSuperFile(varstring superName1, varstring superName2)
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Swap the contents of two superfiles.
     
-    Parameter : superName1 ||| The logical name of the first superfile.
+    Parameter : superName1 ||| The logical name of the first
+                superfile.
     
-    Parameter : superName2 ||| The logical name of the second superfile.
+    Parameter : superName2 ||| The logical name of the second
+                superfile.
     
-    Link : <None>
-    
+    ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : ReplaceSuperFile(varstring superName, varstring oldSubFile, varstring newSubFile)
     ----------------------------------------------------------------------------------------------------------------------------------
     
@@ -1271,98 +1300,93 @@ Link : <None>
     
     Parameter : superName ||| The logical name of the superfile.
     
-    Parameter : oldSubFile ||| The logical name of the sub-file to remove.
+    Parameter : oldSubFile ||| The logical name of the sub-file to
+                remove.
     
-    Parameter : newSubFile ||| The logical name of the sub-file to replace within
-                the superfile.
+    Parameter : newSubFile ||| The logical name of the sub-file to
+                replace within the superfile.
     
-    Link : <None>
-    
+    ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : FinishSuperFileTransaction(boolean rollback=FALSE)
     ----------------------------------------------------------------------------------------------------------------------------------
     
-    Finishes a superfile transaction. This executes all the
-    operations since the matching StartSuperFileTransaction(). If
-    there are any errors, then all of the operations are rolled back.
+    Finishes a superfile transaction. This executes all the operations since
+    the matching StartSuperFileTransaction(). If there are any errors, then all
+    of the operations are rolled back.
     
-    Link : <None>
-    
-    FUNCTION : dataset(FsLogicalFileNameRecord) SuperFileContents(varstring superName, boolean recurse=FALSE)
+    ----------------------------------------------------------------------------------------------------------------------------------
+    FUNCTION : dataset(FsLogicalFileNameRecord) SuperFileContents(varstring superName, boolean
+               recurse=FALSE)
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Returns the list of sub-files contained within a superfile.
     
     Parameter : superName ||| The logical name of the superfile.
     
-    Parameter : recurse ||| Should the contents of child-superfiles be expanded.
-                Default is FALSE.
+    Parameter : recurse ||| Should the contents of child-
+                superfiles be expanded. Default is FALSE.
     
     Return : A dataset containing the names of the sub-files.
     
-    Link : <None>
-    
+    ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : dataset(FsLogicalFileNameRecord) LogicalFileSuperOwners(varstring name)
     ----------------------------------------------------------------------------------------------------------------------------------
     
-    Returns the list of superfiles that a logical file is contained
-    within.
+    Returns the list of superfiles that a logical file is contained within.
     
     Parameter : name ||| The name of the logical file.
     
     Return : A dataset containing the names of the superfiles.
     
-    Link : <None>
-    
+    ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : dataset(FsLogicalSuperSubRecord) LogicalFileSuperSubList()
     ----------------------------------------------------------------------------------------------------------------------------------
     
-    Returns the list of all the superfiles in the system and their
-    component sub-files.
+    Returns the list of all the superfiles in the system and their component
+    sub-files.
     
-    Return : A dataset containing pairs of superName,subName for each
-             component file.
+    Return : A dataset containing pairs of superName,subName
+             for each component file.
     
-    Link : <None>
-    
-    FUNCTION : varstring fPromoteSuperFileList(set of varstring superNames, varstring addHead='', boolean delTail=FALSE, boolean
-               createOnlyOne=FALSE, boolean reverse=FALSE)
+    ----------------------------------------------------------------------------------------------------------------------------------
+    FUNCTION : varstring fPromoteSuperFileList(set of varstring superNames, varstring addHead='',
+               boolean delTail=FALSE, boolean createOnlyOne=FALSE, boolean reverse=FALSE)
     ----------------------------------------------------------------------------------------------------------------------------------
     
-    Moves the sub-files from the first entry in the list of
-    superfiles to the next in the list, repeating the process through
-    the list of superfiles.
+    Moves the sub-files from the first entry in the list of superfiles to the
+    next in the list, repeating the process through the list of superfiles.
     
-    Parameter : superNames ||| A set of the names of the superfiles to act on.
-                Any that do not exist will be created. The contents of each
-                superfile will be moved to the next in the list.
+    Parameter : superNames ||| A set of the names of the
+                superfiles to act on. Any that do not exist will
+                be created. The contents of each superfile will be
+                moved to the next in the list.
     
-    Parameter : addHead ||| A string containing a comma-delimited list of logical
-                file names to add to the first superfile after the promotion
-                process is complete. Defaults to ''.
+    Parameter : addHead ||| A string containing a comma-delimited
+                list of logical file names to add to the first
+                superfile after the promotion process is complete.
+                Defaults to ''.
     
-    Parameter : delTail ||| Indicates whether to physically delete the contents
-                moved out of the last superfile. The default is FALSE.
-    
-    Parameter : createOnlyOne ||| Specifies whether to only create a single
-                superfile (truncate the list at the first non-existent
-                superfile). The default is FALSE.
-    
-    Parameter : reverse ||| Reverse the order of processing the superfiles list,
-                effectively 'demoting' instead of 'promoting' the sub-files. The
+    Parameter : delTail ||| Indicates whether to physically delete
+                the contents moved out of the last superfile. The
                 default is FALSE.
     
-    Return : A string containing a comma separated list of the previous sub-
-             file contents of the emptied superfile.
+    Parameter : createOnlyOne ||| Specifies whether to only create
+                a single superfile (truncate the list at the first
+                non-existent superfile). The default is FALSE.
     
-    Link : <None>
+    Parameter : reverse ||| Reverse the order of processing the
+                superfiles list, effectively 'demoting' instead of
+                'promoting' the sub-files. The default is FALSE.
     
-    FUNCTION : PromoteSuperFileList(set of varstring superNames, varstring addHead='', boolean delTail=FALSE, boolean
-               createOnlyOne=FALSE, boolean reverse=FALSE)
+    Return : A string containing a comma separated list of the
+             previous sub-file contents of the emptied
+             superfile.
+    
+    ----------------------------------------------------------------------------------------------------------------------------------
+    FUNCTION : PromoteSuperFileList(set of varstring superNames, varstring addHead='', boolean
+               delTail=FALSE, boolean createOnlyOne=FALSE, boolean reverse=FALSE)
     ----------------------------------------------------------------------------------------------------------------------------------
     
-    Same as fPromoteSuperFileList, but does not return the DFU
-    Workunit ID.
+    Same as fPromoteSuperFileList, but does not return the DFU Workunit ID.
     
     See : fPromoteSuperFileList
-    
-    Link : <None>
