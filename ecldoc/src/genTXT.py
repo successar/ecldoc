@@ -20,18 +20,12 @@ def _break(text, CPL_E) :
 
 class ParseTXT(object) :
 	def __init__(self, generator, ecl_file) :
-		self.input_root = generator.input_root
-		self.output_root = generator.output_root
-		self.ecl_file = ecl_file
-		self.xml_root = generator.xml_root
-		self.txt_root = generator.txt_root
-		self.xml_file = os.path.join(self.xml_root, (self.ecl_file + '.xml'))
-		self.txt_file = os.path.join(self.txt_root, (self.ecl_file + '.txt'))
-		os.makedirs(os.path.dirname(self.txt_file), exist_ok=True)
+		self.xml_file = os.path.join(generator.xml_root, ecl_file + '.xml')
+		self.txt_file = os.path.join(generator.txt_root, ecl_file + '.txt')
 		self.template = generator.content_template
-		parent = getRoot(generator.ecl_file_tree, ecl_file)
-		self.parent = parent
 		self.options = generator.options
+
+		os.makedirs(os.path.dirname(self.txt_file), exist_ok=True)
 
 	def parse(self) :
 		root = etree.parse(self.xml_file).getroot()
@@ -139,8 +133,7 @@ class GenTXT(object) :
 			if type(node[key]) != dict:
 				if key == 'bundle.ecl' :
 					continue
-				ecl_file = node[key]
-				parser = ParseTXT(self, ecl_file)
+				parser = ParseTXT(self, node[key])
 				parser.parse()
 				file = { 'name' : key, 'target' : key + '.txt', 'type' : 'file', 'doc' : parser.docstring() }
 				files.append(file)
@@ -151,13 +144,10 @@ class GenTXT(object) :
 				bundle = None
 				if 'bundle.ecl' in child :
 					bundle_xml_path = os.path.join(self.xml_root, os.path.dirname(child['bundle.ecl']), 'bundle.xml')
-					tree = etree.parse(bundle_xml_path)
-					bundle = tree.getroot()
+					bundle = etree.parse(bundle_xml_path).getroot()
 					file['type'] = 'bundle'
 
 				child_root = os.path.join(content_root, key)
-				root_relpath = os.path.relpath(self.output_root, child_root)
-				parent_relpath = os.path.relpath(content_root, child_root)
 				os.makedirs(child_root, exist_ok=True)
 
 				childfiles = self.gen(child, child_root)
@@ -176,12 +166,16 @@ class GenTXT(object) :
 
 
 	def genTXT(self) :
-		files = self.gen(self.ecl_file_tree['root'], self.txt_root)
-		files = sorted(files, key=lambda x : x['type'])
-		render = self.toc_template.render(name='root',
-										files=files,
-										parent='pkg.toc.txt',
-										output_root=os.path.relpath(self.output_root, self.txt_root))
+		child = self.ecl_file_tree['root']
+		bundle = None
+		if 'bundle.ecl' in child :
+			bundle_xml_path = os.path.join(self.xml_root, os.path.dirname(child['bundle.ecl']), 'bundle.xml')
+			bundle = etree.parse(bundle_xml_path).getroot()
+
+		childfiles = self.gen(child, self.txt_root)
+		childfiles = sorted(childfiles, key=lambda x : x['type'])
+
+		render = self.toc_template.render(name='root', files=childfiles,	bundle=bundle)
 		fp = open(os.path.join(self.txt_root, 'pkg.toc.txt'), 'w')
 		fp.write(render)
 		fp.close()

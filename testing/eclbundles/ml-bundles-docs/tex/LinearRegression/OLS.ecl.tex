@@ -1,0 +1,413 @@
+\chapter*{LinearRegression.OLS}
+\hypertarget{LinearRegression.OLS}{}
+
+\section*{\underline{IMPORTS}}
+\begin{itemize}
+\item ML\_Core
+\item ML\_Core.Types
+\item PBblas
+\item PBblas.Types
+\item PBblas.Converted
+\item PBblas.MatUtils
+\item ML\_Core.Math
+\end{itemize}
+
+\section*{\underline{DESCRIPTIONS}}
+\subsection*{module : OLS}
+\hypertarget{ecldoc:linearregression.ols}{MODULE : OLS(DATASET(NumericField) X=empty\_data, DATASET(NumericField) Y=empty\_data)} \\
+\hyperlink{ecldoc:}{Up} \\
+\par
+Ordinary Least Squares (OLS) Linear Regression aka Ordinary Linear Regression Regression learns a function that maps a set of input data (independents) to one or more output variables (dependents). The resulting learned function is known as the model. That model can then be used repetitively to predict (i.e. estimate) the output value(s) based on new input data. Two major use cases are supported: 1) Learn and return a model 2) Use an existing (e.g. persisted) model to predict new values for Y Of course, both can be done in a single run. Alternatively, the model can be persisted and used indefinitely for prediction of Y values, as long as the record format has not changed, and the original training data remains representative of the population. OLS supports any number of independent variables (Multiple Regression) and multiple dependent variables (Multivariate Regression). In this way, multiple variables' values can be predicted from the same input (i.e. independent) data. Training data is presented as parameters to this module. When using a previously persisted model (use case 2 above), these parameters should be omitted. This module provides a rich set of analytics to assess the usefulness of the resulting linear regression model, and to determine the best subset of independent variables to include in the model. These include: For the whole model: - Analysis of Variance (ANOVA) - R-squared - Adjusted R-squared - F-Test - Akaike Information Criterion (AIC) For each coefficient: - Standard Error (SE) - T-statistic - P-value - Confidence Interval \\
+\textbf{Parameter} : X ||| The independent variable training data in DATASET(NumericField) format. Each observation (e.g. record) is identified by 'id', and each feature is identified by field number (i.e. 'number'). Omit this parameter when predicting from a persisted model. \\
+\textbf{Parameter} : Y ||| The dependent variable training data in DATASET(NumericField) format. Each observation (e.g. record) is identified by 'id', and each feature is identified by field number. Omit this parameter when predicting from a persisted model. \\
+\begin{enumerate}
+\item \hyperlink{ecldoc:linearregression.ols.getmodel}{GetModel}
+\item \hyperlink{ecldoc:linearregression.ols.betas}{Betas}
+\item \hyperlink{ecldoc:linearregression.ols.predict}{Predict}
+\item \hyperlink{ecldoc:linearregression.ols.makersq}{makeRSQ}
+\item \hyperlink{ecldoc:linearregression.ols.rsquared}{RSquared}
+\item \hyperlink{ecldoc:linearregression.ols.anovarec}{AnovaRec}
+\item \hyperlink{ecldoc:linearregression.ols.calcanova}{calcAnova}
+\item \hyperlink{ecldoc:linearregression.ols.anova}{Anova}
+\item \hyperlink{ecldoc:linearregression.ols.se}{SE}
+\item \hyperlink{ecldoc:linearregression.ols.tstat}{TStat}
+\item \hyperlink{ecldoc:linearregression.ols.adjrsquared}{AdjRSquared}
+\item \hyperlink{ecldoc:linearregression.ols.aicrec}{AICRec}
+\item \hyperlink{ecldoc:linearregression.ols.aic}{AIC}
+\item \hyperlink{ecldoc:linearregression.ols.rangevec}{RangeVec}
+\item \hyperlink{ecldoc:linearregression.ols.distributionbase}{DistributionBase}
+\item \hyperlink{ecldoc:linearregression.ols.tdistribution}{TDistribution}
+\item \hyperlink{ecldoc:linearregression.ols.fdistribution}{FDistribution}
+\item \hyperlink{ecldoc:linearregression.ols.normaldistribution}{NormalDistribution}
+\item \hyperlink{ecldoc:linearregression.ols.pval}{pVal}
+\item \hyperlink{ecldoc:linearregression.ols.confintrec}{ConfintRec}
+\item \hyperlink{ecldoc:linearregression.ols.confint}{ConfInt}
+\item \hyperlink{ecldoc:linearregression.ols.ftestrec}{FTestRec}
+\item \hyperlink{ecldoc:linearregression.ols.ftest}{FTest}
+\end{enumerate}
+\subsection*{attribute : GetModel}
+\hypertarget{ecldoc:linearregression.ols.getmodel}{ATTRIBUTE : DATASET(Layout\_Model) GetModel} \\
+\hyperlink{ecldoc:linearregression.ols}{Up} \\
+\par
+GetModel Returns the learned model that maps X's to Y's. In the case of OLS, the model represents a set of Betas which are the coefficients of the linear model: Beta0 * 1 + Beta1 * Field1 + Beta2 * Field2 \ldots The ID of each model record specifies to which Y variable the coefficient applies. The Field Number ('number') indicates to which field of X the beta is to be applied. Field number 1 provides the intercept portion of the linear model and is always multiplied by 1. Note that if multiple work-items are provided within X and Y, there will be multiple models returned. The models can be separated by their work item id (i.e. 'wi'). A single model can be extracted from a myriad model by using e.g., model(wi=myWI\_id). GetModel should not be called when predicting using a previously persisted model (i.e. when training data was not passed to the module. \\
+\textbf{Return} : Model in DATASET(Layout\_Model) format \\
+\textbf{See} : ML\_core/Types.Layout\_Model \\
+\textbf{OVERRIDE} : True \\
+\subsection*{function : Betas}
+\hypertarget{ecldoc:linearregression.ols.betas}{FUNCTION : DATASET(NumericField) Betas(DATASET(Layout\_Model) model=GetModel)} \\
+\hyperlink{ecldoc:linearregression.ols}{Up} \\
+\par
+Return raw Beta values as numeric fields Extracts Beta values from the model. Can be used during training and prediction phases. For use during training phase, the 'model' parameter can be omitted. GetModel will be called to retrieve the model based on the training data. For use during prediction phase, a previously persisted model should be provided. The 'number' field of the returned NumericField records specifies to which Y the coefficient applies. The 'id' field of the returned record indicates the position of the Beta value. ID = 1 provides the Beta for the constant term (i.e. the Y intercept) while subsequent values reflect the Beta for each correspondingly numbered X feature. Feature 1 corresponds to Beta with 'id' = 2 and so on. If 'model' contains multiple work-items, Separate sets of Betas will be returned for each of the 'myriad' models (distinguished by 'wi'). \\
+\textbf{Parameter} : model ||| Optional parameter provides a model that was previously retrieved using GetModel. If omitted, GetModel will be used as the model. \\
+\textbf{Return} : DATASET(NumericField) containing the Beta values. \\
+\subsection*{function : Predict}
+\hypertarget{ecldoc:linearregression.ols.predict}{FUNCTION : DATASET(NumericField) Predict(DATASET(NumericField) newX, DATASET(Layout\_Model) model=GetModel)} \\
+\hyperlink{ecldoc:linearregression.ols}{Up} \\
+\par
+Predict the dependent variable values (Y) for any set of independent variables (X). Returns a predicted Y values for each observation (i.e. record) of X. This supports the 'myriad' style interface in that multiple independent work items may be present in 'newX', and multiple independent models may be provided in 'model'. The resulting predicted values will also be separable by work item (i.e. wi). \\
+\textbf{Parameter} : newX ||| The set of observations of independent variables in DATASET(NumericField) format. \\
+\textbf{Parameter} : model ||| Optional. A model that was previously returned from GetModel (above). Note that a model from a previous run will only be valid if the field numbers in X are the same as when the model was learned. If this parameter is omitted, the current model will be used. \\
+\textbf{Return} : An estimation of the corresponding Y value for each observation of newX. Returned in DATASET(NumericField) format with field number (i.e. 'number') indicating the dependent variable that is predicted. \\
+\textbf{OVERRIDE} : True \\
+\subsection*{transform : makeRSQ}
+\hypertarget{ecldoc:linearregression.ols.makersq}{TRANSFORM : R2Rec makeRSQ(CoCoRec coco)} \\
+\hyperlink{ecldoc:linearregression.ols}{Up} \\
+\par
+\subsection*{attribute : RSquared}
+\hypertarget{ecldoc:linearregression.ols.rsquared}{ATTRIBUTE : DATASET(R2Rec) RSquared} \\
+\hyperlink{ecldoc:linearregression.ols}{Up} \\
+\par
+RSquared Calculate the R-Squared Metric used to assess the fit of the regression line to the training data. Since the regression has chosen the best (i.e. least squared error) line matching the data, this can be thought of as a measurement of the linearity of the training data. R Squared generally varies between 0 and 1, with 1 indicating an exact linear fit, and 0 indicating that a linear fit will have no predictive power. Negative values are possible under certain conditions, and indicate that the mean(Y) will be more predictive than any linear fit. Moderate values of R squared (e.g. .5) may indicate that the relationship of X -> Y is non-linear, or that the measurement error is high relative to the linear correlation (e.g. many outliers). In the former case, increasing the dimensionality of X, such as by using polynomial variants of the features, may yield a better fit. R squared always increases when additional independent variables are added, so it should not be used to determine the optimal set of X variables to include. For that purpose, use Adjusted R Squared (below) which penalizes larger numbers of variables. Note that the result of this call is only meaningful during training phase (use case 1 above) as it is an analysis based on the training data which is not provided during a prediction-only phase. \\
+\textbf{Return} : DATASET(R2Rec) with one record per dependent variable, per work-item. The number field indicates the dependent variable and coresponds to the number field of the dependent (Y) variable to which it applies. \\
+\subsection*{record : AnovaRec}
+\hypertarget{ecldoc:linearregression.ols.anovarec}{RECORD : AnovaRec} \\
+\hyperlink{ecldoc:linearregression.ols}{Up} \\
+\par
+\subsection*{transform : calcAnova}
+\hypertarget{ecldoc:linearregression.ols.calcanova}{TRANSFORM : AnovaRec calcAnova(tmpRec le)} \\
+\hyperlink{ecldoc:linearregression.ols}{Up} \\
+\par
+\subsection*{attribute : Anova}
+\hypertarget{ecldoc:linearregression.ols.anova}{ATTRIBUTE : Anova} \\
+\hyperlink{ecldoc:linearregression.ols}{Up} \\
+\par
+ANOVA (Analysis of Variance) report Analyzes the sources of variance. Basic ANOVA equality: Model + Error = Total Determines how much of the variance of Y is explained by the regression model, versus how much is due to the error term (i.e. unexplained variance). This attribute is only meaningful during the training phase. Provides one record per work-item. Each record provides the following statistics: - Total\_SS -- Total Sum of Squares (SS) variance of the dependent data - Model\_SS -- The SS variance represented within the model - Error\_SS -- The SS variance not reflected by the model (i.e. Total\_SS - Error\_SS) - Total\_DF -- The total degrees of freedom within the dependent data - Model\_DF -- Degrees of freedom of the model - Error\_DF -- Degrees of freedom of the error component - Total\_MS -- The Mean Square (MS) variance of the dependent data - Model\_MS -- The Mean Square (MS) variance represented within the model - Error\_MS -- The MS variance not reflected by the model - Model\_F -- The F-Test statistic: Model\_MS / Error\_MS \\
+\textbf{Return} : DATASET(AnovaRec), one per work-item per dependent (Y) variable The number field indicates the dependent variable to which the analysis applies. \\
+\subsection*{attribute : SE}
+\hypertarget{ecldoc:linearregression.ols.se}{ATTRIBUTE : DATASET(NumericField) SE} \\
+\hyperlink{ecldoc:linearregression.ols}{Up} \\
+\par
+Standard Error of the Regression Coefficients Describes the variability of the regression error for each coefficient. Only meaningful during the training phase. \\
+\textbf{Return} : DATASET(NumericField), one record per Beta coefficient per dependent variable per work-item. The 'id' field is the coefficient number, with 1 being the Y intercept, 2 being the coefficient for the first feature, etc. The 'number' field indicates the dependent variable to which the coefficient applies. \\
+\subsection*{attribute : TStat}
+\hypertarget{ecldoc:linearregression.ols.tstat}{ATTRIBUTE : DATASET(NumericField) TStat} \\
+\hyperlink{ecldoc:linearregression.ols}{Up} \\
+\par
+T-Statistic The T-statistic identifies the significance of the value of each regression coefficient. Its calculation is simply the value of the coefficient divided by the Standard Error of the coefficient. A larger absolute value of the T-statistic indicates that the coefficient is more significant. Only meaningful during the training phase. \\
+\textbf{Return} : DATSET(NumericField), one record per Beta coefficient per dependent variable per work-item. The 'id' field is the coefficient number, with 1 being the Y intercept, 2 being the coefficient for the first feature, etc. The number field indicates the dependent variable to which the coefficient applies. \\
+\subsection*{attribute : AdjRSquared}
+\hypertarget{ecldoc:linearregression.ols.adjrsquared}{ATTRIBUTE : DATASET(R2Rec) AdjRSquared} \\
+\hyperlink{ecldoc:linearregression.ols}{Up} \\
+\par
+Adjusted R2 Calculate Adjusted R Squared which is a scaled version of R Squared that does not arbitrarily increase with the number of features. Adjusted R2, rather than R2 should always be used when trying to determine the best set of features to include in a model. When adding features, R2 will always increase, whether or not it improves the predictive power of the model. Adjusted R2, however, will only increase with the predictive power of the model. \\
+\textbf{Return} : DATASET(R2Rec), one record per dependent variable per work-item. The number field indicates the dependent variable and corresponds to the number field of the dependent (Y) variable to which it applies. \\
+\subsection*{record : AICRec}
+\hypertarget{ecldoc:linearregression.ols.aicrec}{RECORD : AICRec} \\
+\hyperlink{ecldoc:linearregression.ols}{Up} \\
+\par
+\subsection*{attribute : AIC}
+\hypertarget{ecldoc:linearregression.ols.aic}{ATTRIBUTE : DATASET(AICRec) AIC} \\
+\hyperlink{ecldoc:linearregression.ols}{Up} \\
+\par
+Akaike Information Criterion (AIC) Information theory based criterion for assessing Goodness of Fit (GOF). Lower values mean better fit. \\
+\textbf{Return} : DATASET(AICRec), one record per dependent variable per work-item. The number field indicates the dependent variable and corresponds to the number field of the dependent (Y) variable to which it applies. \\
+\subsection*{record : RangeVec}
+\hypertarget{ecldoc:linearregression.ols.rangevec}{RECORD : RangeVec} \\
+\hyperlink{ecldoc:linearregression.ols}{Up} \\
+\par
+\subsection*{module : DistributionBase}
+\hypertarget{ecldoc:linearregression.ols.distributionbase}{MODULE : DistributionBase(t\_Count Nranges = 10000)} \\
+\hyperlink{ecldoc:linearregression.ols}{Up} \\
+\par
+\begin{enumerate}
+\item \hyperlink{ecldoc:linearregression.ols.distributionbase.low}{Low}
+\item \hyperlink{ecldoc:linearregression.ols.distributionbase.high}{High}
+\item \hyperlink{ecldoc:linearregression.ols.distributionbase.density}{Density}
+\item \hyperlink{ecldoc:linearregression.ols.distributionbase.rangewidth}{RangeWidth}
+\item \hyperlink{ecldoc:linearregression.ols.distributionbase.densityv}{DensityV}
+\item \hyperlink{ecldoc:linearregression.ols.distributionbase.cumulativev}{CumulativeV}
+\item \hyperlink{ecldoc:linearregression.ols.distributionbase.cumulative}{Cumulative}
+\item \hyperlink{ecldoc:linearregression.ols.distributionbase.ntile}{NTile}
+\item \hyperlink{ecldoc:linearregression.ols.distributionbase.invdensity}{InvDensity}
+\item \hyperlink{ecldoc:linearregression.ols.distributionbase.discrete}{Discrete}
+\end{enumerate}
+\subsection*{attribute : Low}
+\hypertarget{ecldoc:linearregression.ols.distributionbase.low}{ATTRIBUTE : Low} \\
+\hyperlink{ecldoc:linearregression.ols.distributionbase}{Up} \\
+\par
+\subsection*{attribute : High}
+\hypertarget{ecldoc:linearregression.ols.distributionbase.high}{ATTRIBUTE : High} \\
+\hyperlink{ecldoc:linearregression.ols.distributionbase}{Up} \\
+\par
+\subsection*{function : Density}
+\hypertarget{ecldoc:linearregression.ols.distributionbase.density}{FUNCTION : t\_FieldReal Density(t\_FieldReal t)} \\
+\hyperlink{ecldoc:linearregression.ols.distributionbase}{Up} \\
+\par
+\subsection*{attribute : RangeWidth}
+\hypertarget{ecldoc:linearregression.ols.distributionbase.rangewidth}{ATTRIBUTE : RangeWidth} \\
+\hyperlink{ecldoc:linearregression.ols.distributionbase}{Up} \\
+\par
+\subsection*{function : DensityV}
+\hypertarget{ecldoc:linearregression.ols.distributionbase.densityv}{FUNCTION : DATASET(RangeVec) DensityV()} \\
+\hyperlink{ecldoc:linearregression.ols.distributionbase}{Up} \\
+\par
+\subsection*{function : CumulativeV}
+\hypertarget{ecldoc:linearregression.ols.distributionbase.cumulativev}{FUNCTION : CumulativeV()} \\
+\hyperlink{ecldoc:linearregression.ols.distributionbase}{Up} \\
+\par
+\subsection*{function : Cumulative}
+\hypertarget{ecldoc:linearregression.ols.distributionbase.cumulative}{FUNCTION : t\_FieldReal Cumulative(t\_FieldReal t)} \\
+\hyperlink{ecldoc:linearregression.ols.distributionbase}{Up} \\
+\par
+\subsection*{function : NTile}
+\hypertarget{ecldoc:linearregression.ols.distributionbase.ntile}{FUNCTION : t\_FieldReal NTile(t\_FieldReal Pc)} \\
+\hyperlink{ecldoc:linearregression.ols.distributionbase}{Up} \\
+\par
+\subsection*{function : InvDensity}
+\hypertarget{ecldoc:linearregression.ols.distributionbase.invdensity}{FUNCTION : InvDensity(t\_FieldReal delta)} \\
+\hyperlink{ecldoc:linearregression.ols.distributionbase}{Up} \\
+\par
+\subsection*{attribute : Discrete}
+\hypertarget{ecldoc:linearregression.ols.distributionbase.discrete}{ATTRIBUTE : Discrete} \\
+\hyperlink{ecldoc:linearregression.ols.distributionbase}{Up} \\
+\par
+
+\subsection*{module : TDistribution}
+\hypertarget{ecldoc:linearregression.ols.tdistribution}{MODULE : TDistribution(t\_Discrete v\_in,t\_Count NRanges = 10000)} \\
+\hyperlink{ecldoc:linearregression.ols}{Up} \\
+\par
+\begin{enumerate}
+\item \hyperlink{ecldoc:linearregression.ols.distributionbase.densityv}{DensityV}
+\item \hyperlink{ecldoc:linearregression.ols.distributionbase.ntile}{NTile}
+\item \hyperlink{ecldoc:linearregression.ols.distributionbase.discrete}{Discrete}
+\item \hyperlink{ecldoc:linearregression.ols.tdistribution.invdensity}{InvDensity}
+\item \hyperlink{ecldoc:linearregression.ols.tdistribution.high}{High}
+\item \hyperlink{ecldoc:linearregression.ols.tdistribution.low}{Low}
+\item \hyperlink{ecldoc:linearregression.ols.tdistribution.rangewidth}{RangeWidth}
+\item \hyperlink{ecldoc:linearregression.ols.tdistribution.density}{Density}
+\item \hyperlink{ecldoc:linearregression.ols.tdistribution.cumulativev}{CumulativeV}
+\item \hyperlink{ecldoc:linearregression.ols.tdistribution.cumulative}{Cumulative}
+\end{enumerate}
+\subsection*{function : DensityV}
+\hypertarget{ecldoc:linearregression.ols.distributionbase.densityv}{FUNCTION : DATASET(RangeVec) DensityV()} \\
+\hyperlink{ecldoc:linearregression.ols.tdistribution}{Up} \\
+\par
+\textbf{OVERRIDE} : True \\
+\subsection*{function : NTile}
+\hypertarget{ecldoc:linearregression.ols.distributionbase.ntile}{FUNCTION : t\_FieldReal NTile(t\_FieldReal Pc)} \\
+\hyperlink{ecldoc:linearregression.ols.tdistribution}{Up} \\
+\par
+\textbf{OVERRIDE} : True \\
+\subsection*{attribute : Discrete}
+\hypertarget{ecldoc:linearregression.ols.distributionbase.discrete}{ATTRIBUTE : Discrete} \\
+\hyperlink{ecldoc:linearregression.ols.tdistribution}{Up} \\
+\par
+\textbf{INHERITED} : True \\
+\subsection*{function : InvDensity}
+\hypertarget{ecldoc:linearregression.ols.tdistribution.invdensity}{FUNCTION : InvDensity(t\_FieldReal delta)} \\
+\hyperlink{ecldoc:linearregression.ols.tdistribution}{Up} \\
+\par
+\textbf{OVERRIDE} : True \\
+\subsection*{attribute : High}
+\hypertarget{ecldoc:linearregression.ols.tdistribution.high}{ATTRIBUTE : High} \\
+\hyperlink{ecldoc:linearregression.ols.tdistribution}{Up} \\
+\par
+\textbf{OVERRIDE} : True \\
+\subsection*{attribute : Low}
+\hypertarget{ecldoc:linearregression.ols.tdistribution.low}{ATTRIBUTE : Low} \\
+\hyperlink{ecldoc:linearregression.ols.tdistribution}{Up} \\
+\par
+\textbf{INHERITED} : True \\
+\subsection*{attribute : RangeWidth}
+\hypertarget{ecldoc:linearregression.ols.tdistribution.rangewidth}{ATTRIBUTE : RangeWidth} \\
+\hyperlink{ecldoc:linearregression.ols.tdistribution}{Up} \\
+\par
+\textbf{OVERRIDE} : True \\
+\subsection*{function : Density}
+\hypertarget{ecldoc:linearregression.ols.tdistribution.density}{FUNCTION : t\_FieldReal Density(t\_FieldReal t)} \\
+\hyperlink{ecldoc:linearregression.ols.tdistribution}{Up} \\
+\par
+\textbf{OVERRIDE} : True \\
+\subsection*{function : CumulativeV}
+\hypertarget{ecldoc:linearregression.ols.tdistribution.cumulativev}{FUNCTION : CumulativeV()} \\
+\hyperlink{ecldoc:linearregression.ols.tdistribution}{Up} \\
+\par
+\textbf{OVERRIDE} : True \\
+\subsection*{function : Cumulative}
+\hypertarget{ecldoc:linearregression.ols.tdistribution.cumulative}{FUNCTION : t\_FieldReal Cumulative(t\_FieldReal t)} \\
+\hyperlink{ecldoc:linearregression.ols.tdistribution}{Up} \\
+\par
+\textbf{OVERRIDE} : True \\
+
+\subsection*{module : FDistribution}
+\hypertarget{ecldoc:linearregression.ols.fdistribution}{MODULE : FDistribution(t\_Discrete d1\_in, t\_Discrete d2\_in, t\_Count NRanges = 10000)} \\
+\hyperlink{ecldoc:linearregression.ols}{Up} \\
+\par
+\begin{enumerate}
+\item \hyperlink{ecldoc:linearregression.ols.distributionbase.densityv}{DensityV}
+\item \hyperlink{ecldoc:linearregression.ols.distributionbase.cumulativev}{CumulativeV}
+\item \hyperlink{ecldoc:linearregression.ols.distributionbase.cumulative}{Cumulative}
+\item \hyperlink{ecldoc:linearregression.ols.distributionbase.ntile}{NTile}
+\item \hyperlink{ecldoc:linearregression.ols.distributionbase.invdensity}{InvDensity}
+\item \hyperlink{ecldoc:linearregression.ols.distributionbase.discrete}{Discrete}
+\item \hyperlink{ecldoc:linearregression.ols.fdistribution.low}{Low}
+\item \hyperlink{ecldoc:linearregression.ols.fdistribution.high}{High}
+\item \hyperlink{ecldoc:linearregression.ols.fdistribution.rangewidth}{RangeWidth}
+\item \hyperlink{ecldoc:linearregression.ols.fdistribution.density}{Density}
+\end{enumerate}
+\subsection*{function : DensityV}
+\hypertarget{ecldoc:linearregression.ols.distributionbase.densityv}{FUNCTION : DATASET(RangeVec) DensityV()} \\
+\hyperlink{ecldoc:linearregression.ols.fdistribution}{Up} \\
+\par
+\textbf{OVERRIDE} : True \\
+\subsection*{function : CumulativeV}
+\hypertarget{ecldoc:linearregression.ols.distributionbase.cumulativev}{FUNCTION : CumulativeV()} \\
+\hyperlink{ecldoc:linearregression.ols.fdistribution}{Up} \\
+\par
+\textbf{OVERRIDE} : True \\
+\subsection*{function : Cumulative}
+\hypertarget{ecldoc:linearregression.ols.distributionbase.cumulative}{FUNCTION : t\_FieldReal Cumulative(t\_FieldReal t)} \\
+\hyperlink{ecldoc:linearregression.ols.fdistribution}{Up} \\
+\par
+\textbf{OVERRIDE} : True \\
+\subsection*{function : NTile}
+\hypertarget{ecldoc:linearregression.ols.distributionbase.ntile}{FUNCTION : t\_FieldReal NTile(t\_FieldReal Pc)} \\
+\hyperlink{ecldoc:linearregression.ols.fdistribution}{Up} \\
+\par
+\textbf{OVERRIDE} : True \\
+\subsection*{function : InvDensity}
+\hypertarget{ecldoc:linearregression.ols.distributionbase.invdensity}{FUNCTION : InvDensity(t\_FieldReal delta)} \\
+\hyperlink{ecldoc:linearregression.ols.fdistribution}{Up} \\
+\par
+\textbf{INHERITED} : True \\
+\subsection*{attribute : Discrete}
+\hypertarget{ecldoc:linearregression.ols.distributionbase.discrete}{ATTRIBUTE : Discrete} \\
+\hyperlink{ecldoc:linearregression.ols.fdistribution}{Up} \\
+\par
+\textbf{INHERITED} : True \\
+\subsection*{attribute : Low}
+\hypertarget{ecldoc:linearregression.ols.fdistribution.low}{ATTRIBUTE : Low} \\
+\hyperlink{ecldoc:linearregression.ols.fdistribution}{Up} \\
+\par
+\textbf{INHERITED} : True \\
+\subsection*{attribute : High}
+\hypertarget{ecldoc:linearregression.ols.fdistribution.high}{ATTRIBUTE : High} \\
+\hyperlink{ecldoc:linearregression.ols.fdistribution}{Up} \\
+\par
+\textbf{OVERRIDE} : True \\
+\subsection*{attribute : RangeWidth}
+\hypertarget{ecldoc:linearregression.ols.fdistribution.rangewidth}{ATTRIBUTE : RangeWidth} \\
+\hyperlink{ecldoc:linearregression.ols.fdistribution}{Up} \\
+\par
+\textbf{OVERRIDE} : True \\
+\subsection*{function : Density}
+\hypertarget{ecldoc:linearregression.ols.fdistribution.density}{FUNCTION : t\_FieldReal Density(t\_FieldReal t)} \\
+\hyperlink{ecldoc:linearregression.ols.fdistribution}{Up} \\
+\par
+\textbf{OVERRIDE} : True \\
+
+\subsection*{module : NormalDistribution}
+\hypertarget{ecldoc:linearregression.ols.normaldistribution}{MODULE : NormalDistribution(t\_Count NRanges)} \\
+\hyperlink{ecldoc:linearregression.ols}{Up} \\
+\par
+\begin{enumerate}
+\item \hyperlink{ecldoc:linearregression.ols.distributionbase.low}{Low}
+\item \hyperlink{ecldoc:linearregression.ols.distributionbase.high}{High}
+\item \hyperlink{ecldoc:linearregression.ols.distributionbase.rangewidth}{RangeWidth}
+\item \hyperlink{ecldoc:linearregression.ols.distributionbase.densityv}{DensityV}
+\item \hyperlink{ecldoc:linearregression.ols.distributionbase.cumulativev}{CumulativeV}
+\item \hyperlink{ecldoc:linearregression.ols.distributionbase.cumulative}{Cumulative}
+\item \hyperlink{ecldoc:linearregression.ols.distributionbase.ntile}{NTile}
+\item \hyperlink{ecldoc:linearregression.ols.distributionbase.invdensity}{InvDensity}
+\item \hyperlink{ecldoc:linearregression.ols.distributionbase.discrete}{Discrete}
+\item \hyperlink{ecldoc:linearregression.ols.normaldistribution.density}{Density}
+\end{enumerate}
+\subsection*{attribute : Low}
+\hypertarget{ecldoc:linearregression.ols.distributionbase.low}{ATTRIBUTE : Low} \\
+\hyperlink{ecldoc:linearregression.ols.normaldistribution}{Up} \\
+\par
+\textbf{INHERITED} : True \\
+\subsection*{attribute : High}
+\hypertarget{ecldoc:linearregression.ols.distributionbase.high}{ATTRIBUTE : High} \\
+\hyperlink{ecldoc:linearregression.ols.normaldistribution}{Up} \\
+\par
+\textbf{INHERITED} : True \\
+\subsection*{attribute : RangeWidth}
+\hypertarget{ecldoc:linearregression.ols.distributionbase.rangewidth}{ATTRIBUTE : RangeWidth} \\
+\hyperlink{ecldoc:linearregression.ols.normaldistribution}{Up} \\
+\par
+\textbf{OVERRIDE} : True \\
+\subsection*{function : DensityV}
+\hypertarget{ecldoc:linearregression.ols.distributionbase.densityv}{FUNCTION : DATASET(RangeVec) DensityV()} \\
+\hyperlink{ecldoc:linearregression.ols.normaldistribution}{Up} \\
+\par
+\textbf{OVERRIDE} : True \\
+\subsection*{function : CumulativeV}
+\hypertarget{ecldoc:linearregression.ols.distributionbase.cumulativev}{FUNCTION : CumulativeV()} \\
+\hyperlink{ecldoc:linearregression.ols.normaldistribution}{Up} \\
+\par
+\textbf{OVERRIDE} : True \\
+\subsection*{function : Cumulative}
+\hypertarget{ecldoc:linearregression.ols.distributionbase.cumulative}{FUNCTION : t\_FieldReal Cumulative(t\_FieldReal t)} \\
+\hyperlink{ecldoc:linearregression.ols.normaldistribution}{Up} \\
+\par
+\textbf{OVERRIDE} : True \\
+\subsection*{function : NTile}
+\hypertarget{ecldoc:linearregression.ols.distributionbase.ntile}{FUNCTION : t\_FieldReal NTile(t\_FieldReal Pc)} \\
+\hyperlink{ecldoc:linearregression.ols.normaldistribution}{Up} \\
+\par
+\textbf{OVERRIDE} : True \\
+\subsection*{function : InvDensity}
+\hypertarget{ecldoc:linearregression.ols.distributionbase.invdensity}{FUNCTION : InvDensity(t\_FieldReal delta)} \\
+\hyperlink{ecldoc:linearregression.ols.normaldistribution}{Up} \\
+\par
+\textbf{INHERITED} : True \\
+\subsection*{attribute : Discrete}
+\hypertarget{ecldoc:linearregression.ols.distributionbase.discrete}{ATTRIBUTE : Discrete} \\
+\hyperlink{ecldoc:linearregression.ols.normaldistribution}{Up} \\
+\par
+\textbf{INHERITED} : True \\
+\subsection*{function : Density}
+\hypertarget{ecldoc:linearregression.ols.normaldistribution.density}{FUNCTION : t\_FieldReal Density(t\_FieldReal t)} \\
+\hyperlink{ecldoc:linearregression.ols.normaldistribution}{Up} \\
+\par
+\textbf{OVERRIDE} : True \\
+
+\subsection*{attribute : pVal}
+\hypertarget{ecldoc:linearregression.ols.pval}{ATTRIBUTE : pVal} \\
+\hyperlink{ecldoc:linearregression.ols}{Up} \\
+\par
+P-Value Calculate the P-value for each coefficient, which is the probability that the coefficient is insignificant (i.e. actually zero). A low P-value (e.g. .05) provides evidence that the coefficient is significant in the model. A high P-value indicates that the coefficient value should, in fact, be zero. P-value is related to the T-Statistic, and can be thought of as a normalized version of the T-Statistic. Only meaningful during the training phase. \\
+\textbf{Return} : DATSET(NumericField), one record per Beta coefficient per dependent variable per work-item. The 'id' field is the coefficient number, with 1 being the Y intercept, 2 being the coefficient for the first feature, etc. The number field indicates the dependent variable and corresponds to the number field of the dependent (Y) variable to which it applies. \\
+\subsection*{record : ConfintRec}
+\hypertarget{ecldoc:linearregression.ols.confintrec}{RECORD : ConfintRec} \\
+\hyperlink{ecldoc:linearregression.ols}{Up} \\
+\par
+\subsection*{function : ConfInt}
+\hypertarget{ecldoc:linearregression.ols.confint}{FUNCTION : ConfInt(Types.t\_fieldReal level)} \\
+\hyperlink{ecldoc:linearregression.ols}{Up} \\
+\par
+Confidence Interval The Confidence Interval determines the upper and lower bounds of each estimated coefficient given a confidence level (level) that is required. For example, one could say that there is a 95\% probability (level) that the coefficient of the first independent variable is between 2.05 and 3.62. This allows error margins to be determined with the desired confidence level. If the confidence interval spans zero, it implies that the coefficient may not be significant at the specified confidence level. \\
+\textbf{Parameter} : level ||| The level of confidence required, expressed as a percentage from 0.0 to 100.0 \\
+\textbf{Return} : DATASET(ConfintRec) with one record per coefficient per dependent variable per work-item. The 'id' field is the coefficient number, with 1 being the Y intercept, 2 being the coefficient for the first feature, etc. The number field indicates the dependent variable and corresponds to the number field of the dependent (Y) variable to which it applies. \\
+\subsection*{record : FTestRec}
+\hypertarget{ecldoc:linearregression.ols.ftestrec}{RECORD : FTestRec} \\
+\hyperlink{ecldoc:linearregression.ols}{Up} \\
+\par
+\subsection*{attribute : FTest}
+\hypertarget{ecldoc:linearregression.ols.ftest}{ATTRIBUTE : DATASET(FTestRec) FTest} \\
+\hyperlink{ecldoc:linearregression.ols}{Up} \\
+\par
+F-Test Calculate the P-value for the full regression, which is the probability that all of the coefficients are insignificant (i.e. actually zero). A low P-value (e.g. .05) provides evidence that at least one coefficient is significant. A high P-value indicates that all the coefficient values should in fact be zero, implying that the regression has no statistically significant predictive power. P-value is related to the ANOVA F-Statistic, and can be thought of as a standardized version of the ANOVA F-Statistic. The F-Test and T-Test are similar, except that the T-test is used to test the significance of each coefficient, while the F-Test is used to test the significance of the entire regression. For simple linear regression (i.e. only one independent variable, the T-Test and F-Test are equivalent. \\
+\textbf{Return} : DATASET(FTestRec), one record per dependent variable per work-item. The number field indicates the dependent variable and corresponds to the number field of the dependent (Y) variable to which it applies. \\
+

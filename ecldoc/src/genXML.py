@@ -2,9 +2,11 @@ import os
 import re
 import subprocess
 from copy import deepcopy
+
 from lxml import etree
 from lxml.builder import E
 from Utils import genPathTree
+
 from parseDoc import parseDocstring
 
 class ParseXML(object) :
@@ -16,8 +18,8 @@ class ParseXML(object) :
 		self.xml_orig_root = generator.xml_orig_root
 
 		self.input_file = os.path.join(self.input_root, ecl_file)
-		self.xml_orig_file = os.path.join(self.xml_orig_root, (ecl_file + '.xml'))
-		self.xml_file = os.path.join(self.xml_root, (ecl_file + '.xml'))
+		self.xml_orig_file = os.path.join(self.xml_orig_root, ecl_file + '.xml')
+		self.xml_file = os.path.join(self.xml_root, ecl_file + '.xml')
 		self.xml_dir = os.path.dirname(self.xml_file)
 
 

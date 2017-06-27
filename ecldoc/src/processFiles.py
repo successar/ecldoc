@@ -2,7 +2,7 @@ import os
 import glob
 import argparse
 import configparser
-import genXML, genHTML, genTXT
+import genXML, genHTML, genTXT, genTEX
 
 def doMain() :
     parser = argparse.ArgumentParser(description='Parser for ECLDOC')
@@ -45,9 +45,10 @@ def doMain() :
         if not os.path.exists(output_root) :
             os.makedirs(output_root, exist_ok=True)
 
-        genXML.GenXML(input_root, output_root, ecl_files, options).genXML()
-        genHTML.GenHTML(input_root, output_root, ecl_files, options).genHTML()
-        genTXT.GenTXT(input_root, output_root, ecl_files, options).genTXT()
+        #genXML.GenXML(input_root, output_root, ecl_files, options).genXML()
+        #genHTML.GenHTML(input_root, output_root, ecl_files, options).genHTML()
+        #genTXT.GenTXT(input_root, output_root, ecl_files, options).genTXT()
+        genTEX.GenTEX(input_root, output_root, ecl_files, options).genTEX()
 
 if __name__ == '__main__' :
     doMain()

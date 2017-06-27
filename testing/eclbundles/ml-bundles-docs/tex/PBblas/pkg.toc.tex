@@ -1,0 +1,48 @@
+\chapter*{PBblas}
+\hypertarget{PBblas}{}
+
+Name : PBblas
+Version : 3.0.1
+Description : Parallel Block Basic Linear Algebra Subsystem
+License : http://www.apache.org/licenses/LICENSE-2.0
+Copyright : Copyright (C) 2016, 2017 HPCC Systems
+Authors : HPCCSystems
+DependsOn : ML\_Core
+Platform : 6.2.0
+
+\section*{Table of Contents}
+file : \hyperlink{PBblas.ExtractTri}{ExtractTri.ecl}  Extract the upper or lower triangle from the composite output from getrf (LU Factorization) \\
+file : \hyperlink{PBblas.Types}{Types.ecl}  Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes \\
+file : \hyperlink{PBblas.tran}{tran.ecl}  Transpose a matrix and sum into base matrix \\
+file : \hyperlink{PBblas.MatUtils}{MatUtils.ecl}  Provides various utility attributes for manipulating cell-based matrixes \\
+file : \hyperlink{PBblas.gemm}{gemm.ecl}  Extended Parallel Block Matrix Multiplication Module Implements: Result = alpha * op(A)op(B) + beta * C \\
+file : \hyperlink{PBblas.getrf}{getrf.ecl}  LU Factorization Splits a matrix into Lower and Upper triangular factors Produces composite LU matrix for the diagonal blocks \\
+file : \hyperlink{PBblas.Constants}{Constants.ecl}   \\
+file : \hyperlink{PBblas.axpy}{axpy.ecl}  Implements alpha*X + Y \\
+file : \hyperlink{PBblas.Converted}{Converted.ecl}  Module to convert between ML\_Core/Types Field layouts (i.e \\
+file : \hyperlink{PBblas.HadamardProduct}{HadamardProduct.ecl}  Element-wise multiplication of X * Y \\
+file : \hyperlink{PBblas.Apply2Elements}{Apply2Elements.ecl}  Apply a function to each element of the matrix Use PBblas.IElementFunc as the prototype function \\
+file : \hyperlink{PBblas.IElementFunc}{IElementFunc.ecl}  Function prototype for a function to apply to each element of the \\
+file : \hyperlink{PBblas.potrf}{potrf.ecl}  Implements Cholesky factorization of A = U**T * U if Triangular.Upper requested or A = L * L**T if Triangualr.Lower is requested \\
+file : \hyperlink{PBblas.asum}{asum.ecl}  Absolute sum -- the ''Entrywise'' 1-norm \\
+file : \hyperlink{PBblas.trsm}{trsm.ecl}  Partitioned block parallel triangular matrix solver \\
+file : \hyperlink{PBblas.scal}{scal.ecl}  Scale a matrix by a constant Result is alpha * X This supports a ''myriad'' style interface in that X may be a set of independent matrices separated by different work-item ids \\
+file : \hyperlink{PBblas.Vector2Diag}{Vector2Diag.ecl}  Convert a vector into a diagonal matrix \\
+
+\input{tex/PBblas/ExtractTri.ecl}
+\input{tex/PBblas/Types.ecl}
+\input{tex/PBblas/tran.ecl}
+\input{tex/PBblas/MatUtils.ecl}
+\input{tex/PBblas/gemm.ecl}
+\input{tex/PBblas/getrf.ecl}
+\input{tex/PBblas/Constants.ecl}
+\input{tex/PBblas/axpy.ecl}
+\input{tex/PBblas/Converted.ecl}
+\input{tex/PBblas/HadamardProduct.ecl}
+\input{tex/PBblas/Apply2Elements.ecl}
+\input{tex/PBblas/IElementFunc.ecl}
+\input{tex/PBblas/potrf.ecl}
+\input{tex/PBblas/asum.ecl}
+\input{tex/PBblas/trsm.ecl}
+\input{tex/PBblas/scal.ecl}
+\input{tex/PBblas/Vector2Diag.ecl}

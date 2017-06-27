@@ -1,0 +1,29 @@
+\chapter*{PBblas.gemm}
+\hypertarget{PBblas.gemm}{}
+
+\section*{\underline{IMPORTS}}
+\begin{itemize}
+\item PBblas
+\item PBblas.Types
+\item PBblas.internal
+\item PBblas.internal.Types
+\item std.BLAS
+\item PBblas.internal.MatDims
+\item std.system.Thorlib
+\end{itemize}
+
+\section*{\underline{DESCRIPTIONS}}
+\subsection*{function : gemm}
+\hypertarget{ecldoc:pbblas.gemm}{FUNCTION : DATASET(Layout\_Cell) gemm(BOOLEAN transposeA, BOOLEAN transposeB, value\_t alpha, DATASET(Layout\_Cell) A\_in, DATASET(Layout\_Cell) B\_in, DATASET(Layout\_Cell) C\_in=emptyC, value\_t beta=0.0)} \\
+\hyperlink{ecldoc:}{Up} \\
+\par
+Extended Parallel Block Matrix Multiplication Module Implements: Result = alpha * op(A)op(B) + beta * C. op is No Transpose or Transpose. Multiplies two matrixes A and B, with an optional pre-multiply transpose for each Optionally scales the product by the scalar ''alpha''. Then adds an optional C matrix to the product after scaling C by the scalar ''beta''. A, B, and C are specified as DATASET(Layout\_Cell), as is the Resulting matrix. Layout\_Cell describes a sparse matrix stored as a list of x, y, and value. This interface also provides a ''Myriad'' capability allowing multiple similar operations to be performed on independent sets of matrixes in parallel. This is done by use of the work-item id (wi\_id) in each cell of the matrixes. Cells with the same wi\_id are considered part of the same matrix. In the myriad form, each input matrix A, B, and (optionally) C can contain many independent matrixes. The wi\_ids are matched up such that each operation involves the A, B, and C with the same wi\_id. A and B must therefore contain the same set of wi\_ids, while C is optional for any wi\_id. The same parameters: alpha, beta, transposeA, and transposeB are used for all work-items. The result will contain cells from all provided work-items. Result has same shape as C if provided. Note that matrixes are not explicitly dimensioned. The shape is determined by the highest value of x and y for each work-item. \\
+\textbf{Parameter} : transposeA ||| Boolean indicating whether matrix A should be transposed before multiplying \\
+\textbf{Parameter} : transposeB ||| Same as above but for matrix B \\
+\textbf{Parameter} : alpha ||| Scalar multiplier for alpha * A * B \\
+\textbf{Parameter} : A\_in ||| 'A' matrix (multiplier) in Layout\_Cell format \\
+\textbf{Parameter} : B\_in ||| Same as above for the 'B' matrix (multiplicand) \\
+\textbf{Parameter} : C\_in ||| Same as above for the 'C' matrix (addend). May be omitted. \\
+\textbf{Parameter} : beta ||| A scalar multiplier for beta * C, scales the C matrix before addition. May be omitted. \\
+\textbf{Return} : Result matrix in Layout\_Cell format. \\
+\textbf{See} : PBblas/Types.Layout\_Cell \\

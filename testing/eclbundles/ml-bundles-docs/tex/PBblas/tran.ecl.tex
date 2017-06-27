@@ -1,0 +1,27 @@
+\chapter*{PBblas.tran}
+\hypertarget{PBblas.tran}{}
+
+\section*{\underline{IMPORTS}}
+\begin{itemize}
+\item PBblas
+\item PBblas.Types
+\item PBblas.internal
+\item PBblas.internal.Types
+\item PBblas.internal.MatDims
+\item PBblas.internal.Converted
+\item std.BLAS
+\item std.system.Thorlib
+\end{itemize}
+
+\section*{\underline{DESCRIPTIONS}}
+\subsection*{function : tran}
+\hypertarget{ecldoc:pbblas.tran}{FUNCTION : DATASET(Layout\_Cell) tran(value\_t alpha, DATASET(Layout\_Cell) A, value\_t beta=0, DATASET(Layout\_Cell) C=empty\_c)} \\
+\hyperlink{ecldoc:}{Up} \\
+\par
+Transpose a matrix and sum into base matrix result <== alpha * A**t + beta * C, A is n by m, C is m by n A**T (A Transpose) and C must have same shape \\
+\textbf{Parameter} : alpha ||| Scalar multiplier for the A**T matrix \\
+\textbf{Parameter} : A ||| A matrix in DATASET(Layout\_Cell) form \\
+\textbf{Parameter} : beta ||| Scalar multiplier for the C matrix \\
+\textbf{Parameter} : C ||| C matrix in DATASET(Layout\_Call) form \\
+\textbf{Return} : Matrix in DATASET(Layout\_Cell) form alpha * A**T + beta * C \\
+\textbf{See} : PBblas/Types.layout\_cell \\

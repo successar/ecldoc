@@ -9,18 +9,14 @@ from Utils import genPathTree, getRoot
 
 class ParseHTML(object) :
 	def __init__(self, generator, ecl_file) :
-		self.input_root = generator.input_root
 		self.output_root = generator.output_root
-		self.ecl_file = ecl_file
-		self.xml_root = generator.xml_root
-		self.html_root = generator.html_root
-		self.xml_file = os.path.join(self.xml_root, (self.ecl_file + '.xml'))
-		self.html_file = os.path.join(self.html_root, (self.ecl_file + '.html'))
-		os.makedirs(os.path.dirname(self.html_file), exist_ok=True)
+		self.xml_file = os.path.join(generator.xml_root, (ecl_file + '.xml'))
+		self.html_file = os.path.join(generator.html_root, (ecl_file + '.html'))
 		self.template = generator.content_template
-		parent = getRoot(generator.ecl_file_tree, ecl_file)
-		self.parent = parent
+		self.parent = getRoot(generator.ecl_file_tree, ecl_file)
 		self.options = generator.options
+
+		os.makedirs(os.path.dirname(self.html_file), exist_ok=True)
 
 	def parse(self) :
 		tree = etree.parse(self.xml_file)
@@ -56,6 +52,8 @@ class ParseHTML(object) :
 				file['type'] = 'dir'
 				files.append(file)
 
+		files = sorted(files, key=lambda x : x['type'])
+
 		parent = 'pkg.toc.html'
 		relpath = os.path.relpath(self.output_root, os.path.dirname(self.html_file))
 		render = self.template.render(src=src,
@@ -90,10 +88,7 @@ class GenHTML(object) :
 		files = []
 		for key in node :
 			if type(node[key]) != dict:
-				if key == 'bundle.ecl' :
-					continue
-				ecl_file = node[key]
-				parser = ParseHTML(self, ecl_file)
+				parser = ParseHTML(self, node[key])
 				parser.parse()
 				file = { 'name' : key, 'target' : key + '.html', 'type' : 'file', 'doc' : parser.docstring() }
 				files.append(file)
@@ -104,19 +99,20 @@ class GenHTML(object) :
 				bundle = None
 				if 'bundle.ecl' in child :
 					bundle_xml_path = os.path.join(self.xml_root, os.path.dirname(child['bundle.ecl']), 'bundle.xml')
-					tree = etree.parse(bundle_xml_path)
-					bundle = tree.getroot()
+					bundle = etree.parse(bundle_xml_path).getroot()
 					license = bundle.find('License')
 					license.text = '<a href="' + license.text + '">' + license.text + '</a>'
 					file['type'] = 'bundle'
+					del child['bundle.ecl']
 
 				child_root = os.path.join(content_root, key)
-				root_relpath = os.path.relpath(self.output_root, child_root)
-				parent_relpath = os.path.relpath(content_root, child_root)
 				os.makedirs(child_root, exist_ok=True)
 
 				childfiles = self.gen(child, child_root)
 				childfiles = sorted(childfiles, key=lambda x : x['type'])
+
+				root_relpath = os.path.relpath(self.output_root, child_root)
+				parent_relpath = os.path.relpath(content_root, child_root)
 
 				render = self.toc_template.render(name=key,
 													files=childfiles,
@@ -135,12 +131,23 @@ class GenHTML(object) :
 
 
 	def genHTML(self) :
-		files = self.gen(self.ecl_file_tree['root'], self.html_root)
+		child = self.ecl_file_tree['root']
+		files = self.gen(child, self.html_root)
 		files = sorted(files, key=lambda x : x['type'])
+
+		bundle = None
+		if 'bundle.ecl' in child :
+			bundle_xml_path = os.path.join(self.xml_root, os.path.dirname(child['bundle.ecl']), 'bundle.xml')
+			bundle = etree.parse(bundle_xml_path).getroot()
+			license = bundle.find('License')
+			license.text = '<a href="' + license.text + '">' + license.text + '</a>'
+			del child['bundle.ecl']
+
 		render = self.toc_template.render(name='root',
-										files=files,
-										parent='pkg.toc.html',
-										output_root=os.path.relpath(self.output_root, self.html_root))
+											files=files,
+											parent='pkg.toc.html',
+											output_root=os.path.relpath(self.output_root, self.html_root),
+											bundle=bundle)
 		fp = open(os.path.join(self.html_root, 'pkg.toc.html'), 'w')
 		fp.write(render)
 		fp.close()

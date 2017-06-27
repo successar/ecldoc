@@ -1,0 +1,21 @@
+\chapter*{PBblas.Apply2Elements}
+\hypertarget{PBblas.Apply2Elements}{}
+
+\section*{\underline{IMPORTS}}
+\begin{itemize}
+\item PBblas
+\item PBblas.Types
+\item std.BLAS
+\end{itemize}
+
+\section*{\underline{DESCRIPTIONS}}
+\subsection*{function : Apply2Elements}
+\hypertarget{ecldoc:pbblas.apply2elements}{FUNCTION : DATASET(Layout\_Cell) Apply2Elements(DATASET(Layout\_Cell) X, IElementFunc f)} \\
+\hyperlink{ecldoc:}{Up} \\
+\par
+Apply a function to each element of the matrix Use PBblas.IElementFunc as the prototype function. Input and ouput may be a single matrix, or myriad matrixes with different work item ids. \\
+\textbf{Parameter} : X ||| A matrix (or multiple matrices) in Layout\_Cell form \\
+\textbf{Parameter} : f ||| A function based on the IElementFunc prototype \\
+\textbf{Return} : A matrix (or multiple matrices) in Layout\_Cell form \\
+\textbf{See} : PBblas/IElementFunc \\
+\textbf{See} : PBblas/Types.Layout\_Cell \\

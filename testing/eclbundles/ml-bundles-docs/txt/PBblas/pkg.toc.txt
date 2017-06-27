@@ -23,13 +23,9 @@ Platform : 6.2.0
 CONTENTS
 ========
 
+file : Constants.ecl <Constants.ecl.txt>    
+
 file : scal.ecl <scal.ecl.txt>    Scale a matrix by a constant Result is alpha * X This supports a "myriad" style interface in that X may be a set of independent matrices separated by different work-item ids
-
-file : Apply2Elements.ecl <Apply2Elements.ecl.txt>    Apply a function to each element of the matrix Use PBblas.IElementFunc as the prototype function
-
-file : asum.ecl <asum.ecl.txt>    Absolute sum -- the "Entrywise" 1-norm
-
-file : Types.ecl <Types.ecl.txt>    Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes
 
 file : potrf.ecl <potrf.ecl.txt>    Implements Cholesky factorization of A = U**T * U if Triangular.Upper requested or A = L * L**T if Triangualr.Lower is requested
 
@@ -39,21 +35,25 @@ file : getrf.ecl <getrf.ecl.txt>    LU Factorization Splits a matrix into Lower 
 
 file : IElementFunc.ecl <IElementFunc.ecl.txt>    Function prototype for a function to apply to each element of the
 
-file : Converted.ecl <Converted.ecl.txt>    Module to convert between ML_Core/Types Field layouts (i.e
+file : Apply2Elements.ecl <Apply2Elements.ecl.txt>    Apply a function to each element of the matrix Use PBblas.IElementFunc as the prototype function
 
-file : ExtractTri.ecl <ExtractTri.ecl.txt>    Extract the upper or lower triangle from the composite output from getrf (LU Factorization)
-
-file : Constants.ecl <Constants.ecl.txt>    
-
-file : trsm.ecl <trsm.ecl.txt>    Partitioned block parallel triangular matrix solver
+file : Types.ecl <Types.ecl.txt>    Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes
 
 file : HadamardProduct.ecl <HadamardProduct.ecl.txt>    Element-wise multiplication of X * Y
 
-file : Vector2Diag.ecl <Vector2Diag.ecl.txt>    Convert a vector into a diagonal matrix
+file : trsm.ecl <trsm.ecl.txt>    Partitioned block parallel triangular matrix solver
 
-file : gemm.ecl <gemm.ecl.txt>    Extended Parallel Block Matrix Multiplication Module Implements: Result = alpha * op(A)op(B) + beta * C
+file : asum.ecl <asum.ecl.txt>    Absolute sum -- the "Entrywise" 1-norm
 
 file : tran.ecl <tran.ecl.txt>    Transpose a matrix and sum into base matrix
 
+file : ExtractTri.ecl <ExtractTri.ecl.txt>    Extract the upper or lower triangle from the composite output from getrf (LU Factorization)
+
 file : MatUtils.ecl <MatUtils.ecl.txt>    Provides various utility attributes for manipulating cell-based matrixes
+
+file : Converted.ecl <Converted.ecl.txt>    Module to convert between ML_Core/Types Field layouts (i.e
+
+file : gemm.ecl <gemm.ecl.txt>    Extended Parallel Block Matrix Multiplication Module Implements: Result = alpha * op(A)op(B) + beta * C
+
+file : Vector2Diag.ecl <Vector2Diag.ecl.txt>    Convert a vector into a diagonal matrix
 

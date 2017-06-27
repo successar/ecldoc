@@ -1,0 +1,35 @@
+\chapter*{ML\_Core.Interfaces.IRegression}
+\hypertarget{ML_Core.Interfaces.IRegression}{}
+
+\section*{\underline{IMPORTS}}
+\begin{itemize}
+\item ML\_Core
+\item ML\_Core.Types
+\end{itemize}
+
+\section*{\underline{DESCRIPTIONS}}
+\subsection*{module : IRegression}
+\hypertarget{ecldoc:ml_core.interfaces.iregression}{MODULE : IRegression(DATASET(NumericField) X=empty\_data, DATASET(NumericField) Y=empty\_data)} \\
+\hyperlink{ecldoc:}{Up} \\
+\par
+Interface Definition for Regression Modules Regression learns a function that maps a set of input data to one or more output variables. The resulting learned function is known as the model. That model can then be used repetitively to predict (i.e. estimate) the output value(s) based on new input data. \\
+\textbf{Parameter} : X ||| The independent data in DATASET(NumericField) format. Each statistical unit (e.g. record) is identified by 'id', and each feature is identified by field number (i.e. 'number'). \\
+\textbf{Parameter} : Y ||| The dependent variable(s) in DATASET(NumericField) format. Each statistical unit (e.g. record) is identified by 'id', and each feature is identified by field number (i.e. 'number'). \\
+\begin{enumerate}
+\item \hyperlink{ecldoc:ml_core.interfaces.iregression.getmodel}{GetModel}
+\item \hyperlink{ecldoc:ml_core.interfaces.iregression.predict}{Predict}
+\end{enumerate}
+\subsection*{attribute : GetModel}
+\hypertarget{ecldoc:ml_core.interfaces.iregression.getmodel}{ATTRIBUTE : DATASET(Layout\_Model) GetModel} \\
+\hyperlink{ecldoc:ml_core.interfaces.iregression}{Up} \\
+\par
+Calculate and return the 'learned' model The model may be persisted and later used to make predictions using 'Predict' below. \\
+\textbf{Return} : DATASET(LayoutModel) describing the learned model parameters \\
+\subsection*{function : Predict}
+\hypertarget{ecldoc:ml_core.interfaces.iregression.predict}{FUNCTION : DATASET(NumericField) Predict(DATASET(NumericField) newX, DATASET(Layout\_Model) model)} \\
+\hyperlink{ecldoc:ml_core.interfaces.iregression}{Up} \\
+\par
+Predict the output variable(s) based on a previously learned model \\
+\textbf{Parameter} : newX ||| DATASET(NumericField) containing the X values to b predicted. \\
+\textbf{Return} : DATASET(NumericField) containing one entry per observation (i.e. id) in newX. This represents the predicted values for Y. \\
+

@@ -1,0 +1,51 @@
+\chapter*{PBblas.MatUtils}
+\hypertarget{PBblas.MatUtils}{}
+
+\section*{\underline{IMPORTS}}
+\begin{itemize}
+\item PBblas
+\item PBblas.Types
+\item PBblas.internal
+\item PBblas.internal.Types
+\item PBblas.internal.MatDims
+\end{itemize}
+
+\section*{\underline{DESCRIPTIONS}}
+\subsection*{module : MatUtils}
+\hypertarget{ecldoc:PBblas.MatUtils}{MODULE : MatUtils} \\
+\hyperlink{ecldoc:}{Up} \\
+\par
+Provides various utility attributes for manipulating cell-based matrixes \\
+\textbf{See} : Std/PBblas/Types.Layout\_Cell \\
+\begin{enumerate}
+\item \hyperlink{ecldoc:pbblas.matutils.getworkitems}{GetWorkItems}
+\item \hyperlink{ecldoc:pbblas.matutils.insertcols}{InsertCols}
+\item \hyperlink{ecldoc:pbblas.matutils.transpose}{Transpose}
+\end{enumerate}
+\subsection*{function : GetWorkItems}
+\hypertarget{ecldoc:pbblas.matutils.getworkitems}{FUNCTION : DATASET(Layout\_WI\_ID) GetWorkItems(DATASET(Layout\_Cell) cells)} \\
+\hyperlink{ecldoc:PBblas.MatUtils}{Up} \\
+\par
+Get a list of work-item ids from a matrix containing one or more work items \\
+\textbf{Parameter} : cells ||| A matrix in Layout\_Cell format \\
+\textbf{Return} : DATASET(Layout\_WI\_ID), one record per work-item \\
+\textbf{See} : PBblas/Types.Layout\_Cell \\
+\textbf{See} : PBblas/Types.Layout\_WI\_ID \\
+\subsection*{function : InsertCols}
+\hypertarget{ecldoc:pbblas.matutils.insertcols}{FUNCTION : DATASET(Layout\_Cell) InsertCols(DATASET(Layout\_Cell) M, UNSIGNED cols\_to\_insert=1, value\_t insert\_val=1)} \\
+\hyperlink{ecldoc:PBblas.MatUtils}{Up} \\
+\par
+Insert one or more columns of a fixed value into a matrix. Columns are inserted before the first original column. This attribute supports the myriad interface. Multiple independent matrixes can be represented by M. \\
+\textbf{Parameter} : M ||| the input matrix \\
+\textbf{Parameter} : cols\_to\_insert ||| the number of columns to insert, default 1 \\
+\textbf{Parameter} : insert\_val ||| the value for each cell of the new column(s), default 0 \\
+\textbf{Return} : matrix in Layout\_Cell format with additional column(s) \\
+\subsection*{function : Transpose}
+\hypertarget{ecldoc:pbblas.matutils.transpose}{FUNCTION : DATASET(Layout\_Cell) Transpose(DATASET(Layout\_Cell) M)} \\
+\hyperlink{ecldoc:PBblas.MatUtils}{Up} \\
+\par
+Transpose a matrix This attribute supports the myriad interface. Multiple independent matrixes can be represented by M. \\
+\textbf{Parameter} : M ||| A matrix represented as DATASET(Layout\_Cell) \\
+\textbf{Return} : Transposed matrix in Layout\_Cell format \\
+\textbf{See} : PBblas/Types.Layout\_Cell \\
+
