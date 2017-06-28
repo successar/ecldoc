@@ -65,60 +65,32 @@
 						{% endfor -%}
 					</ul>
 				</section>
-				<section id="ecldoc-section-tree">
-					<h3 class="page-header">DEFINITION TREE</h3>
-					<ul class="tree" style="padding : 0px;">
-						{% for def in src.findall('./Definition') recursive -%}
-						<li id="t-{{ def.attrib['fullname'] }}">
-							<div class="tree-sign">
-								<div class="tree-head">
-								{% if def.findall('./Definition') %}
-								<a href="#{{ def.attrib['fullname'] }}" data-toggle="collapse" class="glyphicon glyphicon-folder-open" style="margin-right: 6px;"></a>
-								{% else %}
-								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
-								{% endif %}
-								<a href="#d{{ def.attrib['fullname'] }}">
-									<span class="tree-type">{{ def.find('./Type').text.upper() }} : </span>
-									{{ def.find('./Signature').attrib['name'] }}
-								</a>
-								</div>
-
-								{% if def.find('./Documentation') %}
-								{% if def.find('./Documentation').findall('./firstline') -%}
-								<div class="tree-desc">
-								{{ def.find('./Documentation').find('./firstline').text }}
-								</div>
-								{% endif %}
-								{% endif %}
-							</div>
-							<ul id="{{ def.attrib['fullname'] }}" class="accordian-body tree collapse">
-								{{ loop(def.findall('./Definition')) }}
-							</ul>
-						</li>
-						{% endfor -%}
-					</ul>
-				</section>
 				<section id="ecldoc-section-desc">
 					<h3 class="page-header">DESCRIPTIONS</h3>
-					<div class="panel-group">
+					<div class="panel-group desc-panel-group">
 						{% for def in src.findall('./Definition') recursive -%}
-						<div class="panel panel-info" id="d{{ def.attrib['fullname'] }}">
-							<div class="panel-heading clearfix">
-								<div class="panel-title type">
-									{{ def.find('./Type').text.upper() }}
+						<div class="panel panel-info desc-panel" id="d{{ def.attrib['fullname'] }}">
+							<a href="#desc-{{ def.attrib['fullname'] }}" data-toggle="collapse">
+								<div class="panel-heading clearfix desc-panel-heading">
+									<div class="panel-title desc-type">
+											{{ def.find('./Type').text.upper() }}
+									</div>
+									<div class="panel-title desc-sign">
+										{{ def.attrib['name'] }}
+									</div>
+									<div class="pull-right desc-btns">
+										{% if def.attrib['inherit_type'] != 'local' %}
+										<span class="inherit_type"> {{ def.attrib['inherit_type'].upper() }}</span>
+										{% endif %}
+									</div>
 								</div>
-								<div class="panel-title sign">
-									<span class="sign-name">{{ def.find('./Signature').attrib['sign'] }}</span>
-								</div>
-								<div class="btns pull-right">
-									{% if def.attrib['inherit_type'] != 'local' %}
-									<span class="inherit_type"> {{ def.attrib['inherit_type'].upper() }}</span>
-									{% endif %}
-									<a href="#ecldoc-section-tree" data-toggle="#t-{{ def.attrib['fullname'] }}" class="tree-link glyphicon glyphicon-menu-up"></a>
-								</div>
-							</div>
+							</a>
 
-							<div class="panel-body">
+							<ul class="list-group">
+								<li class="list-group-item" style="background: #eaecef;">{{ def.find('./Signature').attrib['sign'] }}</li>
+							</ul>
+
+							<div class="panel-body desc-panel-body">
 								{% if def.find('./Documentation') is not none -%}
 								<div class="row">
 									<div class="col-md-12" style="padding-bottom: 10px;">
@@ -170,8 +142,7 @@
 								</div>
 								{% endif %}
 								{% endif -%}
-							</div>
-							<div class="panel-footer">
+
 								{% if def.find('./Documentation') -%}
 								{% if def.find('./Documentation').findall('./see') -%}
 								<div class="row">
@@ -214,8 +185,12 @@
 								</div>
 								{% endif -%}
 							</div>
+							<div class="panel-footer desc-panel-footer">
+								<div class="panel-group collapse desc-panel-group" id="desc-{{ def.attrib['fullname'] }}">
+								{{ loop(def.findall('./Definition')) }}
+								</div>
+							</div>
 						</div>
-						{{ loop(def.findall('./Definition')) }}
 						{% endfor -%}
 					</div>
 				</section>
@@ -231,14 +206,6 @@
 		$("#menu-toggle").click(function(e) {
 			e.preventDefault();
 			$("#wrapper").toggleClass("toggled");
-		});
-	</script>
-	<script>
-		$(document).ready(function(){
-			$('.tree-link').click(function(e) {
-				var loc = $(this).attr('data-toggle');
-				$(loc).parents('.tree').collapse('show');
-			});
 		});
 	</script>
 </body>

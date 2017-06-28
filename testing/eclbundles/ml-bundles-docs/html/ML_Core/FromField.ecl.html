@@ -43,6 +43,10 @@
 				</li>
 				
 				<li>
+					<a href="Math/pkg.toc.html">Math</a>
+				</li>
+				
+				<li>
 					<a href="Tests/pkg.toc.html">Tests</a>
 				</li>
 				
@@ -55,11 +59,7 @@
 				</li>
 				
 				<li>
-					<a href="Math/pkg.toc.html">Math</a>
-				</li>
-				
-				<li>
-					<a href="Constants.ecl.html">Constants.ecl</a>
+					<a href="AppendID.ecl.html">AppendID.ecl</a>
 				</li>
 				
 				<li>
@@ -75,19 +75,7 @@
 				</li>
 				
 				<li>
-					<a href="AppendSeqID.ecl.html">AppendSeqID.ecl</a>
-				</li>
-				
-				<li>
-					<a href="AppendID.ecl.html">AppendID.ecl</a>
-				</li>
-				
-				<li>
-					<a href="ToField.ecl.html">ToField.ecl</a>
-				</li>
-				
-				<li>
-					<a href="Types.ecl.html">Types.ecl</a>
+					<a href="FromField.ecl.html">FromField.ecl</a>
 				</li>
 				
 				<li>
@@ -95,7 +83,19 @@
 				</li>
 				
 				<li>
-					<a href="FromField.ecl.html">FromField.ecl</a>
+					<a href="Constants.ecl.html">Constants.ecl</a>
+				</li>
+				
+				<li>
+					<a href="Types.ecl.html">Types.ecl</a>
+				</li>
+				
+				<li>
+					<a href="ToField.ecl.html">ToField.ecl</a>
+				</li>
+				
+				<li>
+					<a href="AppendSeqID.ecl.html">AppendSeqID.ecl</a>
 				</li>
 				
 			</ul>
@@ -108,52 +108,36 @@
 					<ul class="pagination">
 						</ul>
 				</section>
-				<section id="ecldoc-section-tree">
-					<h3 class="page-header">DEFINITION TREE</h3>
-					<ul class="tree" style="padding : 0px;">
-						<li id="t-ml_core-fromfield">
-							<div class="tree-sign">
-								<div class="tree-head">
-								
-								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
-								
-								<a href="#dml_core-fromfield">
-									<span class="tree-type">MACRO : </span>
-									FromField
-								</a>
-								</div>
-
-								
-							</div>
-							<ul id="ml_core-fromfield" class="accordian-body tree collapse">
-								
-							</ul>
-						</li>
-						</ul>
-				</section>
 				<section id="ecldoc-section-desc">
 					<h3 class="page-header">DESCRIPTIONS</h3>
-					<div class="panel-group">
-						<div class="panel panel-info" id="dml_core-fromfield">
-							<div class="panel-heading clearfix">
-								<div class="panel-title type">
-									MACRO
+					<div class="panel-group desc-panel-group">
+						<div class="panel panel-info desc-panel" id="dml_core-fromfield">
+							<a href="#desc-ml_core-fromfield" data-toggle="collapse">
+								<div class="panel-heading clearfix desc-panel-heading">
+									<div class="panel-title desc-type">
+											MACRO
+									</div>
+									<div class="panel-title desc-sign">
+										FromField
+									</div>
+									<div class="pull-right desc-btns">
+										
+									</div>
 								</div>
-								<div class="panel-title sign">
-									<span class="sign-name">FromField(dIn,lOut,dOut,dMap='')</span>
+							</a>
+
+							<ul class="list-group">
+								<li class="list-group-item" style="background: #eaecef;">FromField(dIn,lOut,dOut,dMap='')</li>
+							</ul>
+
+							<div class="panel-body desc-panel-body">
 								</div>
-								<div class="btns pull-right">
-									
-									<a href="#ecldoc-section-tree" data-toggle="#t-ml_core-fromfield" class="tree-link glyphicon glyphicon-menu-up"></a>
+							<div class="panel-footer desc-panel-footer">
+								<div class="panel-group collapse desc-panel-group" id="desc-ml_core-fromfield">
+								
 								</div>
 							</div>
-
-							<div class="panel-body">
-								</div>
-							<div class="panel-footer">
-								</div>
 						</div>
-						
 						</div>
 				</section>
 			</div>
@@ -168,14 +152,6 @@
 		$("#menu-toggle").click(function(e) {
 			e.preventDefault();
 			$("#wrapper").toggleClass("toggled");
-		});
-	</script>
-	<script>
-		$(document).ready(function(){
-			$('.tree-link').click(function(e) {
-				var loc = $(this).attr('data-toggle');
-				$(loc).parents('.tree').collapse('show');
-			});
 		});
 	</script>
 </body>

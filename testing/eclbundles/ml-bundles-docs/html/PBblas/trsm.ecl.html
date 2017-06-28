@@ -43,35 +43,7 @@
 				</li>
 				
 				<li>
-					<a href="Constants.ecl.html">Constants.ecl</a>
-				</li>
-				
-				<li>
-					<a href="scal.ecl.html">scal.ecl</a>
-				</li>
-				
-				<li>
-					<a href="potrf.ecl.html">potrf.ecl</a>
-				</li>
-				
-				<li>
-					<a href="axpy.ecl.html">axpy.ecl</a>
-				</li>
-				
-				<li>
-					<a href="getrf.ecl.html">getrf.ecl</a>
-				</li>
-				
-				<li>
-					<a href="IElementFunc.ecl.html">IElementFunc.ecl</a>
-				</li>
-				
-				<li>
-					<a href="Apply2Elements.ecl.html">Apply2Elements.ecl</a>
-				</li>
-				
-				<li>
-					<a href="Types.ecl.html">Types.ecl</a>
+					<a href="ExtractTri.ecl.html">ExtractTri.ecl</a>
 				</li>
 				
 				<li>
@@ -79,19 +51,23 @@
 				</li>
 				
 				<li>
+					<a href="potrf.ecl.html">potrf.ecl</a>
+				</li>
+				
+				<li>
 					<a href="trsm.ecl.html">trsm.ecl</a>
 				</li>
 				
 				<li>
-					<a href="asum.ecl.html">asum.ecl</a>
+					<a href="IElementFunc.ecl.html">IElementFunc.ecl</a>
 				</li>
 				
 				<li>
-					<a href="tran.ecl.html">tran.ecl</a>
+					<a href="axpy.ecl.html">axpy.ecl</a>
 				</li>
 				
 				<li>
-					<a href="ExtractTri.ecl.html">ExtractTri.ecl</a>
+					<a href="Apply2Elements.ecl.html">Apply2Elements.ecl</a>
 				</li>
 				
 				<li>
@@ -99,7 +75,31 @@
 				</li>
 				
 				<li>
+					<a href="asum.ecl.html">asum.ecl</a>
+				</li>
+				
+				<li>
+					<a href="scal.ecl.html">scal.ecl</a>
+				</li>
+				
+				<li>
+					<a href="getrf.ecl.html">getrf.ecl</a>
+				</li>
+				
+				<li>
+					<a href="Types.ecl.html">Types.ecl</a>
+				</li>
+				
+				<li>
+					<a href="Constants.ecl.html">Constants.ecl</a>
+				</li>
+				
+				<li>
 					<a href="Converted.ecl.html">Converted.ecl</a>
+				</li>
+				
+				<li>
+					<a href="tran.ecl.html">tran.ecl</a>
 				</li>
 				
 				<li>
@@ -160,52 +160,29 @@
 							</li>
 						</ul>
 				</section>
-				<section id="ecldoc-section-tree">
-					<h3 class="page-header">DEFINITION TREE</h3>
-					<ul class="tree" style="padding : 0px;">
-						<li id="t-pbblas-trsm">
-							<div class="tree-sign">
-								<div class="tree-head">
-								
-								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
-								
-								<a href="#dpbblas-trsm">
-									<span class="tree-type">FUNCTION : </span>
-									trsm
-								</a>
-								</div>
-
-								
-								<div class="tree-desc">
-								Partitioned block parallel triangular matrix solver
-								</div>
-								
-								
-							</div>
-							<ul id="pbblas-trsm" class="accordian-body tree collapse">
-								
-							</ul>
-						</li>
-						</ul>
-				</section>
 				<section id="ecldoc-section-desc">
 					<h3 class="page-header">DESCRIPTIONS</h3>
-					<div class="panel-group">
-						<div class="panel panel-info" id="dpbblas-trsm">
-							<div class="panel-heading clearfix">
-								<div class="panel-title type">
-									FUNCTION
+					<div class="panel-group desc-panel-group">
+						<div class="panel panel-info desc-panel" id="dpbblas-trsm">
+							<a href="#desc-pbblas-trsm" data-toggle="collapse">
+								<div class="panel-heading clearfix desc-panel-heading">
+									<div class="panel-title desc-type">
+											FUNCTION
+									</div>
+									<div class="panel-title desc-sign">
+										trsm
+									</div>
+									<div class="pull-right desc-btns">
+										
+									</div>
 								</div>
-								<div class="panel-title sign">
-									<span class="sign-name">DATASET(Layout_Cell) trsm(Side s, Triangle tri, BOOLEAN transposeA, Diagonal diag, value_t alpha, DATASET(Layout_Cell) A_in, DATASET(Layout_Cell) B_in)</span>
-								</div>
-								<div class="btns pull-right">
-									
-									<a href="#ecldoc-section-tree" data-toggle="#t-pbblas-trsm" class="tree-link glyphicon glyphicon-menu-up"></a>
-								</div>
-							</div>
+							</a>
 
-							<div class="panel-body">
+							<ul class="list-group">
+								<li class="list-group-item" style="background: #eaecef;">DATASET(Layout_Cell) trsm(Side s, Triangle tri, BOOLEAN transposeA, Diagonal diag, value_t alpha, DATASET(Layout_Cell) A_in, DATASET(Layout_Cell) B_in)</li>
+							</ul>
+
+							<div class="panel-body desc-panel-body">
 								<div class="row">
 									<div class="col-md-12" style="padding-bottom: 10px;">
 										Partitioned block parallel triangular matrix solver. Solves for X using: AX = B or XA = B A is is a square triangular matrix, X and B have the same dimensions. A may be an upper triangular matrix (UX = B or XU = B), or a lower triangular matrix (LX = B or XL = B). Allows optional transposing and scaling of A. Partially based upon an approach discussed by MJ DAYDE, IS DUFF, AP CERFACS. A Parallel Block implementation of Level-3 BLAS for MIMD Vector Processors ACM Tran. Mathematical Software, Vol 20, No 2, June 1994 pp 178-193 and other papers about PB-BLAS by Choi and Dongarra This module supports the "Myriad" style interface, allowing many independent problems to be worked on at once. Corresponding A and B matrixes are related by a common work-item identifier (wi_id) within each cell of the matrix. The returned X matrix will contain cells for the same set of work-items as specified for the A and B matrices.
@@ -261,8 +238,6 @@
 								</div>
 								
 								
-								</div>
-							<div class="panel-footer">
 								<div class="row">
 									<div class="col-md-1">Also See</div>
 									<div class="col-md-11">
@@ -274,8 +249,12 @@
 									</div>
 								</div>
 								</div>
+							<div class="panel-footer desc-panel-footer">
+								<div class="panel-group collapse desc-panel-group" id="desc-pbblas-trsm">
+								
+								</div>
+							</div>
 						</div>
-						
 						</div>
 				</section>
 			</div>
@@ -290,14 +269,6 @@
 		$("#menu-toggle").click(function(e) {
 			e.preventDefault();
 			$("#wrapper").toggleClass("toggled");
-		});
-	</script>
-	<script>
-		$(document).ready(function(){
-			$('.tree-link').click(function(e) {
-				var loc = $(this).attr('data-toggle');
-				$(loc).parents('.tree').collapse('show');
-			});
 		});
 	</script>
 </body>

@@ -43,11 +43,11 @@
 				</li>
 				
 				<li>
-					<a href="IRegression.ecl.html">IRegression.ecl</a>
+					<a href="IClassify.ecl.html">IClassify.ecl</a>
 				</li>
 				
 				<li>
-					<a href="IClassify.ecl.html">IClassify.ecl</a>
+					<a href="IRegression.ecl.html">IRegression.ecl</a>
 				</li>
 				
 			</ul>
@@ -70,121 +70,29 @@
 							</li>
 						</ul>
 				</section>
-				<section id="ecldoc-section-tree">
-					<h3 class="page-header">DEFINITION TREE</h3>
-					<ul class="tree" style="padding : 0px;">
-						<li id="t-ML_Core-Interfaces-IClassify">
-							<div class="tree-sign">
-								<div class="tree-head">
-								
-								<a href="#ML_Core-Interfaces-IClassify" data-toggle="collapse" class="glyphicon glyphicon-folder-open" style="margin-right: 6px;"></a>
-								
-								<a href="#dML_Core-Interfaces-IClassify">
-									<span class="tree-type">MODULE : </span>
-									IClassify
-								</a>
-								</div>
-
-								
-								<div class="tree-desc">
-								Interface definition for Classification
-								</div>
-								
-								
-							</div>
-							<ul id="ML_Core-Interfaces-IClassify" class="accordian-body tree collapse">
-								<li id="t-ml_core-interfaces-iclassify-getmodel">
-							<div class="tree-sign">
-								<div class="tree-head">
-								
-								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
-								
-								<a href="#dml_core-interfaces-iclassify-getmodel">
-									<span class="tree-type">FUNCTION : </span>
-									GetModel
-								</a>
-								</div>
-
-								
-								<div class="tree-desc">
-								Calculate the model to fit the observation data to the observed classes
-								</div>
-								
-								
-							</div>
-							<ul id="ml_core-interfaces-iclassify-getmodel" class="accordian-body tree collapse">
-								
-							</ul>
-						</li>
-						<li id="t-ml_core-interfaces-iclassify-classify">
-							<div class="tree-sign">
-								<div class="tree-head">
-								
-								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
-								
-								<a href="#dml_core-interfaces-iclassify-classify">
-									<span class="tree-type">FUNCTION : </span>
-									Classify
-								</a>
-								</div>
-
-								
-								<div class="tree-desc">
-								Classify the observations using a model
-								</div>
-								
-								
-							</div>
-							<ul id="ml_core-interfaces-iclassify-classify" class="accordian-body tree collapse">
-								
-							</ul>
-						</li>
-						<li id="t-ml_core-interfaces-iclassify-report">
-							<div class="tree-sign">
-								<div class="tree-head">
-								
-								<span class="glyphicon glyphicon-file" style="margin-right: 6px;"></span>
-								
-								<a href="#dml_core-interfaces-iclassify-report">
-									<span class="tree-type">FUNCTION : </span>
-									Report
-								</a>
-								</div>
-
-								
-								<div class="tree-desc">
-								Report the confusion matrix for the classifier and training data
-								</div>
-								
-								
-							</div>
-							<ul id="ml_core-interfaces-iclassify-report" class="accordian-body tree collapse">
-								
-							</ul>
-						</li>
-						
-							</ul>
-						</li>
-						</ul>
-				</section>
 				<section id="ecldoc-section-desc">
 					<h3 class="page-header">DESCRIPTIONS</h3>
-					<div class="panel-group">
-						<div class="panel panel-info" id="dML_Core-Interfaces-IClassify">
-							<div class="panel-heading clearfix">
-								<div class="panel-title type">
-									MODULE
+					<div class="panel-group desc-panel-group">
+						<div class="panel panel-info desc-panel" id="dML_Core-Interfaces-IClassify">
+							<a href="#desc-ML_Core-Interfaces-IClassify" data-toggle="collapse">
+								<div class="panel-heading clearfix desc-panel-heading">
+									<div class="panel-title desc-type">
+											MODULE
+									</div>
+									<div class="panel-title desc-sign">
+										IClassify
+									</div>
+									<div class="pull-right desc-btns">
+										
+									</div>
 								</div>
-								<div class="panel-title sign">
-									<span class="sign-name">IClassify</span>
-								</div>
-								<div class="btns pull-right">
-									
-									<a href="#ecldoc-section-tree" data-toggle="#t-ML_Core-Interfaces-IClassify" class="tree-link glyphicon glyphicon-menu-up"></a>
-								</div>
-							</div>
+							</a>
 
-							<div class="panel-body">
+							<ul class="list-group">
+								<li class="list-group-item" style="background: #eaecef;">IClassify</li>
+							</ul>
+
+							<div class="panel-body desc-panel-body">
 								<div class="row">
 									<div class="col-md-12" style="padding-bottom: 10px;">
 										Interface definition for Classification. Actual implementation modules will probably take parameters.
@@ -194,24 +102,28 @@
 								
 								
 								</div>
-							<div class="panel-footer">
+							<div class="panel-footer desc-panel-footer">
+								<div class="panel-group collapse desc-panel-group" id="desc-ML_Core-Interfaces-IClassify">
+								<div class="panel panel-info desc-panel" id="dml_core-interfaces-iclassify-getmodel">
+							<a href="#desc-ml_core-interfaces-iclassify-getmodel" data-toggle="collapse">
+								<div class="panel-heading clearfix desc-panel-heading">
+									<div class="panel-title desc-type">
+											FUNCTION
+									</div>
+									<div class="panel-title desc-sign">
+										GetModel
+									</div>
+									<div class="pull-right desc-btns">
+										
+									</div>
 								</div>
-						</div>
-						<div class="panel panel-info" id="dml_core-interfaces-iclassify-getmodel">
-							<div class="panel-heading clearfix">
-								<div class="panel-title type">
-									FUNCTION
-								</div>
-								<div class="panel-title sign">
-									<span class="sign-name">DATASET(Types.Layout_Model) GetModel(DATASET(Types.NumericField) observations, DATASET(Types.DiscreteField) classifications)</span>
-								</div>
-								<div class="btns pull-right">
-									
-									<a href="#ecldoc-section-tree" data-toggle="#t-ml_core-interfaces-iclassify-getmodel" class="tree-link glyphicon glyphicon-menu-up"></a>
-								</div>
-							</div>
+							</a>
 
-							<div class="panel-body">
+							<ul class="list-group">
+								<li class="list-group-item" style="background: #eaecef;">DATASET(Types.Layout_Model) GetModel(DATASET(Types.NumericField) observations, DATASET(Types.DiscreteField) classifications)</li>
+							</ul>
+
+							<div class="panel-body desc-panel-body">
 								<div class="row">
 									<div class="col-md-12" style="padding-bottom: 10px;">
 										Calculate the model to fit the observation data to the observed classes.
@@ -248,25 +160,32 @@
 								
 								
 								</div>
-							<div class="panel-footer">
-								</div>
-						</div>
-						
-						<div class="panel panel-info" id="dml_core-interfaces-iclassify-classify">
-							<div class="panel-heading clearfix">
-								<div class="panel-title type">
-									FUNCTION
-								</div>
-								<div class="panel-title sign">
-									<span class="sign-name">DATASET(Types.Classify_Result) Classify(DATASET(Types.Layout_Model) model, DATASET(Types.NumericField) new_observations)</span>
-								</div>
-								<div class="btns pull-right">
-									
-									<a href="#ecldoc-section-tree" data-toggle="#t-ml_core-interfaces-iclassify-classify" class="tree-link glyphicon glyphicon-menu-up"></a>
+							<div class="panel-footer desc-panel-footer">
+								<div class="panel-group collapse desc-panel-group" id="desc-ml_core-interfaces-iclassify-getmodel">
+								
 								</div>
 							</div>
+						</div>
+						<div class="panel panel-info desc-panel" id="dml_core-interfaces-iclassify-classify">
+							<a href="#desc-ml_core-interfaces-iclassify-classify" data-toggle="collapse">
+								<div class="panel-heading clearfix desc-panel-heading">
+									<div class="panel-title desc-type">
+											FUNCTION
+									</div>
+									<div class="panel-title desc-sign">
+										Classify
+									</div>
+									<div class="pull-right desc-btns">
+										
+									</div>
+								</div>
+							</a>
 
-							<div class="panel-body">
+							<ul class="list-group">
+								<li class="list-group-item" style="background: #eaecef;">DATASET(Types.Classify_Result) Classify(DATASET(Types.Layout_Model) model, DATASET(Types.NumericField) new_observations)</li>
+							</ul>
+
+							<div class="panel-body desc-panel-body">
 								<div class="row">
 									<div class="col-md-12" style="padding-bottom: 10px;">
 										Classify the observations using a model.
@@ -303,25 +222,32 @@
 								
 								
 								</div>
-							<div class="panel-footer">
-								</div>
-						</div>
-						
-						<div class="panel panel-info" id="dml_core-interfaces-iclassify-report">
-							<div class="panel-heading clearfix">
-								<div class="panel-title type">
-									FUNCTION
-								</div>
-								<div class="panel-title sign">
-									<span class="sign-name">DATASET(Types.Confusion_Detail) Report(DATASET(Types.Layout_Model) model, DATASET(Types.NumericField) observations, DATASET(Types.DiscreteField) classifications)</span>
-								</div>
-								<div class="btns pull-right">
-									
-									<a href="#ecldoc-section-tree" data-toggle="#t-ml_core-interfaces-iclassify-report" class="tree-link glyphicon glyphicon-menu-up"></a>
+							<div class="panel-footer desc-panel-footer">
+								<div class="panel-group collapse desc-panel-group" id="desc-ml_core-interfaces-iclassify-classify">
+								
 								</div>
 							</div>
+						</div>
+						<div class="panel panel-info desc-panel" id="dml_core-interfaces-iclassify-report">
+							<a href="#desc-ml_core-interfaces-iclassify-report" data-toggle="collapse">
+								<div class="panel-heading clearfix desc-panel-heading">
+									<div class="panel-title desc-type">
+											FUNCTION
+									</div>
+									<div class="panel-title desc-sign">
+										Report
+									</div>
+									<div class="pull-right desc-btns">
+										
+									</div>
+								</div>
+							</a>
 
-							<div class="panel-body">
+							<ul class="list-group">
+								<li class="list-group-item" style="background: #eaecef;">DATASET(Types.Confusion_Detail) Report(DATASET(Types.Layout_Model) model, DATASET(Types.NumericField) observations, DATASET(Types.DiscreteField) classifications)</li>
+							</ul>
+
+							<div class="panel-body desc-panel-body">
 								<div class="row">
 									<div class="col-md-12" style="padding-bottom: 10px;">
 										Report the confusion matrix for the classifier and training data.
@@ -362,11 +288,16 @@
 								
 								
 								</div>
-							<div class="panel-footer">
+							<div class="panel-footer desc-panel-footer">
+								<div class="panel-group collapse desc-panel-group" id="desc-ml_core-interfaces-iclassify-report">
+								
 								</div>
+							</div>
 						</div>
 						
-						
+								</div>
+							</div>
+						</div>
 						</div>
 				</section>
 			</div>
@@ -381,14 +312,6 @@
 		$("#menu-toggle").click(function(e) {
 			e.preventDefault();
 			$("#wrapper").toggleClass("toggled");
-		});
-	</script>
-	<script>
-		$(document).ready(function(){
-			$('.tree-link').click(function(e) {
-				var loc = $(this).attr('data-toggle');
-				$(loc).parents('.tree').collapse('show');
-			});
 		});
 	</script>
 </body>
