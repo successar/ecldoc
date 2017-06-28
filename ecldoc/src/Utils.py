@@ -1,4 +1,5 @@
 import os
+import re
 
 def genPathTree(ecl_files, ext='') :
     path_tree = { "root" : {} }
@@ -27,3 +28,29 @@ def getRoot(path_tree, ecl_file) :
     return parent
 
 
+def breakstring(name, string) :
+    name = name.lower()
+    string = ' ' + string.lower() + ' '
+    pos = 1
+    open_bracks = ['{', '(', '[']
+    close_bracks = ['}', ')', ']']
+    stack = []
+    for i in range(1, len(string)) :
+        c = string[i]
+        if c in open_bracks :
+            stack.append(c)
+        elif c in close_bracks :
+            if stack[-1] == open_bracks[close_bracks.index(c)] :
+                stack = stack[:-1]
+            else :
+                raise
+
+        else :
+            if len(stack) == 0 :
+                m = re.match(r'[\s\)]' + name + r'([^0-9A-Za-z_])', string[pos-1:])
+                if m :
+                    return pos-1
+
+        pos += 1
+
+    return -1

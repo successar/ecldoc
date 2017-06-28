@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,7 +27,6 @@
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
 					<li><a href="#ecldoc-section-import" class="topbar">Imports</a></li>
-					<li><a href="#ecldoc-section-tree" class="topbar">Tree</a></li>
 					<li><a href="#ecldoc-section-desc" class="topbar">Descriptions</a></li>
 				</ul>
 			</div>
@@ -43,7 +44,19 @@
 				</li>
 				
 				<li>
+					<a href="Confusion.ecl.html">Confusion.ecl</a>
+				</li>
+				
+				<li>
 					<a href="ExtractBeta_CI.ecl.html">ExtractBeta_CI.ecl</a>
+				</li>
+				
+				<li>
+					<a href="Deviance_Analysis.ecl.html">Deviance_Analysis.ecl</a>
+				</li>
+				
+				<li>
+					<a href="LogitScore.ecl.html">LogitScore.ecl</a>
 				</li>
 				
 				<li>
@@ -55,6 +68,18 @@
 				</li>
 				
 				<li>
+					<a href="BinomialLogisticRegression.ecl.html">BinomialLogisticRegression.ecl</a>
+				</li>
+				
+				<li>
+					<a href="BinomialConfusion.ecl.html">BinomialConfusion.ecl</a>
+				</li>
+				
+				<li>
+					<a href="ExtractBeta_pval.ecl.html">ExtractBeta_pval.ecl</a>
+				</li>
+				
+				<li>
 					<a href="dimm.ecl.html">dimm.ecl</a>
 				</li>
 				
@@ -63,35 +88,7 @@
 				</li>
 				
 				<li>
-					<a href="ExtractBeta_pval.ecl.html">ExtractBeta_pval.ecl</a>
-				</li>
-				
-				<li>
-					<a href="Distributions.ecl.html">Distributions.ecl</a>
-				</li>
-				
-				<li>
-					<a href="LogitPredict.ecl.html">LogitPredict.ecl</a>
-				</li>
-				
-				<li>
 					<a href="Model_Deviance.ecl.html">Model_Deviance.ecl</a>
-				</li>
-				
-				<li>
-					<a href="BinomialConfusion.ecl.html">BinomialConfusion.ecl</a>
-				</li>
-				
-				<li>
-					<a href="BinomialLogisticRegression.ecl.html">BinomialLogisticRegression.ecl</a>
-				</li>
-				
-				<li>
-					<a href="LogitScore.ecl.html">LogitScore.ecl</a>
-				</li>
-				
-				<li>
-					<a href="Constants.ecl.html">Constants.ecl</a>
 				</li>
 				
 				<li>
@@ -99,11 +96,15 @@
 				</li>
 				
 				<li>
-					<a href="Deviance_Analysis.ecl.html">Deviance_Analysis.ecl</a>
+					<a href="Distributions.ecl.html">Distributions.ecl</a>
 				</li>
 				
 				<li>
-					<a href="Confusion.ecl.html">Confusion.ecl</a>
+					<a href="Deviance_Detail.ecl.html">Deviance_Detail.ecl</a>
+				</li>
+				
+				<li>
+					<a href="LogitPredict.ecl.html">LogitPredict.ecl</a>
 				</li>
 				
 				<li>
@@ -111,7 +112,7 @@
 				</li>
 				
 				<li>
-					<a href="Deviance_Detail.ecl.html">Deviance_Detail.ecl</a>
+					<a href="Constants.ecl.html">Constants.ecl</a>
 				</li>
 				
 			</ul>
@@ -152,9 +153,13 @@
 								</div>
 							</a>
 
-							<ul class="list-group">
-								<li class="list-group-item" style="background: #eaecef;">Types.matrix_t dimm(BOOLEAN transposeA, BOOLEAN transposeB, BOOLEAN diagonalA, BOOLEAN diagonalB, Types.dimension_t m, Types.dimension_t n, Types.dimension_t k, Types.value_t alpha, Types.matrix_t A, Types.matrix_t B, Types.value_t beta=0.0, Types.matrix_t C=[])</li>
-							</ul>
+							<table class="table sign-list">
+								<tr>
+									<td class="ret">Types.matrix_t</td>
+									<td class="name">dimm</td>
+									<td class="param">(BOOLEAN transposeA, BOOLEAN transposeB, BOOLEAN diagonalA, BOOLEAN diagonalB, Types.dimension_t m, Types.dimension_t n, Types.dimension_t k, Types.value_t alpha, Types.matrix_t A, Types.matrix_t B, Types.value_t beta=0.0, Types.matrix_t C=[])</td>
+								</tr>
+							</table>
 
 							<div class="panel-body desc-panel-body">
 								<div class="row">
@@ -163,64 +168,120 @@
 									</div>
 								</div>
 								
-								<div class="row">
-									<div class="col-md-1 doc-type">Parameters</div>
-									<div class="col-md-11">
-										<table class="table">
-											<tr>
-												<td style="width: 20%; font-weight: bold;">transposeA</td>
-												<td>true when transpose of A is used</td>
-											</tr>
-											<tr>
-												<td style="width: 20%; font-weight: bold;">transposeB</td>
-												<td>true when transpose of B is used</td>
-											</tr>
-											<tr>
-												<td style="width: 20%; font-weight: bold;">diagonalA</td>
-												<td>true when A is the diagonal matrix</td>
-											</tr>
-											<tr>
-												<td style="width: 20%; font-weight: bold;">diagonalB</td>
-												<td>true when B is the diagonal matrix</td>
-											</tr>
-											<tr>
-												<td style="width: 20%; font-weight: bold;">m</td>
-												<td>number of rows in product</td>
-											</tr>
-											<tr>
-												<td style="width: 20%; font-weight: bold;">n</td>
-												<td>number of columns in product</td>
-											</tr>
-											<tr>
-												<td style="width: 20%; font-weight: bold;">k</td>
-												<td>number of columns/rows for the multiplier/multiplicand</td>
-											</tr>
-											<tr>
-												<td style="width: 20%; font-weight: bold;">alpha</td>
-												<td>scalar used on A</td>
-											</tr>
-											<tr>
-												<td style="width: 20%; font-weight: bold;">A</td>
-												<td>matrix A</td>
-											</tr>
-											<tr>
-												<td style="width: 20%; font-weight: bold;">B</td>
-												<td>matrix B</td>
-											</tr>
-											<tr>
-												<td style="width: 20%; font-weight: bold;">beta</td>
-												<td>scalar for matrix C</td>
-											</tr>
-											<tr>
-												<td style="width: 20%; font-weight: bold;">C</td>
-												<td>matrix C or empty</td>
-											</tr>
-											</table>
-									</div>
-								</div>
 								
+	
+	
+	<div class="row">
+		<div class="col-md-1 doc-type">Parameters</div>
+		<div class="col-md-11">
+			<table class="table">
+				
+				<tr>
+					
+					<td width="20%"><b>transposeA</b> </td>
+					<td>true when transpose of A is used</td>
+					
+				</tr>
+				
+				<tr>
+					
+					<td width="20%"><b>transposeB</b> </td>
+					<td>true when transpose of B is used</td>
+					
+				</tr>
+				
+				<tr>
+					
+					<td width="20%"><b>diagonalA</b> </td>
+					<td>true when A is the diagonal matrix</td>
+					
+				</tr>
+				
+				<tr>
+					
+					<td width="20%"><b>diagonalB</b> </td>
+					<td>true when B is the diagonal matrix</td>
+					
+				</tr>
+				
+				<tr>
+					
+					<td width="20%"><b>m</b> </td>
+					<td>number of rows in product</td>
+					
+				</tr>
+				
+				<tr>
+					
+					<td width="20%"><b>n</b> </td>
+					<td>number of columns in product</td>
+					
+				</tr>
+				
+				<tr>
+					
+					<td width="20%"><b>k</b> </td>
+					<td>number of columns/rows for the multiplier/multiplicand</td>
+					
+				</tr>
+				
+				<tr>
+					
+					<td width="20%"><b>alpha</b> </td>
+					<td>scalar used on A</td>
+					
+				</tr>
+				
+				<tr>
+					
+					<td width="20%"><b>A</b> </td>
+					<td>matrix A</td>
+					
+				</tr>
+				
+				<tr>
+					
+					<td width="20%"><b>B</b> </td>
+					<td>matrix B</td>
+					
+				</tr>
+				
+				<tr>
+					
+					<td width="20%"><b>beta</b> </td>
+					<td>scalar for matrix C</td>
+					
+				</tr>
+				
+				<tr>
+					
+					<td width="20%"><b>C</b> </td>
+					<td>matrix C or empty</td>
+					
+				</tr>
+				
+			</table>
+		</div>
+	</div>
+	
+	
+
 								
+	
+	
+	
+
 								
+	
+	
+	
+
+								
+	
+	
+	
+
+
 								</div>
 							<div class="panel-footer desc-panel-footer">
 								<div class="panel-group collapse desc-panel-group" id="desc-logisticregression-dimm">

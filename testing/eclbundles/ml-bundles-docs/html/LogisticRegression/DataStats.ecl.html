@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,7 +27,6 @@
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
 					<li><a href="#ecldoc-section-import" class="topbar">Imports</a></li>
-					<li><a href="#ecldoc-section-tree" class="topbar">Tree</a></li>
 					<li><a href="#ecldoc-section-desc" class="topbar">Descriptions</a></li>
 				</ul>
 			</div>
@@ -43,7 +44,19 @@
 				</li>
 				
 				<li>
+					<a href="Confusion.ecl.html">Confusion.ecl</a>
+				</li>
+				
+				<li>
 					<a href="ExtractBeta_CI.ecl.html">ExtractBeta_CI.ecl</a>
+				</li>
+				
+				<li>
+					<a href="Deviance_Analysis.ecl.html">Deviance_Analysis.ecl</a>
+				</li>
+				
+				<li>
+					<a href="LogitScore.ecl.html">LogitScore.ecl</a>
 				</li>
 				
 				<li>
@@ -55,6 +68,18 @@
 				</li>
 				
 				<li>
+					<a href="BinomialLogisticRegression.ecl.html">BinomialLogisticRegression.ecl</a>
+				</li>
+				
+				<li>
+					<a href="BinomialConfusion.ecl.html">BinomialConfusion.ecl</a>
+				</li>
+				
+				<li>
+					<a href="ExtractBeta_pval.ecl.html">ExtractBeta_pval.ecl</a>
+				</li>
+				
+				<li>
 					<a href="dimm.ecl.html">dimm.ecl</a>
 				</li>
 				
@@ -63,35 +88,7 @@
 				</li>
 				
 				<li>
-					<a href="ExtractBeta_pval.ecl.html">ExtractBeta_pval.ecl</a>
-				</li>
-				
-				<li>
-					<a href="Distributions.ecl.html">Distributions.ecl</a>
-				</li>
-				
-				<li>
-					<a href="LogitPredict.ecl.html">LogitPredict.ecl</a>
-				</li>
-				
-				<li>
 					<a href="Model_Deviance.ecl.html">Model_Deviance.ecl</a>
-				</li>
-				
-				<li>
-					<a href="BinomialConfusion.ecl.html">BinomialConfusion.ecl</a>
-				</li>
-				
-				<li>
-					<a href="BinomialLogisticRegression.ecl.html">BinomialLogisticRegression.ecl</a>
-				</li>
-				
-				<li>
-					<a href="LogitScore.ecl.html">LogitScore.ecl</a>
-				</li>
-				
-				<li>
-					<a href="Constants.ecl.html">Constants.ecl</a>
 				</li>
 				
 				<li>
@@ -99,11 +96,15 @@
 				</li>
 				
 				<li>
-					<a href="Deviance_Analysis.ecl.html">Deviance_Analysis.ecl</a>
+					<a href="Distributions.ecl.html">Distributions.ecl</a>
 				</li>
 				
 				<li>
-					<a href="Confusion.ecl.html">Confusion.ecl</a>
+					<a href="Deviance_Detail.ecl.html">Deviance_Detail.ecl</a>
+				</li>
+				
+				<li>
+					<a href="LogitPredict.ecl.html">LogitPredict.ecl</a>
 				</li>
 				
 				<li>
@@ -111,7 +112,7 @@
 				</li>
 				
 				<li>
-					<a href="Deviance_Detail.ecl.html">Deviance_Detail.ecl</a>
+					<a href="Constants.ecl.html">Constants.ecl</a>
 				</li>
 				
 			</ul>
@@ -162,9 +163,13 @@
 								</div>
 							</a>
 
-							<ul class="list-group">
-								<li class="list-group-item" style="background: #eaecef;">DATASET(Types.Data_Info) DataStats(DATASET(Core_Types.NumericField) indep, DATASET(Core_Types.DiscreteField) dep, BOOLEAN field_details=FALSE)</li>
-							</ul>
+							<table class="table sign-list">
+								<tr>
+									<td class="ret">DATASET(Types.Data_Info)</td>
+									<td class="name">DataStats</td>
+									<td class="param">(DATASET(Core_Types.NumericField) indep, DATASET(Core_Types.DiscreteField) dep, BOOLEAN field_details=FALSE)</td>
+								</tr>
+							</table>
 
 							<div class="panel-body desc-panel-body">
 								<div class="row">
@@ -173,28 +178,57 @@
 									</div>
 								</div>
 								
-								<div class="row">
-									<div class="col-md-1 doc-type">Parameters</div>
-									<div class="col-md-11">
-										<table class="table">
-											<tr>
-												<td style="width: 20%; font-weight: bold;">indep</td>
-												<td>data set of independent variables</td>
-											</tr>
-											<tr>
-												<td style="width: 20%; font-weight: bold;">dep</td>
-												<td>data set of dependent variables</td>
-											</tr>
-											<tr>
-												<td style="width: 20%; font-weight: bold;">field_details</td>
-												<td>Boolean directive to provide field level info</td>
-											</tr>
-											</table>
-									</div>
-								</div>
 								
+	
+	
+	<div class="row">
+		<div class="col-md-1 doc-type">Parameters</div>
+		<div class="col-md-11">
+			<table class="table">
+				
+				<tr>
+					
+					<td width="20%"><b>indep</b> </td>
+					<td>data set of independent variables</td>
+					
+				</tr>
+				
+				<tr>
+					
+					<td width="20%"><b>dep</b> </td>
+					<td>data set of dependent variables</td>
+					
+				</tr>
+				
+				<tr>
+					
+					<td width="20%"><b>field_details</b> </td>
+					<td>Boolean directive to provide field level info</td>
+					
+				</tr>
+				
+			</table>
+		</div>
+	</div>
+	
+	
+
 								
+	
+	
+	
+
 								
+	
+	
+	
+
+								
+	
+	
+	
+
+
 								</div>
 							<div class="panel-footer desc-panel-footer">
 								<div class="panel-group collapse desc-panel-group" id="desc-logisticregression-datastats">

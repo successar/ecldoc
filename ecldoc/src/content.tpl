@@ -1,3 +1,27 @@
+{% macro simpletag(name, xpath, def, double=false) %}
+	{% if def.find('./Documentation') %}
+	{% if def.find('./Documentation').findall(xpath) %}
+	<div class="row">
+		<div class="col-md-1 doc-type">{{ name }}</div>
+		<div class="col-md-11">
+			<table class="table">
+				{% for tag in def.find('./Documentation').findall(xpath) %}
+				<tr>
+					{% if double %}
+					<td width="20%"><b>{{ tag.find('./name').text }}</b> </td>
+					<td>{{ tag.find('./desc').text }}</td>
+					{% else %}
+					<td>{{ tag.text }}</td>
+					{% endif %}
+				</tr>
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+	{% endif %}
+	{% endif %}
+{% endmacro %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,7 +49,6 @@
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
 					<li><a href="#ecldoc-section-import" class="topbar">Imports</a></li>
-					<li><a href="#ecldoc-section-tree" class="topbar">Tree</a></li>
 					<li><a href="#ecldoc-section-desc" class="topbar">Descriptions</a></li>
 				</ul>
 			</div>
@@ -86,9 +109,13 @@
 								</div>
 							</a>
 
-							<ul class="list-group">
-								<li class="list-group-item" style="background: #eaecef;">{{ def.find('./Signature').attrib['sign'] }}</li>
-							</ul>
+							<table class="table sign-list">
+								<tr>
+									<td class="ret">{{ def.find('./Signature').attrib['ret'] }}</td>
+									<td class="name">{{ def.find('./Signature').attrib['name'] }}</td>
+									<td class="param">{{ def.find('./Signature').attrib['param'] }}</td>
+								</tr>
+							</table>
 
 							<div class="panel-body desc-panel-body">
 								{% if def.find('./Documentation') is not none -%}
@@ -97,66 +124,11 @@
 										{{ def.find('./Documentation').find('./content').text }}
 									</div>
 								</div>
-								{% if def.find('./Documentation').findall('./param') %}
-								<div class="row">
-									<div class="col-md-1 doc-type">Parameters</div>
-									<div class="col-md-11">
-										<table class="table">
-											{% for tag in def.find('./Documentation').findall('./param') -%}
-											<tr>
-												<td style="width: 20%; font-weight: bold;">{{ tag.find('./name').text }}</td>
-												<td>{{ tag.find('./desc').text }}</td>
-											</tr>
-											{% endfor -%}
-										</table>
-									</div>
-								</div>
 								{% endif %}
-								{% if def.find('./Documentation').findall('return') %}
-								<div class="row">
-									<div class="col-md-1 doc-type">Returns</div>
-									<div class="col-md-11">
-										<table class="table">
-											{% for tag in def.find('./Documentation').findall('./return') -%}
-											<tr>
-												<td>{{ tag.text }}</td>
-											</tr>
-											{% endfor -%}
-										</table>
-									</div>
-								</div>
-								{% endif %}
-								{% if def.find('./Documentation').findall('./field') %}
-								<div class="row">
-									<div class="col-md-1 doc-type">Fields</div>
-									<div class="col-md-11">
-										<table class="table">
-											{% for tag in def.find('./Documentation').findall('./field') -%}
-											<tr>
-												<td width="20%"><b>{{ tag.find('./name').text }}</b> </td>
-												<td>{{ tag.find('./desc').text }}</td>
-											</tr>
-											{% endfor -%}
-										</table>
-									</div>
-								</div>
-								{% endif %}
-								{% endif -%}
-
-								{% if def.find('./Documentation') -%}
-								{% if def.find('./Documentation').findall('./see') -%}
-								<div class="row">
-									<div class="col-md-1">Also See</div>
-									<div class="col-md-11">
-										<ul>
-											{% for tag in def.find('./Documentation').findall('./see') -%}
-											<li><b>{{ tag.text }}</b></li>
-											{% endfor -%}
-										</ul>
-									</div>
-								</div>
-								{% endif -%}
-								{% endif -%}
+								{{ simpletag('Parameters', './param', def, double=true) }}
+								{{ simpletag('Fields', './field', def, double=true) }}
+								{{ simpletag('Returns', './return', def) }}
+								{{ simpletag('Also See', './see', def) }}
 
 								{% if def.find('./Parents') -%}
 								<div class="row">

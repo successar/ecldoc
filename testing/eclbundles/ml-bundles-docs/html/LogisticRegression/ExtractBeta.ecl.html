@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,7 +27,6 @@
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
 					<li><a href="#ecldoc-section-import" class="topbar">Imports</a></li>
-					<li><a href="#ecldoc-section-tree" class="topbar">Tree</a></li>
 					<li><a href="#ecldoc-section-desc" class="topbar">Descriptions</a></li>
 				</ul>
 			</div>
@@ -43,7 +44,19 @@
 				</li>
 				
 				<li>
+					<a href="Confusion.ecl.html">Confusion.ecl</a>
+				</li>
+				
+				<li>
 					<a href="ExtractBeta_CI.ecl.html">ExtractBeta_CI.ecl</a>
+				</li>
+				
+				<li>
+					<a href="Deviance_Analysis.ecl.html">Deviance_Analysis.ecl</a>
+				</li>
+				
+				<li>
+					<a href="LogitScore.ecl.html">LogitScore.ecl</a>
 				</li>
 				
 				<li>
@@ -55,6 +68,18 @@
 				</li>
 				
 				<li>
+					<a href="BinomialLogisticRegression.ecl.html">BinomialLogisticRegression.ecl</a>
+				</li>
+				
+				<li>
+					<a href="BinomialConfusion.ecl.html">BinomialConfusion.ecl</a>
+				</li>
+				
+				<li>
+					<a href="ExtractBeta_pval.ecl.html">ExtractBeta_pval.ecl</a>
+				</li>
+				
+				<li>
 					<a href="dimm.ecl.html">dimm.ecl</a>
 				</li>
 				
@@ -63,35 +88,7 @@
 				</li>
 				
 				<li>
-					<a href="ExtractBeta_pval.ecl.html">ExtractBeta_pval.ecl</a>
-				</li>
-				
-				<li>
-					<a href="Distributions.ecl.html">Distributions.ecl</a>
-				</li>
-				
-				<li>
-					<a href="LogitPredict.ecl.html">LogitPredict.ecl</a>
-				</li>
-				
-				<li>
 					<a href="Model_Deviance.ecl.html">Model_Deviance.ecl</a>
-				</li>
-				
-				<li>
-					<a href="BinomialConfusion.ecl.html">BinomialConfusion.ecl</a>
-				</li>
-				
-				<li>
-					<a href="BinomialLogisticRegression.ecl.html">BinomialLogisticRegression.ecl</a>
-				</li>
-				
-				<li>
-					<a href="LogitScore.ecl.html">LogitScore.ecl</a>
-				</li>
-				
-				<li>
-					<a href="Constants.ecl.html">Constants.ecl</a>
 				</li>
 				
 				<li>
@@ -99,11 +96,15 @@
 				</li>
 				
 				<li>
-					<a href="Deviance_Analysis.ecl.html">Deviance_Analysis.ecl</a>
+					<a href="Distributions.ecl.html">Distributions.ecl</a>
 				</li>
 				
 				<li>
-					<a href="Confusion.ecl.html">Confusion.ecl</a>
+					<a href="Deviance_Detail.ecl.html">Deviance_Detail.ecl</a>
+				</li>
+				
+				<li>
+					<a href="LogitPredict.ecl.html">LogitPredict.ecl</a>
 				</li>
 				
 				<li>
@@ -111,7 +112,7 @@
 				</li>
 				
 				<li>
-					<a href="Deviance_Detail.ecl.html">Deviance_Detail.ecl</a>
+					<a href="Constants.ecl.html">Constants.ecl</a>
 				</li>
 				
 			</ul>
@@ -157,9 +158,13 @@
 								</div>
 							</a>
 
-							<ul class="list-group">
-								<li class="list-group-item" style="background: #eaecef;">ExtractBeta(DATASET(Core_Types.Layout_Model) mod_ds)</li>
-							</ul>
+							<table class="table sign-list">
+								<tr>
+									<td class="ret"></td>
+									<td class="name">ExtractBeta</td>
+									<td class="param">(DATASET(Core_Types.Layout_Model) mod_ds)</td>
+								</tr>
+							</table>
 
 							<div class="panel-body desc-panel-body">
 								<div class="row">
@@ -168,31 +173,58 @@
 									</div>
 								</div>
 								
-								<div class="row">
-									<div class="col-md-1 doc-type">Parameters</div>
-									<div class="col-md-11">
-										<table class="table">
-											<tr>
-												<td style="width: 20%; font-weight: bold;">mod_ds</td>
-												<td>the model dataset</td>
-											</tr>
-											</table>
-									</div>
-								</div>
 								
+	
+	
+	<div class="row">
+		<div class="col-md-1 doc-type">Parameters</div>
+		<div class="col-md-11">
+			<table class="table">
+				
+				<tr>
+					
+					<td width="20%"><b>mod_ds</b> </td>
+					<td>the model dataset</td>
+					
+				</tr>
+				
+			</table>
+		</div>
+	</div>
+	
+	
+
 								
-								<div class="row">
-									<div class="col-md-1 doc-type">Returns</div>
-									<div class="col-md-11">
-										<table class="table">
-											<tr>
-												<td>a beta values as Model Coefficient records, zero as the constant term.</td>
-											</tr>
-											</table>
-									</div>
-								</div>
+	
+	
+	
+
 								
+	
+	
+	<div class="row">
+		<div class="col-md-1 doc-type">Returns</div>
+		<div class="col-md-11">
+			<table class="table">
+				
+				<tr>
+					
+					<td>a beta values as Model Coefficient records, zero as the constant term.</td>
+					
+				</tr>
+				
+			</table>
+		</div>
+	</div>
+	
+	
+
 								
+	
+	
+	
+
+
 								</div>
 							<div class="panel-footer desc-panel-footer">
 								<div class="panel-group collapse desc-panel-group" id="desc-logisticregression-extractbeta">

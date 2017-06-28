@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,7 +27,6 @@
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
 					<li><a href="#ecldoc-section-import" class="topbar">Imports</a></li>
-					<li><a href="#ecldoc-section-tree" class="topbar">Tree</a></li>
 					<li><a href="#ecldoc-section-desc" class="topbar">Descriptions</a></li>
 				</ul>
 			</div>
@@ -43,11 +44,7 @@
 				</li>
 				
 				<li>
-					<a href="ExtractTri.ecl.html">ExtractTri.ecl</a>
-				</li>
-				
-				<li>
-					<a href="HadamardProduct.ecl.html">HadamardProduct.ecl</a>
+					<a href="gemm.ecl.html">gemm.ecl</a>
 				</li>
 				
 				<li>
@@ -55,7 +52,7 @@
 				</li>
 				
 				<li>
-					<a href="trsm.ecl.html">trsm.ecl</a>
+					<a href="ExtractTri.ecl.html">ExtractTri.ecl</a>
 				</li>
 				
 				<li>
@@ -63,15 +60,11 @@
 				</li>
 				
 				<li>
-					<a href="axpy.ecl.html">axpy.ecl</a>
+					<a href="Converted.ecl.html">Converted.ecl</a>
 				</li>
 				
 				<li>
-					<a href="Apply2Elements.ecl.html">Apply2Elements.ecl</a>
-				</li>
-				
-				<li>
-					<a href="MatUtils.ecl.html">MatUtils.ecl</a>
+					<a href="trsm.ecl.html">trsm.ecl</a>
 				</li>
 				
 				<li>
@@ -79,11 +72,23 @@
 				</li>
 				
 				<li>
+					<a href="HadamardProduct.ecl.html">HadamardProduct.ecl</a>
+				</li>
+				
+				<li>
+					<a href="Vector2Diag.ecl.html">Vector2Diag.ecl</a>
+				</li>
+				
+				<li>
+					<a href="Apply2Elements.ecl.html">Apply2Elements.ecl</a>
+				</li>
+				
+				<li>
 					<a href="scal.ecl.html">scal.ecl</a>
 				</li>
 				
 				<li>
-					<a href="getrf.ecl.html">getrf.ecl</a>
+					<a href="axpy.ecl.html">axpy.ecl</a>
 				</li>
 				
 				<li>
@@ -91,11 +96,7 @@
 				</li>
 				
 				<li>
-					<a href="Constants.ecl.html">Constants.ecl</a>
-				</li>
-				
-				<li>
-					<a href="Converted.ecl.html">Converted.ecl</a>
+					<a href="getrf.ecl.html">getrf.ecl</a>
 				</li>
 				
 				<li>
@@ -103,11 +104,11 @@
 				</li>
 				
 				<li>
-					<a href="gemm.ecl.html">gemm.ecl</a>
+					<a href="MatUtils.ecl.html">MatUtils.ecl</a>
 				</li>
 				
 				<li>
-					<a href="Vector2Diag.ecl.html">Vector2Diag.ecl</a>
+					<a href="Constants.ecl.html">Constants.ecl</a>
 				</li>
 				
 			</ul>
@@ -168,9 +169,13 @@
 								</div>
 							</a>
 
-							<ul class="list-group">
-								<li class="list-group-item" style="background: #eaecef;">DATASET(Layout_Cell) Vector2Diag(DATASET(Layout_Cell) X)</li>
-							</ul>
+							<table class="table sign-list">
+								<tr>
+									<td class="ret">DATASET(Layout_Cell)</td>
+									<td class="name">Vector2Diag</td>
+									<td class="param">(DATASET(Layout_Cell) X)</td>
+								</tr>
+							</table>
 
 							<div class="panel-body desc-panel-body">
 								<div class="row">
@@ -179,39 +184,73 @@
 									</div>
 								</div>
 								
-								<div class="row">
-									<div class="col-md-1 doc-type">Parameters</div>
-									<div class="col-md-11">
-										<table class="table">
-											<tr>
-												<td style="width: 20%; font-weight: bold;">X</td>
-												<td>A row or column vector (i.e. N x 1 or 1 x N) in Layout_Cell format</td>
-											</tr>
-											</table>
-									</div>
-								</div>
 								
+	
+	
+	<div class="row">
+		<div class="col-md-1 doc-type">Parameters</div>
+		<div class="col-md-11">
+			<table class="table">
+				
+				<tr>
+					
+					<td width="20%"><b>X</b> </td>
+					<td>A row or column vector (i.e. N x 1 or 1 x N) in Layout_Cell format</td>
+					
+				</tr>
+				
+			</table>
+		</div>
+	</div>
+	
+	
+
 								
-								<div class="row">
-									<div class="col-md-1 doc-type">Returns</div>
-									<div class="col-md-11">
-										<table class="table">
-											<tr>
-												<td>An N x N matrix in Layout_Cell format</td>
-											</tr>
-											</table>
-									</div>
-								</div>
+	
+	
+	
+
 								
+	
+	
+	<div class="row">
+		<div class="col-md-1 doc-type">Returns</div>
+		<div class="col-md-11">
+			<table class="table">
+				
+				<tr>
+					
+					<td>An N x N matrix in Layout_Cell format</td>
+					
+				</tr>
+				
+			</table>
+		</div>
+	</div>
+	
+	
+
 								
-								<div class="row">
-									<div class="col-md-1">Also See</div>
-									<div class="col-md-11">
-										<ul>
-											<li><b>PBblas/Types.Layout_cell</b></li>
-											</ul>
-									</div>
-								</div>
+	
+	
+	<div class="row">
+		<div class="col-md-1 doc-type">Also See</div>
+		<div class="col-md-11">
+			<table class="table">
+				
+				<tr>
+					
+					<td>PBblas/Types.Layout_cell</td>
+					
+				</tr>
+				
+			</table>
+		</div>
+	</div>
+	
+	
+
+
 								</div>
 							<div class="panel-footer desc-panel-footer">
 								<div class="panel-group collapse desc-panel-group" id="desc-pbblas-vector2diag">

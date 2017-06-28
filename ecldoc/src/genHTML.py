@@ -7,6 +7,8 @@ from jinja2 import Template
 from lxml import etree
 from Utils import genPathTree, getRoot
 
+from Utils import breakstring
+
 class ParseHTML(object) :
 	def __init__(self, generator, ecl_file) :
 		self.output_root = generator.output_root
@@ -36,6 +38,24 @@ class ParseHTML(object) :
 				fullname = attribs['fullname']
 				fullname = re.sub(r'\.', '-', fullname)
 				attribs['fullname'] = fullname
+
+		for sign in root.iter('Signature') :
+			text = sign.text
+			name_len = len(sign.attrib['name'])
+			pos = breakstring(sign.attrib['name'], sign.text)
+			ret, name, param = '', '', ''
+			indent_len = 0
+			if pos != -1 :
+				ret = text[:pos]
+				name = text[pos:pos+name_len]
+				param = text[pos+name_len:]
+				indent_len = pos+name_len
+			else :
+				name = text
+
+			sign.attrib['ret'] = ret.strip()
+			sign.attrib['param'] = param.strip()
+			sign.attrib['len'] = str(indent_len)
 
 		files = []
 		for key in self.parent :

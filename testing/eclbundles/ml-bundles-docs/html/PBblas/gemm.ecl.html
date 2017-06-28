@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,7 +27,6 @@
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
 					<li><a href="#ecldoc-section-import" class="topbar">Imports</a></li>
-					<li><a href="#ecldoc-section-tree" class="topbar">Tree</a></li>
 					<li><a href="#ecldoc-section-desc" class="topbar">Descriptions</a></li>
 				</ul>
 			</div>
@@ -43,11 +44,7 @@
 				</li>
 				
 				<li>
-					<a href="ExtractTri.ecl.html">ExtractTri.ecl</a>
-				</li>
-				
-				<li>
-					<a href="HadamardProduct.ecl.html">HadamardProduct.ecl</a>
+					<a href="gemm.ecl.html">gemm.ecl</a>
 				</li>
 				
 				<li>
@@ -55,7 +52,7 @@
 				</li>
 				
 				<li>
-					<a href="trsm.ecl.html">trsm.ecl</a>
+					<a href="ExtractTri.ecl.html">ExtractTri.ecl</a>
 				</li>
 				
 				<li>
@@ -63,15 +60,11 @@
 				</li>
 				
 				<li>
-					<a href="axpy.ecl.html">axpy.ecl</a>
+					<a href="Converted.ecl.html">Converted.ecl</a>
 				</li>
 				
 				<li>
-					<a href="Apply2Elements.ecl.html">Apply2Elements.ecl</a>
-				</li>
-				
-				<li>
-					<a href="MatUtils.ecl.html">MatUtils.ecl</a>
+					<a href="trsm.ecl.html">trsm.ecl</a>
 				</li>
 				
 				<li>
@@ -79,11 +72,23 @@
 				</li>
 				
 				<li>
+					<a href="HadamardProduct.ecl.html">HadamardProduct.ecl</a>
+				</li>
+				
+				<li>
+					<a href="Vector2Diag.ecl.html">Vector2Diag.ecl</a>
+				</li>
+				
+				<li>
+					<a href="Apply2Elements.ecl.html">Apply2Elements.ecl</a>
+				</li>
+				
+				<li>
 					<a href="scal.ecl.html">scal.ecl</a>
 				</li>
 				
 				<li>
-					<a href="getrf.ecl.html">getrf.ecl</a>
+					<a href="axpy.ecl.html">axpy.ecl</a>
 				</li>
 				
 				<li>
@@ -91,11 +96,7 @@
 				</li>
 				
 				<li>
-					<a href="Constants.ecl.html">Constants.ecl</a>
-				</li>
-				
-				<li>
-					<a href="Converted.ecl.html">Converted.ecl</a>
+					<a href="getrf.ecl.html">getrf.ecl</a>
 				</li>
 				
 				<li>
@@ -103,11 +104,11 @@
 				</li>
 				
 				<li>
-					<a href="gemm.ecl.html">gemm.ecl</a>
+					<a href="MatUtils.ecl.html">MatUtils.ecl</a>
 				</li>
 				
 				<li>
-					<a href="Vector2Diag.ecl.html">Vector2Diag.ecl</a>
+					<a href="Constants.ecl.html">Constants.ecl</a>
 				</li>
 				
 			</ul>
@@ -173,9 +174,13 @@
 								</div>
 							</a>
 
-							<ul class="list-group">
-								<li class="list-group-item" style="background: #eaecef;">DATASET(Layout_Cell) gemm(BOOLEAN transposeA, BOOLEAN transposeB, value_t alpha, DATASET(Layout_Cell) A_in, DATASET(Layout_Cell) B_in, DATASET(Layout_Cell) C_in=emptyC, value_t beta=0.0)</li>
-							</ul>
+							<table class="table sign-list">
+								<tr>
+									<td class="ret">DATASET(Layout_Cell)</td>
+									<td class="name">gemm</td>
+									<td class="param">(BOOLEAN transposeA, BOOLEAN transposeB, value_t alpha, DATASET(Layout_Cell) A_in, DATASET(Layout_Cell) B_in, DATASET(Layout_Cell) C_in=emptyC, value_t beta=0.0)</td>
+								</tr>
+							</table>
 
 							<div class="panel-body desc-panel-body">
 								<div class="row">
@@ -184,63 +189,115 @@
 									</div>
 								</div>
 								
-								<div class="row">
-									<div class="col-md-1 doc-type">Parameters</div>
-									<div class="col-md-11">
-										<table class="table">
-											<tr>
-												<td style="width: 20%; font-weight: bold;">transposeA</td>
-												<td>Boolean indicating whether matrix A should be transposed before multiplying</td>
-											</tr>
-											<tr>
-												<td style="width: 20%; font-weight: bold;">transposeB</td>
-												<td>Same as above but for matrix B</td>
-											</tr>
-											<tr>
-												<td style="width: 20%; font-weight: bold;">alpha</td>
-												<td>Scalar multiplier for alpha * A * B</td>
-											</tr>
-											<tr>
-												<td style="width: 20%; font-weight: bold;">A_in</td>
-												<td>'A' matrix (multiplier) in Layout_Cell format</td>
-											</tr>
-											<tr>
-												<td style="width: 20%; font-weight: bold;">B_in</td>
-												<td>Same as above for the 'B' matrix (multiplicand)</td>
-											</tr>
-											<tr>
-												<td style="width: 20%; font-weight: bold;">C_in</td>
-												<td>Same as above for the 'C' matrix (addend). May be omitted.</td>
-											</tr>
-											<tr>
-												<td style="width: 20%; font-weight: bold;">beta</td>
-												<td>A scalar multiplier for beta * C, scales the C matrix before addition. May be omitted.</td>
-											</tr>
-											</table>
-									</div>
-								</div>
 								
+	
+	
+	<div class="row">
+		<div class="col-md-1 doc-type">Parameters</div>
+		<div class="col-md-11">
+			<table class="table">
+				
+				<tr>
+					
+					<td width="20%"><b>transposeA</b> </td>
+					<td>Boolean indicating whether matrix A should be transposed before multiplying</td>
+					
+				</tr>
+				
+				<tr>
+					
+					<td width="20%"><b>transposeB</b> </td>
+					<td>Same as above but for matrix B</td>
+					
+				</tr>
+				
+				<tr>
+					
+					<td width="20%"><b>alpha</b> </td>
+					<td>Scalar multiplier for alpha * A * B</td>
+					
+				</tr>
+				
+				<tr>
+					
+					<td width="20%"><b>A_in</b> </td>
+					<td>'A' matrix (multiplier) in Layout_Cell format</td>
+					
+				</tr>
+				
+				<tr>
+					
+					<td width="20%"><b>B_in</b> </td>
+					<td>Same as above for the 'B' matrix (multiplicand)</td>
+					
+				</tr>
+				
+				<tr>
+					
+					<td width="20%"><b>C_in</b> </td>
+					<td>Same as above for the 'C' matrix (addend). May be omitted.</td>
+					
+				</tr>
+				
+				<tr>
+					
+					<td width="20%"><b>beta</b> </td>
+					<td>A scalar multiplier for beta * C, scales the C matrix before addition. May be omitted.</td>
+					
+				</tr>
+				
+			</table>
+		</div>
+	</div>
+	
+	
+
 								
-								<div class="row">
-									<div class="col-md-1 doc-type">Returns</div>
-									<div class="col-md-11">
-										<table class="table">
-											<tr>
-												<td>Result matrix in Layout_Cell format.</td>
-											</tr>
-											</table>
-									</div>
-								</div>
+	
+	
+	
+
 								
+	
+	
+	<div class="row">
+		<div class="col-md-1 doc-type">Returns</div>
+		<div class="col-md-11">
+			<table class="table">
+				
+				<tr>
+					
+					<td>Result matrix in Layout_Cell format.</td>
+					
+				</tr>
+				
+			</table>
+		</div>
+	</div>
+	
+	
+
 								
-								<div class="row">
-									<div class="col-md-1">Also See</div>
-									<div class="col-md-11">
-										<ul>
-											<li><b>PBblas/Types.Layout_Cell</b></li>
-											</ul>
-									</div>
-								</div>
+	
+	
+	<div class="row">
+		<div class="col-md-1 doc-type">Also See</div>
+		<div class="col-md-11">
+			<table class="table">
+				
+				<tr>
+					
+					<td>PBblas/Types.Layout_Cell</td>
+					
+				</tr>
+				
+			</table>
+		</div>
+	</div>
+	
+	
+
+
 								</div>
 							<div class="panel-footer desc-panel-footer">
 								<div class="panel-group collapse desc-panel-group" id="desc-pbblas-gemm">
