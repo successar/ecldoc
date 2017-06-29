@@ -58,17 +58,7 @@ class ParseTXT(object) :
 			self.parseDefinition(defn, self.render_dict)
 
 	def parseDefinition(self, defn, render_dict) :
-		defn_type = defn.find('./Type').text
-		sign = defn.find('./Signature').text
-		if defn.attrib['inherit_type'] != 'local' :
-			sign += ' ||| ' + defn.attrib['inherit_type'].upper()
-
-		heading = defn_type.upper() + ' : '
-		spaces = len(heading)
-		sign_break = _break(sign, CPL - spaces)
-		type_break = [heading] + ([' '*spaces] * (len(sign_break) - 1))
-		headers = [(a + b) for a,b in zip(type_break, sign_break)]
-
+		headers = self.parseSign(defn)
 		doc = self.parseDocs(defn.find('./Documentation'))
 		parents = defn.find('./Parents')
 		target = defn.attrib['target'] if 'target' in defn.attrib else None
@@ -79,6 +69,20 @@ class ParseTXT(object) :
 			self.parseDefinition(childdefn, defn_dict['defns'])
 
 		render_dict.append(defn_dict)
+
+	def parseSign(self, defn) :
+		defn_type = defn.find('./Type').text
+		sign = defn.find('./Signature').text
+		hlen = int(defn.find('./Signature').attrib['hlen'])
+		if defn.attrib['inherit_type'] != 'local' :
+			sign += ' ||| ' + defn.attrib['inherit_type'].upper()
+
+		heading = defn_type.upper() + ' : '
+		spaces = len(heading)
+		sign_break = _break(sign, CPL - spaces)
+		type_break = [heading] + ([' '*(spaces + hlen)] * (len(sign_break) - 1))
+		headers = [(a + b) for a,b in zip(type_break, sign_break)]
+		return headers
 
 	def parseDocs(self, doc) :
 		doc_dict = {}

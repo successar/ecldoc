@@ -1,5 +1,5 @@
 \chapter*{PBblas.tran}
-\hypertarget{PBblas.tran}{}
+\hypertarget{ecldoc:toc:PBblas.tran}{}
 
 \section*{\underline{IMPORTS}}
 \begin{itemize}
@@ -14,11 +14,18 @@
 \end{itemize}
 
 \section*{\underline{DESCRIPTIONS}}
-\subsection*{function : tran}
-\hypertarget{ecldoc:pbblas.tran}{FUNCTION : DATASET(Layout\_Cell) tran(value\_t alpha, DATASET(Layout\_Cell) A, value\_t beta=0, DATASET(Layout\_Cell) C=empty\_c)} \\
-\hyperlink{ecldoc:}{Up} \\
+\subsection*{FUNCTION : tran}
+\hypertarget{ecldoc:pbblas.tran}{}
+\begin{minipage}[t]{\textwidth}
+\begin{flushleft}
+DATASET(Layout\_Cell) tran (value\_t alpha, DATASET(Layout\_Cell) A, value\_t beta=0, DATASET(Layout\_Cell) C=empty\_c)
+\end{flushleft}
+\end{minipage}
+\hyperlink{ecldoc:toc:PBblas}{Up}
+
 \par
-Transpose a matrix and sum into base matrix result <== alpha * A**t + beta * C, A is n by m, C is m by n A**T (A Transpose) and C must have same shape \\
+Transpose a matrix and sum into base matrix result <== alpha * A**t + beta * C, A is n by m, C is m by n A**T (A Transpose) and C must have same shape
+\par
 \textbf{Parameter} : alpha ||| Scalar multiplier for the A**T matrix \\
 \textbf{Parameter} : A ||| A matrix in DATASET(Layout\_Cell) form \\
 \textbf{Parameter} : beta ||| Scalar multiplier for the C matrix \\

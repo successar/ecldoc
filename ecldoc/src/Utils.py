@@ -28,7 +28,7 @@ def getRoot(path_tree, ecl_file) :
     return parent
 
 
-def breakstring(name, string) :
+def breaksign(name, string) :
     name = name.lower()
     string = ' ' + string.lower() + ' '
     pos = 1
@@ -54,3 +54,18 @@ def breakstring(name, string) :
         pos += 1
 
     return -1
+
+LATEX_SUBS = (
+    (re.compile(r'\\'), r'\\textbackslash'),
+    (re.compile(r'([{}_#%&$])'), r'\\\1'),
+    (re.compile(r'~'), r'\~{}'),
+    (re.compile(r'\^'), r'\^{}'),
+    (re.compile(r'"'), r"''"),
+    (re.compile(r'\.\.\.+'), r'\\ldots'),
+)
+
+def escape_tex(value):
+    newval = value
+    for pattern, replacement in LATEX_SUBS:
+        newval = pattern.sub(replacement, newval)
+    return newval

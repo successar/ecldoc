@@ -13,7 +13,7 @@ DESCRIPTIONS
 
 ----------------------------------------------------------------------------------------------------------------------------------
 MODULE : BinomialLogisticRegression(UNSIGNED max_iter=200, REAL8 epsilon=Constants.default_epsilon,
-         REAL8 ridge=Constants.default_ridge)
+                                   REAL8 ridge=Constants.default_ridge)
 ----------------------------------------------------------------------------------------------------------------------------------
 
 Binomial logistic regression using iteratively re-weighted least squares.
@@ -31,7 +31,7 @@ Parent : ML_Core.Interfaces.IClassify <../ML_Core/Interfaces/IClassify.ecl.txt>
     
     ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : DATASET(Types.Layout_Model) GetModel(DATASET(Types.NumericField) observations,
-               DATASET(Types.DiscreteField) classifications) ||| OVERRIDE
+                                                   DATASET(Types.DiscreteField) classifications) ||| OVERRIDE
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Calculate the model to fit the observation data to the observed classes.
@@ -45,7 +45,7 @@ Parent : ML_Core.Interfaces.IClassify <../ML_Core/Interfaces/IClassify.ecl.txt>
     
     ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : DATASET(Types.Classify_Result) Classify(DATASET(Types.Layout_Model) model,
-               DATASET(Types.NumericField) new_observations) ||| OVERRIDE
+                                                      DATASET(Types.NumericField) new_observations) ||| OVERRIDE
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Classify the observations using a model.
@@ -59,8 +59,8 @@ Parent : ML_Core.Interfaces.IClassify <../ML_Core/Interfaces/IClassify.ecl.txt>
     
     ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : DATASET(Types.Confusion_Detail) Report(DATASET(Types.Layout_Model) model,
-               DATASET(Types.NumericField) observations, DATASET(Types.DiscreteField) classifications)
-               ||| OVERRIDE
+                                                     DATASET(Types.NumericField) observations, DATASET(Types.DiscreteField) classifications)
+                                                     ||| OVERRIDE
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Report the confusion matrix for the classifier and training data.

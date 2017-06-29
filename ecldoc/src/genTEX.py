@@ -1,5 +1,6 @@
 import os
 import re
+import shutil
 import subprocess
 
 from jinja2 import Template
@@ -7,26 +8,12 @@ from lxml import etree
 from Utils import genPathTree, getRoot
 
 import textwrap
-from parseDoc import convertToMarkdown
+from parseDoc import convertToLatex
+from Utils import escape_tex
 
 import jinja2
 import os
 from jinja2 import Template
-
-LATEX_SUBS = (
-    (re.compile(r'\\'), r'\\textbackslash'),
-    (re.compile(r'([{}_#%&$])'), r'\\\1'),
-    (re.compile(r'~'), r'\~{}'),
-    (re.compile(r'\^'), r'\^{}'),
-    (re.compile(r'"'), r"''"),
-    (re.compile(r'\.\.\.+'), r'\\ldots'),
-)
-
-def escape_tex(value):
-    newval = value
-    for pattern, replacement in LATEX_SUBS:
-        newval = pattern.sub(replacement, newval)
-    return newval
 
 latex_jinja_env = jinja2.Environment(
 	block_start_string = '\BLOCK{',
@@ -49,6 +36,9 @@ class ParseTEX(object) :
 		self.tex_file = os.path.join(generator.tex_root, ecl_file + '.tex')
 		self.template = generator.content_template
 		self.options = generator.options
+		self.dirname = os.path.dirname(ecl_file)
+		if self.dirname == '' :
+			self.dirname = 'root'
 
 		os.makedirs(os.path.dirname(self.tex_file), exist_ok=True)
 
@@ -80,13 +70,14 @@ class ParseTEX(object) :
 	def parseSource(self) :
 		self.render_dict = []
 		for defn in self.src.findall('./Definition') :
-			self.parseDefinition(defn, self.render_dict)
+			defn_dict = self.parseDefinition(defn)
+			defn_dict['up'] = 'toc:' + self.dirname
+			self.render_dict.append(defn_dict)
 
-	def parseDefinition(self, defn, render_dict) :
+	def parseDefinition(self, defn) :
 		defn_type = defn.find('./Type').text
-		sign = defn.find('./Signature').text
+		sign = defn.find('./Signature')
 
-		heading = defn_type.upper() + ' : ' + sign
 		doc = self.parseDocs(defn.find('./Documentation'))
 		if defn.attrib['inherit_type'] != 'local' :
 			doc['tags'].append(('True', defn.attrib['inherit_type'].upper()))
@@ -94,17 +85,20 @@ class ParseTEX(object) :
 		parents = defn.find('./Parents')
 		target = defn.attrib['target'] if 'target' in defn.attrib else None
 
-		defn_dict = { 'heading' : heading, 'doc' : doc, 'defns' : [], 'Parents' : parents, 'target' : target, 'tag' : defn }
+		defn_dict = {'sign' : sign, 'doc' : doc, 'defns' : [],
+					'Parents' : parents, 'target' : target, 'tag' : defn }
 
 		for childdefn in defn.findall('./Definition') :
-			self.parseDefinition(childdefn, defn_dict['defns'])
+			child_dict = self.parseDefinition(childdefn)
+			child_dict['up'] = defn.attrib['fullname']
+			defn_dict['defns'].append(child_dict)
 
-		render_dict.append(defn_dict)
+		return defn_dict
 
 	def parseDocs(self, doc) :
 		doc_dict = { 'tags' : [] }
 		if doc is not None:
-			doc_dict['content'] = convertToMarkdown(doc.find('./content').text).split('\n')
+			doc_dict['content'] = convertToLatex(doc.find('./content').text).split('\n')
 
 			for param in doc.findall('./param') :
 				param = param.find('./name').text + ' ||| ' + param.find('./desc').text
@@ -134,6 +128,7 @@ class GenTEX(object) :
 		os.makedirs(self.tex_root, exist_ok=True)
 		self.content_template = latex_jinja_env.get_template('/media/sarthak/Data/ecldoc/ecldoc/src/content.tex.tpl')
 		self.toc_template = latex_jinja_env.get_template('/media/sarthak/Data/ecldoc/ecldoc/src/toc.tex.tpl')
+		self.index_tex = '/media/sarthak/Data/ecldoc/ecldoc/src/tex/index.tex'
 		self.ecl_file_tree = genPathTree(ecl_files)
 		self.options = options
 
@@ -192,9 +187,14 @@ class GenTEX(object) :
 		childfiles = self.gen(child, self.tex_root)
 		childfiles = sorted(childfiles, key=lambda x : x['type'], reverse=True)
 
-		render = self.toc_template.render(name='root', files=childfiles, bundle=bundle)
+		render = self.toc_template.render(name='Root', files=childfiles, bundle=bundle, label='root')
 		fp = open(os.path.join(self.tex_root, 'pkg.toc.tex'), 'w')
 		fp.write(render)
 		fp.close()
+
+		shutil.copy2(self.index_tex, self.output_root)
+		subprocess.run(['pdflatex index.tex'], cwd=self.output_root, shell=True)
+
+
 
 

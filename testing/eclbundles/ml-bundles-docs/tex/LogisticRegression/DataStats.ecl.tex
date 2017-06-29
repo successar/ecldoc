@@ -1,5 +1,5 @@
 \chapter*{LogisticRegression.DataStats}
-\hypertarget{LogisticRegression.DataStats}{}
+\hypertarget{ecldoc:toc:LogisticRegression.DataStats}{}
 
 \section*{\underline{IMPORTS}}
 \begin{itemize}
@@ -10,11 +10,18 @@
 \end{itemize}
 
 \section*{\underline{DESCRIPTIONS}}
-\subsection*{function : DataStats}
-\hypertarget{ecldoc:logisticregression.datastats}{FUNCTION : DATASET(Types.Data\_Info) DataStats(DATASET(Core\_Types.NumericField) indep, DATASET(Core\_Types.DiscreteField) dep, BOOLEAN field\_details=FALSE)} \\
-\hyperlink{ecldoc:}{Up} \\
+\subsection*{FUNCTION : DataStats}
+\hypertarget{ecldoc:logisticregression.datastats}{}
+\begin{minipage}[t]{\textwidth}
+\begin{flushleft}
+DATASET(Types.Data\_Info) DataStats (DATASET(Core\_Types.NumericField) indep, DATASET(Core\_Types.DiscreteField) dep, BOOLEAN field\_details=FALSE)
+\end{flushleft}
+\end{minipage}
+\hyperlink{ecldoc:toc:LogisticRegression}{Up}
+
 \par
-Information about the datasets. Without details the range for the x and y (independent and dependent) columns. Note that a column of all zero values cannot be distinguished from a missing column. When details are requested, the cardinality, minimum, and maximum values are returned. A zero cardinality is returned when the field cardinality exceeds the Constants.limit\_card value. \\
+Information about the datasets. Without details the range for the x and y (independent and dependent) columns. Note that a column of all zero values cannot be distinguished from a missing column. When details are requested, the cardinality, minimum, and maximum values are returned. A zero cardinality is returned when the field cardinality exceeds the Constants.limit\_card value.
+\par
 \textbf{Parameter} : indep ||| data set of independent variables \\
 \textbf{Parameter} : dep ||| data set of dependent variables \\
 \textbf{Parameter} : field\_details ||| Boolean directive to provide field level info \\

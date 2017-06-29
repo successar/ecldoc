@@ -1,5 +1,5 @@
 \chapter*{ML\_Core.Interfaces.IClassify}
-\hypertarget{ML_Core.Interfaces.IClassify}{}
+\hypertarget{ecldoc:toc:ML_Core.Interfaces.IClassify}{}
 
 \section*{\underline{IMPORTS}}
 \begin{itemize}
@@ -8,37 +8,65 @@
 \end{itemize}
 
 \section*{\underline{DESCRIPTIONS}}
-\subsection*{module : IClassify}
-\hypertarget{ecldoc:ML_Core.Interfaces.IClassify}{MODULE : IClassify} \\
-\hyperlink{ecldoc:}{Up} \\
+\subsection*{MODULE : IClassify}
+\hypertarget{ecldoc:ML_Core.Interfaces.IClassify}{}
+\begin{minipage}[t]{\textwidth}
+\begin{flushleft}
+ IClassify 
+\end{flushleft}
+\end{minipage}
+\hyperlink{ecldoc:toc:ML_Core/Interfaces}{Up}
+
 \par
-Interface definition for Classification. Actual implementation modules will probably take parameters. \\
+Interface definition for Classification. Actual implementation modules will probably take parameters.
+\par
 \begin{enumerate}
 \item \hyperlink{ecldoc:ml_core.interfaces.iclassify.getmodel}{GetModel}
 \item \hyperlink{ecldoc:ml_core.interfaces.iclassify.classify}{Classify}
 \item \hyperlink{ecldoc:ml_core.interfaces.iclassify.report}{Report}
 \end{enumerate}
-\subsection*{function : GetModel}
-\hypertarget{ecldoc:ml_core.interfaces.iclassify.getmodel}{FUNCTION : DATASET(Types.Layout\_Model) GetModel(DATASET(Types.NumericField) observations, DATASET(Types.DiscreteField) classifications)} \\
-\hyperlink{ecldoc:ML_Core.Interfaces.IClassify}{Up} \\
+\subsection*{FUNCTION : GetModel}
+\hypertarget{ecldoc:ml_core.interfaces.iclassify.getmodel}{}
+\begin{minipage}[t]{\textwidth}
+\begin{flushleft}
+DATASET(Types.Layout\_Model) GetModel (DATASET(Types.NumericField) observations, DATASET(Types.DiscreteField) classifications)
+\end{flushleft}
+\end{minipage}
+\hyperlink{ecldoc:ML_Core.Interfaces.IClassify}{Up}
+
 \par
-Calculate the model to fit the observation data to the observed classes. \\
+Calculate the model to fit the observation data to the observed classes.
+\par
 \textbf{Parameter} : observations ||| the observed explanatory values \\
 \textbf{Parameter} : classifications ||| the observed classification used to build the model \\
 \textbf{Return} : the encoded model \\
-\subsection*{function : Classify}
-\hypertarget{ecldoc:ml_core.interfaces.iclassify.classify}{FUNCTION : DATASET(Types.Classify\_Result) Classify(DATASET(Types.Layout\_Model) model, DATASET(Types.NumericField) new\_observations)} \\
-\hyperlink{ecldoc:ML_Core.Interfaces.IClassify}{Up} \\
+\subsection*{FUNCTION : Classify}
+\hypertarget{ecldoc:ml_core.interfaces.iclassify.classify}{}
+\begin{minipage}[t]{\textwidth}
+\begin{flushleft}
+DATASET(Types.Classify\_Result) Classify (DATASET(Types.Layout\_Model) model, DATASET(Types.NumericField) new\_observations)
+\end{flushleft}
+\end{minipage}
+\hyperlink{ecldoc:ML_Core.Interfaces.IClassify}{Up}
+
 \par
-Classify the observations using a model. \\
+Classify the observations using a model.
+\par
 \textbf{Parameter} : model ||| The model, which must be produced by a corresponding getModel function. \\
 \textbf{Parameter} : new\_observations ||| observations to be classified \\
 \textbf{Return} : Classification with a confidence value \\
-\subsection*{function : Report}
-\hypertarget{ecldoc:ml_core.interfaces.iclassify.report}{FUNCTION : DATASET(Types.Confusion\_Detail) Report(DATASET(Types.Layout\_Model) model, DATASET(Types.NumericField) observations, DATASET(Types.DiscreteField) classifications)} \\
-\hyperlink{ecldoc:ML_Core.Interfaces.IClassify}{Up} \\
+\subsection*{FUNCTION : Report}
+\hypertarget{ecldoc:ml_core.interfaces.iclassify.report}{}
+\begin{minipage}[t]{\textwidth}
+\begin{flushleft}
+DATASET(Types.Confusion\_Detail) Report (DATASET(Types.Layout\_Model) model, DATASET(Types.NumericField) observations, DATASET(Types.DiscreteField) classifications)
+\end{flushleft}
+\end{minipage}
+\hyperlink{ecldoc:ML_Core.Interfaces.IClassify}{Up}
+
 \par
-Report the confusion matrix for the classifier and training data. \\
+Report the confusion matrix for the classifier and training data.
+\par
 \textbf{Parameter} : model ||| the encoded model \\
 \textbf{Parameter} : observations ||| the explanatory values. \\
 \textbf{Parameter} : classifications ||| the classifications associated with the observations \\

@@ -130,4 +130,54 @@ def parseHTMltoMK(element) :
 
 	return text
 
+from Utils import escape_tex
 
+
+def convertToLatex(html_text) :
+	'''
+	Convert HTML String to Markdown Format
+	'''
+	root = H.fragment_fromstring(html_text, create_parent='div')
+	text = parseHTMltoLatex(root)
+	return text
+
+def parseHTMltoLatex(element) :
+	'''
+	Convert Single HTML element to Markdown Text (recursive)
+	'''
+	text = ''
+	if element.text :
+		text += escape_tex(element.text)
+	for e in element.iterchildren() :
+		text += parseHTMltoLatex(e)
+		if e.tail :
+			text += escape_tex(e.tail)
+
+	if element.tag in ['p'] :
+		text = '\n\\par\n' + text + '\n\n'
+
+	if element.tag == 'br' :
+		text = '\\\\\n'
+
+	if element.tag == 'br' and element.getparent().tag == 'pre' :
+		text = '\n'
+
+	if element.tag == 'code' :
+		text = '```' + text  + '```'
+
+	if element.tag == 'li' :
+		text = '\\item ' + text + '\n'
+
+	if element.tag == 'ul' :
+		text = '\n\\begin{itemize}\n' + text + '\\end{itemize}\n\n'
+
+	if element.tag == 'ul' :
+		text = '\n\\begin{enumerate}\n' + text + '\\end{enumerate}\n\n'
+
+	if element.tag == 'a' :
+		text = '\n\\url{' + a.attrib['href'] + '}'
+
+	if element.tag == 'pre' :
+		text = '\n\\begin{verbatim}\n' + text + '\\end{verbatim}\n\n'
+
+	return text

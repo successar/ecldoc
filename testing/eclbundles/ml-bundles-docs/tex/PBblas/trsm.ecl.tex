@@ -1,5 +1,5 @@
 \chapter*{PBblas.trsm}
-\hypertarget{PBblas.trsm}{}
+\hypertarget{ecldoc:toc:PBblas.trsm}{}
 
 \section*{\underline{IMPORTS}}
 \begin{itemize}
@@ -14,11 +14,18 @@
 \end{itemize}
 
 \section*{\underline{DESCRIPTIONS}}
-\subsection*{function : trsm}
-\hypertarget{ecldoc:pbblas.trsm}{FUNCTION : DATASET(Layout\_Cell) trsm(Side s, Triangle tri, BOOLEAN transposeA, Diagonal diag, value\_t alpha, DATASET(Layout\_Cell) A\_in, DATASET(Layout\_Cell) B\_in)} \\
-\hyperlink{ecldoc:}{Up} \\
+\subsection*{FUNCTION : trsm}
+\hypertarget{ecldoc:pbblas.trsm}{}
+\begin{minipage}[t]{\textwidth}
+\begin{flushleft}
+DATASET(Layout\_Cell) trsm (Side s, Triangle tri, BOOLEAN transposeA, Diagonal diag, value\_t alpha, DATASET(Layout\_Cell) A\_in, DATASET(Layout\_Cell) B\_in)
+\end{flushleft}
+\end{minipage}
+\hyperlink{ecldoc:toc:PBblas}{Up}
+
 \par
-Partitioned block parallel triangular matrix solver. Solves for X using: AX = B or XA = B A is is a square triangular matrix, X and B have the same dimensions. A may be an upper triangular matrix (UX = B or XU = B), or a lower triangular matrix (LX = B or XL = B). Allows optional transposing and scaling of A. Partially based upon an approach discussed by MJ DAYDE, IS DUFF, AP CERFACS. A Parallel Block implementation of Level-3 BLAS for MIMD Vector Processors ACM Tran. Mathematical Software, Vol 20, No 2, June 1994 pp 178-193 and other papers about PB-BLAS by Choi and Dongarra This module supports the ''Myriad'' style interface, allowing many independent problems to be worked on at once. Corresponding A and B matrixes are related by a common work-item identifier (wi\_id) within each cell of the matrix. The returned X matrix will contain cells for the same set of work-items as specified for the A and B matrices. \\
+Partitioned block parallel triangular matrix solver. Solves for X using: AX = B or XA = B A is is a square triangular matrix, X and B have the same dimensions. A may be an upper triangular matrix (UX = B or XU = B), or a lower triangular matrix (LX = B or XL = B). Allows optional transposing and scaling of A. Partially based upon an approach discussed by MJ DAYDE, IS DUFF, AP CERFACS. A Parallel Block implementation of Level-3 BLAS for MIMD Vector Processors ACM Tran. Mathematical Software, Vol 20, No 2, June 1994 pp 178-193 and other papers about PB-BLAS by Choi and Dongarra This module supports the ''Myriad'' style interface, allowing many independent problems to be worked on at once. Corresponding A and B matrixes are related by a common work-item identifier (wi\_id) within each cell of the matrix. The returned X matrix will contain cells for the same set of work-items as specified for the A and B matrices.
+\par
 \textbf{Parameter} : s ||| Types.Side enumeration indicating whether we are solving AX = B or XA = B \\
 \textbf{Parameter} : tri ||| Types.Triangle enumeration indicating whether we are solving an Upper or Lower triangle. \\
 \textbf{Parameter} : transposeA ||| Boolean indicating whether or not to transpose the A matrix before solving \\

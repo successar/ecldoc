@@ -1,5 +1,5 @@
 \chapter*{PBblas.scal}
-\hypertarget{PBblas.scal}{}
+\hypertarget{ecldoc:toc:PBblas.scal}{}
 
 \section*{\underline{IMPORTS}}
 \begin{itemize}
@@ -8,11 +8,18 @@
 \end{itemize}
 
 \section*{\underline{DESCRIPTIONS}}
-\subsection*{function : scal}
-\hypertarget{ecldoc:pbblas.scal}{FUNCTION : DATASET(Layout\_Cell) scal(value\_t alpha, DATASET(Layout\_Cell) X)} \\
-\hyperlink{ecldoc:}{Up} \\
+\subsection*{FUNCTION : scal}
+\hypertarget{ecldoc:pbblas.scal}{}
+\begin{minipage}[t]{\textwidth}
+\begin{flushleft}
+DATASET(Layout\_Cell) scal (value\_t alpha, DATASET(Layout\_Cell) X)
+\end{flushleft}
+\end{minipage}
+\hyperlink{ecldoc:toc:PBblas}{Up}
+
 \par
-Scale a matrix by a constant Result is alpha * X This supports a ''myriad'' style interface in that X may be a set of independent matrices separated by different work-item ids. \\
+Scale a matrix by a constant Result is alpha * X This supports a ''myriad'' style interface in that X may be a set of independent matrices separated by different work-item ids.
+\par
 \textbf{Parameter} : alpha ||| A scalar multiplier \\
 \textbf{Parameter} : X ||| The matrix(es) to be scaled in Layout\_Cell format \\
 \textbf{Return} : Matrix in Layout\_Cell form, of the same shape as X \\

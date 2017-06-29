@@ -1,5 +1,5 @@
 \chapter*{PBblas.Types}
-\hypertarget{PBblas.Types}{}
+\hypertarget{ecldoc:toc:PBblas.Types}{}
 
 \section*{\underline{IMPORTS}}
 \begin{itemize}
@@ -8,11 +8,18 @@
 \end{itemize}
 
 \section*{\underline{DESCRIPTIONS}}
-\subsection*{module : Types}
-\hypertarget{ecldoc:PBblas.Types}{MODULE : Types} \\
-\hyperlink{ecldoc:}{Up} \\
+\subsection*{MODULE : Types}
+\hypertarget{ecldoc:PBblas.Types}{}
+\begin{minipage}[t]{\textwidth}
+\begin{flushleft}
+ Types 
+\end{flushleft}
+\end{minipage}
+\hyperlink{ecldoc:toc:PBblas}{Up}
+
 \par
-Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes. \\
+Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes.
+\par
 \begin{enumerate}
 \item \hyperlink{ecldoc:pbblas.types.dimension_t}{dimension\_t}
 \item \hyperlink{ecldoc:pbblas.types.partition_t}{partition\_t}
@@ -26,56 +33,126 @@ Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: 
 \item \hyperlink{ecldoc:pbblas.types.layout_cell}{Layout\_Cell}
 \item \hyperlink{ecldoc:pbblas.types.layout_norm}{Layout\_Norm}
 \end{enumerate}
-\subsection*{attribute : dimension\_t}
-\hypertarget{ecldoc:pbblas.types.dimension_t}{ATTRIBUTE : dimension\_t} \\
-\hyperlink{ecldoc:PBblas.Types}{Up} \\
+\subsection*{ATTRIBUTE : dimension\_t}
+\hypertarget{ecldoc:pbblas.types.dimension_t}{}
+\begin{minipage}[t]{\textwidth}
+\begin{flushleft}
+ dimension\_t 
+\end{flushleft}
+\end{minipage}
+\hyperlink{ecldoc:PBblas.Types}{Up}
+
 \par
-Type for matrix dimensions. Uses UNSIGNED four as matrixes are not designed to support more than 4 B rows or columns. \\
-\subsection*{attribute : partition\_t}
-\hypertarget{ecldoc:pbblas.types.partition_t}{ATTRIBUTE : partition\_t} \\
-\hyperlink{ecldoc:PBblas.Types}{Up} \\
+Type for matrix dimensions. Uses UNSIGNED four as matrixes are not designed to support more than 4 B rows or columns.
 \par
-Type for partition id -- only supports up to 64K partitions \\
-\subsection*{attribute : work\_item\_t}
-\hypertarget{ecldoc:pbblas.types.work_item_t}{ATTRIBUTE : work\_item\_t} \\
-\hyperlink{ecldoc:PBblas.Types}{Up} \\
+\subsection*{ATTRIBUTE : partition\_t}
+\hypertarget{ecldoc:pbblas.types.partition_t}{}
+\begin{minipage}[t]{\textwidth}
+\begin{flushleft}
+ partition\_t 
+\end{flushleft}
+\end{minipage}
+\hyperlink{ecldoc:PBblas.Types}{Up}
+
 \par
-Type for work-item id -- only supports up to 64K work items \\
-\subsection*{attribute : value\_t}
-\hypertarget{ecldoc:pbblas.types.value_t}{ATTRIBUTE : value\_t} \\
-\hyperlink{ecldoc:PBblas.Types}{Up} \\
+Type for partition id -- only supports up to 64K partitions
 \par
-Type for matrix cell values WARNING: type used in C++ attribute \\
-\subsection*{attribute : m\_label\_t}
-\hypertarget{ecldoc:pbblas.types.m_label_t}{ATTRIBUTE : m\_label\_t} \\
-\hyperlink{ecldoc:PBblas.Types}{Up} \\
+\subsection*{ATTRIBUTE : work\_item\_t}
+\hypertarget{ecldoc:pbblas.types.work_item_t}{}
+\begin{minipage}[t]{\textwidth}
+\begin{flushleft}
+ work\_item\_t 
+\end{flushleft}
+\end{minipage}
+\hyperlink{ecldoc:PBblas.Types}{Up}
+
 \par
-Type for matrix label. Used for Matrix dimensions (see Layout\_Dims) and for partitions (see Layout\_Part) \\
-\subsection*{attribute : Triangle}
-\hypertarget{ecldoc:ecldoc-Triangle}{ATTRIBUTE : Triangle} \\
-\hyperlink{ecldoc:PBblas.Types}{Up} \\
+Type for work-item id -- only supports up to 64K work items
 \par
-Enumeration for Triangle type WARNING: type used in C++ attribute \\
-\subsection*{attribute : Diagonal}
-\hypertarget{ecldoc:ecldoc-Diagonal}{ATTRIBUTE : Diagonal} \\
-\hyperlink{ecldoc:PBblas.Types}{Up} \\
+\subsection*{ATTRIBUTE : value\_t}
+\hypertarget{ecldoc:pbblas.types.value_t}{}
+\begin{minipage}[t]{\textwidth}
+\begin{flushleft}
+ value\_t 
+\end{flushleft}
+\end{minipage}
+\hyperlink{ecldoc:PBblas.Types}{Up}
+
 \par
-Enumeration for Diagonal type WARNING: type used in C++ attribute \\
-\subsection*{attribute : Side}
-\hypertarget{ecldoc:ecldoc-Side}{ATTRIBUTE : Side} \\
-\hyperlink{ecldoc:PBblas.Types}{Up} \\
+Type for matrix cell values WARNING: type used in C++ attribute
 \par
-Enumeration for Side type WARNING: type used in C++ attribute \\
-\subsection*{attribute : t\_mu\_no}
-\hypertarget{ecldoc:pbblas.types.t_mu_no}{ATTRIBUTE : t\_mu\_no} \\
-\hyperlink{ecldoc:PBblas.Types}{Up} \\
+\subsection*{ATTRIBUTE : m\_label\_t}
+\hypertarget{ecldoc:pbblas.types.m_label_t}{}
+\begin{minipage}[t]{\textwidth}
+\begin{flushleft}
+ m\_label\_t 
+\end{flushleft}
+\end{minipage}
+\hyperlink{ecldoc:PBblas.Types}{Up}
+
 \par
-Type for matrix universe number Allow up to 64k matrices in one universe \\
-\subsection*{record : Layout\_Cell}
-\hypertarget{ecldoc:pbblas.types.layout_cell}{RECORD : Layout\_Cell} \\
-\hyperlink{ecldoc:PBblas.Types}{Up} \\
+Type for matrix label. Used for Matrix dimensions (see Layout\_Dims) and for partitions (see Layout\_Part)
 \par
-Layout for Matrix Cell Main representation of Matrix cell at interface to all PBBlas functions. Matrixes are represented as DATASET(Layout\_Cell), where each cell describes the row and column position of the cell as well as its value. Only the non-zero cells need to be contained in the dataset in order to describe the matrix since all unspecified cells are considered to have a value of zero. The cell also contains a work-item number that allows multiple separate matrixes to be carried in the same dataset. This supports the ''myriad'' style interface that allows the same operations to be performed on many different sets of data at once. Note that these matrixes do not have an explicit size. They are sized implicitly, based on the maximum row and column presented in the data. A matrix can be converted to an explicit dense form (see matrix\_t) by using the utility module MakeR8Set. This module should only be used for known small matrixes (< 1M cells) or for partitions of a larger matrix. The Converted module provides utility functions to convert to and from a set of partitions (See Layout\_parts). \\
+\subsection*{ATTRIBUTE : Triangle}
+\hypertarget{ecldoc:ecldoc-Triangle}{}
+\begin{minipage}[t]{\textwidth}
+\begin{flushleft}
+ Triangle 
+\end{flushleft}
+\end{minipage}
+\hyperlink{ecldoc:PBblas.Types}{Up}
+
+\par
+Enumeration for Triangle type WARNING: type used in C++ attribute
+\par
+\subsection*{ATTRIBUTE : Diagonal}
+\hypertarget{ecldoc:ecldoc-Diagonal}{}
+\begin{minipage}[t]{\textwidth}
+\begin{flushleft}
+ Diagonal 
+\end{flushleft}
+\end{minipage}
+\hyperlink{ecldoc:PBblas.Types}{Up}
+
+\par
+Enumeration for Diagonal type WARNING: type used in C++ attribute
+\par
+\subsection*{ATTRIBUTE : Side}
+\hypertarget{ecldoc:ecldoc-Side}{}
+\begin{minipage}[t]{\textwidth}
+\begin{flushleft}
+ Side 
+\end{flushleft}
+\end{minipage}
+\hyperlink{ecldoc:PBblas.Types}{Up}
+
+\par
+Enumeration for Side type WARNING: type used in C++ attribute
+\par
+\subsection*{ATTRIBUTE : t\_mu\_no}
+\hypertarget{ecldoc:pbblas.types.t_mu_no}{}
+\begin{minipage}[t]{\textwidth}
+\begin{flushleft}
+ t\_mu\_no 
+\end{flushleft}
+\end{minipage}
+\hyperlink{ecldoc:PBblas.Types}{Up}
+
+\par
+Type for matrix universe number Allow up to 64k matrices in one universe
+\par
+\subsection*{RECORD : Layout\_Cell}
+\hypertarget{ecldoc:pbblas.types.layout_cell}{}
+\begin{minipage}[t]{\textwidth}
+\begin{flushleft}
+ Layout\_Cell 
+\end{flushleft}
+\end{minipage}
+\hyperlink{ecldoc:PBblas.Types}{Up}
+
+\par
+Layout for Matrix Cell Main representation of Matrix cell at interface to all PBBlas functions. Matrixes are represented as DATASET(Layout\_Cell), where each cell describes the row and column position of the cell as well as its value. Only the non-zero cells need to be contained in the dataset in order to describe the matrix since all unspecified cells are considered to have a value of zero. The cell also contains a work-item number that allows multiple separate matrixes to be carried in the same dataset. This supports the ''myriad'' style interface that allows the same operations to be performed on many different sets of data at once. Note that these matrixes do not have an explicit size. They are sized implicitly, based on the maximum row and column presented in the data. A matrix can be converted to an explicit dense form (see matrix\_t) by using the utility module MakeR8Set. This module should only be used for known small matrixes (< 1M cells) or for partitions of a larger matrix. The Converted module provides utility functions to convert to and from a set of partitions (See Layout\_parts).
+\par
 \textbf{Field} : wi\_id ||| Work Item Number -- An identifier from 1 to 64K-1 that separates and identifies individual matrixes \\
 \textbf{Field} : x ||| 1-based row position within the matrix \\
 \textbf{Field} : y ||| 1-based column position within the matrix \\
@@ -83,11 +160,18 @@ Layout for Matrix Cell Main representation of Matrix cell at interface to all PB
 \textbf{See} : matrix\_t \\
 \textbf{See} : Std/PBblas/MakeR8Set.ecl \\
 \textbf{See} : Std/PBblas/Converted.ecl WARNING: Used as C++ attribute. Do not change without corresponding changes to MakeR8Set. \\
-\subsection*{record : Layout\_Norm}
-\hypertarget{ecldoc:pbblas.types.layout_norm}{RECORD : Layout\_Norm} \\
-\hyperlink{ecldoc:PBblas.Types}{Up} \\
+\subsection*{RECORD : Layout\_Norm}
+\hypertarget{ecldoc:pbblas.types.layout_norm}{}
+\begin{minipage}[t]{\textwidth}
+\begin{flushleft}
+ Layout\_Norm 
+\end{flushleft}
+\end{minipage}
+\hyperlink{ecldoc:PBblas.Types}{Up}
+
 \par
-Layout for Norm results. \\
+Layout for Norm results.
+\par
 \textbf{Field} : wi\_id ||| Work Item Number -- An identifier from 1 to 64K-1 that separates and identifies individual matrixes \\
 \textbf{Field} : v ||| Real value for the norm \\
 
