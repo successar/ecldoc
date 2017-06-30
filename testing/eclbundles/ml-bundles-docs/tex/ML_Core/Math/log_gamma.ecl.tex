@@ -6,15 +6,26 @@
 \section*{\underline{DESCRIPTIONS}}
 \subsection*{EMBED : log\_gamma}
 \hypertarget{ecldoc:ml_core.math.log_gamma}{}
-\begin{minipage}[t]{\textwidth}
-\begin{flushleft}
-REAL8 log\_gamma (REAL8 x)
-\end{flushleft}
-\end{minipage}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}REAL8 & log\_gamma \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(REAL8 x)} \\
+\hline
+\end{tabularx}
+}
+
 \hyperlink{ecldoc:toc:ML_Core/Math}{Up}
 
 \par
 Return the value of the log gamma function of the absolute value of X. A wrapper for the standard C lgamma function. Avoids the race condition found on some platforms by taking the absolute value of the of the input argument.
+
 \par
-\textbf{Parameter} : x ||| the input x \\
-\textbf{Return} : the value of the log of the GAMMA evaluated at ABS(x) \\
+\begin{description}
+\item [\textbf{Parameter}] x ||| the input x
+\item [\textbf{Return}] the value of the log of the GAMMA evaluated at ABS(x)
+\end{description}
+
+\rule{\textwidth}{0.4pt}

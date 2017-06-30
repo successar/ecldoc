@@ -37,7 +37,8 @@ class ParseHTML(object) :
 
 
         files = []
-        for key in self.parent :
+        keys = sorted(self.parent.keys(), key=str.lower)
+        for key in keys :
             if type(self.parent[key]) != dict :
                 file = {'name': key,
                         'target': key + '.html',
@@ -83,7 +84,8 @@ class GenHTML(object) :
 
     def gen(self, node, content_root) :
         files = []
-        for key in node :
+        keys = sorted(node.keys(), key=str.lower)
+        for key in keys :
             if type(node[key]) != dict:
                 parser = ParseHTML(self, node[key])
                 parser.parse()

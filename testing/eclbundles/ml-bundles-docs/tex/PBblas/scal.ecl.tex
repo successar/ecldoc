@@ -10,17 +10,28 @@
 \section*{\underline{DESCRIPTIONS}}
 \subsection*{FUNCTION : scal}
 \hypertarget{ecldoc:pbblas.scal}{}
-\begin{minipage}[t]{\textwidth}
-\begin{flushleft}
-DATASET(Layout\_Cell) scal (value\_t alpha, DATASET(Layout\_Cell) X)
-\end{flushleft}
-\end{minipage}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}DATASET(Layout\_Cell) & scal \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(value\_t alpha, DATASET(Layout\_Cell) X)} \\
+\hline
+\end{tabularx}
+}
+
 \hyperlink{ecldoc:toc:PBblas}{Up}
 
 \par
 Scale a matrix by a constant Result is alpha * X This supports a ''myriad'' style interface in that X may be a set of independent matrices separated by different work-item ids.
+
 \par
-\textbf{Parameter} : alpha ||| A scalar multiplier \\
-\textbf{Parameter} : X ||| The matrix(es) to be scaled in Layout\_Cell format \\
-\textbf{Return} : Matrix in Layout\_Cell form, of the same shape as X \\
-\textbf{See} : PBblas/Types.Layout\_Cell \\
+\begin{description}
+\item [\textbf{Parameter}] alpha ||| A scalar multiplier
+\item [\textbf{Parameter}] X ||| The matrix(es) to be scaled in Layout\_Cell format
+\item [\textbf{Return}] Matrix in Layout\_Cell form, of the same shape as X
+\item [\textbf{See}] PBblas/Types.Layout\_Cell
+\end{description}
+
+\rule{\textwidth}{0.4pt}

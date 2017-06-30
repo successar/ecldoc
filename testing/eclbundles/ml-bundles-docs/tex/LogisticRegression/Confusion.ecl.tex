@@ -12,16 +12,27 @@
 \section*{\underline{DESCRIPTIONS}}
 \subsection*{FUNCTION : Confusion}
 \hypertarget{ecldoc:logisticregression.confusion}{}
-\begin{minipage}[t]{\textwidth}
-\begin{flushleft}
-DATASET(Confusion\_Detail) Confusion (DATASET(DiscreteField) dependents, DATASET(DiscreteField) predicts)
-\end{flushleft}
-\end{minipage}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}DATASET(Confusion\_Detail) & Confusion \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(DATASET(DiscreteField) dependents, DATASET(DiscreteField) predicts)} \\
+\hline
+\end{tabularx}
+}
+
 \hyperlink{ecldoc:toc:LogisticRegression}{Up}
 
 \par
 Detail confusion records to compare actual versus predicted response variable values.
+
 \par
-\textbf{Parameter} : dependents ||| the original response values \\
-\textbf{Parameter} : predicts ||| the predicted responses \\
-\textbf{Return} : confusion counts by predicted and actual response values. \\
+\begin{description}
+\item [\textbf{Parameter}] dependents ||| the original response values
+\item [\textbf{Parameter}] predicts ||| the predicted responses
+\item [\textbf{Return}] confusion counts by predicted and actual response values.
+\end{description}
+
+\rule{\textwidth}{0.4pt}

@@ -9,18 +9,29 @@
 \section*{\underline{DESCRIPTIONS}}
 \subsection*{FUNCTION : IElementFunc}
 \hypertarget{ecldoc:pbblas.ielementfunc}{}
-\begin{minipage}[t]{\textwidth}
-\begin{flushleft}
-value\_t IElementFunc (value\_t v, dimension\_t r, dimension\_t c)
-\end{flushleft}
-\end{minipage}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}value\_t & IElementFunc \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(value\_t v, dimension\_t r, dimension\_t c)} \\
+\hline
+\end{tabularx}
+}
+
 \hyperlink{ecldoc:toc:PBblas}{Up}
 
 \par
 Function prototype for a function to apply to each element of the distributed matrix Base your function on this prototype:
+
 \par
-\textbf{Parameter} : v ||| Input value \\
-\textbf{Parameter} : r ||| Row number (1 based) \\
-\textbf{Parameter} : c ||| Column number (1 based) \\
-\textbf{Return} : Output value \\
-\textbf{See} : PBblas/Apply2Elements \\
+\begin{description}
+\item [\textbf{Parameter}] v ||| Input value
+\item [\textbf{Parameter}] r ||| Row number (1 based)
+\item [\textbf{Parameter}] c ||| Column number (1 based)
+\item [\textbf{Return}] Output value
+\item [\textbf{See}] PBblas/Apply2Elements
+\end{description}
+
+\rule{\textwidth}{0.4pt}

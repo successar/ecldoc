@@ -12,16 +12,27 @@
 \section*{\underline{DESCRIPTIONS}}
 \subsection*{FUNCTION : DataStats}
 \hypertarget{ecldoc:logisticregression.datastats}{}
-\begin{minipage}[t]{\textwidth}
-\begin{flushleft}
-DATASET(Types.Data\_Info) DataStats (DATASET(Core\_Types.NumericField) indep, DATASET(Core\_Types.DiscreteField) dep, BOOLEAN field\_details=FALSE)
-\end{flushleft}
-\end{minipage}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}DATASET(Types.Data\_Info) & DataStats \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(DATASET(Core\_Types.NumericField) indep, DATASET(Core\_Types.DiscreteField) dep, BOOLEAN field\_details=FALSE)} \\
+\hline
+\end{tabularx}
+}
+
 \hyperlink{ecldoc:toc:LogisticRegression}{Up}
 
 \par
 Information about the datasets. Without details the range for the x and y (independent and dependent) columns. Note that a column of all zero values cannot be distinguished from a missing column. When details are requested, the cardinality, minimum, and maximum values are returned. A zero cardinality is returned when the field cardinality exceeds the Constants.limit\_card value.
+
 \par
-\textbf{Parameter} : indep ||| data set of independent variables \\
-\textbf{Parameter} : dep ||| data set of dependent variables \\
-\textbf{Parameter} : field\_details ||| Boolean directive to provide field level info \\
+\begin{description}
+\item [\textbf{Parameter}] indep ||| data set of independent variables
+\item [\textbf{Parameter}] dep ||| data set of dependent variables
+\item [\textbf{Parameter}] field\_details ||| Boolean directive to provide field level info
+\end{description}
+
+\rule{\textwidth}{0.4pt}

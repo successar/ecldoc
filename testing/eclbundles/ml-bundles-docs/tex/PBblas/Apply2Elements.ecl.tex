@@ -11,18 +11,29 @@
 \section*{\underline{DESCRIPTIONS}}
 \subsection*{FUNCTION : Apply2Elements}
 \hypertarget{ecldoc:pbblas.apply2elements}{}
-\begin{minipage}[t]{\textwidth}
-\begin{flushleft}
-DATASET(Layout\_Cell) Apply2Elements (DATASET(Layout\_Cell) X, IElementFunc f)
-\end{flushleft}
-\end{minipage}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}DATASET(Layout\_Cell) & Apply2Elements \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(DATASET(Layout\_Cell) X, IElementFunc f)} \\
+\hline
+\end{tabularx}
+}
+
 \hyperlink{ecldoc:toc:PBblas}{Up}
 
 \par
 Apply a function to each element of the matrix Use PBblas.IElementFunc as the prototype function. Input and ouput may be a single matrix, or myriad matrixes with different work item ids.
+
 \par
-\textbf{Parameter} : X ||| A matrix (or multiple matrices) in Layout\_Cell form \\
-\textbf{Parameter} : f ||| A function based on the IElementFunc prototype \\
-\textbf{Return} : A matrix (or multiple matrices) in Layout\_Cell form \\
-\textbf{See} : PBblas/IElementFunc \\
-\textbf{See} : PBblas/Types.Layout\_Cell \\
+\begin{description}
+\item [\textbf{Parameter}] X ||| A matrix (or multiple matrices) in Layout\_Cell form
+\item [\textbf{Parameter}] f ||| A function based on the IElementFunc prototype
+\item [\textbf{Return}] A matrix (or multiple matrices) in Layout\_Cell form
+\item [\textbf{See}] PBblas/IElementFunc
+\item [\textbf{See}] PBblas/Types.Layout\_Cell
+\end{description}
+
+\rule{\textwidth}{0.4pt}

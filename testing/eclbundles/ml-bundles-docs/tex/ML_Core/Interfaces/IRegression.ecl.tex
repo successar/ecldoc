@@ -10,47 +10,81 @@
 \section*{\underline{DESCRIPTIONS}}
 \subsection*{MODULE : IRegression}
 \hypertarget{ecldoc:ml_core.interfaces.iregression}{}
-\begin{minipage}[t]{\textwidth}
-\begin{flushleft}
- IRegression (DATASET(NumericField) X=empty\_data, DATASET(NumericField) Y=empty\_data)
-\end{flushleft}
-\end{minipage}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt} & IRegression \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(DATASET(NumericField) X=empty\_data, DATASET(NumericField) Y=empty\_data)} \\
+\hline
+\end{tabularx}
+}
+
 \hyperlink{ecldoc:toc:ML_Core/Interfaces}{Up}
 
 \par
 Interface Definition for Regression Modules Regression learns a function that maps a set of input data to one or more output variables. The resulting learned function is known as the model. That model can then be used repetitively to predict (i.e. estimate) the output value(s) based on new input data.
+
 \par
-\textbf{Parameter} : X ||| The independent data in DATASET(NumericField) format. Each statistical unit (e.g. record) is identified by 'id', and each feature is identified by field number (i.e. 'number'). \\
-\textbf{Parameter} : Y ||| The dependent variable(s) in DATASET(NumericField) format. Each statistical unit (e.g. record) is identified by 'id', and each feature is identified by field number (i.e. 'number'). \\
+\begin{description}
+\item [\textbf{Parameter}] X ||| The independent data in DATASET(NumericField) format. Each statistical unit (e.g. record) is identified by 'id', and each feature is identified by field number (i.e. 'number').
+\item [\textbf{Parameter}] Y ||| The dependent variable(s) in DATASET(NumericField) format. Each statistical unit (e.g. record) is identified by 'id', and each feature is identified by field number (i.e. 'number').
+\end{description}
+
 \begin{enumerate}
 \item \hyperlink{ecldoc:ml_core.interfaces.iregression.getmodel}{GetModel}
 \item \hyperlink{ecldoc:ml_core.interfaces.iregression.predict}{Predict}
 \end{enumerate}
+
+\rule{\textwidth}{0.4pt}
+
 \subsection*{ATTRIBUTE : GetModel}
 \hypertarget{ecldoc:ml_core.interfaces.iregression.getmodel}{}
-\begin{minipage}[t]{\textwidth}
-\begin{flushleft}
-DATASET(Layout\_Model) GetModel 
-\end{flushleft}
-\end{minipage}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}DATASET(Layout\_Model) & GetModel \\
+\hline
+\end{tabularx}
+}
+
 \hyperlink{ecldoc:ml_core.interfaces.iregression}{Up}
 
 \par
 Calculate and return the 'learned' model The model may be persisted and later used to make predictions using 'Predict' below.
+
 \par
-\textbf{Return} : DATASET(LayoutModel) describing the learned model parameters \\
+\begin{description}
+\item [\textbf{Return}] DATASET(LayoutModel) describing the learned model parameters
+\end{description}
+
+\rule{\textwidth}{0.4pt}
 \subsection*{FUNCTION : Predict}
 \hypertarget{ecldoc:ml_core.interfaces.iregression.predict}{}
-\begin{minipage}[t]{\textwidth}
-\begin{flushleft}
-DATASET(NumericField) Predict (DATASET(NumericField) newX, DATASET(Layout\_Model) model)
-\end{flushleft}
-\end{minipage}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}DATASET(NumericField) & Predict \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(DATASET(NumericField) newX, DATASET(Layout\_Model) model)} \\
+\hline
+\end{tabularx}
+}
+
 \hyperlink{ecldoc:ml_core.interfaces.iregression}{Up}
 
 \par
 Predict the output variable(s) based on a previously learned model
+
 \par
-\textbf{Parameter} : newX ||| DATASET(NumericField) containing the X values to b predicted. \\
-\textbf{Return} : DATASET(NumericField) containing one entry per observation (i.e. id) in newX. This represents the predicted values for Y. \\
+\begin{description}
+\item [\textbf{Parameter}] newX ||| DATASET(NumericField) containing the X values to b predicted.
+\item [\textbf{Return}] DATASET(NumericField) containing one entry per observation (i.e. id) in newX. This represents the predicted values for Y.
+\end{description}
+
+\rule{\textwidth}{0.4pt}
+
 

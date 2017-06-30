@@ -6,17 +6,28 @@
 \section*{\underline{DESCRIPTIONS}}
 \subsection*{MACRO : Gini}
 \hypertarget{ecldoc:ml_core.utils.gini}{}
-\begin{minipage}[t]{\textwidth}
-\begin{flushleft}
- Gini (infile, pivot, target, wi\_name='wi')
-\end{flushleft}
-\end{minipage}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt} & Gini \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(infile, pivot, target, wi\_name='wi')} \\
+\hline
+\end{tabularx}
+}
+
 \hyperlink{ecldoc:toc:ML_Core/Utils}{Up}
 
 \par
 Creates a file of pivot/target pairs with a Gini impurity value.
+
 \par
-\textbf{Parameter} : infile ||| the input file, any type with a work item field \\
-\textbf{Parameter} : pivot ||| the name of the pivot field \\
-\textbf{Parameter} : target ||| the name of the field used as the target \\
-\textbf{Parameter} : wi\_name ||| the name of the work item field, default is ''wi'' return A table by Work Item and Pivot value giving count and Gini impurity value \\
+\begin{description}
+\item [\textbf{Parameter}] infile ||| the input file, any type with a work item field
+\item [\textbf{Parameter}] pivot ||| the name of the pivot field
+\item [\textbf{Parameter}] target ||| the name of the field used as the target
+\item [\textbf{Parameter}] wi\_name ||| the name of the work item field, default is ''wi'' return A table by Work Item and Pivot value giving count and Gini impurity value
+\end{description}
+
+\rule{\textwidth}{0.4pt}

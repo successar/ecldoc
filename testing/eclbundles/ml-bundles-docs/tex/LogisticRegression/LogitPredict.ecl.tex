@@ -11,16 +11,27 @@
 \section*{\underline{DESCRIPTIONS}}
 \subsection*{FUNCTION : LogitPredict}
 \hypertarget{ecldoc:logisticregression.logitpredict}{}
-\begin{minipage}[t]{\textwidth}
-\begin{flushleft}
-DATASET(Classify\_Result) LogitPredict (DATASET(Model\_Coef) coef, DATASET(NumericField) independents)
-\end{flushleft}
-\end{minipage}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}DATASET(Classify\_Result) & LogitPredict \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(DATASET(Model\_Coef) coef, DATASET(NumericField) independents)} \\
+\hline
+\end{tabularx}
+}
+
 \hyperlink{ecldoc:toc:LogisticRegression}{Up}
 
 \par
 Predict the category values with the logit function and the the supplied beta coefficients.
+
 \par
-\textbf{Parameter} : coef ||| the model beta coefficients \\
-\textbf{Parameter} : independents ||| the observations \\
-\textbf{Return} : the predicted category values and a confidence score \\
+\begin{description}
+\item [\textbf{Parameter}] coef ||| the model beta coefficients
+\item [\textbf{Parameter}] independents ||| the observations
+\item [\textbf{Return}] the predicted category values and a confidence score
+\end{description}
+
+\rule{\textwidth}{0.4pt}

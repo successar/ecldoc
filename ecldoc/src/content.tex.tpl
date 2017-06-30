@@ -16,11 +16,19 @@
 \BLOCK{ for def in render_dict recursive }
 \subsection*{\VAR{(def.tag.find('./Type').text.upper() + ' : ' + def.tag.attrib.name)|escape_tex}}
 \hypertarget{ecldoc:\VAR{def.tag.attrib.fullname}}{}
-\begin{minipage}[t]{\textwidth}
-\begin{flushleft}
-\VAR{def['sign'].attrib['ret']|escape_tex} \VAR{def['sign'].attrib['name']|escape_tex} \VAR{def['sign'].attrib['param']|escape_tex}
-\end{flushleft}
-\end{minipage}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}\VAR{def['sign'].attrib['ret']|escape_tex} & \VAR{def['sign'].attrib['name']|escape_tex} \\
+\hline
+\BLOCK{ if def['sign'].attrib['param'] != '' }
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}\VAR{def['sign'].attrib['param']|escape_tex}} \\
+\hline
+\BLOCK{ endif }
+\end{tabularx}
+}
+
 \hyperlink{ecldoc:\VAR{ def.up }}{Up}
 
 \par
@@ -29,16 +37,28 @@
 \VAR{ line }
 \BLOCK{ endfor }
 \BLOCK{ endif }
+
+\BLOCK{ if def['doc']['tags']|length > 0 }
 \par
+\begin{description}
 \BLOCK{ for tag in def['doc']['tags'] }
-\textbf{\VAR{tag[1]}} : \VAR{tag[0]|escape_tex} \\
+\item [\textbf{\VAR{tag[1]}}] \VAR{tag[0]|escape_tex}
 \BLOCK{ endfor }
+\end{description}
+\BLOCK{ endif }
+
 \BLOCK{ if def['defns']|length > 0 }
 \begin{enumerate}
 \BLOCK{ for child in def['defns'] }
 \item \hyperlink{ecldoc:\VAR{child.tag.attrib.fullname}}{\VAR{ child.tag.attrib.name|escape_tex }}
 \BLOCK{ endfor }
 \end{enumerate}
+
+\rule{\textwidth}{0.4pt}
+
 \VAR{ loop(def['defns']) }
+
+\BLOCK{ else }
+\rule{\textwidth}{0.4pt}
 \BLOCK{ endif }
 \BLOCK{ endfor }

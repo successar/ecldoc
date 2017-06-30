@@ -12,16 +12,27 @@
 \section*{\underline{DESCRIPTIONS}}
 \subsection*{FUNCTION : Deviance\_Detail}
 \hypertarget{ecldoc:logisticregression.deviance_detail}{}
-\begin{minipage}[t]{\textwidth}
-\begin{flushleft}
-DATASET(Types.Observation\_Deviance) Deviance\_Detail (DATASET(Core\_Types.DiscreteField) dependents, DATASET(Types.Raw\_Prediction) predicts)
-\end{flushleft}
-\end{minipage}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}DATASET(Types.Observation\_Deviance) & Deviance\_Detail \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(DATASET(Core\_Types.DiscreteField) dependents, DATASET(Types.Raw\_Prediction) predicts)} \\
+\hline
+\end{tabularx}
+}
+
 \hyperlink{ecldoc:toc:LogisticRegression}{Up}
 
 \par
 Detail deviance for each observation.
+
 \par
-\textbf{Parameter} : dependents ||| original dependent records for the model \\
-\textbf{Parameter} : predicts ||| the predicted values of the response variable \\
-\textbf{Return} : the deviance information by observation and the log likelihood of the predicted result. \\
+\begin{description}
+\item [\textbf{Parameter}] dependents ||| original dependent records for the model
+\item [\textbf{Parameter}] predicts ||| the predicted values of the response variable
+\item [\textbf{Return}] the deviance information by observation and the log likelihood of the predicted result.
+\end{description}
+
+\rule{\textwidth}{0.4pt}

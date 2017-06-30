@@ -6,16 +6,27 @@
 \section*{\underline{DESCRIPTIONS}}
 \subsection*{EMBED : Poly}
 \hypertarget{ecldoc:ml_core.math.poly}{}
-\begin{minipage}[t]{\textwidth}
-\begin{flushleft}
-REAL8 Poly (REAL8 x, SET OF REAL8 Coeffs)
-\end{flushleft}
-\end{minipage}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}REAL8 & Poly \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(REAL8 x, SET OF REAL8 Coeffs)} \\
+\hline
+\end{tabularx}
+}
+
 \hyperlink{ecldoc:toc:ML_Core/Math}{Up}
 
 \par
 Evaluate a polynomial from a set of co-effs. Co-effs 1 is assumed to be the HIGH order of the equation. Thus for ax\^{}2+bx+c - the set would need to be Coef := [a,b,c];
+
 \par
-\textbf{Parameter} : x ||| the value of x in the polynomial \\
-\textbf{Parameter} : Coeffs ||| a set of coefficients forthe polynomial. The ALL set is considered to be all zero values \\
-\textbf{Return} : value of the polynomial at x \\
+\begin{description}
+\item [\textbf{Parameter}] x ||| the value of x in the polynomial
+\item [\textbf{Parameter}] Coeffs ||| a set of coefficients forthe polynomial. The ALL set is considered to be all zero values
+\item [\textbf{Return}] value of the polynomial at x
+\end{description}
+
+\rule{\textwidth}{0.4pt}

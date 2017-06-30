@@ -9,16 +9,27 @@
 \section*{\underline{DESCRIPTIONS}}
 \subsection*{FUNCTION : FatD}
 \hypertarget{ecldoc:ml_core.utils.fatd}{}
-\begin{minipage}[t]{\textwidth}
-\begin{flushleft}
-DATASET(Types.DiscreteField) FatD (DATASET(Types.DiscreteField) d0, Types.t\_Discrete v=0)
-\end{flushleft}
-\end{minipage}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}DATASET(Types.DiscreteField) & FatD \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(DATASET(Types.DiscreteField) d0, Types.t\_Discrete v=0)} \\
+\hline
+\end{tabularx}
+}
+
 \hyperlink{ecldoc:toc:ML_Core/Utils}{Up}
 
 \par
 Will take a potentially sparse file d and fill in the missing with value v for Discrete Field datasets
+
 \par
-\textbf{Parameter} : d0 ||| They myriad format Discrete Field dataset to be filled \\
-\textbf{Parameter} : v ||| The value to assign missing records \\
-\textbf{Return} : A full Discrete Field dataset with every field populated \\
+\begin{description}
+\item [\textbf{Parameter}] d0 ||| They myriad format Discrete Field dataset to be filled
+\item [\textbf{Parameter}] v ||| The value to assign missing records
+\item [\textbf{Return}] A full Discrete Field dataset with every field populated
+\end{description}
+
+\rule{\textwidth}{0.4pt}

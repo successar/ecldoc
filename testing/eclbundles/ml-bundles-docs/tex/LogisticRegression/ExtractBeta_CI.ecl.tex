@@ -11,16 +11,27 @@
 \section*{\underline{DESCRIPTIONS}}
 \subsection*{FUNCTION : ExtractBeta\_CI}
 \hypertarget{ecldoc:logisticregression.extractbeta_ci}{}
-\begin{minipage}[t]{\textwidth}
-\begin{flushleft}
-DATASET(Types.Confidence\_Model\_Coef) ExtractBeta\_CI (DATASET(Core\_Types.Layout\_Model) mod\_ds, REAL8 level)
-\end{flushleft}
-\end{minipage}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}DATASET(Types.Confidence\_Model\_Coef) & ExtractBeta\_CI \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(DATASET(Core\_Types.Layout\_Model) mod\_ds, REAL8 level)} \\
+\hline
+\end{tabularx}
+}
+
 \hyperlink{ecldoc:toc:LogisticRegression}{Up}
 
 \par
 Extract the beta values form the model dataset.
+
 \par
-\textbf{Parameter} : mod\_ds ||| the model dataset \\
-\textbf{Parameter} : level ||| the significance value for the intervals \\
-\textbf{Return} : the beta values with confidence intervals term. \\
+\begin{description}
+\item [\textbf{Parameter}] mod\_ds ||| the model dataset
+\item [\textbf{Parameter}] level ||| the significance value for the intervals
+\item [\textbf{Return}] the beta values with confidence intervals term.
+\end{description}
+
+\rule{\textwidth}{0.4pt}

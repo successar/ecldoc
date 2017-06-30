@@ -15,18 +15,29 @@
 \section*{\underline{DESCRIPTIONS}}
 \subsection*{FUNCTION : ExtractTri}
 \hypertarget{ecldoc:pbblas.extracttri}{}
-\begin{minipage}[t]{\textwidth}
-\begin{flushleft}
-DATASET(Layout\_Cell) ExtractTri (Triangle tri, Diagonal dt, DATASET(Layout\_Cell) A)
-\end{flushleft}
-\end{minipage}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}DATASET(Layout\_Cell) & ExtractTri \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(Triangle tri, Diagonal dt, DATASET(Layout\_Cell) A)} \\
+\hline
+\end{tabularx}
+}
+
 \hyperlink{ecldoc:toc:PBblas}{Up}
 
 \par
 Extract the upper or lower triangle from the composite output from getrf (LU Factorization).
+
 \par
-\textbf{Parameter} : tri ||| Triangle type: Upper or Lower (see Types.Triangle) \\
-\textbf{Parameter} : dt ||| Diagonal type: Unit or non unit (see Types.Diagonal) \\
-\textbf{Parameter} : A ||| Matrix of cells. See Types.Layout\_Cell \\
-\textbf{Return} : Matrix of cells in Layout\_Cell format representing a triangular matrix (upper or lower) \\
-\textbf{See} : Std.PBblas.Types \\
+\begin{description}
+\item [\textbf{Parameter}] tri ||| Triangle type: Upper or Lower (see Types.Triangle)
+\item [\textbf{Parameter}] dt ||| Diagonal type: Unit or non unit (see Types.Diagonal)
+\item [\textbf{Parameter}] A ||| Matrix of cells. See Types.Layout\_Cell
+\item [\textbf{Return}] Matrix of cells in Layout\_Cell format representing a triangular matrix (upper or lower)
+\item [\textbf{See}] Std.PBblas.Types
+\end{description}
+
+\rule{\textwidth}{0.4pt}

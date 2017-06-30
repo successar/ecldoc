@@ -11,84 +11,137 @@
 \section*{\underline{DESCRIPTIONS}}
 \subsection*{MODULE : Converted}
 \hypertarget{ecldoc:PBblas.Converted}{}
-\begin{minipage}[t]{\textwidth}
-\begin{flushleft}
- Converted 
-\end{flushleft}
-\end{minipage}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt} & Converted \\
+\hline
+\end{tabularx}
+}
+
 \hyperlink{ecldoc:toc:PBblas}{Up}
 
 \par
 Module to convert between ML\_Core/Types Field layouts (i.e. NumericField and DiscreteField) and PBblas matrix layout (i.e. Layout\_Cell)
-\par
+
+
 \begin{enumerate}
 \item \hyperlink{ecldoc:pbblas.converted.nftomatrix}{NFToMatrix}
 \item \hyperlink{ecldoc:pbblas.converted.dftomatrix}{DFToMatrix}
 \item \hyperlink{ecldoc:pbblas.converted.matrixtonf}{MatrixToNF}
 \item \hyperlink{ecldoc:pbblas.converted.matrixtodf}{MatrixToDF}
 \end{enumerate}
+
+\rule{\textwidth}{0.4pt}
+
 \subsection*{FUNCTION : NFToMatrix}
 \hypertarget{ecldoc:pbblas.converted.nftomatrix}{}
-\begin{minipage}[t]{\textwidth}
-\begin{flushleft}
-DATASET(Layout\_Cell) NFToMatrix (DATASET(NumericField) recs)
-\end{flushleft}
-\end{minipage}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}DATASET(Layout\_Cell) & NFToMatrix \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(DATASET(NumericField) recs)} \\
+\hline
+\end{tabularx}
+}
+
 \hyperlink{ecldoc:PBblas.Converted}{Up}
 
 \par
 Convert NumericField dataset to Matrix
+
 \par
-\textbf{Parameter} : recs ||| Record Dataset in DATASET(NumericField) format \\
-\textbf{Return} : Matrix in DATASET(Layout\_Cell) format \\
-\textbf{See} : PBblas/Types.Layout\_Cell \\
-\textbf{See} : ML\_Core/Types.NumericField \\
+\begin{description}
+\item [\textbf{Parameter}] recs ||| Record Dataset in DATASET(NumericField) format
+\item [\textbf{Return}] Matrix in DATASET(Layout\_Cell) format
+\item [\textbf{See}] PBblas/Types.Layout\_Cell
+\item [\textbf{See}] ML\_Core/Types.NumericField
+\end{description}
+
+\rule{\textwidth}{0.4pt}
 \subsection*{FUNCTION : DFToMatrix}
 \hypertarget{ecldoc:pbblas.converted.dftomatrix}{}
-\begin{minipage}[t]{\textwidth}
-\begin{flushleft}
-DATASET(Layout\_Cell) DFToMatrix (DATASET(DiscreteField) recs)
-\end{flushleft}
-\end{minipage}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}DATASET(Layout\_Cell) & DFToMatrix \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(DATASET(DiscreteField) recs)} \\
+\hline
+\end{tabularx}
+}
+
 \hyperlink{ecldoc:PBblas.Converted}{Up}
 
 \par
 Convert DiscreteField dataset to Matrix
+
 \par
-\textbf{Parameter} : recs ||| Record Dataset in DATASET(DiscreteField) format \\
-\textbf{Return} : Matrix in DATASET(Layout\_Cell) format \\
-\textbf{See} : PBblas/Types.Layout\_Cell \\
-\textbf{See} : ML\_Core/Types.DiscreteField \\
+\begin{description}
+\item [\textbf{Parameter}] recs ||| Record Dataset in DATASET(DiscreteField) format
+\item [\textbf{Return}] Matrix in DATASET(Layout\_Cell) format
+\item [\textbf{See}] PBblas/Types.Layout\_Cell
+\item [\textbf{See}] ML\_Core/Types.DiscreteField
+\end{description}
+
+\rule{\textwidth}{0.4pt}
 \subsection*{FUNCTION : MatrixToNF}
 \hypertarget{ecldoc:pbblas.converted.matrixtonf}{}
-\begin{minipage}[t]{\textwidth}
-\begin{flushleft}
-DATASET(NumericField) MatrixToNF (DATASET(Layout\_Cell) mat)
-\end{flushleft}
-\end{minipage}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}DATASET(NumericField) & MatrixToNF \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(DATASET(Layout\_Cell) mat)} \\
+\hline
+\end{tabularx}
+}
+
 \hyperlink{ecldoc:PBblas.Converted}{Up}
 
 \par
 Convert Matrix to NumericField dataset
+
 \par
-\textbf{Parameter} : mat ||| Matrix in DATASET(Layout\_Cell) format \\
-\textbf{Return} : NumericField Dataset \\
-\textbf{See} : PBblas/Types.Layout\_Cell \\
-\textbf{See} : ML\_Core/Types.NumericField \\
+\begin{description}
+\item [\textbf{Parameter}] mat ||| Matrix in DATASET(Layout\_Cell) format
+\item [\textbf{Return}] NumericField Dataset
+\item [\textbf{See}] PBblas/Types.Layout\_Cell
+\item [\textbf{See}] ML\_Core/Types.NumericField
+\end{description}
+
+\rule{\textwidth}{0.4pt}
 \subsection*{FUNCTION : MatrixToDF}
 \hypertarget{ecldoc:pbblas.converted.matrixtodf}{}
-\begin{minipage}[t]{\textwidth}
-\begin{flushleft}
-DATASET(DiscreteField) MatrixToDF (DATASET(Layout\_Cell) mat)
-\end{flushleft}
-\end{minipage}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}DATASET(DiscreteField) & MatrixToDF \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(DATASET(Layout\_Cell) mat)} \\
+\hline
+\end{tabularx}
+}
+
 \hyperlink{ecldoc:PBblas.Converted}{Up}
 
 \par
 Convert Matrix to DiscreteField dataset
+
 \par
-\textbf{Parameter} : mat ||| Matrix in DATASET(Layout\_Cell) format \\
-\textbf{Return} : DiscreteField Dataset \\
-\textbf{See} : PBblas/Types.Layout\_Cell \\
-\textbf{See} : ML\_Core/Types.DiscreteField \\
+\begin{description}
+\item [\textbf{Parameter}] mat ||| Matrix in DATASET(Layout\_Cell) format
+\item [\textbf{Return}] DiscreteField Dataset
+\item [\textbf{See}] PBblas/Types.Layout\_Cell
+\item [\textbf{See}] ML\_Core/Types.DiscreteField
+\end{description}
+
+\rule{\textwidth}{0.4pt}
+
 

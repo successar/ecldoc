@@ -3,11 +3,19 @@
 \usepackage{lmodern}
 \usepackage[margin=0.5in]{geometry}
 \usepackage{hyperref}
+\usepackage{longtable, tabularx}
 \hypersetup{colorlinks=true,linkcolor=blue}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{\baselineskip}%
+\lccode`\(`\(
+\lccode`\)`\)
+\lccode`\[`\[
+\lccode`\]`\]
+\catcode`\_=12
+\lccode`\_`\_
 
 \begin{document}
+\sloppy
 \raggedright
 
 \input{tex/pkg.toc}

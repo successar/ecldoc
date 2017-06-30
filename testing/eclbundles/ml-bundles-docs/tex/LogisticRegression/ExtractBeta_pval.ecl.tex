@@ -11,15 +11,26 @@
 \section*{\underline{DESCRIPTIONS}}
 \subsection*{FUNCTION : ExtractBeta\_pval}
 \hypertarget{ecldoc:logisticregression.extractbeta_pval}{}
-\begin{minipage}[t]{\textwidth}
-\begin{flushleft}
-DATASET(Types.pval\_Model\_Coef) ExtractBeta\_pval (DATASET(Core\_Types.Layout\_Model) mod\_ds)
-\end{flushleft}
-\end{minipage}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}DATASET(Types.pval\_Model\_Coef) & ExtractBeta\_pval \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(DATASET(Core\_Types.Layout\_Model) mod\_ds)} \\
+\hline
+\end{tabularx}
+}
+
 \hyperlink{ecldoc:toc:LogisticRegression}{Up}
 
 \par
 Extract the beta values form the model dataset.
+
 \par
-\textbf{Parameter} : mod\_ds ||| the model dataset \\
-\textbf{Return} : the beta values with p-values as Model Coefficient records, zero as the constant term. \\
+\begin{description}
+\item [\textbf{Parameter}] mod\_ds ||| the model dataset
+\item [\textbf{Return}] the beta values with p-values as Model Coefficient records, zero as the constant term.
+\end{description}
+
+\rule{\textwidth}{0.4pt}

@@ -6,18 +6,29 @@
 \section*{\underline{DESCRIPTIONS}}
 \subsection*{MACRO : SequenceInField}
 \hypertarget{ecldoc:ml_core.utils.sequenceinfield}{}
-\begin{minipage}[t]{\textwidth}
-\begin{flushleft}
- SequenceInField (infile,infield,seq,wi\_name='wi')
-\end{flushleft}
-\end{minipage}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt} & SequenceInField \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(infile,infield,seq,wi\_name='wi')} \\
+\hline
+\end{tabularx}
+}
+
 \hyperlink{ecldoc:toc:ML_Core/Utils}{Up}
 
 \par
 Given a file which is sorted by the work item identifier and INFIELD (and possibly other values), add sequence numbers within the range of each infield. Slighly elaborate code is to avoid having to partition the data to one value of infield per node and to work with very large numbers of records where a global count project would be inappropriate. This is useful for assigning rank positions with the groupings.
+
 \par
-\textbf{Parameter} : infile ||| the input file, any type \\
-\textbf{Parameter} : infield ||| field name of grouping field \\
-\textbf{Parameter} : seq ||| name of the field to receive the sequence number \\
-\textbf{Parameter} : wi\_name ||| work item field name, default is wi \\
-\textbf{Return} : a file of the same type with sequence numbers applied \\
+\begin{description}
+\item [\textbf{Parameter}] infile ||| the input file, any type
+\item [\textbf{Parameter}] infield ||| field name of grouping field
+\item [\textbf{Parameter}] seq ||| name of the field to receive the sequence number
+\item [\textbf{Parameter}] wi\_name ||| work item field name, default is wi
+\item [\textbf{Return}] a file of the same type with sequence numbers applied
+\end{description}
+
+\rule{\textwidth}{0.4pt}

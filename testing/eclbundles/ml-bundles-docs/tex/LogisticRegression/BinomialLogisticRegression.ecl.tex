@@ -12,71 +12,118 @@
 \section*{\underline{DESCRIPTIONS}}
 \subsection*{MODULE : BinomialLogisticRegression}
 \hypertarget{ecldoc:logisticregression.binomiallogisticregression}{}
-\begin{minipage}[t]{\textwidth}
-\begin{flushleft}
- BinomialLogisticRegression (UNSIGNED max\_iter=200, REAL8 epsilon=Constants.default\_epsilon, REAL8 ridge=Constants.default\_ridge)
-\end{flushleft}
-\end{minipage}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt} & BinomialLogisticRegression \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(UNSIGNED max\_iter=200, REAL8 epsilon=Constants.default\_epsilon, REAL8 ridge=Constants.default\_ridge)} \\
+\hline
+\end{tabularx}
+}
+
 \hyperlink{ecldoc:toc:LogisticRegression}{Up}
 
 \par
 Binomial logistic regression using iteratively re-weighted least squares.
+
 \par
-\textbf{Parameter} : max\_iter ||| maximum number of iterations to try \\
-\textbf{Parameter} : epsilon ||| the minimum change in the Beta value estimate to continue \\
-\textbf{Parameter} : ridge ||| a value to populate a diagonal matrix that is added to a matrix help assure that the matrix is invertible. \\
+\begin{description}
+\item [\textbf{Parameter}] max\_iter ||| maximum number of iterations to try
+\item [\textbf{Parameter}] epsilon ||| the minimum change in the Beta value estimate to continue
+\item [\textbf{Parameter}] ridge ||| a value to populate a diagonal matrix that is added to a matrix help assure that the matrix is invertible.
+\end{description}
+
 \begin{enumerate}
 \item \hyperlink{ecldoc:logisticregression.binomiallogisticregression.getmodel}{GetModel}
 \item \hyperlink{ecldoc:logisticregression.binomiallogisticregression.classify}{Classify}
 \item \hyperlink{ecldoc:logisticregression.binomiallogisticregression.report}{Report}
 \end{enumerate}
+
+\rule{\textwidth}{0.4pt}
+
 \subsection*{FUNCTION : GetModel}
 \hypertarget{ecldoc:logisticregression.binomiallogisticregression.getmodel}{}
-\begin{minipage}[t]{\textwidth}
-\begin{flushleft}
-DATASET(Types.Layout\_Model) GetModel (DATASET(Types.NumericField) observations, DATASET(Types.DiscreteField) classifications)
-\end{flushleft}
-\end{minipage}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}DATASET(Types.Layout\_Model) & GetModel \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(DATASET(Types.NumericField) observations, DATASET(Types.DiscreteField) classifications)} \\
+\hline
+\end{tabularx}
+}
+
 \hyperlink{ecldoc:logisticregression.binomiallogisticregression}{Up}
 
 \par
 Calculate the model to fit the observation data to the observed classes.
+
 \par
-\textbf{Parameter} : observations ||| the observed explanatory values \\
-\textbf{Parameter} : classifications ||| the observed classification used to build the model \\
-\textbf{Return} : the encoded model \\
-\textbf{OVERRIDE} : True \\
+\begin{description}
+\item [\textbf{Parameter}] observations ||| the observed explanatory values
+\item [\textbf{Parameter}] classifications ||| the observed classification used to build the model
+\item [\textbf{Return}] the encoded model
+\item [\textbf{OVERRIDE}] True
+\end{description}
+
+\rule{\textwidth}{0.4pt}
 \subsection*{FUNCTION : Classify}
 \hypertarget{ecldoc:logisticregression.binomiallogisticregression.classify}{}
-\begin{minipage}[t]{\textwidth}
-\begin{flushleft}
-DATASET(Types.Classify\_Result) Classify (DATASET(Types.Layout\_Model) model, DATASET(Types.NumericField) new\_observations)
-\end{flushleft}
-\end{minipage}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}DATASET(Types.Classify\_Result) & Classify \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(DATASET(Types.Layout\_Model) model, DATASET(Types.NumericField) new\_observations)} \\
+\hline
+\end{tabularx}
+}
+
 \hyperlink{ecldoc:logisticregression.binomiallogisticregression}{Up}
 
 \par
 Classify the observations using a model.
+
 \par
-\textbf{Parameter} : model ||| The model, which must be produced by a corresponding getModel function. \\
-\textbf{Parameter} : new\_observations ||| observations to be classified \\
-\textbf{Return} : Classification with a confidence value \\
-\textbf{OVERRIDE} : True \\
+\begin{description}
+\item [\textbf{Parameter}] model ||| The model, which must be produced by a corresponding getModel function.
+\item [\textbf{Parameter}] new\_observations ||| observations to be classified
+\item [\textbf{Return}] Classification with a confidence value
+\item [\textbf{OVERRIDE}] True
+\end{description}
+
+\rule{\textwidth}{0.4pt}
 \subsection*{FUNCTION : Report}
 \hypertarget{ecldoc:logisticregression.binomiallogisticregression.report}{}
-\begin{minipage}[t]{\textwidth}
-\begin{flushleft}
-DATASET(Types.Confusion\_Detail) Report (DATASET(Types.Layout\_Model) model, DATASET(Types.NumericField) observations, DATASET(Types.DiscreteField) classifications)
-\end{flushleft}
-\end{minipage}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}DATASET(Types.Confusion\_Detail) & Report \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(DATASET(Types.Layout\_Model) model, DATASET(Types.NumericField) observations, DATASET(Types.DiscreteField) classifications)} \\
+\hline
+\end{tabularx}
+}
+
 \hyperlink{ecldoc:logisticregression.binomiallogisticregression}{Up}
 
 \par
 Report the confusion matrix for the classifier and training data.
+
 \par
-\textbf{Parameter} : model ||| the encoded model \\
-\textbf{Parameter} : observations ||| the explanatory values. \\
-\textbf{Parameter} : classifications ||| the classifications associated with the observations \\
-\textbf{Return} : the confusion matrix showing correct and incorrect results \\
-\textbf{OVERRIDE} : True \\
+\begin{description}
+\item [\textbf{Parameter}] model ||| the encoded model
+\item [\textbf{Parameter}] observations ||| the explanatory values.
+\item [\textbf{Parameter}] classifications ||| the classifications associated with the observations
+\item [\textbf{Return}] the confusion matrix showing correct and incorrect results
+\item [\textbf{OVERRIDE}] True
+\end{description}
+
+\rule{\textwidth}{0.4pt}
+
 

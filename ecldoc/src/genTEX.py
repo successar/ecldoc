@@ -134,7 +134,8 @@ class GenTEX(object) :
 
 	def gen(self, node, content_root) :
 		files = []
-		for key in node :
+		keys = sorted(node.keys(), key=str.lower)
+		for key in keys :
 			if type(node[key]) != dict:
 				if key == 'bundle.ecl' :
 					continue
