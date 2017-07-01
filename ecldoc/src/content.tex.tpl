@@ -48,11 +48,9 @@
 \BLOCK{ endif }
 
 \BLOCK{ if def['defns']|length > 0 }
-\begin{enumerate}
 \BLOCK{ for child in def['defns'] }
-\item \hyperlink{ecldoc:\VAR{child.tag.attrib.fullname}}{\VAR{ child.tag.attrib.name|escape_tex }}
+\hyperlink{ecldoc:\VAR{child.tag.attrib.fullname}}{\VAR{ child.tag.attrib.name|escape_tex }}  |
 \BLOCK{ endfor }
-\end{enumerate}
 
 \rule{\textwidth}{0.4pt}
 

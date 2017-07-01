@@ -167,7 +167,7 @@ MODULE : File
     
     ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : varstring ForeignLogicalFileName(varstring name, varstring foreigndali='', boolean
-               abspath=FALSE)
+                                               abspath=FALSE)
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Returns a logical filename that can be used to refer to a logical file in a
@@ -184,7 +184,7 @@ MODULE : File
     
     ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : varstring ExternalLogicalFileName(varstring location, varstring path, boolean
-               abspath=TRUE)
+                                                abspath=TRUE)
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Returns an encoded logical filename that can be used to refer to a external
@@ -225,7 +225,7 @@ MODULE : File
     
     ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : dataset(FsFilenameRecord) RemoteDirectory(varstring machineIP, varstring dir, varstring
-               mask='*', boolean recurse=FALSE)
+                                                        mask='*', boolean recurse=FALSE)
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Returns a dataset containing a list of files from the specified machineIP
@@ -248,8 +248,8 @@ MODULE : File
     
     ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : dataset(FsLogicalFileInfoRecord) LogicalFileList(varstring namepattern='*', boolean
-               includenormal=TRUE, boolean includesuper=FALSE, boolean unknownszero=FALSE, varstring
-               foreigndali='')
+                                                               includenormal=TRUE, boolean includesuper=FALSE, boolean unknownszero=FALSE, varstring
+                                                               foreigndali='')
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Returns a dataset of information about the logical files known to the
@@ -274,7 +274,7 @@ MODULE : File
     
     ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : INTEGER4 CompareFiles(varstring lfn1, varstring lfn2, boolean logical_only=TRUE, boolean
-               use_crcs=FALSE)
+                                    use_crcs=FALSE)
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Compares two files, and returns a result indicating how well they match.
@@ -326,8 +326,8 @@ MODULE : File
     
     ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : AddFileRelationship(varstring primary, varstring secondary, varstring primaryflds,
-               varstring secondaryflds, varstring kind='link', varstring cardinality, boolean payload,
-               varstring description='')
+                                  varstring secondaryflds, varstring kind='link', varstring cardinality, boolean payload,
+                                  varstring description='')
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Defines the relationship between two files. These may be DATASETs or
@@ -366,7 +366,7 @@ MODULE : File
     
     ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : dataset(FsFileRelationshipRecord) FileRelationshipList(varstring primary, varstring
-               secondary, varstring primflds='', varstring secondaryflds='', varstring kind='link')
+                                                                     secondary, varstring primflds='', varstring secondaryflds='', varstring kind='link')
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Returns a dataset of relationships. The return records are structured in
@@ -390,7 +390,7 @@ MODULE : File
     
     ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : RemoveFileRelationship(varstring primary, varstring secondary, varstring primaryflds='',
-               varstring secondaryflds='', varstring kind='link')
+                                     varstring secondaryflds='', varstring kind='link')
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Removes a relationship between two files.
@@ -529,10 +529,10 @@ MODULE : File
     
     ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : varstring fSprayFixed(varstring sourceIP, varstring sourcePath, integer4 recordSize,
-               varstring destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1,
-               varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean
-               allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, boolean
-               failIfNoSourceFile=FALSE, integer4 expireDays=-1)
+                                    varstring destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1,
+                                    varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean
+                                    allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, boolean
+                                    failIfNoSourceFile=FALSE, integer4 expireDays=-1)
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Sprays a file of fixed length records from a single machine and distributes
@@ -583,10 +583,10 @@ MODULE : File
     
     ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : SprayFixed(varstring sourceIP, varstring sourcePath, integer4 recordSize, varstring
-               destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, varstring
-               espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean
-               allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, boolean
-               failIfNoSourceFile=FALSE, integer4 expireDays=-1)
+                         destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, varstring
+                         espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean
+                         allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, boolean
+                         failIfNoSourceFile=FALSE, integer4 expireDays=-1)
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Same as fSprayFixed, but does not return the DFU Workunit ID.
@@ -595,38 +595,38 @@ MODULE : File
     
     ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : varstring fSprayVariable(varstring sourceIP, varstring sourcePath, integer4
-               sourceMaxRecordSize=8192, varstring sourceCsvSeparate='\\,', varstring
-               sourceCsvTerminate='\\n,\\r\\n', varstring sourceCsvQuote='\"', varstring
-               destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, varstring
-               espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean
-               allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, varstring
-               sourceCsvEscape='', boolean failIfNoSourceFile=FALSE, boolean
-               recordStructurePresent=FALSE, boolean quotedTerminator=TRUE, varstring encoding='ascii',
-               integer4 expireDays=-1)
+                                       sourceMaxRecordSize=8192, varstring sourceCsvSeparate='\\,', varstring
+                                       sourceCsvTerminate='\\n,\\r\\n', varstring sourceCsvQuote='\"', varstring
+                                       destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, varstring
+                                       espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean
+                                       allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, varstring
+                                       sourceCsvEscape='', boolean failIfNoSourceFile=FALSE, boolean
+                                       recordStructurePresent=FALSE, boolean quotedTerminator=TRUE, varstring encoding='ascii',
+                                       integer4 expireDays=-1)
     ----------------------------------------------------------------------------------------------------------------------------------
     
     ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : SprayVariable(varstring sourceIP, varstring sourcePath, integer4
-               sourceMaxRecordSize=8192, varstring sourceCsvSeparate='\\,', varstring
-               sourceCsvTerminate='\\n,\\r\\n', varstring sourceCsvQuote='\"', varstring
-               destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, varstring
-               espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean
-               allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, varstring
-               sourceCsvEscape='', boolean failIfNoSourceFile=FALSE, boolean
-               recordStructurePresent=FALSE, boolean quotedTerminator=TRUE, varstring encoding='ascii',
-               integer4 expireDays=-1)
+                            sourceMaxRecordSize=8192, varstring sourceCsvSeparate='\\,', varstring
+                            sourceCsvTerminate='\\n,\\r\\n', varstring sourceCsvQuote='\"', varstring
+                            destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, varstring
+                            espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean
+                            allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, varstring
+                            sourceCsvEscape='', boolean failIfNoSourceFile=FALSE, boolean
+                            recordStructurePresent=FALSE, boolean quotedTerminator=TRUE, varstring encoding='ascii',
+                            integer4 expireDays=-1)
     ----------------------------------------------------------------------------------------------------------------------------------
     
     ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : varstring fSprayDelimited(varstring sourceIP, varstring sourcePath, integer4
-               sourceMaxRecordSize=8192, varstring sourceCsvSeparate='\\,', varstring
-               sourceCsvTerminate='\\n,\\r\\n', varstring sourceCsvQuote='\"', varstring
-               destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, varstring
-               espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean
-               allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, varstring
-               sourceCsvEscape='', boolean failIfNoSourceFile=FALSE, boolean
-               recordStructurePresent=FALSE, boolean quotedTerminator=TRUE, varstring encoding='ascii',
-               integer4 expireDays=-1)
+                                        sourceMaxRecordSize=8192, varstring sourceCsvSeparate='\\,', varstring
+                                        sourceCsvTerminate='\\n,\\r\\n', varstring sourceCsvQuote='\"', varstring
+                                        destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, varstring
+                                        espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean
+                                        allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, varstring
+                                        sourceCsvEscape='', boolean failIfNoSourceFile=FALSE, boolean
+                                        recordStructurePresent=FALSE, boolean quotedTerminator=TRUE, varstring encoding='ascii',
+                                        integer4 expireDays=-1)
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Sprays a file of fixed delimited records from a single machine and
@@ -697,14 +697,14 @@ MODULE : File
     
     ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : SprayDelimited(varstring sourceIP, varstring sourcePath, integer4
-               sourceMaxRecordSize=8192, varstring sourceCsvSeparate='\\,', varstring
-               sourceCsvTerminate='\\n,\\r\\n', varstring sourceCsvQuote='\"', varstring
-               destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, varstring
-               espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean
-               allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, varstring
-               sourceCsvEscape='', boolean failIfNoSourceFile=FALSE, boolean
-               recordStructurePresent=FALSE, boolean quotedTerminator=TRUE, const varstring
-               encoding='ascii', integer4 expireDays=-1)
+                             sourceMaxRecordSize=8192, varstring sourceCsvSeparate='\\,', varstring
+                             sourceCsvTerminate='\\n,\\r\\n', varstring sourceCsvQuote='\"', varstring
+                             destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, varstring
+                             espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean
+                             allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, varstring
+                             sourceCsvEscape='', boolean failIfNoSourceFile=FALSE, boolean
+                             recordStructurePresent=FALSE, boolean quotedTerminator=TRUE, const varstring
+                             encoding='ascii', integer4 expireDays=-1)
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Same as fSprayDelimited, but does not return the DFU Workunit ID.
@@ -713,11 +713,11 @@ MODULE : File
     
     ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : varstring fSprayXml(varstring sourceIP, varstring sourcePath, integer4
-               sourceMaxRecordSize=8192, varstring sourceRowTag, varstring sourceEncoding='utf8',
-               varstring destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1,
-               varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean
-               allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, boolean
-               failIfNoSourceFile=FALSE, integer4 expireDays=-1)
+                                  sourceMaxRecordSize=8192, varstring sourceRowTag, varstring sourceEncoding='utf8',
+                                  varstring destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1,
+                                  varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean
+                                  allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, boolean
+                                  failIfNoSourceFile=FALSE, integer4 expireDays=-1)
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Sprays an xml file from a single machine and distributes it across the
@@ -775,11 +775,11 @@ MODULE : File
     
     ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : SprayXml(varstring sourceIP, varstring sourcePath, integer4 sourceMaxRecordSize=8192,
-               varstring sourceRowTag, varstring sourceEncoding='utf8', varstring destinationGroup,
-               varstring destinationLogicalName, integer4 timeOut=-1, varstring
-               espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean
-               allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, boolean
-               failIfNoSourceFile=FALSE, integer4 expireDays=-1)
+                       varstring sourceRowTag, varstring sourceEncoding='utf8', varstring destinationGroup,
+                       varstring destinationLogicalName, integer4 timeOut=-1, varstring
+                       espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean
+                       allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, boolean
+                       failIfNoSourceFile=FALSE, integer4 expireDays=-1)
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Same as fSprayXml, but does not return the DFU Workunit ID.
@@ -788,8 +788,8 @@ MODULE : File
     
     ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : varstring fDespray(varstring logicalName, varstring destinationIP, varstring
-               destinationPath, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'),
-               integer4 maxConnections=-1, boolean allowOverwrite=FALSE)
+                                 destinationPath, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'),
+                                 integer4 maxConnections=-1, boolean allowOverwrite=FALSE)
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Copies a distributed file from multiple machines, and desprays it to a
@@ -821,8 +821,8 @@ MODULE : File
     
     ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : Despray(varstring logicalName, varstring destinationIP, varstring destinationPath,
-               integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4
-               maxConnections=-1, boolean allowOverwrite=FALSE)
+                      integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4
+                      maxConnections=-1, boolean allowOverwrite=FALSE)
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Same as fDespray, but does not return the DFU Workunit ID.
@@ -831,11 +831,11 @@ MODULE : File
     
     ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : varstring fCopy(varstring sourceLogicalName, varstring destinationGroup, varstring
-               destinationLogicalName, varstring sourceDali='', integer4 timeOut=-1, varstring
-               espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean
-               allowOverwrite=FALSE, boolean replicate=FALSE, boolean asSuperfile=FALSE, boolean
-               compress=FALSE, boolean forcePush=FALSE, integer4 transferBufferSize=0, boolean
-               preserveCompression=TRUE)
+                              destinationLogicalName, varstring sourceDali='', integer4 timeOut=-1, varstring
+                              espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean
+                              allowOverwrite=FALSE, boolean replicate=FALSE, boolean asSuperfile=FALSE, boolean
+                              compress=FALSE, boolean forcePush=FALSE, integer4 transferBufferSize=0, boolean
+                              preserveCompression=TRUE)
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Copies a distributed file to another distributed file.
@@ -894,11 +894,11 @@ MODULE : File
     
     ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : Copy(varstring sourceLogicalName, varstring destinationGroup, varstring
-               destinationLogicalName, varstring sourceDali='', integer4 timeOut=-1, varstring
-               espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean
-               allowOverwrite=FALSE, boolean replicate=FALSE, boolean asSuperfile=FALSE, boolean
-               compress=FALSE, boolean forcePush=FALSE, integer4 transferBufferSize=0, boolean
-               preserveCompression=TRUE)
+                   destinationLogicalName, varstring sourceDali='', integer4 timeOut=-1, varstring
+                   espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean
+                   allowOverwrite=FALSE, boolean replicate=FALSE, boolean asSuperfile=FALSE, boolean
+                   compress=FALSE, boolean forcePush=FALSE, integer4 transferBufferSize=0, boolean
+                   preserveCompression=TRUE)
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Same as fCopy, but does not return the DFU Workunit ID.
@@ -907,7 +907,7 @@ MODULE : File
     
     ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : varstring fReplicate(varstring logicalName, integer4 timeOut=-1, varstring
-               espServerIpPort=GETENV('ws_fs_server'))
+                                   espServerIpPort=GETENV('ws_fs_server'))
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Ensures the specified file is replicated to its mirror copies.
@@ -927,7 +927,7 @@ MODULE : File
     
     ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : Replicate(varstring logicalName, integer4 timeOut=-1, varstring
-               espServerIpPort=GETENV('ws_fs_server'))
+                        espServerIpPort=GETENV('ws_fs_server'))
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Same as fReplicated, but does not return the DFU Workunit ID.
@@ -936,10 +936,10 @@ MODULE : File
     
     ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : varstring fRemotePull(varstring remoteEspFsURL, varstring sourceLogicalName, varstring
-               destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, integer4
-               maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean
-               asSuperfile=FALSE, boolean forcePush=FALSE, integer4 transferBufferSize=0, boolean
-               wrap=FALSE, boolean compress=FALSE)
+                                    destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, integer4
+                                    maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean
+                                    asSuperfile=FALSE, boolean forcePush=FALSE, integer4 transferBufferSize=0, boolean
+                                    wrap=FALSE, boolean compress=FALSE)
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Copies a distributed file to a distributed file on remote system. Similar
@@ -1000,10 +1000,10 @@ MODULE : File
     
     ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : RemotePull(varstring remoteEspFsURL, varstring sourceLogicalName, varstring
-               destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, integer4
-               maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean
-               asSuperfile=FALSE, boolean forcePush=FALSE, integer4 transferBufferSize=0, boolean
-               wrap=FALSE, boolean compress=FALSE)
+                         destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, integer4
+                         maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean
+                         asSuperfile=FALSE, boolean forcePush=FALSE, integer4 transferBufferSize=0, boolean
+                         wrap=FALSE, boolean compress=FALSE)
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Same as fRemotePull, but does not return the DFU Workunit ID.
@@ -1012,7 +1012,7 @@ MODULE : File
     
     ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : varstring fMonitorLogicalFileName(varstring eventToFire, varstring name, integer4
-               shotCount=1, varstring espServerIpPort=GETENV('ws_fs_server'))
+                                                shotCount=1, varstring espServerIpPort=GETENV('ws_fs_server'))
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Creates a file monitor job in the DFU Server. If an appropriately named
@@ -1039,7 +1039,7 @@ MODULE : File
     
     ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : MonitorLogicalFileName(varstring eventToFire, varstring name, integer4 shotCount=1,
-               varstring espServerIpPort=GETENV('ws_fs_server'))
+                                     varstring espServerIpPort=GETENV('ws_fs_server'))
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Same as fMonitorLogicalFileName, but does not return the DFU Workunit ID.
@@ -1048,7 +1048,7 @@ MODULE : File
     
     ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : varstring fMonitorFile(varstring eventToFire, varstring ip, varstring filename, boolean
-               subDirs=FALSE, integer4 shotCount=1, varstring espServerIpPort=GETENV('ws_fs_server'))
+                                     subDirs=FALSE, integer4 shotCount=1, varstring espServerIpPort=GETENV('ws_fs_server'))
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Creates a file monitor job in the DFU Server. If an appropriately named
@@ -1084,7 +1084,7 @@ MODULE : File
     
     ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : MonitorFile(varstring eventToFire, varstring ip, varstring filename, boolean
-               subdirs=FALSE, integer4 shotCount=1, varstring espServerIpPort=GETENV('ws_fs_server'))
+                          subdirs=FALSE, integer4 shotCount=1, varstring espServerIpPort=GETENV('ws_fs_server'))
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Same as fMonitorFile, but does not return the DFU Workunit ID.
@@ -1093,7 +1093,7 @@ MODULE : File
     
     ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : varstring WaitDfuWorkunit(varstring wuid, integer4 timeOut=-1, varstring
-               espServerIpPort=GETENV('ws_fs_server'))
+                                        espServerIpPort=GETENV('ws_fs_server'))
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Waits for the specified DFU workunit to finish.
@@ -1126,7 +1126,7 @@ MODULE : File
     
     ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : CreateSuperFile(varstring superName, boolean sequentialParts=FALSE, boolean
-               allowExist=FALSE)
+                              allowExist=FALSE)
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Creates an empty superfile. This function is not included in a superfile
@@ -1176,7 +1176,7 @@ MODULE : File
     
     ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : varstring GetSuperFileSubName(varstring superName, unsigned4 fileNum, boolean
-               absPath=FALSE)
+                                            absPath=FALSE)
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Returns the name of the Nth sub-file within a superfile.
@@ -1214,7 +1214,7 @@ MODULE : File
     
     ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : AddSuperFile(varstring superName, varstring subName, unsigned4 atPos=0, boolean
-               addContents=FALSE, boolean strict=FALSE)
+                           addContents=FALSE, boolean strict=FALSE)
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Adds a file to a superfile.
@@ -1235,7 +1235,7 @@ MODULE : File
     
     ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : RemoveSuperFile(varstring superName, varstring subName, boolean del=FALSE, boolean
-               removeContents=FALSE)
+                              removeContents=FALSE)
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Removes a sub-file from a superfile.
@@ -1316,7 +1316,7 @@ MODULE : File
     
     ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : dataset(FsLogicalFileNameRecord) SuperFileContents(varstring superName, boolean
-               recurse=FALSE)
+                                                                 recurse=FALSE)
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Returns the list of sub-files contained within a superfile.
@@ -1350,7 +1350,7 @@ MODULE : File
     
     ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : varstring fPromoteSuperFileList(set of varstring superNames, varstring addHead='',
-               boolean delTail=FALSE, boolean createOnlyOne=FALSE, boolean reverse=FALSE)
+                                              boolean delTail=FALSE, boolean createOnlyOne=FALSE, boolean reverse=FALSE)
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Moves the sub-files from the first entry in the list of superfiles to the
@@ -1384,7 +1384,7 @@ MODULE : File
     
     ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : PromoteSuperFileList(set of varstring superNames, varstring addHead='', boolean
-               delTail=FALSE, boolean createOnlyOne=FALSE, boolean reverse=FALSE)
+                                   delTail=FALSE, boolean createOnlyOne=FALSE, boolean reverse=FALSE)
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Same as fPromoteSuperFileList, but does not return the DFU Workunit ID.

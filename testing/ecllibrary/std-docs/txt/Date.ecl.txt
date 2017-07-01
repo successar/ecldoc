@@ -133,7 +133,7 @@ MODULE : Date
     
     ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : Seconds_t SecondsFromParts(INTEGER2 year, UNSIGNED1 month, UNSIGNED1 day, UNSIGNED1 hour,
-               UNSIGNED1 minute, UNSIGNED1 second, BOOLEAN is_local_time = FALSE)
+                                         UNSIGNED1 minute, UNSIGNED1 second, BOOLEAN is_local_time = FALSE)
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Combines date and time components to create a seconds type. The date must
@@ -718,7 +718,7 @@ MODULE : Date
     
     ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : STRING ConvertDateFormat(STRING date_text, VARSTRING from_format='%m/%d/%Y', VARSTRING
-               to_format='%Y%m%d')
+                                       to_format='%Y%m%d')
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Converts a date from one format to another
@@ -737,7 +737,7 @@ MODULE : Date
     
     ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : STRING ConvertFormat(STRING date_text, VARSTRING from_format='%m/%d/%Y', VARSTRING
-               to_format='%Y%m%d')
+                                   to_format='%Y%m%d')
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Converts a date from one format to another
@@ -756,7 +756,7 @@ MODULE : Date
     
     ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : STRING ConvertTimeFormat(STRING time_text, VARSTRING from_format='%H%M%S', VARSTRING
-               to_format='%H:%M:%S')
+                                       to_format='%H:%M:%S')
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Converts a time from one format to another
@@ -775,7 +775,7 @@ MODULE : Date
     
     ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : STRING ConvertDateFormatMultiple(STRING date_text, SET OF VARSTRING from_formats,
-               VARSTRING to_format='%Y%m%d')
+                                               VARSTRING to_format='%Y%m%d')
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Converts a date that matches one of a set of formats to another.
@@ -794,7 +794,7 @@ MODULE : Date
     
     ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : STRING ConvertFormatMultiple(STRING date_text, SET OF VARSTRING from_formats, VARSTRING
-               to_format='%Y%m%d')
+                                           to_format='%Y%m%d')
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Converts a date that matches one of a set of formats to another.
@@ -813,7 +813,7 @@ MODULE : Date
     
     ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : STRING ConvertTimeFormatMultiple(STRING time_text, SET OF VARSTRING from_formats,
-               VARSTRING to_format='%H:%m:%s')
+                                               VARSTRING to_format='%H:%m:%s')
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Converts a time that matches one of a set of formats to another.
@@ -832,7 +832,7 @@ MODULE : Date
     
     ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : Date_t AdjustDate(Date_t date, INTEGER2 year_delta = 0, INTEGER4 month_delta = 0,
-               INTEGER4 day_delta = 0)
+                                INTEGER4 day_delta = 0)
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Adjusts a date by incrementing or decrementing year, month and/or day
@@ -871,7 +871,7 @@ MODULE : Date
     
     ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : Time_t AdjustTime(Time_t time, INTEGER2 hour_delta = 0, INTEGER4 minute_delta = 0,
-               INTEGER4 second_delta = 0)
+                                INTEGER4 second_delta = 0)
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Adjusts a time by incrementing or decrementing hour, minute and/or second
@@ -907,8 +907,8 @@ MODULE : Date
     
     ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : Seconds_t AdjustSeconds(Seconds_t seconds, INTEGER2 year_delta = 0, INTEGER4 month_delta
-               = 0, INTEGER4 day_delta = 0, INTEGER4 hour_delta = 0, INTEGER4 minute_delta = 0, INTEGER4
-               second_delta = 0)
+                                      = 0, INTEGER4 day_delta = 0, INTEGER4 hour_delta = 0, INTEGER4 minute_delta = 0, INTEGER4
+                                      second_delta = 0)
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Adjusts a Seconds_t value by adding or subtracting years, months, days,
@@ -945,7 +945,7 @@ MODULE : Date
     
     ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : Date_t AdjustCalendar(Date_t date, INTEGER2 year_delta = 0, INTEGER4 month_delta = 0,
-               INTEGER4 day_delta = 0)
+                                    INTEGER4 day_delta = 0)
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Adjusts a date by incrementing or decrementing months and/or years. This
@@ -1104,7 +1104,7 @@ MODULE : Date
     
     ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : BOOLEAN IsValidDate(Date_t date, INTEGER2 yearLowerBound = 1800, INTEGER2 yearUpperBound
-               = 2100)
+                                  = 2100)
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Tests whether a date is valid, both by range-checking the year and by
@@ -1195,7 +1195,7 @@ MODULE : Date
     
     ----------------------------------------------------------------------------------------------------------------------------------
     TRANSFORM : DateTime_rec CreateDateTime(INTEGER2 year, UNSIGNED1 month, UNSIGNED1 day, UNSIGNED1
-                hour, UNSIGNED1 minute, UNSIGNED1 second)
+                                           hour, UNSIGNED1 minute, UNSIGNED1 second)
     ----------------------------------------------------------------------------------------------------------------------------------
     
     A transform to create a DateTime_rec from the individual elements

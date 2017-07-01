@@ -56,7 +56,7 @@ MODULE : BLAS
     
     ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : Types.matrix_t Apply2Cells(Types.dimension_t m, Types.dimension_t n, Types.matrix_t x,
-               ICellFunc f)
+                                         ICellFunc f)
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Iterate matrix and apply function to each cell
@@ -73,7 +73,7 @@ MODULE : BLAS
     
     ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : Types.value_t dasum(Types.dimension_t m, Types.matrix_t x, Types.dimension_t incx,
-               Types.dimension_t skipped=0)
+                                  Types.dimension_t skipped=0)
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Absolute sum, the 1 norm of a vector.
@@ -92,8 +92,8 @@ MODULE : BLAS
     
     ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : Types.matrix_t daxpy(Types.dimension_t N, Types.value_t alpha, Types.matrix_t X,
-               Types.dimension_t incX, Types.matrix_t Y, Types.dimension_t incY, Types.dimension_t
-               x_skipped=0, Types.dimension_t y_skipped=0)
+                                   Types.dimension_t incX, Types.matrix_t Y, Types.dimension_t incY, Types.dimension_t
+                                   x_skipped=0, Types.dimension_t y_skipped=0)
     ----------------------------------------------------------------------------------------------------------------------------------
     
     alpha*X + Y
@@ -120,8 +120,8 @@ MODULE : BLAS
     
     ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : Types.matrix_t dgemm(BOOLEAN transposeA, BOOLEAN transposeB, Types.dimension_t M,
-               Types.dimension_t N, Types.dimension_t K, Types.value_t alpha, Types.matrix_t A,
-               Types.matrix_t B, Types.value_t beta=0.0, Types.matrix_t C=[])
+                                   Types.dimension_t N, Types.dimension_t K, Types.value_t alpha, Types.matrix_t A,
+                                   Types.matrix_t B, Types.value_t beta=0.0, Types.matrix_t C=[])
     ----------------------------------------------------------------------------------------------------------------------------------
     
     alpha*op(A) op(B) + beta*C where op() is transpose
@@ -163,7 +163,7 @@ MODULE : BLAS
     
     ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : Types.matrix_t dpotf2(Types.Triangle tri, Types.dimension_t r, Types.matrix_t A, BOOLEAN
-               clear=TRUE)
+                                    clear=TRUE)
     ----------------------------------------------------------------------------------------------------------------------------------
     
     DPOTF2 computes the Cholesky factorization of a real symmetric positive
@@ -185,7 +185,7 @@ MODULE : BLAS
     
     ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : Types.matrix_t dscal(Types.dimension_t N, Types.value_t alpha, Types.matrix_t X,
-               Types.dimension_t incX, Types.dimension_t skipped=0)
+                                   Types.dimension_t incX, Types.dimension_t skipped=0)
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Scale a vector alpha
@@ -206,8 +206,8 @@ MODULE : BLAS
     
     ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : Types.matrix_t dsyrk(Types.Triangle tri, BOOLEAN transposeA, Types.dimension_t N,
-               Types.dimension_t K, Types.value_t alpha, Types.matrix_t A, Types.value_t beta,
-               Types.matrix_t C, BOOLEAN clear=FALSE)
+                                   Types.dimension_t K, Types.value_t alpha, Types.matrix_t A, Types.value_t beta,
+                                   Types.matrix_t C, BOOLEAN clear=FALSE)
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Implements symmetric rank update C
@@ -236,8 +236,8 @@ MODULE : BLAS
     
     ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : Types.matrix_t dtrsm(Types.Side side, Types.Triangle tri, BOOLEAN transposeA,
-               Types.Diagonal diag, Types.dimension_t M, Types.dimension_t N, Types.dimension_t lda,
-               Types.value_t alpha, Types.matrix_t A, Types.matrix_t B)
+                                   Types.Diagonal diag, Types.dimension_t M, Types.dimension_t N, Types.dimension_t lda,
+                                   Types.value_t alpha, Types.matrix_t A, Types.matrix_t B)
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Triangular matrix solver. op(A) X = alpha B or X op(A) = alpha B where op
@@ -283,7 +283,7 @@ MODULE : BLAS
     
     ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : Types.matrix_t extract_tri(Types.dimension_t m, Types.dimension_t n, Types.Triangle tri,
-               Types.Diagonal dt, Types.matrix_t a)
+                                         Types.Diagonal dt, Types.matrix_t a)
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Extract the upper or lower triangle. Diagonal can be actual or implied unit

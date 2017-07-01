@@ -3,7 +3,7 @@
 	{% if def.find('./Documentation').findall(xpath) %}
 	<div class="row">
 		<div class="col-md-1 doc-type">{{ name }}</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				{% for tag in def.find('./Documentation').findall(xpath) %}
 				<tr>
@@ -49,7 +49,7 @@
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
 					<li><a href="#ecldoc-section-import" class="topbar">Imports</a></li>
-					<li><a href="#ecldoc-section-desc" class="topbar">Descriptions</a></li>
+					<li><a href="#ecldoc-section-desc" class="topbar">Contents</a></li>
 				</ul>
 			</div>
 		</div>
@@ -89,11 +89,11 @@
 					</ul>
 				</section>
 				<section id="ecldoc-section-desc">
-					<h3 class="page-header">DESCRIPTIONS</h3>
+					<h3 class="page-header">CONTENTS</h3>
 					<div class="panel-group desc-panel-group">
 						{% for def in src.findall('./Definition') recursive -%}
 						<div class="panel panel-info desc-panel" id="d{{ def.attrib['fullname'] }}">
-							<a href="#desc-{{ def.attrib['fullname'] }}" data-toggle="collapse">
+							<a href=".desc-{{ def.attrib['fullname'] }}" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											{{ def.find('./Type').text.upper() }}
@@ -115,51 +115,63 @@
 									<td class="name">{{ def.find('./Signature').attrib['name'] }}</td>
 									<td class="param">{{ def.find('./Signature').attrib['param'] }}</td>
 								</tr>
-							</table>
-
-							<div class="panel-body desc-panel-body">
 								{% if def.find('./Documentation') is not none -%}
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										{{ def.find('./Documentation').find('./content').text }}
-									</div>
-								</div>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										{{ def.find('./Documentation').find('./firstline').text }}
+									</td>
+								</tr>
 								{% endif %}
-								{{ simpletag('Parameters', './param', def, double=true) }}
-								{{ simpletag('Fields', './field', def, double=true) }}
-								{{ simpletag('Returns', './return', def) }}
-								{{ simpletag('Also See', './see', def) }}
-
-								{% if def.find('./Parents') -%}
-								<div class="row">
-									<div class="col-md-1">Parent</div>
-									<div class="col-md-11">
-										<ul>
-											{% for parent in def.find('./Parents').findall('./Parent') -%}
-											<li>
-												{% if 'ref' in parent.attrib -%}
-												<a href="{{ parent.attrib['target'] }}">
-													{{ parent.attrib['ref'] }}
-												</a>
-												{% endif -%}
-											</li>
-											{% endfor -%}
-										</ul>
+							</table>
+							{% if loop.depth0 == 0 %}
+							<div class="panel-collapse collapse in desc-{{ def.attrib['fullname'] }}">
+							{% else %}
+							<div class="panel-collapse collapse desc-{{ def.attrib['fullname'] }}">
+							{% endif %}
+								<div class="panel-body desc-panel-body">
+									{% if def.find('./Documentation') is not none -%}
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											{{ def.find('./Documentation').find('./content').text }}
+										</div>
 									</div>
-								</div>
-								{% endif -%}
+									{% endif %}
+									{{ simpletag('Parameters', './param', def, double=true) }}
+									{{ simpletag('Fields', './field', def, double=true) }}
+									{{ simpletag('Returns', './return', def) }}
+									{{ simpletag('Also See', './see', def) }}
 
-								{% if 'target' in def.attrib -%}
-								<div class="row">
-									<div class="col-md-12">
-										<a href="{{ def.attrib['target'] }}" class="btn btn-success" style="background: #00563B;">External Link</a>
+									{% if def.find('./Parents') -%}
+									<div class="row">
+										<div class="col-md-1 doc-type">Parent</div>
+										<div class="col-md-11" style="padding-left: 0px;">
+											<ul class="pagination" style="margin-top: 0px;">
+												{% for parent in def.find('./Parents').findall('./Parent') -%}
+												<li>
+													{% if 'ref' in parent.attrib -%}
+													<a href="{{ parent.attrib['target'] }}">
+														{{ parent.attrib['ref'] }}
+													</a>
+													{% endif -%}
+												</li>
+												{% endfor -%}
+											</ul>
+										</div>
 									</div>
+									{% endif -%}
+
+									{% if 'target' in def.attrib -%}
+									<div class="row">
+										<div class="col-md-12">
+											<a href="{{ def.attrib['target'] }}" class="btn btn-success" style="background: #00563B;">External Link</a>
+										</div>
+									</div>
+									{% endif -%}
 								</div>
-								{% endif -%}
-							</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-{{ def.attrib['fullname'] }}">
-								{{ loop(def.findall('./Definition')) }}
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									{{ loop(def.findall('./Definition')) }}
+									</div>
 								</div>
 							</div>
 						</div>

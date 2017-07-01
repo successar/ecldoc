@@ -8,3 +8,163 @@
 \end{itemize}
 
 \section*{\underline{DESCRIPTIONS}}
+\subsection*{MODULE : Distributions}
+\hypertarget{ecldoc:ML_Core.Math.Distributions}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt} & Distributions \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:toc:ML_Core/Math}{Up}
+
+\par
+
+
+\hyperlink{ecldoc:ml_core.math.distributions.normal_cdf}{Normal\_CDF}  |
+\hyperlink{ecldoc:ml_core.math.distributions.normal_ppf}{Normal\_PPF}  |
+\hyperlink{ecldoc:ml_core.math.distributions.t_cdf}{T\_CDF}  |
+\hyperlink{ecldoc:ml_core.math.distributions.t_ppf}{T\_PPF}  |
+\hyperlink{ecldoc:ml_core.math.distributions.chi2_cdf}{Chi2\_CDF}  |
+\hyperlink{ecldoc:ml_core.math.distributions.chi2_ppf}{Chi2\_PPF}  |
+
+\rule{\textwidth}{0.4pt}
+
+\subsection*{FUNCTION : Normal\_CDF}
+\hypertarget{ecldoc:ml_core.math.distributions.normal_cdf}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}REAL8 & Normal\_CDF \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(REAL8 x)} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:ML_Core.Math.Distributions}{Up}
+
+\par
+Cumulative Distribution of the standard normal distribution, the probability that a normal random variable will be smaller than x standard deviations above or below the mean. Taken from C/C++ Mathematical Algorithms for Scientists and Engineers, n. Shammas, McGraw-Hill, 1995
+
+\par
+\begin{description}
+\item [\textbf{Parameter}] x ||| the number of standard deviations
+\end{description}
+
+\rule{\textwidth}{0.4pt}
+\subsection*{FUNCTION : Normal\_PPF}
+\hypertarget{ecldoc:ml_core.math.distributions.normal_ppf}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}REAL8 & Normal\_PPF \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(REAL8 x)} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:ML_Core.Math.Distributions}{Up}
+
+\par
+Normal Distribution Percentage Point Function. Translated from C/C++ Mathematical Algorithms for Scientists and Engineers, N. Shammas, McGraw-Hill, 1995
+
+\par
+\begin{description}
+\item [\textbf{Parameter}] x ||| probability
+\end{description}
+
+\rule{\textwidth}{0.4pt}
+\subsection*{FUNCTION : T\_CDF}
+\hypertarget{ecldoc:ml_core.math.distributions.t_cdf}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}REAL8 & T\_CDF \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(REAL8 x, REAL8 df)} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:ML_Core.Math.Distributions}{Up}
+
+\par
+Students t distribution integral evaluated between negative infinity and x. Translated from NIST SEL DATAPAC Fortran TCDF.f source
+
+\par
+\begin{description}
+\item [\textbf{Parameter}] x ||| value of the evaluation
+\item [\textbf{Parameter}] df ||| degrees of freedom
+\end{description}
+
+\rule{\textwidth}{0.4pt}
+\subsection*{FUNCTION : T\_PPF}
+\hypertarget{ecldoc:ml_core.math.distributions.t_ppf}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}REAL8 & T\_PPF \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(REAL8 x, REAL8 df)} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:ML_Core.Math.Distributions}{Up}
+
+\par
+Percentage point function for the T distribution. Translated from NIST SEL DATAPAC Fortran TPPF.f source
+
+
+\rule{\textwidth}{0.4pt}
+\subsection*{FUNCTION : Chi2\_CDF}
+\hypertarget{ecldoc:ml_core.math.distributions.chi2_cdf}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}REAL8 & Chi2\_CDF \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(REAL8 x, REAL8 df)} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:ML_Core.Math.Distributions}{Up}
+
+\par
+The cumulative distribution function for the Chi Square distribution. the CDF for the specfied degrees of freedom. Translated from the NIST SEL DATAPAC Fortran subroutine CHSCDF.
+
+
+\rule{\textwidth}{0.4pt}
+\subsection*{FUNCTION : Chi2\_PPF}
+\hypertarget{ecldoc:ml_core.math.distributions.chi2_ppf}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}REAL8 & Chi2\_PPF \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(REAL8 x, REAL8 df)} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:ML_Core.Math.Distributions}{Up}
+
+\par
+The Chi Squared PPF function. Translated from the NIST SEL DATAPAC Fortran subroutine CHSPPF.
+
+
+\rule{\textwidth}{0.4pt}
+
+

@@ -37,20 +37,29 @@ Ordinary Least Squares (OLS) Linear Regression aka Ordinary Linear Regression Re
 \item [\textbf{Parameter}] Y ||| The dependent variable training data in DATASET(NumericField) format. Each observation (e.g. record) is identified by 'id', and each feature is identified by field number. Omit this parameter when predicting from a persisted model.
 \end{description}
 
-\begin{enumerate}
-\item \hyperlink{ecldoc:linearregression.ols.getmodel}{GetModel}
-\item \hyperlink{ecldoc:linearregression.ols.betas}{Betas}
-\item \hyperlink{ecldoc:linearregression.ols.predict}{Predict}
-\item \hyperlink{ecldoc:linearregression.ols.rsquared}{RSquared}
-\item \hyperlink{ecldoc:linearregression.ols.anova}{Anova}
-\item \hyperlink{ecldoc:linearregression.ols.se}{SE}
-\item \hyperlink{ecldoc:linearregression.ols.tstat}{TStat}
-\item \hyperlink{ecldoc:linearregression.ols.adjrsquared}{AdjRSquared}
-\item \hyperlink{ecldoc:linearregression.ols.aic}{AIC}
-\item \hyperlink{ecldoc:linearregression.ols.pval}{pVal}
-\item \hyperlink{ecldoc:linearregression.ols.confint}{ConfInt}
-\item \hyperlink{ecldoc:linearregression.ols.ftest}{FTest}
-\end{enumerate}
+\hyperlink{ecldoc:linearregression.ols.getmodel}{GetModel}  |
+\hyperlink{ecldoc:linearregression.ols.betas}{Betas}  |
+\hyperlink{ecldoc:linearregression.ols.predict}{Predict}  |
+\hyperlink{ecldoc:linearregression.ols.makersq}{makeRSQ}  |
+\hyperlink{ecldoc:linearregression.ols.rsquared}{RSquared}  |
+\hyperlink{ecldoc:linearregression.ols.anovarec}{AnovaRec}  |
+\hyperlink{ecldoc:linearregression.ols.calcanova}{calcAnova}  |
+\hyperlink{ecldoc:linearregression.ols.anova}{Anova}  |
+\hyperlink{ecldoc:linearregression.ols.se}{SE}  |
+\hyperlink{ecldoc:linearregression.ols.tstat}{TStat}  |
+\hyperlink{ecldoc:linearregression.ols.adjrsquared}{AdjRSquared}  |
+\hyperlink{ecldoc:linearregression.ols.aicrec}{AICRec}  |
+\hyperlink{ecldoc:linearregression.ols.aic}{AIC}  |
+\hyperlink{ecldoc:linearregression.ols.rangevec}{RangeVec}  |
+\hyperlink{ecldoc:linearregression.ols.distributionbase}{DistributionBase}  |
+\hyperlink{ecldoc:linearregression.ols.tdistribution}{TDistribution}  |
+\hyperlink{ecldoc:linearregression.ols.fdistribution}{FDistribution}  |
+\hyperlink{ecldoc:linearregression.ols.normaldistribution}{NormalDistribution}  |
+\hyperlink{ecldoc:linearregression.ols.pval}{pVal}  |
+\hyperlink{ecldoc:linearregression.ols.confintrec}{ConfintRec}  |
+\hyperlink{ecldoc:linearregression.ols.confint}{ConfInt}  |
+\hyperlink{ecldoc:linearregression.ols.ftestrec}{FTestRec}  |
+\hyperlink{ecldoc:linearregression.ols.ftest}{FTest}  |
 
 \rule{\textwidth}{0.4pt}
 
@@ -130,6 +139,25 @@ Predict the dependent variable values (Y) for any set of independent variables (
 \end{description}
 
 \rule{\textwidth}{0.4pt}
+\subsection*{TRANSFORM : makeRSQ}
+\hypertarget{ecldoc:linearregression.ols.makersq}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}R2Rec & makeRSQ \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(CoCoRec coco)} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:linearregression.ols}{Up}
+
+\par
+
+
+\rule{\textwidth}{0.4pt}
 \subsection*{ATTRIBUTE : RSquared}
 \hypertarget{ecldoc:linearregression.ols.rsquared}{}
 
@@ -150,6 +178,42 @@ RSquared Calculate the R-Squared Metric used to assess the fit of the regression
 \begin{description}
 \item [\textbf{Return}] DATASET(R2Rec) with one record per dependent variable, per work-item. The number field indicates the dependent variable and coresponds to the number field of the dependent (Y) variable to which it applies.
 \end{description}
+
+\rule{\textwidth}{0.4pt}
+\subsection*{RECORD : AnovaRec}
+\hypertarget{ecldoc:linearregression.ols.anovarec}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt} & AnovaRec \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:linearregression.ols}{Up}
+
+\par
+
+
+\rule{\textwidth}{0.4pt}
+\subsection*{TRANSFORM : calcAnova}
+\hypertarget{ecldoc:linearregression.ols.calcanova}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}AnovaRec & calcAnova \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(tmpRec le)} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:linearregression.ols}{Up}
+
+\par
+
 
 \rule{\textwidth}{0.4pt}
 \subsection*{ATTRIBUTE : Anova}
@@ -240,6 +304,23 @@ Adjusted R2 Calculate Adjusted R Squared which is a scaled version of R Squared 
 \end{description}
 
 \rule{\textwidth}{0.4pt}
+\subsection*{RECORD : AICRec}
+\hypertarget{ecldoc:linearregression.ols.aicrec}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt} & AICRec \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:linearregression.ols}{Up}
+
+\par
+
+
+\rule{\textwidth}{0.4pt}
 \subsection*{ATTRIBUTE : AIC}
 \hypertarget{ecldoc:linearregression.ols.aic}{}
 
@@ -262,6 +343,1003 @@ Akaike Information Criterion (AIC) Information theory based criterion for assess
 \end{description}
 
 \rule{\textwidth}{0.4pt}
+\subsection*{RECORD : RangeVec}
+\hypertarget{ecldoc:linearregression.ols.rangevec}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt} & RangeVec \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:linearregression.ols}{Up}
+
+\par
+
+
+\rule{\textwidth}{0.4pt}
+\subsection*{MODULE : DistributionBase}
+\hypertarget{ecldoc:linearregression.ols.distributionbase}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt} & DistributionBase \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(t\_Count Nranges = 10000)} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:linearregression.ols}{Up}
+
+\par
+
+
+\hyperlink{ecldoc:linearregression.ols.distributionbase.low}{Low}  |
+\hyperlink{ecldoc:linearregression.ols.distributionbase.high}{High}  |
+\hyperlink{ecldoc:linearregression.ols.distributionbase.density}{Density}  |
+\hyperlink{ecldoc:linearregression.ols.distributionbase.rangewidth}{RangeWidth}  |
+\hyperlink{ecldoc:linearregression.ols.distributionbase.densityv}{DensityV}  |
+\hyperlink{ecldoc:linearregression.ols.distributionbase.cumulativev}{CumulativeV}  |
+\hyperlink{ecldoc:linearregression.ols.distributionbase.cumulative}{Cumulative}  |
+\hyperlink{ecldoc:linearregression.ols.distributionbase.ntile}{NTile}  |
+\hyperlink{ecldoc:linearregression.ols.distributionbase.invdensity}{InvDensity}  |
+\hyperlink{ecldoc:linearregression.ols.distributionbase.discrete}{Discrete}  |
+
+\rule{\textwidth}{0.4pt}
+
+\subsection*{ATTRIBUTE : Low}
+\hypertarget{ecldoc:linearregression.ols.distributionbase.low}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt} & Low \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:linearregression.ols.distributionbase}{Up}
+
+\par
+
+
+\rule{\textwidth}{0.4pt}
+\subsection*{ATTRIBUTE : High}
+\hypertarget{ecldoc:linearregression.ols.distributionbase.high}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt} & High \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:linearregression.ols.distributionbase}{Up}
+
+\par
+
+
+\rule{\textwidth}{0.4pt}
+\subsection*{FUNCTION : Density}
+\hypertarget{ecldoc:linearregression.ols.distributionbase.density}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}t\_FieldReal & Density \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(t\_FieldReal t)} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:linearregression.ols.distributionbase}{Up}
+
+\par
+
+
+\rule{\textwidth}{0.4pt}
+\subsection*{ATTRIBUTE : RangeWidth}
+\hypertarget{ecldoc:linearregression.ols.distributionbase.rangewidth}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt} & RangeWidth \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:linearregression.ols.distributionbase}{Up}
+
+\par
+
+
+\rule{\textwidth}{0.4pt}
+\subsection*{FUNCTION : DensityV}
+\hypertarget{ecldoc:linearregression.ols.distributionbase.densityv}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}DATASET(RangeVec) & DensityV \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}()} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:linearregression.ols.distributionbase}{Up}
+
+\par
+
+
+\rule{\textwidth}{0.4pt}
+\subsection*{FUNCTION : CumulativeV}
+\hypertarget{ecldoc:linearregression.ols.distributionbase.cumulativev}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt} & CumulativeV \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}()} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:linearregression.ols.distributionbase}{Up}
+
+\par
+
+
+\rule{\textwidth}{0.4pt}
+\subsection*{FUNCTION : Cumulative}
+\hypertarget{ecldoc:linearregression.ols.distributionbase.cumulative}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}t\_FieldReal & Cumulative \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(t\_FieldReal t)} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:linearregression.ols.distributionbase}{Up}
+
+\par
+
+
+\rule{\textwidth}{0.4pt}
+\subsection*{FUNCTION : NTile}
+\hypertarget{ecldoc:linearregression.ols.distributionbase.ntile}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}t\_FieldReal & NTile \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(t\_FieldReal Pc)} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:linearregression.ols.distributionbase}{Up}
+
+\par
+
+
+\rule{\textwidth}{0.4pt}
+\subsection*{FUNCTION : InvDensity}
+\hypertarget{ecldoc:linearregression.ols.distributionbase.invdensity}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt} & InvDensity \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(t\_FieldReal delta)} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:linearregression.ols.distributionbase}{Up}
+
+\par
+
+
+\rule{\textwidth}{0.4pt}
+\subsection*{ATTRIBUTE : Discrete}
+\hypertarget{ecldoc:linearregression.ols.distributionbase.discrete}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt} & Discrete \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:linearregression.ols.distributionbase}{Up}
+
+\par
+
+
+\rule{\textwidth}{0.4pt}
+
+
+\subsection*{MODULE : TDistribution}
+\hypertarget{ecldoc:linearregression.ols.tdistribution}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt} & TDistribution \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(t\_Discrete v\_in,t\_Count NRanges = 10000)} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:linearregression.ols}{Up}
+
+\par
+
+
+\hyperlink{ecldoc:linearregression.ols.distributionbase.densityv}{DensityV}  |
+\hyperlink{ecldoc:linearregression.ols.distributionbase.ntile}{NTile}  |
+\hyperlink{ecldoc:linearregression.ols.distributionbase.discrete}{Discrete}  |
+\hyperlink{ecldoc:linearregression.ols.tdistribution.invdensity}{InvDensity}  |
+\hyperlink{ecldoc:linearregression.ols.tdistribution.high}{High}  |
+\hyperlink{ecldoc:linearregression.ols.tdistribution.low}{Low}  |
+\hyperlink{ecldoc:linearregression.ols.tdistribution.rangewidth}{RangeWidth}  |
+\hyperlink{ecldoc:linearregression.ols.tdistribution.density}{Density}  |
+\hyperlink{ecldoc:linearregression.ols.tdistribution.cumulativev}{CumulativeV}  |
+\hyperlink{ecldoc:linearregression.ols.tdistribution.cumulative}{Cumulative}  |
+
+\rule{\textwidth}{0.4pt}
+
+\subsection*{FUNCTION : DensityV}
+\hypertarget{ecldoc:linearregression.ols.distributionbase.densityv}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}DATASET(RangeVec) & DensityV \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}()} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:linearregression.ols.tdistribution}{Up}
+
+\par
+
+\par
+\begin{description}
+\item [\textbf{OVERRIDE}] True
+\end{description}
+
+\rule{\textwidth}{0.4pt}
+\subsection*{FUNCTION : NTile}
+\hypertarget{ecldoc:linearregression.ols.distributionbase.ntile}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}t\_FieldReal & NTile \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(t\_FieldReal Pc)} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:linearregression.ols.tdistribution}{Up}
+
+\par
+
+\par
+\begin{description}
+\item [\textbf{OVERRIDE}] True
+\end{description}
+
+\rule{\textwidth}{0.4pt}
+\subsection*{ATTRIBUTE : Discrete}
+\hypertarget{ecldoc:linearregression.ols.distributionbase.discrete}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt} & Discrete \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:linearregression.ols.tdistribution}{Up}
+
+\par
+
+\par
+\begin{description}
+\item [\textbf{INHERITED}] True
+\end{description}
+
+\rule{\textwidth}{0.4pt}
+\subsection*{FUNCTION : InvDensity}
+\hypertarget{ecldoc:linearregression.ols.tdistribution.invdensity}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt} & InvDensity \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(t\_FieldReal delta)} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:linearregression.ols.tdistribution}{Up}
+
+\par
+
+\par
+\begin{description}
+\item [\textbf{OVERRIDE}] True
+\end{description}
+
+\rule{\textwidth}{0.4pt}
+\subsection*{ATTRIBUTE : High}
+\hypertarget{ecldoc:linearregression.ols.tdistribution.high}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt} & High \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:linearregression.ols.tdistribution}{Up}
+
+\par
+
+\par
+\begin{description}
+\item [\textbf{OVERRIDE}] True
+\end{description}
+
+\rule{\textwidth}{0.4pt}
+\subsection*{ATTRIBUTE : Low}
+\hypertarget{ecldoc:linearregression.ols.tdistribution.low}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt} & Low \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:linearregression.ols.tdistribution}{Up}
+
+\par
+
+\par
+\begin{description}
+\item [\textbf{INHERITED}] True
+\end{description}
+
+\rule{\textwidth}{0.4pt}
+\subsection*{ATTRIBUTE : RangeWidth}
+\hypertarget{ecldoc:linearregression.ols.tdistribution.rangewidth}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt} & RangeWidth \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:linearregression.ols.tdistribution}{Up}
+
+\par
+
+\par
+\begin{description}
+\item [\textbf{OVERRIDE}] True
+\end{description}
+
+\rule{\textwidth}{0.4pt}
+\subsection*{FUNCTION : Density}
+\hypertarget{ecldoc:linearregression.ols.tdistribution.density}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}t\_FieldReal & Density \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(t\_FieldReal t)} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:linearregression.ols.tdistribution}{Up}
+
+\par
+
+\par
+\begin{description}
+\item [\textbf{OVERRIDE}] True
+\end{description}
+
+\rule{\textwidth}{0.4pt}
+\subsection*{FUNCTION : CumulativeV}
+\hypertarget{ecldoc:linearregression.ols.tdistribution.cumulativev}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt} & CumulativeV \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}()} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:linearregression.ols.tdistribution}{Up}
+
+\par
+
+\par
+\begin{description}
+\item [\textbf{OVERRIDE}] True
+\end{description}
+
+\rule{\textwidth}{0.4pt}
+\subsection*{FUNCTION : Cumulative}
+\hypertarget{ecldoc:linearregression.ols.tdistribution.cumulative}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}t\_FieldReal & Cumulative \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(t\_FieldReal t)} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:linearregression.ols.tdistribution}{Up}
+
+\par
+
+\par
+\begin{description}
+\item [\textbf{OVERRIDE}] True
+\end{description}
+
+\rule{\textwidth}{0.4pt}
+
+
+\subsection*{MODULE : FDistribution}
+\hypertarget{ecldoc:linearregression.ols.fdistribution}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt} & FDistribution \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(t\_Discrete d1\_in, t\_Discrete d2\_in, t\_Count NRanges = 10000)} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:linearregression.ols}{Up}
+
+\par
+
+
+\hyperlink{ecldoc:linearregression.ols.distributionbase.densityv}{DensityV}  |
+\hyperlink{ecldoc:linearregression.ols.distributionbase.cumulativev}{CumulativeV}  |
+\hyperlink{ecldoc:linearregression.ols.distributionbase.cumulative}{Cumulative}  |
+\hyperlink{ecldoc:linearregression.ols.distributionbase.ntile}{NTile}  |
+\hyperlink{ecldoc:linearregression.ols.distributionbase.invdensity}{InvDensity}  |
+\hyperlink{ecldoc:linearregression.ols.distributionbase.discrete}{Discrete}  |
+\hyperlink{ecldoc:linearregression.ols.fdistribution.low}{Low}  |
+\hyperlink{ecldoc:linearregression.ols.fdistribution.high}{High}  |
+\hyperlink{ecldoc:linearregression.ols.fdistribution.rangewidth}{RangeWidth}  |
+\hyperlink{ecldoc:linearregression.ols.fdistribution.density}{Density}  |
+
+\rule{\textwidth}{0.4pt}
+
+\subsection*{FUNCTION : DensityV}
+\hypertarget{ecldoc:linearregression.ols.distributionbase.densityv}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}DATASET(RangeVec) & DensityV \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}()} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:linearregression.ols.fdistribution}{Up}
+
+\par
+
+\par
+\begin{description}
+\item [\textbf{OVERRIDE}] True
+\end{description}
+
+\rule{\textwidth}{0.4pt}
+\subsection*{FUNCTION : CumulativeV}
+\hypertarget{ecldoc:linearregression.ols.distributionbase.cumulativev}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt} & CumulativeV \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}()} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:linearregression.ols.fdistribution}{Up}
+
+\par
+
+\par
+\begin{description}
+\item [\textbf{OVERRIDE}] True
+\end{description}
+
+\rule{\textwidth}{0.4pt}
+\subsection*{FUNCTION : Cumulative}
+\hypertarget{ecldoc:linearregression.ols.distributionbase.cumulative}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}t\_FieldReal & Cumulative \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(t\_FieldReal t)} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:linearregression.ols.fdistribution}{Up}
+
+\par
+
+\par
+\begin{description}
+\item [\textbf{OVERRIDE}] True
+\end{description}
+
+\rule{\textwidth}{0.4pt}
+\subsection*{FUNCTION : NTile}
+\hypertarget{ecldoc:linearregression.ols.distributionbase.ntile}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}t\_FieldReal & NTile \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(t\_FieldReal Pc)} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:linearregression.ols.fdistribution}{Up}
+
+\par
+
+\par
+\begin{description}
+\item [\textbf{OVERRIDE}] True
+\end{description}
+
+\rule{\textwidth}{0.4pt}
+\subsection*{FUNCTION : InvDensity}
+\hypertarget{ecldoc:linearregression.ols.distributionbase.invdensity}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt} & InvDensity \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(t\_FieldReal delta)} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:linearregression.ols.fdistribution}{Up}
+
+\par
+
+\par
+\begin{description}
+\item [\textbf{INHERITED}] True
+\end{description}
+
+\rule{\textwidth}{0.4pt}
+\subsection*{ATTRIBUTE : Discrete}
+\hypertarget{ecldoc:linearregression.ols.distributionbase.discrete}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt} & Discrete \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:linearregression.ols.fdistribution}{Up}
+
+\par
+
+\par
+\begin{description}
+\item [\textbf{INHERITED}] True
+\end{description}
+
+\rule{\textwidth}{0.4pt}
+\subsection*{ATTRIBUTE : Low}
+\hypertarget{ecldoc:linearregression.ols.fdistribution.low}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt} & Low \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:linearregression.ols.fdistribution}{Up}
+
+\par
+
+\par
+\begin{description}
+\item [\textbf{INHERITED}] True
+\end{description}
+
+\rule{\textwidth}{0.4pt}
+\subsection*{ATTRIBUTE : High}
+\hypertarget{ecldoc:linearregression.ols.fdistribution.high}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt} & High \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:linearregression.ols.fdistribution}{Up}
+
+\par
+
+\par
+\begin{description}
+\item [\textbf{OVERRIDE}] True
+\end{description}
+
+\rule{\textwidth}{0.4pt}
+\subsection*{ATTRIBUTE : RangeWidth}
+\hypertarget{ecldoc:linearregression.ols.fdistribution.rangewidth}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt} & RangeWidth \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:linearregression.ols.fdistribution}{Up}
+
+\par
+
+\par
+\begin{description}
+\item [\textbf{OVERRIDE}] True
+\end{description}
+
+\rule{\textwidth}{0.4pt}
+\subsection*{FUNCTION : Density}
+\hypertarget{ecldoc:linearregression.ols.fdistribution.density}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}t\_FieldReal & Density \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(t\_FieldReal t)} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:linearregression.ols.fdistribution}{Up}
+
+\par
+
+\par
+\begin{description}
+\item [\textbf{OVERRIDE}] True
+\end{description}
+
+\rule{\textwidth}{0.4pt}
+
+
+\subsection*{MODULE : NormalDistribution}
+\hypertarget{ecldoc:linearregression.ols.normaldistribution}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt} & NormalDistribution \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(t\_Count NRanges)} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:linearregression.ols}{Up}
+
+\par
+
+
+\hyperlink{ecldoc:linearregression.ols.distributionbase.low}{Low}  |
+\hyperlink{ecldoc:linearregression.ols.distributionbase.high}{High}  |
+\hyperlink{ecldoc:linearregression.ols.distributionbase.rangewidth}{RangeWidth}  |
+\hyperlink{ecldoc:linearregression.ols.distributionbase.densityv}{DensityV}  |
+\hyperlink{ecldoc:linearregression.ols.distributionbase.cumulativev}{CumulativeV}  |
+\hyperlink{ecldoc:linearregression.ols.distributionbase.cumulative}{Cumulative}  |
+\hyperlink{ecldoc:linearregression.ols.distributionbase.ntile}{NTile}  |
+\hyperlink{ecldoc:linearregression.ols.distributionbase.invdensity}{InvDensity}  |
+\hyperlink{ecldoc:linearregression.ols.distributionbase.discrete}{Discrete}  |
+\hyperlink{ecldoc:linearregression.ols.normaldistribution.density}{Density}  |
+
+\rule{\textwidth}{0.4pt}
+
+\subsection*{ATTRIBUTE : Low}
+\hypertarget{ecldoc:linearregression.ols.distributionbase.low}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt} & Low \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:linearregression.ols.normaldistribution}{Up}
+
+\par
+
+\par
+\begin{description}
+\item [\textbf{INHERITED}] True
+\end{description}
+
+\rule{\textwidth}{0.4pt}
+\subsection*{ATTRIBUTE : High}
+\hypertarget{ecldoc:linearregression.ols.distributionbase.high}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt} & High \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:linearregression.ols.normaldistribution}{Up}
+
+\par
+
+\par
+\begin{description}
+\item [\textbf{INHERITED}] True
+\end{description}
+
+\rule{\textwidth}{0.4pt}
+\subsection*{ATTRIBUTE : RangeWidth}
+\hypertarget{ecldoc:linearregression.ols.distributionbase.rangewidth}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt} & RangeWidth \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:linearregression.ols.normaldistribution}{Up}
+
+\par
+
+\par
+\begin{description}
+\item [\textbf{OVERRIDE}] True
+\end{description}
+
+\rule{\textwidth}{0.4pt}
+\subsection*{FUNCTION : DensityV}
+\hypertarget{ecldoc:linearregression.ols.distributionbase.densityv}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}DATASET(RangeVec) & DensityV \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}()} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:linearregression.ols.normaldistribution}{Up}
+
+\par
+
+\par
+\begin{description}
+\item [\textbf{OVERRIDE}] True
+\end{description}
+
+\rule{\textwidth}{0.4pt}
+\subsection*{FUNCTION : CumulativeV}
+\hypertarget{ecldoc:linearregression.ols.distributionbase.cumulativev}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt} & CumulativeV \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}()} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:linearregression.ols.normaldistribution}{Up}
+
+\par
+
+\par
+\begin{description}
+\item [\textbf{OVERRIDE}] True
+\end{description}
+
+\rule{\textwidth}{0.4pt}
+\subsection*{FUNCTION : Cumulative}
+\hypertarget{ecldoc:linearregression.ols.distributionbase.cumulative}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}t\_FieldReal & Cumulative \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(t\_FieldReal t)} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:linearregression.ols.normaldistribution}{Up}
+
+\par
+
+\par
+\begin{description}
+\item [\textbf{OVERRIDE}] True
+\end{description}
+
+\rule{\textwidth}{0.4pt}
+\subsection*{FUNCTION : NTile}
+\hypertarget{ecldoc:linearregression.ols.distributionbase.ntile}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}t\_FieldReal & NTile \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(t\_FieldReal Pc)} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:linearregression.ols.normaldistribution}{Up}
+
+\par
+
+\par
+\begin{description}
+\item [\textbf{OVERRIDE}] True
+\end{description}
+
+\rule{\textwidth}{0.4pt}
+\subsection*{FUNCTION : InvDensity}
+\hypertarget{ecldoc:linearregression.ols.distributionbase.invdensity}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt} & InvDensity \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(t\_FieldReal delta)} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:linearregression.ols.normaldistribution}{Up}
+
+\par
+
+\par
+\begin{description}
+\item [\textbf{INHERITED}] True
+\end{description}
+
+\rule{\textwidth}{0.4pt}
+\subsection*{ATTRIBUTE : Discrete}
+\hypertarget{ecldoc:linearregression.ols.distributionbase.discrete}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt} & Discrete \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:linearregression.ols.normaldistribution}{Up}
+
+\par
+
+\par
+\begin{description}
+\item [\textbf{INHERITED}] True
+\end{description}
+
+\rule{\textwidth}{0.4pt}
+\subsection*{FUNCTION : Density}
+\hypertarget{ecldoc:linearregression.ols.normaldistribution.density}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}t\_FieldReal & Density \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(t\_FieldReal t)} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:linearregression.ols.normaldistribution}{Up}
+
+\par
+
+\par
+\begin{description}
+\item [\textbf{OVERRIDE}] True
+\end{description}
+
+\rule{\textwidth}{0.4pt}
+
+
 \subsection*{ATTRIBUTE : pVal}
 \hypertarget{ecldoc:linearregression.ols.pval}{}
 
@@ -282,6 +1360,23 @@ P-Value Calculate the P-value for each coefficient, which is the probability tha
 \begin{description}
 \item [\textbf{Return}] DATSET(NumericField), one record per Beta coefficient per dependent variable per work-item. The 'id' field is the coefficient number, with 1 being the Y intercept, 2 being the coefficient for the first feature, etc. The number field indicates the dependent variable and corresponds to the number field of the dependent (Y) variable to which it applies.
 \end{description}
+
+\rule{\textwidth}{0.4pt}
+\subsection*{RECORD : ConfintRec}
+\hypertarget{ecldoc:linearregression.ols.confintrec}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt} & ConfintRec \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:linearregression.ols}{Up}
+
+\par
+
 
 \rule{\textwidth}{0.4pt}
 \subsection*{FUNCTION : ConfInt}
@@ -307,6 +1402,23 @@ Confidence Interval The Confidence Interval determines the upper and lower bound
 \item [\textbf{Parameter}] level ||| The level of confidence required, expressed as a percentage from 0.0 to 100.0
 \item [\textbf{Return}] DATASET(ConfintRec) with one record per coefficient per dependent variable per work-item. The 'id' field is the coefficient number, with 1 being the Y intercept, 2 being the coefficient for the first feature, etc. The number field indicates the dependent variable and corresponds to the number field of the dependent (Y) variable to which it applies.
 \end{description}
+
+\rule{\textwidth}{0.4pt}
+\subsection*{RECORD : FTestRec}
+\hypertarget{ecldoc:linearregression.ols.ftestrec}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt} & FTestRec \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:linearregression.ols}{Up}
+
+\par
+
 
 \rule{\textwidth}{0.4pt}
 \subsection*{ATTRIBUTE : FTest}

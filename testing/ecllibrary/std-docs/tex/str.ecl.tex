@@ -1,0 +1,1030 @@
+\chapter*{str}
+\hypertarget{ecldoc:toc:str}{}
+
+\section*{\underline{IMPORTS}}
+\begin{itemize}
+\item lib\_stringlib
+\end{itemize}
+
+\section*{\underline{DESCRIPTIONS}}
+\subsection*{MODULE : Str}
+\hypertarget{ecldoc:Str}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt} & Str \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:toc:root}{Up}
+
+\par
+
+
+\hyperlink{ecldoc:str.compareignorecase}{CompareIgnoreCase}  |
+\hyperlink{ecldoc:str.equalignorecase}{EqualIgnoreCase}  |
+\hyperlink{ecldoc:str.find}{Find}  |
+\hyperlink{ecldoc:str.findcount}{FindCount}  |
+\hyperlink{ecldoc:str.wildmatch}{WildMatch}  |
+\hyperlink{ecldoc:str.contains}{Contains}  |
+\hyperlink{ecldoc:str.filterout}{FilterOut}  |
+\hyperlink{ecldoc:str.filter}{Filter}  |
+\hyperlink{ecldoc:str.substituteincluded}{SubstituteIncluded}  |
+\hyperlink{ecldoc:str.substituteexcluded}{SubstituteExcluded}  |
+\hyperlink{ecldoc:str.translate}{Translate}  |
+\hyperlink{ecldoc:str.tolowercase}{ToLowerCase}  |
+\hyperlink{ecldoc:str.touppercase}{ToUpperCase}  |
+\hyperlink{ecldoc:str.tocapitalcase}{ToCapitalCase}  |
+\hyperlink{ecldoc:str.totitlecase}{ToTitleCase}  |
+\hyperlink{ecldoc:str.reverse}{Reverse}  |
+\hyperlink{ecldoc:str.findreplace}{FindReplace}  |
+\hyperlink{ecldoc:str.extract}{Extract}  |
+\hyperlink{ecldoc:str.cleanspaces}{CleanSpaces}  |
+\hyperlink{ecldoc:str.startswith}{StartsWith}  |
+\hyperlink{ecldoc:str.endswith}{EndsWith}  |
+\hyperlink{ecldoc:str.removesuffix}{RemoveSuffix}  |
+\hyperlink{ecldoc:str.extractmultiple}{ExtractMultiple}  |
+\hyperlink{ecldoc:str.countwords}{CountWords}  |
+\hyperlink{ecldoc:str.splitwords}{SplitWords}  |
+\hyperlink{ecldoc:str.combinewords}{CombineWords}  |
+\hyperlink{ecldoc:str.editdistance}{EditDistance}  |
+\hyperlink{ecldoc:str.editdistancewithinradius}{EditDistanceWithinRadius}  |
+\hyperlink{ecldoc:str.wordcount}{WordCount}  |
+\hyperlink{ecldoc:str.getnthword}{GetNthWord}  |
+\hyperlink{ecldoc:str.excludefirstword}{ExcludeFirstWord}  |
+\hyperlink{ecldoc:str.excludelastword}{ExcludeLastWord}  |
+\hyperlink{ecldoc:str.excludenthword}{ExcludeNthWord}  |
+\hyperlink{ecldoc:str.findword}{FindWord}  |
+\hyperlink{ecldoc:str.repeat}{Repeat}  |
+\hyperlink{ecldoc:str.tohexpairs}{ToHexPairs}  |
+\hyperlink{ecldoc:str.fromhexpairs}{FromHexPairs}  |
+\hyperlink{ecldoc:str.encodebase64}{EncodeBase64}  |
+\hyperlink{ecldoc:str.decodebase64}{DecodeBase64}  |
+
+\rule{\textwidth}{0.4pt}
+
+\subsection*{FUNCTION : CompareIgnoreCase}
+\hypertarget{ecldoc:str.compareignorecase}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}INTEGER4 & CompareIgnoreCase \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(STRING src1, STRING src2)} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:Str}{Up}
+
+\par
+Compares the two strings case insensitively. Returns a negative integer, zero, or a positive integer according to whether the first string is less than, equal to, or greater than the second.
+
+\par
+\begin{description}
+\item [\textbf{Parameter}] src1 ||| The first string to be compared.
+\item [\textbf{Parameter}] src2 ||| The second string to be compared.
+\item [\textbf{See}] Str.EqualIgnoreCase
+\end{description}
+
+\rule{\textwidth}{0.4pt}
+\subsection*{FUNCTION : EqualIgnoreCase}
+\hypertarget{ecldoc:str.equalignorecase}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}BOOLEAN & EqualIgnoreCase \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(STRING src1, STRING src2)} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:Str}{Up}
+
+\par
+Tests whether the two strings are identical ignoring differences in case.
+
+\par
+\begin{description}
+\item [\textbf{Parameter}] src1 ||| The first string to be compared.
+\item [\textbf{Parameter}] src2 ||| The second string to be compared.
+\item [\textbf{See}] Str.CompareIgnoreCase
+\end{description}
+
+\rule{\textwidth}{0.4pt}
+\subsection*{FUNCTION : Find}
+\hypertarget{ecldoc:str.find}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}UNSIGNED4 & Find \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(STRING src, STRING sought, UNSIGNED4 instance = 1)} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:Str}{Up}
+
+\par
+Returns the character position of the nth match of the search string with the first string. If no match is found the attribute returns 0. If an instance is omitted the position of the first instance is returned.
+
+\par
+\begin{description}
+\item [\textbf{Parameter}] src ||| The string that is searched
+\item [\textbf{Parameter}] sought ||| The string being sought.
+\item [\textbf{Parameter}] instance ||| Which match instance are we interested in?
+\end{description}
+
+\rule{\textwidth}{0.4pt}
+\subsection*{FUNCTION : FindCount}
+\hypertarget{ecldoc:str.findcount}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}UNSIGNED4 & FindCount \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(STRING src, STRING sought)} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:Str}{Up}
+
+\par
+Returns the number of occurences of the second string within the first string.
+
+\par
+\begin{description}
+\item [\textbf{Parameter}] src ||| The string that is searched
+\item [\textbf{Parameter}] sought ||| The string being sought.
+\end{description}
+
+\rule{\textwidth}{0.4pt}
+\subsection*{FUNCTION : WildMatch}
+\hypertarget{ecldoc:str.wildmatch}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}BOOLEAN & WildMatch \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(STRING src, STRING \_pattern, BOOLEAN ignore\_case)} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:Str}{Up}
+
+\par
+Tests if the search string matches the pattern. The pattern can contain wildcards '?' (single character) and '*' (multiple character).
+
+\par
+\begin{description}
+\item [\textbf{Parameter}] src ||| The string that is being tested.
+\item [\textbf{Parameter}] pattern ||| The pattern to match against.
+\item [\textbf{Parameter}] ignore\_case ||| Whether to ignore differences in case between characters
+\end{description}
+
+\rule{\textwidth}{0.4pt}
+\subsection*{FUNCTION : Contains}
+\hypertarget{ecldoc:str.contains}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}BOOLEAN & Contains \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(STRING src, STRING \_pattern, BOOLEAN ignore\_case)} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:Str}{Up}
+
+\par
+Tests if the search string contains each of the characters in the pattern. If the pattern contains duplicate characters those characters will match once for each occurence in the pattern.
+
+\par
+\begin{description}
+\item [\textbf{Parameter}] src ||| The string that is being tested.
+\item [\textbf{Parameter}] pattern ||| The pattern to match against.
+\item [\textbf{Parameter}] ignore\_case ||| Whether to ignore differences in case between characters
+\end{description}
+
+\rule{\textwidth}{0.4pt}
+\subsection*{FUNCTION : FilterOut}
+\hypertarget{ecldoc:str.filterout}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}STRING & FilterOut \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(STRING src, STRING filter)} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:Str}{Up}
+
+\par
+Returns the first string with all characters within the second string removed.
+
+\par
+\begin{description}
+\item [\textbf{Parameter}] src ||| The string that is being tested.
+\item [\textbf{Parameter}] filter ||| The string containing the set of characters to be excluded.
+\item [\textbf{See}] Str.Filter
+\end{description}
+
+\rule{\textwidth}{0.4pt}
+\subsection*{FUNCTION : Filter}
+\hypertarget{ecldoc:str.filter}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}STRING & Filter \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(STRING src, STRING filter)} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:Str}{Up}
+
+\par
+Returns the first string with all characters not within the second string removed.
+
+\par
+\begin{description}
+\item [\textbf{Parameter}] src ||| The string that is being tested.
+\item [\textbf{Parameter}] filter ||| The string containing the set of characters to be included.
+\item [\textbf{See}] Str.FilterOut
+\end{description}
+
+\rule{\textwidth}{0.4pt}
+\subsection*{FUNCTION : SubstituteIncluded}
+\hypertarget{ecldoc:str.substituteincluded}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}STRING & SubstituteIncluded \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(STRING src, STRING filter, STRING1 replace\_char)} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:Str}{Up}
+
+\par
+Returns the source string with the replacement character substituted for all characters included in the filter string. MORE: Should this be a general string substitution?
+
+\par
+\begin{description}
+\item [\textbf{Parameter}] src ||| The string that is being tested.
+\item [\textbf{Parameter}] filter ||| The string containing the set of characters to be included.
+\item [\textbf{Parameter}] replace\_char ||| The character to be substituted into the result.
+\item [\textbf{See}] Std.Str.Translate, Std.Str.SubstituteExcluded
+\end{description}
+
+\rule{\textwidth}{0.4pt}
+\subsection*{FUNCTION : SubstituteExcluded}
+\hypertarget{ecldoc:str.substituteexcluded}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}STRING & SubstituteExcluded \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(STRING src, STRING filter, STRING1 replace\_char)} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:Str}{Up}
+
+\par
+Returns the source string with the replacement character substituted for all characters not included in the filter string. MORE: Should this be a general string substitution?
+
+\par
+\begin{description}
+\item [\textbf{Parameter}] src ||| The string that is being tested.
+\item [\textbf{Parameter}] filter ||| The string containing the set of characters to be included.
+\item [\textbf{Parameter}] replace\_char ||| The character to be substituted into the result.
+\item [\textbf{See}] Std.Str.SubstituteIncluded
+\end{description}
+
+\rule{\textwidth}{0.4pt}
+\subsection*{FUNCTION : Translate}
+\hypertarget{ecldoc:str.translate}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}STRING & Translate \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(STRING src, STRING search, STRING replacement)} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:Str}{Up}
+
+\par
+Returns the source string with the all characters that match characters in the search string replaced with the character at the corresponding position in the replacement string.
+
+\par
+\begin{description}
+\item [\textbf{Parameter}] src ||| The string that is being tested.
+\item [\textbf{Parameter}] search ||| The string containing the set of characters to be included.
+\item [\textbf{Parameter}] replacement ||| The string containing the characters to act as replacements.
+\item [\textbf{See}] Std.Str.SubstituteIncluded
+\end{description}
+
+\rule{\textwidth}{0.4pt}
+\subsection*{FUNCTION : ToLowerCase}
+\hypertarget{ecldoc:str.tolowercase}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}STRING & ToLowerCase \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(STRING src)} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:Str}{Up}
+
+\par
+Returns the argument string with all upper case characters converted to lower case.
+
+\par
+\begin{description}
+\item [\textbf{Parameter}] src ||| The string that is being converted.
+\end{description}
+
+\rule{\textwidth}{0.4pt}
+\subsection*{FUNCTION : ToUpperCase}
+\hypertarget{ecldoc:str.touppercase}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}STRING & ToUpperCase \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(STRING src)} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:Str}{Up}
+
+\par
+Return the argument string with all lower case characters converted to upper case.
+
+\par
+\begin{description}
+\item [\textbf{Parameter}] src ||| The string that is being converted.
+\end{description}
+
+\rule{\textwidth}{0.4pt}
+\subsection*{FUNCTION : ToCapitalCase}
+\hypertarget{ecldoc:str.tocapitalcase}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}STRING & ToCapitalCase \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(STRING src)} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:Str}{Up}
+
+\par
+Returns the argument string with the first letter of each word in upper case and all other letters left as-is. A contiguous sequence of alphanumeric characters is treated as a word.
+
+\par
+\begin{description}
+\item [\textbf{Parameter}] src ||| The string that is being converted.
+\end{description}
+
+\rule{\textwidth}{0.4pt}
+\subsection*{FUNCTION : ToTitleCase}
+\hypertarget{ecldoc:str.totitlecase}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}STRING & ToTitleCase \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(STRING src)} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:Str}{Up}
+
+\par
+Returns the argument string with the first letter of each word in upper case and all other letters lower case. A contiguous sequence of alphanumeric characters is treated as a word.
+
+\par
+\begin{description}
+\item [\textbf{Parameter}] src ||| The string that is being converted.
+\end{description}
+
+\rule{\textwidth}{0.4pt}
+\subsection*{FUNCTION : Reverse}
+\hypertarget{ecldoc:str.reverse}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}STRING & Reverse \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(STRING src)} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:Str}{Up}
+
+\par
+Returns the argument string with all characters in reverse order. Note the argument is not TRIMMED before it is reversed.
+
+\par
+\begin{description}
+\item [\textbf{Parameter}] src ||| The string that is being reversed.
+\end{description}
+
+\rule{\textwidth}{0.4pt}
+\subsection*{FUNCTION : FindReplace}
+\hypertarget{ecldoc:str.findreplace}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}STRING & FindReplace \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(STRING src, STRING sought, STRING replacement)} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:Str}{Up}
+
+\par
+Returns the source string with the replacement string substituted for all instances of the search string.
+
+\par
+\begin{description}
+\item [\textbf{Parameter}] src ||| The string that is being transformed.
+\item [\textbf{Parameter}] sought ||| The string to be replaced.
+\item [\textbf{Parameter}] replacement ||| The string to be substituted into the result.
+\end{description}
+
+\rule{\textwidth}{0.4pt}
+\subsection*{FUNCTION : Extract}
+\hypertarget{ecldoc:str.extract}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}STRING & Extract \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(STRING src, UNSIGNED4 instance)} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:Str}{Up}
+
+\par
+Returns the nth element from a comma separated string.
+
+\par
+\begin{description}
+\item [\textbf{Parameter}] src ||| The string containing the comma separated list.
+\item [\textbf{Parameter}] instance ||| Which item to select from the list.
+\end{description}
+
+\rule{\textwidth}{0.4pt}
+\subsection*{FUNCTION : CleanSpaces}
+\hypertarget{ecldoc:str.cleanspaces}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}STRING & CleanSpaces \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(STRING src)} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:Str}{Up}
+
+\par
+Returns the source string with all instances of multiple adjacent space characters (2 or more spaces together) reduced to a single space character. Leading and trailing spaces are removed, and tab characters are converted to spaces.
+
+\par
+\begin{description}
+\item [\textbf{Parameter}] src ||| The string to be cleaned.
+\end{description}
+
+\rule{\textwidth}{0.4pt}
+\subsection*{FUNCTION : StartsWith}
+\hypertarget{ecldoc:str.startswith}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}BOOLEAN & StartsWith \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(STRING src, STRING prefix)} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:Str}{Up}
+
+\par
+Returns true if the prefix string matches the leading characters in the source string. Trailing spaces are stripped from the prefix before matching. // x.myString.StartsWith('x') as an alternative syntax would be even better
+
+\par
+\begin{description}
+\item [\textbf{Parameter}] src ||| The string being searched in.
+\item [\textbf{Parameter}] prefix ||| The prefix to search for.
+\end{description}
+
+\rule{\textwidth}{0.4pt}
+\subsection*{FUNCTION : EndsWith}
+\hypertarget{ecldoc:str.endswith}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}BOOLEAN & EndsWith \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(STRING src, STRING suffix)} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:Str}{Up}
+
+\par
+Returns true if the suffix string matches the trailing characters in the source string. Trailing spaces are stripped from both strings before matching.
+
+\par
+\begin{description}
+\item [\textbf{Parameter}] src ||| The string being searched in.
+\item [\textbf{Parameter}] suffix ||| The prefix to search for.
+\end{description}
+
+\rule{\textwidth}{0.4pt}
+\subsection*{FUNCTION : RemoveSuffix}
+\hypertarget{ecldoc:str.removesuffix}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}STRING & RemoveSuffix \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(STRING src, STRING suffix)} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:Str}{Up}
+
+\par
+Removes the suffix from the search string, if present, and returns the result. Trailing spaces are stripped from both strings before matching.
+
+\par
+\begin{description}
+\item [\textbf{Parameter}] src ||| The string being searched in.
+\item [\textbf{Parameter}] suffix ||| The prefix to search for.
+\end{description}
+
+\rule{\textwidth}{0.4pt}
+\subsection*{FUNCTION : ExtractMultiple}
+\hypertarget{ecldoc:str.extractmultiple}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}STRING & ExtractMultiple \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(STRING src, UNSIGNED8 mask)} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:Str}{Up}
+
+\par
+Returns a string containing a list of elements from a comma separated string.
+
+\par
+\begin{description}
+\item [\textbf{Parameter}] src ||| The string containing the comma separated list.
+\item [\textbf{Parameter}] mask ||| A bitmask of which elements should be included. Bit 0 is item1, bit1 item 2 etc.
+\end{description}
+
+\rule{\textwidth}{0.4pt}
+\subsection*{FUNCTION : CountWords}
+\hypertarget{ecldoc:str.countwords}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}UNSIGNED4 & CountWords \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(STRING src, STRING separator, BOOLEAN allow\_blank = FALSE)} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:Str}{Up}
+
+\par
+Returns the number of words that the string contains. Words are separated by one or more separator strings. No spaces are stripped from either string before matching.
+
+\par
+\begin{description}
+\item [\textbf{Parameter}] src ||| The string being searched in.
+\item [\textbf{Parameter}] separator ||| The string used to separate words
+\item [\textbf{Parameter}] allow\_blank ||| Indicates if empty/blank string items are included in the results.
+\end{description}
+
+\rule{\textwidth}{0.4pt}
+\subsection*{FUNCTION : SplitWords}
+\hypertarget{ecldoc:str.splitwords}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}SET OF STRING & SplitWords \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(STRING src, STRING separator, BOOLEAN allow\_blank = FALSE)} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:Str}{Up}
+
+\par
+Returns the list of words extracted from the string. Words are separated by one or more separator strings. No spaces are stripped from either string before matching.
+
+\par
+\begin{description}
+\item [\textbf{Parameter}] src ||| The string being searched in.
+\item [\textbf{Parameter}] separator ||| The string used to separate words
+\item [\textbf{Parameter}] allow\_blank ||| Indicates if empty/blank string items are included in the results.
+\end{description}
+
+\rule{\textwidth}{0.4pt}
+\subsection*{FUNCTION : CombineWords}
+\hypertarget{ecldoc:str.combinewords}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}STRING & CombineWords \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(SET OF STRING words, STRING separator)} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:Str}{Up}
+
+\par
+Returns the list of words extracted from the string. Words are separated by one or more separator strings. No spaces are stripped from either string before matching.
+
+\par
+\begin{description}
+\item [\textbf{Parameter}] words ||| The set of strings to be combined.
+\item [\textbf{Parameter}] separator ||| The string used to separate words.
+\end{description}
+
+\rule{\textwidth}{0.4pt}
+\subsection*{FUNCTION : EditDistance}
+\hypertarget{ecldoc:str.editdistance}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}UNSIGNED4 & EditDistance \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(STRING \_left, STRING \_right)} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:Str}{Up}
+
+\par
+Returns the minimum edit distance between the two strings. An insert change or delete counts as a single edit. The two strings are trimmed before comparing.
+
+\par
+\begin{description}
+\item [\textbf{Parameter}] \_left ||| The first string to be compared.
+\item [\textbf{Parameter}] \_right ||| The second string to be compared.
+\item [\textbf{Return}] The minimum edit distance between the two strings.
+\end{description}
+
+\rule{\textwidth}{0.4pt}
+\subsection*{FUNCTION : EditDistanceWithinRadius}
+\hypertarget{ecldoc:str.editdistancewithinradius}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}BOOLEAN & EditDistanceWithinRadius \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(STRING \_left, STRING \_right, UNSIGNED4 radius)} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:Str}{Up}
+
+\par
+Returns true if the minimum edit distance between the two strings is with a specific range. The two strings are trimmed before comparing.
+
+\par
+\begin{description}
+\item [\textbf{Parameter}] \_left ||| The first string to be compared.
+\item [\textbf{Parameter}] \_right ||| The second string to be compared.
+\item [\textbf{Parameter}] radius ||| The maximum edit distance that is accepable.
+\item [\textbf{Return}] Whether or not the two strings are within the given specified edit distance.
+\end{description}
+
+\rule{\textwidth}{0.4pt}
+\subsection*{FUNCTION : WordCount}
+\hypertarget{ecldoc:str.wordcount}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}UNSIGNED4 & WordCount \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(STRING text)} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:Str}{Up}
+
+\par
+Returns the number of words in the string. Words are separated by one or more spaces.
+
+\par
+\begin{description}
+\item [\textbf{Parameter}] text ||| The string to be broken into words.
+\item [\textbf{Return}] The number of words in the string.
+\end{description}
+
+\rule{\textwidth}{0.4pt}
+\subsection*{FUNCTION : GetNthWord}
+\hypertarget{ecldoc:str.getnthword}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}STRING & GetNthWord \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(STRING text, UNSIGNED4 n)} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:Str}{Up}
+
+\par
+Returns the n-th word from the string. Words are separated by one or more spaces.
+
+\par
+\begin{description}
+\item [\textbf{Parameter}] text ||| The string to be broken into words.
+\item [\textbf{Parameter}] n ||| Which word should be returned from the function.
+\item [\textbf{Return}] The number of words in the string.
+\end{description}
+
+\rule{\textwidth}{0.4pt}
+\subsection*{FUNCTION : ExcludeFirstWord}
+\hypertarget{ecldoc:str.excludefirstword}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt} & ExcludeFirstWord \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(STRING text)} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:Str}{Up}
+
+\par
+Returns everything except the first word from the string. Words are separated by one or more whitespace characters. Whitespace before and after the first word is also removed.
+
+\par
+\begin{description}
+\item [\textbf{Parameter}] text ||| The string to be broken into words.
+\item [\textbf{Return}] The string excluding the first word.
+\end{description}
+
+\rule{\textwidth}{0.4pt}
+\subsection*{FUNCTION : ExcludeLastWord}
+\hypertarget{ecldoc:str.excludelastword}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt} & ExcludeLastWord \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(STRING text)} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:Str}{Up}
+
+\par
+Returns everything except the last word from the string. Words are separated by one or more whitespace characters. Whitespace after a word is removed with the word and leading whitespace is removed with the first word.
+
+\par
+\begin{description}
+\item [\textbf{Parameter}] text ||| The string to be broken into words.
+\item [\textbf{Return}] The string excluding the last word.
+\end{description}
+
+\rule{\textwidth}{0.4pt}
+\subsection*{FUNCTION : ExcludeNthWord}
+\hypertarget{ecldoc:str.excludenthword}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt} & ExcludeNthWord \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(STRING text, UNSIGNED2 n)} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:Str}{Up}
+
+\par
+Returns everything except the nth word from the string. Words are separated by one or more whitespace characters. Whitespace after a word is removed with the word and leading whitespace is removed with the first word.
+
+\par
+\begin{description}
+\item [\textbf{Parameter}] text ||| The string to be broken into words.
+\item [\textbf{Parameter}] n ||| Which word should be returned from the function.
+\item [\textbf{Return}] The string excluding the nth word.
+\end{description}
+
+\rule{\textwidth}{0.4pt}
+\subsection*{FUNCTION : FindWord}
+\hypertarget{ecldoc:str.findword}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}BOOLEAN & FindWord \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(STRING src, STRING word, BOOLEAN ignore\_case=FALSE)} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:Str}{Up}
+
+\par
+Tests if the search string contains the supplied word as a whole word.
+
+\par
+\begin{description}
+\item [\textbf{Parameter}] src ||| The string that is being tested.
+\item [\textbf{Parameter}] word ||| The word to be searched for.
+\item [\textbf{Parameter}] ignore\_case ||| Whether to ignore differences in case between characters.
+\end{description}
+
+\rule{\textwidth}{0.4pt}
+\subsection*{FUNCTION : Repeat}
+\hypertarget{ecldoc:str.repeat}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}STRING & Repeat \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(STRING text, UNSIGNED4 n)} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:Str}{Up}
+
+\par
+
+
+\rule{\textwidth}{0.4pt}
+\subsection*{FUNCTION : ToHexPairs}
+\hypertarget{ecldoc:str.tohexpairs}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}STRING & ToHexPairs \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(DATA value)} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:Str}{Up}
+
+\par
+
+
+\rule{\textwidth}{0.4pt}
+\subsection*{FUNCTION : FromHexPairs}
+\hypertarget{ecldoc:str.fromhexpairs}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}DATA & FromHexPairs \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(STRING hex\_pairs)} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:Str}{Up}
+
+\par
+
+
+\rule{\textwidth}{0.4pt}
+\subsection*{FUNCTION : EncodeBase64}
+\hypertarget{ecldoc:str.encodebase64}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}STRING & EncodeBase64 \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(DATA value)} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:Str}{Up}
+
+\par
+
+
+\rule{\textwidth}{0.4pt}
+\subsection*{FUNCTION : DecodeBase64}
+\hypertarget{ecldoc:str.decodebase64}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}DATA & DecodeBase64 \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}(STRING value)} \\
+\hline
+\end{tabularx}
+}
+
+\hyperlink{ecldoc:Str}{Up}
+
+\par
+
+
+\rule{\textwidth}{0.4pt}
+
+

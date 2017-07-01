@@ -106,7 +106,7 @@ MODULE : Uni
     
     ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : UNSIGNED4 LocaleFind(unicode src, unicode sought, unsigned4 instance, varstring
-               locale_name)
+                                   locale_name)
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Returns the character position of the nth match of the search string with
@@ -125,7 +125,7 @@ MODULE : Uni
     
     ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : UNSIGNED4 LocaleFindAtStrength(unicode src, unicode tofind, unsigned4 instance, varstring
-               locale_name, integer1 strength)
+                                             locale_name, integer1 strength)
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Returns the character position of the nth match of the search string with
@@ -287,7 +287,7 @@ MODULE : Uni
     
     ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : integer4 LocaleCompareAtStrength(unicode src1, unicode src2, varstring locale_name,
-               integer1 strength)
+                                               integer1 strength)
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Compares the two strings case insensitively. Equivalent to comparing at
@@ -337,7 +337,7 @@ MODULE : Uni
     
     ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : unicode LocaleFindReplace(unicode src, unicode sought, unicode replacement, varstring
-               locale_name)
+                                        locale_name)
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Returns the source string with the replacement string substituted for all
@@ -355,7 +355,7 @@ MODULE : Uni
     
     ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : unicode LocaleFindAtStrengthReplace(unicode src, unicode sought, unicode replacement,
-               varstring locale_name, integer1 strength)
+                                                  varstring locale_name, integer1 strength)
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Returns the source string with the replacement string substituted for all
@@ -441,7 +441,7 @@ MODULE : Uni
     
     ----------------------------------------------------------------------------------------------------------------------------------
     FUNCTION : BOOLEAN EditDistanceWithinRadius(unicode _left, unicode _right, unsigned4 radius,
-               varstring localename = '')
+                                               varstring localename = '')
     ----------------------------------------------------------------------------------------------------------------------------------
     
     Returns true if the minimum edit distance between the two strings is with a

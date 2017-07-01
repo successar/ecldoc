@@ -27,7 +27,7 @@
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
 					<li><a href="#ecldoc-section-import" class="topbar">Imports</a></li>
-					<li><a href="#ecldoc-section-desc" class="topbar">Descriptions</a></li>
+					<li><a href="#ecldoc-section-desc" class="topbar">Contents</a></li>
 				</ul>
 			</div>
 		</div>
@@ -48,19 +48,11 @@
 				</li>
 				
 				<li>
+					<a href="Audit.ecl.html">Audit.ecl</a>
+				</li>
+				
+				<li>
 					<a href="BLAS.ecl.html">BLAS.ecl</a>
-				</li>
-				
-				<li>
-					<a href="Metaphone3.ecl.html">Metaphone3.ecl</a>
-				</li>
-				
-				<li>
-					<a href="Uni.ecl.html">Uni.ecl</a>
-				</li>
-				
-				<li>
-					<a href="File.ecl.html">File.ecl</a>
 				</li>
 				
 				<li>
@@ -68,11 +60,11 @@
 				</li>
 				
 				<li>
-					<a href="Audit.ecl.html">Audit.ecl</a>
+					<a href="Date.ecl.html">Date.ecl</a>
 				</li>
 				
 				<li>
-					<a href="str.ecl.html">str.ecl</a>
+					<a href="File.ecl.html">File.ecl</a>
 				</li>
 				
 				<li>
@@ -80,11 +72,19 @@
 				</li>
 				
 				<li>
-					<a href="Date.ecl.html">Date.ecl</a>
+					<a href="Metaphone.ecl.html">Metaphone.ecl</a>
 				</li>
 				
 				<li>
-					<a href="Metaphone.ecl.html">Metaphone.ecl</a>
+					<a href="Metaphone3.ecl.html">Metaphone3.ecl</a>
+				</li>
+				
+				<li>
+					<a href="str.ecl.html">str.ecl</a>
+				</li>
+				
+				<li>
+					<a href="Uni.ecl.html">Uni.ecl</a>
 				</li>
 				
 			</ul>
@@ -103,10 +103,10 @@
 						</ul>
 				</section>
 				<section id="ecldoc-section-desc">
-					<h3 class="page-header">DESCRIPTIONS</h3>
+					<h3 class="page-header">CONTENTS</h3>
 					<div class="panel-group desc-panel-group">
 						<div class="panel panel-info desc-panel" id="dFile">
-							<a href="#desc-File" data-toggle="collapse">
+							<a href=".desc-File" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											MODULE
@@ -126,28 +126,31 @@
 									<td class="name">File</td>
 									<td class="param"></td>
 								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								
-								
+							
+							<div class="panel-collapse collapse in desc-File">
+							
+								<div class="panel-body desc-panel-body">
+									
+									
 	
 
-								
+									
 	
 
-								
+									
 	
 
-								
+									
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-File">
-								<div class="panel panel-info desc-panel" id="dfile-fsfilenamerecord">
-							<a href="#desc-file-fsfilenamerecord" data-toggle="collapse">
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									<div class="panel panel-info desc-panel" id="dfile-fsfilenamerecord">
+							<a href=".desc-file-fsfilenamerecord" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											RECORD
@@ -167,45 +170,54 @@
 									<td class="name">FsFilenameRecord</td>
 									<td class="param"></td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										A record containing information about filename
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										A record containing information about filename. Includes name, size and when last modified. export FsFilenameRecord := RECORD string name; integer8 size; string19 modified; END;
+							
+							<div class="panel-collapse collapse desc-file-fsfilenamerecord">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											A record containing information about filename. Includes name, size and when last modified. export FsFilenameRecord := RECORD string name; integer8 size; string19 modified; END;
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-fsfilenamerecord">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-fslogicalfilename">
-							<a href="#desc-file-fslogicalfilename" data-toggle="collapse">
+							<a href=".desc-file-fslogicalfilename" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											ATTRIBUTE
@@ -225,45 +237,54 @@
 									<td class="name">FsLogicalFileName</td>
 									<td class="param"></td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										An alias for a logical filename that is stored in a row
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										An alias for a logical filename that is stored in a row.
+							
+							<div class="panel-collapse collapse desc-file-fslogicalfilename">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											An alias for a logical filename that is stored in a row.
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-fslogicalfilename">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-fslogicalfilenamerecord">
-							<a href="#desc-file-fslogicalfilenamerecord" data-toggle="collapse">
+							<a href=".desc-file-fslogicalfilenamerecord" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											RECORD
@@ -283,26 +304,34 @@
 									<td class="name">FsLogicalFileNameRecord</td>
 									<td class="param"></td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										A record containing a logical filename
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										A record containing a logical filename. It contains the following fields:
+							
+							<div class="panel-collapse collapse desc-file-fslogicalfilenamerecord">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											A record containing a logical filename. It contains the following fields:
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	
 
-								
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Fields</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -318,26 +347,27 @@
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-fslogicalfilenamerecord">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-fslogicalfileinforecord">
-							<a href="#desc-file-fslogicalfileinforecord" data-toggle="collapse">
+							<a href=".desc-file-fslogicalfileinforecord" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											RECORD
@@ -357,26 +387,34 @@
 									<td class="name">FsLogicalFileInfoRecord</td>
 									<td class="param"></td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										A record containing information about a logical file
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										A record containing information about a logical file.
+							
+							<div class="panel-collapse collapse desc-file-fslogicalfileinforecord">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											A record containing information about a logical file.
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	
 
-								
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Fields</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -406,26 +444,27 @@
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-fslogicalfileinforecord">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-fslogicalsupersubrecord">
-							<a href="#desc-file-fslogicalsupersubrecord" data-toggle="collapse">
+							<a href=".desc-file-fslogicalsupersubrecord" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											RECORD
@@ -445,26 +484,34 @@
 									<td class="name">FsLogicalSuperSubRecord</td>
 									<td class="param"></td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										A record containing information about a superfile and its contents
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										A record containing information about a superfile and its contents.
+							
+							<div class="panel-collapse collapse desc-file-fslogicalsupersubrecord">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											A record containing information about a superfile and its contents.
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	
 
-								
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Fields</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -487,26 +534,27 @@
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-fslogicalsupersubrecord">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-fsfilerelationshiprecord">
-							<a href="#desc-file-fsfilerelationshiprecord" data-toggle="collapse">
+							<a href=".desc-file-fsfilerelationshiprecord" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											RECORD
@@ -526,26 +574,34 @@
 									<td class="name">FsFileRelationshipRecord</td>
 									<td class="param"></td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										A record containing information about the relationship between two files
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										A record containing information about the relationship between two files.
+							
+							<div class="panel-collapse collapse desc-file-fsfilerelationshiprecord">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											A record containing information about the relationship between two files.
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	
 
-								
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Fields</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -610,26 +666,27 @@
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-fsfilerelationshiprecord">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-recfmv_recsize">
-							<a href="#desc-file-recfmv_recsize" data-toggle="collapse">
+							<a href=".desc-file-recfmv_recsize" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											ATTRIBUTE
@@ -649,45 +706,54 @@
 									<td class="name">RECFMV_RECSIZE</td>
 									<td class="param"></td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										Constant that indicates IBM RECFM V format file
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										Constant that indicates IBM RECFM V format file. Can be passed to SprayFixed for the record size.
+							
+							<div class="panel-collapse collapse desc-file-recfmv_recsize">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											Constant that indicates IBM RECFM V format file. Can be passed to SprayFixed for the record size.
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-recfmv_recsize">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-recfmvb_recsize">
-							<a href="#desc-file-recfmvb_recsize" data-toggle="collapse">
+							<a href=".desc-file-recfmvb_recsize" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											ATTRIBUTE
@@ -707,45 +773,54 @@
 									<td class="name">RECFMVB_RECSIZE</td>
 									<td class="param"></td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										Constant that indicates IBM RECFM VB format file
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										Constant that indicates IBM RECFM VB format file. Can be passed to SprayFixed for the record size.
+							
+							<div class="panel-collapse collapse desc-file-recfmvb_recsize">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											Constant that indicates IBM RECFM VB format file. Can be passed to SprayFixed for the record size.
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-recfmvb_recsize">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-prefix_variable_recsize">
-							<a href="#desc-file-prefix_variable_recsize" data-toggle="collapse">
+							<a href=".desc-file-prefix_variable_recsize" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											ATTRIBUTE
@@ -765,45 +840,54 @@
 									<td class="name">PREFIX_VARIABLE_RECSIZE</td>
 									<td class="param"></td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										Constant that indicates a variable little endian 4 byte length prefixed file
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										Constant that indicates a variable little endian 4 byte length prefixed file. Can be passed to SprayFixed for the record size.
+							
+							<div class="panel-collapse collapse desc-file-prefix_variable_recsize">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											Constant that indicates a variable little endian 4 byte length prefixed file. Can be passed to SprayFixed for the record size.
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-prefix_variable_recsize">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-prefix_variable_bigendian_recsize">
-							<a href="#desc-file-prefix_variable_bigendian_recsize" data-toggle="collapse">
+							<a href=".desc-file-prefix_variable_bigendian_recsize" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											ATTRIBUTE
@@ -823,45 +907,54 @@
 									<td class="name">PREFIX_VARIABLE_BIGENDIAN_RECSIZE</td>
 									<td class="param"></td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										Constant that indicates a variable big endian 4 byte length prefixed file
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										Constant that indicates a variable big endian 4 byte length prefixed file. Can be passed to SprayFixed for the record size.
+							
+							<div class="panel-collapse collapse desc-file-prefix_variable_bigendian_recsize">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											Constant that indicates a variable big endian 4 byte length prefixed file. Can be passed to SprayFixed for the record size.
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-prefix_variable_bigendian_recsize">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-fileexists">
-							<a href="#desc-file-fileexists" data-toggle="collapse">
+							<a href=".desc-file-fileexists" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											FUNCTION
@@ -881,21 +974,29 @@
 									<td class="name">FileExists</td>
 									<td class="param">(varstring lfn, boolean physical=FALSE)</td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										Returns whether the file exists
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										Returns whether the file exists.
+							
+							<div class="panel-collapse collapse desc-file-fileexists">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											Returns whether the file exists.
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Parameters</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -918,17 +1019,17 @@
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Returns</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -943,21 +1044,22 @@
 	
 	
 
-								
+									
 	
 	
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-fileexists">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-deletelogicalfile">
-							<a href="#desc-file-deletelogicalfile" data-toggle="collapse">
+							<a href=".desc-file-deletelogicalfile" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											FUNCTION
@@ -977,21 +1079,29 @@
 									<td class="name">DeleteLogicalFile</td>
 									<td class="param">(varstring lfn, boolean allowMissing=FALSE)</td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										Removes the logical file from the system, and deletes from the disk
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										Removes the logical file from the system, and deletes from the disk.
+							
+							<div class="panel-collapse collapse desc-file-deletelogicalfile">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											Removes the logical file from the system, and deletes from the disk.
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Parameters</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -1014,31 +1124,32 @@
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-deletelogicalfile">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-setreadonly">
-							<a href="#desc-file-setreadonly" data-toggle="collapse">
+							<a href=".desc-file-setreadonly" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											FUNCTION
@@ -1058,21 +1169,29 @@
 									<td class="name">SetReadOnly</td>
 									<td class="param">(varstring lfn, boolean ro=TRUE)</td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										Changes whether access to a file is read only or not
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										Changes whether access to a file is read only or not.
+							
+							<div class="panel-collapse collapse desc-file-setreadonly">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											Changes whether access to a file is read only or not.
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Parameters</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -1095,31 +1214,32 @@
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-setreadonly">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-renamelogicalfile">
-							<a href="#desc-file-renamelogicalfile" data-toggle="collapse">
+							<a href=".desc-file-renamelogicalfile" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											FUNCTION
@@ -1139,21 +1259,29 @@
 									<td class="name">RenameLogicalFile</td>
 									<td class="param">(varstring oldname, varstring newname)</td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										Changes the name of a logical file
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										Changes the name of a logical file.
+							
+							<div class="panel-collapse collapse desc-file-renamelogicalfile">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											Changes the name of a logical file.
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Parameters</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -1176,31 +1304,32 @@
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-renamelogicalfile">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-foreignlogicalfilename">
-							<a href="#desc-file-foreignlogicalfilename" data-toggle="collapse">
+							<a href=".desc-file-foreignlogicalfilename" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											FUNCTION
@@ -1220,21 +1349,29 @@
 									<td class="name">ForeignLogicalFileName</td>
 									<td class="param">(varstring name, varstring foreigndali='', boolean abspath=FALSE)</td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										Returns a logical filename that can be used to refer to a logical file in a local or remote dali
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										Returns a logical filename that can be used to refer to a logical file in a local or remote dali.
+							
+							<div class="panel-collapse collapse desc-file-foreignlogicalfilename">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											Returns a logical filename that can be used to refer to a logical file in a local or remote dali.
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Parameters</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -1264,31 +1401,32 @@
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-foreignlogicalfilename">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-externallogicalfilename">
-							<a href="#desc-file-externallogicalfilename" data-toggle="collapse">
+							<a href=".desc-file-externallogicalfilename" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											FUNCTION
@@ -1308,21 +1446,29 @@
 									<td class="name">ExternalLogicalFileName</td>
 									<td class="param">(varstring location, varstring path, boolean abspath=TRUE)</td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										Returns an encoded logical filename that can be used to refer to a external file
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										Returns an encoded logical filename that can be used to refer to a external file. Examples include directly reading from a landing zone. Upper case characters and other details are escaped.
+							
+							<div class="panel-collapse collapse desc-file-externallogicalfilename">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											Returns an encoded logical filename that can be used to refer to a external file. Examples include directly reading from a landing zone. Upper case characters and other details are escaped.
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Parameters</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -1352,17 +1498,17 @@
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Returns</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -1377,21 +1523,22 @@
 	
 	
 
-								
+									
 	
 	
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-externallogicalfilename">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-getfiledescription">
-							<a href="#desc-file-getfiledescription" data-toggle="collapse">
+							<a href=".desc-file-getfiledescription" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											FUNCTION
@@ -1411,21 +1558,29 @@
 									<td class="name">GetFileDescription</td>
 									<td class="param">(varstring lfn)</td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										Returns a string containing the description information associated with the specified filename
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										Returns a string containing the description information associated with the specified filename. This description is set either through ECL watch or by using the FileServices.SetFileDescription function.
+							
+							<div class="panel-collapse collapse desc-file-getfiledescription">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											Returns a string containing the description information associated with the specified filename. This description is set either through ECL watch or by using the FileServices.SetFileDescription function.
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Parameters</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -1441,31 +1596,32 @@
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-getfiledescription">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-setfiledescription">
-							<a href="#desc-file-setfiledescription" data-toggle="collapse">
+							<a href=".desc-file-setfiledescription" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											FUNCTION
@@ -1485,21 +1641,29 @@
 									<td class="name">SetFileDescription</td>
 									<td class="param">(varstring lfn, varstring val)</td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										Sets the description associated with the specified filename
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										Sets the description associated with the specified filename.
+							
+							<div class="panel-collapse collapse desc-file-setfiledescription">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											Sets the description associated with the specified filename.
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Parameters</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -1522,31 +1686,32 @@
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-setfiledescription">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-remotedirectory">
-							<a href="#desc-file-remotedirectory" data-toggle="collapse">
+							<a href=".desc-file-remotedirectory" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											FUNCTION
@@ -1566,21 +1731,29 @@
 									<td class="name">RemoteDirectory</td>
 									<td class="param">(varstring machineIP, varstring dir, varstring mask='*', boolean recurse=FALSE)</td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										Returns a dataset containing a list of files from the specified machineIP and directory
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										Returns a dataset containing a list of files from the specified machineIP and directory.
+							
+							<div class="panel-collapse collapse desc-file-remotedirectory">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											Returns a dataset containing a list of files from the specified machineIP and directory.
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Parameters</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -1617,31 +1790,32 @@
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-remotedirectory">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-logicalfilelist">
-							<a href="#desc-file-logicalfilelist" data-toggle="collapse">
+							<a href=".desc-file-logicalfilelist" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											FUNCTION
@@ -1661,21 +1835,29 @@
 									<td class="name">LogicalFileList</td>
 									<td class="param">(varstring namepattern='*', boolean includenormal=TRUE, boolean includesuper=FALSE, boolean unknownszero=FALSE, varstring foreigndali='')</td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										Returns a dataset of information about the logical files known to the system
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										Returns a dataset of information about the logical files known to the system.
+							
+							<div class="panel-collapse collapse desc-file-logicalfilelist">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											Returns a dataset of information about the logical files known to the system.
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Parameters</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -1719,31 +1901,32 @@
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-logicalfilelist">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-comparefiles">
-							<a href="#desc-file-comparefiles" data-toggle="collapse">
+							<a href=".desc-file-comparefiles" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											FUNCTION
@@ -1763,21 +1946,29 @@
 									<td class="name">CompareFiles</td>
 									<td class="param">(varstring lfn1, varstring lfn2, boolean logical_only=TRUE, boolean use_crcs=FALSE)</td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										Compares two files, and returns a result indicating how well they match
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										Compares two files, and returns a result indicating how well they match.
+							
+							<div class="panel-collapse collapse desc-file-comparefiles">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											Compares two files, and returns a result indicating how well they match.
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Parameters</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -1814,17 +2005,17 @@
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Returns</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -1839,21 +2030,22 @@
 	
 	
 
-								
+									
 	
 	
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-comparefiles">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-verifyfile">
-							<a href="#desc-file-verifyfile" data-toggle="collapse">
+							<a href=".desc-file-verifyfile" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											FUNCTION
@@ -1873,21 +2065,29 @@
 									<td class="name">VerifyFile</td>
 									<td class="param">(varstring lfn, boolean usecrcs)</td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										Checks the system datastore (Dali) information for the file against the physical parts on disk
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										Checks the system datastore (Dali) information for the file against the physical parts on disk.
+							
+							<div class="panel-collapse collapse desc-file-verifyfile">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											Checks the system datastore (Dali) information for the file against the physical parts on disk.
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Parameters</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -1910,17 +2110,17 @@
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Returns</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -1935,21 +2135,22 @@
 	
 	
 
-								
+									
 	
 	
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-verifyfile">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-addfilerelationship">
-							<a href="#desc-file-addfilerelationship" data-toggle="collapse">
+							<a href=".desc-file-addfilerelationship" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											FUNCTION
@@ -1969,21 +2170,29 @@
 									<td class="name">AddFileRelationship</td>
 									<td class="param">(varstring primary, varstring secondary, varstring primaryflds, varstring secondaryflds, varstring kind='link', varstring cardinality, boolean payload, varstring description='')</td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										Defines the relationship between two files
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										Defines the relationship between two files. These may be DATASETs or INDEXes. Each record in the primary file should be uniquely defined by the primaryfields (ideally), preferably efficiently. This information is used by the roxie browser to link files together.
+							
+							<div class="panel-collapse collapse desc-file-addfilerelationship">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											Defines the relationship between two files. These may be DATASETs or INDEXes. Each record in the primary file should be uniquely defined by the primaryfields (ideally), preferably efficiently. This information is used by the roxie browser to link files together.
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Parameters</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -2048,31 +2257,32 @@
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-addfilerelationship">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-filerelationshiplist">
-							<a href="#desc-file-filerelationshiplist" data-toggle="collapse">
+							<a href=".desc-file-filerelationshiplist" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											FUNCTION
@@ -2092,21 +2302,29 @@
 									<td class="name">FileRelationshipList</td>
 									<td class="param">(varstring primary, varstring secondary, varstring primflds='', varstring secondaryflds='', varstring kind='link')</td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										Returns a dataset of relationships
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										Returns a dataset of relationships. The return records are structured in the FsFileRelationshipRecord format.
+							
+							<div class="panel-collapse collapse desc-file-filerelationshiplist">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											Returns a dataset of relationships. The return records are structured in the FsFileRelationshipRecord format.
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Parameters</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -2150,31 +2368,32 @@
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-filerelationshiplist">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-removefilerelationship">
-							<a href="#desc-file-removefilerelationship" data-toggle="collapse">
+							<a href=".desc-file-removefilerelationship" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											FUNCTION
@@ -2194,21 +2413,29 @@
 									<td class="name">RemoveFileRelationship</td>
 									<td class="param">(varstring primary, varstring secondary, varstring primaryflds='', varstring secondaryflds='', varstring kind='link')</td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										Removes a relationship between two files
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										Removes a relationship between two files.
+							
+							<div class="panel-collapse collapse desc-file-removefilerelationship">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											Removes a relationship between two files.
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Parameters</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -2252,31 +2479,32 @@
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-removefilerelationship">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-getcolumnmapping">
-							<a href="#desc-file-getcolumnmapping" data-toggle="collapse">
+							<a href=".desc-file-getcolumnmapping" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											FUNCTION
@@ -2296,21 +2524,29 @@
 									<td class="name">GetColumnMapping</td>
 									<td class="param">(varstring lfn)</td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										Returns the field mappings for the file, in the same format specified for the SetColumnMapping function
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										Returns the field mappings for the file, in the same format specified for the SetColumnMapping function.
+							
+							<div class="panel-collapse collapse desc-file-getcolumnmapping">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											Returns the field mappings for the file, in the same format specified for the SetColumnMapping function.
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Parameters</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -2326,31 +2562,32 @@
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-getcolumnmapping">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-setcolumnmapping">
-							<a href="#desc-file-setcolumnmapping" data-toggle="collapse">
+							<a href=".desc-file-setcolumnmapping" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											FUNCTION
@@ -2370,21 +2607,29 @@
 									<td class="name">SetColumnMapping</td>
 									<td class="param">(varstring lfn, varstring mapping)</td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										Defines how the data in the fields of the file mist be transformed between the actual data storage format and the input format used to query that data
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										Defines how the data in the fields of the file mist be transformed between the actual data storage format and the input format used to query that data. This is used by the user interface of the roxie browser.
+							
+							<div class="panel-collapse collapse desc-file-setcolumnmapping">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											Defines how the data in the fields of the file mist be transformed between the actual data storage format and the input format used to query that data. This is used by the user interface of the roxie browser.
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Parameters</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -2407,31 +2652,32 @@
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-setcolumnmapping">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-encoderfsquery">
-							<a href="#desc-file-encoderfsquery" data-toggle="collapse">
+							<a href=".desc-file-encoderfsquery" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											FUNCTION
@@ -2451,21 +2697,29 @@
 									<td class="name">EncodeRfsQuery</td>
 									<td class="param">(varstring server, varstring query)</td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										Returns a string that can be used in a DATASET declaration to read data from an RFS (Remote File Server) instance (e.g
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										Returns a string that can be used in a DATASET declaration to read data from an RFS (Remote File Server) instance (e.g. rfsmysql) on another node.
+							
+							<div class="panel-collapse collapse desc-file-encoderfsquery">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											Returns a string that can be used in a DATASET declaration to read data from an RFS (Remote File Server) instance (e.g. rfsmysql) on another node.
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Parameters</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -2488,31 +2742,32 @@
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-encoderfsquery">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-rfsaction">
-							<a href="#desc-file-rfsaction" data-toggle="collapse">
+							<a href=".desc-file-rfsaction" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											FUNCTION
@@ -2532,21 +2787,29 @@
 									<td class="name">RfsAction</td>
 									<td class="param">(varstring server, varstring query)</td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										Sends the query to the rfs server
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										Sends the query to the rfs server.
+							
+							<div class="panel-collapse collapse desc-file-rfsaction">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											Sends the query to the rfs server.
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Parameters</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -2569,31 +2832,32 @@
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-rfsaction">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-moveexternalfile">
-							<a href="#desc-file-moveexternalfile" data-toggle="collapse">
+							<a href=".desc-file-moveexternalfile" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											FUNCTION
@@ -2613,21 +2877,29 @@
 									<td class="name">MoveExternalFile</td>
 									<td class="param">(varstring location, varstring frompath, varstring topath)</td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										Moves the single physical file between two locations on the same remote machine
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										Moves the single physical file between two locations on the same remote machine. The dafileserv utility program must be running on the location machine.
+							
+							<div class="panel-collapse collapse desc-file-moveexternalfile">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											Moves the single physical file between two locations on the same remote machine. The dafileserv utility program must be running on the location machine.
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Parameters</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -2657,31 +2929,32 @@
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-moveexternalfile">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-deleteexternalfile">
-							<a href="#desc-file-deleteexternalfile" data-toggle="collapse">
+							<a href=".desc-file-deleteexternalfile" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											FUNCTION
@@ -2701,21 +2974,29 @@
 									<td class="name">DeleteExternalFile</td>
 									<td class="param">(varstring location, varstring path)</td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										Removes a single physical file from a remote machine
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										Removes a single physical file from a remote machine. The dafileserv utility program must be running on the location machine.
+							
+							<div class="panel-collapse collapse desc-file-deleteexternalfile">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											Removes a single physical file from a remote machine. The dafileserv utility program must be running on the location machine.
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Parameters</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -2738,31 +3019,32 @@
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-deleteexternalfile">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-createexternaldirectory">
-							<a href="#desc-file-createexternaldirectory" data-toggle="collapse">
+							<a href=".desc-file-createexternaldirectory" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											FUNCTION
@@ -2782,21 +3064,29 @@
 									<td class="name">CreateExternalDirectory</td>
 									<td class="param">(varstring location, varstring path)</td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										Creates the path on the location (if it does not already exist)
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										Creates the path on the location (if it does not already exist). The dafileserv utility program must be running on the location machine.
+							
+							<div class="panel-collapse collapse desc-file-createexternaldirectory">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											Creates the path on the location (if it does not already exist). The dafileserv utility program must be running on the location machine.
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Parameters</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -2819,31 +3109,32 @@
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-createexternaldirectory">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-getlogicalfileattribute">
-							<a href="#desc-file-getlogicalfileattribute" data-toggle="collapse">
+							<a href=".desc-file-getlogicalfileattribute" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											FUNCTION
@@ -2863,21 +3154,29 @@
 									<td class="name">GetLogicalFileAttribute</td>
 									<td class="param">(varstring lfn, varstring attrname)</td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										Returns the value of the given attribute for the specified logicalfilename
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										Returns the value of the given attribute for the specified logicalfilename.
+							
+							<div class="panel-collapse collapse desc-file-getlogicalfileattribute">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											Returns the value of the given attribute for the specified logicalfilename.
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Parameters</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -2900,31 +3199,32 @@
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-getlogicalfileattribute">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-protectlogicalfile">
-							<a href="#desc-file-protectlogicalfile" data-toggle="collapse">
+							<a href=".desc-file-protectlogicalfile" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											FUNCTION
@@ -2944,21 +3244,29 @@
 									<td class="name">ProtectLogicalFile</td>
 									<td class="param">(varstring lfn, boolean value=TRUE)</td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										Toggles protection on and off for the specified logicalfilename
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										Toggles protection on and off for the specified logicalfilename.
+							
+							<div class="panel-collapse collapse desc-file-protectlogicalfile">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											Toggles protection on and off for the specified logicalfilename.
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Parameters</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -2981,31 +3289,32 @@
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-protectlogicalfile">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-dfuplusexec">
-							<a href="#desc-file-dfuplusexec" data-toggle="collapse">
+							<a href=".desc-file-dfuplusexec" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											FUNCTION
@@ -3025,45 +3334,54 @@
 									<td class="name">DfuPlusExec</td>
 									<td class="param">(varstring cmdline)</td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										The DfuPlusExec action executes the specified command line just as the DfuPLus.exe program would do
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										The DfuPlusExec action executes the specified command line just as the DfuPLus.exe program would do. This allows you to have all the functionality of the DfuPLus.exe program available within your ECL code. param cmdline The DFUPlus.exe command line to execute. The valid arguments are documented in the Client Tools manual, in the section describing the DfuPlus.exe program.
+							
+							<div class="panel-collapse collapse desc-file-dfuplusexec">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											The DfuPlusExec action executes the specified command line just as the DfuPLus.exe program would do. This allows you to have all the functionality of the DfuPLus.exe program available within your ECL code. param cmdline The DFUPlus.exe command line to execute. The valid arguments are documented in the Client Tools manual, in the section describing the DfuPlus.exe program.
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-dfuplusexec">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-fsprayfixed">
-							<a href="#desc-file-fsprayfixed" data-toggle="collapse">
+							<a href=".desc-file-fsprayfixed" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											FUNCTION
@@ -3083,21 +3401,29 @@
 									<td class="name">fSprayFixed</td>
 									<td class="param">(varstring sourceIP, varstring sourcePath, integer4 recordSize, varstring destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, boolean failIfNoSourceFile=FALSE, integer4 expireDays=-1)</td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										Sprays a file of fixed length records from a single machine and distributes it across the nodes of the destination group
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										Sprays a file of fixed length records from a single machine and distributes it across the nodes of the destination group.
+							
+							<div class="panel-collapse collapse desc-file-fsprayfixed">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											Sprays a file of fixed length records from a single machine and distributes it across the nodes of the destination group.
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Parameters</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -3197,17 +3523,17 @@
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Returns</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -3222,21 +3548,22 @@
 	
 	
 
-								
+									
 	
 	
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-fsprayfixed">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-sprayfixed">
-							<a href="#desc-file-sprayfixed" data-toggle="collapse">
+							<a href=".desc-file-sprayfixed" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											FUNCTION
@@ -3256,36 +3583,44 @@
 									<td class="name">SprayFixed</td>
 									<td class="param">(varstring sourceIP, varstring sourcePath, integer4 recordSize, varstring destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, boolean failIfNoSourceFile=FALSE, integer4 expireDays=-1)</td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										Same as fSprayFixed, but does not return the DFU Workunit ID
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										Same as fSprayFixed, but does not return the DFU Workunit ID.
+							
+							<div class="panel-collapse collapse desc-file-sprayfixed">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											Same as fSprayFixed, but does not return the DFU Workunit ID.
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Also See</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -3301,15 +3636,16 @@
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-sprayfixed">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-fsprayvariable">
-							<a href="#desc-file-fsprayvariable" data-toggle="collapse">
+							<a href=".desc-file-fsprayvariable" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											FUNCTION
@@ -3329,32 +3665,36 @@
 									<td class="name">fSprayVariable</td>
 									<td class="param">(varstring sourceIP, varstring sourcePath, integer4 sourceMaxRecordSize=8192, varstring sourceCsvSeparate='\\,', varstring sourceCsvTerminate='\\n,\\r\\n', varstring sourceCsvQuote='\"', varstring destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, varstring sourceCsvEscape='', boolean failIfNoSourceFile=FALSE, boolean recordStructurePresent=FALSE, boolean quotedTerminator=TRUE, varstring encoding='ascii', integer4 expireDays=-1)</td>
 								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								
-								
+							
+							<div class="panel-collapse collapse desc-file-fsprayvariable">
+							
+								<div class="panel-body desc-panel-body">
+									
+									
 	
 
-								
+									
 	
 
-								
+									
 	
 
-								
+									
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-fsprayvariable">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-sprayvariable">
-							<a href="#desc-file-sprayvariable" data-toggle="collapse">
+							<a href=".desc-file-sprayvariable" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											FUNCTION
@@ -3374,32 +3714,36 @@
 									<td class="name">SprayVariable</td>
 									<td class="param">(varstring sourceIP, varstring sourcePath, integer4 sourceMaxRecordSize=8192, varstring sourceCsvSeparate='\\,', varstring sourceCsvTerminate='\\n,\\r\\n', varstring sourceCsvQuote='\"', varstring destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, varstring sourceCsvEscape='', boolean failIfNoSourceFile=FALSE, boolean recordStructurePresent=FALSE, boolean quotedTerminator=TRUE, varstring encoding='ascii', integer4 expireDays=-1)</td>
 								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								
-								
+							
+							<div class="panel-collapse collapse desc-file-sprayvariable">
+							
+								<div class="panel-body desc-panel-body">
+									
+									
 	
 
-								
+									
 	
 
-								
+									
 	
 
-								
+									
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-sprayvariable">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-fspraydelimited">
-							<a href="#desc-file-fspraydelimited" data-toggle="collapse">
+							<a href=".desc-file-fspraydelimited" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											FUNCTION
@@ -3419,21 +3763,29 @@
 									<td class="name">fSprayDelimited</td>
 									<td class="param">(varstring sourceIP, varstring sourcePath, integer4 sourceMaxRecordSize=8192, varstring sourceCsvSeparate='\\,', varstring sourceCsvTerminate='\\n,\\r\\n', varstring sourceCsvQuote='\"', varstring destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, varstring sourceCsvEscape='', boolean failIfNoSourceFile=FALSE, boolean recordStructurePresent=FALSE, boolean quotedTerminator=TRUE, varstring encoding='ascii', integer4 expireDays=-1)</td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										Sprays a file of fixed delimited records from a single machine and distributes it across the nodes of the destination group
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										Sprays a file of fixed delimited records from a single machine and distributes it across the nodes of the destination group.
+							
+							<div class="panel-collapse collapse desc-file-fspraydelimited">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											Sprays a file of fixed delimited records from a single machine and distributes it across the nodes of the destination group.
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Parameters</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -3575,17 +3927,17 @@
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Returns</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -3600,21 +3952,22 @@
 	
 	
 
-								
+									
 	
 	
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-fspraydelimited">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-spraydelimited">
-							<a href="#desc-file-spraydelimited" data-toggle="collapse">
+							<a href=".desc-file-spraydelimited" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											FUNCTION
@@ -3634,36 +3987,44 @@
 									<td class="name">SprayDelimited</td>
 									<td class="param">(varstring sourceIP, varstring sourcePath, integer4 sourceMaxRecordSize=8192, varstring sourceCsvSeparate='\\,', varstring sourceCsvTerminate='\\n,\\r\\n', varstring sourceCsvQuote='\"', varstring destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, varstring sourceCsvEscape='', boolean failIfNoSourceFile=FALSE, boolean recordStructurePresent=FALSE, boolean quotedTerminator=TRUE, const varstring encoding='ascii', integer4 expireDays=-1)</td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										Same as fSprayDelimited, but does not return the DFU Workunit ID
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										Same as fSprayDelimited, but does not return the DFU Workunit ID.
+							
+							<div class="panel-collapse collapse desc-file-spraydelimited">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											Same as fSprayDelimited, but does not return the DFU Workunit ID.
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Also See</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -3679,15 +4040,16 @@
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-spraydelimited">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-fsprayxml">
-							<a href="#desc-file-fsprayxml" data-toggle="collapse">
+							<a href=".desc-file-fsprayxml" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											FUNCTION
@@ -3707,21 +4069,29 @@
 									<td class="name">fSprayXml</td>
 									<td class="param">(varstring sourceIP, varstring sourcePath, integer4 sourceMaxRecordSize=8192, varstring sourceRowTag, varstring sourceEncoding='utf8', varstring destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, boolean failIfNoSourceFile=FALSE, integer4 expireDays=-1)</td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										Sprays an xml file from a single machine and distributes it across the nodes of the destination group
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										Sprays an xml file from a single machine and distributes it across the nodes of the destination group.
+							
+							<div class="panel-collapse collapse desc-file-fsprayxml">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											Sprays an xml file from a single machine and distributes it across the nodes of the destination group.
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Parameters</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -3835,17 +4205,17 @@
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Returns</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -3860,21 +4230,22 @@
 	
 	
 
-								
+									
 	
 	
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-fsprayxml">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-sprayxml">
-							<a href="#desc-file-sprayxml" data-toggle="collapse">
+							<a href=".desc-file-sprayxml" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											FUNCTION
@@ -3894,36 +4265,44 @@
 									<td class="name">SprayXml</td>
 									<td class="param">(varstring sourceIP, varstring sourcePath, integer4 sourceMaxRecordSize=8192, varstring sourceRowTag, varstring sourceEncoding='utf8', varstring destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean compress=FALSE, boolean failIfNoSourceFile=FALSE, integer4 expireDays=-1)</td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										Same as fSprayXml, but does not return the DFU Workunit ID
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										Same as fSprayXml, but does not return the DFU Workunit ID.
+							
+							<div class="panel-collapse collapse desc-file-sprayxml">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											Same as fSprayXml, but does not return the DFU Workunit ID.
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Also See</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -3939,15 +4318,16 @@
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-sprayxml">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-fdespray">
-							<a href="#desc-file-fdespray" data-toggle="collapse">
+							<a href=".desc-file-fdespray" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											FUNCTION
@@ -3967,21 +4347,29 @@
 									<td class="name">fDespray</td>
 									<td class="param">(varstring logicalName, varstring destinationIP, varstring destinationPath, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE)</td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										Copies a distributed file from multiple machines, and desprays it to a single file on a single machine
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										Copies a distributed file from multiple machines, and desprays it to a single file on a single machine.
+							
+							<div class="panel-collapse collapse desc-file-fdespray">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											Copies a distributed file from multiple machines, and desprays it to a single file on a single machine.
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Parameters</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -4039,17 +4427,17 @@
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Returns</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -4064,21 +4452,22 @@
 	
 	
 
-								
+									
 	
 	
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-fdespray">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-despray">
-							<a href="#desc-file-despray" data-toggle="collapse">
+							<a href=".desc-file-despray" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											FUNCTION
@@ -4098,36 +4487,44 @@
 									<td class="name">Despray</td>
 									<td class="param">(varstring logicalName, varstring destinationIP, varstring destinationPath, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE)</td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										Same as fDespray, but does not return the DFU Workunit ID
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										Same as fDespray, but does not return the DFU Workunit ID.
+							
+							<div class="panel-collapse collapse desc-file-despray">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											Same as fDespray, but does not return the DFU Workunit ID.
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Also See</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -4143,15 +4540,16 @@
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-despray">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-fcopy">
-							<a href="#desc-file-fcopy" data-toggle="collapse">
+							<a href=".desc-file-fcopy" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											FUNCTION
@@ -4171,21 +4569,29 @@
 									<td class="name">fCopy</td>
 									<td class="param">(varstring sourceLogicalName, varstring destinationGroup, varstring destinationLogicalName, varstring sourceDali='', integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean asSuperfile=FALSE, boolean compress=FALSE, boolean forcePush=FALSE, integer4 transferBufferSize=0, boolean preserveCompression=TRUE)</td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										Copies a distributed file to another distributed file
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										Copies a distributed file to another distributed file.
+							
+							<div class="panel-collapse collapse desc-file-fcopy">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											Copies a distributed file to another distributed file.
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Parameters</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -4285,17 +4691,17 @@
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Returns</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -4310,21 +4716,22 @@
 	
 	
 
-								
+									
 	
 	
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-fcopy">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-copy">
-							<a href="#desc-file-copy" data-toggle="collapse">
+							<a href=".desc-file-copy" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											FUNCTION
@@ -4344,36 +4751,44 @@
 									<td class="name">Copy</td>
 									<td class="param">(varstring sourceLogicalName, varstring destinationGroup, varstring destinationLogicalName, varstring sourceDali='', integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'), integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean asSuperfile=FALSE, boolean compress=FALSE, boolean forcePush=FALSE, integer4 transferBufferSize=0, boolean preserveCompression=TRUE)</td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										Same as fCopy, but does not return the DFU Workunit ID
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										Same as fCopy, but does not return the DFU Workunit ID.
+							
+							<div class="panel-collapse collapse desc-file-copy">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											Same as fCopy, but does not return the DFU Workunit ID.
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Also See</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -4389,15 +4804,16 @@
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-copy">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-freplicate">
-							<a href="#desc-file-freplicate" data-toggle="collapse">
+							<a href=".desc-file-freplicate" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											FUNCTION
@@ -4417,21 +4833,29 @@
 									<td class="name">fReplicate</td>
 									<td class="param">(varstring logicalName, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'))</td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										Ensures the specified file is replicated to its mirror copies
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										Ensures the specified file is replicated to its mirror copies.
+							
+							<div class="panel-collapse collapse desc-file-freplicate">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											Ensures the specified file is replicated to its mirror copies.
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Parameters</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -4461,17 +4885,17 @@
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Returns</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -4486,21 +4910,22 @@
 	
 	
 
-								
+									
 	
 	
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-freplicate">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-replicate">
-							<a href="#desc-file-replicate" data-toggle="collapse">
+							<a href=".desc-file-replicate" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											FUNCTION
@@ -4520,36 +4945,44 @@
 									<td class="name">Replicate</td>
 									<td class="param">(varstring logicalName, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'))</td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										Same as fReplicated, but does not return the DFU Workunit ID
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										Same as fReplicated, but does not return the DFU Workunit ID.
+							
+							<div class="panel-collapse collapse desc-file-replicate">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											Same as fReplicated, but does not return the DFU Workunit ID.
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Also See</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -4565,15 +4998,16 @@
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-replicate">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-fremotepull">
-							<a href="#desc-file-fremotepull" data-toggle="collapse">
+							<a href=".desc-file-fremotepull" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											FUNCTION
@@ -4593,21 +5027,29 @@
 									<td class="name">fRemotePull</td>
 									<td class="param">(varstring remoteEspFsURL, varstring sourceLogicalName, varstring destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean asSuperfile=FALSE, boolean forcePush=FALSE, integer4 transferBufferSize=0, boolean wrap=FALSE, boolean compress=FALSE)</td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										Copies a distributed file to a distributed file on remote system
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										Copies a distributed file to a distributed file on remote system. Similar to fCopy, except the copy executes remotely. Since the DFU workunit executes on the remote DFU server, the user name authentication must be the same on both systems, and the user must have rights to copy files on both systems.
+							
+							<div class="panel-collapse collapse desc-file-fremotepull">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											Copies a distributed file to a distributed file on remote system. Similar to fCopy, except the copy executes remotely. Since the DFU workunit executes on the remote DFU server, the user name authentication must be the same on both systems, and the user must have rights to copy files on both systems.
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Parameters</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -4707,17 +5149,17 @@
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Returns</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -4732,21 +5174,22 @@
 	
 	
 
-								
+									
 	
 	
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-fremotepull">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-remotepull">
-							<a href="#desc-file-remotepull" data-toggle="collapse">
+							<a href=".desc-file-remotepull" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											FUNCTION
@@ -4766,36 +5209,44 @@
 									<td class="name">RemotePull</td>
 									<td class="param">(varstring remoteEspFsURL, varstring sourceLogicalName, varstring destinationGroup, varstring destinationLogicalName, integer4 timeOut=-1, integer4 maxConnections=-1, boolean allowOverwrite=FALSE, boolean replicate=FALSE, boolean asSuperfile=FALSE, boolean forcePush=FALSE, integer4 transferBufferSize=0, boolean wrap=FALSE, boolean compress=FALSE)</td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										Same as fRemotePull, but does not return the DFU Workunit ID
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										Same as fRemotePull, but does not return the DFU Workunit ID.
+							
+							<div class="panel-collapse collapse desc-file-remotepull">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											Same as fRemotePull, but does not return the DFU Workunit ID.
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Also See</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -4811,15 +5262,16 @@
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-remotepull">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-fmonitorlogicalfilename">
-							<a href="#desc-file-fmonitorlogicalfilename" data-toggle="collapse">
+							<a href=".desc-file-fmonitorlogicalfilename" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											FUNCTION
@@ -4839,21 +5291,29 @@
 									<td class="name">fMonitorLogicalFileName</td>
 									<td class="param">(varstring eventToFire, varstring name, integer4 shotCount=1, varstring espServerIpPort=GETENV('ws_fs_server'))</td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										Creates a file monitor job in the DFU Server
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										Creates a file monitor job in the DFU Server. If an appropriately named file arrives in this interval it will fire the event with the name of the triggering object as the event subtype (see the EVENT function).
+							
+							<div class="panel-collapse collapse desc-file-fmonitorlogicalfilename">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											Creates a file monitor job in the DFU Server. If an appropriately named file arrives in this interval it will fire the event with the name of the triggering object as the event subtype (see the EVENT function).
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Parameters</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -4890,17 +5350,17 @@
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Returns</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -4915,21 +5375,22 @@
 	
 	
 
-								
+									
 	
 	
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-fmonitorlogicalfilename">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-monitorlogicalfilename">
-							<a href="#desc-file-monitorlogicalfilename" data-toggle="collapse">
+							<a href=".desc-file-monitorlogicalfilename" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											FUNCTION
@@ -4949,36 +5410,44 @@
 									<td class="name">MonitorLogicalFileName</td>
 									<td class="param">(varstring eventToFire, varstring name, integer4 shotCount=1, varstring espServerIpPort=GETENV('ws_fs_server'))</td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										Same as fMonitorLogicalFileName, but does not return the DFU Workunit ID
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										Same as fMonitorLogicalFileName, but does not return the DFU Workunit ID.
+							
+							<div class="panel-collapse collapse desc-file-monitorlogicalfilename">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											Same as fMonitorLogicalFileName, but does not return the DFU Workunit ID.
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Also See</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -4994,15 +5463,16 @@
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-monitorlogicalfilename">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-fmonitorfile">
-							<a href="#desc-file-fmonitorfile" data-toggle="collapse">
+							<a href=".desc-file-fmonitorfile" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											FUNCTION
@@ -5022,21 +5492,29 @@
 									<td class="name">fMonitorFile</td>
 									<td class="param">(varstring eventToFire, varstring ip, varstring filename, boolean subDirs=FALSE, integer4 shotCount=1, varstring espServerIpPort=GETENV('ws_fs_server'))</td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										Creates a file monitor job in the DFU Server
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										Creates a file monitor job in the DFU Server. If an appropriately named file arrives in this interval it will fire the event with the name of the triggering object as the event subtype (see the EVENT function).
+							
+							<div class="panel-collapse collapse desc-file-fmonitorfile">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											Creates a file monitor job in the DFU Server. If an appropriately named file arrives in this interval it will fire the event with the name of the triggering object as the event subtype (see the EVENT function).
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Parameters</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -5087,17 +5565,17 @@
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Returns</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -5112,21 +5590,22 @@
 	
 	
 
-								
+									
 	
 	
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-fmonitorfile">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-monitorfile">
-							<a href="#desc-file-monitorfile" data-toggle="collapse">
+							<a href=".desc-file-monitorfile" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											FUNCTION
@@ -5146,36 +5625,44 @@
 									<td class="name">MonitorFile</td>
 									<td class="param">(varstring eventToFire, varstring ip, varstring filename, boolean subdirs=FALSE, integer4 shotCount=1, varstring espServerIpPort=GETENV('ws_fs_server'))</td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										Same as fMonitorFile, but does not return the DFU Workunit ID
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										Same as fMonitorFile, but does not return the DFU Workunit ID.
+							
+							<div class="panel-collapse collapse desc-file-monitorfile">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											Same as fMonitorFile, but does not return the DFU Workunit ID.
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Also See</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -5191,15 +5678,16 @@
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-monitorfile">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-waitdfuworkunit">
-							<a href="#desc-file-waitdfuworkunit" data-toggle="collapse">
+							<a href=".desc-file-waitdfuworkunit" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											FUNCTION
@@ -5219,21 +5707,29 @@
 									<td class="name">WaitDfuWorkunit</td>
 									<td class="param">(varstring wuid, integer4 timeOut=-1, varstring espServerIpPort=GETENV('ws_fs_server'))</td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										Waits for the specified DFU workunit to finish
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										Waits for the specified DFU workunit to finish.
+							
+							<div class="panel-collapse collapse desc-file-waitdfuworkunit">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											Waits for the specified DFU workunit to finish.
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Parameters</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -5263,17 +5759,17 @@
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Returns</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -5288,21 +5784,22 @@
 	
 	
 
-								
+									
 	
 	
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-waitdfuworkunit">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-abortdfuworkunit">
-							<a href="#desc-file-abortdfuworkunit" data-toggle="collapse">
+							<a href=".desc-file-abortdfuworkunit" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											FUNCTION
@@ -5322,21 +5819,29 @@
 									<td class="name">AbortDfuWorkunit</td>
 									<td class="param">(varstring wuid, varstring espServerIpPort=GETENV('ws_fs_server'))</td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										Aborts the specified DFU workunit
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										Aborts the specified DFU workunit.
+							
+							<div class="panel-collapse collapse desc-file-abortdfuworkunit">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											Aborts the specified DFU workunit.
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Parameters</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -5359,31 +5864,32 @@
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-abortdfuworkunit">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-createsuperfile">
-							<a href="#desc-file-createsuperfile" data-toggle="collapse">
+							<a href=".desc-file-createsuperfile" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											FUNCTION
@@ -5403,21 +5909,29 @@
 									<td class="name">CreateSuperFile</td>
 									<td class="param">(varstring superName, boolean sequentialParts=FALSE, boolean allowExist=FALSE)</td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										Creates an empty superfile
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										Creates an empty superfile. This function is not included in a superfile transaction.
+							
+							<div class="panel-collapse collapse desc-file-createsuperfile">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											Creates an empty superfile. This function is not included in a superfile transaction.
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Parameters</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -5447,31 +5961,32 @@
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-createsuperfile">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-superfileexists">
-							<a href="#desc-file-superfileexists" data-toggle="collapse">
+							<a href=".desc-file-superfileexists" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											FUNCTION
@@ -5491,21 +6006,29 @@
 									<td class="name">SuperFileExists</td>
 									<td class="param">(varstring superName)</td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										Checks if the specified filename is present in the Distributed File Utility (DFU) and is a SuperFile
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										Checks if the specified filename is present in the Distributed File Utility (DFU) and is a SuperFile.
+							
+							<div class="panel-collapse collapse desc-file-superfileexists">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											Checks if the specified filename is present in the Distributed File Utility (DFU) and is a SuperFile.
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Parameters</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -5521,17 +6044,17 @@
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Returns</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -5546,12 +6069,12 @@
 	
 	
 
-								
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Also See</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -5567,15 +6090,16 @@
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-superfileexists">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-deletesuperfile">
-							<a href="#desc-file-deletesuperfile" data-toggle="collapse">
+							<a href=".desc-file-deletesuperfile" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											FUNCTION
@@ -5595,21 +6119,29 @@
 									<td class="name">DeleteSuperFile</td>
 									<td class="param">(varstring superName, boolean deletesub=FALSE)</td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										Deletes the superfile
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										Deletes the superfile.
+							
+							<div class="panel-collapse collapse desc-file-deletesuperfile">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											Deletes the superfile.
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Parameters</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -5625,22 +6157,22 @@
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Also See</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -5656,15 +6188,16 @@
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-deletesuperfile">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-getsuperfilesubcount">
-							<a href="#desc-file-getsuperfilesubcount" data-toggle="collapse">
+							<a href=".desc-file-getsuperfilesubcount" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											FUNCTION
@@ -5684,21 +6217,29 @@
 									<td class="name">GetSuperFileSubCount</td>
 									<td class="param">(varstring superName)</td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										Returns the number of sub-files contained within a superfile
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										Returns the number of sub-files contained within a superfile.
+							
+							<div class="panel-collapse collapse desc-file-getsuperfilesubcount">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											Returns the number of sub-files contained within a superfile.
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Parameters</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -5714,17 +6255,17 @@
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Returns</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -5739,21 +6280,22 @@
 	
 	
 
-								
+									
 	
 	
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-getsuperfilesubcount">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-getsuperfilesubname">
-							<a href="#desc-file-getsuperfilesubname" data-toggle="collapse">
+							<a href=".desc-file-getsuperfilesubname" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											FUNCTION
@@ -5773,21 +6315,29 @@
 									<td class="name">GetSuperFileSubName</td>
 									<td class="param">(varstring superName, unsigned4 fileNum, boolean absPath=FALSE)</td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										Returns the name of the Nth sub-file within a superfile
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										Returns the name of the Nth sub-file within a superfile.
+							
+							<div class="panel-collapse collapse desc-file-getsuperfilesubname">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											Returns the name of the Nth sub-file within a superfile.
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Parameters</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -5817,17 +6367,17 @@
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Returns</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -5842,21 +6392,22 @@
 	
 	
 
-								
+									
 	
 	
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-getsuperfilesubname">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-findsuperfilesubname">
-							<a href="#desc-file-findsuperfilesubname" data-toggle="collapse">
+							<a href=".desc-file-findsuperfilesubname" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											FUNCTION
@@ -5876,21 +6427,29 @@
 									<td class="name">FindSuperFileSubName</td>
 									<td class="param">(varstring superName, varstring subName)</td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										Returns the position of a file within a superfile
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										Returns the position of a file within a superfile.
+							
+							<div class="panel-collapse collapse desc-file-findsuperfilesubname">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											Returns the position of a file within a superfile.
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Parameters</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -5913,17 +6472,17 @@
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Returns</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -5938,21 +6497,22 @@
 	
 	
 
-								
+									
 	
 	
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-findsuperfilesubname">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-startsuperfiletransaction">
-							<a href="#desc-file-startsuperfiletransaction" data-toggle="collapse">
+							<a href=".desc-file-startsuperfiletransaction" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											FUNCTION
@@ -5972,45 +6532,54 @@
 									<td class="name">StartSuperFileTransaction</td>
 									<td class="param">()</td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										Starts a superfile transaction
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										Starts a superfile transaction. All superfile operations within the transaction will either be executed atomically or rolled back when the transaction is finished.
+							
+							<div class="panel-collapse collapse desc-file-startsuperfiletransaction">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											Starts a superfile transaction. All superfile operations within the transaction will either be executed atomically or rolled back when the transaction is finished.
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-startsuperfiletransaction">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-addsuperfile">
-							<a href="#desc-file-addsuperfile" data-toggle="collapse">
+							<a href=".desc-file-addsuperfile" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											FUNCTION
@@ -6030,21 +6599,29 @@
 									<td class="name">AddSuperFile</td>
 									<td class="param">(varstring superName, varstring subName, unsigned4 atPos=0, boolean addContents=FALSE, boolean strict=FALSE)</td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										Adds a file to a superfile
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										Adds a file to a superfile.
+							
+							<div class="panel-collapse collapse desc-file-addsuperfile">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											Adds a file to a superfile.
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Parameters</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -6088,31 +6665,32 @@
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-addsuperfile">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-removesuperfile">
-							<a href="#desc-file-removesuperfile" data-toggle="collapse">
+							<a href=".desc-file-removesuperfile" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											FUNCTION
@@ -6132,21 +6710,29 @@
 									<td class="name">RemoveSuperFile</td>
 									<td class="param">(varstring superName, varstring subName, boolean del=FALSE, boolean removeContents=FALSE)</td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										Removes a sub-file from a superfile
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										Removes a sub-file from a superfile.
+							
+							<div class="panel-collapse collapse desc-file-removesuperfile">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											Removes a sub-file from a superfile.
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Parameters</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -6183,31 +6769,32 @@
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-removesuperfile">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-clearsuperfile">
-							<a href="#desc-file-clearsuperfile" data-toggle="collapse">
+							<a href=".desc-file-clearsuperfile" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											FUNCTION
@@ -6227,21 +6814,29 @@
 									<td class="name">ClearSuperFile</td>
 									<td class="param">(varstring superName, boolean del=FALSE)</td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										Removes all sub-files from a superfile
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										Removes all sub-files from a superfile.
+							
+							<div class="panel-collapse collapse desc-file-clearsuperfile">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											Removes all sub-files from a superfile.
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Parameters</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -6264,31 +6859,32 @@
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-clearsuperfile">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-removeownedsubfiles">
-							<a href="#desc-file-removeownedsubfiles" data-toggle="collapse">
+							<a href=".desc-file-removeownedsubfiles" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											FUNCTION
@@ -6308,21 +6904,29 @@
 									<td class="name">RemoveOwnedSubFiles</td>
 									<td class="param">(varstring superName, boolean del=FALSE)</td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										Removes all soley-owned sub-files from a superfile
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										Removes all soley-owned sub-files from a superfile. If a sub-file is also contained within another superfile then it is retained.
+							
+							<div class="panel-collapse collapse desc-file-removeownedsubfiles">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											Removes all soley-owned sub-files from a superfile. If a sub-file is also contained within another superfile then it is retained.
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Parameters</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -6338,31 +6942,32 @@
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-removeownedsubfiles">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-deleteownedsubfiles">
-							<a href="#desc-file-deleteownedsubfiles" data-toggle="collapse">
+							<a href=".desc-file-deleteownedsubfiles" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											FUNCTION
@@ -6382,36 +6987,44 @@
 									<td class="name">DeleteOwnedSubFiles</td>
 									<td class="param">(varstring superName)</td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										Legacy version of RemoveOwnedSubFiles which was incorrectly named in a previous version
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										Legacy version of RemoveOwnedSubFiles which was incorrectly named in a previous version.
+							
+							<div class="panel-collapse collapse desc-file-deleteownedsubfiles">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											Legacy version of RemoveOwnedSubFiles which was incorrectly named in a previous version.
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Also See</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -6427,15 +7040,16 @@
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-deleteownedsubfiles">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-swapsuperfile">
-							<a href="#desc-file-swapsuperfile" data-toggle="collapse">
+							<a href=".desc-file-swapsuperfile" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											FUNCTION
@@ -6455,21 +7069,29 @@
 									<td class="name">SwapSuperFile</td>
 									<td class="param">(varstring superName1, varstring superName2)</td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										Swap the contents of two superfiles
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										Swap the contents of two superfiles.
+							
+							<div class="panel-collapse collapse desc-file-swapsuperfile">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											Swap the contents of two superfiles.
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Parameters</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -6492,31 +7114,32 @@
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-swapsuperfile">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-replacesuperfile">
-							<a href="#desc-file-replacesuperfile" data-toggle="collapse">
+							<a href=".desc-file-replacesuperfile" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											FUNCTION
@@ -6536,21 +7159,29 @@
 									<td class="name">ReplaceSuperFile</td>
 									<td class="param">(varstring superName, varstring oldSubFile, varstring newSubFile)</td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										Removes a sub-file from a superfile and replaces it with another
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										Removes a sub-file from a superfile and replaces it with another.
+							
+							<div class="panel-collapse collapse desc-file-replacesuperfile">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											Removes a sub-file from a superfile and replaces it with another.
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Parameters</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -6580,31 +7211,32 @@
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-replacesuperfile">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-finishsuperfiletransaction">
-							<a href="#desc-file-finishsuperfiletransaction" data-toggle="collapse">
+							<a href=".desc-file-finishsuperfiletransaction" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											FUNCTION
@@ -6624,45 +7256,54 @@
 									<td class="name">FinishSuperFileTransaction</td>
 									<td class="param">(boolean rollback=FALSE)</td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										Finishes a superfile transaction
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										Finishes a superfile transaction. This executes all the operations since the matching StartSuperFileTransaction(). If there are any errors, then all of the operations are rolled back.
+							
+							<div class="panel-collapse collapse desc-file-finishsuperfiletransaction">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											Finishes a superfile transaction. This executes all the operations since the matching StartSuperFileTransaction(). If there are any errors, then all of the operations are rolled back.
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-finishsuperfiletransaction">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-superfilecontents">
-							<a href="#desc-file-superfilecontents" data-toggle="collapse">
+							<a href=".desc-file-superfilecontents" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											FUNCTION
@@ -6682,21 +7323,29 @@
 									<td class="name">SuperFileContents</td>
 									<td class="param">(varstring superName, boolean recurse=FALSE)</td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										Returns the list of sub-files contained within a superfile
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										Returns the list of sub-files contained within a superfile.
+							
+							<div class="panel-collapse collapse desc-file-superfilecontents">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											Returns the list of sub-files contained within a superfile.
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Parameters</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -6719,17 +7368,17 @@
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Returns</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -6744,21 +7393,22 @@
 	
 	
 
-								
+									
 	
 	
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-superfilecontents">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-logicalfilesuperowners">
-							<a href="#desc-file-logicalfilesuperowners" data-toggle="collapse">
+							<a href=".desc-file-logicalfilesuperowners" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											FUNCTION
@@ -6778,21 +7428,29 @@
 									<td class="name">LogicalFileSuperOwners</td>
 									<td class="param">(varstring name)</td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										Returns the list of superfiles that a logical file is contained within
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										Returns the list of superfiles that a logical file is contained within.
+							
+							<div class="panel-collapse collapse desc-file-logicalfilesuperowners">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											Returns the list of superfiles that a logical file is contained within.
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Parameters</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -6808,17 +7466,17 @@
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Returns</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -6833,21 +7491,22 @@
 	
 	
 
-								
+									
 	
 	
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-logicalfilesuperowners">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-logicalfilesupersublist">
-							<a href="#desc-file-logicalfilesupersublist" data-toggle="collapse">
+							<a href=".desc-file-logicalfilesupersublist" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											FUNCTION
@@ -6867,31 +7526,39 @@
 									<td class="name">LogicalFileSuperSubList</td>
 									<td class="param">()</td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										Returns the list of all the superfiles in the system and their component sub-files
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										Returns the list of all the superfiles in the system and their component sub-files.
+							
+							<div class="panel-collapse collapse desc-file-logicalfilesupersublist">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											Returns the list of all the superfiles in the system and their component sub-files.
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Returns</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -6906,21 +7573,22 @@
 	
 	
 
-								
+									
 	
 	
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-logicalfilesupersublist">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-fpromotesuperfilelist">
-							<a href="#desc-file-fpromotesuperfilelist" data-toggle="collapse">
+							<a href=".desc-file-fpromotesuperfilelist" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											FUNCTION
@@ -6940,21 +7608,29 @@
 									<td class="name">fPromoteSuperFileList</td>
 									<td class="param">(set of varstring superNames, varstring addHead='', boolean delTail=FALSE, boolean createOnlyOne=FALSE, boolean reverse=FALSE)</td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										Moves the sub-files from the first entry in the list of superfiles to the next in the list, repeating the process through the list of superfiles
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										Moves the sub-files from the first entry in the list of superfiles to the next in the list, repeating the process through the list of superfiles.
+							
+							<div class="panel-collapse collapse desc-file-fpromotesuperfilelist">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											Moves the sub-files from the first entry in the list of superfiles to the next in the list, repeating the process through the list of superfiles.
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Parameters</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -6998,17 +7674,17 @@
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Returns</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -7023,21 +7699,22 @@
 	
 	
 
-								
+									
 	
 	
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-fpromotesuperfilelist">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-info desc-panel" id="dfile-promotesuperfilelist">
-							<a href="#desc-file-promotesuperfilelist" data-toggle="collapse">
+							<a href=".desc-file-promotesuperfilelist" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
 											FUNCTION
@@ -7057,36 +7734,44 @@
 									<td class="name">PromoteSuperFileList</td>
 									<td class="param">(set of varstring superNames, varstring addHead='', boolean delTail=FALSE, boolean createOnlyOne=FALSE, boolean reverse=FALSE)</td>
 								</tr>
+								<tr style="background: #f2f7ff;">
+									<td colspan="3">
+										Same as fPromoteSuperFileList, but does not return the DFU Workunit ID
+									</td>
+								</tr>
+								
 							</table>
-
-							<div class="panel-body desc-panel-body">
-								<div class="row">
-									<div class="col-md-12" style="padding-bottom: 10px;">
-										Same as fPromoteSuperFileList, but does not return the DFU Workunit ID.
+							
+							<div class="panel-collapse collapse desc-file-promotesuperfilelist">
+							
+								<div class="panel-body desc-panel-body">
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom: 10px;">
+											Same as fPromoteSuperFileList, but does not return the DFU Workunit ID.
+										</div>
 									</div>
-								</div>
-								
-								
+									
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	
 
-								
+									
 	
 	
 	<div class="row">
 		<div class="col-md-1 doc-type">Also See</div>
-		<div class="col-md-11">
+		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
 				
 				<tr>
@@ -7102,14 +7787,16 @@
 	
 
 
-								</div>
-							<div class="panel-footer desc-panel-footer">
-								<div class="panel-group collapse desc-panel-group" id="desc-file-promotesuperfilelist">
-								
+									</div>
+								<div class="panel-footer desc-panel-footer">
+									<div class="panel-group desc-panel-group">
+									
+									</div>
 								</div>
 							</div>
 						</div>
 						
+									</div>
 								</div>
 							</div>
 						</div>
