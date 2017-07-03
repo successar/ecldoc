@@ -1,149 +1,262 @@
 <Meta>
- <Source name="LogisticRegression.DataStats" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/DataStats.ecl">
-  <Import body="0"
-          end="7"
-          fullname="LogisticRegression"
-          inherit_type="local"
-          line="1"
-          name="LogisticRegression"
-          ref="LogisticRegression"
-          start="7">
-   <Type>attribute</Type>
-  </Import>
-  <Import body="0"
-          end="39"
-          fullname="LogisticRegression.Types"
-          inherit_type="local"
-          line="2"
-          name="Types"
-          ref="LogisticRegression.Types"
-          start="39">
-   <Type>attribute</Type>
-  </Import>
-  <Import body="0"
-          end="81"
-          fullname="LogisticRegression.Constants"
-          inherit_type="local"
-          line="3"
-          name="Constants"
-          ref="LogisticRegression.Constants"
-          start="81">
-   <Type>attribute</Type>
-  </Import>
-  <Import body="0"
-          end="131"
-          fullname="ML_Core.Types"
-          inherit_type="local"
-          line="4"
-          name="Core_Types"
-          ref="ML_Core.Types"
-          start="131">
-   <Type>attribute</Type>
-  </Import>
-  <Definition body="194"
-              end="211"
-              fullname="logisticregression.data_info"
-              inherit_type="local"
-              line="6"
-              name="Data_Info"
-              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/DataStats.ecl"
-              start="182">
-   <Type>record</Type>
-   <Field name="wi"/>
-   <Field name="dependent_fields"/>
-   <Field name="dependent_records"/>
-   <Field name="independent_fields"/>
-   <Field name="independent_records"/>
-   <Field name="dependent_count"/>
-   <Field name="independent_count"/>
-   <Field name="dependent_stats"/>
-   <Field name="independent_stats"/>
-  </Definition>
-  <Definition body="225"
-              end="243"
-              fullname="logisticregression.field_desc"
-              inherit_type="local"
-              line="7"
-              name="Field_Desc"
-              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/DataStats.ecl"
-              start="212">
-   <Type>record</Type>
-   <Field name="number"/>
-   <Field name="cardinality"/>
-   <Field name="min_value"/>
-   <Field name="max_value"/>
-  </Definition>
-  <Definition body="259"
-              end="284"
-              fullname="logisticregression.numericfield"
-              inherit_type="local"
-              line="8"
-              name="NumericField"
-              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/DataStats.ecl"
-              start="244">
-   <Type>record</Type>
-   <Field name="wi"/>
-   <Field name="id"/>
-   <Field name="number"/>
-   <Field name="value"/>
-  </Definition>
-  <Definition body="300"
-              end="326"
-              fullname="logisticregression.discretefield"
-              inherit_type="local"
-              line="9"
-              name="DiscreteField"
-              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/DataStats.ecl"
-              start="285">
-   <Type>record</Type>
-   <Field name="wi"/>
-   <Field name="id"/>
-   <Field name="number"/>
-   <Field name="value"/>
-  </Definition>
-  <Definition body="368"
-              end="427"
-              fullname="logisticregression.flat_field_desc"
-              inherit_type="local"
-              line="11"
-              name="Flat_Field_Desc"
-              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/DataStats.ecl"
-              start="350">
-   <Type>record</Type>
-   <Field name="number"/>
-   <Field name="cardinality"/>
-   <Field name="min_value"/>
-   <Field name="max_value"/>
-   <Field name="wi"/>
-  </Definition>
-  <Definition body="1254"
-              end="4864"
+ <Source name="ML_Core.Types" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl">
+  <Definition body="37"
+              end="3074"
               exported="1"
-              fullname="logisticregression.datastats"
+              fullname="ML_Core.Types"
               inherit_type="local"
-              line="28"
-              name="DataStats"
-              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/DataStats.ecl"
-              start="1059">
-   <Type>function</Type>
-   <Documentation>
-    <content>&#10;&#32;* Information about the datasets.  Without details the range
- *for the x and y (independent and dependent) columns.  Note that
- *a column of all zero values cannot be distinguished from a missing
- *column.
- * When details are requested, the cardinality, minimum, and maximum
- *values are returned.  A zero cardinality is returned when the field
- *cardinality exceeds the Constants.limit_card value.
- * @param indep data set of independent variables
- * @param dep data set of dependent variables
- * @param field_details Boolean directive to provide field level info
- * @returns a data set of information on each work item&#10;&#32;</content>
-   </Documentation>
-   <Params>
-    <Param name="indep"/>
-    <Param name="dep"/>
-    <Param name="field_details"/>
-   </Params>
+              line="2"
+              name="Types"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+              start="22">
+   <Type>module</Type>
+   <Definition body="944"
+               end="955"
+               exported="1"
+               fullname="ml_core.types.t_recordid"
+               inherit_type="local"
+               line="22"
+               name="t_RecordID"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="924">
+    <Type>attribute</Type>
+   </Definition>
+   <Definition body="981"
+               end="992"
+               exported="1"
+               fullname="ml_core.types.t_fieldnumber"
+               inherit_type="local"
+               line="23"
+               name="t_FieldNumber"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="958">
+    <Type>attribute</Type>
+   </Definition>
+   <Definition body="1016"
+               end="1023"
+               exported="1"
+               fullname="ml_core.types.t_fieldreal"
+               inherit_type="local"
+               line="24"
+               name="t_FieldReal"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="995">
+    <Type>attribute</Type>
+   </Definition>
+   <Definition body="1047"
+               end="1057"
+               exported="1"
+               fullname="ml_core.types.t_fieldsign"
+               inherit_type="local"
+               line="25"
+               name="t_FieldSign"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="1026">
+    <Type>attribute</Type>
+   </Definition>
+   <Definition body="1080"
+               end="1090"
+               exported="1"
+               fullname="ml_core.types.t_discrete"
+               inherit_type="local"
+               line="26"
+               name="t_Discrete"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="1060">
+    <Type>attribute</Type>
+   </Definition>
+   <Definition body="1109"
+               end="1120"
+               exported="1"
+               fullname="ml_core.types.t_item"
+               inherit_type="local"
+               line="27"
+               name="t_Item"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="1093">
+    <Type>attribute</Type>
+   </Definition>
+   <Definition body="1188"
+               end="1200"
+               exported="1"
+               fullname="ml_core.types.t_count"
+               inherit_type="local"
+               line="28"
+               name="t_Count"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="1171">
+    <Type>attribute</Type>
+   </Definition>
+   <Definition body="1258"
+               end="1269"
+               exported="1"
+               fullname="ml_core.types.t_work_item"
+               inherit_type="local"
+               line="29"
+               name="t_Work_Item"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="1237">
+    <Type>attribute</Type>
+   </Definition>
+   <Definition body="1391"
+               end="1600"
+               exported="1"
+               fullname="ml_core.types.anyfield"
+               inherit_type="local"
+               line="32"
+               name="AnyField"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="1369">
+    <Type>record</Type>
+    <Field name="wi"/>
+    <Field name="id"/>
+    <Field name="number"/>
+   </Definition>
+   <Definition body="1673"
+               end="1720"
+               exported="1"
+               fullname="ml_core.types.numericfield"
+               inherit_type="local"
+               line="39"
+               name="NumericField"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="1651">
+    <Type>record</Type>
+    <Field name="wi"/>
+    <Field name="id"/>
+    <Field name="number"/>
+    <Field name="value"/>
+   </Definition>
+   <Definition body="1797"
+               end="1843"
+               exported="1"
+               fullname="ml_core.types.discretefield"
+               inherit_type="local"
+               line="44"
+               name="DiscreteField"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="1774">
+    <Type>record</Type>
+    <Field name="wi"/>
+    <Field name="id"/>
+    <Field name="number"/>
+    <Field name="value"/>
+   </Definition>
+   <Definition body="1953"
+               end="2200"
+               exported="1"
+               fullname="ml_core.types.layout_model"
+               inherit_type="local"
+               line="49"
+               name="Layout_Model"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="1931">
+    <Type>record</Type>
+    <Field name="wi"/>
+    <Field name="id"/>
+    <Field name="number"/>
+    <Field name="value"/>
+   </Definition>
+   <Definition body="2261"
+               end="2336"
+               exported="1"
+               fullname="ml_core.types.classify_result"
+               inherit_type="local"
+               line="57"
+               name="Classify_Result"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="2236">
+    <Type>record</Type>
+    <Field name="wi"/>
+    <Field name="id"/>
+    <Field name="number"/>
+    <Field name="value"/>
+    <Field name="conf"/>
+   </Definition>
+   <Definition body="2357"
+               end="2410"
+               exported="1"
+               fullname="ml_core.types.l_result"
+               inherit_type="local"
+               line="60"
+               name="l_result"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="2339">
+    <Type>record</Type>
+    <Field name="wi"/>
+    <Field name="id"/>
+    <Field name="number"/>
+    <Field name="value"/>
+    <Field name="conf"/>
+   </Definition>
+   <Definition body="2440"
+               end="2639"
+               exported="1"
+               fullname="ml_core.types.confusion_detail"
+               inherit_type="local"
+               line="62"
+               name="Confusion_Detail"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="2414">
+    <Type>record</Type>
+    <Field name="wi"/>
+    <Field name="classifier"/>
+    <Field name="actual_class"/>
+    <Field name="predict_class"/>
+    <Field name="occurs"/>
+    <Field name="correct"/>
+   </Definition>
+   <Definition body="2711"
+               end="2782"
+               exported="1"
+               fullname="ml_core.types.itemelement"
+               inherit_type="local"
+               line="72"
+               name="ItemElement"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="2690">
+    <Type>record</Type>
+    <Field name="wi"/>
+    <Field name="value"/>
+    <Field name="id"/>
+   </Definition>
+   <Definition body="2848"
+               end="2858"
+               exported="1"
+               fullname="ml_core.types.t_node"
+               inherit_type="local"
+               line="79"
+               name="t_node"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="2831">
+    <Type>attribute</Type>
+   </Definition>
+   <Definition body="2942"
+               end="2953"
+               exported="1"
+               fullname="ml_core.types.t_level"
+               inherit_type="local"
+               line="80"
+               name="t_level"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="2925">
+    <Type>attribute</Type>
+   </Definition>
+   <Definition body="2995"
+               end="3069"
+               exported="1"
+               fullname="ml_core.types.nodeid"
+               inherit_type="local"
+               line="81"
+               name="NodeID"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
+               start="2978">
+    <Type>record</Type>
+    <Field name="wi"/>
+    <Field name="node_id"/>
+    <Field name="level"/>
+   </Definition>
+   <Parents/>
   </Definition>
  </Source>
  <Source name="LogisticRegression.Types" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LogisticRegression/Types.ecl">
@@ -556,266 +669,6 @@
    <Parents/>
   </Definition>
  </Source>
- <Source name="ML_Core.Types" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl">
-  <Definition body="37"
-              end="3074"
-              exported="1"
-              fullname="ML_Core.Types"
-              inherit_type="local"
-              line="2"
-              name="Types"
-              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
-              start="22">
-   <Type>module</Type>
-   <Definition body="944"
-               end="955"
-               exported="1"
-               fullname="ml_core.types.t_recordid"
-               inherit_type="local"
-               line="22"
-               name="t_RecordID"
-               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
-               start="924">
-    <Type>attribute</Type>
-   </Definition>
-   <Definition body="981"
-               end="992"
-               exported="1"
-               fullname="ml_core.types.t_fieldnumber"
-               inherit_type="local"
-               line="23"
-               name="t_FieldNumber"
-               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
-               start="958">
-    <Type>attribute</Type>
-   </Definition>
-   <Definition body="1016"
-               end="1023"
-               exported="1"
-               fullname="ml_core.types.t_fieldreal"
-               inherit_type="local"
-               line="24"
-               name="t_FieldReal"
-               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
-               start="995">
-    <Type>attribute</Type>
-   </Definition>
-   <Definition body="1047"
-               end="1057"
-               exported="1"
-               fullname="ml_core.types.t_fieldsign"
-               inherit_type="local"
-               line="25"
-               name="t_FieldSign"
-               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
-               start="1026">
-    <Type>attribute</Type>
-   </Definition>
-   <Definition body="1080"
-               end="1090"
-               exported="1"
-               fullname="ml_core.types.t_discrete"
-               inherit_type="local"
-               line="26"
-               name="t_Discrete"
-               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
-               start="1060">
-    <Type>attribute</Type>
-   </Definition>
-   <Definition body="1109"
-               end="1120"
-               exported="1"
-               fullname="ml_core.types.t_item"
-               inherit_type="local"
-               line="27"
-               name="t_Item"
-               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
-               start="1093">
-    <Type>attribute</Type>
-   </Definition>
-   <Definition body="1188"
-               end="1200"
-               exported="1"
-               fullname="ml_core.types.t_count"
-               inherit_type="local"
-               line="28"
-               name="t_Count"
-               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
-               start="1171">
-    <Type>attribute</Type>
-   </Definition>
-   <Definition body="1258"
-               end="1269"
-               exported="1"
-               fullname="ml_core.types.t_work_item"
-               inherit_type="local"
-               line="29"
-               name="t_Work_Item"
-               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
-               start="1237">
-    <Type>attribute</Type>
-   </Definition>
-   <Definition body="1391"
-               end="1600"
-               exported="1"
-               fullname="ml_core.types.anyfield"
-               inherit_type="local"
-               line="32"
-               name="AnyField"
-               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
-               start="1369">
-    <Type>record</Type>
-    <Field name="wi"/>
-    <Field name="id"/>
-    <Field name="number"/>
-   </Definition>
-   <Definition body="1673"
-               end="1720"
-               exported="1"
-               fullname="ml_core.types.numericfield"
-               inherit_type="local"
-               line="39"
-               name="NumericField"
-               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
-               start="1651">
-    <Type>record</Type>
-    <Field name="wi"/>
-    <Field name="id"/>
-    <Field name="number"/>
-    <Field name="value"/>
-   </Definition>
-   <Definition body="1797"
-               end="1843"
-               exported="1"
-               fullname="ml_core.types.discretefield"
-               inherit_type="local"
-               line="44"
-               name="DiscreteField"
-               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
-               start="1774">
-    <Type>record</Type>
-    <Field name="wi"/>
-    <Field name="id"/>
-    <Field name="number"/>
-    <Field name="value"/>
-   </Definition>
-   <Definition body="1953"
-               end="2200"
-               exported="1"
-               fullname="ml_core.types.layout_model"
-               inherit_type="local"
-               line="49"
-               name="Layout_Model"
-               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
-               start="1931">
-    <Type>record</Type>
-    <Field name="wi"/>
-    <Field name="id"/>
-    <Field name="number"/>
-    <Field name="value"/>
-   </Definition>
-   <Definition body="2261"
-               end="2336"
-               exported="1"
-               fullname="ml_core.types.classify_result"
-               inherit_type="local"
-               line="57"
-               name="Classify_Result"
-               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
-               start="2236">
-    <Type>record</Type>
-    <Field name="wi"/>
-    <Field name="id"/>
-    <Field name="number"/>
-    <Field name="value"/>
-    <Field name="conf"/>
-   </Definition>
-   <Definition body="2357"
-               end="2410"
-               exported="1"
-               fullname="ml_core.types.l_result"
-               inherit_type="local"
-               line="60"
-               name="l_result"
-               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
-               start="2339">
-    <Type>record</Type>
-    <Field name="wi"/>
-    <Field name="id"/>
-    <Field name="number"/>
-    <Field name="value"/>
-    <Field name="conf"/>
-   </Definition>
-   <Definition body="2440"
-               end="2639"
-               exported="1"
-               fullname="ml_core.types.confusion_detail"
-               inherit_type="local"
-               line="62"
-               name="Confusion_Detail"
-               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
-               start="2414">
-    <Type>record</Type>
-    <Field name="wi"/>
-    <Field name="classifier"/>
-    <Field name="actual_class"/>
-    <Field name="predict_class"/>
-    <Field name="occurs"/>
-    <Field name="correct"/>
-   </Definition>
-   <Definition body="2711"
-               end="2782"
-               exported="1"
-               fullname="ml_core.types.itemelement"
-               inherit_type="local"
-               line="72"
-               name="ItemElement"
-               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
-               start="2690">
-    <Type>record</Type>
-    <Field name="wi"/>
-    <Field name="value"/>
-    <Field name="id"/>
-   </Definition>
-   <Definition body="2848"
-               end="2858"
-               exported="1"
-               fullname="ml_core.types.t_node"
-               inherit_type="local"
-               line="79"
-               name="t_node"
-               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
-               start="2831">
-    <Type>attribute</Type>
-   </Definition>
-   <Definition body="2942"
-               end="2953"
-               exported="1"
-               fullname="ml_core.types.t_level"
-               inherit_type="local"
-               line="80"
-               name="t_level"
-               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
-               start="2925">
-    <Type>attribute</Type>
-   </Definition>
-   <Definition body="2995"
-               end="3069"
-               exported="1"
-               fullname="ml_core.types.nodeid"
-               inherit_type="local"
-               line="81"
-               name="NodeID"
-               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
-               start="2978">
-    <Type>record</Type>
-    <Field name="wi"/>
-    <Field name="node_id"/>
-    <Field name="level"/>
-   </Definition>
-   <Parents/>
-  </Definition>
- </Source>
  <Source name="LogisticRegression.Constants" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LogisticRegression/Constants.ecl">
   <Definition body="168"
               end="1315"
@@ -1070,6 +923,153 @@
     <Type>attribute</Type>
    </Definition>
    <Parents/>
+  </Definition>
+ </Source>
+ <Source name="LogisticRegression.DataStats" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/DataStats.ecl">
+  <Import body="0"
+          end="7"
+          fullname="LogisticRegression"
+          inherit_type="local"
+          line="1"
+          name="LogisticRegression"
+          ref="LogisticRegression"
+          start="7">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0"
+          end="39"
+          fullname="LogisticRegression.Types"
+          inherit_type="local"
+          line="2"
+          name="Types"
+          ref="LogisticRegression.Types"
+          start="39">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0"
+          end="81"
+          fullname="LogisticRegression.Constants"
+          inherit_type="local"
+          line="3"
+          name="Constants"
+          ref="LogisticRegression.Constants"
+          start="81">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0"
+          end="131"
+          fullname="ML_Core.Types"
+          inherit_type="local"
+          line="4"
+          name="Core_Types"
+          ref="ML_Core.Types"
+          start="131">
+   <Type>attribute</Type>
+  </Import>
+  <Definition body="194"
+              end="211"
+              fullname="logisticregression.data_info"
+              inherit_type="local"
+              line="6"
+              name="Data_Info"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/DataStats.ecl"
+              start="182">
+   <Type>record</Type>
+   <Field name="wi"/>
+   <Field name="dependent_fields"/>
+   <Field name="dependent_records"/>
+   <Field name="independent_fields"/>
+   <Field name="independent_records"/>
+   <Field name="dependent_count"/>
+   <Field name="independent_count"/>
+   <Field name="dependent_stats"/>
+   <Field name="independent_stats"/>
+  </Definition>
+  <Definition body="225"
+              end="243"
+              fullname="logisticregression.field_desc"
+              inherit_type="local"
+              line="7"
+              name="Field_Desc"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/DataStats.ecl"
+              start="212">
+   <Type>record</Type>
+   <Field name="number"/>
+   <Field name="cardinality"/>
+   <Field name="min_value"/>
+   <Field name="max_value"/>
+  </Definition>
+  <Definition body="259"
+              end="284"
+              fullname="logisticregression.numericfield"
+              inherit_type="local"
+              line="8"
+              name="NumericField"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/DataStats.ecl"
+              start="244">
+   <Type>record</Type>
+   <Field name="wi"/>
+   <Field name="id"/>
+   <Field name="number"/>
+   <Field name="value"/>
+  </Definition>
+  <Definition body="300"
+              end="326"
+              fullname="logisticregression.discretefield"
+              inherit_type="local"
+              line="9"
+              name="DiscreteField"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/DataStats.ecl"
+              start="285">
+   <Type>record</Type>
+   <Field name="wi"/>
+   <Field name="id"/>
+   <Field name="number"/>
+   <Field name="value"/>
+  </Definition>
+  <Definition body="368"
+              end="427"
+              fullname="logisticregression.flat_field_desc"
+              inherit_type="local"
+              line="11"
+              name="Flat_Field_Desc"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/DataStats.ecl"
+              start="350">
+   <Type>record</Type>
+   <Field name="number"/>
+   <Field name="cardinality"/>
+   <Field name="min_value"/>
+   <Field name="max_value"/>
+   <Field name="wi"/>
+  </Definition>
+  <Definition body="1254"
+              end="4864"
+              exported="1"
+              fullname="logisticregression.datastats"
+              inherit_type="local"
+              line="28"
+              name="DataStats"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/DataStats.ecl"
+              start="1059">
+   <Type>function</Type>
+   <Documentation>
+    <content>&#10;&#32;* Information about the datasets.  Without details the range
+ *for the x and y (independent and dependent) columns.  Note that
+ *a column of all zero values cannot be distinguished from a missing
+ *column.
+ * When details are requested, the cardinality, minimum, and maximum
+ *values are returned.  A zero cardinality is returned when the field
+ *cardinality exceeds the Constants.limit_card value.
+ * @param indep data set of independent variables
+ * @param dep data set of dependent variables
+ * @param field_details Boolean directive to provide field level info
+ * @returns a data set of information on each work item&#10;&#32;</content>
+   </Documentation>
+   <Params>
+    <Param name="indep"/>
+    <Param name="dep"/>
+    <Param name="field_details"/>
+   </Params>
   </Definition>
  </Source>
 </Meta>

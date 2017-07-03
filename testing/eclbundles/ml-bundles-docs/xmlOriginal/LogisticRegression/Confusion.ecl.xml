@@ -1,220 +1,4 @@
 <Meta>
- <Source name="LogisticRegression.Confusion" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Confusion.ecl">
-  <Import body="0"
-          end="7"
-          fullname="ML_Core"
-          inherit_type="local"
-          line="1"
-          name="ML_Core"
-          ref="ML_Core"
-          remotescope="1"
-          start="7">
-   <Type>attribute</Type>
-  </Import>
-  <Import body="0"
-          end="23"
-          fullname="ML_Core.Types"
-          inherit_type="local"
-          line="2"
-          name="Core_Types"
-          ref="ML_Core.Types"
-          start="23">
-   <Type>attribute</Type>
-  </Import>
-  <Import body="0"
-          end="59"
-          fullname="LogisticRegression"
-          inherit_type="local"
-          line="3"
-          name="LR"
-          ref="LogisticRegression"
-          start="59">
-   <Type>attribute</Type>
-  </Import>
-  <Import body="0"
-          end="75"
-          fullname="LogisticRegression.Types"
-          inherit_type="local"
-          line="4"
-          name="Types"
-          ref="LogisticRegression.Types"
-          start="75">
-   <Type>attribute</Type>
-  </Import>
-  <Definition body="120"
-              end="141"
-              fullname="logisticregression.anyfield"
-              inherit_type="local"
-              line="6"
-              name="AnyField"
-              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Confusion.ecl"
-              start="105">
-   <Type>record</Type>
-   <Field name="wi"/>
-   <Field name="id"/>
-   <Field name="number"/>
-  </Definition>
-  <Definition body="157"
-              end="182"
-              fullname="logisticregression.numericfield"
-              inherit_type="local"
-              line="7"
-              name="NumericField"
-              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Confusion.ecl"
-              start="142">
-   <Type>record</Type>
-   <Field name="wi"/>
-   <Field name="id"/>
-   <Field name="number"/>
-   <Field name="value"/>
-  </Definition>
-  <Definition body="198"
-              end="224"
-              fullname="logisticregression.discretefield"
-              inherit_type="local"
-              line="8"
-              name="DiscreteField"
-              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Confusion.ecl"
-              start="183">
-   <Type>record</Type>
-   <Field name="wi"/>
-   <Field name="id"/>
-   <Field name="number"/>
-   <Field name="value"/>
-  </Definition>
-  <Definition body="240"
-              end="265"
-              fullname="logisticregression.layout_model"
-              inherit_type="local"
-              line="9"
-              name="Layout_Model"
-              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Confusion.ecl"
-              start="225">
-   <Type>record</Type>
-   <Field name="wi"/>
-   <Field name="id"/>
-   <Field name="number"/>
-   <Field name="value"/>
-  </Definition>
-  <Definition body="281"
-              end="305"
-              fullname="logisticregression.t_work_item"
-              inherit_type="local"
-              line="10"
-              name="t_work_item"
-              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Confusion.ecl"
-              start="266">
-   <Type>attribute</Type>
-  </Definition>
-  <Definition body="321"
-              end="344"
-              fullname="logisticregression.t_recordid"
-              inherit_type="local"
-              line="11"
-              name="t_RecordID"
-              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Confusion.ecl"
-              start="306">
-   <Type>attribute</Type>
-  </Definition>
-  <Definition body="360"
-              end="386"
-              fullname="logisticregression.t_fieldnumber"
-              inherit_type="local"
-              line="12"
-              name="t_FieldNumber"
-              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Confusion.ecl"
-              start="345">
-   <Type>attribute</Type>
-  </Definition>
-  <Definition body="402"
-              end="426"
-              fullname="logisticregression.t_fieldreal"
-              inherit_type="local"
-              line="13"
-              name="t_FieldReal"
-              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Confusion.ecl"
-              start="387">
-   <Type>attribute</Type>
-  </Definition>
-  <Definition body="442"
-              end="465"
-              fullname="logisticregression.t_discrete"
-              inherit_type="local"
-              line="14"
-              name="t_Discrete"
-              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Confusion.ecl"
-              start="427">
-   <Type>attribute</Type>
-  </Definition>
-  <Definition body="481"
-              end="499"
-              fullname="logisticregression.model_coef"
-              inherit_type="local"
-              line="15"
-              name="Model_Coef"
-              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Confusion.ecl"
-              start="466">
-   <Type>record</Type>
-   <Field name="wi"/>
-   <Field name="ind_col"/>
-   <Field name="dep_nom"/>
-   <Field name="w"/>
-   <Field name="SE"/>
-  </Definition>
-  <Definition body="517"
-              end="545"
-              fullname="logisticregression.classify_result"
-              inherit_type="local"
-              line="16"
-              name="Classify_Result"
-              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Confusion.ecl"
-              start="500">
-   <Type>record</Type>
-   <Field name="wi"/>
-   <Field name="id"/>
-   <Field name="number"/>
-   <Field name="value"/>
-   <Field name="conf"/>
-  </Definition>
-  <Definition body="565"
-              end="594"
-              fullname="logisticregression.confusion_detail"
-              inherit_type="local"
-              line="17"
-              name="Confusion_Detail"
-              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Confusion.ecl"
-              start="546">
-   <Type>record</Type>
-   <Field name="wi"/>
-   <Field name="classifier"/>
-   <Field name="actual_class"/>
-   <Field name="predict_class"/>
-   <Field name="occurs"/>
-   <Field name="correct"/>
-  </Definition>
-  <Definition body="995"
-              end="1807"
-              exported="1"
-              fullname="logisticregression.confusion"
-              inherit_type="local"
-              line="26"
-              name="Confusion"
-              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Confusion.ecl"
-              start="858">
-   <Type>function</Type>
-   <Documentation>
-    <content>&#10;&#32;* Detail confusion records to compare actual versus predicted response
- * variable values.
- * @param dependents the original response values
- * @param predicts the predicted responses
- * @return confusion counts by predicted and actual response values.&#10;&#32;</content>
-   </Documentation>
-   <Params>
-    <Param name="dependents"/>
-    <Param name="predicts"/>
-   </Params>
-  </Definition>
- </Source>
  <Source name="ML_Core.Types" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl">
   <Definition body="37"
               end="3074"
@@ -883,6 +667,222 @@
     <Field name="p_value"/>
    </Definition>
    <Parents/>
+  </Definition>
+ </Source>
+ <Source name="LogisticRegression.Confusion" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Confusion.ecl">
+  <Import body="0"
+          end="7"
+          fullname="ML_Core"
+          inherit_type="local"
+          line="1"
+          name="ML_Core"
+          ref="ML_Core"
+          remotescope="1"
+          start="7">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0"
+          end="23"
+          fullname="ML_Core.Types"
+          inherit_type="local"
+          line="2"
+          name="Core_Types"
+          ref="ML_Core.Types"
+          start="23">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0"
+          end="59"
+          fullname="LogisticRegression"
+          inherit_type="local"
+          line="3"
+          name="LR"
+          ref="LogisticRegression"
+          start="59">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0"
+          end="75"
+          fullname="LogisticRegression.Types"
+          inherit_type="local"
+          line="4"
+          name="Types"
+          ref="LogisticRegression.Types"
+          start="75">
+   <Type>attribute</Type>
+  </Import>
+  <Definition body="120"
+              end="141"
+              fullname="logisticregression.anyfield"
+              inherit_type="local"
+              line="6"
+              name="AnyField"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Confusion.ecl"
+              start="105">
+   <Type>record</Type>
+   <Field name="wi"/>
+   <Field name="id"/>
+   <Field name="number"/>
+  </Definition>
+  <Definition body="157"
+              end="182"
+              fullname="logisticregression.numericfield"
+              inherit_type="local"
+              line="7"
+              name="NumericField"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Confusion.ecl"
+              start="142">
+   <Type>record</Type>
+   <Field name="wi"/>
+   <Field name="id"/>
+   <Field name="number"/>
+   <Field name="value"/>
+  </Definition>
+  <Definition body="198"
+              end="224"
+              fullname="logisticregression.discretefield"
+              inherit_type="local"
+              line="8"
+              name="DiscreteField"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Confusion.ecl"
+              start="183">
+   <Type>record</Type>
+   <Field name="wi"/>
+   <Field name="id"/>
+   <Field name="number"/>
+   <Field name="value"/>
+  </Definition>
+  <Definition body="240"
+              end="265"
+              fullname="logisticregression.layout_model"
+              inherit_type="local"
+              line="9"
+              name="Layout_Model"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Confusion.ecl"
+              start="225">
+   <Type>record</Type>
+   <Field name="wi"/>
+   <Field name="id"/>
+   <Field name="number"/>
+   <Field name="value"/>
+  </Definition>
+  <Definition body="281"
+              end="305"
+              fullname="logisticregression.t_work_item"
+              inherit_type="local"
+              line="10"
+              name="t_work_item"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Confusion.ecl"
+              start="266">
+   <Type>attribute</Type>
+  </Definition>
+  <Definition body="321"
+              end="344"
+              fullname="logisticregression.t_recordid"
+              inherit_type="local"
+              line="11"
+              name="t_RecordID"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Confusion.ecl"
+              start="306">
+   <Type>attribute</Type>
+  </Definition>
+  <Definition body="360"
+              end="386"
+              fullname="logisticregression.t_fieldnumber"
+              inherit_type="local"
+              line="12"
+              name="t_FieldNumber"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Confusion.ecl"
+              start="345">
+   <Type>attribute</Type>
+  </Definition>
+  <Definition body="402"
+              end="426"
+              fullname="logisticregression.t_fieldreal"
+              inherit_type="local"
+              line="13"
+              name="t_FieldReal"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Confusion.ecl"
+              start="387">
+   <Type>attribute</Type>
+  </Definition>
+  <Definition body="442"
+              end="465"
+              fullname="logisticregression.t_discrete"
+              inherit_type="local"
+              line="14"
+              name="t_Discrete"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Confusion.ecl"
+              start="427">
+   <Type>attribute</Type>
+  </Definition>
+  <Definition body="481"
+              end="499"
+              fullname="logisticregression.model_coef"
+              inherit_type="local"
+              line="15"
+              name="Model_Coef"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Confusion.ecl"
+              start="466">
+   <Type>record</Type>
+   <Field name="wi"/>
+   <Field name="ind_col"/>
+   <Field name="dep_nom"/>
+   <Field name="w"/>
+   <Field name="SE"/>
+  </Definition>
+  <Definition body="517"
+              end="545"
+              fullname="logisticregression.classify_result"
+              inherit_type="local"
+              line="16"
+              name="Classify_Result"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Confusion.ecl"
+              start="500">
+   <Type>record</Type>
+   <Field name="wi"/>
+   <Field name="id"/>
+   <Field name="number"/>
+   <Field name="value"/>
+   <Field name="conf"/>
+  </Definition>
+  <Definition body="565"
+              end="594"
+              fullname="logisticregression.confusion_detail"
+              inherit_type="local"
+              line="17"
+              name="Confusion_Detail"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Confusion.ecl"
+              start="546">
+   <Type>record</Type>
+   <Field name="wi"/>
+   <Field name="classifier"/>
+   <Field name="actual_class"/>
+   <Field name="predict_class"/>
+   <Field name="occurs"/>
+   <Field name="correct"/>
+  </Definition>
+  <Definition body="995"
+              end="1807"
+              exported="1"
+              fullname="logisticregression.confusion"
+              inherit_type="local"
+              line="26"
+              name="Confusion"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Confusion.ecl"
+              start="858">
+   <Type>function</Type>
+   <Documentation>
+    <content>&#10;&#32;* Detail confusion records to compare actual versus predicted response
+ * variable values.
+ * @param dependents the original response values
+ * @param predicts the predicted responses
+ * @return confusion counts by predicted and actual response values.&#10;&#32;</content>
+   </Documentation>
+   <Params>
+    <Param name="dependents"/>
+    <Param name="predicts"/>
+   </Params>
   </Definition>
  </Source>
 </Meta>

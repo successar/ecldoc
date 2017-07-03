@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <Meta>
- <Source name="LogisticRegression.Deviance_Analysis" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Deviance_Analysis.ecl" target="Deviance_Analysis.ecl.xml">
+ <Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Types.ecl" name="ML_Core.Types" target="../ML_Core/Types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Types.ecl" name="LogisticRegression.Types" target="Types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Constants.ecl" name="ML_Core.Constants" target="../ML_Core/Constants.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Math/DoubleFac.ecl" name="ML_Core.Math.DoubleFac" target="../ML_Core/Math/DoubleFac.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Distributions.ecl" name="LogisticRegression.Distributions" target="Distributions.ecl.xml"/><Source name="LogisticRegression.Deviance_Analysis" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Deviance_Analysis.ecl" target="Deviance_Analysis.ecl.xml">
   <Import body="0" end="7" fullname="LogisticRegression" inherit_type="local" line="1" name="LR" ref="LogisticRegression" start="7" target="pkg.toc.xml">
    <Type>attribute</Type>
   </Import>
@@ -10,13 +10,13 @@
   <Definition body="477" end="1158" exported="1" fullname="logisticregression.deviance_analysis" inherit_type="local" line="14" name="Deviance_Analysis" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Deviance_Analysis.ecl" start="314">
    <Type>function</Type>
    <Documentation>
-    <content>Compare deviance information for an analysis of deviance.</content><return>the comparison of the deviance between the models</return><firstline>Compare deviance information for an analysis of deviance</firstline><param><name>proposed</name><desc>the proposed model</desc></param><param><name>base</name><desc>the base model for comparison</desc></param></Documentation>
+    <param><name>proposed</name><desc>the proposed model</desc></param><param><name>base</name><desc>the base model for comparison</desc></param><firstline>Compare deviance information for an analysis of deviance</firstline><return>the comparison of the deviance between the models</return><content>Compare deviance information for an analysis of deviance.</content></Documentation>
    <Signature name="Deviance_Analysis" ret="DATASET(Types.AOD_Record)" param="(DATASET(Types.Deviance_Record) proposed, DATASET(Types.Deviance_Record) base)" hlen="43">DATASET(Types.AOD_Record) Deviance_Analysis(DATASET(Types.Deviance_Record) proposed, DATASET(Types.Deviance_Record) base)</Signature><Params>
     <Param name="proposed"/>
     <Param name="base"/>
    </Params>
   </Definition>
  <Documentation>
-    <content>Compare deviance information for an analysis of deviance.</content><return>the comparison of the deviance between the models</return><firstline>Compare deviance information for an analysis of deviance</firstline><param><name>proposed</name><desc>the proposed model</desc></param><param><name>base</name><desc>the base model for comparison</desc></param></Documentation>
+    <param><name>proposed</name><desc>the proposed model</desc></param><param><name>base</name><desc>the base model for comparison</desc></param><firstline>Compare deviance information for an analysis of deviance</firstline><return>the comparison of the deviance between the models</return><content>Compare deviance information for an analysis of deviance.</content></Documentation>
    </Source>
- <Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Types.ecl" name="LogisticRegression.Types" target="Types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Types.ecl" name="ML_Core.Types" target="../ML_Core/Types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Distributions.ecl" name="LogisticRegression.Distributions" target="Distributions.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Math/DoubleFac.ecl" name="ML_Core.Math.DoubleFac" target="../ML_Core/Math/DoubleFac.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Constants.ecl" name="ML_Core.Constants" target="../ML_Core/Constants.ecl.xml"/></Meta>
+</Meta>

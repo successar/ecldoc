@@ -16,6 +16,10 @@
 \BLOCK{ for def in render_dict recursive }
 \subsection*{\VAR{(def.tag.find('./Type').text.upper() + ' : ' + def.tag.attrib.name)|escape_tex}}
 \hypertarget{ecldoc:\VAR{def.tag.attrib.fullname}}{}
+\hyperlink{ecldoc:\VAR{ def.up }}{Up} :
+\BLOCK{ for anc in def.tag.iterancestors('Definition')|reverse }
+\hspace{0pt} \hyperlink{ecldoc:\VAR{anc.attrib.fullname}}{\VAR{anc.attrib.name}} \textbackslash\VAR{" "}
+\BLOCK{ endfor }
 
 {\renewcommand{\arraystretch}{1.5}
 \begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
@@ -28,8 +32,6 @@
 \BLOCK{ endif }
 \end{tabularx}
 }
-
-\hyperlink{ecldoc:\VAR{ def.up }}{Up}
 
 \par
 \BLOCK{ if 'content' in def['doc'] }
@@ -52,11 +54,11 @@
 \hyperlink{ecldoc:\VAR{child.tag.attrib.fullname}}{\VAR{ child.tag.attrib.name|escape_tex }}  |
 \BLOCK{ endfor }
 
-\rule{\textwidth}{0.4pt}
+\rule{\linewidth}{0.5pt}
 
 \VAR{ loop(def['defns']) }
 
 \BLOCK{ else }
-\rule{\textwidth}{0.4pt}
+\rule{\linewidth}{0.5pt}
 \BLOCK{ endif }
 \BLOCK{ endfor }

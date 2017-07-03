@@ -1,113 +1,4 @@
 <Meta>
- <Source name="ML_Core.Interfaces.IClassify" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Interfaces/IClassify.ecl">
-  <Definition body="187"
-              end="1597"
-              exported="1"
-              fullname="ML_Core.Interfaces.IClassify"
-              inherit_type="local"
-              line="8"
-              name="IClassify"
-              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Interfaces/IClassify.ecl"
-              start="168"
-              virtual="1">
-   <Type>module</Type>
-   <Parents/>
-   <Definition body="632"
-               end="631"
-               exported="1"
-               fullname="ml_core.interfaces.iclassify.getmodel"
-               inherit_type="local"
-               line="17"
-               name="GetModel"
-               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Interfaces/IClassify.ecl"
-               start="474">
-    <Type>function</Type>
-    <Documentation>
-     <content>&#10;&#32;&#32;&#32;* Calculate the model to fit the observation data to the observed
-   * classes.
-   * @param observations the observed explanatory values
-   * @param classifications the observed classification used to build
-   * the model
-   * @return the encoded model&#10;&#32;&#32;&#32;</content>
-    </Documentation>
-    <Params>
-     <Param name="observations"/>
-     <Param name="classifications"/>
-    </Params>
-   </Definition>
-   <Definition body="1052"
-               end="1051"
-               exported="1"
-               fullname="ml_core.interfaces.iclassify.classify"
-               inherit_type="local"
-               line="27"
-               name="Classify"
-               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Interfaces/IClassify.ecl"
-               start="898">
-    <Type>function</Type>
-    <Documentation>
-     <content>&#10;&#32;&#32;&#32;* Classify the observations using a model.
-   * @param model The model, which must be produced by a corresponding
-   * getModel function.
-   * @param new_observations observations to be classified
-   * @return Classification with a confidence value&#10;&#32;&#32;&#32;</content>
-    </Documentation>
-    <Params>
-     <Param name="model"/>
-     <Param name="new_observations"/>
-    </Params>
-   </Definition>
-   <Definition body="1593"
-               end="1592"
-               exported="1"
-               fullname="ml_core.interfaces.iclassify.report"
-               inherit_type="local"
-               line="39"
-               name="Report"
-               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Interfaces/IClassify.ecl"
-               start="1385">
-    <Type>function</Type>
-    <Documentation>
-     <content>&#10;&#32;&#32;&#32;* Report the confusion matrix for the classifier and training data.
-   * @param model the encoded model
-   * @param observations the explanatory values.
-   * @param classifications the classifications associated with the
-   * observations
-   * @return the confusion matrix showing correct and incorrect
-   * results&#10;&#32;&#32;&#32;</content>
-    </Documentation>
-    <Params>
-     <Param name="model"/>
-     <Param name="observations"/>
-     <Param name="classifications"/>
-    </Params>
-   </Definition>
-   <Documentation>
-    <content>&#10;&#32;* Interface definition for Classification.  Actual implementation
- * modules will probably take parameters.&#10;&#32;</content>
-   </Documentation>
-  </Definition>
-  <Import body="0"
-          end="7"
-          fullname="ML_Core"
-          inherit_type="local"
-          line="1"
-          name="ML_Core"
-          ref="ML_Core"
-          start="7">
-   <Type>attribute</Type>
-  </Import>
-  <Import body="0"
-          end="30"
-          fullname="ML_Core.Types"
-          inherit_type="local"
-          line="2"
-          name="Types"
-          ref="ML_Core.Types"
-          start="30">
-   <Type>attribute</Type>
-  </Import>
- </Source>
  <Source name="ML_Core.Types" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl">
   <Definition body="37"
               end="3074"
@@ -367,5 +258,114 @@
    </Definition>
    <Parents/>
   </Definition>
+ </Source>
+ <Source name="ML_Core.Interfaces.IClassify" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Interfaces/IClassify.ecl">
+  <Definition body="187"
+              end="1597"
+              exported="1"
+              fullname="ML_Core.Interfaces.IClassify"
+              inherit_type="local"
+              line="8"
+              name="IClassify"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Interfaces/IClassify.ecl"
+              start="168"
+              virtual="1">
+   <Type>module</Type>
+   <Parents/>
+   <Definition body="632"
+               end="631"
+               exported="1"
+               fullname="ml_core.interfaces.iclassify.getmodel"
+               inherit_type="local"
+               line="17"
+               name="GetModel"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Interfaces/IClassify.ecl"
+               start="474">
+    <Type>function</Type>
+    <Documentation>
+     <content>&#10;&#32;&#32;&#32;* Calculate the model to fit the observation data to the observed
+   * classes.
+   * @param observations the observed explanatory values
+   * @param classifications the observed classification used to build
+   * the model
+   * @return the encoded model&#10;&#32;&#32;&#32;</content>
+    </Documentation>
+    <Params>
+     <Param name="observations"/>
+     <Param name="classifications"/>
+    </Params>
+   </Definition>
+   <Definition body="1052"
+               end="1051"
+               exported="1"
+               fullname="ml_core.interfaces.iclassify.classify"
+               inherit_type="local"
+               line="27"
+               name="Classify"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Interfaces/IClassify.ecl"
+               start="898">
+    <Type>function</Type>
+    <Documentation>
+     <content>&#10;&#32;&#32;&#32;* Classify the observations using a model.
+   * @param model The model, which must be produced by a corresponding
+   * getModel function.
+   * @param new_observations observations to be classified
+   * @return Classification with a confidence value&#10;&#32;&#32;&#32;</content>
+    </Documentation>
+    <Params>
+     <Param name="model"/>
+     <Param name="new_observations"/>
+    </Params>
+   </Definition>
+   <Definition body="1593"
+               end="1592"
+               exported="1"
+               fullname="ml_core.interfaces.iclassify.report"
+               inherit_type="local"
+               line="39"
+               name="Report"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Interfaces/IClassify.ecl"
+               start="1385">
+    <Type>function</Type>
+    <Documentation>
+     <content>&#10;&#32;&#32;&#32;* Report the confusion matrix for the classifier and training data.
+   * @param model the encoded model
+   * @param observations the explanatory values.
+   * @param classifications the classifications associated with the
+   * observations
+   * @return the confusion matrix showing correct and incorrect
+   * results&#10;&#32;&#32;&#32;</content>
+    </Documentation>
+    <Params>
+     <Param name="model"/>
+     <Param name="observations"/>
+     <Param name="classifications"/>
+    </Params>
+   </Definition>
+   <Documentation>
+    <content>&#10;&#32;* Interface definition for Classification.  Actual implementation
+ * modules will probably take parameters.&#10;&#32;</content>
+   </Documentation>
+  </Definition>
+  <Import body="0"
+          end="7"
+          fullname="ML_Core"
+          inherit_type="local"
+          line="1"
+          name="ML_Core"
+          ref="ML_Core"
+          start="7">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0"
+          end="30"
+          fullname="ML_Core.Types"
+          inherit_type="local"
+          line="2"
+          name="Types"
+          ref="ML_Core.Types"
+          start="30">
+   <Type>attribute</Type>
+  </Import>
  </Source>
 </Meta>

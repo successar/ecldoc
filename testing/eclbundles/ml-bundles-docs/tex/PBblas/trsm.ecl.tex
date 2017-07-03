@@ -16,6 +16,7 @@
 \section*{\underline{DESCRIPTIONS}}
 \subsection*{FUNCTION : trsm}
 \hypertarget{ecldoc:pbblas.trsm}{}
+\hyperlink{ecldoc:toc:PBblas}{Up} :
 
 {\renewcommand{\arraystretch}{1.5}
 \begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
@@ -26,8 +27,6 @@
 \hline
 \end{tabularx}
 }
-
-\hyperlink{ecldoc:toc:PBblas}{Up}
 
 \par
 Partitioned block parallel triangular matrix solver. Solves for X using: AX = B or XA = B A is is a square triangular matrix, X and B have the same dimensions. A may be an upper triangular matrix (UX = B or XU = B), or a lower triangular matrix (LX = B or XL = B). Allows optional transposing and scaling of A. Partially based upon an approach discussed by MJ DAYDE, IS DUFF, AP CERFACS. A Parallel Block implementation of Level-3 BLAS for MIMD Vector Processors ACM Tran. Mathematical Software, Vol 20, No 2, June 1994 pp 178-193 and other papers about PB-BLAS by Choi and Dongarra This module supports the ''Myriad'' style interface, allowing many independent problems to be worked on at once. Corresponding A and B matrixes are related by a common work-item identifier (wi\_id) within each cell of the matrix. The returned X matrix will contain cells for the same set of work-items as specified for the A and B matrices.
@@ -47,4 +46,4 @@ Partitioned block parallel triangular matrix solver. Solves for X using: AX = B 
 \item [\textbf{See}] Types.Side
 \end{description}
 
-\rule{\textwidth}{0.4pt}
+\rule{\linewidth}{0.5pt}

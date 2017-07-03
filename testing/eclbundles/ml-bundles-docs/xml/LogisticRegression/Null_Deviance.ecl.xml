@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <Meta>
- <Source name="LogisticRegression.Null_Deviance" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Null_Deviance.ecl" target="Null_Deviance.ecl.xml">
+ <Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Types.ecl" name="ML_Core.Types" target="../ML_Core/Types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Types.ecl" name="LogisticRegression.Types" target="Types.ecl.xml"/><Source name="LogisticRegression.Null_Deviance" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Null_Deviance.ecl" target="Null_Deviance.ecl.xml">
   <Import body="0" end="7" fullname="LogisticRegression" inherit_type="local" line="1" name="LR" ref="LogisticRegression" start="7" target="pkg.toc.xml">
    <Type>attribute</Type>
   </Import>
@@ -10,12 +10,12 @@
   <Definition body="434" end="766" exported="1" fullname="logisticregression.null_deviance" inherit_type="local" line="14" name="Null_Deviance" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Null_Deviance.ecl" start="334">
    <Type>function</Type>
    <Documentation>
-    <content>Deviance for the null model, that is, a model with only an intercept.</content><return>a data set of the null model deviances for each work item and classifier.</return><firstline>Deviance for the null model, that is, a model with only an intercept</firstline><param><name>od</name><desc>Observation Deviance record set.</desc></param></Documentation>
+    <param><name>od</name><desc>Observation Deviance record set.</desc></param><firstline>Deviance for the null model, that is, a model with only an intercept</firstline><return>a data set of the null model deviances for each work item and classifier.</return><content>Deviance for the null model, that is, a model with only an intercept.</content></Documentation>
    <Signature name="Null_Deviance" ret="DATASET(Types.Deviance_Record)" param="(DATASET(Types.Observation_Deviance) od)" hlen="44">DATASET(Types.Deviance_Record) Null_Deviance(DATASET(Types.Observation_Deviance) od)</Signature><Params>
     <Param name="od"/>
    </Params>
   </Definition>
  <Documentation>
-    <content>Deviance for the null model, that is, a model with only an intercept.</content><return>a data set of the null model deviances for each work item and classifier.</return><firstline>Deviance for the null model, that is, a model with only an intercept</firstline><param><name>od</name><desc>Observation Deviance record set.</desc></param></Documentation>
+    <param><name>od</name><desc>Observation Deviance record set.</desc></param><firstline>Deviance for the null model, that is, a model with only an intercept</firstline><return>a data set of the null model deviances for each work item and classifier.</return><content>Deviance for the null model, that is, a model with only an intercept.</content></Documentation>
    </Source>
- <Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Types.ecl" name="ML_Core.Types" target="../ML_Core/Types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Types.ecl" name="LogisticRegression.Types" target="Types.ecl.xml"/></Meta>
+</Meta>

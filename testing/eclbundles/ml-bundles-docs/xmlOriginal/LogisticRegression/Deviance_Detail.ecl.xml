@@ -1,209 +1,4 @@
 <Meta>
- <Source name="LogisticRegression.Deviance_Detail" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Deviance_Detail.ecl">
-  <Import body="0"
-          end="7"
-          fullname="ML_Core"
-          inherit_type="local"
-          line="1"
-          name="ML_Core"
-          ref="ML_Core"
-          remotescope="1"
-          start="7">
-   <Type>attribute</Type>
-  </Import>
-  <Import body="0"
-          end="23"
-          fullname="ML_Core.Types"
-          inherit_type="local"
-          line="2"
-          name="Core_Types"
-          ref="ML_Core.Types"
-          start="23">
-   <Type>attribute</Type>
-  </Import>
-  <Import body="0"
-          end="59"
-          fullname="LogisticRegression"
-          inherit_type="local"
-          line="3"
-          name="LR"
-          ref="LogisticRegression"
-          start="59">
-   <Type>attribute</Type>
-  </Import>
-  <Import body="0"
-          end="75"
-          fullname="LogisticRegression.Types"
-          inherit_type="local"
-          line="4"
-          name="Types"
-          ref="LogisticRegression.Types"
-          start="75">
-   <Type>attribute</Type>
-  </Import>
-  <Definition body="120"
-              end="141"
-              fullname="logisticregression.anyfield"
-              inherit_type="local"
-              line="6"
-              name="AnyField"
-              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Deviance_Detail.ecl"
-              start="105">
-   <Type>record</Type>
-   <Field name="wi"/>
-   <Field name="id"/>
-   <Field name="number"/>
-  </Definition>
-  <Definition body="157"
-              end="182"
-              fullname="logisticregression.numericfield"
-              inherit_type="local"
-              line="7"
-              name="NumericField"
-              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Deviance_Detail.ecl"
-              start="142">
-   <Type>record</Type>
-   <Field name="wi"/>
-   <Field name="id"/>
-   <Field name="number"/>
-   <Field name="value"/>
-  </Definition>
-  <Definition body="198"
-              end="224"
-              fullname="logisticregression.discretefield"
-              inherit_type="local"
-              line="8"
-              name="DiscreteField"
-              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Deviance_Detail.ecl"
-              start="183">
-   <Type>record</Type>
-   <Field name="wi"/>
-   <Field name="id"/>
-   <Field name="number"/>
-   <Field name="value"/>
-  </Definition>
-  <Definition body="240"
-              end="262"
-              fullname="logisticregression.raw_pred"
-              inherit_type="local"
-              line="9"
-              name="Raw_Pred"
-              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Deviance_Detail.ecl"
-              start="225">
-   <Type>record</Type>
-   <Field name="wi"/>
-   <Field name="id"/>
-   <Field name="number"/>
-   <Field name="raw"/>
-  </Definition>
-  <Definition body="278"
-              end="306"
-              fullname="logisticregression.obs_deviance"
-              inherit_type="local"
-              line="10"
-              name="Obs_Deviance"
-              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Deviance_Detail.ecl"
-              start="263">
-   <Type>record</Type>
-   <Field name="wi"/>
-   <Field name="id"/>
-   <Field name="classifier"/>
-   <Field name="actual"/>
-   <Field name="predicted"/>
-   <Field name="mod_ll"/>
-   <Field name="mod_dev_component"/>
-   <Field name="mod_dev_residual"/>
-   <Field name="nil_ll"/>
-   <Field name="nil_dev_component"/>
-   <Field name="nil_dev_residual"/>
-  </Definition>
-  <Definition body="322"
-              end="347"
-              fullname="logisticregression.layout_model"
-              inherit_type="local"
-              line="11"
-              name="Layout_Model"
-              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Deviance_Detail.ecl"
-              start="307">
-   <Type>record</Type>
-   <Field name="wi"/>
-   <Field name="id"/>
-   <Field name="number"/>
-   <Field name="value"/>
-  </Definition>
-  <Definition body="363"
-              end="387"
-              fullname="logisticregression.t_work_item"
-              inherit_type="local"
-              line="12"
-              name="t_work_item"
-              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Deviance_Detail.ecl"
-              start="348">
-   <Type>attribute</Type>
-  </Definition>
-  <Definition body="403"
-              end="426"
-              fullname="logisticregression.t_recordid"
-              inherit_type="local"
-              line="13"
-              name="t_RecordID"
-              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Deviance_Detail.ecl"
-              start="388">
-   <Type>attribute</Type>
-  </Definition>
-  <Definition body="442"
-              end="468"
-              fullname="logisticregression.t_fieldnumber"
-              inherit_type="local"
-              line="14"
-              name="t_FieldNumber"
-              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Deviance_Detail.ecl"
-              start="427">
-   <Type>attribute</Type>
-  </Definition>
-  <Definition body="484"
-              end="508"
-              fullname="logisticregression.t_fieldreal"
-              inherit_type="local"
-              line="15"
-              name="t_FieldReal"
-              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Deviance_Detail.ecl"
-              start="469">
-   <Type>attribute</Type>
-  </Definition>
-  <Definition body="524"
-              end="547"
-              fullname="logisticregression.t_discrete"
-              inherit_type="local"
-              line="16"
-              name="t_Discrete"
-              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Deviance_Detail.ecl"
-              start="509">
-   <Type>attribute</Type>
-  </Definition>
-  <Definition body="998"
-              end="2256"
-              exported="1"
-              fullname="logisticregression.deviance_detail"
-              inherit_type="local"
-              line="25"
-              name="Deviance_Detail"
-              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Deviance_Detail.ecl"
-              start="827">
-   <Type>function</Type>
-   <Documentation>
-    <content>&#10;&#32;* Detail deviance for each observation.
- * @param dependents original dependent records for the model
- * @param predicts the predicted values of the response variable
- * @return the deviance information by observation and the log likelihood
- * of the predicted result.&#10;&#32;</content>
-   </Documentation>
-   <Params>
-    <Param name="dependents"/>
-    <Param name="predicts"/>
-   </Params>
-  </Definition>
- </Source>
  <Source name="ML_Core.Types" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl">
   <Definition body="37"
               end="3074"
@@ -872,6 +667,211 @@
     <Field name="p_value"/>
    </Definition>
    <Parents/>
+  </Definition>
+ </Source>
+ <Source name="LogisticRegression.Deviance_Detail" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Deviance_Detail.ecl">
+  <Import body="0"
+          end="7"
+          fullname="ML_Core"
+          inherit_type="local"
+          line="1"
+          name="ML_Core"
+          ref="ML_Core"
+          remotescope="1"
+          start="7">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0"
+          end="23"
+          fullname="ML_Core.Types"
+          inherit_type="local"
+          line="2"
+          name="Core_Types"
+          ref="ML_Core.Types"
+          start="23">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0"
+          end="59"
+          fullname="LogisticRegression"
+          inherit_type="local"
+          line="3"
+          name="LR"
+          ref="LogisticRegression"
+          start="59">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0"
+          end="75"
+          fullname="LogisticRegression.Types"
+          inherit_type="local"
+          line="4"
+          name="Types"
+          ref="LogisticRegression.Types"
+          start="75">
+   <Type>attribute</Type>
+  </Import>
+  <Definition body="120"
+              end="141"
+              fullname="logisticregression.anyfield"
+              inherit_type="local"
+              line="6"
+              name="AnyField"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Deviance_Detail.ecl"
+              start="105">
+   <Type>record</Type>
+   <Field name="wi"/>
+   <Field name="id"/>
+   <Field name="number"/>
+  </Definition>
+  <Definition body="157"
+              end="182"
+              fullname="logisticregression.numericfield"
+              inherit_type="local"
+              line="7"
+              name="NumericField"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Deviance_Detail.ecl"
+              start="142">
+   <Type>record</Type>
+   <Field name="wi"/>
+   <Field name="id"/>
+   <Field name="number"/>
+   <Field name="value"/>
+  </Definition>
+  <Definition body="198"
+              end="224"
+              fullname="logisticregression.discretefield"
+              inherit_type="local"
+              line="8"
+              name="DiscreteField"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Deviance_Detail.ecl"
+              start="183">
+   <Type>record</Type>
+   <Field name="wi"/>
+   <Field name="id"/>
+   <Field name="number"/>
+   <Field name="value"/>
+  </Definition>
+  <Definition body="240"
+              end="262"
+              fullname="logisticregression.raw_pred"
+              inherit_type="local"
+              line="9"
+              name="Raw_Pred"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Deviance_Detail.ecl"
+              start="225">
+   <Type>record</Type>
+   <Field name="wi"/>
+   <Field name="id"/>
+   <Field name="number"/>
+   <Field name="raw"/>
+  </Definition>
+  <Definition body="278"
+              end="306"
+              fullname="logisticregression.obs_deviance"
+              inherit_type="local"
+              line="10"
+              name="Obs_Deviance"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Deviance_Detail.ecl"
+              start="263">
+   <Type>record</Type>
+   <Field name="wi"/>
+   <Field name="id"/>
+   <Field name="classifier"/>
+   <Field name="actual"/>
+   <Field name="predicted"/>
+   <Field name="mod_ll"/>
+   <Field name="mod_dev_component"/>
+   <Field name="mod_dev_residual"/>
+   <Field name="nil_ll"/>
+   <Field name="nil_dev_component"/>
+   <Field name="nil_dev_residual"/>
+  </Definition>
+  <Definition body="322"
+              end="347"
+              fullname="logisticregression.layout_model"
+              inherit_type="local"
+              line="11"
+              name="Layout_Model"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Deviance_Detail.ecl"
+              start="307">
+   <Type>record</Type>
+   <Field name="wi"/>
+   <Field name="id"/>
+   <Field name="number"/>
+   <Field name="value"/>
+  </Definition>
+  <Definition body="363"
+              end="387"
+              fullname="logisticregression.t_work_item"
+              inherit_type="local"
+              line="12"
+              name="t_work_item"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Deviance_Detail.ecl"
+              start="348">
+   <Type>attribute</Type>
+  </Definition>
+  <Definition body="403"
+              end="426"
+              fullname="logisticregression.t_recordid"
+              inherit_type="local"
+              line="13"
+              name="t_RecordID"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Deviance_Detail.ecl"
+              start="388">
+   <Type>attribute</Type>
+  </Definition>
+  <Definition body="442"
+              end="468"
+              fullname="logisticregression.t_fieldnumber"
+              inherit_type="local"
+              line="14"
+              name="t_FieldNumber"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Deviance_Detail.ecl"
+              start="427">
+   <Type>attribute</Type>
+  </Definition>
+  <Definition body="484"
+              end="508"
+              fullname="logisticregression.t_fieldreal"
+              inherit_type="local"
+              line="15"
+              name="t_FieldReal"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Deviance_Detail.ecl"
+              start="469">
+   <Type>attribute</Type>
+  </Definition>
+  <Definition body="524"
+              end="547"
+              fullname="logisticregression.t_discrete"
+              inherit_type="local"
+              line="16"
+              name="t_Discrete"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Deviance_Detail.ecl"
+              start="509">
+   <Type>attribute</Type>
+  </Definition>
+  <Definition body="998"
+              end="2256"
+              exported="1"
+              fullname="logisticregression.deviance_detail"
+              inherit_type="local"
+              line="25"
+              name="Deviance_Detail"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Deviance_Detail.ecl"
+              start="827">
+   <Type>function</Type>
+   <Documentation>
+    <content>&#10;&#32;* Detail deviance for each observation.
+ * @param dependents original dependent records for the model
+ * @param predicts the predicted values of the response variable
+ * @return the deviance information by observation and the log likelihood
+ * of the predicted result.&#10;&#32;</content>
+   </Documentation>
+   <Params>
+    <Param name="dependents"/>
+    <Param name="predicts"/>
+   </Params>
   </Definition>
  </Source>
 </Meta>

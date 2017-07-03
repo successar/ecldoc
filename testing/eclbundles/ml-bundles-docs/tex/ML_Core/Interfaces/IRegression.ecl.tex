@@ -10,6 +10,7 @@
 \section*{\underline{DESCRIPTIONS}}
 \subsection*{MODULE : IRegression}
 \hypertarget{ecldoc:ml_core.interfaces.iregression}{}
+\hyperlink{ecldoc:toc:ML_Core/Interfaces}{Up} :
 
 {\renewcommand{\arraystretch}{1.5}
 \begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
@@ -20,8 +21,6 @@
 \hline
 \end{tabularx}
 }
-
-\hyperlink{ecldoc:toc:ML_Core/Interfaces}{Up}
 
 \par
 Interface Definition for Regression Modules Regression learns a function that maps a set of input data to one or more output variables. The resulting learned function is known as the model. That model can then be used repetitively to predict (i.e. estimate) the output value(s) based on new input data.
@@ -35,10 +34,12 @@ Interface Definition for Regression Modules Regression learns a function that ma
 \hyperlink{ecldoc:ml_core.interfaces.iregression.getmodel}{GetModel}  |
 \hyperlink{ecldoc:ml_core.interfaces.iregression.predict}{Predict}  |
 
-\rule{\textwidth}{0.4pt}
+\rule{\linewidth}{0.5pt}
 
 \subsection*{ATTRIBUTE : GetModel}
 \hypertarget{ecldoc:ml_core.interfaces.iregression.getmodel}{}
+\hyperlink{ecldoc:ml_core.interfaces.iregression}{Up} :
+\hspace{0pt} \hyperlink{ecldoc:ml_core.interfaces.iregression}{IRegression} \textbackslash 
 
 {\renewcommand{\arraystretch}{1.5}
 \begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
@@ -48,8 +49,6 @@ Interface Definition for Regression Modules Regression learns a function that ma
 \end{tabularx}
 }
 
-\hyperlink{ecldoc:ml_core.interfaces.iregression}{Up}
-
 \par
 Calculate and return the 'learned' model The model may be persisted and later used to make predictions using 'Predict' below.
 
@@ -58,9 +57,11 @@ Calculate and return the 'learned' model The model may be persisted and later us
 \item [\textbf{Return}] DATASET(LayoutModel) describing the learned model parameters
 \end{description}
 
-\rule{\textwidth}{0.4pt}
+\rule{\linewidth}{0.5pt}
 \subsection*{FUNCTION : Predict}
 \hypertarget{ecldoc:ml_core.interfaces.iregression.predict}{}
+\hyperlink{ecldoc:ml_core.interfaces.iregression}{Up} :
+\hspace{0pt} \hyperlink{ecldoc:ml_core.interfaces.iregression}{IRegression} \textbackslash 
 
 {\renewcommand{\arraystretch}{1.5}
 \begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
@@ -72,8 +73,6 @@ Calculate and return the 'learned' model The model may be persisted and later us
 \end{tabularx}
 }
 
-\hyperlink{ecldoc:ml_core.interfaces.iregression}{Up}
-
 \par
 Predict the output variable(s) based on a previously learned model
 
@@ -83,6 +82,6 @@ Predict the output variable(s) based on a previously learned model
 \item [\textbf{Return}] DATASET(NumericField) containing one entry per observation (i.e. id) in newX. This represents the predicted values for Y.
 \end{description}
 
-\rule{\textwidth}{0.4pt}
+\rule{\linewidth}{0.5pt}
 
 

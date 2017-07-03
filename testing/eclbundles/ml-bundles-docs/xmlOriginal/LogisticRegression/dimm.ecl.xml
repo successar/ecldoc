@@ -1,68 +1,5 @@
 <Meta>
- <Source name="LogisticRegression.dimm" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/dimm.ecl">
-  <Definition body="1031"
-              end="2194"
-              exported="1"
-              fullname="logisticregression.dimm"
-              inherit_type="local"
-              line="21"
-              name="dimm"
-              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/dimm.ecl"
-              start="698">
-   <Type>embed</Type>
-   <Documentation>
-    <content>&#10;&#32;* Matrix multiply when either A or B is a diagonal and is passed
- * as a vector.
- * alpha*op(A) op(B) + beta*C where op() is transpose
- * @param transposeA true when transpose of A is used
- * @param transposeB true when transpose of B is used
- * @param diagonalA true when A is the diagonal matrix
- * @param diagonalB true when B is the diagonal matrix
- * @param m number of rows in product
- * @param n number of columns in product
- * @param k number of columns/rows for the multiplier/multiplicand
- * @param alpha scalar used on A
- * @param A matrix A
- * @param B matrix B
- * @param beta scalar for matrix C
- * @param C matrix C or empty&#10;&#32;</content>
-   </Documentation>
-   <Params>
-    <Param name="transposeA"/>
-    <Param name="transposeB"/>
-    <Param name="diagonalA"/>
-    <Param name="diagonalB"/>
-    <Param name="m"/>
-    <Param name="n"/>
-    <Param name="k"/>
-    <Param name="alpha"/>
-    <Param name="A"/>
-    <Param name="B"/>
-    <Param name="beta"/>
-    <Param name="C"/>
-   </Params>
-  </Definition>
-  <Import body="0"
-          end="7"
-          fullname="std.BLAS"
-          inherit_type="local"
-          line="1"
-          name="BLAS"
-          ref="std.BLAS"
-          start="7">
-   <Type>attribute</Type>
-  </Import>
-  <Import body="0"
-          end="24"
-          fullname="std.BLAS.Types"
-          inherit_type="local"
-          line="2"
-          name="Types"
-          ref="std.BLAS.Types"
-          start="24">
-   <Type>attribute</Type>
-  </Import>
- </Source>
+ <Source sourcePath="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/plugins/lib_eclblas.ecllib"/>
  <Source name="std.BLAS" sourcePath="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/BLAS.ecl">
   <Definition body="853"
               end="11458"
@@ -581,5 +518,68 @@
    <Type>attribute</Type>
   </Import>
  </Source>
- <Source sourcePath="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/plugins/lib_eclblas.ecllib"/>
+ <Source name="LogisticRegression.dimm" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/dimm.ecl">
+  <Definition body="1031"
+              end="2194"
+              exported="1"
+              fullname="logisticregression.dimm"
+              inherit_type="local"
+              line="21"
+              name="dimm"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/dimm.ecl"
+              start="698">
+   <Type>embed</Type>
+   <Documentation>
+    <content>&#10;&#32;* Matrix multiply when either A or B is a diagonal and is passed
+ * as a vector.
+ * alpha*op(A) op(B) + beta*C where op() is transpose
+ * @param transposeA true when transpose of A is used
+ * @param transposeB true when transpose of B is used
+ * @param diagonalA true when A is the diagonal matrix
+ * @param diagonalB true when B is the diagonal matrix
+ * @param m number of rows in product
+ * @param n number of columns in product
+ * @param k number of columns/rows for the multiplier/multiplicand
+ * @param alpha scalar used on A
+ * @param A matrix A
+ * @param B matrix B
+ * @param beta scalar for matrix C
+ * @param C matrix C or empty&#10;&#32;</content>
+   </Documentation>
+   <Params>
+    <Param name="transposeA"/>
+    <Param name="transposeB"/>
+    <Param name="diagonalA"/>
+    <Param name="diagonalB"/>
+    <Param name="m"/>
+    <Param name="n"/>
+    <Param name="k"/>
+    <Param name="alpha"/>
+    <Param name="A"/>
+    <Param name="B"/>
+    <Param name="beta"/>
+    <Param name="C"/>
+   </Params>
+  </Definition>
+  <Import body="0"
+          end="7"
+          fullname="std.BLAS"
+          inherit_type="local"
+          line="1"
+          name="BLAS"
+          ref="std.BLAS"
+          start="7">
+   <Type>attribute</Type>
+  </Import>
+  <Import body="0"
+          end="24"
+          fullname="std.BLAS.Types"
+          inherit_type="local"
+          line="2"
+          name="Types"
+          ref="std.BLAS.Types"
+          start="24">
+   <Type>attribute</Type>
+  </Import>
+ </Source>
 </Meta>

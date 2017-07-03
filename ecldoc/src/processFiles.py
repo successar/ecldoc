@@ -17,7 +17,6 @@ def doMain() :
     if 'INPUT' in cfgparser.sections() :
         input_root = os.path.realpath(cfgparser['INPUT']['root'])
         options['nodoc'] = cfgparser['INPUT'].getboolean('showNodoc', False)
-        print(options['nodoc'])
         options['internal'] = cfgparser['INPUT'].getboolean('showInternal', False)
 
         include = []
