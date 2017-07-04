@@ -77,8 +77,8 @@ class GenHTML(object) :
         self.ecl_files = ecl_files
         self.html_root = os.path.join(output_root, 'html')
         self.xml_root = os.path.join(output_root, 'xml')
-        self.content_template = Template(open('/media/sarthak/Data/ecldoc/ecldoc/src/content.tpl').read())
-        self.toc_template = Template(open('/media/sarthak/Data/ecldoc/ecldoc/src/toc.tpl').read())
+        self.content_template = Template(open('/media/sarthak/Data/ecldoc/ecldoc/src/content.tpl.html').read())
+        self.toc_template = Template(open('/media/sarthak/Data/ecldoc/ecldoc/src/toc.tpl.html').read())
         self.ecl_file_tree = genPathTree(ecl_files)
         self.options = options
 

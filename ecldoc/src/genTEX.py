@@ -1,19 +1,13 @@
 import os
 import re
-import shutil
 import subprocess
 
-from jinja2 import Template
+import jinja2
 from lxml import etree
 from Utils import genPathTree, getRoot
 
-import textwrap
 from parseDoc import convertToLatex
 from Utils import escape_tex
-
-import jinja2
-import os
-from jinja2 import Template
 
 latex_jinja_env = jinja2.Environment(
 	block_start_string = '\BLOCK{',
@@ -36,9 +30,8 @@ class ParseTEX(object) :
 		self.tex_file = os.path.join(generator.tex_root, ecl_file + '.tex')
 		self.template = generator.content_template
 		self.options = generator.options
-		self.dirname = os.path.dirname(ecl_file)
-		if self.dirname == '' :
-			self.dirname = 'root'
+		relpath = os.path.relpath(self.tex_file, generator.tex_path)
+		self.dirname = os.path.dirname(relpath)
 
 		os.makedirs(os.path.dirname(self.tex_file), exist_ok=True)
 
@@ -54,7 +47,9 @@ class ParseTEX(object) :
 			if 'target' in attribs :
 				attribs['target'] = re.sub(r'\.xml$', '.tex', attribs['target'])
 
-		render = self.template.render(src=src, render_dict=self.render_dict)
+		name = src.attrib['name'].split('.')
+
+		render = self.template.render(name=name, src=src, render_dict=self.render_dict, up=('toc:'+self.dirname))
 		fp = open(self.tex_file, 'w')
 		fp.write(render)
 		fp.close()
@@ -71,7 +66,6 @@ class ParseTEX(object) :
 		self.render_dict = []
 		for defn in self.src.findall('./Definition') :
 			defn_dict = self.parseDefinition(defn)
-			defn_dict['up'] = 'toc:' + self.dirname
 			self.render_dict.append(defn_dict)
 
 	def parseDefinition(self, defn) :
@@ -80,7 +74,7 @@ class ParseTEX(object) :
 
 		doc = self.parseDocs(defn.find('./Documentation'))
 		if defn.attrib['inherit_type'] != 'local' :
-			doc['tags'].append(('True', defn.attrib['inherit_type'].upper()))
+			doc['tags'].append((('', 'True'), defn.attrib['inherit_type'].upper()))
 
 		parents = defn.find('./Parents')
 		target = defn.attrib['target'] if 'target' in defn.attrib else None
@@ -90,7 +84,6 @@ class ParseTEX(object) :
 
 		for childdefn in defn.findall('./Definition') :
 			child_dict = self.parseDefinition(childdefn)
-			child_dict['up'] = defn.attrib['fullname']
 			defn_dict['defns'].append(child_dict)
 
 		return defn_dict
@@ -98,21 +91,24 @@ class ParseTEX(object) :
 	def parseDocs(self, doc) :
 		doc_dict = { 'tags' : [] }
 		if doc is not None:
+			doc_dict['firstline'] = convertToLatex(doc.find('./firstline').text).strip()
 			doc_dict['content'] = convertToLatex(doc.find('./content').text).split('\n')
 
 			for param in doc.findall('./param') :
-				param = param.find('./name').text + ' ||| ' + param.find('./desc').text
+				param = (param.find('./name').text , param.find('./desc').text)
 				doc_dict['tags'].append((param, 'Parameter'))
 
 			for param in doc.findall('./field') :
-				param = param.find('./name').text + ' ||| ' + param.find('./desc').text
+				param = (param.find('./name').text, param.find('./desc').text)
 				doc_dict['tags'].append((param, 'Field'))
 
 			for param in doc.findall('./return') :
-				doc_dict['tags'].append((param.text, 'Return'))
+				param = ('', param.text)
+				doc_dict['tags'].append((param, 'Return'))
 
 			for param in doc.findall('./see') :
-				doc_dict['tags'].append((param.text, 'See'))
+				param = ('', param.text)
+				doc_dict['tags'].append((param, 'See'))
 
 		return doc_dict
 
@@ -123,12 +119,16 @@ class GenTEX(object) :
 		self.input_root = input_root
 		self.output_root = output_root
 		self.ecl_files = ecl_files
-		self.tex_root = os.path.join(output_root, 'tex')
+
+		self.tex_path = os.path.join(output_root, 'tex')
+		self.tex_root = os.path.join(output_root, 'tex', 'root')
 		self.xml_root = os.path.join(output_root, 'xml')
 		os.makedirs(self.tex_root, exist_ok=True)
-		self.content_template = latex_jinja_env.get_template('/media/sarthak/Data/ecldoc/ecldoc/src/content.tex.tpl')
-		self.toc_template = latex_jinja_env.get_template('/media/sarthak/Data/ecldoc/ecldoc/src/toc.tex.tpl')
-		self.index_tex = '/media/sarthak/Data/ecldoc/ecldoc/src/tex/index.tex'
+
+		self.content_template = latex_jinja_env.get_template('/media/sarthak/Data/ecldoc/ecldoc/src/content.tpl.tex')
+		self.toc_template = latex_jinja_env.get_template('/media/sarthak/Data/ecldoc/ecldoc/src/toc.tpl.tex')
+		self.index_template = latex_jinja_env.get_template('/media/sarthak/Data/ecldoc/ecldoc/src/tex/index.tpl.tex')
+
 		self.ecl_file_tree = genPathTree(ecl_files)
 		self.options = options
 
@@ -143,7 +143,7 @@ class GenTEX(object) :
 				parser.parse()
 				file = { 'name' : key, 'type' : 'file', 'doc' : parser.docstring() }
 				target = os.path.join(content_root, key + '.tex')
-				file['target'] = os.path.relpath(target, self.output_root)
+				file['target'] = os.path.relpath(target, self.tex_path)
 				file['label'] = parser.src.attrib['name']
 				files.append(file)
 			else :
@@ -157,18 +157,19 @@ class GenTEX(object) :
 					file['type'] = 'bundle'
 
 				child_root = os.path.join(content_root, key)
-				tex_path = os.path.relpath(child_root, self.tex_root)
+				tex_path = os.path.relpath(child_root, self.tex_path)
 
 				childfiles = self.gen(child, child_root)
 				childfiles = sorted(childfiles, key=lambda x : x['type'], reverse=True)
 
-				render = self.toc_template.render(name=key,	files=childfiles, bundle=bundle, label=tex_path)
+				render = self.toc_template.render(name=key,	files=childfiles, bundle=bundle,
+													label=tex_path, up=os.path.dirname(tex_path))
 				render_path = os.path.join(child_root, 'pkg.toc.tex')
 				fp = open(render_path, 'w')
 				fp.write(render)
 				fp.close()
 
-				target = os.path.relpath(render_path, self.output_root)
+				target = os.path.relpath(render_path, self.tex_path)
 				file['target'] = target
 				file['label'] = tex_path
 
@@ -179,22 +180,16 @@ class GenTEX(object) :
 
 
 	def genTEX(self) :
-		child = self.ecl_file_tree['root']
-		bundle = None
-		if 'bundle.ecl' in child :
-			bundle_xml_path = os.path.join(self.xml_root, os.path.dirname(child['bundle.ecl']), 'bundle.xml')
-			bundle = etree.parse(bundle_xml_path).getroot()
+		self.gen(self.ecl_file_tree, self.tex_path)
 
-		childfiles = self.gen(child, self.tex_root)
-		childfiles = sorted(childfiles, key=lambda x : x['type'], reverse=True)
-
-		render = self.toc_template.render(name='Root', files=childfiles, bundle=bundle, label='root')
-		fp = open(os.path.join(self.tex_root, 'pkg.toc.tex'), 'w')
+		render_path = os.path.join(self.tex_root, 'pkg.toc.tex')
+		start_path = os.path.relpath(render_path, self.tex_path)
+		render = self.index_template.render(root=start_path)
+		fp = open(os.path.join(self.tex_path, 'index.tex'), 'w')
 		fp.write(render)
 		fp.close()
 
-		shutil.copy2(self.index_tex, self.output_root)
-		subprocess.run(['pdflatex index.tex'], cwd=self.output_root, shell=True)
+		subprocess.run(['pdflatex index.tex'], cwd=self.tex_path, shell=True)
 
 
 
