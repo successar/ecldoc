@@ -120,15 +120,14 @@ class ParseTXT(object) :
 
 
 class GenTXT(object) :
-	def __init__(self, input_root, output_root, ecl_files, options) :
+	def __init__(self, input_root, output_root, ecl_file_tree, options) :
 		self.input_root = input_root
 		self.output_root = output_root
-		self.ecl_files = ecl_files
 		self.txt_root = os.path.join(output_root, 'txt')
 		self.xml_root = os.path.join(output_root, 'xml')
 		self.content_template = Template(open('/media/sarthak/Data/ecldoc/ecldoc/src/content.tpl.txt').read())
 		self.toc_template = Template(open('/media/sarthak/Data/ecldoc/ecldoc/src/toc.tpl.txt').read())
-		self.ecl_file_tree = genPathTree(ecl_files)
+		self.ecl_file_tree = ecl_file_tree
 		self.options = options
 
 	def gen(self, node, content_root) :

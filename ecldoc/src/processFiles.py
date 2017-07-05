@@ -16,8 +16,8 @@ def doMain() :
     options = {}
     if 'INPUT' in cfgparser.sections() :
         input_root = os.path.realpath(cfgparser['INPUT']['root'])
-        options['nodoc'] = cfgparser['INPUT'].getboolean('showNodoc', False)
-        options['internal'] = cfgparser['INPUT'].getboolean('showInternal', False)
+        options['nodoc'] = cfgparser['INPUT'].getboolean('hideNodoc', False)
+        options['nointernal'] = cfgparser['INPUT'].getboolean('hideInternal', False)
 
         include = []
         if 'include' in cfgparser['INPUT'] :
@@ -45,10 +45,12 @@ def doMain() :
         if not os.path.exists(output_root) :
             os.makedirs(output_root, exist_ok=True)
 
-        genXML.GenXML(input_root, output_root, ecl_files, options).genXML()
-        genHTML.GenHTML(input_root, output_root, ecl_files, options).genHTML()
-        genTXT.GenTXT(input_root, output_root, ecl_files, options).genTXT()
-        genTEX.GenTEX(input_root, output_root, ecl_files, options).genTEX()
+        xmlgenerator = genXML.GenXML(input_root, output_root, ecl_files, options)
+        xmlgenerator.genXML()
+        ecl_file_tree = xmlgenerator.ecl_file_tree
+        genHTML.GenHTML(input_root, output_root, ecl_file_tree, options).genHTML()
+        genTXT.GenTXT(input_root, output_root, ecl_file_tree, options).genTXT()
+        genTEX.GenTEX(input_root, output_root, ecl_file_tree, options).genTEX()
 
 if __name__ == '__main__' :
     doMain()

@@ -1,12 +1,13 @@
 IMPORT $ AS ML_Core;
 IMPORT ML_Core.Types;
-/*
+/**
   This module exists to turn a dataset of numberfields into a dataset
   of DiscreteFields.  This is not quite as trivial as it seems as there
   are a number of different ways to make the underlying data discrete;
   and even within one method there may be different parameters.
   Further - it is quite probable that different methods are going to be
   desired for each field.
+  @internal True
 */
 
 EXPORT Discretize := MODULE

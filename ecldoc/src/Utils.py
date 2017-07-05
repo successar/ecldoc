@@ -69,3 +69,17 @@ def escape_tex(value):
     for pattern, replacement in LATEX_SUBS:
         newval = pattern.sub(replacement, newval)
     return newval
+
+def write_to_file(filename, text) :
+    fp = open(filename, 'w')
+    fp.write(text)
+    fp.close()
+
+def relpath(p1, p2) :
+    return os.path.relpath(p1, p2)
+
+def joinpath(*p1) :
+    return os.path.join(*p1)
+
+def dirname(p1) :
+    return os.path.dirname(p1)

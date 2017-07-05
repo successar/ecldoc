@@ -7,7 +7,7 @@ from lxml import etree
 from Utils import genPathTree, getRoot
 
 from parseDoc import convertToLatex
-from Utils import escape_tex
+from Utils import escape_tex, write_to_file, joinpath, relpath, dirname
 
 latex_jinja_env = jinja2.Environment(
 	block_start_string = '\BLOCK{',
@@ -26,14 +26,17 @@ latex_jinja_env.filters['escape_tex'] = escape_tex
 
 class ParseTEX(object) :
 	def __init__(self, generator, ecl_file) :
-		self.xml_file = os.path.join(generator.xml_root, ecl_file + '.xml')
-		self.tex_file = os.path.join(generator.tex_root, ecl_file + '.tex')
+		self.tex_path = generator.tex_path
+		self.index_template = generator.index_template
+		self.xml_file = joinpath(generator.xml_root, ecl_file + '.xml')
+		self.tex_file = joinpath(generator.tex_root, ecl_file + '.tex')
 		self.template = generator.content_template
 		self.options = generator.options
-		relpath = os.path.relpath(self.tex_file, generator.tex_path)
-		self.dirname = os.path.dirname(relpath)
+		tex_relpath = relpath(self.tex_file, generator.tex_path)
+		self.dirname = dirname(tex_relpath)
+		self.index_render_path = joinpath(generator.tex_root, ecl_file + '.tmp.tex')
 
-		os.makedirs(os.path.dirname(self.tex_file), exist_ok=True)
+		os.makedirs(dirname(self.tex_file), exist_ok=True)
 
 	def parse(self) :
 		root = etree.parse(self.xml_file).getroot()
@@ -50,9 +53,16 @@ class ParseTEX(object) :
 		name = src.attrib['name'].split('.')
 
 		render = self.template.render(name=name, src=src, render_dict=self.render_dict, up=('toc:'+self.dirname))
-		fp = open(self.tex_file, 'w')
-		fp.write(render)
-		fp.close()
+		write_to_file(self.tex_file, render)
+
+		start_path = relpath(self.tex_file, self.tex_path)
+		render = self.index_template.render(root=start_path)
+		write_to_file(self.index_render_path, render)
+
+		subprocess.run(['pdflatex ' +
+						'-output-directory ' + self.dirname + ' ' +
+						relpath(self.index_render_path, self.tex_path)],
+						cwd=self.tex_path, shell=True)
 
 	def docstring(self) :
 		text = ''
@@ -115,21 +125,20 @@ class ParseTEX(object) :
 
 
 class GenTEX(object) :
-	def __init__(self, input_root, output_root, ecl_files, options) :
+	def __init__(self, input_root, output_root, ecl_file_tree, options) :
 		self.input_root = input_root
 		self.output_root = output_root
-		self.ecl_files = ecl_files
 
-		self.tex_path = os.path.join(output_root, 'tex')
-		self.tex_root = os.path.join(output_root, 'tex', 'root')
-		self.xml_root = os.path.join(output_root, 'xml')
+		self.tex_path = joinpath(output_root, 'tex')
+		self.tex_root = joinpath(output_root, 'tex', 'root')
+		self.xml_root = joinpath(output_root, 'xml')
 		os.makedirs(self.tex_root, exist_ok=True)
 
 		self.content_template = latex_jinja_env.get_template('/media/sarthak/Data/ecldoc/ecldoc/src/content.tpl.tex')
 		self.toc_template = latex_jinja_env.get_template('/media/sarthak/Data/ecldoc/ecldoc/src/toc.tpl.tex')
 		self.index_template = latex_jinja_env.get_template('/media/sarthak/Data/ecldoc/ecldoc/src/tex/index.tpl.tex')
 
-		self.ecl_file_tree = genPathTree(ecl_files)
+		self.ecl_file_tree = ecl_file_tree
 		self.options = options
 
 	def gen(self, node, content_root) :
@@ -142,36 +151,46 @@ class GenTEX(object) :
 				parser = ParseTEX(self, node[key])
 				parser.parse()
 				file = { 'name' : key, 'type' : 'file', 'doc' : parser.docstring() }
-				target = os.path.join(content_root, key + '.tex')
-				file['target'] = os.path.relpath(target, self.tex_path)
+				file['target'] = relpath(parser.tex_file, self.tex_path)
 				file['label'] = parser.src.attrib['name']
 				files.append(file)
 			else :
 				child = node[key]
-				file = { 'name' : key, 'type': 'dir', 'doc' : '' }
+				child_root = joinpath(content_root, key)
+				tex_path = relpath(child_root, self.tex_path)
+				render_path = joinpath(child_root, 'pkg.toc.tex')
+				target_path = relpath(render_path, self.tex_path)
+				temptoc_render_path = joinpath(child_root, 'pkg.tmp.tex')
+				index_render_path = joinpath(child_root, 'index.tex')
+
+				file = { 'name' : key, 'type': 'dir', 'doc' : '' , 'target' : target_path, 'label' : tex_path}
 
 				bundle = None
 				if 'bundle.ecl' in child :
-					bundle_xml_path = os.path.join(self.xml_root, os.path.dirname(child['bundle.ecl']), 'bundle.xml')
+					bundle_xml_path = joinpath(self.xml_root, dirname(child['bundle.ecl']), 'bundle.xml')
 					bundle = etree.parse(bundle_xml_path).getroot()
 					file['type'] = 'bundle'
-
-				child_root = os.path.join(content_root, key)
-				tex_path = os.path.relpath(child_root, self.tex_path)
 
 				childfiles = self.gen(child, child_root)
 				childfiles = sorted(childfiles, key=lambda x : x['type'], reverse=True)
 
 				render = self.toc_template.render(name=key,	files=childfiles, bundle=bundle,
-													label=tex_path, up=os.path.dirname(tex_path))
-				render_path = os.path.join(child_root, 'pkg.toc.tex')
-				fp = open(render_path, 'w')
-				fp.write(render)
-				fp.close()
+												label=tex_path, up=dirname(tex_path))
+				write_to_file(render_path, render)
 
-				target = os.path.relpath(render_path, self.tex_path)
-				file['target'] = target
-				file['label'] = tex_path
+				render = self.toc_template.render(name=key,
+												files=list(filter(lambda x : x['type'] == 'file', childfiles)),
+												bundle=bundle, label=tex_path, up="")
+				write_to_file(temptoc_render_path, render)
+
+				start_path = relpath(temptoc_render_path, self.tex_path)
+				render = self.index_template.render(root=start_path)
+				write_to_file(index_render_path, render)
+
+				subprocess.run(['pdflatex ' +
+								'-output-directory ' + relpath(child_root, self.tex_path) + ' ' +
+								relpath(index_render_path, self.tex_path)],
+								cwd=self.tex_path, shell=True)
 
 				files.append(file)
 
@@ -182,12 +201,10 @@ class GenTEX(object) :
 	def genTEX(self) :
 		self.gen(self.ecl_file_tree, self.tex_path)
 
-		render_path = os.path.join(self.tex_root, 'pkg.toc.tex')
-		start_path = os.path.relpath(render_path, self.tex_path)
+		render_path = joinpath(self.tex_root, 'pkg.toc.tex')
+		start_path = relpath(render_path, self.tex_path)
 		render = self.index_template.render(root=start_path)
-		fp = open(os.path.join(self.tex_path, 'index.tex'), 'w')
-		fp.write(render)
-		fp.close()
+		write_to_file(joinpath(self.tex_path, 'index.tex'), render)
 
 		subprocess.run(['pdflatex index.tex'], cwd=self.tex_path, shell=True)
 

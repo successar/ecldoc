@@ -24,6 +24,7 @@ class ParseXML(object) :
         self.xml_dir = os.path.dirname(self.xml_file)
 
         self.options = generator.options
+        self.internal = False
 
 
     def parse(self) :
@@ -71,9 +72,12 @@ class ParseXML(object) :
 
         self.src = root.find('./Source')
         self.parseSource()
+        if len(self.src.findall('./Definition')) == 0 :
+            self.internal = True
 
-        os.makedirs(os.path.dirname(self.xml_file), exist_ok=True)
-        tree.write(self.xml_file, xml_declaration=True, encoding='utf-8')
+        if self.internal is False :
+            os.makedirs(os.path.dirname(self.xml_file), exist_ok=True)
+            tree.write(self.xml_file, xml_declaration=True, encoding='utf-8')
 
     def parseSource(self) :
         attribs = self.src.attrib
@@ -83,15 +87,14 @@ class ParseXML(object) :
         if 'name' in attribs :
             self.depends[tuple(attribs['name'].lower().split('.'))] = self.src
 
+        for doc in self.src.iter('Documentation') :
+            self.parseDocumentation(doc)
+
         for defn in self.src.findall('./Definition') :
             if self.checkDefinition(defn) :
                 self.src.remove(defn)
             else :
                 self.parseDefinition(defn)
-
-
-        for doc in self.src.iter('Documentation') :
-            self.parseDocumentation(doc)
 
         for imp in self.src.iter('Import') :
             self.parseImport(imp)
@@ -228,8 +231,9 @@ class ParseXML(object) :
 
     def checkDefinition(self, defn) :
         test_1 = 'exported' not in defn.attrib
-        test_2 = self.options['nodoc'] and (len(defn.findall('./Documentation')) == 0)
-        return test_1 or test_2
+        test_2 = self.options['nodoc'] and (defn.find('Documentation') is None)
+        test_3 = self.options['nointernal'] and (defn.find('Documentation') is not None) and (defn.find('Documentation').find('internal') is not None)
+        return test_1 or test_2 or test_3
 
 
 def check_if_modified(fpin, fpout) :
@@ -279,21 +283,24 @@ class GenXML(object) :
         self.options = options
 
     def gen(self, node, xml_root, content_root) :
-        for key in node :
+        keys = list(node.keys())
+        for key in keys :
             if type(node[key]) != dict:
                 if key == 'bundle.ecl' :
                     parseBundle(self, node[key])
                     continue
                 ecl_file = node[key]
-                file = etree.Element('file')
-                file.attrib['name'] = key + '.xml'
-                file.text = node[key]
-                xml_root.append(file)
-
                 parser = ParseXML(self, ecl_file)
                 # if check_if_modified(parser.input_file, parser.xml_file) :
                 #   continue
                 parser.parse()
+                if parser.internal :
+                    del node[key]
+                else :
+                    file = etree.Element('file')
+                    file.attrib['name'] = key + '.xml'
+                    file.text = node[key]
+                    xml_root.append(file)
 
             else :
                 child = node[key]
