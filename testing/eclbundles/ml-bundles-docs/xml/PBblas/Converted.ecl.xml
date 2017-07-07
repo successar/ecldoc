@@ -1,48 +1,43 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <Meta>
  <Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Types.ecl" name="ML_Core.Types" target="../ML_Core/Types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Types.ecl" name="PBblas.Types" target="Types.ecl.xml"/><Source name="PBblas.Converted" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Converted.ecl" target="Converted.ecl.xml">
-  <Import body="0" end="7" fullname="PBblas" inherit_type="local" line="1" name="PBblas" ref="PBblas" start="7" target="pkg.toc.xml">
-   <Type>attribute</Type>
-  </Import>
-  <Import body="0" end="27" fullname="PBblas.Types" inherit_type="local" line="2" name="Types" ref="PBblas.Types" start="27" target="Types.ecl.xml">
-   <Type>attribute</Type>
+  <Import body="0" end="7" fullname="PBblas" inherittype="local" line="1" name="PBblas" ref="PBblas" start="7" target="pkg.toc.xml"/>
+  <Import body="0" end="27" fullname="PBblas.Types" inherittype="local" line="2" name="Types" ref="PBblas.Types" start="27" target="Types.ecl.xml">
    <Documentation>
     <firstline>Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes</firstline><content>Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes.</content></Documentation>
   </Import>
-  <Import body="0" end="48" fullname="ML_Core.Types" inherit_type="local" line="3" name="MlTypes" ref="ML_Core.Types" start="48" target="../ML_Core/Types.ecl.xml">
-   <Type>attribute</Type>
-  </Import>
-  <Definition body="360" end="2759" exported="1" fullname="PBblas.Converted" inherit_type="local" line="12" name="Converted" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Converted.ecl" start="341">
+  <Import body="0" end="264" fullname="ML_Core.Types" inherittype="local" line="5" name="MlTypes" ref="ML_Core.Types" start="264" target="../ML_Core/Types.ecl.xml"/>
+  <Definition body="360" end="2759" exported="1" fullname="PBblas.Converted" inherittype="local" line="12" name="Converted" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Converted.ecl" start="341">
    <Type>module</Type>
    <Parents/>
-   <Definition body="726" end="975" exported="1" fullname="pbblas.converted.nftomatrix" inherit_type="local" line="22" name="NFToMatrix" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Converted.ecl" start="657">
+   <Definition body="726" end="975" exported="1" fullname="pbblas.converted.nftomatrix" inherittype="local" line="22" name="NFToMatrix" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Converted.ecl" start="657">
     <Type>function</Type>
     <Documentation>
-     <see>PBblas/Types.Layout_Cell</see><see>ML_Core/Types.NumericField</see><param><name>recs</name><desc>Record Dataset in DATASET(NumericField) format</desc></param><firstline>Convert NumericField dataset to Matrix</firstline><content>Convert NumericField dataset to Matrix</content><return>Matrix in DATASET(Layout_Cell) format</return></Documentation>
+     <firstline>Convert NumericField dataset to Matrix</firstline><return>Matrix in DATASET(Layout_Cell) format</return><content>Convert NumericField dataset to Matrix</content><param><name>recs</name><desc>Record Dataset in DATASET(NumericField) format</desc></param><see>PBblas/Types.Layout_Cell</see><see>ML_Core/Types.NumericField</see></Documentation>
     <Signature name="NFToMatrix" ret="DATASET(Layout_Cell)" param="(DATASET(NumericField) recs)" hlen="31">DATASET(Layout_Cell) NFToMatrix(DATASET(NumericField) recs)</Signature><Params>
      <Param name="recs"/>
     </Params>
    </Definition>
-   <Definition body="1338" end="1588" exported="1" fullname="pbblas.converted.dftomatrix" inherit_type="local" line="41" name="DFToMatrix" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Converted.ecl" start="1268">
+   <Definition body="1338" end="1588" exported="1" fullname="pbblas.converted.dftomatrix" inherittype="local" line="41" name="DFToMatrix" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Converted.ecl" start="1268">
     <Type>function</Type>
     <Documentation>
-     <see>PBblas/Types.Layout_Cell</see><see>ML_Core/Types.DiscreteField</see><param><name>recs</name><desc>Record Dataset in DATASET(DiscreteField) format</desc></param><firstline>Convert DiscreteField dataset to Matrix</firstline><content>Convert DiscreteField dataset to Matrix</content><return>Matrix in DATASET(Layout_Cell) format</return></Documentation>
+     <firstline>Convert DiscreteField dataset to Matrix</firstline><return>Matrix in DATASET(Layout_Cell) format</return><content>Convert DiscreteField dataset to Matrix</content><param><name>recs</name><desc>Record Dataset in DATASET(DiscreteField) format</desc></param><see>PBblas/Types.Layout_Cell</see><see>ML_Core/Types.DiscreteField</see></Documentation>
     <Signature name="DFToMatrix" ret="DATASET(Layout_Cell)" param="(DATASET(DiscreteField) recs)" hlen="31">DATASET(Layout_Cell) DFToMatrix(DATASET(DiscreteField) recs)</Signature><Params>
      <Param name="recs"/>
     </Params>
    </Definition>
-   <Definition body="1910" end="2165" exported="1" fullname="pbblas.converted.matrixtonf" inherit_type="local" line="59" name="MatrixToNF" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Converted.ecl" start="1842">
+   <Definition body="1910" end="2165" exported="1" fullname="pbblas.converted.matrixtonf" inherittype="local" line="59" name="MatrixToNF" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Converted.ecl" start="1842">
     <Type>function</Type>
     <Documentation>
-     <see>PBblas/Types.Layout_Cell</see><see>ML_Core/Types.NumericField</see><param><name>mat</name><desc>Matrix in DATASET(Layout_Cell) format</desc></param><firstline>Convert Matrix to NumericField dataset</firstline><content>Convert Matrix to NumericField dataset</content><return>NumericField Dataset</return></Documentation>
+     <firstline>Convert Matrix to NumericField dataset</firstline><return>NumericField Dataset</return><content>Convert Matrix to NumericField dataset</content><param><name>mat</name><desc>Matrix in DATASET(Layout_Cell) format</desc></param><see>PBblas/Types.Layout_Cell</see><see>ML_Core/Types.NumericField</see></Documentation>
     <Signature name="MatrixToNF" ret="DATASET(NumericField)" param="(DATASET(Layout_Cell) mat)" hlen="32">DATASET(NumericField) MatrixToNF(DATASET(Layout_Cell) mat)</Signature><Params>
      <Param name="mat"/>
     </Params>
    </Definition>
-   <Definition body="2491" end="2754" exported="1" fullname="pbblas.converted.matrixtodf" inherit_type="local" line="77" name="MatrixToDF" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Converted.ecl" start="2422">
+   <Definition body="2491" end="2754" exported="1" fullname="pbblas.converted.matrixtodf" inherittype="local" line="77" name="MatrixToDF" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Converted.ecl" start="2422">
     <Type>function</Type>
     <Documentation>
-     <see>PBblas/Types.Layout_Cell</see><see>ML_Core/Types.DiscreteField</see><param><name>mat</name><desc>Matrix in DATASET(Layout_Cell) format</desc></param><firstline>Convert Matrix to DiscreteField dataset</firstline><content>Convert Matrix to DiscreteField dataset</content><return>DiscreteField Dataset</return></Documentation>
+     <firstline>Convert Matrix to DiscreteField dataset</firstline><return>DiscreteField Dataset</return><content>Convert Matrix to DiscreteField dataset</content><param><name>mat</name><desc>Matrix in DATASET(Layout_Cell) format</desc></param><see>PBblas/Types.Layout_Cell</see><see>ML_Core/Types.DiscreteField</see></Documentation>
     <Signature name="MatrixToDF" ret="DATASET(DiscreteField)" param="(DATASET(Layout_Cell) mat)" hlen="33">DATASET(DiscreteField) MatrixToDF(DATASET(Layout_Cell) mat)</Signature><Params>
      <Param name="mat"/>
     </Params>

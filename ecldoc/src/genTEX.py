@@ -83,8 +83,8 @@ class ParseTEX(object) :
 		sign = defn.find('./Signature')
 
 		doc = self.parseDocs(defn.find('./Documentation'))
-		if defn.attrib['inherit_type'] != 'local' :
-			doc['tags'].append((('', 'True'), defn.attrib['inherit_type'].upper()))
+		if defn.attrib['inherittype'] != 'local' :
+			doc['tags'].append((('', 'True'), defn.attrib['inherittype'].upper()))
 
 		parents = defn.find('./Parents')
 		target = defn.attrib['target'] if 'target' in defn.attrib else None

@@ -1,34 +1,34 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <Meta>
  <Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Constants.ecl" name="ML_Core.Constants" target="../Constants.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Math/DoubleFac.ecl" name="ML_Core.Math.DoubleFac" target="DoubleFac.ecl.xml"/><Source name="ML_Core.Math.Distributions" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Math/Distributions.ecl" target="Distributions.ecl.xml">
-  <Definition body="136" end="13947" exported="1" fullname="ML_Core.Math.Distributions" inherit_type="local" line="5" name="Distributions" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Math/Distributions.ecl" start="113">
+  <Definition body="136" end="13947" exported="1" fullname="ML_Core.Math.Distributions" inherittype="local" line="5" name="Distributions" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Math/Distributions.ecl" start="113">
    <Type>module</Type>
-   <Definition body="582" end="1056" exported="1" fullname="ml_core.math.distributions.normal_cdf" inherit_type="local" line="15" name="Normal_CDF" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Math/Distributions.ecl" start="547">
+   <Definition body="582" end="1056" exported="1" fullname="ml_core.math.distributions.normal_cdf" inherittype="local" line="15" name="Normal_CDF" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Math/Distributions.ecl" start="547">
     <Type>function</Type>
     <Documentation>
-     <param><name>x</name><desc>the number of standard deviations</desc></param><firstline>Cumulative Distribution of the standard normal distribution, the probability that a normal random variable will be smaller than x standard deviations above or below the mean</firstline><content>Cumulative Distribution of the standard normal distribution, the probability that a normal random variable will be smaller than x standard deviations above or below the mean. Taken from C/C++ Mathematical Algorithms for Scientists and Engineers, n. Shammas, McGraw-Hill, 1995</content><returns>probability of exceeding x.</returns></Documentation>
+     <firstline>Cumulative Distribution of the standard normal distribution, the probability that a normal random variable will be smaller than x standard deviations above or below the mean</firstline><content>Cumulative Distribution of the standard normal distribution, the probability that a normal random variable will be smaller than x standard deviations above or below the mean. Taken from C/C++ Mathematical Algorithms for Scientists and Engineers, n. Shammas, McGraw-Hill, 1995</content><param><name>x</name><desc>the number of standard deviations</desc></param><returns>probability of exceeding x.</returns></Documentation>
     <Signature name="Normal_CDF" ret="REAL8" param="(REAL8 x)" hlen="16">REAL8 Normal_CDF(REAL8 x)</Signature><Params>
      <Param name="x"/>
     </Params>
    </Definition>
-   <Definition body="1359" end="1993" exported="1" fullname="ml_core.math.distributions.normal_ppf" inherit_type="local" line="40" name="Normal_PPF" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Math/Distributions.ecl" start="1324">
+   <Definition body="1359" end="1993" exported="1" fullname="ml_core.math.distributions.normal_ppf" inherittype="local" line="40" name="Normal_PPF" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Math/Distributions.ecl" start="1324">
     <Type>function</Type>
     <Documentation>
-     <param><name>x</name><desc>probability</desc></param><firstline>Normal Distribution Percentage Point Function</firstline><content>Normal Distribution Percentage Point Function. Translated from C/C++ Mathematical Algorithms for Scientists and Engineers, N. Shammas, McGraw-Hill, 1995</content><returns>number of standard deviations from the mean</returns></Documentation>
+     <firstline>Normal Distribution Percentage Point Function</firstline><content>Normal Distribution Percentage Point Function. Translated from C/C++ Mathematical Algorithms for Scientists and Engineers, N. Shammas, McGraw-Hill, 1995</content><param><name>x</name><desc>probability</desc></param><returns>number of standard deviations from the mean</returns></Documentation>
     <Signature name="Normal_PPF" ret="REAL8" param="(REAL8 x)" hlen="16">REAL8 Normal_PPF(REAL8 x)</Signature><Params>
      <Param name="x"/>
     </Params>
    </Definition>
-   <Definition body="2786" end="4666" exported="1" fullname="ml_core.math.distributions.t_cdf" inherit_type="local" line="83" name="T_CDF" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Math/Distributions.ecl" start="2746">
+   <Definition body="2786" end="4666" exported="1" fullname="ml_core.math.distributions.t_cdf" inherittype="local" line="83" name="T_CDF" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Math/Distributions.ecl" start="2746">
     <Type>function</Type>
     <Documentation>
-     <param><name>x</name><desc>value of the evaluation</desc></param><param><name>df</name><desc>degrees of freedom</desc></param><firstline>Students t distribution integral evaluated between negative infinity and x</firstline><content>Students t distribution integral evaluated between negative infinity and x. Translated from NIST SEL DATAPAC Fortran TCDF.f source</content><returns>the probability that a value will be less than the specified value</returns></Documentation>
+     <firstline>Students t distribution integral evaluated between negative infinity and x</firstline><content>Students t distribution integral evaluated between negative infinity and x. Translated from NIST SEL DATAPAC Fortran TCDF.f source</content><param><name>x</name><desc>value of the evaluation</desc></param><param><name>df</name><desc>degrees of freedom</desc></param><returns>the probability that a value will be less than the specified value</returns></Documentation>
     <Signature name="T_CDF" ret="REAL8" param="(REAL8 x, REAL8 df)" hlen="11">REAL8 T_CDF(REAL8 x, REAL8 df)</Signature><Params>
      <Param name="x"/>
      <Param name="df"/>
     </Params>
    </Definition>
-   <Definition body="6869" end="8667" exported="1" fullname="ml_core.math.distributions.t_ppf" inherit_type="local" line="212" name="T_PPF" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Math/Distributions.ecl" start="6829">
+   <Definition body="6869" end="8667" exported="1" fullname="ml_core.math.distributions.t_ppf" inherittype="local" line="212" name="T_PPF" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Math/Distributions.ecl" start="6829">
     <Type>function</Type>
     <Documentation>
      <firstline>Percentage point function for the T distribution</firstline><content>Percentage point function for the T distribution. Translated from NIST SEL DATAPAC Fortran TPPF.f source</content></Documentation>
@@ -37,7 +37,7 @@
      <Param name="df"/>
     </Params>
    </Definition>
-   <Definition body="9436" end="11379" exported="1" fullname="ml_core.math.distributions.chi2_cdf" inherit_type="local" line="290" name="Chi2_CDF" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Math/Distributions.ecl" start="9393">
+   <Definition body="9436" end="11379" exported="1" fullname="ml_core.math.distributions.chi2_cdf" inherittype="local" line="290" name="Chi2_CDF" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Math/Distributions.ecl" start="9393">
     <Type>function</Type>
     <Documentation>
      <firstline>The cumulative distribution function for the Chi Square distribution</firstline><content>The cumulative distribution function for the Chi Square distribution. the CDF for the specfied degrees of freedom. Translated from the NIST SEL DATAPAC Fortran subroutine CHSCDF.</content></Documentation>
@@ -46,7 +46,7 @@
      <Param name="df"/>
     </Params>
    </Definition>
-   <Definition body="13646" end="13942" exported="1" fullname="ml_core.math.distributions.chi2_ppf" inherit_type="local" line="399" name="Chi2_PPF" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Math/Distributions.ecl" start="13603">
+   <Definition body="13646" end="13942" exported="1" fullname="ml_core.math.distributions.chi2_ppf" inherittype="local" line="399" name="Chi2_PPF" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Math/Distributions.ecl" start="13603">
     <Type>function</Type>
     <Documentation>
      <firstline>The Chi Squared PPF function</firstline><content>The Chi Squared PPF function. Translated from the NIST SEL DATAPAC Fortran subroutine CHSPPF.</content></Documentation>
@@ -57,13 +57,10 @@
    </Definition>
    <Signature name="Distributions" ret="" param="" hlen="13">Distributions</Signature><Parents/>
   </Definition>
-  <Import body="0" end="65" fullname="ML_Core.Constants" inherit_type="local" line="2" name="Core_Const" ref="ML_Core.Constants" start="65" target="../Constants.ecl.xml">
-   <Type>attribute</Type>
+  <Import body="0" end="65" fullname="ML_Core.Constants" inherittype="local" line="2" name="Core_Const" ref="ML_Core.Constants" start="65" target="../Constants.ecl.xml">
    <Documentation>
     <firstline>Useful constants</firstline><content>Useful constants</content></Documentation>
   </Import>
-  <Import body="0" end="101" fullname="ML_Core.Math" inherit_type="local" line="3" name="Math" ref="ML_Core.Math" start="101" target="pkg.toc.xml">
-   <Type>attribute</Type>
-  </Import>
+  <Import body="0" end="101" fullname="ML_Core.Math" inherittype="local" line="3" name="Math" ref="ML_Core.Math" start="101" target="pkg.toc.xml"/>
  <Documentation><content> </content></Documentation></Source>
 </Meta>

@@ -2,10 +2,10 @@ import os
 import re
 import subprocess
 
-from jinja2 import Template
 from lxml import etree
-from Utils import genPathTree, getRoot
+from Utils import genPathTree, getRoot, write_to_file
 
+from jinja2 import Template
 import textwrap
 from parseDoc import convertToMarkdown
 
@@ -40,9 +40,7 @@ class ParseTXT(object) :
 				attribs['target'] = re.sub(r'\.xml$', '.txt', attribs['target'])
 
 		render = self.template.render(src=src, render_dict=self.render_dict)
-		fp = open(self.txt_file, 'w')
-		fp.write(render)
-		fp.close()
+		write_to_file(self.txt_file, render)
 
 	def docstring(self) :
 		text = ''
@@ -74,8 +72,8 @@ class ParseTXT(object) :
 		defn_type = defn.find('./Type').text
 		sign = defn.find('./Signature').text
 		hlen = int(defn.find('./Signature').attrib['hlen'])
-		if defn.attrib['inherit_type'] != 'local' :
-			sign += ' ||| ' + defn.attrib['inherit_type'].upper()
+		if defn.attrib['inherittype'] != 'local' :
+			sign += ' ||| ' + defn.attrib['inherittype'].upper()
 
 		heading = defn_type.upper() + ' : '
 		spaces = len(heading)
@@ -158,9 +156,7 @@ class GenTXT(object) :
 
 				render = self.toc_template.render(name=key,	files=childfiles, bundle=bundle)
 				render_path = os.path.join(child_root, 'pkg.toc.txt')
-				fp = open(render_path, 'w')
-				fp.write(render)
-				fp.close()
+				write_to_file(render_path, render)
 
 				files.append(file)
 
@@ -179,7 +175,4 @@ class GenTXT(object) :
 		childfiles = sorted(childfiles, key=lambda x : x['type'])
 
 		render = self.toc_template.render(name='root', files=childfiles,	bundle=bundle)
-		fp = open(os.path.join(self.txt_root, 'pkg.toc.txt'), 'w')
-		fp.write(render)
-		fp.close()
-
+		write_to_file(os.path.join(self.txt_root, 'pkg.toc.txt'), render)

@@ -34,9 +34,9 @@ EXPORT example_2 := MODULE
 		EXPORT v2_m2 := 9.7;
 	END;
 
-	EXPORT mod_3 := MODULE(mod_1, mod_2)
+	EXPORT mod_3 := MODULE(mod_2, mod_1)
 		EXPORT v1_m1 := 9.0;
-		EXPORT v2_m3 := 9.9;
+		EXPORT v2_m3 := 10.1;
 	END;
 
 	EXPORT iface_1 := INTERFACE

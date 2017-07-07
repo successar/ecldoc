@@ -30,7 +30,8 @@ class ParseXML(object) :
     def parse(self) :
         os.chdir(self.input_root)
         os.makedirs(os.path.dirname(self.xml_orig_file), exist_ok=True)
-        p = subprocess.call(['~/eclcc -M -o ' + self.xml_orig_file + ' ' + self.input_file], shell=True)
+        eclcc_options = ' '.join(self.options['eclcc'])
+        p = subprocess.call(['~/eclcc -M ' + eclcc_options +  ' -o ' + self.xml_orig_file + ' ' + self.input_file], shell=True)
         print("File : ", self.input_file, "Output Code : ", p)
 
         tree = etree.parse(self.xml_orig_file)
@@ -122,7 +123,7 @@ class ParseXML(object) :
             attribs['fullname'] = 'ecldoc-' + attribs['name']
 
         for childdefn in defn.findall('./Definition') :
-            if attribs['inherit_type'] == 'inherited' or self.checkDefinition(childdefn):
+            if attribs['inherittype'] == 'inherited' or self.checkDefinition(childdefn):
                 defn.remove(childdefn)
             else :
                 self.parseDefinition(childdefn)

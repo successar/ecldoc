@@ -10,10 +10,11 @@ def doMain() :
     args = parser.parse_args()
 
     cfgparser = configparser.ConfigParser()
+    cfgparser.optionxform = str
     cfgparser.read(args.config)
 
     ecl_files = []
-    options = {}
+    options = {'eclcc' : []}
     if 'INPUT' in cfgparser.sections() :
         input_root = os.path.realpath(cfgparser['INPUT']['root'])
         options['nodoc'] = cfgparser['INPUT'].getboolean('hideNodoc', False)
@@ -40,6 +41,12 @@ def doMain() :
                 filenames = [os.path.relpath(f, input_root) for f in filenames]
                 ecl_files = list(set(ecl_files) - set(filenames))
 
+    if 'ECLCC' in cfgparser.sections() :
+        for key in cfgparser['ECLCC'] :
+            options['eclcc'].append(key)
+
+    print(options)
+
     if 'OUTPUT' in cfgparser.sections() :
         output_root = cfgparser['OUTPUT']['root']
         if not os.path.exists(output_root) :
@@ -50,7 +57,7 @@ def doMain() :
         ecl_file_tree = xmlgenerator.ecl_file_tree
         genHTML.GenHTML(input_root, output_root, ecl_file_tree, options).genHTML()
         genTXT.GenTXT(input_root, output_root, ecl_file_tree, options).genTXT()
-        genTEX.GenTEX(input_root, output_root, ecl_file_tree, options).genTEX()
+        #genTEX.GenTEX(input_root, output_root, ecl_file_tree, options).genTEX()
 
 if __name__ == '__main__' :
     doMain()

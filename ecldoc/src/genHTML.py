@@ -3,10 +3,10 @@ import re
 import shutil
 import subprocess
 
-from jinja2 import Template
 from lxml import etree
-from Utils import genPathTree, getRoot
+from Utils import genPathTree, getRoot, write_to_file
 
+from jinja2 import Template
 from Utils import breaksign
 
 class ParseHTML(object) :
@@ -58,9 +58,7 @@ class ParseHTML(object) :
                                     files=files,
                                     parent=parent,
                                     output_root=relpath)
-        fp = open(self.html_file, 'w')
-        fp.write(render)
-        fp.close()
+        write_to_file(self.html_file, render)
 
     def docstring(self) :
         text = ''
@@ -124,10 +122,7 @@ class GenHTML(object) :
                                                     output_root=root_relpath,
                                                     bundle=bundle)
                 render_path = os.path.join(child_root, 'pkg.toc.html')
-                fp = open(render_path, 'w')
-                fp.write(render)
-                fp.close()
-
+                write_to_file(render_path, render)
                 files.append(file)
 
         return files
@@ -152,9 +147,7 @@ class GenHTML(object) :
                                             parent='pkg.toc.html',
                                             output_root=os.path.relpath(self.output_root, self.html_root),
                                             bundle=bundle)
-        fp = open(os.path.join(self.html_root, 'pkg.toc.html'), 'w')
-        fp.write(render)
-        fp.close()
+        write_to_file(os.path.join(self.html_root, 'pkg.toc.html'), render)
 
         if os.path.exists(os.path.join(self.output_root, 'css')) :
             shutil.rmtree(os.path.join(self.output_root, 'css'))
