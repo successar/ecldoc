@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Meta>
+ <Depends sourcePath="/home/sarthak/.HPCCSystems/bundles/ML_Core.ecl" name="ML_Core" target="/home/sarthak/.HPCCSystems/bundles/ML_Core.ecl"/><Depends sourcePath="/home/sarthak/.HPCCSystems/bundles/_versions/ML_Core/V3_1_0/ML_Core/Types.ecl" name="_versions.ML_Core.V3_1_0.ML_Core.Types" target="/home/sarthak/.HPCCSystems/bundles/_versions/ML_Core/V3_1_0/ML_Core/Types.ecl"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Types.ecl" name="Types" target="Types.ecl.xml"/><Source name="Deviance_Detail" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Deviance_Detail.ecl" target="Deviance_Detail.ecl.xml">
+  <Import body="0" end="7" fullname="_versions.ML_Core.V3_1_0.ML_Core" inherittype="local" line="1" name="ML_Core" ref="_versions.ML_Core.V3_1_0.ML_Core" remotescope="1" start="7" target="_versions/ML_Core/V3_1_0/ML_Core/pkg.toc.xml">
+   <loc>loc</loc>
+  </Import>
+  <Import body="0" end="23" fullname="_versions.ML_Core.V3_1_0.ML_Core.Types" inherittype="local" line="2" name="Core_Types" ref="_versions.ML_Core.V3_1_0.ML_Core.Types" start="23" target="/home/sarthak/.HPCCSystems/bundles/_versions/ML_Core/V3_1_0/ML_Core/Types.ecl">
+   <loc>loc</loc>
+  </Import>
+  <Import body="0" end="59" inherittype="local" line="3" name="LR" start="59">
+   <loc>loc</loc>
+  </Import>
+  <Import body="0" end="75" fullname="Types" inherittype="local" line="4" name="Types" ref="Types" start="75" target="Types.ecl.xml">
+   <loc>loc</loc>
+  </Import>
+  <Definition body="998" end="2256" exported="1" fullname="deviance_detail" inherittype="local" line="25" name="Deviance_Detail" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Deviance_Detail.ecl" start="827">
+   <Type>function</Type>
+   <Documentation>
+    <param><name>dependents</name><desc>original dependent records for the model</desc></param><param><name>predicts</name><desc>the predicted values of the response variable</desc></param><firstline>Detail deviance for each observation</firstline><return>the deviance information by observation and the log likelihood of the predicted result.</return><content>Detail deviance for each observation.</content></Documentation>
+   <Signature name="Deviance_Detail" ret="DATASET(Types.Observation_Deviance)" param="(DATASET(Core_Types.DiscreteField) dependents, DATASET(Types.Raw_Prediction) predicts)" hlen="51">DATASET(Types.Observation_Deviance) Deviance_Detail(DATASET(Core_Types.DiscreteField) dependents, DATASET(Types.Raw_Prediction) predicts)</Signature><Params>
+    <Param name="dependents"/>
+    <Param name="predicts"/>
+   </Params>
+  </Definition>
+ <Documentation>
+    <param><name>dependents</name><desc>original dependent records for the model</desc></param><param><name>predicts</name><desc>the predicted values of the response variable</desc></param><firstline>Detail deviance for each observation</firstline><return>the deviance information by observation and the log likelihood of the predicted result.</return><content>Detail deviance for each observation.</content></Documentation>
+   </Source>
+</Meta>

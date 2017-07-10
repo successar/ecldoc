@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Meta>
+ <Depends sourcePath="/home/sarthak/.HPCCSystems/bundles/ML_Core.ecl" name="ML_Core" target="/home/sarthak/.HPCCSystems/bundles/ML_Core.ecl"/><Depends sourcePath="/home/sarthak/.HPCCSystems/bundles/_versions/ML_Core/V3_1_0/ML_Core/Types.ecl" name="_versions.ML_Core.V3_1_0.ML_Core.Types" target="/home/sarthak/.HPCCSystems/bundles/_versions/ML_Core/V3_1_0/ML_Core/Types.ecl"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Types.ecl" name="Types" target="Types.ecl.xml"/><Depends sourcePath="/home/sarthak/.HPCCSystems/bundles/_versions/ML_Core/V3_1_0/ML_Core/Constants.ecl" name="_versions.ML_Core.V3_1_0.ML_Core.Constants" target="/home/sarthak/.HPCCSystems/bundles/_versions/ML_Core/V3_1_0/ML_Core/Constants.ecl"/><Depends sourcePath="/home/sarthak/.HPCCSystems/bundles/_versions/ML_Core/V3_1_0/ML_Core/Math/DoubleFac.ecl" name="_versions.ML_Core.V3_1_0.ML_Core.Math.DoubleFac" target="/home/sarthak/.HPCCSystems/bundles/_versions/ML_Core/V3_1_0/ML_Core/Math/DoubleFac.ecl"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Distributions.ecl" name="Distributions" target="Distributions.ecl.xml"/><Source name="Deviance_Analysis" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Deviance_Analysis.ecl" target="Deviance_Analysis.ecl.xml">
+  <Import body="0" end="7" inherittype="local" line="1" name="LR" start="7">
+   <loc>loc</loc>
+  </Import>
+  <Import body="0" end="23" fullname="Types" inherittype="local" line="2" name="Types" ref="Types" start="23" target="Types.ecl.xml">
+   <loc>loc</loc>
+  </Import>
+  <Definition body="477" end="1158" exported="1" fullname="deviance_analysis" inherittype="local" line="14" name="Deviance_Analysis" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Deviance_Analysis.ecl" start="314">
+   <Type>function</Type>
+   <Documentation>
+    <param><name>proposed</name><desc>the proposed model</desc></param><param><name>base</name><desc>the base model for comparison</desc></param><firstline>Compare deviance information for an analysis of deviance</firstline><return>the comparison of the deviance between the models</return><content>Compare deviance information for an analysis of deviance.</content></Documentation>
+   <Signature name="Deviance_Analysis" ret="DATASET(Types.AOD_Record)" param="(DATASET(Types.Deviance_Record) proposed, DATASET(Types.Deviance_Record) base)" hlen="43">DATASET(Types.AOD_Record) Deviance_Analysis(DATASET(Types.Deviance_Record) proposed, DATASET(Types.Deviance_Record) base)</Signature><Params>
+    <Param name="proposed"/>
+    <Param name="base"/>
+   </Params>
+  </Definition>
+ <Documentation>
+    <param><name>proposed</name><desc>the proposed model</desc></param><param><name>base</name><desc>the base model for comparison</desc></param><firstline>Compare deviance information for an analysis of deviance</firstline><return>the comparison of the deviance between the models</return><content>Compare deviance information for an analysis of deviance.</content></Documentation>
+   </Source>
+</Meta>

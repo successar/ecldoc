@@ -1,24 +1,21 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <Meta>
  <Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Types.ecl" name="ML_Core.Types" target="../ML_Core/Types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Types.ecl" name="PBblas.Types" target="Types.ecl.xml"/><Source name="PBblas.scal" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/scal.ecl" target="scal.ecl.xml">
-  <Import body="0" end="251" fullname="PBblas" inherittype="local" line="5" name="PBblas" ref="PBblas" start="251" target="pkg.toc.xml">
-   <loc>loc</loc>
-  </Import>
+  <Import body="0" end="251" fullname="PBblas" inherittype="local" line="5" name="PBblas" ref="PBblas" start="251" target="pkg.toc.xml"/>
   <Import body="0" end="271" fullname="PBblas.Types" inherittype="local" line="6" name="Types" ref="PBblas.Types" start="271" target="Types.ecl.xml">
-   <loc>loc</loc>
    <Documentation>
-    <firstline>Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes</firstline><content>Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes.</content></Documentation>
+    <content>Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes.</content><firstline>Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes</firstline></Documentation>
   </Import>
   <Definition body="843" end="991" exported="1" fullname="pbblas.scal" inherittype="local" line="23" name="scal" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/scal.ecl" start="769">
    <Type>function</Type>
    <Documentation>
-    <return>Matrix in Layout_Cell form, of the same shape as X</return><firstline>Scale a matrix by a constant Result is alpha * X This supports a "myriad" style interface in that X may be a set of independent matrices separated by different work-item ids</firstline><param><name>alpha</name><desc>A scalar multiplier</desc></param><param><name>X</name><desc>The matrix(es) to be scaled in Layout_Cell format</desc></param><content>Scale a matrix by a constant Result is alpha * X This supports a "myriad" style interface in that X may be a set of independent matrices separated by different work-item ids.</content><see>PBblas/Types.Layout_Cell</see></Documentation>
+    <return>Matrix in Layout_Cell form, of the same shape as X</return><see>PBblas/Types.Layout_Cell</see><content>Scale a matrix by a constant Result is alpha * X This supports a "myriad" style interface in that X may be a set of independent matrices separated by different work-item ids.</content><param><name>alpha</name><desc>A scalar multiplier</desc></param><param><name>X</name><desc>The matrix(es) to be scaled in Layout_Cell format</desc></param><firstline>Scale a matrix by a constant Result is alpha * X This supports a "myriad" style interface in that X may be a set of independent matrices separated by different work-item ids</firstline></Documentation>
    <Signature name="scal" ret="DATASET(Layout_Cell)" param="(value_t alpha, DATASET(Layout_Cell) X)" hlen="25">DATASET(Layout_Cell) scal(value_t alpha, DATASET(Layout_Cell) X)</Signature><Params>
     <Param name="alpha"/>
     <Param name="X"/>
    </Params>
   </Definition>
  <Documentation>
-    <return>Matrix in Layout_Cell form, of the same shape as X</return><firstline>Scale a matrix by a constant Result is alpha * X This supports a "myriad" style interface in that X may be a set of independent matrices separated by different work-item ids</firstline><param><name>alpha</name><desc>A scalar multiplier</desc></param><param><name>X</name><desc>The matrix(es) to be scaled in Layout_Cell format</desc></param><content>Scale a matrix by a constant Result is alpha * X This supports a "myriad" style interface in that X may be a set of independent matrices separated by different work-item ids.</content><see>PBblas/Types.Layout_Cell</see></Documentation>
+    <return>Matrix in Layout_Cell form, of the same shape as X</return><see>PBblas/Types.Layout_Cell</see><content>Scale a matrix by a constant Result is alpha * X This supports a "myriad" style interface in that X may be a set of independent matrices separated by different work-item ids.</content><param><name>alpha</name><desc>A scalar multiplier</desc></param><param><name>X</name><desc>The matrix(es) to be scaled in Layout_Cell format</desc></param><firstline>Scale a matrix by a constant Result is alpha * X This supports a "myriad" style interface in that X may be a set of independent matrices separated by different work-item ids</firstline></Documentation>
    </Source>
 </Meta>

@@ -4,7 +4,7 @@
   <Definition body="853"
               end="11458"
               exported="1"
-              fullname="std.BLAS"
+              fullname="std.blas"
               inherittype="local"
               line="19"
               name="BLAS"
@@ -514,9 +514,7 @@
           name="LIB_ECLBLAS"
           ref="lib_eclblas"
           remotescope="1"
-          start="808">
-   <loc>loc</loc>
-  </Import>
+          start="808"/>
  </Source>
  <Source name="LogisticRegression.dimm" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./LogisticRegression/dimm.ecl">
   <Definition body="1031"
@@ -563,14 +561,12 @@
   </Definition>
   <Import body="0"
           end="7"
-          fullname="std.BLAS"
+          fullname="logisticregression.blas"
           inherittype="local"
           line="1"
           name="BLAS"
-          ref="std.BLAS"
-          start="7">
-   <loc>loc</loc>
-  </Import>
+          ref="std.blas"
+          start="7"/>
   <Import body="0"
           end="24"
           fullname="std.BLAS.Types"
@@ -578,9 +574,7 @@
           line="2"
           name="Types"
           ref="std.BLAS.Types"
-          start="24">
-   <loc>loc</loc>
-  </Import>
+          start="24"/>
  </Source>
  <Source name="LogisticRegression.validation.unit_test_dimm" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/validation/unit_test_dimm.ecl">
   <Import body="0"
@@ -590,9 +584,7 @@
           line="1"
           name="LR"
           ref="LogisticRegression"
-          start="7">
-   <loc>loc</loc>
-  </Import>
+          start="7"/>
   <Import body="0"
           end="25"
           fullname="std.BLAS.Types"
@@ -600,9 +592,7 @@
           line="2"
           name="Types"
           ref="std.BLAS.Types"
-          start="25">
-   <loc>loc</loc>
-  </Import>
+          start="25"/>
   <Definition body="69"
               end="101"
               fullname="logisticregression.validation.x"
@@ -702,10 +692,10 @@
               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/validation/unit_test_dimm.ecl"
               start="442">
    <Type>record</Type>
-   <Field name="test_name"/>
-   <Field name="rows"/>
-   <Field name="cols"/>
-   <Field name="mat"/>
+   <Field name="test_name" type="string"/>
+   <Field name="rows" type="unsigned2"/>
+   <Field name="cols" type="unsigned2"/>
+   <Field name="mat" type="set of real8"/>
   </Definition>
   <Definition body="559"
               end="573"
@@ -921,10 +911,10 @@
               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/validation/unit_test_dimm.ecl"
               start="1404">
    <Type>record</Type>
-   <Field name="test_name"/>
-   <Field name="r"/>
-   <Field name="c"/>
-   <Field name="v"/>
+   <Field name="test_name" type="string"/>
+   <Field name="r" type="unsigned2"/>
+   <Field name="c" type="unsigned2"/>
+   <Field name="v" type="real8"/>
   </Definition>
   <Definition body="1527"
               end="1670"
@@ -970,13 +960,13 @@
               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/validation/unit_test_dimm.ecl"
               start="1816">
    <Type>record</Type>
-   <Field name="test_name"/>
-   <Field name="r"/>
-   <Field name="c"/>
-   <Field name="v_std"/>
-   <Field name="v_test"/>
-   <Field name="err"/>
-   <Field name="missing"/>
+   <Field name="test_name" type="string"/>
+   <Field name="r" type="unsigned2"/>
+   <Field name="c" type="unsigned2"/>
+   <Field name="v_std" type="real8"/>
+   <Field name="v_test" type="real8"/>
+   <Field name="err" type="boolean"/>
+   <Field name="missing" type="boolean"/>
   </Definition>
   <Definition body="1986"
               end="2291"

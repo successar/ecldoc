@@ -108,9 +108,9 @@
                source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
                start="1369">
     <Type>record</Type>
-    <Field name="wi"/>
-    <Field name="id"/>
-    <Field name="number"/>
+    <Field name="wi" type="unsigned2"/>
+    <Field name="id" type="unsigned8"/>
+    <Field name="number" type="unsigned4"/>
    </Definition>
    <Definition body="1673"
                end="1720"
@@ -122,10 +122,10 @@
                source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
                start="1651">
     <Type>record</Type>
-    <Field name="wi"/>
-    <Field name="id"/>
-    <Field name="number"/>
-    <Field name="value"/>
+    <Field name="wi" type="unsigned2"/>
+    <Field name="id" type="unsigned8"/>
+    <Field name="number" type="unsigned4"/>
+    <Field name="value" type="real8"/>
    </Definition>
    <Definition body="1797"
                end="1843"
@@ -137,10 +137,10 @@
                source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
                start="1774">
     <Type>record</Type>
-    <Field name="wi"/>
-    <Field name="id"/>
-    <Field name="number"/>
-    <Field name="value"/>
+    <Field name="wi" type="unsigned2"/>
+    <Field name="id" type="unsigned8"/>
+    <Field name="number" type="unsigned4"/>
+    <Field name="value" type="integer4"/>
    </Definition>
    <Definition body="1953"
                end="2200"
@@ -152,10 +152,10 @@
                source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
                start="1931">
     <Type>record</Type>
-    <Field name="wi"/>
-    <Field name="id"/>
-    <Field name="number"/>
-    <Field name="value"/>
+    <Field name="wi" type="unsigned2"/>
+    <Field name="id" type="unsigned8"/>
+    <Field name="number" type="unsigned4"/>
+    <Field name="value" type="real8"/>
    </Definition>
    <Definition body="2261"
                end="2336"
@@ -167,11 +167,11 @@
                source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
                start="2236">
     <Type>record</Type>
-    <Field name="wi"/>
-    <Field name="id"/>
-    <Field name="number"/>
-    <Field name="value"/>
-    <Field name="conf"/>
+    <Field name="wi" type="unsigned2"/>
+    <Field name="id" type="unsigned8"/>
+    <Field name="number" type="unsigned4"/>
+    <Field name="value" type="integer4"/>
+    <Field name="conf" type="real8"/>
    </Definition>
    <Definition body="2357"
                end="2410"
@@ -183,11 +183,11 @@
                source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
                start="2339">
     <Type>record</Type>
-    <Field name="wi"/>
-    <Field name="id"/>
-    <Field name="number"/>
-    <Field name="value"/>
-    <Field name="conf"/>
+    <Field name="wi" type="unsigned2"/>
+    <Field name="id" type="unsigned8"/>
+    <Field name="number" type="unsigned4"/>
+    <Field name="value" type="integer4"/>
+    <Field name="conf" type="real8"/>
    </Definition>
    <Definition body="2440"
                end="2639"
@@ -199,12 +199,12 @@
                source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
                start="2414">
     <Type>record</Type>
-    <Field name="wi"/>
-    <Field name="classifier"/>
-    <Field name="actual_class"/>
-    <Field name="predict_class"/>
-    <Field name="occurs"/>
-    <Field name="correct"/>
+    <Field name="wi" type="unsigned2"/>
+    <Field name="classifier" type="unsigned4"/>
+    <Field name="actual_class" type="integer4"/>
+    <Field name="predict_class" type="integer4"/>
+    <Field name="occurs" type="unsigned4"/>
+    <Field name="correct" type="boolean"/>
    </Definition>
    <Definition body="2711"
                end="2782"
@@ -216,9 +216,9 @@
                source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
                start="2690">
     <Type>record</Type>
-    <Field name="wi"/>
-    <Field name="value"/>
-    <Field name="id"/>
+    <Field name="wi" type="unsigned2"/>
+    <Field name="value" type="unsigned4"/>
+    <Field name="id" type="unsigned8"/>
    </Definition>
    <Definition body="2848"
                end="2858"
@@ -252,9 +252,9 @@
                source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
                start="2978">
     <Type>record</Type>
-    <Field name="wi"/>
-    <Field name="node_id"/>
-    <Field name="level"/>
+    <Field name="wi" type="unsigned2"/>
+    <Field name="node_id" type="integer4"/>
+    <Field name="level" type="unsigned2"/>
    </Definition>
    <Parents/>
   </Definition>
@@ -417,10 +417,10 @@
                source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/Types.ecl"
                start="3714">
     <Type>record</Type>
-    <Field name="wi_id"/>
-    <Field name="x"/>
-    <Field name="y"/>
-    <Field name="v"/>
+    <Field name="wi_id" type="unsigned2"/>
+    <Field name="x" type="unsigned4"/>
+    <Field name="y" type="unsigned4"/>
+    <Field name="v" type="real8"/>
     <Documentation>
      <content>&#10;&#32;&#32;&#32;&#32;* Layout for Matrix Cell
     *
@@ -465,8 +465,8 @@
                source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/Types.ecl"
                start="4213">
     <Type>record</Type>
-    <Field name="wi_id"/>
-    <Field name="v"/>
+    <Field name="wi_id" type="unsigned2"/>
+    <Field name="v" type="real8"/>
     <Documentation>
      <content>&#10;&#32;&#32;&#32;&#32;* Layout for Norm results.
     *
@@ -489,9 +489,7 @@
           name="ML_Core"
           ref="ML_Core"
           remotescope="1"
-          start="248">
-   <loc>loc</loc>
-  </Import>
+          start="248"/>
   <Import body="0"
           end="264"
           fullname="ML_Core.Types"
@@ -499,9 +497,7 @@
           line="5"
           name="MlTypes"
           ref="ML_Core.Types"
-          start="264">
-   <loc>loc</loc>
-  </Import>
+          start="264"/>
  </Source>
  <Source name="PBblas.IElementFunc" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/IElementFunc.ecl">
   <Import body="0"
@@ -511,9 +507,7 @@
           line="5"
           name="PBBlas"
           ref="PBblas"
-          start="251">
-   <loc>loc</loc>
-  </Import>
+          start="251"/>
   <Definition body="274"
               end="296"
               fullname="pbblas.value_t"

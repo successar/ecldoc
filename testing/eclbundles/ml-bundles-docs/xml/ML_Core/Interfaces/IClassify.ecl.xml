@@ -7,7 +7,7 @@
    <Definition body="632" end="631" exported="1" fullname="ml_core.interfaces.iclassify.getmodel" inherittype="local" line="17" name="GetModel" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Interfaces/IClassify.ecl" start="474">
     <Type>function</Type>
     <Documentation>
-     <return>the encoded model</return><firstline>Calculate the model to fit the observation data to the observed classes</firstline><param><name>observations</name><desc>the observed explanatory values</desc></param><param><name>classifications</name><desc>the observed classification used to build the model</desc></param><content>Calculate the model to fit the observation data to the observed classes.</content></Documentation>
+     <return>the encoded model</return><content>Calculate the model to fit the observation data to the observed classes.</content><param><name>observations</name><desc>the observed explanatory values</desc></param><param><name>classifications</name><desc>the observed classification used to build the model</desc></param><firstline>Calculate the model to fit the observation data to the observed classes</firstline></Documentation>
     <Signature name="GetModel" ret="DATASET(Types.Layout_Model)" param="(DATASET(Types.NumericField) observations, DATASET(Types.DiscreteField) classifications)" hlen="36">DATASET(Types.Layout_Model) GetModel(DATASET(Types.NumericField) observations, DATASET(Types.DiscreteField) classifications)</Signature><Params>
      <Param name="observations"/>
      <Param name="classifications"/>
@@ -16,7 +16,7 @@
    <Definition body="1052" end="1051" exported="1" fullname="ml_core.interfaces.iclassify.classify" inherittype="local" line="27" name="Classify" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Interfaces/IClassify.ecl" start="898">
     <Type>function</Type>
     <Documentation>
-     <return>Classification with a confidence value</return><firstline>Classify the observations using a model</firstline><param><name>model</name><desc>The model, which must be produced by a corresponding getModel function.</desc></param><param><name>new_observations</name><desc>observations to be classified</desc></param><content>Classify the observations using a model.</content></Documentation>
+     <return>Classification with a confidence value</return><content>Classify the observations using a model.</content><param><name>model</name><desc>The model, which must be produced by a corresponding getModel function.</desc></param><param><name>new_observations</name><desc>observations to be classified</desc></param><firstline>Classify the observations using a model</firstline></Documentation>
     <Signature name="Classify" ret="DATASET(Types.Classify_Result)" param="(DATASET(Types.Layout_Model) model, DATASET(Types.NumericField) new_observations)" hlen="39">DATASET(Types.Classify_Result) Classify(DATASET(Types.Layout_Model) model, DATASET(Types.NumericField) new_observations)</Signature><Params>
      <Param name="model"/>
      <Param name="new_observations"/>
@@ -25,7 +25,7 @@
    <Definition body="1593" end="1592" exported="1" fullname="ml_core.interfaces.iclassify.report" inherittype="local" line="39" name="Report" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Interfaces/IClassify.ecl" start="1385">
     <Type>function</Type>
     <Documentation>
-     <return>the confusion matrix showing correct and incorrect results</return><firstline>Report the confusion matrix for the classifier and training data</firstline><param><name>model</name><desc>the encoded model</desc></param><param><name>observations</name><desc>the explanatory values.</desc></param><param><name>classifications</name><desc>the classifications associated with the observations</desc></param><content>Report the confusion matrix for the classifier and training data.</content></Documentation>
+     <return>the confusion matrix showing correct and incorrect results</return><content>Report the confusion matrix for the classifier and training data.</content><param><name>model</name><desc>the encoded model</desc></param><param><name>observations</name><desc>the explanatory values.</desc></param><param><name>classifications</name><desc>the classifications associated with the observations</desc></param><firstline>Report the confusion matrix for the classifier and training data</firstline></Documentation>
     <Signature name="Report" ret="DATASET(Types.Confusion_Detail)" param="(DATASET(Types.Layout_Model) model, DATASET(Types.NumericField) observations, DATASET(Types.DiscreteField) classifications)" hlen="38">DATASET(Types.Confusion_Detail) Report(DATASET(Types.Layout_Model) model, DATASET(Types.NumericField) observations, DATASET(Types.DiscreteField) classifications)</Signature><Params>
      <Param name="model"/>
      <Param name="observations"/>
@@ -33,15 +33,11 @@
     </Params>
    </Definition>
    <Signature name="IClassify" ret="" param="" hlen="9">IClassify</Signature><Documentation>
-    <firstline>Interface definition for Classification</firstline><content>Interface definition for Classification. Actual implementation modules will probably take parameters.</content></Documentation>
+    <content>Interface definition for Classification. Actual implementation modules will probably take parameters.</content><firstline>Interface definition for Classification</firstline></Documentation>
   </Definition>
-  <Import body="0" end="7" fullname="ML_Core" inherittype="local" line="1" name="ML_Core" ref="ML_Core" start="7" target="../pkg.toc.xml">
-   <loc>loc</loc>
-  </Import>
-  <Import body="0" end="30" fullname="ML_Core.Types" inherittype="local" line="2" name="Types" ref="ML_Core.Types" start="30" target="../Types.ecl.xml">
-   <loc>loc</loc>
-  </Import>
+  <Import body="0" end="7" fullname="ML_Core" inherittype="local" line="1" name="ML_Core" ref="ML_Core" start="7" target="../pkg.toc.xml"/>
+  <Import body="0" end="30" fullname="ML_Core.Types" inherittype="local" line="2" name="Types" ref="ML_Core.Types" start="30" target="../Types.ecl.xml"/>
  <Documentation>
-    <firstline>Interface definition for Classification</firstline><content>Interface definition for Classification. Actual implementation modules will probably take parameters.</content></Documentation>
+    <content>Interface definition for Classification. Actual implementation modules will probably take parameters.</content><firstline>Interface definition for Classification</firstline></Documentation>
   </Source>
 </Meta>

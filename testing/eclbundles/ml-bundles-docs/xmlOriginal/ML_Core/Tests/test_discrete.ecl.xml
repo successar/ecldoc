@@ -108,9 +108,9 @@
                source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
                start="1369">
     <Type>record</Type>
-    <Field name="wi"/>
-    <Field name="id"/>
-    <Field name="number"/>
+    <Field name="wi" type="unsigned2"/>
+    <Field name="id" type="unsigned8"/>
+    <Field name="number" type="unsigned4"/>
    </Definition>
    <Definition body="1673"
                end="1720"
@@ -122,10 +122,10 @@
                source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
                start="1651">
     <Type>record</Type>
-    <Field name="wi"/>
-    <Field name="id"/>
-    <Field name="number"/>
-    <Field name="value"/>
+    <Field name="wi" type="unsigned2"/>
+    <Field name="id" type="unsigned8"/>
+    <Field name="number" type="unsigned4"/>
+    <Field name="value" type="real8"/>
    </Definition>
    <Definition body="1797"
                end="1843"
@@ -137,10 +137,10 @@
                source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
                start="1774">
     <Type>record</Type>
-    <Field name="wi"/>
-    <Field name="id"/>
-    <Field name="number"/>
-    <Field name="value"/>
+    <Field name="wi" type="unsigned2"/>
+    <Field name="id" type="unsigned8"/>
+    <Field name="number" type="unsigned4"/>
+    <Field name="value" type="integer4"/>
    </Definition>
    <Definition body="1953"
                end="2200"
@@ -152,10 +152,10 @@
                source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
                start="1931">
     <Type>record</Type>
-    <Field name="wi"/>
-    <Field name="id"/>
-    <Field name="number"/>
-    <Field name="value"/>
+    <Field name="wi" type="unsigned2"/>
+    <Field name="id" type="unsigned8"/>
+    <Field name="number" type="unsigned4"/>
+    <Field name="value" type="real8"/>
    </Definition>
    <Definition body="2261"
                end="2336"
@@ -167,11 +167,11 @@
                source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
                start="2236">
     <Type>record</Type>
-    <Field name="wi"/>
-    <Field name="id"/>
-    <Field name="number"/>
-    <Field name="value"/>
-    <Field name="conf"/>
+    <Field name="wi" type="unsigned2"/>
+    <Field name="id" type="unsigned8"/>
+    <Field name="number" type="unsigned4"/>
+    <Field name="value" type="integer4"/>
+    <Field name="conf" type="real8"/>
    </Definition>
    <Definition body="2357"
                end="2410"
@@ -183,11 +183,11 @@
                source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
                start="2339">
     <Type>record</Type>
-    <Field name="wi"/>
-    <Field name="id"/>
-    <Field name="number"/>
-    <Field name="value"/>
-    <Field name="conf"/>
+    <Field name="wi" type="unsigned2"/>
+    <Field name="id" type="unsigned8"/>
+    <Field name="number" type="unsigned4"/>
+    <Field name="value" type="integer4"/>
+    <Field name="conf" type="real8"/>
    </Definition>
    <Definition body="2440"
                end="2639"
@@ -199,12 +199,12 @@
                source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
                start="2414">
     <Type>record</Type>
-    <Field name="wi"/>
-    <Field name="classifier"/>
-    <Field name="actual_class"/>
-    <Field name="predict_class"/>
-    <Field name="occurs"/>
-    <Field name="correct"/>
+    <Field name="wi" type="unsigned2"/>
+    <Field name="classifier" type="unsigned4"/>
+    <Field name="actual_class" type="integer4"/>
+    <Field name="predict_class" type="integer4"/>
+    <Field name="occurs" type="unsigned4"/>
+    <Field name="correct" type="boolean"/>
    </Definition>
    <Definition body="2711"
                end="2782"
@@ -216,9 +216,9 @@
                source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
                start="2690">
     <Type>record</Type>
-    <Field name="wi"/>
-    <Field name="value"/>
-    <Field name="id"/>
+    <Field name="wi" type="unsigned2"/>
+    <Field name="value" type="unsigned4"/>
+    <Field name="id" type="unsigned8"/>
    </Definition>
    <Definition body="2848"
                end="2858"
@@ -252,9 +252,9 @@
                source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
                start="2978">
     <Type>record</Type>
-    <Field name="wi"/>
-    <Field name="node_id"/>
-    <Field name="level"/>
+    <Field name="wi" type="unsigned2"/>
+    <Field name="node_id" type="integer4"/>
+    <Field name="level" type="unsigned2"/>
    </Definition>
    <Parents/>
   </Definition>
@@ -625,9 +625,7 @@
           line="1"
           name="ML_Core"
           ref="ML_Core"
-          start="7">
-   <loc>loc</loc>
-  </Import>
+          start="7"/>
   <Import body="0"
           end="28"
           fullname="ML_Core.Types"
@@ -635,9 +633,7 @@
           line="2"
           name="Types"
           ref="ML_Core.Types"
-          start="28">
-   <loc>loc</loc>
-  </Import>
+          start="28"/>
   <Import body="0"
           end="59"
           fullname="ML_Core.Utils"
@@ -646,9 +642,7 @@
           name="Utils"
           ref="ML_Core.Utils"
           remotescope="1"
-          start="59">
-   <loc>loc</loc>
-  </Import>
+          start="59"/>
   <Import body="0"
           end="90"
           fullname="std.system.ThorLib"
@@ -656,9 +650,7 @@
           line="4"
           name="ThorLib"
           ref="std.system.ThorLib"
-          start="90">
-   <loc>loc</loc>
-  </Import>
+          start="90"/>
  </Source>
  <Source name="ML_Core.Discretize" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Discretize.ecl">
   <Definition body="463"
@@ -692,11 +684,11 @@
                source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Discretize.ecl"
                start="699">
     <Type>record</Type>
-    <Field name="fields"/>
-    <Field name="method"/>
-    <Field name="iParam1"/>
-    <Field name="rParam1"/>
-    <Field name="rParam2"/>
+    <Field name="fields" type="set of unsigned4"/>
+    <Field name="method" type="unsigned4"/>
+    <Field name="iParam1" type="integer8"/>
+    <Field name="rParam1" type="real8"/>
+    <Field name="rParam2" type="real8"/>
    </Definition>
    <Definition body="1406"
                end="1463"
@@ -822,9 +814,7 @@
           line="1"
           name="ML_Core"
           ref="ML_Core"
-          start="7">
-   <loc>loc</loc>
-  </Import>
+          start="7"/>
   <Import body="0"
           end="28"
           fullname="ML_Core.Types"
@@ -832,9 +822,7 @@
           line="2"
           name="Types"
           ref="ML_Core.Types"
-          start="28">
-   <loc>loc</loc>
-  </Import>
+          start="28"/>
  </Source>
  <Source name="ML_Core.Tests.test_discrete" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Tests/test_discrete.ecl">
   <Import body="0"
@@ -844,9 +832,7 @@
           line="1"
           name="ML_Core"
           ref="ML_Core"
-          start="7">
-   <loc>loc</loc>
-  </Import>
+          start="7"/>
   <Import body="0"
           end="30"
           fullname="ML_Core.Types"
@@ -854,9 +840,7 @@
           line="2"
           name="Types"
           ref="ML_Core.Types"
-          start="30">
-   <loc>loc</loc>
-  </Import>
+          start="30"/>
   <Definition body="77"
               end="80"
               fullname="ml_core.tests.columns"
@@ -951,11 +935,11 @@
               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Tests/test_discrete.ecl"
               start="1013">
    <Type>record</Type>
-   <Field name="wi"/>
-   <Field name="id"/>
-   <Field name="number"/>
-   <Field name="value"/>
-   <Field name="orig_value"/>
+   <Field name="wi" type="unsigned2"/>
+   <Field name="id" type="unsigned8"/>
+   <Field name="number" type="unsigned4"/>
+   <Field name="value" type="integer4"/>
+   <Field name="orig_value" type="real8"/>
   </Definition>
   <Definition body="1083"
               end="1282"

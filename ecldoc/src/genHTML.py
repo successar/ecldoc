@@ -131,8 +131,6 @@ class GenHTML(object) :
 
     def genHTML(self) :
         child = self.ecl_file_tree['root']
-        files = self.gen(child, self.html_root)
-        files = sorted(files, key=lambda x : x['type'])
 
         bundle = None
         if 'bundle.ecl' in child :
@@ -141,6 +139,9 @@ class GenHTML(object) :
             license = bundle.find('License')
             license.text = '<a href="' + license.text + '">' + license.text + '</a>'
             del child['bundle.ecl']
+
+        files = self.gen(child, self.html_root)
+        files = sorted(files, key=lambda x : x['type'])
 
         render = self.toc_template.render(name='root',
                                             files=files,

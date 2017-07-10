@@ -9,9 +9,7 @@
           name="lib_fileservices"
           ref="lib_fileservices"
           remotescope="1"
-          start="274">
-   <loc>loc</loc>
-  </Import>
+          start="274"/>
   <Definition body="258"
               end="54648"
               exported="1"
@@ -32,9 +30,9 @@
                source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
                start="629">
     <Type>record</Type>
-    <Field name="name"/>
-    <Field name="size"/>
-    <Field name="modified"/>
+    <Field name="name" type="string"/>
+    <Field name="size" type="integer8"/>
+    <Field name="modified" type="string19"/>
     <Documentation>
      <content>&#10;&#32;* A record containing information about filename.  Includes name, size and when last modified.
  * export FsFilenameRecord := RECORD
@@ -68,7 +66,7 @@
                source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
                start="969">
     <Type>record</Type>
-    <Field name="name"/>
+    <Field name="name" type="string"/>
     <Documentation>
      <content>&#10;&#32;* A record containing a logical filename. It contains the following fields:
  *
@@ -85,13 +83,13 @@
                source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
                start="1582">
     <Type>record</Type>
-    <Field name="name"/>
-    <Field name="superfile"/>
-    <Field name="size"/>
-    <Field name="rowcount"/>
-    <Field name="modified"/>
-    <Field name="owner"/>
-    <Field name="cluster"/>
+    <Field name="name" type="string"/>
+    <Field name="superfile" type="boolean"/>
+    <Field name="size" type="integer8"/>
+    <Field name="rowcount" type="integer8"/>
+    <Field name="modified" type="string19"/>
+    <Field name="owner" type="string"/>
+    <Field name="cluster" type="string"/>
     <Documentation>
      <content>&#10;&#32;* A record containing information about a logical file.
  *
@@ -114,8 +112,8 @@
                source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
                start="1841">
     <Type>record</Type>
-    <Field name="supername"/>
-    <Field name="subname"/>
+    <Field name="supername" type="string"/>
+    <Field name="subname" type="string"/>
     <Documentation>
      <content>&#10;&#32;* A record containing information about a superfile and its contents.
  *
@@ -133,14 +131,14 @@
                source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/File.ecl"
                start="2896">
     <Type>record</Type>
-    <Field name="primaryfile"/>
-    <Field name="secondaryfile"/>
-    <Field name="primaryflds"/>
-    <Field name="secondaryflds"/>
-    <Field name="kind"/>
-    <Field name="cardinality"/>
-    <Field name="payload"/>
-    <Field name="description"/>
+    <Field name="primaryfile" type="string"/>
+    <Field name="secondaryfile" type="string"/>
+    <Field name="primaryflds" type="string"/>
+    <Field name="secondaryflds" type="string"/>
+    <Field name="kind" type="string"/>
+    <Field name="cardinality" type="string"/>
+    <Field name="payload" type="boolean"/>
+    <Field name="description" type="string"/>
     <Documentation>
      <content>&#10;&#32;* A record containing information about the relationship between two files.
  *

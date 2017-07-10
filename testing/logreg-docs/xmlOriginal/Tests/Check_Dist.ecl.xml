@@ -1,0 +1,653 @@
+<Meta>
+ <Source name="ML_Core" sourcePath="/home/sarthak/.HPCCSystems/bundles/ML_Core.ecl">
+  <Definition body="70"
+              end="80"
+              exported="1"
+              fullname="_versions.ML_Core.V3_1_0.ML_Core"
+              global="1"
+              inherittype="local"
+              line="1"
+              name="ML_Core"
+              source="/home/sarthak/.HPCCSystems/bundles/ML_Core.ecl"
+              start="53">
+   <Type>module</Type>
+   <Parents/>
+  </Definition>
+  <Import body="0"
+          end="7"
+          fullname="_versions.ML_Core.V3_1_0.ML_Core"
+          inherittype="local"
+          line="1"
+          name="_ML_Core"
+          ref="_versions.ML_Core.V3_1_0.ML_Core"
+          remotescope="1"
+          start="7">
+   <loc>loc</loc>
+  </Import>
+ </Source>
+ <Source name="_versions.ML_Core.V3_1_0.ML_Core.Constants" sourcePath="/home/sarthak/.HPCCSystems/bundles/_versions/ML_Core/V3_1_0/ML_Core/Constants.ecl">
+  <Definition body="47"
+              end="224"
+              exported="1"
+              fullname="_versions.ML_Core.V3_1_0.ML_Core.Constants"
+              inherittype="local"
+              line="4"
+              name="Constants"
+              source="/home/sarthak/.HPCCSystems/bundles/_versions/ML_Core/V3_1_0/ML_Core/Constants.ecl"
+              start="28">
+   <Type>module</Type>
+   <Parents/>
+   <Definition body="98"
+               end="127"
+               exported="1"
+               fullname="_versions.ml_core.v3_1_0.ml_core.constants.pi"
+               inherittype="local"
+               line="8"
+               name="Pi"
+               source="/home/sarthak/.HPCCSystems/bundles/_versions/ML_Core/V3_1_0/ML_Core/Constants.ecl"
+               start="86">
+    <Type>attribute</Type>
+    <Documentation>
+     <content>&#10;&#32;&#32;&#32;* Constant PI&#10;&#32;&#32;&#32;</content>
+    </Documentation>
+   </Definition>
+   <Definition body="189"
+               end="218"
+               exported="1"
+               fullname="_versions.ml_core.v3_1_0.ml_core.constants.root_2"
+               inherittype="local"
+               line="12"
+               name="Root_2"
+               source="/home/sarthak/.HPCCSystems/bundles/_versions/ML_Core/V3_1_0/ML_Core/Constants.ecl"
+               start="173">
+    <Type>attribute</Type>
+    <Documentation>
+     <content>&#10;&#32;&#32;&#32;* Constant square root of 2&#10;&#32;&#32;&#32;</content>
+    </Documentation>
+   </Definition>
+   <Documentation>
+    <content>&#10;&#32;* Useful constants&#10;&#32;</content>
+   </Documentation>
+  </Definition>
+ </Source>
+ <Source name="_versions.ML_Core.V3_1_0.ML_Core.Math.DoubleFac" sourcePath="/home/sarthak/.HPCCSystems/bundles/_versions/ML_Core/V3_1_0/ML_Core/Math/DoubleFac.ecl">
+  <Definition body="474"
+              end="642"
+              exported="1"
+              fullname="_versions.ml_core.v3_1_0.ml_core.math.doublefac"
+              inherittype="local"
+              line="11"
+              name="DoubleFac"
+              source="/home/sarthak/.HPCCSystems/bundles/_versions/ML_Core/V3_1_0/ML_Core/Math/DoubleFac.ecl"
+              start="437">
+   <Type>embed</Type>
+   <Documentation>
+    <content>&#10;&#32;* The &apos;double&apos; factorial is defined for ODD n and is the product of
+ * all the odd numbers up to and including that number.
+ * We are extending the meaning to even numbers to mean the product
+ * of the even numbers up to and including that number.
+ * Thus DoubleFac(8) = 8*6*4*2
+ * We also defend against i &lt; 2 (returning 1.0)
+ *@param i the value used in the calculation
+ *@return the factorial of the sequence, declining by 2&#10;&#32;</content>
+   </Documentation>
+   <Params>
+    <Param name="i"/>
+   </Params>
+  </Definition>
+ </Source>
+ <Source name="Distributions" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/./Distributions.ecl">
+  <Definition body="151"
+              end="13981"
+              exported="1"
+              fullname="Distributions"
+              inherittype="local"
+              line="5"
+              name="Distributions"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/./Distributions.ecl"
+              start="128">
+   <Type>module</Type>
+   <Definition body="597"
+               end="1071"
+               exported="1"
+               fullname="distributions.normal_cdf"
+               inherittype="local"
+               line="15"
+               name="Normal_CDF"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/./Distributions.ecl"
+               start="562">
+    <Type>function</Type>
+    <Documentation>
+     <content>&#10;&#32;&#32;&#32;* Cumulative Distribution of the standard normal distribution, the
+   *probability that a normal random variable will be smaller than x
+   * standard deviations above or below the mean.
+   * Taken from C/C++ Mathematical Algorithms for Scientists and
+   *Engineers, n. Shammas, McGraw-Hill, 1995
+   * @param x the number of standard deviations
+   * @returns probability of exceeding x.&#10;&#32;&#32;&#32;</content>
+    </Documentation>
+    <Params>
+     <Param name="x"/>
+    </Params>
+   </Definition>
+   <Definition body="1374"
+               end="2008"
+               exported="1"
+               fullname="distributions.normal_ppf"
+               inherittype="local"
+               line="40"
+               name="Normal_PPF"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/./Distributions.ecl"
+               start="1339">
+    <Type>function</Type>
+    <Documentation>
+     <content>&#10;&#32;&#32;&#32;* Normal Distribution Percentage Point Function.
+   * Translated from C/C++ Mathematical Algorithms for Scientists and
+   * Engineers, N. Shammas, McGraw-Hill, 1995
+   * @param x probability
+   * @returns number of standard deviations from the mean&#10;&#32;&#32;&#32;</content>
+    </Documentation>
+    <Params>
+     <Param name="x"/>
+    </Params>
+   </Definition>
+   <Definition body="2801"
+               end="4681"
+               exported="1"
+               fullname="distributions.t_cdf"
+               inherittype="local"
+               line="83"
+               name="T_CDF"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/./Distributions.ecl"
+               start="2761">
+    <Type>function</Type>
+    <Documentation>
+     <content>&#10;&#32;&#32;&#32;* Students t distribution integral evaluated between negative
+   * infinity and x.
+   * Translated from NIST SEL DATAPAC Fortran TCDF.f source
+   * @param x value of the evaluation
+   * @param df degrees of freedom
+   * @returns the probability that a value will be less than the
+   * specified value&#10;&#32;&#32;&#32;</content>
+    </Documentation>
+    <Params>
+     <Param name="x"/>
+     <Param name="df"/>
+    </Params>
+   </Definition>
+   <Definition body="6884"
+               end="8701"
+               exported="1"
+               fullname="distributions.t_ppf"
+               inherittype="local"
+               line="212"
+               name="T_PPF"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/./Distributions.ecl"
+               start="6844">
+    <Type>function</Type>
+    <Documentation>
+     <content>&#10;&#32;&#32;&#32;* Percentage point function for the T distribution.
+   * Translated from NIST SEL DATAPAC Fortran TPPF.f source&#10;&#32;&#32;&#32;</content>
+    </Documentation>
+    <Params>
+     <Param name="x"/>
+     <Param name="df"/>
+    </Params>
+   </Definition>
+   <Definition body="9470"
+               end="11413"
+               exported="1"
+               fullname="distributions.chi2_cdf"
+               inherittype="local"
+               line="290"
+               name="Chi2_CDF"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/./Distributions.ecl"
+               start="9427">
+    <Type>function</Type>
+    <Documentation>
+     <content>&#10;&#32;&#32;&#32;* The cumulative distribution function for the Chi Square
+   * distribution.
+   * the CDF for the specfied degrees of freedom.
+   * Translated from the NIST SEL DATAPAC Fortran subroutine CHSCDF.&#10;&#32;&#32;&#32;</content>
+    </Documentation>
+    <Params>
+     <Param name="x"/>
+     <Param name="df"/>
+    </Params>
+   </Definition>
+   <Definition body="13680"
+               end="13976"
+               exported="1"
+               fullname="distributions.chi2_ppf"
+               inherittype="local"
+               line="399"
+               name="Chi2_PPF"
+               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/./Distributions.ecl"
+               start="13637">
+    <Type>function</Type>
+    <Documentation>
+     <content>&#10;&#32;&#32;&#32;* The Chi Squared PPF function.
+   * Translated from the NIST SEL DATAPAC Fortran subroutine CHSPPF.&#10;&#32;&#32;&#32;</content>
+    </Documentation>
+    <Params>
+     <Param name="x"/>
+     <Param name="df"/>
+    </Params>
+   </Definition>
+   <Parents/>
+  </Definition>
+  <Import body="0"
+          end="65"
+          fullname="_versions.ML_Core.V3_1_0.ML_Core.Constants"
+          inherittype="local"
+          line="2"
+          name="Core_Const"
+          ref="_versions.ML_Core.V3_1_0.ML_Core.Constants"
+          start="65">
+   <loc>loc</loc>
+   <Documentation>
+    <content>&#10;&#32;* Useful constants&#10;&#32;</content>
+   </Documentation>
+  </Import>
+  <Import body="0"
+          end="105"
+          fullname="_versions.ML_Core.V3_1_0.ML_Core.Math"
+          inherittype="local"
+          line="3"
+          name="Math"
+          ref="_versions.ML_Core.V3_1_0.ML_Core.Math"
+          remotescope="1"
+          start="105">
+   <loc>loc</loc>
+  </Import>
+ </Source>
+ <Source sourcePath="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/plugins/python.ecllib"/>
+ <Source name="Tests.Check_Dist" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Tests/Check_Dist.ecl">
+  <Import body="0"
+          end="7"
+          fullname="Distributions"
+          inherittype="local"
+          line="1"
+          name="Distributions"
+          ref="Distributions"
+          start="7">
+   <loc>loc</loc>
+  </Import>
+  <Import body="0"
+          end="33"
+          fullname="_versions.ML_Core.V3_1_0.ML_Core"
+          inherittype="local"
+          line="2"
+          name="ML_Core"
+          ref="_versions.ML_Core.V3_1_0.ML_Core"
+          remotescope="1"
+          start="33">
+   <loc>loc</loc>
+  </Import>
+  <Import body="0"
+          end="49"
+          fullname="python"
+          inherittype="local"
+          line="3"
+          name="python"
+          ref="python"
+          remotescope="1"
+          start="49">
+   <loc>loc</loc>
+  </Import>
+  <Definition body="113"
+              end="363"
+              fullname="tests.scipy_dist_cdf"
+              inherittype="local"
+              line="4"
+              name="scipy_dist_cdf"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Tests/Check_Dist.ecl"
+              start="57">
+   <Type>embed</Type>
+   <Params>
+    <Param name="x"/>
+    <Param name="df"/>
+    <Param name="dist"/>
+   </Params>
+  </Definition>
+  <Definition body="420"
+              end="668"
+              fullname="tests.scipy_dist_ppf"
+              inherittype="local"
+              line="15"
+              name="scipy_dist_ppf"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Tests/Check_Dist.ecl"
+              start="364">
+   <Type>embed</Type>
+   <Params>
+    <Param name="x"/>
+    <Param name="df"/>
+    <Param name="dist"/>
+   </Params>
+  </Definition>
+  <Definition body="706"
+              end="931"
+              fullname="tests.diff_tolerance"
+              inherittype="local"
+              line="26"
+              name="diff_tolerance"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Tests/Check_Dist.ecl"
+              start="669">
+   <Type>function</Type>
+   <Params>
+    <Param name="test"/>
+   </Params>
+  </Definition>
+  <Definition body="947"
+              end="1076"
+              fullname="tests.prob_values"
+              inherittype="local"
+              line="32"
+              name="prob_values"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Tests/Check_Dist.ecl"
+              start="933">
+   <Type>attribute</Type>
+  </Definition>
+  <Definition body="1091"
+              end="1148"
+              fullname="tests.dist_values"
+              inherittype="local"
+              line="34"
+              name="dist_values"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Tests/Check_Dist.ecl"
+              start="1077">
+   <Type>attribute</Type>
+  </Definition>
+  <Definition body="1161"
+              end="1225"
+              fullname="tests.df_values"
+              inherittype="local"
+              line="35"
+              name="df_values"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Tests/Check_Dist.ecl"
+              start="1149">
+   <Type>attribute</Type>
+  </Definition>
+  <Definition body="1248"
+              end="1298"
+              fullname="tests.test"
+              inherittype="local"
+              line="36"
+              name="test"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Tests/Check_Dist.ecl"
+              start="1226">
+   <Type>attribute</Type>
+  </Definition>
+  <Definition body="1325"
+              end="1351"
+              fullname="tests.inv_test"
+              inherittype="local"
+              line="37"
+              name="inv_test"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Tests/Check_Dist.ecl"
+              start="1299">
+   <Type>attribute</Type>
+  </Definition>
+  <Definition body="1359"
+              end="1523"
+              fullname="tests.work"
+              inherittype="local"
+              line="38"
+              name="Work"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Tests/Check_Dist.ecl"
+              start="1352">
+   <Type>record</Type>
+   <Field name="df"/>
+   <Field name="prob"/>
+   <Field name="ecl_ppf"/>
+   <Field name="scipy_ppf"/>
+   <Field name="ppf_diff"/>
+   <Field name="dist"/>
+   <Field name="ecl_cdf"/>
+   <Field name="scipy_cdf"/>
+   <Field name="cdf_diff"/>
+  </Definition>
+  <Definition body="1562"
+              end="1587"
+              fullname="tests.abs_max_abs"
+              inherittype="local"
+              line="49"
+              name="abs_max_abs"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Tests/Check_Dist.ecl"
+              start="1524">
+   <Type>function</Type>
+   <Params>
+    <Param name="a"/>
+    <Param name="b"/>
+   </Params>
+  </Definition>
+  <Definition body="1622"
+              end="1662"
+              fullname="tests.fixed"
+              inherittype="local"
+              line="50"
+              name="fixed"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Tests/Check_Dist.ecl"
+              start="1588">
+   <Type>function</Type>
+   <Params>
+    <Param name="a"/>
+    <Param name="b"/>
+   </Params>
+  </Definition>
+  <Definition body="1697"
+              end="1736"
+              fullname="tests.divisor"
+              inherittype="local"
+              line="51"
+              name="divisor"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Tests/Check_Dist.ecl"
+              start="1663">
+   <Type>function</Type>
+   <Params>
+    <Param name="a"/>
+    <Param name="b"/>
+   </Params>
+  </Definition>
+  <Definition body="1772"
+              end="1795"
+              fullname="tests.calc_err"
+              inherittype="local"
+              line="52"
+              name="calc_err"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Tests/Check_Dist.ecl"
+              start="1737">
+   <Type>function</Type>
+   <Params>
+    <Param name="a"/>
+    <Param name="b"/>
+   </Params>
+  </Definition>
+  <Definition body="1843"
+              end="1860"
+              fullname="tests.check_err"
+              inherittype="local"
+              line="53"
+              name="check_err"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Tests/Check_Dist.ecl"
+              start="1796">
+   <Type>function</Type>
+   <Params>
+    <Param name="a"/>
+    <Param name="b"/>
+    <Param name="t"/>
+   </Params>
+  </Definition>
+  <Definition body="1895"
+              end="2724"
+              fullname="tests.run"
+              inherittype="local"
+              line="54"
+              name="run"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Tests/Check_Dist.ecl"
+              start="1861">
+   <Type>transform</Type>
+   <Params>
+    <Param name="c"/>
+    <Param name="d"/>
+   </Params>
+   <Return>work</Return>
+  </Definition>
+  <Definition body="2734"
+              end="2862"
+              fullname="tests.report"
+              inherittype="local"
+              line="74"
+              name="Report"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Tests/Check_Dist.ecl"
+              start="2725">
+   <Type>record</Type>
+   <Field name="test"/>
+   <Field name="OK"/>
+   <Field name="df"/>
+   <Field name="inp_value"/>
+   <Field name="ecl_value"/>
+   <Field name="py_value"/>
+   <Field name="diff"/>
+  </Definition>
+  <Definition body="2903"
+              end="3423"
+              fullname="tests.makereport"
+              inherittype="local"
+              line="83"
+              name="makeReport"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Tests/Check_Dist.ecl"
+              start="2863">
+   <Type>transform</Type>
+   <Params>
+    <Param name="w"/>
+    <Param name="c"/>
+   </Params>
+   <Return>report</Return>
+  </Definition>
+  <Definition body="3430"
+              end="3476"
+              fullname="tests.ts1"
+              inherittype="local"
+              line="95"
+              name="ts1"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Tests/Check_Dist.ecl"
+              start="3424">
+   <Type>attribute</Type>
+  </Definition>
+  <Definition body="3483"
+              end="3545"
+              fullname="tests.ts2"
+              inherittype="local"
+              line="96"
+              name="ts2"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Tests/Check_Dist.ecl"
+              start="3477">
+   <Type>attribute</Type>
+  </Definition>
+  <Definition body="3552"
+              end="3614"
+              fullname="tests.ts3"
+              inherittype="local"
+              line="97"
+              name="ts3"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Tests/Check_Dist.ecl"
+              start="3546">
+   <Type>attribute</Type>
+  </Definition>
+  <Definition body="3620"
+              end="3666"
+              fullname="tests.r1"
+              inherittype="local"
+              line="98"
+              name="r1"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Tests/Check_Dist.ecl"
+              start="3615">
+   <Type>attribute</Type>
+  </Definition>
+  <Definition body="3672"
+              end="3720"
+              fullname="tests.r2"
+              inherittype="local"
+              line="99"
+              name="r2"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Tests/Check_Dist.ecl"
+              start="3667">
+   <Type>attribute</Type>
+  </Definition>
+  <Definition body="3726"
+              end="3774"
+              fullname="tests.r3"
+              inherittype="local"
+              line="100"
+              name="r3"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Tests/Check_Dist.ecl"
+              start="3721">
+   <Type>attribute</Type>
+  </Definition>
+  <Definition body="3798"
+              end="4050"
+              fullname="tests.df_cat"
+              inherittype="local"
+              line="101"
+              name="df_cat"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Tests/Check_Dist.ecl"
+              start="3775">
+   <Type>function</Type>
+   <Params>
+    <Param name="df"/>
+   </Params>
+  </Definition>
+  <Definition body="4057"
+              end="4271"
+              fullname="tests.rpt"
+              inherittype="local"
+              line="106"
+              name="rpt"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Tests/Check_Dist.ecl"
+              start="4051">
+   <Type>attribute</Type>
+  </Definition>
+  <Definition body="4281"
+              end="4328"
+              fullname="tests.errors"
+              inherittype="local"
+              line="111"
+              name="errors"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Tests/Check_Dist.ecl"
+              start="4272">
+   <Type>attribute</Type>
+  </Definition>
+  <Definition body="4345"
+              end="4776"
+              fullname="tests.error_actions"
+              inherittype="local"
+              line="112"
+              name="error_actions"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Tests/Check_Dist.ecl"
+              start="4329">
+   <Type>attribute</Type>
+  </Definition>
+  <Definition body="4786"
+              end="4846"
+              fullname="tests.passed"
+              inherittype="local"
+              line="120"
+              name="passed"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Tests/Check_Dist.ecl"
+              start="4777">
+   <Type>attribute</Type>
+  </Definition>
+  <Definition body="4868"
+              end="4911"
+              exported="1"
+              fullname="tests.check_dist"
+              inherittype="local"
+              line="122"
+              name="Check_Dist"
+              source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Tests/Check_Dist.ecl"
+              start="4848">
+   <Type>attribute</Type>
+  </Definition>
+ </Source>
+</Meta>

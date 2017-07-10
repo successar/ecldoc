@@ -108,9 +108,9 @@
                source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
                start="1369">
     <Type>record</Type>
-    <Field name="wi"/>
-    <Field name="id"/>
-    <Field name="number"/>
+    <Field name="wi" type="unsigned2"/>
+    <Field name="id" type="unsigned8"/>
+    <Field name="number" type="unsigned4"/>
    </Definition>
    <Definition body="1673"
                end="1720"
@@ -122,10 +122,10 @@
                source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
                start="1651">
     <Type>record</Type>
-    <Field name="wi"/>
-    <Field name="id"/>
-    <Field name="number"/>
-    <Field name="value"/>
+    <Field name="wi" type="unsigned2"/>
+    <Field name="id" type="unsigned8"/>
+    <Field name="number" type="unsigned4"/>
+    <Field name="value" type="real8"/>
    </Definition>
    <Definition body="1797"
                end="1843"
@@ -137,10 +137,10 @@
                source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
                start="1774">
     <Type>record</Type>
-    <Field name="wi"/>
-    <Field name="id"/>
-    <Field name="number"/>
-    <Field name="value"/>
+    <Field name="wi" type="unsigned2"/>
+    <Field name="id" type="unsigned8"/>
+    <Field name="number" type="unsigned4"/>
+    <Field name="value" type="integer4"/>
    </Definition>
    <Definition body="1953"
                end="2200"
@@ -152,10 +152,10 @@
                source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
                start="1931">
     <Type>record</Type>
-    <Field name="wi"/>
-    <Field name="id"/>
-    <Field name="number"/>
-    <Field name="value"/>
+    <Field name="wi" type="unsigned2"/>
+    <Field name="id" type="unsigned8"/>
+    <Field name="number" type="unsigned4"/>
+    <Field name="value" type="real8"/>
    </Definition>
    <Definition body="2261"
                end="2336"
@@ -167,11 +167,11 @@
                source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
                start="2236">
     <Type>record</Type>
-    <Field name="wi"/>
-    <Field name="id"/>
-    <Field name="number"/>
-    <Field name="value"/>
-    <Field name="conf"/>
+    <Field name="wi" type="unsigned2"/>
+    <Field name="id" type="unsigned8"/>
+    <Field name="number" type="unsigned4"/>
+    <Field name="value" type="integer4"/>
+    <Field name="conf" type="real8"/>
    </Definition>
    <Definition body="2357"
                end="2410"
@@ -183,11 +183,11 @@
                source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
                start="2339">
     <Type>record</Type>
-    <Field name="wi"/>
-    <Field name="id"/>
-    <Field name="number"/>
-    <Field name="value"/>
-    <Field name="conf"/>
+    <Field name="wi" type="unsigned2"/>
+    <Field name="id" type="unsigned8"/>
+    <Field name="number" type="unsigned4"/>
+    <Field name="value" type="integer4"/>
+    <Field name="conf" type="real8"/>
    </Definition>
    <Definition body="2440"
                end="2639"
@@ -199,12 +199,12 @@
                source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
                start="2414">
     <Type>record</Type>
-    <Field name="wi"/>
-    <Field name="classifier"/>
-    <Field name="actual_class"/>
-    <Field name="predict_class"/>
-    <Field name="occurs"/>
-    <Field name="correct"/>
+    <Field name="wi" type="unsigned2"/>
+    <Field name="classifier" type="unsigned4"/>
+    <Field name="actual_class" type="integer4"/>
+    <Field name="predict_class" type="integer4"/>
+    <Field name="occurs" type="unsigned4"/>
+    <Field name="correct" type="boolean"/>
    </Definition>
    <Definition body="2711"
                end="2782"
@@ -216,9 +216,9 @@
                source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
                start="2690">
     <Type>record</Type>
-    <Field name="wi"/>
-    <Field name="value"/>
-    <Field name="id"/>
+    <Field name="wi" type="unsigned2"/>
+    <Field name="value" type="unsigned4"/>
+    <Field name="id" type="unsigned8"/>
    </Definition>
    <Definition body="2848"
                end="2858"
@@ -252,9 +252,9 @@
                source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Types.ecl"
                start="2978">
     <Type>record</Type>
-    <Field name="wi"/>
-    <Field name="node_id"/>
-    <Field name="level"/>
+    <Field name="wi" type="unsigned2"/>
+    <Field name="node_id" type="integer4"/>
+    <Field name="level" type="unsigned2"/>
    </Definition>
    <Parents/>
   </Definition>
@@ -417,10 +417,10 @@
                source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/Types.ecl"
                start="3714">
     <Type>record</Type>
-    <Field name="wi_id"/>
-    <Field name="x"/>
-    <Field name="y"/>
-    <Field name="v"/>
+    <Field name="wi_id" type="unsigned2"/>
+    <Field name="x" type="unsigned4"/>
+    <Field name="y" type="unsigned4"/>
+    <Field name="v" type="real8"/>
     <Documentation>
      <content>&#10;&#32;&#32;&#32;&#32;* Layout for Matrix Cell
     *
@@ -465,8 +465,8 @@
                source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/Types.ecl"
                start="4213">
     <Type>record</Type>
-    <Field name="wi_id"/>
-    <Field name="v"/>
+    <Field name="wi_id" type="unsigned2"/>
+    <Field name="v" type="real8"/>
     <Documentation>
      <content>&#10;&#32;&#32;&#32;&#32;* Layout for Norm results.
     *
@@ -489,9 +489,7 @@
           name="ML_Core"
           ref="ML_Core"
           remotescope="1"
-          start="248">
-   <loc>loc</loc>
-  </Import>
+          start="248"/>
   <Import body="0"
           end="264"
           fullname="ML_Core.Types"
@@ -499,9 +497,7 @@
           line="5"
           name="MlTypes"
           ref="ML_Core.Types"
-          start="264">
-   <loc>loc</loc>
-  </Import>
+          start="264"/>
  </Source>
  <Source name="PBblas.internal.Types" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/internal/Types.ecl">
   <Import body="0"
@@ -511,9 +507,7 @@
           line="5"
           name="PBblas"
           ref="PBblas"
-          start="249">
-   <loc>loc</loc>
-  </Import>
+          start="249"/>
   <Import body="0"
           end="271"
           fullname="PBblas.Types"
@@ -522,7 +516,6 @@
           name="eTypes"
           ref="PBblas.Types"
           start="271">
-   <loc>loc</loc>
    <Documentation>
     <content>&#10;&#32;&#32;* Types for the Parallel Block Basic Linear Algebra Sub-programs support
   * WARNING: attributes marked with WARNING can not be changed without making
@@ -729,21 +722,21 @@
                source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/internal/Types.ecl"
                start="5851">
     <Type>record</Type>
-    <Field name="m_label"/>
-    <Field name="wi_id"/>
-    <Field name="partition_id"/>
-    <Field name="node_id"/>
-    <Field name="m_rows"/>
-    <Field name="m_cols"/>
-    <Field name="row_blocks"/>
-    <Field name="col_blocks"/>
-    <Field name="block_row"/>
-    <Field name="block_col"/>
-    <Field name="part_rows"/>
-    <Field name="part_cols"/>
-    <Field name="first_row"/>
-    <Field name="first_col"/>
-    <Field name="mat_part"/>
+    <Field name="m_label" type="string3"/>
+    <Field name="wi_id" type="unsigned2"/>
+    <Field name="partition_id" type="unsigned2"/>
+    <Field name="node_id" type="unsigned2"/>
+    <Field name="m_rows" type="unsigned4"/>
+    <Field name="m_cols" type="unsigned4"/>
+    <Field name="row_blocks" type="unsigned4"/>
+    <Field name="col_blocks" type="unsigned4"/>
+    <Field name="block_row" type="unsigned4"/>
+    <Field name="block_col" type="unsigned4"/>
+    <Field name="part_rows" type="unsigned4"/>
+    <Field name="part_cols" type="unsigned4"/>
+    <Field name="first_row" type="unsigned4"/>
+    <Field name="first_col" type="unsigned4"/>
+    <Field name="mat_part" type="set of real8"/>
     <Documentation>
      <content>&#10;&#32;&#32;&#32;&#32;* Alternate form for storage of large matrixes as a set of partitions
     * Each partition holds the dense form of a piece of the matrix (see matrix_t)
@@ -798,26 +791,26 @@
                source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/internal/Types.ecl"
                start="7144">
     <Type>record</Type>
-    <Field name="t_part_id"/>
-    <Field name="t_node_id"/>
-    <Field name="t_block_row"/>
-    <Field name="t_block_col"/>
-    <Field name="t_term"/>
-    <Field name="m_label"/>
-    <Field name="wi_id"/>
-    <Field name="partition_id"/>
-    <Field name="node_id"/>
-    <Field name="m_rows"/>
-    <Field name="m_cols"/>
-    <Field name="row_blocks"/>
-    <Field name="col_blocks"/>
-    <Field name="block_row"/>
-    <Field name="block_col"/>
-    <Field name="part_rows"/>
-    <Field name="part_cols"/>
-    <Field name="first_row"/>
-    <Field name="first_col"/>
-    <Field name="mat_part"/>
+    <Field name="t_part_id" type="unsigned2"/>
+    <Field name="t_node_id" type="unsigned2"/>
+    <Field name="t_block_row" type="unsigned4"/>
+    <Field name="t_block_col" type="unsigned4"/>
+    <Field name="t_term" type="unsigned4"/>
+    <Field name="m_label" type="string3"/>
+    <Field name="wi_id" type="unsigned2"/>
+    <Field name="partition_id" type="unsigned2"/>
+    <Field name="node_id" type="unsigned2"/>
+    <Field name="m_rows" type="unsigned4"/>
+    <Field name="m_cols" type="unsigned4"/>
+    <Field name="row_blocks" type="unsigned4"/>
+    <Field name="col_blocks" type="unsigned4"/>
+    <Field name="block_row" type="unsigned4"/>
+    <Field name="block_col" type="unsigned4"/>
+    <Field name="part_rows" type="unsigned4"/>
+    <Field name="part_cols" type="unsigned4"/>
+    <Field name="first_row" type="unsigned4"/>
+    <Field name="first_col" type="unsigned4"/>
+    <Field name="mat_part" type="set of real8"/>
     <Documentation>
      <content>&#10;&#32;&#32;&#32;&#32;* Represents the relationship of a partition to the partition holding the
     * results of a matrix operation.  This is used internally to PBblas functions
@@ -842,14 +835,14 @@
                source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/internal/Types.ecl"
                start="8285">
     <Type>record</Type>
-    <Field name="m_label"/>
-    <Field name="wi_id"/>
-    <Field name="m_rows"/>
-    <Field name="m_cols"/>
-    <Field name="block_rows"/>
-    <Field name="block_cols"/>
-    <Field name="row_blocks"/>
-    <Field name="col_blocks"/>
+    <Field name="m_label" type="string3"/>
+    <Field name="wi_id" type="unsigned2"/>
+    <Field name="m_rows" type="unsigned4"/>
+    <Field name="m_cols" type="unsigned4"/>
+    <Field name="block_rows" type="unsigned4"/>
+    <Field name="block_cols" type="unsigned4"/>
+    <Field name="row_blocks" type="unsigned4"/>
+    <Field name="col_blocks" type="unsigned4"/>
     <Documentation>
      <content>&#10;&#32;&#32;&#32;&#32;* Record format for matrix and matrix partition dimensions.  Each record describes
     * A single matrix or matrix partition.  Partitions use all of the fields, while
@@ -875,7 +868,7 @@
                source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/internal/Types.ecl"
                start="8815">
     <Type>record</Type>
-    <Field name="wi_id"/>
+    <Field name="wi_id" type="unsigned2"/>
     <Documentation>
      <content>&#32;&#10;&#32;&#32;&#32;&#32;* Record for a list of work-item ids used internally
     *
@@ -1016,9 +1009,7 @@
           line="5"
           name="PBblas"
           ref="PBblas"
-          start="251">
-   <loc>loc</loc>
-  </Import>
+          start="251"/>
   <Import body="0"
           end="289"
           fullname="PBblas.Types"
@@ -1027,7 +1018,6 @@
           name="Types"
           ref="PBblas.Types"
           start="289">
-   <loc>loc</loc>
    <Documentation>
     <content>&#10;&#32;&#32;* Types for the Parallel Block Basic Linear Algebra Sub-programs support
   * WARNING: attributes marked with WARNING can not be changed without making
@@ -1042,9 +1032,7 @@
           name="int"
           ref="PBblas.internal"
           remotescope="1"
-          start="294">
-   <loc>loc</loc>
-  </Import>
+          start="294"/>
   <Import body="0"
           end="310"
           fullname="PBblas.internal.Types"
@@ -1053,7 +1041,6 @@
           name="iTypes"
           ref="PBblas.internal.Types"
           start="310">
-   <loc>loc</loc>
    <Documentation>
     <content>&#10;&#32;&#32;* Internal Types for the Parallel Block Basic Linear Algebra Sub-programs support
   * WARNING: attributes marked with WARNING can not be changed without making
@@ -1067,9 +1054,7 @@
           line="9"
           name="Thorlib"
           ref="std.system.Thorlib"
-          start="339">
-   <loc>loc</loc>
-  </Import>
+          start="339"/>
   <Definition body="309"
               end="329"
               fullname="pbblas.internal.dimension_t"
@@ -1325,9 +1310,7 @@
           line="4"
           name="PBblas"
           ref="PBblas"
-          start="250">
-   <loc>loc</loc>
-  </Import>
+          start="250"/>
   <Import body="0"
           end="272"
           fullname="PBblas.internal"
@@ -1336,9 +1319,7 @@
           name="int"
           ref="PBblas.internal"
           remotescope="1"
-          start="272">
-   <loc>loc</loc>
-  </Import>
+          start="272"/>
   <Import body="0"
           end="289"
           fullname="PBblas.Types"
@@ -1347,7 +1328,6 @@
           name="Types"
           ref="PBblas.Types"
           start="289">
-   <loc>loc</loc>
    <Documentation>
     <content>&#10;&#32;&#32;* Types for the Parallel Block Basic Linear Algebra Sub-programs support
   * WARNING: attributes marked with WARNING can not be changed without making
@@ -1362,7 +1342,6 @@
           name="iTypes"
           ref="PBblas.internal.Types"
           start="310">
-   <loc>loc</loc>
    <Documentation>
     <content>&#10;&#32;&#32;* Internal Types for the Parallel Block Basic Linear Algebra Sub-programs support
   * WARNING: attributes marked with WARNING can not be changed without making
@@ -1641,9 +1620,7 @@
           line="4"
           name="PBblas"
           ref="PBblas"
-          start="250">
-   <loc>loc</loc>
-  </Import>
+          start="250"/>
   <Import body="0"
           end="272"
           fullname="PBblas.internal"
@@ -1652,9 +1629,7 @@
           name="int"
           ref="PBblas.internal"
           remotescope="1"
-          start="272">
-   <loc>loc</loc>
-  </Import>
+          start="272"/>
   <Import body="0"
           end="289"
           fullname="PBblas.Types"
@@ -1663,7 +1638,6 @@
           name="Types"
           ref="PBblas.Types"
           start="289">
-   <loc>loc</loc>
    <Documentation>
     <content>&#10;&#32;&#32;* Types for the Parallel Block Basic Linear Algebra Sub-programs support
   * WARNING: attributes marked with WARNING can not be changed without making
@@ -1874,9 +1848,7 @@
           line="4"
           name="PBblas"
           ref="PBblas"
-          start="250">
-   <loc>loc</loc>
-  </Import>
+          start="250"/>
   <Import body="0"
           end="272"
           fullname="PBblas.internal"
@@ -1885,9 +1857,7 @@
           name="int"
           ref="PBblas.internal"
           remotescope="1"
-          start="272">
-   <loc>loc</loc>
-  </Import>
+          start="272"/>
   <Import body="0"
           end="289"
           fullname="PBblas.Types"
@@ -1896,7 +1866,6 @@
           name="Types"
           ref="PBblas.Types"
           start="289">
-   <loc>loc</loc>
    <Documentation>
     <content>&#10;&#32;&#32;* Types for the Parallel Block Basic Linear Algebra Sub-programs support
   * WARNING: attributes marked with WARNING can not be changed without making
@@ -1911,7 +1880,6 @@
           name="iTypes"
           ref="PBblas.internal.Types"
           start="310">
-   <loc>loc</loc>
    <Documentation>
     <content>&#10;&#32;&#32;* Internal Types for the Parallel Block Basic Linear Algebra Sub-programs support
   * WARNING: attributes marked with WARNING can not be changed without making
@@ -1947,10 +1915,10 @@
               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/internal/MatDims.ecl"
               start="399">
    <Type>record</Type>
-   <Field name="wi_id"/>
-   <Field name="x"/>
-   <Field name="y"/>
-   <Field name="v"/>
+   <Field name="wi_id" type="unsigned2"/>
+   <Field name="x" type="unsigned4"/>
+   <Field name="y" type="unsigned4"/>
+   <Field name="v" type="real8"/>
    <Documentation>
     <content>&#10;&#32;&#32;&#32;&#32;* Layout for Matrix Cell
     *
@@ -1994,14 +1962,14 @@
               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/internal/MatDims.ecl"
               start="433">
    <Type>record</Type>
-   <Field name="m_label"/>
-   <Field name="wi_id"/>
-   <Field name="m_rows"/>
-   <Field name="m_cols"/>
-   <Field name="block_rows"/>
-   <Field name="block_cols"/>
-   <Field name="row_blocks"/>
-   <Field name="col_blocks"/>
+   <Field name="m_label" type="string3"/>
+   <Field name="wi_id" type="unsigned2"/>
+   <Field name="m_rows" type="unsigned4"/>
+   <Field name="m_cols" type="unsigned4"/>
+   <Field name="block_rows" type="unsigned4"/>
+   <Field name="block_cols" type="unsigned4"/>
+   <Field name="row_blocks" type="unsigned4"/>
+   <Field name="col_blocks" type="unsigned4"/>
    <Documentation>
     <content>&#10;&#32;&#32;&#32;&#32;* Record format for matrix and matrix partition dimensions.  Each record describes
     * A single matrix or matrix partition.  Partitions use all of the fields, while
@@ -2402,9 +2370,7 @@
           line="5"
           name="PBblas"
           ref="PBblas"
-          start="251">
-   <loc>loc</loc>
-  </Import>
+          start="251"/>
   <Import body="0"
           end="271"
           fullname="PBblas.internal"
@@ -2413,9 +2379,7 @@
           name="int"
           ref="PBblas.internal"
           remotescope="1"
-          start="271">
-   <loc>loc</loc>
-  </Import>
+          start="271"/>
   <Import body="0"
           end="302"
           fullname="PBblas.internal.MatDims"
@@ -2424,7 +2388,6 @@
           name="MatDims"
           ref="PBblas.internal.MatDims"
           start="302">
-   <loc>loc</loc>
    <Documentation>
     <content>&#10;&#32;&#32;* Module to calculate matrix dimensions and matrix partition dimensions from
   * matrix cells.
@@ -2439,7 +2402,6 @@
           name="Types"
           ref="PBblas.Types"
           start="322">
-   <loc>loc</loc>
    <Documentation>
     <content>&#10;&#32;&#32;* Types for the Parallel Block Basic Linear Algebra Sub-programs support
   * WARNING: attributes marked with WARNING can not be changed without making
@@ -2454,7 +2416,6 @@
           name="iTypes"
           ref="PBblas.internal.Types"
           start="343">
-   <loc>loc</loc>
    <Documentation>
     <content>&#10;&#32;&#32;* Internal Types for the Parallel Block Basic Linear Algebra Sub-programs support
   * WARNING: attributes marked with WARNING can not be changed without making
@@ -2468,9 +2429,7 @@
           line="10"
           name="Constants"
           ref="PBblas.Constants"
-          start="371">
-   <loc>loc</loc>
-  </Import>
+          start="371"/>
   <Definition body="436"
               end="455"
               fullname="pbblas.layout_cell"
@@ -2480,10 +2439,10 @@
               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Vector2Diag.ecl"
               start="422">
    <Type>record</Type>
-   <Field name="wi_id"/>
-   <Field name="x"/>
-   <Field name="y"/>
-   <Field name="v"/>
+   <Field name="wi_id" type="unsigned2"/>
+   <Field name="x" type="unsigned4"/>
+   <Field name="y" type="unsigned4"/>
+   <Field name="v" type="real8"/>
    <Documentation>
     <content>&#10;&#32;&#32;&#32;&#32;* Layout for Matrix Cell
     *
@@ -2527,14 +2486,14 @@
               source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Vector2Diag.ecl"
               start="456">
    <Type>record</Type>
-   <Field name="m_label"/>
-   <Field name="wi_id"/>
-   <Field name="m_rows"/>
-   <Field name="m_cols"/>
-   <Field name="block_rows"/>
-   <Field name="block_cols"/>
-   <Field name="row_blocks"/>
-   <Field name="col_blocks"/>
+   <Field name="m_label" type="string3"/>
+   <Field name="wi_id" type="unsigned2"/>
+   <Field name="m_rows" type="unsigned4"/>
+   <Field name="m_cols" type="unsigned4"/>
+   <Field name="block_rows" type="unsigned4"/>
+   <Field name="block_cols" type="unsigned4"/>
+   <Field name="row_blocks" type="unsigned4"/>
+   <Field name="col_blocks" type="unsigned4"/>
    <Documentation>
     <content>&#10;&#32;&#32;&#32;&#32;* Record format for matrix and matrix partition dimensions.  Each record describes
     * A single matrix or matrix partition.  Partitions use all of the fields, while

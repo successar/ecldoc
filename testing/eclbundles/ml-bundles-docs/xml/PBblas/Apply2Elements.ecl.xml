@@ -1,27 +1,22 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <Meta>
  <Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Types.ecl" name="ML_Core.Types" target="../ML_Core/Types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Types.ecl" name="PBblas.Types" target="Types.ecl.xml"/><Depends sourcePath="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/plugins/lib_eclblas.ecllib" target="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/plugins/lib_eclblas.ecllib"/><Depends sourcePath="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/BLAS.ecl" name="std.BLAS" target="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/BLAS.ecl"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/IElementFunc.ecl" name="PBblas.IElementFunc" target="IElementFunc.ecl.xml"/><Source name="PBblas.Apply2Elements" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Apply2Elements.ecl" target="Apply2Elements.ecl.xml">
-  <Import body="0" end="251" fullname="PBblas" inherittype="local" line="5" name="PBblas" ref="PBblas" start="251" target="pkg.toc.xml">
-   <loc>loc</loc>
-  </Import>
+  <Import body="0" end="251" fullname="PBblas" inherittype="local" line="5" name="PBblas" ref="PBblas" start="251" target="pkg.toc.xml"/>
   <Import body="0" end="271" fullname="PBblas.Types" inherittype="local" line="6" name="Types" ref="PBblas.Types" start="271" target="Types.ecl.xml">
-   <loc>loc</loc>
    <Documentation>
-    <firstline>Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes</firstline><content>Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes.</content></Documentation>
+    <content>Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes.</content><firstline>Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes</firstline></Documentation>
   </Import>
-  <Import body="0" end="292" fullname="std.BLAS" inherittype="local" line="7" name="BLAS" ref="std.BLAS" start="292" target="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/BLAS.ecl">
-   <loc>loc</loc>
-  </Import>
+  <Import body="0" end="292" fullname="pbblas.blas" inherittype="local" line="7" name="BLAS" ref="std.blas" start="292" target="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/BLAS.ecl"/>
   <Definition body="1108" end="1332" exported="1" fullname="pbblas.apply2elements" inherittype="local" line="27" name="Apply2Elements" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Apply2Elements.ecl" start="979">
    <Type>function</Type>
    <Documentation>
-    <return>A matrix (or multiple matrices) in Layout_Cell form</return><firstline>Apply a function to each element of the matrix Use PBblas.IElementFunc as the prototype function</firstline><param><name>X</name><desc>A matrix (or multiple matrices) in Layout_Cell form</desc></param><param><name>f</name><desc>A function based on the IElementFunc prototype</desc></param><content>Apply a function to each element of the matrix Use PBblas.IElementFunc as the prototype function. Input and ouput may be a single matrix, or myriad matrixes with different work item ids.</content><see>PBblas/IElementFunc</see><see>PBblas/Types.Layout_Cell</see></Documentation>
+    <return>A matrix (or multiple matrices) in Layout_Cell form</return><see>PBblas/IElementFunc</see><see>PBblas/Types.Layout_Cell</see><content>Apply a function to each element of the matrix Use PBblas.IElementFunc as the prototype function. Input and ouput may be a single matrix, or myriad matrixes with different work item ids.</content><param><name>X</name><desc>A matrix (or multiple matrices) in Layout_Cell form</desc></param><param><name>f</name><desc>A function based on the IElementFunc prototype</desc></param><firstline>Apply a function to each element of the matrix Use PBblas.IElementFunc as the prototype function</firstline></Documentation>
    <Signature name="Apply2Elements" ret="DATASET(Layout_Cell)" param="(DATASET(Layout_Cell) X, IElementFunc f)" hlen="35">DATASET(Layout_Cell) Apply2Elements(DATASET(Layout_Cell) X, IElementFunc f)</Signature><Params>
     <Param name="X"/>
     <Param name="f"/>
    </Params>
   </Definition>
  <Documentation>
-    <return>A matrix (or multiple matrices) in Layout_Cell form</return><firstline>Apply a function to each element of the matrix Use PBblas.IElementFunc as the prototype function</firstline><param><name>X</name><desc>A matrix (or multiple matrices) in Layout_Cell form</desc></param><param><name>f</name><desc>A function based on the IElementFunc prototype</desc></param><content>Apply a function to each element of the matrix Use PBblas.IElementFunc as the prototype function. Input and ouput may be a single matrix, or myriad matrixes with different work item ids.</content><see>PBblas/IElementFunc</see><see>PBblas/Types.Layout_Cell</see></Documentation>
+    <return>A matrix (or multiple matrices) in Layout_Cell form</return><see>PBblas/IElementFunc</see><see>PBblas/Types.Layout_Cell</see><content>Apply a function to each element of the matrix Use PBblas.IElementFunc as the prototype function. Input and ouput may be a single matrix, or myriad matrixes with different work item ids.</content><param><name>X</name><desc>A matrix (or multiple matrices) in Layout_Cell form</desc></param><param><name>f</name><desc>A function based on the IElementFunc prototype</desc></param><firstline>Apply a function to each element of the matrix Use PBblas.IElementFunc as the prototype function</firstline></Documentation>
    </Source>
 </Meta>

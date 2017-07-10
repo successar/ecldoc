@@ -136,11 +136,7 @@ class ParseXML(object) :
     def generateSignature(self, attribs) :
         sign = etree.Element('Signature')
         text = self.text
-        if 'source' in attribs :
-            source = os.path.realpath(attribs['source'])
-            if os.path.exists(source) :
-                text = open(source).read()
-        elif 'fullname' in attribs :
+        if 'fullname' in attribs :
             best_depend = self.parsePath(attribs['fullname'])
             if best_depend is not None and best_depend != self.src :
                 text = open(best_depend.attrib['sourcePath']).read()

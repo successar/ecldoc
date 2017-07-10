@@ -1,15 +1,13 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <Meta>
  <Depends sourcePath="lib_stringlib" target="lib_stringlib"/><Source name="str" sourcePath="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl" target="str.ecl.xml">
-  <Import body="0" end="731" fullname="lib_stringlib" inherittype="local" line="20" name="lib_stringlib" ref="lib_stringlib" remotescope="1" start="731" target="lib_stringlib/pkg.toc.xml">
-   <loc>loc</loc>
-  </Import>
+  <Import body="0" end="731" fullname="lib_stringlib" inherittype="local" line="20" name="lib_stringlib" ref="lib_stringlib" remotescope="1" start="731" target="lib_stringlib/pkg.toc.xml"/>
   <Definition body="517" end="17711" exported="1" fullname="Str" inherittype="local" line="12" name="Str" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl" start="504">
    <Type>module</Type>
    <Definition body="1178" end="1241" exported="1" fullname="str.compareignorecase" inherittype="local" line="31" name="CompareIgnoreCase" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl" start="1116">
     <Type>function</Type>
     <Documentation>
-     <param><name>src1</name><desc>The first string to be compared.</desc></param><param><name>src2</name><desc>The second string to be compared.</desc></param><content>Compares the two strings case insensitively. Returns a negative integer, zero, or a positive integer according to whether the first string is less than, equal to, or greater than the second.</content><see>Str.EqualIgnoreCase</see><firstline>Compares the two strings case insensitively</firstline></Documentation>
+     <see>Str.EqualIgnoreCase</see><param><name>src1</name><desc>The first string to be compared.</desc></param><param><name>src2</name><desc>The second string to be compared.</desc></param><content>Compares the two strings case insensitively. Returns a negative integer, zero, or a positive integer according to whether the first string is less than, equal to, or greater than the second.</content><firstline>Compares the two strings case insensitively</firstline></Documentation>
     <Signature name="CompareIgnoreCase" ret="INTEGER4" param="(STRING src1, STRING src2)" hlen="26">INTEGER4 CompareIgnoreCase(STRING src1, STRING src2)</Signature><Params>
      <Param name="src1"/>
      <Param name="src2"/>
@@ -18,7 +16,7 @@
    <Definition body="1552" end="1587" exported="1" fullname="str.equalignorecase" inherittype="local" line="42" name="EqualIgnoreCase" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl" start="1493">
     <Type>function</Type>
     <Documentation>
-     <param><name>src1</name><desc>The first string to be compared.</desc></param><param><name>src2</name><desc>The second string to be compared.</desc></param><content>Tests whether the two strings are identical ignoring differences in case.</content><see>Str.CompareIgnoreCase</see><firstline>Tests whether the two strings are identical ignoring differences in case</firstline></Documentation>
+     <see>Str.CompareIgnoreCase</see><param><name>src1</name><desc>The first string to be compared.</desc></param><param><name>src2</name><desc>The second string to be compared.</desc></param><content>Tests whether the two strings are identical ignoring differences in case.</content><firstline>Tests whether the two strings are identical ignoring differences in case</firstline></Documentation>
     <Signature name="EqualIgnoreCase" ret="BOOLEAN" param="(STRING src1, STRING src2)" hlen="23">BOOLEAN EqualIgnoreCase(STRING src1, STRING src2)</Signature><Params>
      <Param name="src1"/>
      <Param name="src2"/>
@@ -66,7 +64,7 @@
    <Definition body="3804" end="3858" exported="1" fullname="str.filterout" inherittype="local" line="98" name="FilterOut" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl" start="3751">
     <Type>function</Type>
     <Documentation>
-     <param><name>src</name><desc>The string that is being tested.</desc></param><param><name>filter</name><desc>The string containing the set of characters to be excluded.</desc></param><content>Returns the first string with all characters within the second string removed.</content><see>Str.Filter</see><firstline>Returns the first string with all characters within the second string removed</firstline></Documentation>
+     <see>Str.Filter</see><param><name>src</name><desc>The string that is being tested.</desc></param><param><name>filter</name><desc>The string containing the set of characters to be excluded.</desc></param><content>Returns the first string with all characters within the second string removed.</content><firstline>Returns the first string with all characters within the second string removed</firstline></Documentation>
     <Signature name="FilterOut" ret="STRING" param="(STRING src, STRING filter)" hlen="16">STRING FilterOut(STRING src, STRING filter)</Signature><Params>
      <Param name="src"/>
      <Param name="filter"/>
@@ -75,7 +73,7 @@
    <Definition body="4187" end="4238" exported="1" fullname="str.filter" inherittype="local" line="108" name="Filter" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl" start="4137">
     <Type>function</Type>
     <Documentation>
-     <param><name>src</name><desc>The string that is being tested.</desc></param><param><name>filter</name><desc>The string containing the set of characters to be included.</desc></param><content>Returns the first string with all characters not within the second string removed.</content><see>Str.FilterOut</see><firstline>Returns the first string with all characters not within the second string removed</firstline></Documentation>
+     <see>Str.FilterOut</see><param><name>src</name><desc>The string that is being tested.</desc></param><param><name>filter</name><desc>The string containing the set of characters to be included.</desc></param><content>Returns the first string with all characters not within the second string removed.</content><firstline>Returns the first string with all characters not within the second string removed</firstline></Documentation>
     <Signature name="Filter" ret="STRING" param="(STRING src, STRING filter)" hlen="13">STRING Filter(STRING src, STRING filter)</Signature><Params>
      <Param name="src"/>
      <Param name="filter"/>
@@ -84,7 +82,7 @@
    <Definition body="4800" end="4874" exported="1" fullname="str.substituteincluded" inherittype="local" line="121" name="SubstituteIncluded" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl" start="4716">
     <Type>function</Type>
     <Documentation>
-     <param><name>src</name><desc>The string that is being tested.</desc></param><param><name>filter</name><desc>The string containing the set of characters to be included.</desc></param><param><name>replace_char</name><desc>The character to be substituted into the result.</desc></param><content>Returns the source string with the replacement character substituted for all characters included in the filter string. MORE: Should this be a general string substitution?</content><see>Std.Str.Translate, Std.Str.SubstituteExcluded</see><firstline>Returns the source string with the replacement character substituted for all characters included in the filter string</firstline></Documentation>
+     <see>Std.Str.Translate, Std.Str.SubstituteExcluded</see><param><name>src</name><desc>The string that is being tested.</desc></param><param><name>filter</name><desc>The string containing the set of characters to be included.</desc></param><param><name>replace_char</name><desc>The character to be substituted into the result.</desc></param><content>Returns the source string with the replacement character substituted for all characters included in the filter string. MORE: Should this be a general string substitution?</content><firstline>Returns the source string with the replacement character substituted for all characters included in the filter string</firstline></Documentation>
     <Signature name="SubstituteIncluded" ret="STRING" param="(STRING src, STRING filter, STRING1 replace_char)" hlen="25">STRING SubstituteIncluded(STRING src, STRING filter, STRING1 replace_char)</Signature><Params>
      <Param name="src"/>
      <Param name="Filter"/>
@@ -94,7 +92,7 @@
    <Definition body="5421" end="5492" exported="1" fullname="str.substituteexcluded" inherittype="local" line="135" name="SubstituteExcluded" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl" start="5337">
     <Type>function</Type>
     <Documentation>
-     <param><name>src</name><desc>The string that is being tested.</desc></param><param><name>filter</name><desc>The string containing the set of characters to be included.</desc></param><param><name>replace_char</name><desc>The character to be substituted into the result.</desc></param><content>Returns the source string with the replacement character substituted for all characters not included in the filter string. MORE: Should this be a general string substitution?</content><see>Std.Str.SubstituteIncluded</see><firstline>Returns the source string with the replacement character substituted for all characters not included in the filter string</firstline></Documentation>
+     <see>Std.Str.SubstituteIncluded</see><param><name>src</name><desc>The string that is being tested.</desc></param><param><name>filter</name><desc>The string containing the set of characters to be included.</desc></param><param><name>replace_char</name><desc>The character to be substituted into the result.</desc></param><content>Returns the source string with the replacement character substituted for all characters not included in the filter string. MORE: Should this be a general string substitution?</content><firstline>Returns the source string with the replacement character substituted for all characters not included in the filter string</firstline></Documentation>
     <Signature name="SubstituteExcluded" ret="STRING" param="(STRING src, STRING filter, STRING1 replace_char)" hlen="25">STRING SubstituteExcluded(STRING src, STRING filter, STRING1 replace_char)</Signature><Params>
      <Param name="src"/>
      <Param name="Filter"/>
@@ -104,7 +102,7 @@
    <Definition body="6143" end="6212" exported="1" fullname="str.translate" inherittype="local" line="149" name="Translate" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl" start="6070">
     <Type>function</Type>
     <Documentation>
-     <param><name>src</name><desc>The string that is being tested.</desc></param><param><name>search</name><desc>The string containing the set of characters to be included.</desc></param><param><name>replacement</name><desc>The string containing the characters to act as replacements.</desc></param><content>Returns the source string with the all characters that match characters in the search string replaced with the character at the corresponding position in the replacement string.</content><see>Std.Str.SubstituteIncluded</see><firstline>Returns the source string with the all characters that match characters in the search string replaced with the character at the corresponding position in the replacement string</firstline></Documentation>
+     <see>Std.Str.SubstituteIncluded</see><param><name>src</name><desc>The string that is being tested.</desc></param><param><name>search</name><desc>The string containing the set of characters to be included.</desc></param><param><name>replacement</name><desc>The string containing the characters to act as replacements.</desc></param><content>Returns the source string with the all characters that match characters in the search string replaced with the character at the corresponding position in the replacement string.</content><firstline>Returns the source string with the all characters that match characters in the search string replaced with the character at the corresponding position in the replacement string</firstline></Documentation>
     <Signature name="Translate" ret="STRING" param="(STRING src, STRING search, STRING replacement)" hlen="16">STRING Translate(STRING src, STRING search, STRING replacement)</Signature><Params>
      <Param name="src"/>
      <Param name="search"/>
@@ -246,7 +244,7 @@
    <Definition body="12452" end="12511" exported="1" fullname="str.editdistance" inherittype="local" line="311" name="EditDistance" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl" start="12391">
     <Type>function</Type>
     <Documentation>
-     <param><name>_left</name><desc>The first string to be compared.</desc></param><param><name>_right</name><desc>The second string to be compared.</desc></param><content>Returns the minimum edit distance between the two strings. An insert change or delete counts as a single edit. The two strings are trimmed before comparing.</content><return>The minimum edit distance between the two strings.</return><firstline>Returns the minimum edit distance between the two strings</firstline></Documentation>
+     <param><name>_left</name><desc>The first string to be compared.</desc></param><param><name>_right</name><desc>The second string to be compared.</desc></param><return>The minimum edit distance between the two strings.</return><content>Returns the minimum edit distance between the two strings. An insert change or delete counts as a single edit. The two strings are trimmed before comparing.</content><firstline>Returns the minimum edit distance between the two strings</firstline></Documentation>
     <Signature name="EditDistance" ret="UNSIGNED4" param="(STRING _left, STRING _right)" hlen="22">UNSIGNED4 EditDistance(STRING _left, STRING _right)</Signature><Params>
      <Param name="_left"/>
      <Param name="_right"/>
@@ -255,7 +253,7 @@
    <Definition body="13043" end="13122" exported="1" fullname="str.editdistancewithinradius" inherittype="local" line="324" name="EditDistanceWithinRadius" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl" start="12954">
     <Type>function</Type>
     <Documentation>
-     <param><name>_left</name><desc>The first string to be compared.</desc></param><param><name>_right</name><desc>The second string to be compared.</desc></param><param><name>radius</name><desc>The maximum edit distance that is accepable.</desc></param><content>Returns true if the minimum edit distance between the two strings is with a specific range. The two strings are trimmed before comparing.</content><return>Whether or not the two strings are within the given specified edit distance.</return><firstline>Returns true if the minimum edit distance between the two strings is with a specific range</firstline></Documentation>
+     <param><name>_left</name><desc>The first string to be compared.</desc></param><param><name>_right</name><desc>The second string to be compared.</desc></param><param><name>radius</name><desc>The maximum edit distance that is accepable.</desc></param><return>Whether or not the two strings are within the given specified edit distance.</return><content>Returns true if the minimum edit distance between the two strings is with a specific range. The two strings are trimmed before comparing.</content><firstline>Returns true if the minimum edit distance between the two strings is with a specific range</firstline></Documentation>
     <Signature name="EditDistanceWithinRadius" ret="BOOLEAN" param="(STRING _left, STRING _right, UNSIGNED4 radius)" hlen="32">BOOLEAN EditDistanceWithinRadius(STRING _left, STRING _right, UNSIGNED4 radius)</Signature><Params>
      <Param name="_left"/>
      <Param name="_right"/>
@@ -265,7 +263,7 @@
    <Definition body="13388" end="13439" exported="1" fullname="str.wordcount" inherittype="local" line="335" name="WordCount" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl" start="13346">
     <Type>function</Type>
     <Documentation>
-     <param><name>text</name><desc>The string to be broken into words.</desc></param><content>Returns the number of words in the string. Words are separated by one or more spaces.</content><return>The number of words in the string.</return><firstline>Returns the number of words in the string</firstline></Documentation>
+     <param><name>text</name><desc>The string to be broken into words.</desc></param><return>The number of words in the string.</return><content>Returns the number of words in the string. Words are separated by one or more spaces.</content><firstline>Returns the number of words in the string</firstline></Documentation>
     <Signature name="WordCount" ret="UNSIGNED4" param="(STRING text)" hlen="19">UNSIGNED4 WordCount(STRING text)</Signature><Params>
      <Param name="text"/>
     </Params>
@@ -273,7 +271,7 @@
    <Definition body="13784" end="13839" exported="1" fullname="str.getnthword" inherittype="local" line="346" name="GetNthWord" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl" start="13731">
     <Type>function</Type>
     <Documentation>
-     <param><name>text</name><desc>The string to be broken into words.</desc></param><param><name>n</name><desc>Which word should be returned from the function.</desc></param><content>Returns the n-th word from the string. Words are separated by one or more spaces.</content><return>The number of words in the string.</return><firstline>Returns the n-th word from the string</firstline></Documentation>
+     <param><name>text</name><desc>The string to be broken into words.</desc></param><param><name>n</name><desc>Which word should be returned from the function.</desc></param><return>The number of words in the string.</return><content>Returns the n-th word from the string. Words are separated by one or more spaces.</content><firstline>Returns the n-th word from the string</firstline></Documentation>
     <Signature name="GetNthWord" ret="STRING" param="(STRING text, UNSIGNED4 n)" hlen="17">STRING GetNthWord(STRING text, UNSIGNED4 n)</Signature><Params>
      <Param name="text"/>
      <Param name="n"/>
@@ -282,7 +280,7 @@
    <Definition body="14196" end="14251" exported="1" fullname="str.excludefirstword" inherittype="local" line="357" name="ExcludeFirstWord" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl" start="14157">
     <Type>function</Type>
     <Documentation>
-     <param><name>text</name><desc>The string to be broken into words.</desc></param><content>Returns everything except the first word from the string. Words are separated by one or more whitespace characters. Whitespace before and after the first word is also removed.</content><return>The string excluding the first word.</return><firstline>Returns everything except the first word from the string</firstline></Documentation>
+     <param><name>text</name><desc>The string to be broken into words.</desc></param><return>The string excluding the first word.</return><content>Returns everything except the first word from the string. Words are separated by one or more whitespace characters. Whitespace before and after the first word is also removed.</content><firstline>Returns everything except the first word from the string</firstline></Documentation>
     <Signature name="ExcludeFirstWord" ret="" param="(STRING text)" hlen="16">ExcludeFirstWord(STRING text)</Signature><Params>
      <Param name="text"/>
     </Params>
@@ -290,7 +288,7 @@
    <Definition body="14649" end="14702" exported="1" fullname="str.excludelastword" inherittype="local" line="367" name="ExcludeLastWord" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl" start="14611">
     <Type>function</Type>
     <Documentation>
-     <param><name>text</name><desc>The string to be broken into words.</desc></param><content>Returns everything except the last word from the string. Words are separated by one or more whitespace characters. Whitespace after a word is removed with the word and leading whitespace is removed with the first word.</content><return>The string excluding the last word.</return><firstline>Returns everything except the last word from the string</firstline></Documentation>
+     <param><name>text</name><desc>The string to be broken into words.</desc></param><return>The string excluding the last word.</return><content>Returns everything except the last word from the string. Words are separated by one or more whitespace characters. Whitespace after a word is removed with the word and leading whitespace is removed with the first word.</content><firstline>Returns everything except the last word from the string</firstline></Documentation>
     <Signature name="ExcludeLastWord" ret="" param="(STRING text)" hlen="15">ExcludeLastWord(STRING text)</Signature><Params>
      <Param name="text"/>
     </Params>
@@ -298,7 +296,7 @@
    <Definition body="15183" end="15238" exported="1" fullname="str.excludenthword" inherittype="local" line="378" name="ExcludeNthWord" source="/media/sarthak/Data/ecldoc/testing/ecllibrary/std/str.ecl" start="15133">
     <Type>function</Type>
     <Documentation>
-     <param><name>text</name><desc>The string to be broken into words.</desc></param><param><name>n</name><desc>Which word should be returned from the function.</desc></param><content>Returns everything except the nth word from the string. Words are separated by one or more whitespace characters. Whitespace after a word is removed with the word and leading whitespace is removed with the first word.</content><return>The string excluding the nth word.</return><firstline>Returns everything except the nth word from the string</firstline></Documentation>
+     <param><name>text</name><desc>The string to be broken into words.</desc></param><param><name>n</name><desc>Which word should be returned from the function.</desc></param><return>The string excluding the nth word.</return><content>Returns everything except the nth word from the string. Words are separated by one or more whitespace characters. Whitespace after a word is removed with the word and leading whitespace is removed with the first word.</content><firstline>Returns everything except the nth word from the string</firstline></Documentation>
     <Signature name="ExcludeNthWord" ret="" param="(STRING text, UNSIGNED2 n)" hlen="14">ExcludeNthWord(STRING text, UNSIGNED2 n)</Signature><Params>
      <Param name="text"/>
      <Param name="n"/>
