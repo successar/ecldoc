@@ -55,14 +55,14 @@ class ParseTEX(object) :
 		render = self.template.render(name=name, src=src, render_dict=self.render_dict, up=('toc:'+self.dirname))
 		write_to_file(self.tex_file, render)
 
-		start_path = relpath(self.tex_file, self.tex_path)
-		render = self.index_template.render(root=start_path)
-		write_to_file(self.index_render_path, render)
+		# start_path = relpath(self.tex_file, self.tex_path)
+		# render = self.index_template.render(root=start_path)
+		# write_to_file(self.index_render_path, render)
 
-		subprocess.run(['pdflatex ' +
-						'-output-directory ' + self.dirname + ' ' +
-						relpath(self.index_render_path, self.tex_path)],
-						cwd=self.tex_path, shell=True)
+		# subprocess.run(['pdflatex ' +
+		# 				'-output-directory ' + self.dirname + ' ' +
+		# 				relpath(self.index_render_path, self.tex_path)],
+		# 				cwd=self.tex_path, shell=True)
 
 	def docstring(self) :
 		text = ''
@@ -157,6 +157,7 @@ class GenTEX(object) :
 			else :
 				child = node[key]
 				child_root = joinpath(content_root, key)
+				os.makedirs(child_root, exist_ok=True)
 				tex_path = relpath(child_root, self.tex_path)
 				render_path = joinpath(child_root, 'pkg.toc.tex')
 				target_path = relpath(render_path, self.tex_path)

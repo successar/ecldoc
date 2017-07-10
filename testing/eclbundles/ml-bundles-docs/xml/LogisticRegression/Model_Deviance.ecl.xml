@@ -1,18 +1,22 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <Meta>
  <Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Types.ecl" name="ML_Core.Types" target="../ML_Core/Types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Types.ecl" name="LogisticRegression.Types" target="Types.ecl.xml"/><Source name="LogisticRegression.Model_Deviance" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Model_Deviance.ecl" target="Model_Deviance.ecl.xml">
-  <Import body="0" end="7" fullname="LogisticRegression" inherittype="local" line="1" name="LR" ref="LogisticRegression" start="7" target="pkg.toc.xml"/>
-  <Import body="0" end="23" fullname="LogisticRegression.Types" inherittype="local" line="2" name="Types" ref="LogisticRegression.Types" start="23" target="Types.ecl.xml"/>
+  <Import body="0" end="7" fullname="LogisticRegression" inherittype="local" line="1" name="LR" ref="LogisticRegression" start="7" target="pkg.toc.xml">
+   <loc>loc</loc>
+  </Import>
+  <Import body="0" end="23" fullname="LogisticRegression.Types" inherittype="local" line="2" name="Types" ref="LogisticRegression.Types" start="23" target="Types.ecl.xml">
+   <loc>loc</loc>
+  </Import>
   <Definition body="402" end="1140" exported="1" fullname="logisticregression.model_deviance" inherittype="local" line="14" name="Model_Deviance" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Model_Deviance.ecl" start="247">
    <Type>function</Type>
    <Documentation>
-    <firstline>Model Deviance</firstline><return>model deviance</return><content>Model Deviance.</content><param><name>od</name><desc>observation deviance record</desc></param><param><name>mod</name><desc>model co-efficients</desc></param></Documentation>
+    <return>model deviance</return><firstline>Model Deviance</firstline><param><name>od</name><desc>observation deviance record</desc></param><param><name>mod</name><desc>model co-efficients</desc></param><content>Model Deviance.</content></Documentation>
    <Signature name="Model_Deviance" ret="DATASET(Types.Deviance_Record)" param="(DATASET(Types.Observation_Deviance) od, DATASET(Types.Model_Coef) mod)" hlen="45">DATASET(Types.Deviance_Record) Model_Deviance(DATASET(Types.Observation_Deviance) od, DATASET(Types.Model_Coef) mod)</Signature><Params>
     <Param name="od"/>
     <Param name="mod"/>
    </Params>
   </Definition>
  <Documentation>
-    <firstline>Model Deviance</firstline><return>model deviance</return><content>Model Deviance.</content><param><name>od</name><desc>observation deviance record</desc></param><param><name>mod</name><desc>model co-efficients</desc></param></Documentation>
+    <return>model deviance</return><firstline>Model Deviance</firstline><param><name>od</name><desc>observation deviance record</desc></param><param><name>mod</name><desc>model co-efficients</desc></param><content>Model Deviance.</content></Documentation>
    </Source>
 </Meta>

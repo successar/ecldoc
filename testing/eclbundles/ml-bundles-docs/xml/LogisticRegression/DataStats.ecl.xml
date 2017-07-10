@@ -1,14 +1,22 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <Meta>
  <Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Types.ecl" name="ML_Core.Types" target="../ML_Core/Types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Types.ecl" name="LogisticRegression.Types" target="Types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Constants.ecl" name="LogisticRegression.Constants" target="Constants.ecl.xml"/><Source name="LogisticRegression.DataStats" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/DataStats.ecl" target="DataStats.ecl.xml">
-  <Import body="0" end="7" fullname="ML_Core.Types" inherittype="local" line="1" name="Core_Types" ref="ML_Core.Types" start="7" target="../ML_Core/Types.ecl.xml"/>
-  <Import body="0" end="7" fullname="LogisticRegression" inherittype="local" line="1" name="LogisticRegression" ref="LogisticRegression" start="7" target="pkg.toc.xml"/>
-  <Import body="0" end="39" fullname="LogisticRegression.Types" inherittype="local" line="2" name="Types" ref="LogisticRegression.Types" start="39" target="Types.ecl.xml"/>
-  <Import body="0" end="81" fullname="LogisticRegression.Constants" inherittype="local" line="3" name="Constants" ref="LogisticRegression.Constants" start="81" target="Constants.ecl.xml"/>
+  <Import body="0" end="7" fullname="ML_Core.Types" inherittype="local" line="1" name="Core_Types" ref="ML_Core.Types" start="7" target="../ML_Core/Types.ecl.xml">
+   <loc>loc</loc>
+  </Import>
+  <Import body="0" end="7" fullname="LogisticRegression" inherittype="local" line="1" name="LogisticRegression" ref="LogisticRegression" start="7" target="pkg.toc.xml">
+   <loc>loc</loc>
+  </Import>
+  <Import body="0" end="39" fullname="LogisticRegression.Types" inherittype="local" line="2" name="Types" ref="LogisticRegression.Types" start="39" target="Types.ecl.xml">
+   <loc>loc</loc>
+  </Import>
+  <Import body="0" end="81" fullname="LogisticRegression.Constants" inherittype="local" line="3" name="Constants" ref="LogisticRegression.Constants" start="81" target="Constants.ecl.xml">
+   <loc>loc</loc>
+  </Import>
   <Definition body="1254" end="4864" exported="1" fullname="logisticregression.datastats" inherittype="local" line="28" name="DataStats" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/DataStats.ecl" start="1059">
    <Type>function</Type>
    <Documentation>
-    <firstline>Information about the datasets</firstline><content>Information about the datasets. Without details the range for the x and y (independent and dependent) columns. Note that a column of all zero values cannot be distinguished from a missing column. When details are requested, the cardinality, minimum, and maximum values are returned. A zero cardinality is returned when the field cardinality exceeds the Constants.limit_card value.</content><param><name>indep</name><desc>data set of independent variables</desc></param><param><name>dep</name><desc>data set of dependent variables</desc></param><param><name>field_details</name><desc>Boolean directive to provide field level info</desc></param><returns>a data set of information on each work item</returns></Documentation>
+    <firstline>Information about the datasets</firstline><param><name>indep</name><desc>data set of independent variables</desc></param><param><name>dep</name><desc>data set of dependent variables</desc></param><param><name>field_details</name><desc>Boolean directive to provide field level info</desc></param><content>Information about the datasets. Without details the range for the x and y (independent and dependent) columns. Note that a column of all zero values cannot be distinguished from a missing column. When details are requested, the cardinality, minimum, and maximum values are returned. A zero cardinality is returned when the field cardinality exceeds the Constants.limit_card value.</content><returns>a data set of information on each work item</returns></Documentation>
    <Signature name="DataStats" ret="DATASET(Types.Data_Info)" param="(DATASET(Core_Types.NumericField) indep, DATASET(Core_Types.DiscreteField) dep, BOOLEAN field_details=FALSE)" hlen="34">DATASET(Types.Data_Info) DataStats(DATASET(Core_Types.NumericField) indep, DATASET(Core_Types.DiscreteField) dep, BOOLEAN field_details=FALSE)</Signature><Params>
     <Param name="indep"/>
     <Param name="dep"/>
@@ -16,6 +24,6 @@
    </Params>
   </Definition>
  <Documentation>
-    <firstline>Information about the datasets</firstline><content>Information about the datasets. Without details the range for the x and y (independent and dependent) columns. Note that a column of all zero values cannot be distinguished from a missing column. When details are requested, the cardinality, minimum, and maximum values are returned. A zero cardinality is returned when the field cardinality exceeds the Constants.limit_card value.</content><param><name>indep</name><desc>data set of independent variables</desc></param><param><name>dep</name><desc>data set of dependent variables</desc></param><param><name>field_details</name><desc>Boolean directive to provide field level info</desc></param><returns>a data set of information on each work item</returns></Documentation>
+    <firstline>Information about the datasets</firstline><param><name>indep</name><desc>data set of independent variables</desc></param><param><name>dep</name><desc>data set of dependent variables</desc></param><param><name>field_details</name><desc>Boolean directive to provide field level info</desc></param><content>Information about the datasets. Without details the range for the x and y (independent and dependent) columns. Note that a column of all zero values cannot be distinguished from a missing column. When details are requested, the cardinality, minimum, and maximum values are returned. A zero cardinality is returned when the field cardinality exceeds the Constants.limit_card value.</content><returns>a data set of information on each work item</returns></Documentation>
    </Source>
 </Meta>

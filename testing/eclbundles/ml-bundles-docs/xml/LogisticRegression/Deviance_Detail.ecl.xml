@@ -1,20 +1,28 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <Meta>
  <Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Types.ecl" name="ML_Core.Types" target="../ML_Core/Types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Types.ecl" name="LogisticRegression.Types" target="Types.ecl.xml"/><Source name="LogisticRegression.Deviance_Detail" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Deviance_Detail.ecl" target="Deviance_Detail.ecl.xml">
-  <Import body="0" end="7" fullname="ML_Core" inherittype="local" line="1" name="ML_Core" ref="ML_Core" remotescope="1" start="7" target="../ML_Core/pkg.toc.xml"/>
-  <Import body="0" end="23" fullname="ML_Core.Types" inherittype="local" line="2" name="Core_Types" ref="ML_Core.Types" start="23" target="../ML_Core/Types.ecl.xml"/>
-  <Import body="0" end="59" fullname="LogisticRegression" inherittype="local" line="3" name="LR" ref="LogisticRegression" start="59" target="pkg.toc.xml"/>
-  <Import body="0" end="75" fullname="LogisticRegression.Types" inherittype="local" line="4" name="Types" ref="LogisticRegression.Types" start="75" target="Types.ecl.xml"/>
+  <Import body="0" end="7" fullname="ML_Core" inherittype="local" line="1" name="ML_Core" ref="ML_Core" remotescope="1" start="7" target="../ML_Core/pkg.toc.xml">
+   <loc>loc</loc>
+  </Import>
+  <Import body="0" end="23" fullname="ML_Core.Types" inherittype="local" line="2" name="Core_Types" ref="ML_Core.Types" start="23" target="../ML_Core/Types.ecl.xml">
+   <loc>loc</loc>
+  </Import>
+  <Import body="0" end="59" fullname="LogisticRegression" inherittype="local" line="3" name="LR" ref="LogisticRegression" start="59" target="pkg.toc.xml">
+   <loc>loc</loc>
+  </Import>
+  <Import body="0" end="75" fullname="LogisticRegression.Types" inherittype="local" line="4" name="Types" ref="LogisticRegression.Types" start="75" target="Types.ecl.xml">
+   <loc>loc</loc>
+  </Import>
   <Definition body="998" end="2256" exported="1" fullname="logisticregression.deviance_detail" inherittype="local" line="25" name="Deviance_Detail" source="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Deviance_Detail.ecl" start="827">
    <Type>function</Type>
    <Documentation>
-    <firstline>Detail deviance for each observation</firstline><return>the deviance information by observation and the log likelihood of the predicted result.</return><content>Detail deviance for each observation.</content><param><name>dependents</name><desc>original dependent records for the model</desc></param><param><name>predicts</name><desc>the predicted values of the response variable</desc></param></Documentation>
+    <return>the deviance information by observation and the log likelihood of the predicted result.</return><firstline>Detail deviance for each observation</firstline><param><name>dependents</name><desc>original dependent records for the model</desc></param><param><name>predicts</name><desc>the predicted values of the response variable</desc></param><content>Detail deviance for each observation.</content></Documentation>
    <Signature name="Deviance_Detail" ret="DATASET(Types.Observation_Deviance)" param="(DATASET(Core_Types.DiscreteField) dependents, DATASET(Types.Raw_Prediction) predicts)" hlen="51">DATASET(Types.Observation_Deviance) Deviance_Detail(DATASET(Core_Types.DiscreteField) dependents, DATASET(Types.Raw_Prediction) predicts)</Signature><Params>
     <Param name="dependents"/>
     <Param name="predicts"/>
    </Params>
   </Definition>
  <Documentation>
-    <firstline>Detail deviance for each observation</firstline><return>the deviance information by observation and the log likelihood of the predicted result.</return><content>Detail deviance for each observation.</content><param><name>dependents</name><desc>original dependent records for the model</desc></param><param><name>predicts</name><desc>the predicted values of the response variable</desc></param></Documentation>
+    <return>the deviance information by observation and the log likelihood of the predicted result.</return><firstline>Detail deviance for each observation</firstline><param><name>dependents</name><desc>original dependent records for the model</desc></param><param><name>predicts</name><desc>the predicted values of the response variable</desc></param><content>Detail deviance for each observation.</content></Documentation>
    </Source>
 </Meta>

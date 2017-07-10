@@ -57,7 +57,7 @@ def doMain() :
         ecl_file_tree = xmlgenerator.ecl_file_tree
         genHTML.GenHTML(input_root, output_root, ecl_file_tree, options).genHTML()
         genTXT.GenTXT(input_root, output_root, ecl_file_tree, options).genTXT()
-        #genTEX.GenTEX(input_root, output_root, ecl_file_tree, options).genTEX()
+        genTEX.GenTEX(input_root, output_root, ecl_file_tree, options).genTEX()
 
 if __name__ == '__main__' :
     doMain()
