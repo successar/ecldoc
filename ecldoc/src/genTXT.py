@@ -37,6 +37,7 @@ class ParseTXT(object) :
 		for child in root.iter() :
 			attribs = child.attrib
 			if 'target' in attribs :
+				attribs['target'] = re.sub(r'\$\$_ECLDOC-FORM_\$\$', 'txt', attribs['target'])
 				attribs['target'] = re.sub(r'\.xml$', '.txt', attribs['target'])
 
 		render = self.template.render(src=src, render_dict=self.render_dict)

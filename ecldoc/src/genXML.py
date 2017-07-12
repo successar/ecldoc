@@ -1,6 +1,7 @@
 import os
 import re
 import subprocess
+import json
 from copy import deepcopy
 
 from lxml import etree
@@ -25,13 +26,15 @@ class ParseXML(object) :
 
         self.options = generator.options
         self.internal = False
+        self.generator = generator
 
 
     def parse(self) :
-        os.chdir(self.input_root)
         os.makedirs(os.path.dirname(self.xml_orig_file), exist_ok=True)
         eclcc_options = ' '.join(self.options['eclcc'])
-        p = subprocess.call(['~/eclcc -M ' + eclcc_options +  ' -o ' + self.xml_orig_file + ' ' + self.input_file], shell=True)
+        p = subprocess.call(['~/eclcc -M ' + eclcc_options +
+                            ' -o ' + self.xml_orig_file + ' ' +
+                            self.input_file], shell=True, cwd=self.input_root)
         print("File : ", self.input_file, "Output Code : ", p)
 
         tree = etree.parse(self.xml_orig_file)
@@ -66,7 +69,14 @@ class ParseXML(object) :
             if 'target' in attribs :
                 depend.set('target', attribs['target'])
             else :
-                depend.set('target', attribs['sourcePath'])
+                if 'name' in attribs :
+                    matched = self.generator.matchExdoc(attribs['name'])
+                    if matched is not None :
+                        depend.set('target', matched + '.xml')
+                    else :
+                        depend.set('target', attribs['sourcePath'])
+                else :
+                    depend.set('target', attribs['sourcePath'])
 
             root.insert(-1, depend)
 
@@ -116,7 +126,7 @@ class ParseXML(object) :
 
         if 'fullname' in attribs :
             fullname = attribs['fullname']
-            best_depend = self.parsePath(fullname)
+            best_depend = self.matchPath(fullname)
             if best_depend is not None and best_depend != self.src :
                 attribs['target'] = best_depend.attrib['target']
         elif 'name' in attribs :
@@ -137,7 +147,7 @@ class ParseXML(object) :
         sign = etree.Element('Signature')
         text = self.text
         if 'fullname' in attribs :
-            best_depend = self.parsePath(attribs['fullname'])
+            best_depend = self.matchPath(attribs['fullname'])
             if best_depend is not None and best_depend != self.src :
                 text = open(best_depend.attrib['sourcePath']).read()
 
@@ -161,7 +171,7 @@ class ParseXML(object) :
             param = sign.text[pos+name_len:]
             indent_len = pos+name_len
         else :
-            name = sign.text
+            sign.text = name
 
         sign.attrib['name'] = name
         sign.attrib['ret'] = ret.strip()
@@ -172,48 +182,41 @@ class ParseXML(object) :
     def parseDocumentation(self, doc) :
         content = doc.find('./content')
         elements = parseDocstring(content.text)
+        doc.remove(content)
         for tag in elements :
             for desc in elements[tag] :
                 doc.append(desc)
-        doc.remove(content)
-
-        for p in (doc.findall('./param') + doc.findall('./field')):
-            text = p.text.split(' ')
-            name = etree.Element('name')
-            name.text = text[0]
-            desc = etree.Element('desc')
-            desc.text = " ".join(text[1:])
-            p.append(name)
-            p.append(desc)
-            p.text = ''
 
     def parseImport(self, imp) :
         attribs = imp.attrib
         if 'ref' in attribs :
             refpath = attribs['ref']
-            best_depend = self.parsePath(refpath)
-            if best_depend is not None :
-                attribs['target'] = best_depend.attrib['target']
-            else :
-                refpath = refpath.split('.')
-                refpath.append('pkg.toc.xml')
-                attribs['target'] = os.path.join(self.xml_root, *refpath)
-                attribs['target'] = os.path.relpath(attribs['target'], self.xml_dir)
+            attribs['target'] = self.matchReference(refpath)
 
     def parseParent(self, parent) :
         attribs = parent.attrib
         if 'ref' in attribs :
             refpath = attribs['ref']
-            best_depend = self.parsePath(refpath)
-            if best_depend is not None:
-                attribs['target'] = best_depend.attrib['target']
+            attribs['target'] = self.matchReference(refpath)
+
+
+    def matchReference(self, refpath) :
+        target = ''
+        best_depend = self.matchPath(refpath)
+        if best_depend is not None:
+            target = best_depend.attrib['target']
+        else :
+            matched = self.generator.matchExdoc(refpath)
+            if matched is not None :
+                target = matched + '.xml'
             else :
                 refpath = refpath.split('.')
                 refpath.append('pkg.toc.xml')
-                attribs['target'] = os.path.join(self.xml_root, *refpath)
-                attribs['target'] = os.path.relpath(attribs['target'], self.xml_dir)
+                target = os.path.join(self.xml_root, *refpath)
+                target = os.path.relpath(target, self.xml_dir)
+        return target
 
-    def parsePath(self, path) :
+    def matchPath(self, path) :
         path = tuple(path.lower().split('.'))
         current_prefix = ()
         for depend_path in self.depends :
@@ -229,7 +232,9 @@ class ParseXML(object) :
     def checkDefinition(self, defn) :
         test_1 = 'exported' not in defn.attrib
         test_2 = self.options['nodoc'] and (defn.find('Documentation') is None)
-        test_3 = self.options['nointernal'] and (defn.find('Documentation') is not None) and (defn.find('Documentation').find('internal') is not None)
+        test_3 = (self.options['nointernal'] and
+                (defn.find('Documentation') is not None) and
+                (defn.find('Documentation').find('internal') is not None))
         return test_1 or test_2 or test_3
 
 
@@ -312,12 +317,67 @@ class GenXML(object) :
 
                 toc_file = os.path.join(child_root, 'pkg.toc.xml')
                 etree.ElementTree(folder).write(toc_file, pretty_print=True, xml_declaration=True, encoding='utf-8')
+                self.genJSON(child, child_root)
 
 
     def genXML(self) :
+        self.processExternalDoc()
         root = etree.Element('folder')
         root.attrib['name'] = 'root'
         self.gen(self.ecl_file_tree['root'], root, self.xml_root)
         toc_file = os.path.join(self.xml_root, 'pkg.toc.xml')
         etree.ElementTree(root).write(toc_file, pretty_print=True, xml_declaration=True, encoding='utf-8')
+        self.genJSON(self.ecl_file_tree['root'], self.xml_root)
 
+    def genJSON(self, tree, output_path='', dump=True) :
+        json_output = {}
+        new_tree = deepcopy(tree)
+        self.dictlower(new_tree)
+        json_output['tree'] = new_tree
+        json_output['output_root'] = self.output_root
+        json_output['input_root'] = self.input_root
+        if dump :
+            json.dump(json_output, open(os.path.join(output_path, 'tree.json'), 'w'), sort_keys=True, indent=4)
+
+        return json_output
+
+    def processExternalDoc(self) :
+        self.exdocs = []
+        currdoc = self.genJSON(self.ecl_file_tree['root'], dump=False)
+        self.exdocs.append(currdoc)
+        for path in self.options['exdoc_paths'] :
+            json_file = os.path.join(path, 'tree.json')
+            assert os.path.isfile(json_file), "Exdoc file not exists : " + json_file
+            external_doc = json.load(open(json_file))
+            self.exdocs.append(external_doc)
+
+    def matchExdoc(self, fullname, source='') :
+        fullname = tuple(fullname.lower().split('.'))
+        matched = None
+        for exdoc in self.exdocs :
+            val = self.checkInTree(fullname, exdoc['tree'], '')
+            if val is not None:
+                if source == '' or source.startswith(exdoc['input_root']):
+                    matched = os.path.join(exdoc['output_root'], '$$_ECLDOC-FORM_$$', val)
+                    break
+        return matched
+
+
+    def checkInTree(self, fullname, tree, child_root) :
+        if type(tree) == dict :
+            if len(fullname) == 0 : return os.path.join(child_root, 'pkg.toc')
+            if fullname[0] in tree : return self.checkInTree(fullname[1:],
+                                                            tree[fullname[0]]['tree'],
+                                                            os.path.join(child_root, tree[fullname[0]]['key']))
+            return None
+
+        return tree
+
+    def dictlower(self, tree) :
+        keys = list(tree.keys())
+        for key in keys :
+            if type(tree[key]) == dict :
+                self.dictlower(tree[key])
+            node = tree[key]
+            del tree[key]
+            tree[re.sub(r'\.ecl$', '', key.lower())] = { 'key' : key, 'tree' : node }

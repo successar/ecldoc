@@ -45,6 +45,12 @@ def doMain() :
         for key in cfgparser['ECLCC'] :
             options['eclcc'].append(key)
 
+    options['exdoc_paths'] = []
+    if 'EXDOC' in cfgparser.sections() :
+        paths = [x.strip() for x in cfgparser['EXDOC']['paths'].split(',')]
+        options['exdoc_paths'] = paths
+
+
     print(options)
 
     if 'OUTPUT' in cfgparser.sections() :
@@ -57,7 +63,7 @@ def doMain() :
         ecl_file_tree = xmlgenerator.ecl_file_tree
         genHTML.GenHTML(input_root, output_root, ecl_file_tree, options).genHTML()
         genTXT.GenTXT(input_root, output_root, ecl_file_tree, options).genTXT()
-        genTEX.GenTEX(input_root, output_root, ecl_file_tree, options).genTEX()
+        #genTEX.GenTEX(input_root, output_root, ecl_file_tree, options).genTEX()
 
 if __name__ == '__main__' :
     doMain()

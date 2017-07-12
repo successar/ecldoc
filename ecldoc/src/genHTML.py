@@ -30,6 +30,7 @@ class ParseHTML(object) :
         for child in root.iter() :
             attribs = child.attrib
             if 'target' in attribs :
+                attribs['target'] = re.sub(r'\$\$_ECLDOC-FORM_\$\$', 'html', attribs['target'])
                 attribs['target'] = re.sub(r'\.xml$', '.html', attribs['target'])
 
             if 'fullname' in attribs :
