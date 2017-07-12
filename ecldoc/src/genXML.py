@@ -55,11 +55,8 @@ class ParseXML(object) :
                 attribs['target'] = tgtpath
                 if relpath == self.ecl_file :
                     continue
-                else :
-                    root.remove(src)
-            else :
-                root.remove(src)
 
+            root.remove(src)
             depend = etree.Element('Depends', sourcePath=attribs['sourcePath'])
 
             if 'name' in attribs :
@@ -284,50 +281,45 @@ class GenXML(object) :
         self.ecl_file_tree = genPathTree(ecl_files)
         self.options = options
 
-    def gen(self, node, xml_root, content_root) :
-        keys = list(node.keys())
-        for key in keys :
-            if type(node[key]) != dict:
-                if key == 'bundle.ecl' :
-                    parseBundle(self, node[key])
-                    continue
-                ecl_file = node[key]
-                parser = ParseXML(self, ecl_file)
-                # if check_if_modified(parser.input_file, parser.xml_file) :
-                #   continue
-                parser.parse()
-                if parser.internal :
-                    del node[key]
-                else :
-                    file = etree.Element('file')
-                    file.attrib['name'] = key + '.xml'
-                    file.text = node[key]
-                    xml_root.append(file)
-
+    def gen(self, key, node, xml_root, content_root) :
+        if type(node[key]) != dict:
+            if key == 'bundle.ecl' :
+                parseBundle(self, node[key])
+                return
+            ecl_file = node[key]
+            parser = ParseXML(self, ecl_file)
+            # if check_if_modified(parser.input_file, parser.xml_file) :
+            #   continue
+            parser.parse()
+            if parser.internal :
+                del node[key]
             else :
-                child = node[key]
-                folder = etree.Element('folder')
-                xml_root.append(folder)
-                folder.attrib['name'] = key
+                file = etree.Element('file')
+                file.attrib['name'] = key + '.xml'
+                file.text = node[key]
+                xml_root.append(file)
+        else :
+            child = node[key]
+            folder = etree.Element('folder')
+            xml_root.append(folder)
+            folder.attrib['name'] = key
 
-                child_root = os.path.join(content_root, key)
-                os.makedirs(child_root, exist_ok=True)
+            keys = list(child.keys())
+            for chkey in keys :
+                child_root = os.path.join(content_root, chkey)
+                self.gen(chkey, child, folder, child_root)
 
-                self.gen(child, folder, child_root)
-
-                toc_file = os.path.join(child_root, 'pkg.toc.xml')
-                etree.ElementTree(folder).write(toc_file, pretty_print=True, xml_declaration=True, encoding='utf-8')
-                self.genJSON(child, child_root)
+            os.makedirs(content_root, exist_ok=True)
+            toc_file = os.path.join(content_root, 'pkg.toc.xml')
+            etree.ElementTree(folder).write(toc_file, pretty_print=True, xml_declaration=True, encoding='utf-8')
+            self.genJSON(child, content_root)
 
 
     def genXML(self) :
         self.processExternalDoc()
-        root = etree.Element('folder')
-        root.attrib['name'] = 'root'
-        self.gen(self.ecl_file_tree['root'], root, self.xml_root)
-        toc_file = os.path.join(self.xml_root, 'pkg.toc.xml')
-        etree.ElementTree(root).write(toc_file, pretty_print=True, xml_declaration=True, encoding='utf-8')
-        self.genJSON(self.ecl_file_tree['root'], self.xml_root)
+        root = etree.Element('Root')
+        self.gen('root', self.ecl_file_tree, root, self.xml_root)
+
 
     def genJSON(self, tree, output_path='', dump=True) :
         json_output = {}

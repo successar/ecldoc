@@ -129,51 +129,39 @@ class GenTXT(object) :
 		self.ecl_file_tree = ecl_file_tree
 		self.options = options
 
-	def gen(self, node, content_root) :
-		files = []
-		for key in node :
-			if type(node[key]) != dict:
-				if key == 'bundle.ecl' :
-					continue
-				parser = ParseTXT(self, node[key])
-				parser.parse()
-				file = { 'name' : key, 'target' : key + '.txt', 'type' : 'file', 'doc' : parser.docstring() }
-				files.append(file)
-			else :
-				child = node[key]
-				file = { 'name' : key,'target': os.path.join(key, 'pkg.toc.txt'), 'type': 'dir', 'doc' : '' }
+	def gen(self, key, node, content_root) :
+		if type(node[key]) != dict:
+			if key == 'bundle.ecl' :
+				return None
+			parser = ParseTXT(self, node[key])
+			parser.parse()
+			file = { 'name' : key, 'target' : key + '.txt', 'type' : 'file', 'doc' : parser.docstring() }
+			return file
+		else :
+			child = node[key]
+			file = { 'name' : key,'target': os.path.join(key, 'pkg.toc.txt'), 'type': 'dir', 'doc' : '' }
 
-				bundle = None
-				if 'bundle.ecl' in child :
-					bundle_xml_path = os.path.join(self.xml_root, os.path.dirname(child['bundle.ecl']), 'bundle.xml')
-					bundle = etree.parse(bundle_xml_path).getroot()
-					file['type'] = 'bundle'
+			bundle = None
+			if 'bundle.ecl' in child :
+				bundle_xml_path = os.path.join(self.xml_root, os.path.dirname(child['bundle.ecl']), 'bundle.xml')
+				bundle = etree.parse(bundle_xml_path).getroot()
+				file['type'] = 'bundle'
 
-				child_root = os.path.join(content_root, key)
-				os.makedirs(child_root, exist_ok=True)
+			childfiles = []
+			keys = sorted(list(child.keys()), key=str.lower)
+			for chkey in keys :
+				child_root = os.path.join(content_root, chkey)
+				child_dict = self.gen(chkey, child, child_root)
+				if child_dict is not None : childfiles.append(child_dict)
 
-				childfiles = self.gen(child, child_root)
-				childfiles = sorted(childfiles, key=lambda x : x['type'])
+			childfiles = sorted(childfiles, key=lambda x : x['type'])
+			os.makedirs(content_root, exist_ok=True)
+			render = self.toc_template.render(name=key,	files=childfiles, bundle=bundle)
+			render_path = os.path.join(content_root, 'pkg.toc.txt')
+			write_to_file(render_path, render)
 
-				render = self.toc_template.render(name=key,	files=childfiles, bundle=bundle)
-				render_path = os.path.join(child_root, 'pkg.toc.txt')
-				write_to_file(render_path, render)
-
-				files.append(file)
-
-		return files
-
+			return file
 
 
 	def genTXT(self) :
-		child = self.ecl_file_tree['root']
-		bundle = None
-		if 'bundle.ecl' in child :
-			bundle_xml_path = os.path.join(self.xml_root, os.path.dirname(child['bundle.ecl']), 'bundle.xml')
-			bundle = etree.parse(bundle_xml_path).getroot()
-
-		childfiles = self.gen(child, self.txt_root)
-		childfiles = sorted(childfiles, key=lambda x : x['type'])
-
-		render = self.toc_template.render(name='root', files=childfiles,	bundle=bundle)
-		write_to_file(os.path.join(self.txt_root, 'pkg.toc.txt'), render)
+		self.gen('root', self.ecl_file_tree, self.txt_root)
