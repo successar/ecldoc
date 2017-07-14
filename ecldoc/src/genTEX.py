@@ -5,9 +5,10 @@ import subprocess
 import jinja2
 from lxml import etree
 from Utils import genPathTree, getRoot
+from Utils import joinpath, relpath, dirname
 
 from parseDoc import convertToLatex
-from Utils import escape_tex, write_to_file, joinpath, relpath, dirname
+from Utils import escape_tex, write_to_file
 
 latex_jinja_env = jinja2.Environment(
 	block_start_string = '\BLOCK{',
@@ -48,6 +49,7 @@ class ParseTEX(object) :
 		for child in root.iter() :
 			attribs = child.attrib
 			if 'target' in attribs :
+				attribs['target'] = re.sub(r'\$\$_ECLDOC-FORM_\$\$', joinpath('tex', 'root'), attribs['target'])
 				attribs['target'] = re.sub(r'\.xml$', '.tex', attribs['target'])
 
 		name = src.attrib['name'].split('.')
@@ -141,66 +143,67 @@ class GenTEX(object) :
 		self.ecl_file_tree = ecl_file_tree
 		self.options = options
 
-	def gen(self, node, content_root) :
-		files = []
-		keys = sorted(node.keys(), key=str.lower)
-		for key in keys :
-			if type(node[key]) != dict:
-				if key == 'bundle.ecl' :
-					continue
-				parser = ParseTEX(self, node[key])
-				parser.parse()
-				file = { 'name' : key, 'type' : 'file', 'doc' : parser.docstring() }
-				file['target'] = relpath(parser.tex_file, self.tex_path)
-				file['label'] = parser.src.attrib['name']
-				files.append(file)
-			else :
-				child = node[key]
-				child_root = joinpath(content_root, key)
-				os.makedirs(child_root, exist_ok=True)
-				tex_path = relpath(child_root, self.tex_path)
-				render_path = joinpath(child_root, 'pkg.toc.tex')
-				target_path = relpath(render_path, self.tex_path)
-				temptoc_render_path = joinpath(child_root, 'pkg.tmp.tex')
-				index_render_path = joinpath(child_root, 'index.tex')
+	def gen(self, key, node, content_root) :
+		if type(node[key]) != dict:
+			if key == 'bundle.ecl' :
+				return
+			parser = ParseTEX(self, node[key])
+			parser.parse()
+			file = { 'name' : key, 'type' : 'file', 'doc' : parser.docstring() }
+			file['target'] = relpath(parser.tex_file, self.tex_path)
+			file['label'] = parser.src.attrib['name']
+			return file
+		else :
+			child = node[key]
 
-				file = { 'name' : key, 'type': 'dir', 'doc' : '' , 'target' : target_path, 'label' : tex_path}
+			os.makedirs(content_root, exist_ok=True)
+			render_path = joinpath(content_root, 'pkg.toc.tex')
+			temptoc_render_path = joinpath(content_root, 'pkg.tmp.tex')
+			index_render_path = joinpath(content_root, 'index.tex')
 
-				bundle = None
-				if 'bundle.ecl' in child :
-					bundle_xml_path = joinpath(self.xml_root, dirname(child['bundle.ecl']), 'bundle.xml')
-					bundle = etree.parse(bundle_xml_path).getroot()
-					file['type'] = 'bundle'
+			tex_relpath = relpath(content_root, self.tex_path)
+			target_relpath = relpath(render_path, self.tex_path)
 
-				childfiles = self.gen(child, child_root)
-				childfiles = sorted(childfiles, key=lambda x : x['type'], reverse=True)
+			file = { 'name' : key, 'type': 'dir', 'doc' : '' , 'target' : target_relpath, 'label' : tex_relpath }
 
-				render = self.toc_template.render(name=key,	files=childfiles, bundle=bundle,
-												label=tex_path, up=dirname(tex_path))
-				write_to_file(render_path, render)
+			bundle = None
+			if 'bundle.ecl' in child :
+				bundle_xml_path = joinpath(self.xml_root, dirname(child['bundle.ecl']), 'bundle.xml')
+				bundle = etree.parse(bundle_xml_path).getroot()
+				file['type'] = 'bundle'
 
-				render = self.toc_template.render(name=key,
-												files=list(filter(lambda x : x['type'] == 'file', childfiles)),
-												bundle=bundle, label=tex_path, up="")
-				write_to_file(temptoc_render_path, render)
+			childfiles = []
+			keys = sorted(child.keys(), key=str.lower)
+			for chkey in keys :
+				child_root = joinpath(content_root, chkey)
+				child_dict = self.gen(chkey, child, child_root)
+				if child_dict is not None : childfiles.append(child_dict)
 
-				start_path = relpath(temptoc_render_path, self.tex_path)
-				render = self.index_template.render(root=start_path)
-				write_to_file(index_render_path, render)
+			childfiles = sorted(childfiles, key=lambda x : x['type'], reverse=True)
 
-				subprocess.run(['pdflatex ' +
-								'-output-directory ' + relpath(child_root, self.tex_path) + ' ' +
-								relpath(index_render_path, self.tex_path)],
-								cwd=self.tex_path, shell=True)
+			render = self.toc_template.render(name=key,	files=childfiles, bundle=bundle,
+											label=tex_relpath, up=dirname(tex_relpath))
+			write_to_file(render_path, render)
 
-				files.append(file)
+			render = self.toc_template.render(name=key,
+											files=list(filter(lambda x : x['type'] == 'file', childfiles)),
+											bundle=bundle, label=tex_relpath, up="")
+			write_to_file(temptoc_render_path, render)
 
-		return files
+			start_path = relpath(temptoc_render_path, self.tex_path)
+			render = self.index_template.render(root=start_path)
+			write_to_file(index_render_path, render)
+
+			subprocess.run(['pdflatex ' +
+							'-output-directory ' + relpath(content_root, self.tex_path) + ' ' +
+							relpath(index_render_path, self.tex_path)],
+							cwd=self.tex_path, shell=True)
+
+			return file
 
 
-
-	def genTEX(self) :
-		self.gen(self.ecl_file_tree, self.tex_path)
+	def run(self) :
+		self.gen('root', self.ecl_file_tree, self.tex_root)
 
 		render_path = joinpath(self.tex_root, 'pkg.toc.tex')
 		start_path = relpath(render_path, self.tex_path)

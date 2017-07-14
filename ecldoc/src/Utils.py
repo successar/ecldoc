@@ -83,3 +83,6 @@ def joinpath(*p1) :
 
 def dirname(p1) :
     return os.path.dirname(p1)
+
+def realpath(p1) :
+    return os.path.realpath(p1)

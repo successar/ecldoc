@@ -134,7 +134,7 @@ class GenHTML(object) :
 
 
 
-    def genHTML(self) :
+    def run(self) :
         self.gen('root', self.ecl_file_tree, self.html_root)
 
         if os.path.exists(joinpath(self.output_root, 'css')) :

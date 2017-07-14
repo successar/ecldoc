@@ -60,9 +60,7 @@ class ParseTXT(object) :
 		headers = self.parseSign(defn)
 		doc = self.parseDocs(defn.find('./Documentation'))
 		parents = defn.find('./Parents')
-		target = defn.attrib['target'] if 'target' in defn.attrib else None
-
-		defn_dict = { 'headers' : headers, 'doc' : doc, 'defns' : [], 'Parents' : parents, 'target' : target }
+		defn_dict = { 'headers' : headers, 'doc' : doc, 'defns' : [], 'Parents' : parents }
 
 		for childdefn in defn.findall('./Definition') :
 			self.parseDefinition(childdefn, defn_dict['defns'])
@@ -163,5 +161,5 @@ class GenTXT(object) :
 			return file
 
 
-	def genTXT(self) :
+	def run(self) :
 		self.gen('root', self.ecl_file_tree, self.txt_root)
