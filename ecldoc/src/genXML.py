@@ -140,6 +140,10 @@ class ParseXML(object):
             for parent in parents.findall('./Parent'):
                 self.parseParent(parent)
 
+        attribs.pop('body', None)
+        attribs.pop('start', None)
+        attribs.pop('end', None)
+
     def generateSignature(self, attribs):
         sign = etree.Element('Signature')
         text = self.text
@@ -192,6 +196,13 @@ class ParseXML(object):
         attribs = imp.attrib
         if 'ref' in attribs:
             attribs['target'] = self.matchReference(attribs['ref'])
+
+        attribs.pop('body', None)
+        attribs.pop('start', None)
+        attribs.pop('end', None)
+        attribs.pop('fullname', None)
+        attribs.pop('line', None)
+        attribs.pop('inherittype', None)
 
     def parseParent(self, parent):
         attribs = parent.attrib

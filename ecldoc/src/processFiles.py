@@ -36,7 +36,7 @@ def configParser(configfile, options) :
         options['exclude'] = exclude
 
     options['output_root'] = None
-    options['formats'] = ['text']
+    options['formats'] = ['text', 'html', 'pdf']
     if 'OUTPUT' in cfgparser.sections() :
         options['output_root'] = cfgparser['OUTPUT']['root']
         if 'format' in cfgparser['OUTPUT'] :

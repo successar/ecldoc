@@ -1,6 +1,7 @@
 import os
 import re
 import subprocess
+from Constants import TEMPLATE_DIR
 
 import jinja2
 from lxml import etree
@@ -136,9 +137,10 @@ class GenTEX(object) :
 		self.xml_root = joinpath(output_root, 'xml')
 		os.makedirs(self.tex_root, exist_ok=True)
 
-		self.content_template = latex_jinja_env.get_template('/media/sarthak/Data/ecldoc/ecldoc/src/content.tpl.tex')
-		self.toc_template = latex_jinja_env.get_template('/media/sarthak/Data/ecldoc/ecldoc/src/toc.tpl.tex')
-		self.index_template = latex_jinja_env.get_template('/media/sarthak/Data/ecldoc/ecldoc/src/tex/index.tpl.tex')
+		self.template_dir = joinpath(TEMPLATE_DIR, 'tex')
+		self.content_template = latex_jinja_env.get_template(joinpath(self.template_dir, 'content.tpl.tex'))
+		self.toc_template = latex_jinja_env.get_template(joinpath(self.template_dir, 'toc.tpl.tex'))
+		self.index_template = latex_jinja_env.get_template(joinpath(self.template_dir, 'index.tpl.tex'))
 
 		self.ecl_file_tree = ecl_file_tree
 		self.options = options

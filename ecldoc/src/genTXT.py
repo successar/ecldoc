@@ -1,9 +1,11 @@
 import os
 import re
 import subprocess
+from Constants import TEMPLATE_DIR
 
 from lxml import etree
 from Utils import genPathTree, getRoot, write_to_file
+from Utils import joinpath, relpath, dirname
 
 from jinja2 import Template
 import textwrap
@@ -20,12 +22,12 @@ def _break(text, CPL_E) :
 
 class ParseTXT(object) :
 	def __init__(self, generator, ecl_file) :
-		self.xml_file = os.path.join(generator.xml_root, ecl_file + '.xml')
-		self.txt_file = os.path.join(generator.txt_root, ecl_file + '.txt')
+		self.xml_file = joinpath(generator.xml_root, ecl_file + '.xml')
+		self.txt_file = joinpath(generator.txt_root, ecl_file + '.txt')
 		self.template = generator.content_template
 		self.options = generator.options
 
-		os.makedirs(os.path.dirname(self.txt_file), exist_ok=True)
+		os.makedirs(dirname(self.txt_file), exist_ok=True)
 
 	def parse(self) :
 		root = etree.parse(self.xml_file).getroot()
@@ -120,10 +122,11 @@ class GenTXT(object) :
 	def __init__(self, input_root, output_root, ecl_file_tree, options) :
 		self.input_root = input_root
 		self.output_root = output_root
-		self.txt_root = os.path.join(output_root, 'txt')
-		self.xml_root = os.path.join(output_root, 'xml')
-		self.content_template = Template(open('/media/sarthak/Data/ecldoc/ecldoc/src/content.tpl.txt').read())
-		self.toc_template = Template(open('/media/sarthak/Data/ecldoc/ecldoc/src/toc.tpl.txt').read())
+		self.txt_root = joinpath(output_root, 'txt')
+		self.xml_root = joinpath(output_root, 'xml')
+		self.template_dir = joinpath(TEMPLATE_DIR, 'txt')
+		self.content_template = Template(open(joinpath(self.template_dir, 'content.tpl.txt')).read())
+		self.toc_template = Template(open(joinpath(self.template_dir, 'toc.tpl.txt')).read())
 		self.ecl_file_tree = ecl_file_tree
 		self.options = options
 
@@ -137,25 +140,25 @@ class GenTXT(object) :
 			return file
 		else :
 			child = node[key]
-			file = { 'name' : key,'target': os.path.join(key, 'pkg.toc.txt'), 'type': 'dir', 'doc' : '' }
+			file = { 'name' : key,'target': joinpath(key, 'pkg.toc.txt'), 'type': 'dir', 'doc' : '' }
 
 			bundle = None
 			if 'bundle.ecl' in child :
-				bundle_xml_path = os.path.join(self.xml_root, os.path.dirname(child['bundle.ecl']), 'bundle.xml')
+				bundle_xml_path = joinpath(self.xml_root, dirname(child['bundle.ecl']), 'bundle.xml')
 				bundle = etree.parse(bundle_xml_path).getroot()
 				file['type'] = 'bundle'
 
 			childfiles = []
 			keys = sorted(list(child.keys()), key=str.lower)
 			for chkey in keys :
-				child_root = os.path.join(content_root, chkey)
+				child_root = joinpath(content_root, chkey)
 				child_dict = self.gen(chkey, child, child_root)
 				if child_dict is not None : childfiles.append(child_dict)
 
 			childfiles = sorted(childfiles, key=lambda x : x['type'])
 			os.makedirs(content_root, exist_ok=True)
 			render = self.toc_template.render(name=key,	files=childfiles, bundle=bundle)
-			render_path = os.path.join(content_root, 'pkg.toc.txt')
+			render_path = joinpath(content_root, 'pkg.toc.txt')
 			write_to_file(render_path, render)
 
 			return file

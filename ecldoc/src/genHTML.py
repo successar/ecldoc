@@ -2,6 +2,7 @@ import os
 import re
 import shutil
 import subprocess
+from Constants import TEMPLATE_DIR
 
 from lxml import etree
 from Utils import genPathTree, getRoot, write_to_file
@@ -76,8 +77,10 @@ class GenHTML(object) :
         self.output_root = output_root
         self.html_root = joinpath(output_root, 'html')
         self.xml_root = joinpath(output_root, 'xml')
-        self.content_template = Template(open('/media/sarthak/Data/ecldoc/ecldoc/src/content.tpl.html').read())
-        self.toc_template = Template(open('/media/sarthak/Data/ecldoc/ecldoc/src/toc.tpl.html').read())
+
+        self.template_dir = joinpath(TEMPLATE_DIR, 'html')
+        self.content_template = Template(open(joinpath(self.template_dir, 'content.tpl.html')).read())
+        self.toc_template = Template(open(joinpath(self.template_dir, 'toc.tpl.html')).read())
         self.ecl_file_tree = ecl_file_tree
         self.options = options
 
@@ -139,7 +142,4 @@ class GenHTML(object) :
 
         if os.path.exists(joinpath(self.output_root, 'css')) :
             shutil.rmtree(joinpath(self.output_root, 'css'))
-        shutil.copytree('/media/sarthak/Data/ecldoc/ecldoc/src/css', joinpath(self.output_root, 'css'))
-        if os.path.exists(joinpath(self.output_root, 'js')) :
-            shutil.rmtree(joinpath(self.output_root, 'js'))
-        shutil.copytree('/media/sarthak/Data/ecldoc/ecldoc/src/js', joinpath(self.output_root, 'js'))
+        shutil.copytree(joinpath(self.template_dir, 'css'), joinpath(self.output_root, 'css'))
