@@ -9,7 +9,7 @@ from lxml.builder import E
 
 from Utils import breaksign
 from Utils import genPathTree
-from Utils import joinpath, relpath, dirname
+from Utils import joinpath, relpath, dirname, realpath
 from parseDoc import parseDocstring
 
 
@@ -32,6 +32,7 @@ class ParseXML(object):
 
         #local
         self.depends = {}
+        self.src = None
 
     def parse(self):
         os.makedirs(dirname(self.xml_orig_file), exist_ok=True)
@@ -46,13 +47,13 @@ class ParseXML(object):
 
         for src in root.iter('Source'):
             attribs = src.attrib
-            srcpath = os.path.realpath(attribs['sourcePath'])
+            srcpath = realpath(attribs['sourcePath'])
 
             if os.path.exists(srcpath) and srcpath.startswith(self.input_root):
                 attribs['sourcePath'] = srcpath
                 src_relpath = relpath(srcpath, self.input_root)
                 tgtpath = joinpath(self.xml_root, (src_relpath + '.xml'))
-                tgtpath = os.path.realpath(tgtpath)
+                tgtpath = realpath(tgtpath)
                 tgtpath = relpath(tgtpath, self.xml_dir)
                 attribs['target'] = tgtpath
                 if src_relpath == self.ecl_file:
@@ -69,7 +70,7 @@ class ParseXML(object):
                 depend.set('target', attribs['target'])
             else:
                 if 'name' in attribs:
-                    matched = self.generator.matchExdoc(attribs['name'])
+                    matched = self.generator.matchExdoc(attribs['name'], source=attribs['sourcePath'])
                     if matched is not None:
                         depend.set('target', matched + '.xml')
                     else:
@@ -90,7 +91,7 @@ class ParseXML(object):
 
     def parseSource(self):
         attribs = self.src.attrib
-        srcpath = os.path.realpath(attribs['sourcePath'])
+        srcpath = realpath(attribs['sourcePath'])
         self.text = open(srcpath).read()
 
         if 'name' in attribs:
@@ -247,10 +248,6 @@ class ParseXML(object):
         return test_1 or test_2 or test_3
 
 
-def check_if_modified(fpin, fpout):
-    return os.path.exists(fpout) and os.path.getmtime(fpout) > os.path.getmtime(fpin)
-
-
 def parseBundle(generator, ecl_file):
     input_file = joinpath(generator.input_root, ecl_file)
     dirpath = dirname(input_file)
@@ -299,8 +296,6 @@ class GenXML(object):
                 return
             ecl_file = node[key]
             parser = ParseXML(self, ecl_file)
-            # if check_if_modified(parser.input_file, parser.xml_file) :
-            #   continue
             parser.parse()
             if parser.internal:
                 del node[key]
@@ -323,17 +318,22 @@ class GenXML(object):
             os.makedirs(content_root, exist_ok=True)
             toc_file = joinpath(content_root, 'pkg.toc.xml')
             etree.ElementTree(folder).write(toc_file, pretty_print=True, xml_declaration=True, encoding='utf-8')
-            self.genJSON(child, content_root)
+            self.genJsonTree(child, content_root)
 
-    def genXML(self):
+    def run(self):
         self.processExternalDoc()
         root = etree.Element('Root')
         self.gen('root', self.ecl_file_tree, root, self.xml_root)
 
-    def genJSON(self, tree, output_path='', dump=True):
+    #######################################################################
+    # Generate tree for files and subfolders in each folder for given run #
+    # Currently used by External Dodc matching system .                   #
+    #######################################################################
+
+    def genJsonTree(self, tree, output_path='', dump=True):
         json_output = {}
         new_tree = deepcopy(tree)
-        self.dictlower(new_tree)
+        self.processJsonTree(new_tree)
         json_output['tree'] = new_tree
         json_output['output_root'] = self.output_root
         json_output['input_root'] = self.input_root
@@ -342,13 +342,26 @@ class GenXML(object):
 
         return json_output
 
+    def processJsonTree(self, tree):
+        keys = list(tree.keys())
+        for key in keys:
+            if type(tree[key]) == dict:
+                self.processJsonTree(tree[key])
+            node = tree[key]
+            del tree[key]
+            tree[re.sub(r'\.ecl$', '', key.lower())] = {'key': key, 'tree': node}
+
+    ###############################################################
+    # Process External Docs and provide match function for parser #
+    ###############################################################
+
     def processExternalDoc(self):
         self.exdocs = []
-        currdoc = self.genJSON(self.ecl_file_tree['root'], dump=False)
+        currdoc = self.genJsonTree(self.ecl_file_tree['root'], dump=False)
         self.exdocs.append(currdoc)
         for path in self.options['exdoc_paths']:
             json_file = joinpath(path, 'tree.json')
-            assert os.path.isfile(json_file), ("Exdoc file not exists : " + str(json_file))
+            assert os.path.isfile(json_file), ("Exdoc file does not exists : " + json_file)
             external_doc = json.load(open(json_file))
             self.exdocs.append(external_doc)
 
@@ -356,28 +369,19 @@ class GenXML(object):
         fullname = tuple(fullname.lower().split('.'))
         matched = None
         for exdoc in self.exdocs:
-            val = self.checkInTree(fullname, exdoc['tree'], '')
+            val = self.findInTree(fullname, exdoc['tree'], '')
             if val is not None:
-                if source == '' or source.startswith(exdoc['input_root']):
+                if source == '' or realpath(source).startswith(exdoc['input_root']):
                     matched = joinpath(exdoc['output_root'], '$$_ECLDOC-FORM_$$', val)
                     break
         return matched
 
-    def checkInTree(self, fullname, tree, child_root):
+    def findInTree(self, fullname, tree, child_root):
         if type(tree) == dict:
             if len(fullname) == 0: return joinpath(child_root, 'pkg.toc')
-            if fullname[0] in tree: return self.checkInTree(fullname[1:],
+            if fullname[0] in tree: return self.findInTree(fullname[1:],
                                                             tree[fullname[0]]['tree'],
                                                             joinpath(child_root, tree[fullname[0]]['key']))
             return None
 
         return tree
-
-    def dictlower(self, tree):
-        keys = list(tree.keys())
-        for key in keys:
-            if type(tree[key]) == dict:
-                self.dictlower(tree[key])
-            node = tree[key]
-            del tree[key]
-            tree[re.sub(r'\.ecl$', '', key.lower())] = {'key': key, 'tree': node}

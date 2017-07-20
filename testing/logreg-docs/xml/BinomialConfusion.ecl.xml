@@ -1,18 +1,18 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <Meta>
  <Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Types.ecl" name="ML_Core.Types" target="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles-docs/$$_ECLDOC-FORM_$$/ML_Core/Types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Types.ecl" name="Types" target="Types.ecl.xml"/><Source name="BinomialConfusion" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/BinomialConfusion.ecl" target="BinomialConfusion.ecl.xml">
-  <Import body="0" end="7" fullname="ML_Core.Types" inherittype="local" line="1" name="Core_Types" ref="ML_Core.Types" start="7" target="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles-docs/$$_ECLDOC-FORM_$$/ML_Core/Types.ecl.xml"/>
-  <Import body="0" end="7" inherittype="local" line="1" name="LR" start="7"/>
-  <Import body="0" end="23" fullname="Types" inherittype="local" line="2" name="Types" ref="Types" start="23" target="Types.ecl.xml"/>
-  <Definition body="626" end="4096" exported="1" fullname="binomialconfusion" inherittype="local" line="17" name="BinomialConfusion" start="510">
+  <Import name="Core_Types" ref="ML_Core.Types" target="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles-docs/$$_ECLDOC-FORM_$$/ML_Core/Types.ecl.xml"/>
+  <Import name="LR"/>
+  <Import name="Types" ref="Types" target="Types.ecl.xml"/>
+  <Definition exported="1" fullname="binomialconfusion" inherittype="local" line="17" name="BinomialConfusion">
    <Type>function</Type>
    <Documentation>
-    <content>Binomial confusion matrix. Work items with multinomial responses are ignored by this function. The higher value lexically is considered to be the positive indication.</content><firstline>Binomial confusion matrix</firstline><return>confusion matrix for a binomial classifier</return><param><name>d</name><desc>confusion detail for the work item and classifier</desc></param></Documentation>
+    <firstline>Binomial confusion matrix</firstline><return>confusion matrix for a binomial classifier</return><content>Binomial confusion matrix. Work items with multinomial responses are ignored by this function. The higher value lexically is considered to be the positive indication.</content><param><name>d</name><desc>confusion detail for the work item and classifier</desc></param></Documentation>
    <Signature name="BinomialConfusion" ret="DATASET(Types.Binomial_Confusion_Summary)" param="(DATASET(Core_Types.Confusion_Detail) d)" hlen="59">DATASET(Types.Binomial_Confusion_Summary) BinomialConfusion(DATASET(Core_Types.Confusion_Detail) d)</Signature><Params>
     <Param name="d"/>
    </Params>
   </Definition>
  <Documentation>
-    <content>Binomial confusion matrix. Work items with multinomial responses are ignored by this function. The higher value lexically is considered to be the positive indication.</content><firstline>Binomial confusion matrix</firstline><return>confusion matrix for a binomial classifier</return><param><name>d</name><desc>confusion detail for the work item and classifier</desc></param></Documentation>
+    <firstline>Binomial confusion matrix</firstline><return>confusion matrix for a binomial classifier</return><content>Binomial confusion matrix. Work items with multinomial responses are ignored by this function. The higher value lexically is considered to be the positive indication.</content><param><name>d</name><desc>confusion detail for the work item and classifier</desc></param></Documentation>
    </Source>
 </Meta>

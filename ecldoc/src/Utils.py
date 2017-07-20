@@ -86,3 +86,6 @@ def dirname(p1) :
 
 def realpath(p1) :
     return os.path.realpath(p1)
+
+def check_if_modified(fpin, fpout):
+    return os.path.exists(fpout) and os.path.getmtime(fpout) > os.path.getmtime(fpin)

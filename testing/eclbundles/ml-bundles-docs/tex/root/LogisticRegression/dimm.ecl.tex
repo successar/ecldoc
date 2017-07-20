@@ -1,0 +1,52 @@
+\chapter*{\color{headfile}
+{\large LogisticRegression\slash\hspace{0pt}}
+ \\
+dimm
+}
+\hypertarget{ecldoc:toc:LogisticRegression.dimm}{}
+\hyperlink{ecldoc:toc:root/LogisticRegression}{Go Up}
+
+\section*{\underline{\textsf{IMPORTS}}}
+\begin{doublespace}
+{\large
+std.blas |
+std.BLAS.Types |
+}
+\end{doublespace}
+
+\section*{\underline{\textsf{DESCRIPTIONS}}}
+\subsection*{\textsf{\colorbox{headtoc}{\color{white} EMBED}
+dimm}}
+
+\hypertarget{ecldoc:logisticregression.dimm}{}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}l|X|}
+\hline
+\hspace{0pt}\mytexttt{\color{red} Types.matrix\_t} & \textbf{dimm} \\
+\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}X|}{\hspace{0pt}\mytexttt{\color{param} (BOOLEAN transposeA, BOOLEAN transposeB, BOOLEAN diagonalA, BOOLEAN diagonalB, Types.dimension\_t m, Types.dimension\_t n, Types.dimension\_t k, Types.value\_t alpha, Types.matrix\_t A, Types.matrix\_t B, Types.value\_t beta=0.0, Types.matrix\_t C=[])}} \\
+\hline
+\end{tabularx}
+}
+
+\par
+Matrix multiply when either A or B is a diagonal and is passed as a vector. alpha*op(A) op(B) + beta*C where op() is transpose
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{transposeA}} true when transpose of A is used
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{transposeB}} true when transpose of B is used
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{diagonalA}} true when A is the diagonal matrix
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{diagonalB}} true when B is the diagonal matrix
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{m}} number of rows in product
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{n}} number of columns in product
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{k}} number of columns/rows for the multiplier/multiplicand
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{alpha}} scalar used on A
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{A}} matrix A
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{B}} matrix B
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{beta}} scalar for matrix C
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{C}} matrix C or empty
+\end{description}
+
+\rule{\linewidth}{0.5pt}

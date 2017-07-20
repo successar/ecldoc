@@ -1,19 +1,19 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <Meta>
  <Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Types.ecl" name="ML_Core.Types" target="../ML_Core/Types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Types.ecl" name="LogisticRegression.Types" target="Types.ecl.xml"/><Source name="LogisticRegression.LogitScore" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/LogitScore.ecl" target="LogitScore.ecl.xml">
-  <Import body="0" end="7" fullname="ML_Core.Types" inherittype="local" line="1" name="Core_Types" ref="ML_Core.Types" start="7" target="../ML_Core/Types.ecl.xml"/>
-  <Import body="0" end="7" fullname="LogisticRegression" inherittype="local" line="1" name="LR" ref="LogisticRegression" start="7" target="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles-docs/$$_ECLDOC-FORM_$$/LogisticRegression/pkg.toc.xml"/>
-  <Import body="0" end="23" fullname="LogisticRegression.Types" inherittype="local" line="2" name="Types" ref="LogisticRegression.Types" start="23" target="Types.ecl.xml"/>
-  <Definition body="541" end="1688" exported="1" fullname="logisticregression.logitscore" inherittype="local" line="17" name="LogitScore" start="412">
+  <Import name="Core_Types" ref="ML_Core.Types" target="../ML_Core/Types.ecl.xml"/>
+  <Import name="LR" ref="LogisticRegression" target="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles-docs/$$_ECLDOC-FORM_$$/LogisticRegression/pkg.toc.xml"/>
+  <Import name="Types" ref="LogisticRegression.Types" target="Types.ecl.xml"/>
+  <Definition exported="1" fullname="logisticregression.logitscore" inherittype="local" line="17" name="LogitScore">
    <Type>function</Type>
    <Documentation>
-    <content>Calculate the score using the logit function and the the supplied beta coefficients.</content><firstline>Calculate the score using the logit function and the the supplied beta coefficients</firstline><param><name>coef</name><desc>the model beta coefficients</desc></param><param><name>independents</name><desc>the observations</desc></param><return>the raw prediction value</return></Documentation>
+    <firstline>Calculate the score using the logit function and the the supplied beta coefficients</firstline><return>the raw prediction value</return><content>Calculate the score using the logit function and the the supplied beta coefficients.</content><param><name>coef</name><desc>the model beta coefficients</desc></param><param><name>independents</name><desc>the observations</desc></param></Documentation>
    <Signature name="LogitScore" ret="DATASET(Raw_Prediction)" param="(DATASET(Model_Coef) coef, DATASET(NumericField) independents)" hlen="34">DATASET(Raw_Prediction) LogitScore(DATASET(Model_Coef) coef, DATASET(NumericField) independents)</Signature><Params>
     <Param name="coef"/>
     <Param name="independents"/>
    </Params>
   </Definition>
  <Documentation>
-    <content>Calculate the score using the logit function and the the supplied beta coefficients.</content><firstline>Calculate the score using the logit function and the the supplied beta coefficients</firstline><param><name>coef</name><desc>the model beta coefficients</desc></param><param><name>independents</name><desc>the observations</desc></param><return>the raw prediction value</return></Documentation>
+    <firstline>Calculate the score using the logit function and the the supplied beta coefficients</firstline><return>the raw prediction value</return><content>Calculate the score using the logit function and the the supplied beta coefficients.</content><param><name>coef</name><desc>the model beta coefficients</desc></param><param><name>independents</name><desc>the observations</desc></param></Documentation>
    </Source>
 </Meta>

@@ -1,19 +1,19 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <Meta>
  <Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Types.ecl" name="ML_Core.Types" target="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles-docs/$$_ECLDOC-FORM_$$/ML_Core/Types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Types.ecl" name="Types" target="Types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/LogitScore.ecl" name="LogitScore" target="LogitScore.ecl.xml"/><Source name="LogitPredict" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/LogitPredict.ecl" target="LogitPredict.ecl.xml">
-  <Import body="0" end="7" fullname="ML_Core.Types" inherittype="local" line="1" name="Core_Types" ref="ML_Core.Types" start="7" target="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles-docs/$$_ECLDOC-FORM_$$/ML_Core/Types.ecl.xml"/>
-  <Import body="0" end="7" inherittype="local" line="1" name="LR" start="7"/>
-  <Import body="0" end="23" fullname="Types" inherittype="local" line="2" name="Types" ref="Types" start="23" target="Types.ecl.xml"/>
-  <Definition body="629" end="904" exported="1" fullname="logitpredict" inherittype="local" line="18" name="LogitPredict" start="494">
+  <Import name="Core_Types" ref="ML_Core.Types" target="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles-docs/$$_ECLDOC-FORM_$$/ML_Core/Types.ecl.xml"/>
+  <Import name="LR"/>
+  <Import name="Types" ref="Types" target="Types.ecl.xml"/>
+  <Definition exported="1" fullname="logitpredict" inherittype="local" line="18" name="LogitPredict">
    <Type>function</Type>
    <Documentation>
-    <content>Predict the category values with the logit function and the the supplied beta coefficients.</content><firstline>Predict the category values with the logit function and the the supplied beta coefficients</firstline><return>the predicted category values and a confidence score</return><param><name>coef</name><desc>the model beta coefficients</desc></param><param><name>independents</name><desc>the observations</desc></param></Documentation>
+    <firstline>Predict the category values with the logit function and the the supplied beta coefficients</firstline><return>the predicted category values and a confidence score</return><content>Predict the category values with the logit function and the the supplied beta coefficients.</content><param><name>coef</name><desc>the model beta coefficients</desc></param><param><name>independents</name><desc>the observations</desc></param></Documentation>
    <Signature name="LogitPredict" ret="DATASET(Classify_Result)" param="(DATASET(Model_Coef) coef, DATASET(NumericField) independents)" hlen="37">DATASET(Classify_Result) LogitPredict(DATASET(Model_Coef) coef, DATASET(NumericField) independents)</Signature><Params>
     <Param name="coef"/>
     <Param name="independents"/>
    </Params>
   </Definition>
  <Documentation>
-    <content>Predict the category values with the logit function and the the supplied beta coefficients.</content><firstline>Predict the category values with the logit function and the the supplied beta coefficients</firstline><return>the predicted category values and a confidence score</return><param><name>coef</name><desc>the model beta coefficients</desc></param><param><name>independents</name><desc>the observations</desc></param></Documentation>
+    <firstline>Predict the category values with the logit function and the the supplied beta coefficients</firstline><return>the predicted category values and a confidence score</return><content>Predict the category values with the logit function and the the supplied beta coefficients.</content><param><name>coef</name><desc>the model beta coefficients</desc></param><param><name>independents</name><desc>the observations</desc></param></Documentation>
    </Source>
 </Meta>

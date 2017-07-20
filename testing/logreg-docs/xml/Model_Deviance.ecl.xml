@@ -1,18 +1,18 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <Meta>
  <Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Types.ecl" name="ML_Core.Types" target="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles-docs/$$_ECLDOC-FORM_$$/ML_Core/Types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Types.ecl" name="Types" target="Types.ecl.xml"/><Source name="Model_Deviance" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Model_Deviance.ecl" target="Model_Deviance.ecl.xml">
-  <Import body="0" end="7" inherittype="local" line="1" name="LR" start="7"/>
-  <Import body="0" end="23" fullname="Types" inherittype="local" line="2" name="Types" ref="Types" start="23" target="Types.ecl.xml"/>
-  <Definition body="402" end="1140" exported="1" fullname="model_deviance" inherittype="local" line="14" name="Model_Deviance" start="247">
+  <Import name="LR"/>
+  <Import name="Types" ref="Types" target="Types.ecl.xml"/>
+  <Definition exported="1" fullname="model_deviance" inherittype="local" line="14" name="Model_Deviance">
    <Type>function</Type>
    <Documentation>
-    <content>Model Deviance.</content><firstline>Model Deviance</firstline><return>model deviance</return><param><name>od</name><desc>observation deviance record</desc></param><param><name>mod</name><desc>model co-efficients</desc></param></Documentation>
+    <firstline>Model Deviance</firstline><return>model deviance</return><content>Model Deviance.</content><param><name>od</name><desc>observation deviance record</desc></param><param><name>mod</name><desc>model co-efficients</desc></param></Documentation>
    <Signature name="Model_Deviance" ret="DATASET(Types.Deviance_Record)" param="(DATASET(Types.Observation_Deviance) od, DATASET(Types.Model_Coef) mod)" hlen="45">DATASET(Types.Deviance_Record) Model_Deviance(DATASET(Types.Observation_Deviance) od, DATASET(Types.Model_Coef) mod)</Signature><Params>
     <Param name="od"/>
     <Param name="mod"/>
    </Params>
   </Definition>
  <Documentation>
-    <content>Model Deviance.</content><firstline>Model Deviance</firstline><return>model deviance</return><param><name>od</name><desc>observation deviance record</desc></param><param><name>mod</name><desc>model co-efficients</desc></param></Documentation>
+    <firstline>Model Deviance</firstline><return>model deviance</return><content>Model Deviance.</content><param><name>od</name><desc>observation deviance record</desc></param><param><name>mod</name><desc>model co-efficients</desc></param></Documentation>
    </Source>
 </Meta>

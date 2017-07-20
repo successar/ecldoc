@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import os
 import glob
 import argparse
@@ -109,7 +111,7 @@ def doMain() :
         os.makedirs(output_root, exist_ok=True)
 
     xmlgenerator = genXML.GenXML(input_root, output_root, ecl_files, options)
-    xmlgenerator.genXML()
+    xmlgenerator.run()
     ecl_file_tree = xmlgenerator.ecl_file_tree
 
     for f in options['formats'] :

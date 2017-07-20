@@ -1,17 +1,17 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <Meta>
  <Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Types.ecl" name="ML_Core.Types" target="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles-docs/$$_ECLDOC-FORM_$$/ML_Core/Types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Types.ecl" name="Types" target="Types.ecl.xml"/><Source name="Null_Deviance" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Null_Deviance.ecl" target="Null_Deviance.ecl.xml">
-  <Import body="0" end="7" inherittype="local" line="1" name="LR" start="7"/>
-  <Import body="0" end="23" fullname="Types" inherittype="local" line="2" name="Types" ref="Types" start="23" target="Types.ecl.xml"/>
-  <Definition body="434" end="766" exported="1" fullname="null_deviance" inherittype="local" line="14" name="Null_Deviance" start="334">
+  <Import name="LR"/>
+  <Import name="Types" ref="Types" target="Types.ecl.xml"/>
+  <Definition exported="1" fullname="null_deviance" inherittype="local" line="14" name="Null_Deviance">
    <Type>function</Type>
    <Documentation>
-    <content>Deviance for the null model, that is, a model with only an intercept.</content><firstline>Deviance for the null model, that is, a model with only an intercept</firstline><return>a data set of the null model deviances for each work item and classifier.</return><param><name>od</name><desc>Observation Deviance record set.</desc></param></Documentation>
+    <firstline>Deviance for the null model, that is, a model with only an intercept</firstline><return>a data set of the null model deviances for each work item and classifier.</return><content>Deviance for the null model, that is, a model with only an intercept.</content><param><name>od</name><desc>Observation Deviance record set.</desc></param></Documentation>
    <Signature name="Null_Deviance" ret="DATASET(Types.Deviance_Record)" param="(DATASET(Types.Observation_Deviance) od)" hlen="44">DATASET(Types.Deviance_Record) Null_Deviance(DATASET(Types.Observation_Deviance) od)</Signature><Params>
     <Param name="od"/>
    </Params>
   </Definition>
  <Documentation>
-    <content>Deviance for the null model, that is, a model with only an intercept.</content><firstline>Deviance for the null model, that is, a model with only an intercept</firstline><return>a data set of the null model deviances for each work item and classifier.</return><param><name>od</name><desc>Observation Deviance record set.</desc></param></Documentation>
+    <firstline>Deviance for the null model, that is, a model with only an intercept</firstline><return>a data set of the null model deviances for each work item and classifier.</return><content>Deviance for the null model, that is, a model with only an intercept.</content><param><name>od</name><desc>Observation Deviance record set.</desc></param></Documentation>
    </Source>
 </Meta>

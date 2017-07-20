@@ -1,15 +1,15 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <Meta>
  <Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Types.ecl" name="ML_Core.Types" target="../ML_Core/Types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Types.ecl" name="PBblas.Types" target="Types.ecl.xml"/><Source name="PBblas.axpy" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/axpy.ecl" target="axpy.ecl.xml">
-  <Import body="0" end="251" fullname="PBblas" inherittype="local" line="5" name="PBBlas" ref="PBblas" start="251" target="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles-docs/$$_ECLDOC-FORM_$$/PBblas/pkg.toc.xml"/>
-  <Import body="0" end="271" fullname="PBblas.Types" inherittype="local" line="6" name="Types" ref="PBblas.Types" start="271" target="Types.ecl.xml">
+  <Import name="PBBlas" ref="PBblas" target="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles-docs/$$_ECLDOC-FORM_$$/PBblas/pkg.toc.xml"/>
+  <Import name="Types" ref="PBblas.Types" target="Types.ecl.xml">
    <Documentation>
-    <content>Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes.</content><firstline>Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes</firstline></Documentation>
+    <firstline>Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes</firstline><content>Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes.</content></Documentation>
   </Import>
-  <Definition body="780" end="1297" exported="1" fullname="pbblas.axpy" inherittype="local" line="19" name="axpy" start="682">
+  <Definition exported="1" fullname="pbblas.axpy" inherittype="local" line="19" name="axpy">
    <Type>function</Type>
    <Documentation>
-    <content>Implements alpha*X + Y X and Y must have same shape</content><firstline>Implements alpha*X + Y</firstline><param><name>alpha</name><desc>Scalar multiplier for the X matrix</desc></param><param><name>X</name><desc>X matrix in DATASET(Layout_Cell) form</desc></param><param><name>Y</name><desc>Y matrix in DATASET(Layout_Call) form</desc></param><see>PBblas/Types.layout_cell</see><return>Matrix in DATASET(Layout_Cell) form</return></Documentation>
+    <firstline>Implements alpha*X + Y</firstline><return>Matrix in DATASET(Layout_Cell) form</return><content>Implements alpha*X + Y X and Y must have same shape</content><see>PBblas/Types.layout_cell</see><param><name>alpha</name><desc>Scalar multiplier for the X matrix</desc></param><param><name>X</name><desc>X matrix in DATASET(Layout_Cell) form</desc></param><param><name>Y</name><desc>Y matrix in DATASET(Layout_Call) form</desc></param></Documentation>
    <Signature name="axpy" ret="DATASET(Layout_Cell)" param="(value_t alpha, DATASET(Layout_Cell) X, DATASET(Layout_Cell) Y)" hlen="25">DATASET(Layout_Cell) axpy(value_t alpha, DATASET(Layout_Cell) X, DATASET(Layout_Cell) Y)</Signature><Params>
     <Param name="alpha"/>
     <Param name="X"/>
@@ -17,6 +17,6 @@
    </Params>
   </Definition>
  <Documentation>
-    <content>Implements alpha*X + Y X and Y must have same shape</content><firstline>Implements alpha*X + Y</firstline><param><name>alpha</name><desc>Scalar multiplier for the X matrix</desc></param><param><name>X</name><desc>X matrix in DATASET(Layout_Cell) form</desc></param><param><name>Y</name><desc>Y matrix in DATASET(Layout_Call) form</desc></param><see>PBblas/Types.layout_cell</see><return>Matrix in DATASET(Layout_Cell) form</return></Documentation>
+    <firstline>Implements alpha*X + Y</firstline><return>Matrix in DATASET(Layout_Cell) form</return><content>Implements alpha*X + Y X and Y must have same shape</content><see>PBblas/Types.layout_cell</see><param><name>alpha</name><desc>Scalar multiplier for the X matrix</desc></param><param><name>X</name><desc>X matrix in DATASET(Layout_Cell) form</desc></param><param><name>Y</name><desc>Y matrix in DATASET(Layout_Call) form</desc></param></Documentation>
    </Source>
 </Meta>

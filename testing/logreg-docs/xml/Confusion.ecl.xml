@@ -1,20 +1,20 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <Meta>
  <Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Types.ecl" name="ML_Core.Types" target="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles-docs/$$_ECLDOC-FORM_$$/ML_Core/Types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Types.ecl" name="Types" target="Types.ecl.xml"/><Source name="Confusion" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Confusion.ecl" target="Confusion.ecl.xml">
-  <Import body="0" end="7" fullname="ML_Core" inherittype="local" line="1" name="ML_Core" ref="ML_Core" remotescope="1" start="7" target="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles-docs/$$_ECLDOC-FORM_$$/ML_Core/pkg.toc.xml"/>
-  <Import body="0" end="23" fullname="ML_Core.Types" inherittype="local" line="2" name="Core_Types" ref="ML_Core.Types" start="23" target="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles-docs/$$_ECLDOC-FORM_$$/ML_Core/Types.ecl.xml"/>
-  <Import body="0" end="59" inherittype="local" line="3" name="LR" start="59"/>
-  <Import body="0" end="75" fullname="Types" inherittype="local" line="4" name="Types" ref="Types" start="75" target="Types.ecl.xml"/>
-  <Definition body="995" end="1807" exported="1" fullname="confusion" inherittype="local" line="26" name="Confusion" start="858">
+  <Import name="ML_Core" ref="ML_Core" remotescope="1" target="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles-docs/$$_ECLDOC-FORM_$$/ML_Core/pkg.toc.xml"/>
+  <Import name="Core_Types" ref="ML_Core.Types" target="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles-docs/$$_ECLDOC-FORM_$$/ML_Core/Types.ecl.xml"/>
+  <Import name="LR"/>
+  <Import name="Types" ref="Types" target="Types.ecl.xml"/>
+  <Definition exported="1" fullname="confusion" inherittype="local" line="26" name="Confusion">
    <Type>function</Type>
    <Documentation>
-    <content>Detail confusion records to compare actual versus predicted response variable values.</content><firstline>Detail confusion records to compare actual versus predicted response variable values</firstline><return>confusion counts by predicted and actual response values.</return><param><name>dependents</name><desc>the original response values</desc></param><param><name>predicts</name><desc>the predicted responses</desc></param></Documentation>
+    <firstline>Detail confusion records to compare actual versus predicted response variable values</firstline><return>confusion counts by predicted and actual response values.</return><content>Detail confusion records to compare actual versus predicted response variable values.</content><param><name>dependents</name><desc>the original response values</desc></param><param><name>predicts</name><desc>the predicted responses</desc></param></Documentation>
    <Signature name="Confusion" ret="DATASET(Confusion_Detail)" param="(DATASET(DiscreteField) dependents, DATASET(DiscreteField) predicts)" hlen="35">DATASET(Confusion_Detail) Confusion(DATASET(DiscreteField) dependents, DATASET(DiscreteField) predicts)</Signature><Params>
     <Param name="dependents"/>
     <Param name="predicts"/>
    </Params>
   </Definition>
  <Documentation>
-    <content>Detail confusion records to compare actual versus predicted response variable values.</content><firstline>Detail confusion records to compare actual versus predicted response variable values</firstline><return>confusion counts by predicted and actual response values.</return><param><name>dependents</name><desc>the original response values</desc></param><param><name>predicts</name><desc>the predicted responses</desc></param></Documentation>
+    <firstline>Detail confusion records to compare actual versus predicted response variable values</firstline><return>confusion counts by predicted and actual response values.</return><content>Detail confusion records to compare actual versus predicted response variable values.</content><param><name>dependents</name><desc>the original response values</desc></param><param><name>predicts</name><desc>the predicted responses</desc></param></Documentation>
    </Source>
 </Meta>

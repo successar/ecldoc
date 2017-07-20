@@ -1,20 +1,20 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <Meta>
  <Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Types.ecl" name="ML_Core.Types" target="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles-docs/$$_ECLDOC-FORM_$$/ML_Core/Types.ecl.xml"/><Source name="Types" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/LogisticRegression/Types.ecl" target="Types.ecl.xml">
-  <Import body="0" end="7" fullname="ML_Core.Types" inherittype="local" line="1" name="Core_Types" ref="ML_Core.Types" start="7" target="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles-docs/$$_ECLDOC-FORM_$$/ML_Core/Types.ecl.xml"/>
-  <Definition body="439" end="4032" exported="1" fullname="Types" inherittype="local" line="13" name="Types" start="424">
+  <Import name="Core_Types" ref="ML_Core.Types" target="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles-docs/$$_ECLDOC-FORM_$$/ML_Core/Types.ecl.xml"/>
+  <Definition exported="1" fullname="Types" inherittype="local" line="13" name="Types">
    <Type>module</Type>
-   <Definition body="469" end="480" exported="1" fullname="types.t_universe" inherittype="local" line="14" name="t_Universe" start="449">
+   <Definition exported="1" fullname="types.t_universe" inherittype="local" line="14" name="t_Universe">
     <Signature name="t_Universe" ret="" param="" hlen="10">t_Universe</Signature><Type>attribute</Type>
    </Definition>
-   <Definition body="503" end="654" exported="1" fullname="types.field_desc" inherittype="local" line="15" name="Field_Desc" start="483">
+   <Definition exported="1" fullname="types.field_desc" inherittype="local" line="15" name="Field_Desc">
     <Type>record</Type>
     <Field name="number" type="unsigned4"/>
     <Field name="cardinality" type="unsigned4"/>
     <Field name="min_value" type="real8"/>
     <Signature name="Field_Desc" ret="" param="" hlen="10">Field_Desc</Signature><Field name="max_value" type="real8"/>
    </Definition>
-   <Definition body="676" end="1054" exported="1" fullname="types.data_info" inherittype="local" line="21" name="Data_Info" start="657">
+   <Definition exported="1" fullname="types.data_info" inherittype="local" line="21" name="Data_Info">
     <Type>record</Type>
     <Field name="wi" type="unsigned2"/>
     <Field name="dependent_fields" type="unsigned4"/>
@@ -26,7 +26,7 @@
     <Field name="dependent_stats" type="table of &lt;unnamed&gt;"/>
     <Signature name="Data_Info" ret="" param="" hlen="9">Data_Info</Signature><Field name="independent_stats" type="table of &lt;unnamed&gt;"/>
    </Definition>
-   <Definition body="1081" end="1127" exported="1" fullname="types.numericfield_u" inherittype="local" line="32" name="NumericField_U" start="1057">
+   <Definition exported="1" fullname="types.numericfield_u" inherittype="local" line="32" name="NumericField_U">
     <Type>record</Type>
     <Field name="wi" type="unsigned2"/>
     <Field name="id" type="unsigned8"/>
@@ -34,7 +34,7 @@
     <Field name="value" type="real8"/>
     <Signature name="NumericField_U" ret="" param="" hlen="14">NumericField_U</Signature><Field name="u" type="unsigned1"/>
    </Definition>
-   <Definition body="1155" end="1202" exported="1" fullname="types.discretefield_u" inherittype="local" line="35" name="DiscreteField_U" start="1130">
+   <Definition exported="1" fullname="types.discretefield_u" inherittype="local" line="35" name="DiscreteField_U">
     <Type>record</Type>
     <Field name="wi" type="unsigned2"/>
     <Field name="id" type="unsigned8"/>
@@ -42,13 +42,13 @@
     <Field name="value" type="integer4"/>
     <Signature name="DiscreteField_U" ret="" param="" hlen="15">DiscreteField_U</Signature><Field name="u" type="unsigned1"/>
    </Definition>
-   <Definition body="1232" end="1329" exported="1" fullname="types.layout_column_map" inherittype="local" line="38" name="Layout_Column_Map" start="1205">
+   <Definition exported="1" fullname="types.layout_column_map" inherittype="local" line="38" name="Layout_Column_Map">
     <Type>record</Type>
     <Field name="wi" type="unsigned2"/>
     <Field name="orig_number" type="unsigned4"/>
     <Signature name="Layout_Column_Map" ret="" param="" hlen="17">Layout_Column_Map</Signature><Field name="remap_number" type="unsigned4"/>
    </Definition>
-   <Definition body="1358" end="1523" exported="1" fullname="types.classifier_stats" inherittype="local" line="43" name="Classifier_Stats" start="1332">
+   <Definition exported="1" fullname="types.classifier_stats" inherittype="local" line="43" name="Classifier_Stats">
     <Type>record</Type>
     <Field name="column" type="unsigned4"/>
     <Field name="max_delta" type="real8"/>
@@ -56,7 +56,7 @@
     <Field name="correct" type="unsigned4"/>
     <Signature name="Classifier_Stats" ret="" param="" hlen="16">Classifier_Stats</Signature><Field name="incorrect" type="unsigned4"/>
    </Definition>
-   <Definition body="1548" end="1774" exported="1" fullname="types.model_report" inherittype="local" line="50" name="Model_Report" start="1526">
+   <Definition exported="1" fullname="types.model_report" inherittype="local" line="50" name="Model_Report">
     <Type>record</Type>
     <Field name="wi" type="unsigned2"/>
     <Field name="max_iterations" type="unsigned4"/>
@@ -67,7 +67,7 @@
     <Field name="builder" type="unsigned2"/>
     <Signature name="Model_Report" ret="" param="" hlen="12">Model_Report</Signature><Field name="stats" type="table of &lt;unnamed&gt;"/>
    </Definition>
-   <Definition body="1813" end="2925" exported="1" fullname="types.binomial_confusion_summary" inherittype="local" line="60" name="Binomial_Confusion_Summary" start="1777">
+   <Definition exported="1" fullname="types.binomial_confusion_summary" inherittype="local" line="60" name="Binomial_Confusion_Summary">
     <Type>record</Type>
     <Field name="wi" type="unsigned2"/>
     <Field name="classifier" type="unsigned4"/>
@@ -90,7 +90,7 @@
     <Field name="false_omit_rate" type="real8"/>
     <Signature name="Binomial_Confusion_Summary" ret="" param="" hlen="26">Binomial_Confusion_Summary</Signature><Field name="neg_pred_val" type="real8"/>
    </Definition>
-   <Definition body="2948" end="3104" exported="1" fullname="types.model_coef" inherittype="local" line="82" name="Model_Coef" start="2928">
+   <Definition exported="1" fullname="types.model_coef" inherittype="local" line="82" name="Model_Coef">
     <Type>record</Type>
     <Field name="wi" type="unsigned2"/>
     <Field name="ind_col" type="unsigned4"/>
@@ -98,7 +98,7 @@
     <Field name="w" type="real8"/>
     <Signature name="Model_Coef" ret="" param="" hlen="10">Model_Coef</Signature><Field name="SE" type="real8"/>
    </Definition>
-   <Definition body="3138" end="3198" exported="1" fullname="types.confidence_model_coef" inherittype="local" line="89" name="Confidence_Model_Coef" start="3107">
+   <Definition exported="1" fullname="types.confidence_model_coef" inherittype="local" line="89" name="Confidence_Model_Coef">
     <Type>record</Type>
     <Field name="wi" type="unsigned2"/>
     <Field name="ind_col" type="unsigned4"/>
@@ -108,7 +108,7 @@
     <Field name="upper" type="real8"/>
     <Signature name="Confidence_Model_Coef" ret="" param="" hlen="21">Confidence_Model_Coef</Signature><Field name="lower" type="real8"/>
    </Definition>
-   <Definition body="3226" end="3284" exported="1" fullname="types.pval_model_coef" inherittype="local" line="93" name="pval_Model_Coef" start="3201">
+   <Definition exported="1" fullname="types.pval_model_coef" inherittype="local" line="93" name="pval_Model_Coef">
     <Type>record</Type>
     <Field name="wi" type="unsigned2"/>
     <Field name="ind_col" type="unsigned4"/>
@@ -118,14 +118,14 @@
     <Field name="z" type="real8"/>
     <Signature name="pval_Model_Coef" ret="" param="" hlen="15">pval_Model_Coef</Signature><Field name="p_value" type="real8"/>
    </Definition>
-   <Definition body="3311" end="3350" exported="1" fullname="types.raw_prediction" inherittype="local" line="97" name="Raw_Prediction" start="3287">
+   <Definition exported="1" fullname="types.raw_prediction" inherittype="local" line="97" name="Raw_Prediction">
     <Type>record</Type>
     <Field name="wi" type="unsigned2"/>
     <Field name="id" type="unsigned8"/>
     <Field name="number" type="unsigned4"/>
     <Signature name="Raw_Prediction" ret="" param="" hlen="14">Raw_Prediction</Signature><Field name="raw" type="real8"/>
    </Definition>
-   <Definition body="3383" end="3665" exported="1" fullname="types.observation_deviance" inherittype="local" line="100" name="Observation_Deviance" start="3353">
+   <Definition exported="1" fullname="types.observation_deviance" inherittype="local" line="100" name="Observation_Deviance">
     <Type>record</Type>
     <Field name="wi" type="unsigned2"/>
     <Field name="id" type="unsigned8"/>
@@ -139,7 +139,7 @@
     <Field name="nil_dev_component" type="real8"/>
     <Signature name="Observation_Deviance" ret="" param="" hlen="20">Observation_Deviance</Signature><Field name="nil_dev_residual" type="real8"/>
    </Definition>
-   <Definition body="3693" end="3832" exported="1" fullname="types.deviance_record" inherittype="local" line="113" name="Deviance_Record" start="3668">
+   <Definition exported="1" fullname="types.deviance_record" inherittype="local" line="113" name="Deviance_Record">
     <Type>record</Type>
     <Field name="wi" type="unsigned2"/>
     <Field name="classifier" type="unsigned4"/>
@@ -147,7 +147,7 @@
     <Field name="deviance" type="real8"/>
     <Signature name="Deviance_Record" ret="" param="" hlen="15">Deviance_Record</Signature><Field name="AIC" type="real8"/>
    </Definition>
-   <Definition body="3855" end="4027" exported="1" fullname="types.aod_record" inherittype="local" line="120" name="AOD_Record" start="3835">
+   <Definition exported="1" fullname="types.aod_record" inherittype="local" line="120" name="AOD_Record">
     <Type>record</Type>
     <Field name="wi" type="unsigned2"/>
     <Field name="classifier" type="unsigned4"/>
