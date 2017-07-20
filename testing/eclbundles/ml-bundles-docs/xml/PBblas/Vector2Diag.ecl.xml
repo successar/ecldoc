@@ -5,26 +5,26 @@
   <Import name="int" ref="PBblas.internal" remotescope="1" target="internal/pkg.toc.xml"/>
   <Import name="MatDims" ref="PBblas.internal.MatDims" target="internal/MatDims.ecl.xml">
    <Documentation>
-    <firstline>Module to calculate matrix dimensions and matrix partition dimensions from matrix cells</firstline><content>Module to calculate matrix dimensions and matrix partition dimensions from matrix cells.</content></Documentation>
+    <content>Module to calculate matrix dimensions and matrix partition dimensions from matrix cells.</content><firstline>Module to calculate matrix dimensions and matrix partition dimensions from matrix cells</firstline></Documentation>
   </Import>
   <Import name="Types" ref="PBblas.Types" target="Types.ecl.xml">
    <Documentation>
-    <firstline>Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes</firstline><content>Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes.</content></Documentation>
+    <content>Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes.</content><firstline>Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes</firstline></Documentation>
   </Import>
   <Import name="iTypes" ref="PBblas.internal.Types" target="internal/Types.ecl.xml">
    <Documentation>
-    <firstline>Internal Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes</firstline><content>Internal Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes.</content></Documentation>
+    <content>Internal Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes.</content><firstline>Internal Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes</firstline></Documentation>
   </Import>
   <Import name="Constants" ref="PBblas.Constants" target="Constants.ecl.xml"/>
   <Definition exported="1" fullname="pbblas.vector2diag" inherittype="local" line="28" name="Vector2Diag">
    <Type>function</Type>
    <Documentation>
-    <firstline>Convert a vector into a diagonal matrix</firstline><return>An N x N matrix in Layout_Cell format</return><content>Convert a vector into a diagonal matrix. The typical notation is D = diag(V). The input X must be a 1 x N column vector or an N x 1 row vector. The resulting matrix, in either case will be N x N, with zero everywhere except the diagonal.</content><see>PBblas/Types.Layout_cell</see><param><name>X</name><desc>A row or column vector (i.e. N x 1 or 1 x N) in Layout_Cell format</desc></param></Documentation>
+    <content>Convert a vector into a diagonal matrix. The typical notation is D = diag(V). The input X must be a 1 x N column vector or an N x 1 row vector. The resulting matrix, in either case will be N x N, with zero everywhere except the diagonal.</content><see>PBblas/Types.Layout_cell</see><firstline>Convert a vector into a diagonal matrix</firstline><param><name>X</name><desc>A row or column vector (i.e. N x 1 or 1 x N) in Layout_Cell format</desc></param><return>An N x N matrix in Layout_Cell format</return></Documentation>
    <Signature name="Vector2Diag" ret="DATASET(Layout_Cell)" param="(DATASET(Layout_Cell) X)" hlen="32">DATASET(Layout_Cell) Vector2Diag(DATASET(Layout_Cell) X)</Signature><Params>
     <Param name="X"/>
    </Params>
   </Definition>
  <Documentation>
-    <firstline>Convert a vector into a diagonal matrix</firstline><return>An N x N matrix in Layout_Cell format</return><content>Convert a vector into a diagonal matrix. The typical notation is D = diag(V). The input X must be a 1 x N column vector or an N x 1 row vector. The resulting matrix, in either case will be N x N, with zero everywhere except the diagonal.</content><see>PBblas/Types.Layout_cell</see><param><name>X</name><desc>A row or column vector (i.e. N x 1 or 1 x N) in Layout_Cell format</desc></param></Documentation>
+    <content>Convert a vector into a diagonal matrix. The typical notation is D = diag(V). The input X must be a 1 x N column vector or an N x 1 row vector. The resulting matrix, in either case will be N x N, with zero everywhere except the diagonal.</content><see>PBblas/Types.Layout_cell</see><firstline>Convert a vector into a diagonal matrix</firstline><param><name>X</name><desc>A row or column vector (i.e. N x 1 or 1 x N) in Layout_Cell format</desc></param><return>An N x N matrix in Layout_Cell format</return></Documentation>
    </Source>
 </Meta>

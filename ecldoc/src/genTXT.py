@@ -4,12 +4,17 @@ import subprocess
 from Constants import TEMPLATE_DIR
 
 from lxml import etree
-from Utils import genPathTree, getRoot, write_to_file
+from Utils import genPathTree, getRoot, write_to_file, indent_doc
 from Utils import joinpath, relpath, dirname
 
-from jinja2 import Template
+import jinja2
 import textwrap
 from parseDoc import convertToMarkdown
+
+txt_jinja_env = jinja2.Environment(
+	loader = jinja2.FileSystemLoader(os.path.abspath('/'))
+)
+txt_jinja_env.filters['indent_doc'] = indent_doc
 
 CPL = 100
 
@@ -125,8 +130,8 @@ class GenTXT(object) :
 		self.txt_root = joinpath(output_root, 'txt')
 		self.xml_root = joinpath(output_root, 'xml')
 		self.template_dir = joinpath(TEMPLATE_DIR, 'txt')
-		self.content_template = Template(open(joinpath(self.template_dir, 'content.tpl.txt')).read())
-		self.toc_template = Template(open(joinpath(self.template_dir, 'toc.tpl.txt')).read())
+		self.content_template = txt_jinja_env.get_template(joinpath(self.template_dir, 'content.tpl.txt'))
+		self.toc_template = txt_jinja_env.get_template(joinpath(self.template_dir, 'toc.tpl.txt'))
 		self.ecl_file_tree = ecl_file_tree
 		self.options = options
 

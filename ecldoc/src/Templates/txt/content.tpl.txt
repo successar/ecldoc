@@ -1,5 +1,5 @@
 {%- macro desc(def) -%}
-{{ '\n' }}{{ '-' * 130 }}
+{{ '-' * 130 }}
 {%- for h in def['headers'] -%}
 {{ '\n' + h }}
 {%- endfor -%}
@@ -25,6 +25,7 @@
 {%- endif -%}
 {%- endfor -%}
 {%- endif -%}
+{{ '\n' }}
 {%- endmacro -%}
 IMPORTS
 =======
@@ -39,6 +40,6 @@ DESCRIPTIONS
 ============
 {{ '\n' }}
 {%- for def in render_dict recursive -%}
-{{ desc(def)|indent(loop.depth0*4, true) }}
+{{ desc(def)|indent_doc(loop.depth0, 3) }}
 {{ loop(def['defns']) }}
 {%- endfor -%}

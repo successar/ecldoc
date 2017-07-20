@@ -89,3 +89,9 @@ def realpath(p1) :
 
 def check_if_modified(fpin, fpout):
     return os.path.exists(fpout) and os.path.getmtime(fpout) > os.path.getmtime(fpin)
+
+def indent_doc(s, level, width=4) :
+    indention = (u' ' * (width-1) + u'| ') * level
+    rv = (u'\n' + indention).join(s.splitlines())
+    rv = indention + rv
+    return rv
