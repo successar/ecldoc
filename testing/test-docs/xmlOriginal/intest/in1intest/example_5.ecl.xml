@@ -8,8 +8,18 @@
               name="rec_1"
               start="125">
    <Type>record</Type>
-   <Field name="f" type="real8"/>
-   <Field name="g" type="real8"/>
+   <Field name="f">
+    <RType issigned="1"
+           length="8"
+           precision="0"
+           type="real"/>
+   </Field>
+   <Field name="g">
+    <RType issigned="1"
+           length="8"
+           precision="0"
+           type="real"/>
+   </Field>
    <Documentation>
     <content>&#10;* Basic ECL file : without enclosing module
 * Demos records, interfcae, functions, modules, embed, transform, macros&#10;</content>
@@ -23,9 +33,24 @@
               name="rec_2"
               start="169">
    <Type>record</Type>
-   <Field name="a" type="unsigned4"/>
-   <Field name="b" type="real8"/>
-   <Field name="g" type="real8"/>
+   <Field name="a">
+    <RType issigned="0"
+           length="4"
+           precision="0"
+           type="int"/>
+   </Field>
+   <Field name="b">
+    <RType issigned="1"
+           length="8"
+           precision="0"
+           type="real"/>
+   </Field>
+   <Field name="g">
+    <RType issigned="1"
+           length="8"
+           precision="0"
+           type="real"/>
+   </Field>
   </Definition>
   <Definition body="243"
               end="321"
@@ -44,6 +69,10 @@
                shared="1"
                start="255">
     <Type>attribute</Type>
+    <RType issigned="0"
+           length="4"
+           precision="0"
+           type="int"/>
    </Definition>
    <Definition body="312"
                end="316"
@@ -54,6 +83,7 @@
                name="iface_v3"
                start="284">
     <Type>attribute</Type>
+    <RType length="25" locale="ascii" type="string"/>
    </Definition>
    <Parents/>
   </Definition>
@@ -66,8 +96,15 @@
               start="323">
    <Type>function</Type>
    <Params>
-    <Param name="x"/>
-    <Param name="y"/>
+    <Param name="x">
+     <RType issigned="1"
+            length="8"
+            precision="0"
+            type="real"/>
+    </Param>
+    <Param name="y">
+     <RType length="25" locale="ascii" type="string"/>
+    </Param>
    </Params>
   </Definition>
   <Definition body="412"
@@ -79,7 +116,26 @@
               start="385">
    <Type>transform</Type>
    <Params>
-    <Param name="rec"/>
+    <Param name="rec">
+     <RType type="row">
+      <RType fullname="intest.in1intest.rec_1" name="rec_1">
+       <RType type="record">
+        <Field name="f">
+         <RType issigned="1"
+                length="8"
+                precision="0"
+                type="real"/>
+        </Field>
+        <Field name="g">
+         <RType issigned="1"
+                length="8"
+                precision="0"
+                type="real"/>
+        </Field>
+       </RType>
+      </RType>
+     </RType>
+    </Param>
    </Params>
    <Return>rec_2</Return>
   </Definition>
@@ -92,7 +148,28 @@
               start="511">
    <Type>function</Type>
    <Params>
-    <Param name="d"/>
+    <Param name="d">
+     <RType type="table">
+      <RType type="row">
+       <RType fullname="intest.in1intest.rec_1" name="rec_1">
+        <RType type="record">
+         <Field name="f">
+          <RType issigned="1"
+                 length="8"
+                 precision="0"
+                 type="real"/>
+         </Field>
+         <Field name="g">
+          <RType issigned="1"
+                 length="8"
+                 precision="0"
+                 type="real"/>
+         </Field>
+        </RType>
+       </RType>
+      </RType>
+     </RType>
+    </Param>
    </Params>
   </Definition>
   <Definition body="621"
@@ -104,7 +181,12 @@
               start="604">
    <Type>module</Type>
    <Params>
-    <Param name="a"/>
+    <Param name="a">
+     <RType issigned="1"
+            length="8"
+            precision="0"
+            type="real"/>
+    </Param>
    </Params>
    <Parents/>
    <Definition body="644"
@@ -116,6 +198,10 @@
                name="pi_w"
                start="630">
     <Type>attribute</Type>
+    <RType issigned="1"
+           length="8"
+           precision="0"
+           type="real"/>
    </Definition>
   </Definition>
   <Definition body="664"
@@ -135,6 +221,10 @@
                name="pi_wo"
                start="674">
     <Type>attribute</Type>
+    <RType issigned="1"
+           length="8"
+           precision="0"
+           type="real"/>
    </Definition>
    <Parents/>
   </Definition>
@@ -147,7 +237,12 @@
               start="702">
    <Type>embed</Type>
    <Params>
-    <Param name="varcpp"/>
+    <Param name="varcpp">
+     <RType issigned="1"
+            length="8"
+            precision="0"
+            type="real"/>
+    </Param>
    </Params>
   </Definition>
   <Definition body="768"
@@ -159,7 +254,12 @@
               start="749">
    <Type>macro</Type>
    <Params>
-    <Param name="num"/>
+    <Param name="num">
+     <RType issigned="1"
+            length="8"
+            precision="0"
+            type="int"/>
+    </Param>
    </Params>
   </Definition>
   <Definition body="864"
@@ -171,8 +271,18 @@
               start="840">
    <Type>macro</Type>
    <Params>
-    <Param name="num_1"/>
-    <Param name="num_2"/>
+    <Param name="num_1">
+     <RType issigned="1"
+            length="8"
+            precision="0"
+            type="int"/>
+    </Param>
+    <Param name="num_2">
+     <RType issigned="1"
+            length="8"
+            precision="0"
+            type="int"/>
+    </Param>
    </Params>
   </Definition>
   <Definition body="928"
@@ -193,6 +303,10 @@
               name="a"
               start="967">
    <Type>attribute</Type>
+   <RType issigned="1"
+          length="8"
+          precision="0"
+          type="real"/>
   </Definition>
   <Definition body="1007"
               end="1047"
@@ -202,6 +316,30 @@
               name="b"
               start="1003">
    <Type>attribute</Type>
+   <RType type="table">
+    <RType type="row">
+     <RType type="record">
+      <Field name="a">
+       <RType issigned="0"
+              length="4"
+              precision="0"
+              type="int"/>
+      </Field>
+      <Field name="b">
+       <RType issigned="1"
+              length="8"
+              precision="0"
+              type="real"/>
+      </Field>
+      <Field name="g">
+       <RType issigned="1"
+              length="8"
+              precision="0"
+              type="real"/>
+      </Field>
+     </RType>
+    </RType>
+   </RType>
   </Definition>
  </Source>
 </Meta>

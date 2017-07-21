@@ -27,7 +27,9 @@
                start="0">
     <Type>function</Type>
     <Params>
-     <Param name="src"/>
+     <Param name="src">
+      <RType length="-15" type="data"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="0"
@@ -40,7 +42,9 @@
                start="0">
     <Type>function</Type>
     <Params>
-     <Param name="src"/>
+     <Param name="src">
+      <RType length="-15" locale="ascii" type="string"/>
+     </Param>
     </Params>
    </Definition>
    <Parents/>
@@ -72,8 +76,12 @@
  * @see                 Str.EqualIgnoreCase&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src1"/>
-     <Param name="src2"/>
+     <Param name="src1">
+      <RType length="-15" locale="ascii" type="string"/>
+     </Param>
+     <Param name="src2">
+      <RType length="-15" locale="ascii" type="string"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="1556"
@@ -93,8 +101,12 @@
  * @see                 Str.CompareIgnoreCase&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src1"/>
-     <Param name="src2"/>
+     <Param name="src1">
+      <RType length="-15" locale="ascii" type="string"/>
+     </Param>
+     <Param name="src2">
+      <RType length="-15" locale="ascii" type="string"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="2071"
@@ -116,9 +128,18 @@
  * @param instance      Which match instance are we interested in?&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src"/>
-     <Param name="sought"/>
-     <Param name="instance"/>
+     <Param name="src">
+      <RType length="-15" locale="ascii" type="string"/>
+     </Param>
+     <Param name="sought">
+      <RType length="-15" locale="ascii" type="string"/>
+     </Param>
+     <Param name="instance">
+      <RType issigned="0"
+             length="4"
+             precision="0"
+             type="int"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="2387"
@@ -137,8 +158,12 @@
  * @param sought        The string being sought.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src"/>
-     <Param name="sought"/>
+     <Param name="src">
+      <RType length="-15" locale="ascii" type="string"/>
+     </Param>
+     <Param name="sought">
+      <RType length="-15" locale="ascii" type="string"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="2867"
@@ -159,9 +184,15 @@
  * @param ignore_case   Whether to ignore differences in case between characters&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src"/>
-     <Param name="_pattern"/>
-     <Param name="ignore_case"/>
+     <Param name="src">
+      <RType length="-15" locale="ascii" type="string"/>
+     </Param>
+     <Param name="_pattern">
+      <RType length="-15" locale="ascii" type="string"/>
+     </Param>
+     <Param name="ignore_case">
+      <RType type="boolean"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="3421"
@@ -182,9 +213,15 @@
  * @param ignore_case   Whether to ignore differences in case between characters&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src"/>
-     <Param name="_pattern"/>
-     <Param name="ignore_case"/>
+     <Param name="src">
+      <RType length="-15" locale="ascii" type="string"/>
+     </Param>
+     <Param name="_pattern">
+      <RType length="-15" locale="ascii" type="string"/>
+     </Param>
+     <Param name="ignore_case">
+      <RType type="boolean"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="3818"
@@ -204,8 +241,12 @@
  * @see                 Str.Filter&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src"/>
-     <Param name="filter"/>
+     <Param name="src">
+      <RType length="-15" locale="ascii" type="string"/>
+     </Param>
+     <Param name="filter">
+      <RType length="-15" locale="ascii" type="string"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="4203"
@@ -225,8 +266,12 @@
  * @see                 Str.FilterOut&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src"/>
-     <Param name="filter"/>
+     <Param name="src">
+      <RType length="-15" locale="ascii" type="string"/>
+     </Param>
+     <Param name="filter">
+      <RType length="-15" locale="ascii" type="string"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="4817"
@@ -249,9 +294,15 @@
  * @see                 Std.Str.Translate, Std.Str.SubstituteExcluded&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src"/>
-     <Param name="Filter"/>
-     <Param name="replace_char"/>
+     <Param name="src">
+      <RType length="-15" locale="ascii" type="string"/>
+     </Param>
+     <Param name="Filter">
+      <RType length="-15" locale="ascii" type="string"/>
+     </Param>
+     <Param name="replace_char">
+      <RType length="1" locale="ascii" type="string"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="5439"
@@ -274,9 +325,15 @@
  * @see                 Std.Str.SubstituteIncluded&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src"/>
-     <Param name="Filter"/>
-     <Param name="replace_char"/>
+     <Param name="src">
+      <RType length="-15" locale="ascii" type="string"/>
+     </Param>
+     <Param name="Filter">
+      <RType length="-15" locale="ascii" type="string"/>
+     </Param>
+     <Param name="replace_char">
+      <RType length="1" locale="ascii" type="string"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="6161"
@@ -298,9 +355,15 @@
  * @see                 Std.Str.SubstituteIncluded&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src"/>
-     <Param name="search"/>
-     <Param name="replacement"/>
+     <Param name="src">
+      <RType length="-15" locale="ascii" type="string"/>
+     </Param>
+     <Param name="search">
+      <RType length="-15" locale="ascii" type="string"/>
+     </Param>
+     <Param name="replacement">
+      <RType length="-15" locale="ascii" type="string"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="6432"
@@ -318,7 +381,9 @@
  * @param src           The string that is being converted.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src"/>
+     <Param name="src">
+      <RType length="-15" locale="ascii" type="string"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="6681"
@@ -336,7 +401,9 @@
  * @param src           The string that is being converted.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src"/>
+     <Param name="src">
+      <RType length="-15" locale="ascii" type="string"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="7037"
@@ -356,7 +423,9 @@
  * @param src           The string that is being converted.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src"/>
+     <Param name="src">
+      <RType length="-15" locale="ascii" type="string"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="7392"
@@ -376,7 +445,9 @@
  * @param src           The string that is being converted.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src"/>
+     <Param name="src">
+      <RType length="-15" locale="ascii" type="string"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="7678"
@@ -395,7 +466,9 @@
  * @param src           The string that is being reversed.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src"/>
+     <Param name="src">
+      <RType length="-15" locale="ascii" type="string"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="8104"
@@ -415,9 +488,15 @@
  * @param replacement   The string to be substituted into the result.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src"/>
-     <Param name="sought"/>
-     <Param name="replacement"/>
+     <Param name="src">
+      <RType length="-15" locale="ascii" type="string"/>
+     </Param>
+     <Param name="sought">
+      <RType length="-15" locale="ascii" type="string"/>
+     </Param>
+     <Param name="replacement">
+      <RType length="-15" locale="ascii" type="string"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="8436"
@@ -436,8 +515,15 @@
  * @param instance      Which item to select from the list.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src"/>
-     <Param name="instance"/>
+     <Param name="src">
+      <RType length="-15" locale="ascii" type="string"/>
+     </Param>
+     <Param name="instance">
+      <RType issigned="0"
+             length="4"
+             precision="0"
+             type="int"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="8838"
@@ -457,7 +543,9 @@
  * @param src           The string to be cleaned.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src"/>
+     <Param name="src">
+      <RType length="-15" locale="ascii" type="string"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="9296"
@@ -478,8 +566,12 @@
  * @param prefix        The prefix to search for.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src"/>
-     <Param name="prefix"/>
+     <Param name="src">
+      <RType length="-15" locale="ascii" type="string"/>
+     </Param>
+     <Param name="prefix">
+      <RType length="-15" locale="ascii" type="string"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="9664"
@@ -499,8 +591,12 @@
  * @param suffix        The prefix to search for.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src"/>
-     <Param name="suffix"/>
+     <Param name="src">
+      <RType length="-15" locale="ascii" type="string"/>
+     </Param>
+     <Param name="suffix">
+      <RType length="-15" locale="ascii" type="string"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="10046"
@@ -520,8 +616,12 @@
  * @param suffix        The prefix to search for.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src"/>
-     <Param name="suffix"/>
+     <Param name="src">
+      <RType length="-15" locale="ascii" type="string"/>
+     </Param>
+     <Param name="suffix">
+      <RType length="-15" locale="ascii" type="string"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="10472"
@@ -540,8 +640,15 @@
  * @param mask          A bitmask of which elements should be included.  Bit 0 is item1, bit1 item 2 etc.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src"/>
-     <Param name="mask"/>
+     <Param name="src">
+      <RType length="-15" locale="ascii" type="string"/>
+     </Param>
+     <Param name="mask">
+      <RType issigned="0"
+             length="8"
+             precision="0"
+             type="int"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="11012"
@@ -562,9 +669,15 @@
  * @param allow_blank   Indicates if empty/blank string items are included in the results.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src"/>
-     <Param name="separator"/>
-     <Param name="allow_blank"/>
+     <Param name="src">
+      <RType length="-15" locale="ascii" type="string"/>
+     </Param>
+     <Param name="separator">
+      <RType length="-15" locale="ascii" type="string"/>
+     </Param>
+     <Param name="allow_blank">
+      <RType type="boolean"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="11563"
@@ -585,9 +698,15 @@
  * @param allow_blank   Indicates if empty/blank string items are included in the results.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src"/>
-     <Param name="separator"/>
-     <Param name="allow_blank"/>
+     <Param name="src">
+      <RType length="-15" locale="ascii" type="string"/>
+     </Param>
+     <Param name="separator">
+      <RType length="-15" locale="ascii" type="string"/>
+     </Param>
+     <Param name="allow_blank">
+      <RType type="boolean"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="12002"
@@ -607,8 +726,14 @@
  * @param separator     The string used to separate words.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="words"/>
-     <Param name="separator"/>
+     <Param name="words">
+      <RType type="set">
+       <RType length="-15" locale="ascii" type="string"/>
+      </RType>
+     </Param>
+     <Param name="separator">
+      <RType length="-15" locale="ascii" type="string"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="12489"
@@ -629,8 +754,12 @@
  * @return              The minimum edit distance between the two strings.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="_left"/>
-     <Param name="_right"/>
+     <Param name="_left">
+      <RType length="-15" locale="ascii" type="string"/>
+     </Param>
+     <Param name="_right">
+      <RType length="-15" locale="ascii" type="string"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="13081"
@@ -652,9 +781,18 @@
  * @return              Whether or not the two strings are within the given specified edit distance.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="_left"/>
-     <Param name="_right"/>
-     <Param name="radius"/>
+     <Param name="_left">
+      <RType length="-15" locale="ascii" type="string"/>
+     </Param>
+     <Param name="_right">
+      <RType length="-15" locale="ascii" type="string"/>
+     </Param>
+     <Param name="radius">
+      <RType issigned="0"
+             length="4"
+             precision="0"
+             type="int"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="13427"
@@ -673,7 +811,9 @@
  * @return              The number of words in the string.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="text"/>
+     <Param name="text">
+      <RType length="-15" locale="ascii" type="string"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="13824"
@@ -693,8 +833,15 @@
  * @return              The number of words in the string.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="text"/>
-     <Param name="n"/>
+     <Param name="text">
+      <RType length="-15" locale="ascii" type="string"/>
+     </Param>
+     <Param name="n">
+      <RType issigned="0"
+             length="4"
+             precision="0"
+             type="int"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="14236"
@@ -714,7 +861,9 @@
  * @return              The string excluding the first word.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="text"/>
+     <Param name="text">
+      <RType length="-15" locale="ascii" type="string"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="14689"
@@ -734,7 +883,9 @@
  * @return              The string excluding the last word.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="text"/>
+     <Param name="text">
+      <RType length="-15" locale="ascii" type="string"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="15223"
@@ -755,8 +906,15 @@
  * @return              The string excluding the nth word.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="text"/>
-     <Param name="n"/>
+     <Param name="text">
+      <RType length="-15" locale="ascii" type="string"/>
+     </Param>
+     <Param name="n">
+      <RType issigned="0"
+             length="2"
+             precision="0"
+             type="int"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="15636"
@@ -776,9 +934,15 @@
  * @param ignore_case   Whether to ignore differences in case between characters.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src"/>
-     <Param name="word"/>
-     <Param name="ignore_case"/>
+     <Param name="src">
+      <RType length="-15" locale="ascii" type="string"/>
+     </Param>
+     <Param name="word">
+      <RType length="-15" locale="ascii" type="string"/>
+     </Param>
+     <Param name="ignore_case">
+      <RType type="boolean"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="16077"
@@ -791,8 +955,15 @@
                start="16028">
     <Type>function</Type>
     <Params>
-     <Param name="text"/>
-     <Param name="n"/>
+     <Param name="text">
+      <RType length="-15" locale="ascii" type="string"/>
+     </Param>
+     <Param name="n">
+      <RType issigned="0"
+             length="4"
+             precision="0"
+             type="int"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="16391"
@@ -805,7 +976,9 @@
                start="16352">
     <Type>function</Type>
     <Params>
-     <Param name="value"/>
+     <Param name="value">
+      <RType length="-15" type="data"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="16864"
@@ -818,7 +991,9 @@
                start="16819">
     <Type>function</Type>
     <Params>
-     <Param name="hex_pairs"/>
+     <Param name="hex_pairs">
+      <RType length="-15" locale="ascii" type="string"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="17282"
@@ -831,7 +1006,9 @@
                start="17241">
     <Type>function</Type>
     <Params>
-     <Param name="value"/>
+     <Param name="value">
+      <RType length="-15" type="data"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="17716"
@@ -844,7 +1021,9 @@
                start="17675">
     <Type>function</Type>
     <Params>
-     <Param name="value"/>
+     <Param name="value">
+      <RType length="-15" locale="ascii" type="string"/>
+     </Param>
     </Params>
    </Definition>
    <Parents/>
@@ -879,6 +1058,10 @@
                 name="v1_m1"
                 start="164">
      <Type>attribute</Type>
+     <RType issigned="1"
+            length="8"
+            precision="0"
+            type="real"/>
     </Definition>
     <Definition body="206"
                 end="211"
@@ -889,6 +1072,10 @@
                 name="v2_m1_ex3"
                 start="187">
      <Type>attribute</Type>
+     <RType issigned="1"
+            length="8"
+            precision="0"
+            type="real"/>
     </Definition>
     <Parents/>
    </Definition>

@@ -1,0 +1,261 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Meta>
+ <Source name="types" sourcePath="/media/sarthak/Data/ecldoc/testing/test/types.ecl" target="types.ecl.xml">
+  <Definition exported="1" fullname="types" inherittype="local" line="1" name="types">
+   <Type>module</Type>
+   <Definition exported="1" fullname="types.v1" inherittype="local" line="2" name="v1">
+    <Type>record</Type>
+    <Field name="u">
+     <RType type="real8"/>
+    </Field>
+    <Signature name="v1" ret="" param="" hlen="2">v1</Signature><Field name="v">
+     <RType type="real8"/>
+    </Field>
+   </Definition>
+   <Definition exported="1" fullname="types.mod_1" inherittype="local" line="7" name="mod_1">
+    <Type>attribute</Type>
+    <Signature name="mod_1" ret="DATASET(v1)" param="" hlen="17">DATASET(v1) mod_1</Signature><RType type="table">
+     <RType fullname="types.v1" name="v1" type="record"/>
+    </RType>
+   </Definition>
+   <Definition exported="1" fullname="types.mod_2" inherittype="local" line="9" name="mod_2">
+    <Type>attribute</Type>
+    <Signature name="mod_2" ret="DATASET({STRING20 a})" param="" hlen="27">DATASET({STRING20 a}) mod_2</Signature><RType type="table">
+     <RType type="record">
+      <Field name="a">
+       <RType type="string20"/>
+      </Field>
+     </RType>
+    </RType>
+   </Definition>
+   <Definition exported="1" inherittype="local" line="11" name="mod_3" fullname="ecldoc-mod_3">
+    <Type>attribute</Type>
+    <Signature name="mod_3" ret="" param="" hlen="5">mod_3</Signature><RType type="unsigned8"/>
+   </Definition>
+   <Definition exported="1" inherittype="local" line="13" name="mod_4" fullname="ecldoc-mod_4">
+    <Type>attribute</Type>
+    <Signature name="mod_4" ret="" param="" hlen="5">mod_4</Signature><RType type="unsigned8"/>
+   </Definition>
+   <Definition exported="1" fullname="types.mod_5" inherittype="local" line="15" name="mod_5">
+    <Type>module</Type>
+    <Params>
+     <Param name="x">
+      <RType type="real8"/>
+     </Param>
+    </Params>
+    <Parents/>
+    <Definition exported="1" fullname="types.mod_5.v6" inherittype="local" line="16" name="v6">
+     <Type>attribute</Type>
+     <Signature name="v6" ret="" param="" hlen="2">v6</Signature><RType type="real8"/>
+    </Definition>
+    <Signature name="mod_5" ret="" param="(REAL8 x)" hlen="5">mod_5(REAL8 x)</Signature><RType fullname="types.mod_5" name="mod_5" type="module"/>
+   </Definition>
+   <Definition exported="1" fullname="types.mod_6" inherittype="local" line="19" name="mod_6">
+    <Type>module</Type>
+    <Params>
+     <Param name="x">
+      <RType type="real8"/>
+     </Param>
+    </Params>
+    <Parents/>
+    <Definition exported="1" fullname="types.mod_5.v6" inherittype="local" line="16" name="v6">
+     <Type>attribute</Type>
+     <Signature name="v6" ret="" param="" hlen="2">v6</Signature><RType type="real8"/>
+    </Definition>
+    <Signature name="mod_6" ret="" param="(REAL8 x)" hlen="5">mod_6(REAL8 x)</Signature><RType fullname="types.mod_5" name="mod_5" type="module"/>
+   </Definition>
+   <Definition exported="1" fullname="types.mod_7" inherittype="local" line="21" name="mod_7">
+    <Type>function</Type>
+    <Params>
+     <Param name="y">
+      <RType type="function">
+       <RType fullname="types.mod_5" name="mod_5" type="module"/>
+      </RType>
+     </Param>
+     <Param name="z">
+      <RType type="real8"/>
+     </Param>
+    </Params>
+    <Signature name="mod_7" ret="" param="(mod_5 y, REAL8 z)" hlen="5">mod_7(mod_5 y, REAL8 z)</Signature><RType type="real8"/>
+   </Definition>
+   <Definition exported="1" fullname="types.mod_8" inherittype="local" line="25" name="mod_8">
+    <Type>function</Type>
+    <Params>
+     <Param name="a1">
+      <RType type="unsigned8"/>
+     </Param>
+    </Params>
+    <Signature name="mod_8" ret="" param="(mod_3 a1)" hlen="5">mod_8(mod_3 a1)</Signature><RType type="integer8"/>
+   </Definition>
+   <Definition exported="1" fullname="types.mod_9" inherittype="local" line="27" name="mod_9">
+    <Type>function</Type>
+    <Params>
+     <Param name="x">
+      <RType type="function">
+       <RType type="real8"/>
+      </RType>
+     </Param>
+    </Params>
+    <Signature name="mod_9" ret="" param="(mod_7 x)" hlen="5">mod_9(mod_7 x)</Signature><RType type="real8"/>
+   </Definition>
+   <Definition exported="1" inherittype="local" line="29" name="ScaleInt" fullname="ecldoc-ScaleInt">
+    <Type>type</Type>
+    <Signature name="ScaleInt" ret="" param="" hlen="8">ScaleInt</Signature><RType type="scaleint"/>
+   </Definition>
+   <Definition exported="1" fullname="types.mod_10" inherittype="local" line="34" name="mod_10">
+    <Type>record</Type>
+    <Signature name="mod_10" ret="" param="" hlen="6">mod_10</Signature><Field name="y">
+     <RType type="scaleint"/>
+    </Field>
+   </Definition>
+   <Definition exported="1" fullname="types.mod_11" inherittype="local" line="38" name="mod_11">
+    <Type>function</Type>
+    <Params>
+     <Param name="y">
+      <RType type="table">
+       <RType fullname="types.mod_10" name="mod_10" type="record"/>
+      </RType>
+     </Param>
+    </Params>
+    <Signature name="mod_11" ret="" param="(DATASET(mod_10) y)" hlen="6">mod_11(DATASET(mod_10) y)</Signature><RType type="table">
+     <RType fullname="types.mod_10" name="mod_10" type="record"/>
+    </RType>
+   </Definition>
+   <Definition exported="1" fullname="types.d1" inherittype="local" line="40" name="D1">
+    <Type>attribute</Type>
+    <Signature name="D1" ret="" param="" hlen="2">D1</Signature><RType type="table">
+     <RType type="record">
+      <Field name="F1">
+       <RType type="unsigned4"/>
+      </Field>
+      <Field name="f2">
+       <RType type="real8"/>
+      </Field>
+      <Field name="f3">
+       <RType type="real8"/>
+      </Field>
+     </RType>
+    </RType>
+   </Definition>
+   <Definition exported="1" fullname="types.mod_12" inherittype="local" line="42" name="mod_12">
+    <Type>record</Type>
+    <Field name="F1">
+     <RType type="unsigned4"/>
+    </Field>
+    <Signature name="mod_12" ret="" param="" hlen="6">mod_12</Signature><Field name="gcount">
+     <RType type="integer8"/>
+    </Field>
+   </Definition>
+   <Definition exported="1" fullname="types.mod_13" inherittype="local" line="47" name="mod_13">
+    <Type>attribute</Type>
+    <Signature name="mod_13" ret="" param="" hlen="6">mod_13</Signature><RType type="table">
+     <RType type="record">
+      <Field name="F1">
+       <RType type="unsigned4"/>
+      </Field>
+      <Field name="gcount">
+       <RType type="integer8"/>
+      </Field>
+     </RType>
+    </RType>
+   </Definition>
+   <Definition exported="1" fullname="types.v2" inherittype="local" line="49" name="v2">
+    <Type>record</Type>
+    <Field name="w1">
+     <RType type="unsigned4"/>
+    </Field>
+    <Field name="w2">
+     <RType type="unsigned4"/>
+    </Field>
+    <Signature name="v2" ret="" param="" hlen="2">v2</Signature><Field name="w3">
+     <RType type="unsigned4"/>
+    </Field>
+   </Definition>
+   <Definition exported="1" fullname="types.v1tov2" inherittype="local" line="55" name="v1tov2">
+    <Type>transform</Type>
+    <Params>
+     <Param name="x">
+      <RType type="row">
+       <RType fullname="types.v1" name="v1" type="record"/>
+      </RType>
+     </Param>
+    </Params>
+    <Signature name="v1tov2" ret="v2" param="(v1 x)" hlen="9">v2 v1tov2(v1 x)</Signature><RType type="transform">
+     <RType fullname="types.v2" name="v2" type="record"/>
+    </RType>
+   </Definition>
+   <Definition exported="1" fullname="types.mod_14" inherittype="local" line="61" name="mod_14">
+    <Type>attribute</Type>
+    <Signature name="mod_14" ret="TYPEOF(mod_1)" param="" hlen="20">TYPEOF(mod_1) mod_14</Signature><RType type="table">
+     <RType fullname="types.v1" name="v1" type="record"/>
+    </RType>
+   </Definition>
+   <Definition exported="1" fullname="types.mod_15" inherittype="local" line="66" name="mod_15">
+    <Type>attribute</Type>
+    <Signature name="mod_15" ret="DATASET(v3)" param="" hlen="18">DATASET(v3) mod_15</Signature><RType type="table">
+     <RType fullname="types.v3" name="v3" type="record"/>
+    </RType>
+   </Definition>
+   <Definition exported="1" fullname="types.mod_16" inherittype="local" line="68" name="mod_16">
+    <Type>function</Type>
+    <Params>
+     <Param name="tr">
+      <RType type="function">
+       <RType type="transform">
+        <RType fullname="types.v2" name="v2" type="record"/>
+       </RType>
+      </RType>
+     </Param>
+     <Param name="x">
+      <RType type="table">
+       <RType fullname="types.v1" name="v1" type="record"/>
+      </RType>
+     </Param>
+    </Params>
+    <Signature name="mod_16" ret="" param="(v1tov2 tr, DATASET(v1) x)" hlen="6">mod_16(v1tov2 tr, DATASET(v1) x)</Signature><RType type="integer1"/>
+   </Definition>
+   <Definition exported="1" fullname="types.v4" inherittype="local" line="70" name="v4">
+    <Type>record</Type>
+    <Field name="w1">
+     <RType type="unsigned4"/>
+    </Field>
+    <Field name="w2">
+     <RType type="unsigned4"/>
+    </Field>
+    <Field name="w3">
+     <RType type="unsigned4"/>
+    </Field>
+    <Signature name="v4" ret="" param="" hlen="2">v4</Signature><Field name="w4">
+     <RType type="real8"/>
+    </Field>
+   </Definition>
+   <Definition exported="1" fullname="types.v5" inherittype="local" line="74" name="v5">
+    <Type>record</Type>
+    <Field name="u">
+     <RType type="real8"/>
+    </Field>
+    <Field name="v">
+     <RType type="real8"/>
+    </Field>
+    <Field name="w1">
+     <RType type="unsigned4"/>
+    </Field>
+    <Field name="w2">
+     <RType type="unsigned4"/>
+    </Field>
+    <Field name="w3">
+     <RType type="unsigned4"/>
+    </Field>
+    <Field name="w4">
+     <RType type="real8"/>
+    </Field>
+    <Signature name="v5" ret="" param="" hlen="2">v5</Signature><Field name="w5">
+     <RType type="table">
+      <RType fullname="types.v2" name="v2" type="record"/>
+     </RType>
+    </Field>
+   </Definition>
+   <Signature name="types" ret="" param="" hlen="5">types</Signature><Parents/>
+  </Definition>
+ <Documentation><content> </content></Documentation></Source>
+</Meta>

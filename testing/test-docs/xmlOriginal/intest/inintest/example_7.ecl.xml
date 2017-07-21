@@ -20,7 +20,9 @@
                start="104">
     <Type>function</Type>
     <Params>
-     <Param name="S"/>
+     <Param name="S">
+      <RType length="4" locale="ascii" type="string"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="192"
@@ -42,7 +44,12 @@
                start="312">
     <Type>type</Type>
     <Params>
-     <Param name="len"/>
+     <Param name="len">
+      <RType issigned="1"
+             length="8"
+             precision="0"
+             type="int"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="544"
@@ -63,9 +70,21 @@
                name="R"
                start="670">
     <Type>record</Type>
-    <Field name="F1" type="reversestring4"/>
-    <Field name="F2" type="needc"/>
-    <Field name="F3" type="scaleint"/>
+    <Field name="F1">
+     <RType name="ReverseString4">
+      <RType name="ReverseString4" type="alien"/>
+     </RType>
+    </Field>
+    <Field name="F2">
+     <RType name="NeedC">
+      <RType name="NeedC" type="alien"/>
+     </RType>
+    </Field>
+    <Field name="F3">
+     <RType name="ScaleInt">
+      <RType name="ScaleInt" type="alien"/>
+     </RType>
+    </Field>
    </Definition>
    <Documentation>
     <content>&#10;* Basic Type Example

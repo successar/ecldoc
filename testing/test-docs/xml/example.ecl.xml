@@ -6,74 +6,124 @@
    <Parents/>
    <Definition exported="1" fullname="example.rec_1" inherittype="local" line="9" name="rec_1">
     <Type>record</Type>
-    <Field name="f" type="real8"/>
-    <Signature name="rec_1" ret="" param="" hlen="5">rec_1</Signature><Field name="g" type="real8"/>
+    <Field name="f">
+     <RType type="real8"/>
+    </Field>
+    <Signature name="rec_1" ret="" param="" hlen="5">rec_1</Signature><Field name="g">
+     <RType type="real8"/>
+    </Field>
    </Definition>
    <Definition exported="1" fullname="example.rec_2" inherittype="local" line="14" name="rec_2">
     <Type>record</Type>
-    <Field name="a" type="unsigned4"/>
-    <Field name="b" type="real8"/>
-    <Signature name="rec_2" ret="" param="" hlen="5">rec_2</Signature><Field name="g" type="real8"/>
+    <Field name="a">
+     <RType type="unsigned4"/>
+    </Field>
+    <Field name="b">
+     <RType type="real8"/>
+    </Field>
+    <Signature name="rec_2" ret="" param="" hlen="5">rec_2</Signature><Field name="g">
+     <RType type="real8"/>
+    </Field>
    </Definition>
    <Definition exported="1" fullname="example.interface_ex" inherittype="local" line="20" name="interface_ex">
     <Type>interface</Type>
     <Definition exported="1" fullname="example.interface_ex.iface_v3" inherittype="local" line="22" name="iface_v3">
-     <Signature name="iface_v3" ret="STRING25" param="" hlen="17">STRING25 iface_v3</Signature><Type>attribute</Type>
+     <Type>attribute</Type>
+     <Signature name="iface_v3" ret="STRING25" param="" hlen="17">STRING25 iface_v3</Signature><RType type="string25"/>
     </Definition>
     <Signature name="interface_ex" ret="" param="" hlen="12">interface_ex</Signature><Parents/>
    </Definition>
    <Definition exported="1" fullname="example.func_1" inherittype="local" line="25" name="func_1">
     <Type>function</Type>
-    <Signature name="func_1" ret="" param="(REAL8 x, STRING25 y)" hlen="6">func_1(REAL8 x, STRING25 y)</Signature><Params>
-     <Param name="x"/>
-     <Param name="y"/>
+    <Params>
+     <Param name="x">
+      <RType type="real8"/>
+     </Param>
+     <Param name="y">
+      <RType type="string25"/>
+     </Param>
     </Params>
+    <Signature name="func_1" ret="" param="(REAL8 x, STRING25 y)" hlen="6">func_1(REAL8 x, STRING25 y)</Signature><RType type="real8"/>
    </Definition>
    <Definition exported="1" fullname="example.func_2" inherittype="local" line="35" name="func_2">
     <Type>function</Type>
-    <Signature name="func_2" ret="DATASET(rec_2)" param="(DATASET(rec_1) d)" hlen="21">DATASET(rec_2) func_2(DATASET(rec_1) d)</Signature><Params>
-     <Param name="d"/>
+    <Params>
+     <Param name="d">
+      <RType type="table">
+       <RType fullname="example.rec_1" name="rec_1" type="record"/>
+      </RType>
+     </Param>
     </Params>
+    <Signature name="func_2" ret="DATASET(rec_2)" param="(DATASET(rec_1) d)" hlen="21">DATASET(rec_2) func_2(DATASET(rec_1) d)</Signature><RType type="table">
+     <RType type="record">
+      <Field name="a">
+       <RType type="unsigned4"/>
+      </Field>
+      <Field name="b">
+       <RType type="real8"/>
+      </Field>
+      <Field name="g">
+       <RType type="real8"/>
+      </Field>
+     </RType>
+    </RType>
    </Definition>
    <Definition exported="1" fullname="example.mod_1" inherittype="local" line="39" name="mod_1">
     <Type>module</Type>
     <Params>
-     <Param name="a"/>
+     <Param name="a">
+      <RType type="real8"/>
+     </Param>
     </Params>
     <Parents/>
-    <Signature name="mod_1" ret="" param="(REAL8 a)" hlen="5">mod_1(REAL8 a)</Signature><Definition exported="1" fullname="example.mod_1.pi_w" inherittype="local" line="40" name="pi_w">
-     <Signature name="pi_w" ret="" param="" hlen="4">pi_w</Signature><Type>attribute</Type>
+    <Definition exported="1" fullname="example.mod_1.pi_w" inherittype="local" line="40" name="pi_w">
+     <Type>attribute</Type>
+     <Signature name="pi_w" ret="" param="" hlen="4">pi_w</Signature><RType type="real8"/>
     </Definition>
+    <Signature name="mod_1" ret="" param="(REAL8 a)" hlen="5">mod_1(REAL8 a)</Signature><RType fullname="example.mod_1" name="mod_1" type="module"/>
    </Definition>
    <Definition exported="1" fullname="example.mod_2" inherittype="local" line="43" name="mod_2">
     <Type>module</Type>
     <Definition exported="1" fullname="example.mod_2.pi_wo" inherittype="local" line="44" name="pi_wo">
-     <Signature name="pi_wo" ret="" param="" hlen="5">pi_wo</Signature><Type>attribute</Type>
+     <Type>attribute</Type>
+     <Signature name="pi_wo" ret="" param="" hlen="5">pi_wo</Signature><RType type="real8"/>
     </Definition>
     <Signature name="mod_2" ret="" param="" hlen="5">mod_2</Signature><Parents/>
    </Definition>
    <Definition exported="1" fullname="example.cpp_1" inherittype="local" line="48" name="cpp_1">
     <Type>embed</Type>
-    <Signature name="cpp_1" ret="DATA" param="(REAL8 varcpp)" hlen="10">DATA cpp_1(REAL8 varcpp)</Signature><Params>
-     <Param name="varcpp"/>
+    <Params>
+     <Param name="varcpp">
+      <RType type="real8"/>
+     </Param>
     </Params>
+    <Signature name="cpp_1" ret="DATA" param="(REAL8 varcpp)" hlen="10">DATA cpp_1(REAL8 varcpp)</Signature><RType type="data"/>
    </Definition>
    <Definition exported="1" fullname="example.funcmacro_1" inherittype="local" line="52" name="funcmacro_1">
     <Type>macro</Type>
-    <Signature name="funcmacro_1" ret="" param="(num)" hlen="11">funcmacro_1(num)</Signature><Params>
-     <Param name="num"/>
+    <Params>
+     <Param name="num">
+      <RType type="integer8"/>
+     </Param>
     </Params>
+    <Signature name="funcmacro_1" ret="" param="(num)" hlen="11">funcmacro_1(num)</Signature><RType type="boolean"/>
    </Definition>
    <Definition exported="1" fullname="example.macro_1" inherittype="local" line="57" name="macro_1">
     <Type>macro</Type>
-    <Signature name="macro_1" ret="" param="(num_1, num_2)" hlen="7">macro_1(num_1, num_2)</Signature><Params>
-     <Param name="num_1"/>
-     <Param name="num_2"/>
+    <Params>
+     <Param name="num_1">
+      <RType type="integer8"/>
+     </Param>
+     <Param name="num_2">
+      <RType type="integer8"/>
+     </Param>
     </Params>
+    <Signature name="macro_1" ret="" param="(num_1, num_2)" hlen="7">macro_1(num_1, num_2)</Signature><RType type=""/>
    </Definition>
    <Definition exported="1" fullname="example.macro_2" inherittype="local" line="61" name="macro_2">
     <Type>macro</Type>
-    <Signature name="macro_2" ret="" param="" hlen="7">macro_2</Signature><Params/>
+    <Params/>
+    <Signature name="macro_2" ret="" param="" hlen="7">macro_2</Signature><RType type=""/>
    </Definition>
    <Signature name="example" ret="" param="" hlen="7">example</Signature><Documentation>
     <content>Basic Example with : records, interface, function, modules, transform, embed, macros and functionmacro</content><firstline>Basic Example with :</firstline></Documentation>

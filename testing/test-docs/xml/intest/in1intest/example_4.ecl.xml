@@ -7,29 +7,72 @@
    <Definition exported="1" fullname="intest.in1intest.example_4.mod_1" inherittype="local" line="9" name="mod_1">
     <Type>module</Type>
     <Definition exported="1" fullname="intest.in1intest.example_4.mod_1.v2_m1_ex4" inherittype="local" line="10" name="v2_m1_ex4">
-     <Signature name="v2_m1_ex4" ret="" param="" hlen="9">v2_m1_ex4</Signature><Type>attribute</Type>
+     <Type>attribute</Type>
+     <Signature name="v2_m1_ex4" ret="" param="" hlen="9">v2_m1_ex4</Signature><RType issigned="1" length="8" precision="0" type="real"/>
     </Definition>
     <Definition exported="1" fullname="example_3.mod_1.v1_m1" inherittype="inherited" line="31" name="v1_m1" target="../../example_3.ecl.xml">
      <Type>attribute</Type>
-     <Signature name="v1_m1" ret="" param="" hlen="5">v1_m1</Signature><Documentation>
+     <Documentation>
       <content>Doc test 2. Title end by period not newline &lt;pre&gt;&lt;br/&gt; ABCD ||||&lt;br/&gt; CDEF ||||&lt;/pre&gt;</content><firstline>Doc test 2</firstline></Documentation>
+     <Signature name="v1_m1" ret="" param="" hlen="5">v1_m1</Signature><RType issigned="1" length="8" precision="0" type="real"/>
     </Definition>
     <Definition exported="1" fullname="example_3.mod_1.v2_m1_ex3" inherittype="inherited" line="35" name="v2_m1_ex3" target="../../example_3.ecl.xml">
      <Type>attribute</Type>
-     <Signature name="v2_m1_ex3" ret="" param="" hlen="9">v2_m1_ex3</Signature><Documentation>
+     <Documentation>
       <content>DOC Test 3 No Period title</content><firstline>DOC Test 3</firstline></Documentation>
+     <Signature name="v2_m1_ex3" ret="" param="" hlen="9">v2_m1_ex3</Signature><RType issigned="1" length="8" precision="0" type="real"/>
     </Definition>
     <Definition exported="1" fullname="example_3.mod_1.long_name" inherittype="inherited" line="36" name="long_name" target="../../example_3.ecl.xml">
      <Type>function</Type>
      <Signature name="long_name" ret="" param="(DATASET({REAL8 u}) X, DATASET({REAL8 u}) IntW, DATASET({REAL8 u}) Intb, REAL8 BETA=0.1, REAL8 sparsityParam=0.1 , REAL8 LAMBDA=0.001, REAL8 ALPHA=0.1, UNSIGNED2 MaxIter=100)" hlen="9">long_name(DATASET({REAL8 u}) X, DATASET({REAL8 u}) IntW, DATASET({REAL8 u}) Intb, REAL8 BETA=0.1, REAL8 sparsityParam=0.1 , REAL8 LAMBDA=0.001, REAL8 ALPHA=0.1, UNSIGNED2 MaxIter=100)</Signature><Params>
-      <Param name="X"/>
-      <Param name="IntW"/>
-      <Param name="Intb"/>
-      <Param name="BETA"/>
-      <Param name="sparsityParam"/>
-      <Param name="LAMBDA"/>
-      <Param name="ALPHA"/>
-      <Param name="MaxIter"/>
+      <Param name="X">
+       <RType type="table">
+        <RType type="row">
+         <RType type="record">
+          <Field name="u">
+           <RType issigned="1" length="8" precision="0" type="real"/>
+          </Field>
+         </RType>
+        </RType>
+       </RType>
+      </Param>
+      <Param name="IntW">
+       <RType type="table">
+        <RType type="row">
+         <RType type="record">
+          <Field name="u">
+           <RType issigned="1" length="8" precision="0" type="real"/>
+          </Field>
+         </RType>
+        </RType>
+       </RType>
+      </Param>
+      <Param name="Intb">
+       <RType type="table">
+        <RType type="row">
+         <RType type="record">
+          <Field name="u">
+           <RType issigned="1" length="8" precision="0" type="real"/>
+          </Field>
+         </RType>
+        </RType>
+       </RType>
+      </Param>
+      <Param name="BETA">
+       <RType issigned="1" length="8" precision="0" type="real"/>
+      </Param>
+      <Param name="sparsityParam">
+       <RType issigned="1" length="8" precision="0" type="real"/>
+      </Param>
+      <Param name="LAMBDA">
+       <RType issigned="1" length="8" precision="0" type="real"/>
+      </Param>
+      <Param name="ALPHA">
+       <RType issigned="1" length="8" precision="0" type="real"/>
+      </Param>
+      <Param name="MaxIter">
+       <RType issigned="0" length="2" precision="0" type="int"/>
+      </Param>
      </Params>
     </Definition>
     <Signature name="mod_1" ret="" param="" hlen="5">mod_1</Signature><Parents>

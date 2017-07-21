@@ -19,8 +19,12 @@
                name="rec_1"
                start="146">
     <Type>record</Type>
-    <Field name="f" type="real8"/>
-    <Field name="g" type="real8"/>
+    <Field name="f">
+     <RType type="real8"/>
+    </Field>
+    <Field name="g">
+     <RType type="real8"/>
+    </Field>
    </Definition>
    <Definition body="220"
                end="277"
@@ -31,9 +35,15 @@
                name="rec_2"
                start="205">
     <Type>record</Type>
-    <Field name="a" type="unsigned4"/>
-    <Field name="b" type="real8"/>
-    <Field name="g" type="real8"/>
+    <Field name="a">
+     <RType type="unsigned4"/>
+    </Field>
+    <Field name="b">
+     <RType type="real8"/>
+    </Field>
+    <Field name="g">
+     <RType type="real8"/>
+    </Field>
    </Definition>
    <Definition body="303"
                end="387"
@@ -53,6 +63,7 @@
                 shared="1"
                 start="317">
      <Type>attribute</Type>
+     <RType type="unsigned4"/>
     </Definition>
     <Definition body="376"
                 end="380"
@@ -63,6 +74,7 @@
                 name="iface_v3"
                 start="348">
      <Type>attribute</Type>
+     <RType type="string25"/>
     </Definition>
     <Parents/>
    </Definition>
@@ -76,9 +88,14 @@
                start="391">
     <Type>function</Type>
     <Params>
-     <Param name="x"/>
-     <Param name="y"/>
+     <Param name="x">
+      <RType type="real8"/>
+     </Param>
+     <Param name="y">
+      <RType type="string25"/>
+     </Param>
     </Params>
+    <RType type="real8"/>
    </Definition>
    <Definition body="500"
                end="605"
@@ -90,9 +107,15 @@
                start="466">
     <Type>transform</Type>
     <Params>
-     <Param name="rec"/>
+     <Param name="rec">
+      <RType type="row">
+       <RType fullname="example.rec_1" name="rec_1" type="record"/>
+      </RType>
+     </Param>
     </Params>
-    <Return>rec_2</Return>
+    <RType type="transform">
+     <RType fullname="example.rec_2" name="rec_2" type="record"/>
+    </RType>
    </Definition>
    <Definition body="658"
                end="711"
@@ -104,8 +127,25 @@
                start="609">
     <Type>function</Type>
     <Params>
-     <Param name="d"/>
+     <Param name="d">
+      <RType type="table">
+       <RType fullname="example.rec_1" name="rec_1" type="record"/>
+      </RType>
+     </Param>
     </Params>
+    <RType type="table">
+     <RType type="record">
+      <Field name="a">
+       <RType type="unsigned4"/>
+      </Field>
+      <Field name="b">
+       <RType type="real8"/>
+      </Field>
+      <Field name="g">
+       <RType type="real8"/>
+      </Field>
+     </RType>
+    </RType>
    </Definition>
    <Definition body="739"
                end="776"
@@ -117,7 +157,9 @@
                start="715">
     <Type>module</Type>
     <Params>
-     <Param name="a"/>
+     <Param name="a">
+      <RType type="real8"/>
+     </Param>
     </Params>
     <Parents/>
     <Definition body="764"
@@ -129,7 +171,9 @@
                 name="pi_w"
                 start="750">
      <Type>attribute</Type>
+     <RType type="real8"/>
     </Definition>
+    <RType fullname="example.mod_1" name="mod_1" type="module"/>
    </Definition>
    <Definition body="795"
                end="834"
@@ -149,6 +193,7 @@
                 name="pi_wo"
                 start="807">
      <Type>attribute</Type>
+     <RType type="real8"/>
     </Definition>
     <Parents/>
    </Definition>
@@ -162,8 +207,11 @@
                start="839">
     <Type>embed</Type>
     <Params>
-     <Param name="varcpp"/>
+     <Param name="varcpp">
+      <RType type="real8"/>
+     </Param>
     </Params>
+    <RType type="data"/>
    </Definition>
    <Definition body="923"
                end="999"
@@ -175,8 +223,11 @@
                start="897">
     <Type>macro</Type>
     <Params>
-     <Param name="num"/>
+     <Param name="num">
+      <RType type="integer8"/>
+     </Param>
     </Params>
+    <RType type="boolean"/>
    </Definition>
    <Definition body="1034"
                end="1090"
@@ -188,9 +239,14 @@
                start="1003">
     <Type>macro</Type>
     <Params>
-     <Param name="num_1"/>
-     <Param name="num_2"/>
+     <Param name="num_1">
+      <RType type="integer8"/>
+     </Param>
+     <Param name="num_2">
+      <RType type="integer8"/>
+     </Param>
     </Params>
+    <RType type=""/>
    </Definition>
    <Definition body="1111"
                end="1152"
@@ -202,6 +258,7 @@
                start="1094">
     <Type>macro</Type>
     <Params/>
+    <RType type=""/>
    </Definition>
    <Documentation>
     <content>&#10;* Basic Example with :

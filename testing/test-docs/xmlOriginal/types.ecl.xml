@@ -1,0 +1,439 @@
+<Meta>
+ <Source name="types" sourcePath="/media/sarthak/Data/ecldoc/testing/test/types.ecl">
+  <Definition body="15"
+              end="1528"
+              exported="1"
+              fullname="types"
+              inherittype="local"
+              line="1"
+              name="types"
+              start="0">
+   <Type>module</Type>
+   <Definition body="36"
+               end="71"
+               exported="1"
+               fullname="types.v1"
+               inherittype="local"
+               line="2"
+               name="v1"
+               start="24">
+    <Type>record</Type>
+    <Field name="u">
+     <RType type="real8"/>
+    </Field>
+    <Field name="v">
+     <RType type="real8"/>
+    </Field>
+   </Definition>
+   <Definition body="101"
+               end="124"
+               exported="1"
+               fullname="types.mod_1"
+               inherittype="local"
+               line="7"
+               name="mod_1"
+               start="74">
+    <Type>attribute</Type>
+    <RType type="table">
+     <RType fullname="types.v1" name="v1" type="record"/>
+    </RType>
+   </Definition>
+   <Definition body="164"
+               end="191"
+               exported="1"
+               fullname="types.mod_2"
+               inherittype="local"
+               line="9"
+               name="mod_2"
+               start="127">
+    <Type>attribute</Type>
+    <RType type="table">
+     <RType type="record">
+      <Field name="a">
+       <RType type="string20"/>
+      </Field>
+     </RType>
+    </RType>
+   </Definition>
+   <Definition body="209"
+               end="238"
+               exported="1"
+               inherittype="local"
+               line="11"
+               name="mod_3"
+               start="194">
+    <Type>attribute</Type>
+    <RType type="unsigned8"/>
+   </Definition>
+   <Definition body="256"
+               end="263"
+               exported="1"
+               inherittype="local"
+               line="13"
+               name="mod_4"
+               start="241">
+    <Type>attribute</Type>
+    <RType type="unsigned8"/>
+   </Definition>
+   <Definition body="290"
+               end="325"
+               exported="1"
+               fullname="types.mod_5"
+               inherittype="local"
+               line="15"
+               name="mod_5"
+               start="266">
+    <Type>module</Type>
+    <Params>
+     <Param name="x">
+      <RType type="real8"/>
+     </Param>
+    </Params>
+    <Parents/>
+    <Definition body="312"
+                end="319"
+                exported="1"
+                fullname="types.mod_5.v6"
+                inherittype="local"
+                line="16"
+                name="v6"
+                start="300">
+     <Type>attribute</Type>
+     <RType type="real8"/>
+    </Definition>
+    <RType fullname="types.mod_5" name="mod_5" type="module"/>
+   </Definition>
+   <Definition body="352"
+               end="362"
+               exported="1"
+               fullname="types.mod_6"
+               inherittype="local"
+               line="19"
+               name="mod_6"
+               start="328">
+    <Type>module</Type>
+    <Params>
+     <Param name="x">
+      <RType type="real8"/>
+     </Param>
+    </Params>
+    <Parents/>
+    <Definition body="312"
+                end="319"
+                exported="1"
+                fullname="types.mod_5.v6"
+                inherittype="local"
+                line="16"
+                name="v6"
+                start="300">
+     <Type>attribute</Type>
+     <RType type="real8"/>
+    </Definition>
+    <RType fullname="types.mod_5" name="mod_5" type="module"/>
+   </Definition>
+   <Definition body="398"
+               end="437"
+               exported="1"
+               fullname="types.mod_7"
+               inherittype="local"
+               line="21"
+               name="mod_7"
+               start="365">
+    <Type>function</Type>
+    <Params>
+     <Param name="y">
+      <RType type="function">
+       <RType fullname="types.mod_5" name="mod_5" type="module"/>
+      </RType>
+     </Param>
+     <Param name="z">
+      <RType type="real8"/>
+     </Param>
+    </Params>
+    <RType type="real8"/>
+   </Definition>
+   <Definition body="465"
+               end="473"
+               exported="1"
+               fullname="types.mod_8"
+               inherittype="local"
+               line="25"
+               name="mod_8"
+               start="440">
+    <Type>function</Type>
+    <Params>
+     <Param name="a1">
+      <RType type="unsigned8"/>
+     </Param>
+    </Params>
+    <RType type="integer8"/>
+   </Definition>
+   <Definition body="500"
+               end="515"
+               exported="1"
+               fullname="types.mod_9"
+               inherittype="local"
+               line="27"
+               name="mod_9"
+               start="476">
+    <Type>function</Type>
+    <Params>
+     <Param name="x">
+      <RType type="function">
+       <RType type="real8"/>
+      </RType>
+     </Param>
+    </Params>
+    <RType type="real8"/>
+   </Definition>
+   <Definition body="536"
+               end="657"
+               exported="1"
+               inherittype="local"
+               line="29"
+               name="ScaleInt"
+               start="518">
+    <Type>type</Type>
+    <RType type="scaleint"/>
+   </Definition>
+   <Definition body="679"
+               end="712"
+               exported="1"
+               fullname="types.mod_10"
+               inherittype="local"
+               line="34"
+               name="mod_10"
+               start="663">
+    <Type>record</Type>
+    <Field name="y">
+     <RType type="scaleint"/>
+    </Field>
+   </Definition>
+   <Definition body="753"
+               end="756"
+               exported="1"
+               fullname="types.mod_11"
+               inherittype="local"
+               line="38"
+               name="mod_11"
+               start="718">
+    <Type>function</Type>
+    <Params>
+     <Param name="y">
+      <RType type="table">
+       <RType fullname="types.mod_10" name="mod_10" type="record"/>
+      </RType>
+     </Param>
+    </Params>
+    <RType type="table">
+     <RType fullname="types.mod_10" name="mod_10" type="record"/>
+    </RType>
+   </Definition>
+   <Definition body="774"
+               end="832"
+               exported="1"
+               fullname="types.d1"
+               inherittype="local"
+               line="40"
+               name="D1"
+               start="762">
+    <Type>attribute</Type>
+    <RType type="table">
+     <RType type="record">
+      <Field name="F1">
+       <RType type="unsigned4"/>
+      </Field>
+      <Field name="f2">
+       <RType type="real8"/>
+      </Field>
+      <Field name="f3">
+       <RType type="real8"/>
+      </Field>
+     </RType>
+    </RType>
+   </Definition>
+   <Definition body="854"
+               end="911"
+               exported="1"
+               fullname="types.mod_12"
+               inherittype="local"
+               line="42"
+               name="mod_12"
+               start="838">
+    <Type>record</Type>
+    <Field name="F1">
+     <RType type="unsigned4"/>
+    </Field>
+    <Field name="gcount">
+     <RType type="integer8"/>
+    </Field>
+   </Definition>
+   <Definition body="933"
+               end="956"
+               exported="1"
+               fullname="types.mod_13"
+               inherittype="local"
+               line="47"
+               name="mod_13"
+               start="917">
+    <Type>attribute</Type>
+    <RType type="table">
+     <RType type="record">
+      <Field name="F1">
+       <RType type="unsigned4"/>
+      </Field>
+      <Field name="gcount">
+       <RType type="integer8"/>
+      </Field>
+     </RType>
+    </RType>
+   </Definition>
+   <Definition body="974"
+               end="1047"
+               exported="1"
+               fullname="types.v2"
+               inherittype="local"
+               line="49"
+               name="v2"
+               start="962">
+    <Type>record</Type>
+    <Field name="w1">
+     <RType type="unsigned4"/>
+    </Field>
+    <Field name="w2">
+     <RType type="unsigned4"/>
+    </Field>
+    <Field name="w3">
+     <RType type="unsigned4"/>
+    </Field>
+   </Definition>
+   <Definition body="1078"
+               end="1166"
+               exported="1"
+               fullname="types.v1tov2"
+               inherittype="local"
+               line="55"
+               name="v1tov2"
+               start="1053">
+    <Type>transform</Type>
+    <Params>
+     <Param name="x">
+      <RType type="row">
+       <RType fullname="types.v1" name="v1" type="record"/>
+      </RType>
+     </Param>
+    </Params>
+    <RType type="transform">
+     <RType fullname="types.v2" name="v2" type="record"/>
+    </RType>
+   </Definition>
+   <Definition body="1202"
+               end="1225"
+               exported="1"
+               fullname="types.mod_14"
+               inherittype="local"
+               line="61"
+               name="mod_14"
+               start="1172">
+    <Type>attribute</Type>
+    <RType type="table">
+     <RType fullname="types.v1" name="v1" type="record"/>
+    </RType>
+   </Definition>
+   <Definition body="1300"
+               end="1320"
+               exported="1"
+               fullname="types.mod_15"
+               inherittype="local"
+               line="66"
+               name="mod_15"
+               start="1272">
+    <Type>attribute</Type>
+    <RType type="table">
+     <RType fullname="types.v3" name="v3" type="record"/>
+    </RType>
+   </Definition>
+   <Definition body="1368"
+               end="1384"
+               exported="1"
+               fullname="types.mod_16"
+               inherittype="local"
+               line="68"
+               name="mod_16"
+               start="1326">
+    <Type>function</Type>
+    <Params>
+     <Param name="tr">
+      <RType type="function">
+       <RType type="transform">
+        <RType fullname="types.v2" name="v2" type="record"/>
+       </RType>
+      </RType>
+     </Param>
+     <Param name="x">
+      <RType type="table">
+       <RType fullname="types.v1" name="v1" type="record"/>
+      </RType>
+     </Param>
+    </Params>
+    <RType type="integer1"/>
+   </Definition>
+   <Definition body="1402"
+               end="1437"
+               exported="1"
+               fullname="types.v4"
+               inherittype="local"
+               line="70"
+               name="v4"
+               start="1390">
+    <Type>record</Type>
+    <Field name="w1">
+     <RType type="unsigned4"/>
+    </Field>
+    <Field name="w2">
+     <RType type="unsigned4"/>
+    </Field>
+    <Field name="w3">
+     <RType type="unsigned4"/>
+    </Field>
+    <Field name="w4">
+     <RType type="real8"/>
+    </Field>
+   </Definition>
+   <Definition body="1455"
+               end="1522"
+               exported="1"
+               fullname="types.v5"
+               inherittype="local"
+               line="74"
+               name="v5"
+               start="1443">
+    <Type>record</Type>
+    <Field name="u">
+     <RType type="real8"/>
+    </Field>
+    <Field name="v">
+     <RType type="real8"/>
+    </Field>
+    <Field name="w1">
+     <RType type="unsigned4"/>
+    </Field>
+    <Field name="w2">
+     <RType type="unsigned4"/>
+    </Field>
+    <Field name="w3">
+     <RType type="unsigned4"/>
+    </Field>
+    <Field name="w4">
+     <RType type="real8"/>
+    </Field>
+    <Field name="w5">
+     <RType type="table">
+      <RType fullname="types.v2" name="v2" type="record"/>
+     </RType>
+    </Field>
+   </Definition>
+   <Parents/>
+  </Definition>
+ </Source>
+</Meta>

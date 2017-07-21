@@ -35,6 +35,10 @@
     	* ABCD ||||
     	* CDEF ||||&#10;&#32;&#32;&#32;&#32;&#9;</content>
      </Documentation>
+     <RType issigned="1"
+            length="8"
+            precision="0"
+            type="real"/>
     </Definition>
     <Definition body="673"
                 end="678"
@@ -49,6 +53,10 @@
       <content>&#32;DOC Test 3
         * No Period title&#10;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</content>
      </Documentation>
+     <RType issigned="1"
+            length="8"
+            precision="0"
+            type="real"/>
     </Definition>
     <Definition body="880"
                 end="885"
@@ -60,14 +68,78 @@
                 start="687">
      <Type>function</Type>
      <Params>
-      <Param name="X"/>
-      <Param name="IntW"/>
-      <Param name="Intb"/>
-      <Param name="BETA"/>
-      <Param name="sparsityParam"/>
-      <Param name="LAMBDA"/>
-      <Param name="ALPHA"/>
-      <Param name="MaxIter"/>
+      <Param name="X">
+       <RType type="table">
+        <RType type="row">
+         <RType type="record">
+          <Field name="u">
+           <RType issigned="1"
+                  length="8"
+                  precision="0"
+                  type="real"/>
+          </Field>
+         </RType>
+        </RType>
+       </RType>
+      </Param>
+      <Param name="IntW">
+       <RType type="table">
+        <RType type="row">
+         <RType type="record">
+          <Field name="u">
+           <RType issigned="1"
+                  length="8"
+                  precision="0"
+                  type="real"/>
+          </Field>
+         </RType>
+        </RType>
+       </RType>
+      </Param>
+      <Param name="Intb">
+       <RType type="table">
+        <RType type="row">
+         <RType type="record">
+          <Field name="u">
+           <RType issigned="1"
+                  length="8"
+                  precision="0"
+                  type="real"/>
+          </Field>
+         </RType>
+        </RType>
+       </RType>
+      </Param>
+      <Param name="BETA">
+       <RType issigned="1"
+              length="8"
+              precision="0"
+              type="real"/>
+      </Param>
+      <Param name="sparsityParam">
+       <RType issigned="1"
+              length="8"
+              precision="0"
+              type="real"/>
+      </Param>
+      <Param name="LAMBDA">
+       <RType issigned="1"
+              length="8"
+              precision="0"
+              type="real"/>
+      </Param>
+      <Param name="ALPHA">
+       <RType issigned="1"
+              length="8"
+              precision="0"
+              type="real"/>
+      </Param>
+      <Param name="MaxIter">
+       <RType issigned="0"
+              length="2"
+              precision="0"
+              type="int"/>
+      </Param>
      </Params>
     </Definition>
     <Parents/>
@@ -125,6 +197,10 @@
                 name="v2_m1_ex4"
                 start="196">
      <Type>attribute</Type>
+     <RType issigned="1"
+            length="8"
+            precision="0"
+            type="real"/>
     </Definition>
     <Definition body="580"
                 end="585"
@@ -142,6 +218,10 @@
     	* ABCD ||||
     	* CDEF ||||&#10;&#32;&#32;&#32;&#32;&#9;</content>
      </Documentation>
+     <RType issigned="1"
+            length="8"
+            precision="0"
+            type="real"/>
     </Definition>
     <Definition body="673"
                 end="678"
@@ -156,6 +236,10 @@
       <content>&#32;DOC Test 3
         * No Period title&#10;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</content>
      </Documentation>
+     <RType issigned="1"
+            length="8"
+            precision="0"
+            type="real"/>
     </Definition>
     <Definition body="880"
                 end="885"
@@ -167,14 +251,78 @@
                 start="687">
      <Type>function</Type>
      <Params>
-      <Param name="X"/>
-      <Param name="IntW"/>
-      <Param name="Intb"/>
-      <Param name="BETA"/>
-      <Param name="sparsityParam"/>
-      <Param name="LAMBDA"/>
-      <Param name="ALPHA"/>
-      <Param name="MaxIter"/>
+      <Param name="X">
+       <RType type="table">
+        <RType type="row">
+         <RType type="record">
+          <Field name="u">
+           <RType issigned="1"
+                  length="8"
+                  precision="0"
+                  type="real"/>
+          </Field>
+         </RType>
+        </RType>
+       </RType>
+      </Param>
+      <Param name="IntW">
+       <RType type="table">
+        <RType type="row">
+         <RType type="record">
+          <Field name="u">
+           <RType issigned="1"
+                  length="8"
+                  precision="0"
+                  type="real"/>
+          </Field>
+         </RType>
+        </RType>
+       </RType>
+      </Param>
+      <Param name="Intb">
+       <RType type="table">
+        <RType type="row">
+         <RType type="record">
+          <Field name="u">
+           <RType issigned="1"
+                  length="8"
+                  precision="0"
+                  type="real"/>
+          </Field>
+         </RType>
+        </RType>
+       </RType>
+      </Param>
+      <Param name="BETA">
+       <RType issigned="1"
+              length="8"
+              precision="0"
+              type="real"/>
+      </Param>
+      <Param name="sparsityParam">
+       <RType issigned="1"
+              length="8"
+              precision="0"
+              type="real"/>
+      </Param>
+      <Param name="LAMBDA">
+       <RType issigned="1"
+              length="8"
+              precision="0"
+              type="real"/>
+      </Param>
+      <Param name="ALPHA">
+       <RType issigned="1"
+              length="8"
+              precision="0"
+              type="real"/>
+      </Param>
+      <Param name="MaxIter">
+       <RType issigned="0"
+              length="2"
+              precision="0"
+              type="int"/>
+      </Param>
      </Params>
     </Definition>
     <Parents>
