@@ -96,7 +96,7 @@
 							<a href=".desc-{{ def.attrib['fullname'] }}" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
 									<div class="panel-title desc-type">
-											{{ def.find('./Type').text.upper() }}
+											{{ def.attrib['type'].upper() }}
 									</div>
 									<div class="panel-title desc-sign">
 										{{ def.attrib['name'] }}
@@ -115,6 +115,16 @@
 									<td class="name">{{ def.find('./Signature').attrib['name'] }}</td>
 									<td class="param">{{ def.find('./Signature').attrib['param'] }}</td>
 								</tr>
+
+								<tr>
+									<td >{{ def.find('./Type')|construct_type }}</td>
+									<td colspan="2">
+										{% for p in (def.find('./Params')|construct_params) %}
+											{{ p[0] + ' ' + p[1] + ', ' }}
+										{% endfor %}
+									</td>
+								</tr>
+
 								{% if def.find('./Documentation') is not none -%}
 								<tr style="background: #f2f7ff;">
 									<td colspan="3">

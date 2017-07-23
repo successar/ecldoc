@@ -24,7 +24,7 @@
 
 \section*{\underline{\textsf{DESCRIPTIONS}}}
 \BLOCK{ for def in render_dict recursive }
-\subsection*{\textsf{\colorbox{headtoc}{\color{white} \VAR{def.tag.find('./Type').text.upper()}}
+\subsection*{\textsf{\colorbox{headtoc}{\color{white} \VAR{def.tag.attrib['type'].upper()}}
 \VAR{def.tag.attrib.name|escape_tex}}}
 
 \hypertarget{ecldoc:\VAR{def.tag.attrib.fullname}}{}

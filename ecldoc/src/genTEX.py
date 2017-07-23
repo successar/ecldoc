@@ -82,7 +82,7 @@ class ParseTEX(object) :
 			self.render_dict.append(defn_dict)
 
 	def parseDefinition(self, defn) :
-		defn_type = defn.find('./Type').text
+		defn_type = defn.attrib['type']
 		sign = defn.find('./Signature')
 
 		doc = self.parseDocs(defn.find('./Documentation'))

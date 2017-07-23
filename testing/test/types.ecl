@@ -12,6 +12,10 @@ EXPORT types := MODULE
 
 	EXPORT mod_4 := mod_3;
 
+	EXPORT mod_41 := MODULE
+		EXPORT v41 := 3.4;
+	END;
+
 	EXPORT mod_5(REAL8 x) := MODULE
 		EXPORT v6 := x * 4;
 	END;
@@ -26,13 +30,17 @@ EXPORT types := MODULE
 
 	EXPORT mod_9(mod_7 x) := x(mod_5, 3.0);
 
-	EXPORT ScaleInt := TYPE
-        EXPORT REAL LOAD(INTEGER4 I ) := I / 100;
-        EXPORT INTEGER4 STORE(REAL R) := ROUND(R * 100);
+    EXPORT mod_90(REAL8 z) := FUNCTION
+        RETURN z * 2;
     END;
 
+	/*EXPORT ScaleInt := TYPE
+        EXPORT REAL LOAD(INTEGER4 I ) := I / 100;
+        EXPORT INTEGER4 STORE(REAL R) := ROUND(R * 100);
+    END;*/
+
     EXPORT mod_10 := RECORD
-    	ScaleInt y;
+    	REAL8 u; //ScaleInt y;
     END;
 
     EXPORT mod_11(DATASET(mod_10) y) := y;
@@ -65,8 +73,6 @@ EXPORT types := MODULE
     END;
     EXPORT DATASET(v3) mod_15 := DATASET([{1}], v3);
 
-    EXPORT mod_16(v1tov2 tr, DATASET(v1) x) := PROJECT(x, tr);
-
     EXPORT v4 := RECORD(v2)
     	REAL8 w4;
     END;
@@ -76,5 +82,33 @@ EXPORT types := MODULE
     	REAL8 w4;
     	DATASET(v2) w5;
     END;
+
+    EXPORT v5_1(DATASET({v5, real8 y}) x) := x;
+
+    EXPORT { REAL8 a } mod_17(v1 x) := TRANSFORM
+    	SELF.a := x.v;
+    END;
+
+    EXPORT mod_18(REAL8 x(REAL8 z), REAL8 y) := FUNCTION
+    	RETURN x(y);
+    END;
+
+    EXPORT mod_19(REAL8 w) := w * 9;
+
+    EXPORT mod_20(mod_19 x) := mod_18(x, 3.0);
+
+    EXPORT mod_21 := mod_20(mod_19);
+
+    EXPORT mod_22(REAL8 w) := w * 4.0;
+
+    EXPORT mod_23 := mod_20(mod_22);
+
+    EXPORT mod_24(REAL8 y(REAL8 z(REAL8 u)), REAL8 x(REAL8 y)) := y(x);
+
+    EXPORT REAL8 mod_25(REAL8 x(REAL8 y)) := x(4.0);
+
+    EXPORT mod_26 := mod_24(mod_25, mod_22);
+
+    EXPORT mod_1 mod_27 := mod_1;
 
 END;

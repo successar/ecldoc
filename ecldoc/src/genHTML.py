@@ -8,8 +8,50 @@ from lxml import etree
 from Utils import genPathTree, getRoot, write_to_file
 from Utils import joinpath, relpath, dirname
 
-from jinja2 import Template
+import jinja2
 from Utils import breaksign
+
+html_jinja_env = jinja2.Environment(
+    loader = jinja2.FileSystemLoader(os.path.abspath('/'))
+)
+
+def construct_type(ele) :
+    if ele is None : return ''
+    if type(ele) == list : return ''
+
+    typestring = ''
+    attribs = ele.attrib
+    typename = attribs['type']
+    if typename == 'record' :
+        if 'unnamed' in attribs :
+            typestring += '{ '
+            for field in ele.findall('Field') :
+                typestring += construct_type(field.find('./Type')) + " " + field.attrib['name'] + ', '
+            typestring += ' }'
+        else :
+            typestring += attribs['origfn'] if 'origfn' in attribs else attribs['name']
+    else :
+        typestring += typename.upper()
+
+    if ele.find('./Type') is not None :
+        typestring += ' ( ' + construct_type(ele.find('./Type')) + ' )'
+
+    return typestring
+
+def construct_params(params) :
+    if params is None : return ''
+    params = params.findall('./Param')
+    plist = []
+    for p in params :
+        type_ = construct_type(p.find('./Type'))
+        name = p.attrib['name']
+        plist.append((type_, name))
+
+    return plist
+
+
+html_jinja_env.filters['construct_type'] = construct_type
+html_jinja_env.filters['construct_params'] = construct_params
 
 class ParseHTML(object) :
     def __init__(self, generator, ecl_file) :
@@ -36,6 +78,7 @@ class ParseHTML(object) :
                 attribs['target'] = re.sub(r'\.xml$', '.html', attribs['target'])
 
             if 'fullname' in attribs :
+                attribs['origfn'] = attribs['fullname']
                 attribs['fullname'] = re.sub(r'\.', '-', attribs['fullname'])
 
 
@@ -79,8 +122,8 @@ class GenHTML(object) :
         self.xml_root = joinpath(output_root, 'xml')
 
         self.template_dir = joinpath(TEMPLATE_DIR, 'html')
-        self.content_template = Template(open(joinpath(self.template_dir, 'content.tpl.html')).read())
-        self.toc_template = Template(open(joinpath(self.template_dir, 'toc.tpl.html')).read())
+        self.content_template = html_jinja_env.get_template(joinpath(self.template_dir, 'content.tpl.html'))
+        self.toc_template = html_jinja_env.get_template(joinpath(self.template_dir, 'toc.tpl.html'))
         self.ecl_file_tree = ecl_file_tree
         self.options = options
 

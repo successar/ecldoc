@@ -76,7 +76,7 @@ class ParseTXT(object) :
 		render_dict.append(defn_dict)
 
 	def parseSign(self, defn) :
-		defn_type = defn.find('./Type').text
+		defn_type = defn.attrib['type']
 		sign = defn.find('./Signature').text
 		hlen = int(defn.find('./Signature').attrib['hlen'])
 		if defn.attrib['inherittype'] != 'local' :
