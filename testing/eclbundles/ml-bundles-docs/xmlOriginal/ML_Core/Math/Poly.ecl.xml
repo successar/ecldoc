@@ -7,8 +7,9 @@
               inherittype="local"
               line="10"
               name="Poly"
-              start="388">
-   <Type>embed</Type>
+              start="388"
+              type="embed">
+   <Type type="real8"/>
    <Documentation>
     <content>&#10;&#32;* Evaluate a polynomial from a set of co-effs. Co-effs 1 is
  * assumed to be the HIGH order of the equation.
@@ -19,8 +20,14 @@
  *@return value of the polynomial at x&#10;&#32;</content>
    </Documentation>
    <Params>
-    <Param name="x"/>
-    <Param name="Coeffs"/>
+    <Param name="x">
+     <Type type="real8"/>
+    </Param>
+    <Param name="Coeffs">
+     <Type type="set">
+      <Type type="real8"/>
+     </Type>
+    </Param>
    </Params>
   </Definition>
  </Source>

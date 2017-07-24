@@ -97,6 +97,9 @@ class ParseXML(object):
         if 'name' in attribs:
             self.depends[tuple(attribs['name'].lower().split('.'))] = self.src
 
+        for imp in self.src.iter('Import'):
+            self.parseImport(imp)
+
         for doc in self.src.iter('Documentation'):
             self.parseDocumentation(doc)
 
@@ -106,10 +109,7 @@ class ParseXML(object):
             else:
                 self.parseDefinition(defn)
 
-        for imp in self.src.iter('Import'):
-            self.parseImport(imp)
-
-        maindefn = self.src.find("./Definition")
+        maindefn = self.src.find("Definition")
         if maindefn is not None and maindefn.find('Documentation') is not None:
             docstring = deepcopy(maindefn.find('./Documentation'))
             self.src.append(docstring)
@@ -186,8 +186,9 @@ class ParseXML(object):
         return sign
 
     def parseDocumentation(self, doc):
+        defn = list(doc.iterancestors('Definition'))[0]
         content = doc.find('./content')
-        elements = parseDocstring(content.text)
+        elements = parseDocstring(content.text, defn)
         doc.remove(content)
         for tag in elements:
             for desc in elements[tag]:
@@ -204,6 +205,8 @@ class ParseXML(object):
         attribs.pop('fullname', None)
         attribs.pop('line', None)
         attribs.pop('inherittype', None)
+        if imp.find('Documentation') is not None :
+            imp.remove(imp.find('Documentation'))
 
     def parseParent(self, parent):
         attribs = parent.attrib

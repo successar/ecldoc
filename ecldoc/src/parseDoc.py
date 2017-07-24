@@ -4,7 +4,7 @@ from lxml.builder import E
 import lxml.html as H
 from collections import defaultdict
 
-def parseDocstring(docstring) :
+def parseDocstring(docstring, defn) :
     docstring = re.sub(r'\n\s*\*', '\n', docstring)
     docstring = re.sub(r'\r', ' ', docstring)
     docstring = docstring.strip().split('\n')
@@ -31,6 +31,16 @@ def parseDocstring(docstring) :
         docdict['firstline'] = [findFirstLine(current_text)]
     docdict[current_tag].append(current_text.strip())
 
+    params = {}
+    if defn.find('Params') is not None:
+        _params = defn.find('Params').findall('Param')
+        params = { x.attrib['name'].lower() : x for x in _params }
+
+    fields = { x.attrib['name'] : x for x in defn.findall('Field') }
+
+    map_tags = { 'param' : params, 'field' : fields }
+
+
     for tag in docdict :
         for i, desc in enumerate(docdict[tag]) :
             root = H.fragment_fromstring(desc, create_parent='div')
@@ -47,6 +57,11 @@ def parseDocstring(docstring) :
                 content.append(name)
                 content.append(desc)
                 content.text = ''
+                actual_list = map_tags[tag]
+                if name.text.lower() in actual_list :
+                    actual = actual_list[name.text.lower()]
+                    #content.append(actual.find('Type'))
+
 
             docdict[tag][i] = content
 

@@ -7,9 +7,8 @@
               inherittype="local"
               line="4"
               name="Constants"
-              start="28">
-   <Type>module</Type>
-   <Parents/>
+              start="28"
+              type="module">
    <Definition body="98"
                end="127"
                exported="1"
@@ -17,8 +16,9 @@
                inherittype="local"
                line="8"
                name="Pi"
-               start="86">
-    <Type>attribute</Type>
+               start="86"
+               type="attribute">
+    <Type type="real8"/>
     <Documentation>
      <content>&#10;&#32;&#32;&#32;* Constant PI&#10;&#32;&#32;&#32;</content>
     </Documentation>
@@ -30,8 +30,9 @@
                inherittype="local"
                line="12"
                name="Root_2"
-               start="173">
-    <Type>attribute</Type>
+               start="173"
+               type="attribute">
+    <Type type="real8"/>
     <Documentation>
      <content>&#10;&#32;&#32;&#32;* Constant square root of 2&#10;&#32;&#32;&#32;</content>
     </Documentation>
@@ -39,6 +40,7 @@
    <Documentation>
     <content>&#10;&#32;* Useful constants&#10;&#32;</content>
    </Documentation>
+   <Parents/>
   </Definition>
  </Source>
  <Source name="ML_Core.Math.Poly" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Math/Poly.ecl">
@@ -49,8 +51,9 @@
               inherittype="local"
               line="10"
               name="Poly"
-              start="388">
-   <Type>embed</Type>
+              start="388"
+              type="embed">
+   <Type type="real8"/>
    <Documentation>
     <content>&#10;&#32;* Evaluate a polynomial from a set of co-effs. Co-effs 1 is
  * assumed to be the HIGH order of the equation.
@@ -61,8 +64,14 @@
  *@return value of the polynomial at x&#10;&#32;</content>
    </Documentation>
    <Params>
-    <Param name="x"/>
-    <Param name="Coeffs"/>
+    <Param name="x">
+     <Type type="real8"/>
+    </Param>
+    <Param name="Coeffs">
+     <Type type="set">
+      <Type type="real8"/>
+     </Type>
+    </Param>
    </Params>
   </Definition>
  </Source>
@@ -93,8 +102,9 @@
               inherittype="local"
               line="3"
               name="PI"
-              start="54">
-   <Type>attribute</Type>
+              start="54"
+              type="attribute">
+   <Type type="real8"/>
    <Documentation>
     <content>&#10;&#32;&#32;&#32;* Constant PI&#10;&#32;&#32;&#32;</content>
    </Documentation>
@@ -105,8 +115,9 @@
               inherittype="local"
               line="4"
               name="Poly"
-              start="74">
-   <Type>embed</Type>
+              start="74"
+              type="embed">
+   <Type type="real8"/>
    <Documentation>
     <content>&#10;&#32;* Evaluate a polynomial from a set of co-effs. Co-effs 1 is
  * assumed to be the HIGH order of the equation.
@@ -117,8 +128,14 @@
  *@return value of the polynomial at x&#10;&#32;</content>
    </Documentation>
    <Params>
-    <Param name="x"/>
-    <Param name="Coeffs"/>
+    <Param name="x">
+     <Type type="real8"/>
+    </Param>
+    <Param name="Coeffs">
+     <Type type="set">
+      <Type type="real8"/>
+     </Type>
+    </Param>
    </Params>
   </Definition>
   <Definition body="220"
@@ -128,15 +145,18 @@
               inherittype="local"
               line="10"
               name="StirlingFormula"
-              start="187">
-   <Type>function</Type>
+              start="187"
+              type="function">
+   <Type type="real8"/>
    <Documentation>
     <content>&#10;&#32;* Stirling&apos;s formula
  *@param x the point of evaluation
  *@return evaluation result&#10;&#32;</content>
    </Documentation>
    <Params>
-    <Param name="x"/>
+    <Param name="x">
+     <Type type="real8"/>
+    </Param>
    </Params>
   </Definition>
  </Source>

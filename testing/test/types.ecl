@@ -4,7 +4,15 @@ EXPORT types := MODULE
 		REAL8 v;
 	END;
 
-	EXPORT DATASET(v1) mod_1 := DATASET([{1, 2}], v1);
+	EXPORT DATASET(v1) mod_1 := FUNCTION
+        v1 tr({REAL8 x} y) := TRANSFORM
+            SELF.u := y.x;
+            SELF.v := y.x * 2.0;
+        END;
+        RETURN PROJECT(DATASET([{1}, {2}], {REAL8 x}), tr(LEFT));
+    END;
+
+    EXPORT mod_1_1(TYPEOF(mod_1) x) := x;
 
 	EXPORT DATASET({STRING20 a}) mod_2 := DATASET([], {STRING20 a});
 
@@ -16,6 +24,11 @@ EXPORT types := MODULE
 		EXPORT v41 := 3.4;
 	END;
 
+    /**
+    * mod_5
+    * @param x abcd
+    * @return module
+    */
 	EXPORT mod_5(REAL8 x) := MODULE
 		EXPORT v6 := x * 4;
 	END;

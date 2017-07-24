@@ -7,8 +7,9 @@
               inherittype="local"
               line="16"
               name="SequenceInField"
-              start="712">
-   <Type>macro</Type>
+              start="712"
+              type="macro">
+   <Type type="boolean"/>
    <Documentation>
     <content>&#10;&#32;* Given a file which is sorted by the work item identifier and
  * INFIELD (and possibly other values), add sequence numbers within
@@ -25,10 +26,18 @@
  *@return a file of the same type with sequence numbers applied&#10;&#32;</content>
    </Documentation>
    <Params>
-    <Param name="infile"/>
-    <Param name="infield"/>
-    <Param name="seq"/>
-    <Param name="wi_name"/>
+    <Param name="infile">
+     <Type type="integer8"/>
+    </Param>
+    <Param name="infield">
+     <Type type="integer8"/>
+    </Param>
+    <Param name="seq">
+     <Type type="integer8"/>
+    </Param>
+    <Param name="wi_name">
+     <Type type="integer8"/>
+    </Param>
    </Params>
   </Definition>
  </Source>

@@ -21,7 +21,7 @@
 			</div>
 			<div class="navbar-header" style="margin-left : 20px;">
 				<span class="navbar-brand">
-				{% if bundle %}
+				{% if bundle is not none %}
 				BUNDLE :
 				{% endif %}
 				{{ name }}
@@ -48,7 +48,7 @@
 		</div>
 		<div id="page-content-wrapper">
 			<div class="container-fluid">
-				{% if bundle %}
+				{% if bundle is not none %}
 				<div class="row">
 					<table class="table table-condensed">
 						{% for tag in bundle.iterchildren() %}

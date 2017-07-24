@@ -4,27 +4,40 @@
   <Import name="PBblas" ref="PBblas" target="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles-docs/$$_ECLDOC-FORM_$$/PBblas/pkg.toc.xml"/>
   <Import name="int" ref="PBblas.internal" remotescope="1" target="internal/pkg.toc.xml"/>
   <Import name="MatDims" ref="PBblas.internal.MatDims" target="internal/MatDims.ecl.xml">
-   <Documentation>
-    <content>Module to calculate matrix dimensions and matrix partition dimensions from matrix cells.</content><firstline>Module to calculate matrix dimensions and matrix partition dimensions from matrix cells</firstline></Documentation>
-  </Import>
+   </Import>
   <Import name="Types" ref="PBblas.Types" target="Types.ecl.xml">
-   <Documentation>
-    <content>Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes.</content><firstline>Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes</firstline></Documentation>
-  </Import>
+   </Import>
   <Import name="iTypes" ref="PBblas.internal.Types" target="internal/Types.ecl.xml">
-   <Documentation>
-    <content>Internal Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes.</content><firstline>Internal Types for the Parallel Block Basic Linear Algebra Sub-programs support WARNING: attributes marked with WARNING can not be changed without making corresponding changes to the C++ attributes</firstline></Documentation>
-  </Import>
+   </Import>
   <Import name="Constants" ref="PBblas.Constants" target="Constants.ecl.xml"/>
-  <Definition exported="1" fullname="pbblas.vector2diag" inherittype="local" line="28" name="Vector2Diag">
-   <Type>function</Type>
+  <Definition exported="1" fullname="pbblas.vector2diag" inherittype="local" line="28" name="Vector2Diag" type="function">
+   <Type type="table">
+    <Type type="record" unnamed="1">
+     <Field name="wi_id">
+      <Type type="unsigned2"/>
+     </Field>
+     <Field name="x">
+      <Type type="unsigned4"/>
+     </Field>
+     <Field name="y">
+      <Type type="unsigned4"/>
+     </Field>
+     <Field name="v">
+      <Type type="real8"/>
+     </Field>
+    </Type>
+   </Type>
    <Documentation>
-    <content>Convert a vector into a diagonal matrix. The typical notation is D = diag(V). The input X must be a 1 x N column vector or an N x 1 row vector. The resulting matrix, in either case will be N x N, with zero everywhere except the diagonal.</content><see>PBblas/Types.Layout_cell</see><firstline>Convert a vector into a diagonal matrix</firstline><param><name>X</name><desc>A row or column vector (i.e. N x 1 or 1 x N) in Layout_Cell format</desc></param><return>An N x N matrix in Layout_Cell format</return></Documentation>
+    <return>An N x N matrix in Layout_Cell format</return><firstline>Convert a vector into a diagonal matrix</firstline><content>Convert a vector into a diagonal matrix. The typical notation is D = diag(V). The input X must be a 1 x N column vector or an N x 1 row vector. The resulting matrix, in either case will be N x N, with zero everywhere except the diagonal.</content><see>PBblas/Types.Layout_cell</see><param><name>X</name><desc>A row or column vector (i.e. N x 1 or 1 x N) in Layout_Cell format</desc></param></Documentation>
    <Signature name="Vector2Diag" ret="DATASET(Layout_Cell)" param="(DATASET(Layout_Cell) X)" hlen="32">DATASET(Layout_Cell) Vector2Diag(DATASET(Layout_Cell) X)</Signature><Params>
-    <Param name="X"/>
+    <Param name="X">
+     <Type type="table">
+      <Type fullname="pbblas.layout_cell" name="Layout_Cell" type="record"/>
+     </Type>
+    </Param>
    </Params>
   </Definition>
  <Documentation>
-    <content>Convert a vector into a diagonal matrix. The typical notation is D = diag(V). The input X must be a 1 x N column vector or an N x 1 row vector. The resulting matrix, in either case will be N x N, with zero everywhere except the diagonal.</content><see>PBblas/Types.Layout_cell</see><firstline>Convert a vector into a diagonal matrix</firstline><param><name>X</name><desc>A row or column vector (i.e. N x 1 or 1 x N) in Layout_Cell format</desc></param><return>An N x N matrix in Layout_Cell format</return></Documentation>
+    <return>An N x N matrix in Layout_Cell format</return><firstline>Convert a vector into a diagonal matrix</firstline><content>Convert a vector into a diagonal matrix. The typical notation is D = diag(V). The input X must be a 1 x N column vector or an N x 1 row vector. The resulting matrix, in either case will be N x N, with zero everywhere except the diagonal.</content><see>PBblas/Types.Layout_cell</see><param><name>X</name><desc>A row or column vector (i.e. N x 1 or 1 x N) in Layout_Cell format</desc></param></Documentation>
    </Source>
 </Meta>

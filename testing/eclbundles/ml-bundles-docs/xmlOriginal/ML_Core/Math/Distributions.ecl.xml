@@ -7,9 +7,8 @@
               inherittype="local"
               line="4"
               name="Constants"
-              start="28">
-   <Type>module</Type>
-   <Parents/>
+              start="28"
+              type="module">
    <Definition body="98"
                end="127"
                exported="1"
@@ -17,8 +16,9 @@
                inherittype="local"
                line="8"
                name="Pi"
-               start="86">
-    <Type>attribute</Type>
+               start="86"
+               type="attribute">
+    <Type type="real8"/>
     <Documentation>
      <content>&#10;&#32;&#32;&#32;* Constant PI&#10;&#32;&#32;&#32;</content>
     </Documentation>
@@ -30,8 +30,9 @@
                inherittype="local"
                line="12"
                name="Root_2"
-               start="173">
-    <Type>attribute</Type>
+               start="173"
+               type="attribute">
+    <Type type="real8"/>
     <Documentation>
      <content>&#10;&#32;&#32;&#32;* Constant square root of 2&#10;&#32;&#32;&#32;</content>
     </Documentation>
@@ -39,6 +40,7 @@
    <Documentation>
     <content>&#10;&#32;* Useful constants&#10;&#32;</content>
    </Documentation>
+   <Parents/>
   </Definition>
  </Source>
  <Source name="ML_Core.Math.DoubleFac" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Math/DoubleFac.ecl">
@@ -49,8 +51,9 @@
               inherittype="local"
               line="11"
               name="DoubleFac"
-              start="437">
-   <Type>embed</Type>
+              start="437"
+              type="embed">
+   <Type type="real8"/>
    <Documentation>
     <content>&#10;&#32;* The &apos;double&apos; factorial is defined for ODD n and is the product of
  * all the odd numbers up to and including that number.
@@ -62,7 +65,9 @@
  *@return the factorial of the sequence, declining by 2&#10;&#32;</content>
    </Documentation>
    <Params>
-    <Param name="i"/>
+    <Param name="i">
+     <Type type="integer2"/>
+    </Param>
    </Params>
   </Definition>
  </Source>
@@ -74,8 +79,8 @@
               inherittype="local"
               line="5"
               name="Distributions"
-              start="113">
-   <Type>module</Type>
+              start="113"
+              type="module">
    <Definition body="582"
                end="1056"
                exported="1"
@@ -83,8 +88,9 @@
                inherittype="local"
                line="15"
                name="Normal_CDF"
-               start="547">
-    <Type>function</Type>
+               start="547"
+               type="function">
+    <Type type="real8"/>
     <Documentation>
      <content>&#10;&#32;&#32;&#32;* Cumulative Distribution of the standard normal distribution, the
    *probability that a normal random variable will be smaller than x
@@ -95,7 +101,9 @@
    * @returns probability of exceeding x.&#10;&#32;&#32;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="x"/>
+     <Param name="x">
+      <Type type="real8"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="1359"
@@ -105,8 +113,9 @@
                inherittype="local"
                line="40"
                name="Normal_PPF"
-               start="1324">
-    <Type>function</Type>
+               start="1324"
+               type="function">
+    <Type type="real8"/>
     <Documentation>
      <content>&#10;&#32;&#32;&#32;* Normal Distribution Percentage Point Function.
    * Translated from C/C++ Mathematical Algorithms for Scientists and
@@ -115,7 +124,9 @@
    * @returns number of standard deviations from the mean&#10;&#32;&#32;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="x"/>
+     <Param name="x">
+      <Type type="real8"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="2786"
@@ -125,8 +136,9 @@
                inherittype="local"
                line="83"
                name="T_CDF"
-               start="2746">
-    <Type>function</Type>
+               start="2746"
+               type="function">
+    <Type type="real8"/>
     <Documentation>
      <content>&#10;&#32;&#32;&#32;* Students t distribution integral evaluated between negative
    * infinity and x.
@@ -137,8 +149,12 @@
    * specified value&#10;&#32;&#32;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="x"/>
-     <Param name="df"/>
+     <Param name="x">
+      <Type type="real8"/>
+     </Param>
+     <Param name="df">
+      <Type type="real8"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="6869"
@@ -148,15 +164,20 @@
                inherittype="local"
                line="212"
                name="T_PPF"
-               start="6829">
-    <Type>function</Type>
+               start="6829"
+               type="function">
+    <Type type="real8"/>
     <Documentation>
      <content>&#10;&#32;&#32;&#32;* Percentage point function for the T distribution.
    * Translated from NIST SEL DATAPAC Fortran TPPF.f source&#10;&#32;&#32;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="x"/>
-     <Param name="df"/>
+     <Param name="x">
+      <Type type="real8"/>
+     </Param>
+     <Param name="df">
+      <Type type="real8"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="9436"
@@ -166,8 +187,9 @@
                inherittype="local"
                line="290"
                name="Chi2_CDF"
-               start="9393">
-    <Type>function</Type>
+               start="9393"
+               type="function">
+    <Type type="real8"/>
     <Documentation>
      <content>&#10;&#32;&#32;&#32;* The cumulative distribution function for the Chi Square
    * distribution.
@@ -175,8 +197,12 @@
    * Translated from the NIST SEL DATAPAC Fortran subroutine CHSCDF.&#10;&#32;&#32;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="x"/>
-     <Param name="df"/>
+     <Param name="x">
+      <Type type="real8"/>
+     </Param>
+     <Param name="df">
+      <Type type="real8"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="13646"
@@ -186,15 +212,20 @@
                inherittype="local"
                line="399"
                name="Chi2_PPF"
-               start="13603">
-    <Type>function</Type>
+               start="13603"
+               type="function">
+    <Type type="real8"/>
     <Documentation>
      <content>&#10;&#32;&#32;&#32;* The Chi Squared PPF function.
    * Translated from the NIST SEL DATAPAC Fortran subroutine CHSPPF.&#10;&#32;&#32;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="x"/>
-     <Param name="df"/>
+     <Param name="x">
+      <Type type="real8"/>
+     </Param>
+     <Param name="df">
+      <Type type="real8"/>
+     </Param>
     </Params>
    </Definition>
    <Parents/>

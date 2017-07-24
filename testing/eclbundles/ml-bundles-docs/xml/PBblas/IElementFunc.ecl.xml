@@ -2,17 +2,23 @@
 <Meta>
  <Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/ML_Core/Types.ecl" name="ML_Core.Types" target="../ML_Core/Types.ecl.xml"/><Depends sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/Types.ecl" name="PBblas.Types" target="Types.ecl.xml"/><Source name="PBblas.IElementFunc" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/PBblas/IElementFunc.ecl" target="IElementFunc.ecl.xml">
   <Import name="PBBlas" ref="PBblas" target="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles-docs/$$_ECLDOC-FORM_$$/PBblas/pkg.toc.xml"/>
-  <Definition exported="1" fullname="pbblas.ielementfunc" inherittype="local" line="21" name="IElementFunc">
-   <Type>function</Type>
+  <Definition exported="1" fullname="pbblas.ielementfunc" inherittype="local" line="21" name="IElementFunc" type="function">
+   <Type type="real8"/>
    <Documentation>
-    <content>Function prototype for a function to apply to each element of the distributed matrix Base your function on this prototype:</content><see>PBblas/Apply2Elements</see><firstline>Function prototype for a function to apply to each element of the</firstline><param><name>v</name><desc>Input value</desc></param><param><name>r</name><desc>Row number (1 based)</desc></param><param><name>c</name><desc>Column number (1 based)</desc></param><return>Output value</return></Documentation>
+    <return>Output value</return><firstline>Function prototype for a function to apply to each element of the</firstline><content>Function prototype for a function to apply to each element of the distributed matrix Base your function on this prototype:</content><see>PBblas/Apply2Elements</see><param><name>v</name><desc>Input value</desc></param><param><name>r</name><desc>Row number (1 based)</desc></param><param><name>c</name><desc>Column number (1 based)</desc></param></Documentation>
    <Signature name="IElementFunc" ret="value_t" param="(value_t v, dimension_t r, dimension_t c)" hlen="20">value_t IElementFunc(value_t v, dimension_t r, dimension_t c)</Signature><Params>
-    <Param name="v"/>
-    <Param name="r"/>
-    <Param name="c"/>
+    <Param name="v">
+     <Type type="real8"/>
+    </Param>
+    <Param name="r">
+     <Type type="unsigned4"/>
+    </Param>
+    <Param name="c">
+     <Type type="unsigned4"/>
+    </Param>
    </Params>
   </Definition>
  <Documentation>
-    <content>Function prototype for a function to apply to each element of the distributed matrix Base your function on this prototype:</content><see>PBblas/Apply2Elements</see><firstline>Function prototype for a function to apply to each element of the</firstline><param><name>v</name><desc>Input value</desc></param><param><name>r</name><desc>Row number (1 based)</desc></param><param><name>c</name><desc>Column number (1 based)</desc></param><return>Output value</return></Documentation>
+    <return>Output value</return><firstline>Function prototype for a function to apply to each element of the</firstline><content>Function prototype for a function to apply to each element of the distributed matrix Base your function on this prototype:</content><see>PBblas/Apply2Elements</see><param><name>v</name><desc>Input value</desc></param><param><name>r</name><desc>Row number (1 based)</desc></param><param><name>c</name><desc>Column number (1 based)</desc></param></Documentation>
    </Source>
 </Meta>

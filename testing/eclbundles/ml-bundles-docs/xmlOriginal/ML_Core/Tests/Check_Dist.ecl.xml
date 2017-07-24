@@ -7,9 +7,8 @@
               inherittype="local"
               line="4"
               name="Constants"
-              start="28">
-   <Type>module</Type>
-   <Parents/>
+              start="28"
+              type="module">
    <Definition body="98"
                end="127"
                exported="1"
@@ -17,8 +16,9 @@
                inherittype="local"
                line="8"
                name="Pi"
-               start="86">
-    <Type>attribute</Type>
+               start="86"
+               type="attribute">
+    <Type type="real8"/>
     <Documentation>
      <content>&#10;&#32;&#32;&#32;* Constant PI&#10;&#32;&#32;&#32;</content>
     </Documentation>
@@ -30,8 +30,9 @@
                inherittype="local"
                line="12"
                name="Root_2"
-               start="173">
-    <Type>attribute</Type>
+               start="173"
+               type="attribute">
+    <Type type="real8"/>
     <Documentation>
      <content>&#10;&#32;&#32;&#32;* Constant square root of 2&#10;&#32;&#32;&#32;</content>
     </Documentation>
@@ -39,6 +40,7 @@
    <Documentation>
     <content>&#10;&#32;* Useful constants&#10;&#32;</content>
    </Documentation>
+   <Parents/>
   </Definition>
  </Source>
  <Source name="ML_Core.Math.DoubleFac" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./ML_Core/Math/DoubleFac.ecl">
@@ -49,8 +51,9 @@
               inherittype="local"
               line="11"
               name="DoubleFac"
-              start="437">
-   <Type>embed</Type>
+              start="437"
+              type="embed">
+   <Type type="real8"/>
    <Documentation>
     <content>&#10;&#32;* The &apos;double&apos; factorial is defined for ODD n and is the product of
  * all the odd numbers up to and including that number.
@@ -62,7 +65,9 @@
  *@return the factorial of the sequence, declining by 2&#10;&#32;</content>
    </Documentation>
    <Params>
-    <Param name="i"/>
+    <Param name="i">
+     <Type type="integer2"/>
+    </Param>
    </Params>
   </Definition>
  </Source>
@@ -74,8 +79,8 @@
               inherittype="local"
               line="5"
               name="Distributions"
-              start="113">
-   <Type>module</Type>
+              start="113"
+              type="module">
    <Definition body="582"
                end="1056"
                exported="1"
@@ -83,8 +88,9 @@
                inherittype="local"
                line="15"
                name="Normal_CDF"
-               start="547">
-    <Type>function</Type>
+               start="547"
+               type="function">
+    <Type type="real8"/>
     <Documentation>
      <content>&#10;&#32;&#32;&#32;* Cumulative Distribution of the standard normal distribution, the
    *probability that a normal random variable will be smaller than x
@@ -95,7 +101,9 @@
    * @returns probability of exceeding x.&#10;&#32;&#32;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="x"/>
+     <Param name="x">
+      <Type type="real8"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="1359"
@@ -105,8 +113,9 @@
                inherittype="local"
                line="40"
                name="Normal_PPF"
-               start="1324">
-    <Type>function</Type>
+               start="1324"
+               type="function">
+    <Type type="real8"/>
     <Documentation>
      <content>&#10;&#32;&#32;&#32;* Normal Distribution Percentage Point Function.
    * Translated from C/C++ Mathematical Algorithms for Scientists and
@@ -115,7 +124,9 @@
    * @returns number of standard deviations from the mean&#10;&#32;&#32;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="x"/>
+     <Param name="x">
+      <Type type="real8"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="2786"
@@ -125,8 +136,9 @@
                inherittype="local"
                line="83"
                name="T_CDF"
-               start="2746">
-    <Type>function</Type>
+               start="2746"
+               type="function">
+    <Type type="real8"/>
     <Documentation>
      <content>&#10;&#32;&#32;&#32;* Students t distribution integral evaluated between negative
    * infinity and x.
@@ -137,8 +149,12 @@
    * specified value&#10;&#32;&#32;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="x"/>
-     <Param name="df"/>
+     <Param name="x">
+      <Type type="real8"/>
+     </Param>
+     <Param name="df">
+      <Type type="real8"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="6869"
@@ -148,15 +164,20 @@
                inherittype="local"
                line="212"
                name="T_PPF"
-               start="6829">
-    <Type>function</Type>
+               start="6829"
+               type="function">
+    <Type type="real8"/>
     <Documentation>
      <content>&#10;&#32;&#32;&#32;* Percentage point function for the T distribution.
    * Translated from NIST SEL DATAPAC Fortran TPPF.f source&#10;&#32;&#32;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="x"/>
-     <Param name="df"/>
+     <Param name="x">
+      <Type type="real8"/>
+     </Param>
+     <Param name="df">
+      <Type type="real8"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="9436"
@@ -166,8 +187,9 @@
                inherittype="local"
                line="290"
                name="Chi2_CDF"
-               start="9393">
-    <Type>function</Type>
+               start="9393"
+               type="function">
+    <Type type="real8"/>
     <Documentation>
      <content>&#10;&#32;&#32;&#32;* The cumulative distribution function for the Chi Square
    * distribution.
@@ -175,8 +197,12 @@
    * Translated from the NIST SEL DATAPAC Fortran subroutine CHSCDF.&#10;&#32;&#32;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="x"/>
-     <Param name="df"/>
+     <Param name="x">
+      <Type type="real8"/>
+     </Param>
+     <Param name="df">
+      <Type type="real8"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="13646"
@@ -186,15 +212,20 @@
                inherittype="local"
                line="399"
                name="Chi2_PPF"
-               start="13603">
-    <Type>function</Type>
+               start="13603"
+               type="function">
+    <Type type="real8"/>
     <Documentation>
      <content>&#10;&#32;&#32;&#32;* The Chi Squared PPF function.
    * Translated from the NIST SEL DATAPAC Fortran subroutine CHSPPF.&#10;&#32;&#32;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="x"/>
-     <Param name="df"/>
+     <Param name="x">
+      <Type type="real8"/>
+     </Param>
+     <Param name="df">
+      <Type type="real8"/>
+     </Param>
     </Params>
    </Definition>
    <Parents/>
@@ -254,12 +285,19 @@
               inherittype="local"
               line="4"
               name="scipy_dist_cdf"
-              start="86">
-   <Type>embed</Type>
+              start="86"
+              type="embed">
+   <Type type="real8"/>
    <Params>
-    <Param name="x"/>
-    <Param name="df"/>
-    <Param name="dist"/>
+    <Param name="x">
+     <Type type="real8"/>
+    </Param>
+    <Param name="df">
+     <Type type="real8"/>
+    </Param>
+    <Param name="dist">
+     <Type type="integer8"/>
+    </Param>
    </Params>
   </Definition>
   <Definition body="449"
@@ -268,12 +306,19 @@
               inherittype="local"
               line="15"
               name="scipy_dist_ppf"
-              start="393">
-   <Type>embed</Type>
+              start="393"
+              type="embed">
+   <Type type="real8"/>
    <Params>
-    <Param name="x"/>
-    <Param name="df"/>
-    <Param name="dist"/>
+    <Param name="x">
+     <Type type="real8"/>
+    </Param>
+    <Param name="df">
+     <Type type="real8"/>
+    </Param>
+    <Param name="dist">
+     <Type type="integer8"/>
+    </Param>
    </Params>
   </Definition>
   <Definition body="735"
@@ -282,10 +327,13 @@
               inherittype="local"
               line="26"
               name="diff_tolerance"
-              start="698">
-   <Type>function</Type>
+              start="698"
+              type="function">
+   <Type type="real8"/>
    <Params>
-    <Param name="test"/>
+    <Param name="test">
+     <Type type="string4"/>
+    </Param>
    </Params>
   </Definition>
   <Definition body="976"
@@ -294,8 +342,11 @@
               inherittype="local"
               line="32"
               name="prob_values"
-              start="962">
-   <Type>attribute</Type>
+              start="962"
+              type="attribute">
+   <Type type="set">
+    <Type type="real8"/>
+   </Type>
   </Definition>
   <Definition body="1120"
               end="1177"
@@ -303,8 +354,11 @@
               inherittype="local"
               line="34"
               name="dist_values"
-              start="1106">
-   <Type>attribute</Type>
+              start="1106"
+              type="attribute">
+   <Type type="set">
+    <Type type="integer8"/>
+   </Type>
   </Definition>
   <Definition body="1190"
               end="1254"
@@ -312,8 +366,11 @@
               inherittype="local"
               line="35"
               name="df_values"
-              start="1178">
-   <Type>attribute</Type>
+              start="1178"
+              type="attribute">
+   <Type type="set">
+    <Type type="integer8"/>
+   </Type>
   </Definition>
   <Definition body="1277"
               end="1327"
@@ -321,8 +378,11 @@
               inherittype="local"
               line="36"
               name="test"
-              start="1255">
-   <Type>attribute</Type>
+              start="1255"
+              type="attribute">
+   <Type type="set">
+    <Type type="string4"/>
+   </Type>
   </Definition>
   <Definition body="1354"
               end="1380"
@@ -330,8 +390,11 @@
               inherittype="local"
               line="37"
               name="inv_test"
-              start="1328">
-   <Type>attribute</Type>
+              start="1328"
+              type="attribute">
+   <Type type="set">
+    <Type type="string4"/>
+   </Type>
   </Definition>
   <Definition body="1388"
               end="1552"
@@ -339,17 +402,35 @@
               inherittype="local"
               line="38"
               name="Work"
-              start="1381">
-   <Type>record</Type>
-   <Field name="df" type="unsigned4"/>
-   <Field name="prob" type="real8"/>
-   <Field name="ecl_ppf" type="real8"/>
-   <Field name="scipy_ppf" type="real8"/>
-   <Field name="ppf_diff" type="real8"/>
-   <Field name="dist" type="real8"/>
-   <Field name="ecl_cdf" type="real8"/>
-   <Field name="scipy_cdf" type="real8"/>
-   <Field name="cdf_diff" type="real8"/>
+              start="1381"
+              type="record">
+   <Field name="df">
+    <Type type="unsigned4"/>
+   </Field>
+   <Field name="prob">
+    <Type type="real8"/>
+   </Field>
+   <Field name="ecl_ppf">
+    <Type type="real8"/>
+   </Field>
+   <Field name="scipy_ppf">
+    <Type type="real8"/>
+   </Field>
+   <Field name="ppf_diff">
+    <Type type="real8"/>
+   </Field>
+   <Field name="dist">
+    <Type type="real8"/>
+   </Field>
+   <Field name="ecl_cdf">
+    <Type type="real8"/>
+   </Field>
+   <Field name="scipy_cdf">
+    <Type type="real8"/>
+   </Field>
+   <Field name="cdf_diff">
+    <Type type="real8"/>
+   </Field>
   </Definition>
   <Definition body="1591"
               end="1616"
@@ -357,11 +438,16 @@
               inherittype="local"
               line="49"
               name="abs_max_abs"
-              start="1553">
-   <Type>function</Type>
+              start="1553"
+              type="function">
+   <Type type="real8"/>
    <Params>
-    <Param name="a"/>
-    <Param name="b"/>
+    <Param name="a">
+     <Type type="real8"/>
+    </Param>
+    <Param name="b">
+     <Type type="real8"/>
+    </Param>
    </Params>
   </Definition>
   <Definition body="1651"
@@ -370,11 +456,16 @@
               inherittype="local"
               line="50"
               name="fixed"
-              start="1617">
-   <Type>function</Type>
+              start="1617"
+              type="function">
+   <Type type="boolean"/>
    <Params>
-    <Param name="a"/>
-    <Param name="b"/>
+    <Param name="a">
+     <Type type="real8"/>
+    </Param>
+    <Param name="b">
+     <Type type="real8"/>
+    </Param>
    </Params>
   </Definition>
   <Definition body="1726"
@@ -383,11 +474,16 @@
               inherittype="local"
               line="51"
               name="divisor"
-              start="1692">
-   <Type>function</Type>
+              start="1692"
+              type="function">
+   <Type type="real8"/>
    <Params>
-    <Param name="a"/>
-    <Param name="b"/>
+    <Param name="a">
+     <Type type="real8"/>
+    </Param>
+    <Param name="b">
+     <Type type="real8"/>
+    </Param>
    </Params>
   </Definition>
   <Definition body="1801"
@@ -396,11 +492,16 @@
               inherittype="local"
               line="52"
               name="calc_err"
-              start="1766">
-   <Type>function</Type>
+              start="1766"
+              type="function">
+   <Type type="real8"/>
    <Params>
-    <Param name="a"/>
-    <Param name="b"/>
+    <Param name="a">
+     <Type type="real8"/>
+    </Param>
+    <Param name="b">
+     <Type type="real8"/>
+    </Param>
    </Params>
   </Definition>
   <Definition body="1872"
@@ -409,12 +510,19 @@
               inherittype="local"
               line="53"
               name="check_err"
-              start="1825">
-   <Type>function</Type>
+              start="1825"
+              type="function">
+   <Type type="boolean"/>
    <Params>
-    <Param name="a"/>
-    <Param name="b"/>
-    <Param name="t"/>
+    <Param name="a">
+     <Type type="real8"/>
+    </Param>
+    <Param name="b">
+     <Type type="real8"/>
+    </Param>
+    <Param name="t">
+     <Type type="real8"/>
+    </Param>
    </Params>
   </Definition>
   <Definition body="1924"
@@ -423,13 +531,17 @@
               inherittype="local"
               line="54"
               name="run"
-              start="1890">
-   <Type>transform</Type>
+              start="1890"
+              type="transform">
+   <Type fullname="ml_core.tests.work" name="Work" type="record"/>
    <Params>
-    <Param name="c"/>
-    <Param name="d"/>
+    <Param name="c">
+     <Type type="unsigned8"/>
+    </Param>
+    <Param name="d">
+     <Type type="integer8"/>
+    </Param>
    </Params>
-   <Return>work</Return>
   </Definition>
   <Definition body="2763"
               end="2891"
@@ -437,15 +549,29 @@
               inherittype="local"
               line="74"
               name="Report"
-              start="2754">
-   <Type>record</Type>
-   <Field name="test" type="string4"/>
-   <Field name="OK" type="boolean"/>
-   <Field name="df" type="unsigned4"/>
-   <Field name="inp_value" type="real8"/>
-   <Field name="ecl_value" type="real8"/>
-   <Field name="py_value" type="real8"/>
-   <Field name="diff" type="real8"/>
+              start="2754"
+              type="record">
+   <Field name="test">
+    <Type type="string4"/>
+   </Field>
+   <Field name="OK">
+    <Type type="boolean"/>
+   </Field>
+   <Field name="df">
+    <Type type="unsigned4"/>
+   </Field>
+   <Field name="inp_value">
+    <Type type="real8"/>
+   </Field>
+   <Field name="ecl_value">
+    <Type type="real8"/>
+   </Field>
+   <Field name="py_value">
+    <Type type="real8"/>
+   </Field>
+   <Field name="diff">
+    <Type type="real8"/>
+   </Field>
   </Definition>
   <Definition body="2932"
               end="3452"
@@ -453,13 +579,19 @@
               inherittype="local"
               line="83"
               name="makeReport"
-              start="2892">
-   <Type>transform</Type>
+              start="2892"
+              type="transform">
+   <Type fullname="ml_core.tests.report" name="Report" type="record"/>
    <Params>
-    <Param name="w"/>
-    <Param name="c"/>
+    <Param name="w">
+     <Type type="row">
+      <Type fullname="ml_core.tests.work" name="Work" type="record"/>
+     </Type>
+    </Param>
+    <Param name="c">
+     <Type type="unsigned8"/>
+    </Param>
    </Params>
-   <Return>report</Return>
   </Definition>
   <Definition body="3459"
               end="3505"
@@ -467,8 +599,11 @@
               inherittype="local"
               line="95"
               name="ts1"
-              start="3453">
-   <Type>attribute</Type>
+              start="3453"
+              type="attribute">
+   <Type type="table">
+    <Type fullname="ml_core.tests.work" name="Work" type="record"/>
+   </Type>
   </Definition>
   <Definition body="3512"
               end="3574"
@@ -476,8 +611,11 @@
               inherittype="local"
               line="96"
               name="ts2"
-              start="3506">
-   <Type>attribute</Type>
+              start="3506"
+              type="attribute">
+   <Type type="table">
+    <Type fullname="ml_core.tests.work" name="Work" type="record"/>
+   </Type>
   </Definition>
   <Definition body="3581"
               end="3643"
@@ -485,8 +623,11 @@
               inherittype="local"
               line="97"
               name="ts3"
-              start="3575">
-   <Type>attribute</Type>
+              start="3575"
+              type="attribute">
+   <Type type="table">
+    <Type fullname="ml_core.tests.work" name="Work" type="record"/>
+   </Type>
   </Definition>
   <Definition body="3649"
               end="3695"
@@ -494,8 +635,33 @@
               inherittype="local"
               line="98"
               name="r1"
-              start="3644">
-   <Type>attribute</Type>
+              start="3644"
+              type="attribute">
+   <Type type="table">
+    <Type type="record" unnamed="1">
+     <Field name="test">
+      <Type type="string4"/>
+     </Field>
+     <Field name="OK">
+      <Type type="boolean"/>
+     </Field>
+     <Field name="df">
+      <Type type="unsigned4"/>
+     </Field>
+     <Field name="inp_value">
+      <Type type="real8"/>
+     </Field>
+     <Field name="ecl_value">
+      <Type type="real8"/>
+     </Field>
+     <Field name="py_value">
+      <Type type="real8"/>
+     </Field>
+     <Field name="diff">
+      <Type type="real8"/>
+     </Field>
+    </Type>
+   </Type>
   </Definition>
   <Definition body="3701"
               end="3749"
@@ -503,8 +669,33 @@
               inherittype="local"
               line="99"
               name="r2"
-              start="3696">
-   <Type>attribute</Type>
+              start="3696"
+              type="attribute">
+   <Type type="table">
+    <Type type="record" unnamed="1">
+     <Field name="test">
+      <Type type="string4"/>
+     </Field>
+     <Field name="OK">
+      <Type type="boolean"/>
+     </Field>
+     <Field name="df">
+      <Type type="unsigned4"/>
+     </Field>
+     <Field name="inp_value">
+      <Type type="real8"/>
+     </Field>
+     <Field name="ecl_value">
+      <Type type="real8"/>
+     </Field>
+     <Field name="py_value">
+      <Type type="real8"/>
+     </Field>
+     <Field name="diff">
+      <Type type="real8"/>
+     </Field>
+    </Type>
+   </Type>
   </Definition>
   <Definition body="3755"
               end="3803"
@@ -512,8 +703,33 @@
               inherittype="local"
               line="100"
               name="r3"
-              start="3750">
-   <Type>attribute</Type>
+              start="3750"
+              type="attribute">
+   <Type type="table">
+    <Type type="record" unnamed="1">
+     <Field name="test">
+      <Type type="string4"/>
+     </Field>
+     <Field name="OK">
+      <Type type="boolean"/>
+     </Field>
+     <Field name="df">
+      <Type type="unsigned4"/>
+     </Field>
+     <Field name="inp_value">
+      <Type type="real8"/>
+     </Field>
+     <Field name="ecl_value">
+      <Type type="real8"/>
+     </Field>
+     <Field name="py_value">
+      <Type type="real8"/>
+     </Field>
+     <Field name="diff">
+      <Type type="real8"/>
+     </Field>
+    </Type>
+   </Type>
   </Definition>
   <Definition body="3827"
               end="4079"
@@ -521,10 +737,13 @@
               inherittype="local"
               line="101"
               name="df_cat"
-              start="3804">
-   <Type>function</Type>
+              start="3804"
+              type="function">
+   <Type type="string10"/>
    <Params>
-    <Param name="df"/>
+    <Param name="df">
+     <Type type="unsigned4"/>
+    </Param>
    </Params>
   </Definition>
   <Definition body="4086"
@@ -533,8 +752,24 @@
               inherittype="local"
               line="106"
               name="rpt"
-              start="4080">
-   <Type>attribute</Type>
+              start="4080"
+              type="attribute">
+   <Type type="table">
+    <Type type="record" unnamed="1">
+     <Field name="test">
+      <Type type="string4"/>
+     </Field>
+     <Field name="cat">
+      <Type type="string10"/>
+     </Field>
+     <Field name="tested">
+      <Type type="integer8"/>
+     </Field>
+     <Field name="Incorrect">
+      <Type type="integer8"/>
+     </Field>
+    </Type>
+   </Type>
   </Definition>
   <Definition body="4310"
               end="4357"
@@ -542,8 +777,33 @@
               inherittype="local"
               line="111"
               name="errors"
-              start="4301">
-   <Type>attribute</Type>
+              start="4301"
+              type="attribute">
+   <Type type="table">
+    <Type type="record" unnamed="1">
+     <Field name="test">
+      <Type type="string4"/>
+     </Field>
+     <Field name="OK">
+      <Type type="boolean"/>
+     </Field>
+     <Field name="df">
+      <Type type="unsigned4"/>
+     </Field>
+     <Field name="inp_value">
+      <Type type="real8"/>
+     </Field>
+     <Field name="ecl_value">
+      <Type type="real8"/>
+     </Field>
+     <Field name="py_value">
+      <Type type="real8"/>
+     </Field>
+     <Field name="diff">
+      <Type type="real8"/>
+     </Field>
+    </Type>
+   </Type>
   </Definition>
   <Definition body="4374"
               end="4805"
@@ -551,8 +811,9 @@
               inherittype="local"
               line="112"
               name="error_actions"
-              start="4358">
-   <Type>attribute</Type>
+              start="4358"
+              type="attribute">
+   <Type type=""/>
   </Definition>
   <Definition body="4815"
               end="4875"
@@ -560,8 +821,9 @@
               inherittype="local"
               line="120"
               name="passed"
-              start="4806">
-   <Type>attribute</Type>
+              start="4806"
+              type="attribute">
+   <Type type=""/>
   </Definition>
   <Definition body="4897"
               end="4940"
@@ -570,8 +832,9 @@
               inherittype="local"
               line="122"
               name="Check_Dist"
-              start="4877">
-   <Type>attribute</Type>
+              start="4877"
+              type="attribute">
+   <Type type=""/>
   </Definition>
  </Source>
 </Meta>

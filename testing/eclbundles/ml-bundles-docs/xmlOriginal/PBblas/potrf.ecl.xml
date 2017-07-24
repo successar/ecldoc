@@ -7,8 +7,8 @@
               inherittype="local"
               line="2"
               name="Types"
-              start="22">
-   <Type>module</Type>
+              start="22"
+              type="module">
    <Definition body="944"
                end="955"
                exported="1"
@@ -16,8 +16,9 @@
                inherittype="local"
                line="22"
                name="t_RecordID"
-               start="924">
-    <Type>attribute</Type>
+               start="924"
+               type="attribute">
+    <Type type="unsigned8"/>
    </Definition>
    <Definition body="981"
                end="992"
@@ -26,8 +27,9 @@
                inherittype="local"
                line="23"
                name="t_FieldNumber"
-               start="958">
-    <Type>attribute</Type>
+               start="958"
+               type="attribute">
+    <Type type="unsigned4"/>
    </Definition>
    <Definition body="1016"
                end="1023"
@@ -36,8 +38,9 @@
                inherittype="local"
                line="24"
                name="t_FieldReal"
-               start="995">
-    <Type>attribute</Type>
+               start="995"
+               type="attribute">
+    <Type type="real8"/>
    </Definition>
    <Definition body="1047"
                end="1057"
@@ -46,8 +49,9 @@
                inherittype="local"
                line="25"
                name="t_FieldSign"
-               start="1026">
-    <Type>attribute</Type>
+               start="1026"
+               type="attribute">
+    <Type type="integer1"/>
    </Definition>
    <Definition body="1080"
                end="1090"
@@ -56,8 +60,9 @@
                inherittype="local"
                line="26"
                name="t_Discrete"
-               start="1060">
-    <Type>attribute</Type>
+               start="1060"
+               type="attribute">
+    <Type type="integer4"/>
    </Definition>
    <Definition body="1109"
                end="1120"
@@ -66,8 +71,9 @@
                inherittype="local"
                line="27"
                name="t_Item"
-               start="1093">
-    <Type>attribute</Type>
+               start="1093"
+               type="attribute">
+    <Type type="unsigned4"/>
    </Definition>
    <Definition body="1188"
                end="1200"
@@ -76,8 +82,9 @@
                inherittype="local"
                line="28"
                name="t_Count"
-               start="1171">
-    <Type>attribute</Type>
+               start="1171"
+               type="attribute">
+    <Type type="unsigned8"/>
    </Definition>
    <Definition body="1258"
                end="1269"
@@ -86,8 +93,9 @@
                inherittype="local"
                line="29"
                name="t_Work_Item"
-               start="1237">
-    <Type>attribute</Type>
+               start="1237"
+               type="attribute">
+    <Type type="unsigned2"/>
    </Definition>
    <Definition body="1391"
                end="1600"
@@ -96,11 +104,17 @@
                inherittype="local"
                line="32"
                name="AnyField"
-               start="1369">
-    <Type>record</Type>
-    <Field name="wi" type="unsigned2"/>
-    <Field name="id" type="unsigned8"/>
-    <Field name="number" type="unsigned4"/>
+               start="1369"
+               type="record">
+    <Field name="wi">
+     <Type type="unsigned2"/>
+    </Field>
+    <Field name="id">
+     <Type type="unsigned8"/>
+    </Field>
+    <Field name="number">
+     <Type type="unsigned4"/>
+    </Field>
    </Definition>
    <Definition body="1673"
                end="1720"
@@ -109,12 +123,20 @@
                inherittype="local"
                line="39"
                name="NumericField"
-               start="1651">
-    <Type>record</Type>
-    <Field name="wi" type="unsigned2"/>
-    <Field name="id" type="unsigned8"/>
-    <Field name="number" type="unsigned4"/>
-    <Field name="value" type="real8"/>
+               start="1651"
+               type="record">
+    <Field name="wi">
+     <Type type="unsigned2"/>
+    </Field>
+    <Field name="id">
+     <Type type="unsigned8"/>
+    </Field>
+    <Field name="number">
+     <Type type="unsigned4"/>
+    </Field>
+    <Field name="value">
+     <Type type="real8"/>
+    </Field>
    </Definition>
    <Definition body="1797"
                end="1843"
@@ -123,12 +145,20 @@
                inherittype="local"
                line="44"
                name="DiscreteField"
-               start="1774">
-    <Type>record</Type>
-    <Field name="wi" type="unsigned2"/>
-    <Field name="id" type="unsigned8"/>
-    <Field name="number" type="unsigned4"/>
-    <Field name="value" type="integer4"/>
+               start="1774"
+               type="record">
+    <Field name="wi">
+     <Type type="unsigned2"/>
+    </Field>
+    <Field name="id">
+     <Type type="unsigned8"/>
+    </Field>
+    <Field name="number">
+     <Type type="unsigned4"/>
+    </Field>
+    <Field name="value">
+     <Type type="integer4"/>
+    </Field>
    </Definition>
    <Definition body="1953"
                end="2200"
@@ -137,12 +167,20 @@
                inherittype="local"
                line="49"
                name="Layout_Model"
-               start="1931">
-    <Type>record</Type>
-    <Field name="wi" type="unsigned2"/>
-    <Field name="id" type="unsigned8"/>
-    <Field name="number" type="unsigned4"/>
-    <Field name="value" type="real8"/>
+               start="1931"
+               type="record">
+    <Field name="wi">
+     <Type type="unsigned2"/>
+    </Field>
+    <Field name="id">
+     <Type type="unsigned8"/>
+    </Field>
+    <Field name="number">
+     <Type type="unsigned4"/>
+    </Field>
+    <Field name="value">
+     <Type type="real8"/>
+    </Field>
    </Definition>
    <Definition body="2261"
                end="2336"
@@ -151,13 +189,23 @@
                inherittype="local"
                line="57"
                name="Classify_Result"
-               start="2236">
-    <Type>record</Type>
-    <Field name="wi" type="unsigned2"/>
-    <Field name="id" type="unsigned8"/>
-    <Field name="number" type="unsigned4"/>
-    <Field name="value" type="integer4"/>
-    <Field name="conf" type="real8"/>
+               start="2236"
+               type="record">
+    <Field name="wi">
+     <Type type="unsigned2"/>
+    </Field>
+    <Field name="id">
+     <Type type="unsigned8"/>
+    </Field>
+    <Field name="number">
+     <Type type="unsigned4"/>
+    </Field>
+    <Field name="value">
+     <Type type="integer4"/>
+    </Field>
+    <Field name="conf">
+     <Type type="real8"/>
+    </Field>
    </Definition>
    <Definition body="2357"
                end="2410"
@@ -166,13 +214,23 @@
                inherittype="local"
                line="60"
                name="l_result"
-               start="2339">
-    <Type>record</Type>
-    <Field name="wi" type="unsigned2"/>
-    <Field name="id" type="unsigned8"/>
-    <Field name="number" type="unsigned4"/>
-    <Field name="value" type="integer4"/>
-    <Field name="conf" type="real8"/>
+               start="2339"
+               type="record">
+    <Field name="wi">
+     <Type type="unsigned2"/>
+    </Field>
+    <Field name="id">
+     <Type type="unsigned8"/>
+    </Field>
+    <Field name="number">
+     <Type type="unsigned4"/>
+    </Field>
+    <Field name="value">
+     <Type type="integer4"/>
+    </Field>
+    <Field name="conf">
+     <Type type="real8"/>
+    </Field>
    </Definition>
    <Definition body="2440"
                end="2639"
@@ -181,14 +239,26 @@
                inherittype="local"
                line="62"
                name="Confusion_Detail"
-               start="2414">
-    <Type>record</Type>
-    <Field name="wi" type="unsigned2"/>
-    <Field name="classifier" type="unsigned4"/>
-    <Field name="actual_class" type="integer4"/>
-    <Field name="predict_class" type="integer4"/>
-    <Field name="occurs" type="unsigned4"/>
-    <Field name="correct" type="boolean"/>
+               start="2414"
+               type="record">
+    <Field name="wi">
+     <Type type="unsigned2"/>
+    </Field>
+    <Field name="classifier">
+     <Type type="unsigned4"/>
+    </Field>
+    <Field name="actual_class">
+     <Type type="integer4"/>
+    </Field>
+    <Field name="predict_class">
+     <Type type="integer4"/>
+    </Field>
+    <Field name="occurs">
+     <Type type="unsigned4"/>
+    </Field>
+    <Field name="correct">
+     <Type type="boolean"/>
+    </Field>
    </Definition>
    <Definition body="2711"
                end="2782"
@@ -197,11 +267,17 @@
                inherittype="local"
                line="72"
                name="ItemElement"
-               start="2690">
-    <Type>record</Type>
-    <Field name="wi" type="unsigned2"/>
-    <Field name="value" type="unsigned4"/>
-    <Field name="id" type="unsigned8"/>
+               start="2690"
+               type="record">
+    <Field name="wi">
+     <Type type="unsigned2"/>
+    </Field>
+    <Field name="value">
+     <Type type="unsigned4"/>
+    </Field>
+    <Field name="id">
+     <Type type="unsigned8"/>
+    </Field>
    </Definition>
    <Definition body="2848"
                end="2858"
@@ -210,8 +286,9 @@
                inherittype="local"
                line="79"
                name="t_node"
-               start="2831">
-    <Type>attribute</Type>
+               start="2831"
+               type="attribute">
+    <Type type="integer4"/>
    </Definition>
    <Definition body="2942"
                end="2953"
@@ -220,8 +297,9 @@
                inherittype="local"
                line="80"
                name="t_level"
-               start="2925">
-    <Type>attribute</Type>
+               start="2925"
+               type="attribute">
+    <Type type="unsigned2"/>
    </Definition>
    <Definition body="2995"
                end="3069"
@@ -230,11 +308,17 @@
                inherittype="local"
                line="81"
                name="NodeID"
-               start="2978">
-    <Type>record</Type>
-    <Field name="wi" type="unsigned2"/>
-    <Field name="node_id" type="integer4"/>
-    <Field name="level" type="unsigned2"/>
+               start="2978"
+               type="record">
+    <Field name="wi">
+     <Type type="unsigned2"/>
+    </Field>
+    <Field name="node_id">
+     <Type type="integer4"/>
+    </Field>
+    <Field name="level">
+     <Type type="unsigned2"/>
+    </Field>
    </Definition>
    <Parents/>
   </Definition>
@@ -247,9 +331,8 @@
               inherittype="local"
               line="11"
               name="Types"
-              start="501">
-   <Type>module</Type>
-   <Parents/>
+              start="501"
+              type="module">
    <Definition body="692"
                end="703"
                exported="1"
@@ -257,8 +340,9 @@
                inherittype="local"
                line="16"
                name="dimension_t"
-               start="670">
-    <Type>attribute</Type>
+               start="670"
+               type="attribute">
+    <Type type="unsigned4"/>
     <Documentation>
      <content>&#10;&#32;&#32;&#32;&#32;* Type for matrix dimensions.  Uses UNSIGNED four as matrixes
     * are not designed to support more than 4 B rows or columns.&#10;&#32;&#32;&#32;&#32;</content>
@@ -271,8 +355,9 @@
                inherittype="local"
                line="20"
                name="partition_t"
-               start="829">
-    <Type>attribute</Type>
+               start="829"
+               type="attribute">
+    <Type type="unsigned2"/>
     <Documentation>
      <content>&#10;&#32;&#32;&#32;&#32;* Type for partition id -- only supports up to 64K partitions&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
@@ -284,8 +369,9 @@
                inherittype="local"
                line="24"
                name="work_item_t"
-               start="945">
-    <Type>attribute</Type>
+               start="945"
+               type="attribute">
+    <Type type="unsigned2"/>
     <Documentation>
      <content>&#10;&#32;&#32;&#32;&#32;* Type for work-item id -- only supports up to 64K work items&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
@@ -297,8 +383,9 @@
                inherittype="local"
                line="30"
                name="value_t"
-               start="1087">
-    <Type>attribute</Type>
+               start="1087"
+               type="attribute">
+    <Type type="real8"/>
     <Documentation>
      <content>&#10;&#32;&#32;&#32;&#32;* Type for matrix cell values
     * 
@@ -312,8 +399,9 @@
                inherittype="local"
                line="35"
                name="m_label_t"
-               start="1250">
-    <Type>attribute</Type>
+               start="1250"
+               type="attribute">
+    <Type type="string3"/>
     <Documentation>
      <content>&#10;&#32;&#32;&#32;&#32;* Type for matrix label.  Used for Matrix dimensions (see Layout_Dims)
     * and for partitions (see Layout_Part)&#10;&#32;&#32;&#32;&#32;</content>
@@ -325,8 +413,9 @@
                inherittype="local"
                line="41"
                name="Triangle"
-               start="1382">
-    <Type>attribute</Type>
+               start="1382"
+               type="attribute">
+    <Type type="unsigned1"/>
     <Documentation>
      <content>&#10;&#32;&#32;&#32;&#32;* Enumeration for Triangle type
     * 
@@ -339,8 +428,9 @@
                inherittype="local"
                line="47"
                name="Diagonal"
-               start="1542">
-    <Type>attribute</Type>
+               start="1542"
+               type="attribute">
+    <Type type="unsigned1"/>
     <Documentation>
      <content>&#10;&#32;&#32;&#32;&#32;* Enumeration for Diagonal type
     * 
@@ -353,8 +443,9 @@
                inherittype="local"
                line="53"
                name="Side"
-               start="1707">
-    <Type>attribute</Type>
+               start="1707"
+               type="attribute">
+    <Type type="unsigned1"/>
     <Documentation>
      <content>&#10;&#32;&#32;&#32;&#32;* Enumeration for Side type
     * 
@@ -368,8 +459,9 @@
                inherittype="local"
                line="60"
                name="t_mu_no"
-               start="1871">
-    <Type>attribute</Type>
+               start="1871"
+               type="attribute">
+    <Type type="unsigned2"/>
     <Documentation>
      <content>&#10;&#32;&#32;&#32;&#32;* Type for matrix universe number
     *
@@ -384,12 +476,20 @@
                inherittype="local"
                line="94"
                name="Layout_Cell"
-               start="3714">
-    <Type>record</Type>
-    <Field name="wi_id" type="unsigned2"/>
-    <Field name="x" type="unsigned4"/>
-    <Field name="y" type="unsigned4"/>
-    <Field name="v" type="real8"/>
+               start="3714"
+               type="record">
+    <Field name="wi_id">
+     <Type type="unsigned2"/>
+    </Field>
+    <Field name="x">
+     <Type type="unsigned4"/>
+    </Field>
+    <Field name="y">
+     <Type type="unsigned4"/>
+    </Field>
+    <Field name="v">
+     <Type type="real8"/>
+    </Field>
     <Documentation>
      <content>&#10;&#32;&#32;&#32;&#32;* Layout for Matrix Cell
     *
@@ -431,10 +531,14 @@
                inherittype="local"
                line="108"
                name="Layout_Norm"
-               start="4213">
-    <Type>record</Type>
-    <Field name="wi_id" type="unsigned2"/>
-    <Field name="v" type="real8"/>
+               start="4213"
+               type="record">
+    <Field name="wi_id">
+     <Type type="unsigned2"/>
+    </Field>
+    <Field name="v">
+     <Type type="real8"/>
+    </Field>
     <Documentation>
      <content>&#10;&#32;&#32;&#32;&#32;* Layout for Norm results.
     *
@@ -448,6 +552,7 @@
   * WARNING: attributes marked with WARNING can not be changed without making
   * corresponding changes to the C++ attributes.&#10;&#32;&#32;</content>
    </Documentation>
+   <Parents/>
   </Definition>
   <Import body="0"
           end="248"
@@ -476,8 +581,8 @@
               inherittype="local"
               line="19"
               name="BLAS"
-              start="839">
-   <Type>module</Type>
+              start="839"
+              type="module">
    <Definition body="947"
                end="1456"
                exported="1"
@@ -485,8 +590,8 @@
                inherittype="local"
                line="21"
                name="Types"
-               start="932">
-    <Type>module</Type>
+               start="932"
+               type="module">
     <Definition body="982"
                 end="1008"
                 exported="1"
@@ -494,8 +599,9 @@
                 inherittype="local"
                 line="22"
                 name="value_t"
-                start="960">
-     <Type>attribute</Type>
+                start="960"
+                type="attribute">
+     <Type type="real8"/>
     </Definition>
     <Definition body="1049"
                 end="1079"
@@ -504,8 +610,9 @@
                 inherittype="local"
                 line="23"
                 name="dimension_t"
-                start="1027">
-     <Type>attribute</Type>
+                start="1027"
+                type="attribute">
+     <Type type="unsigned4"/>
     </Definition>
     <Definition body="1120"
                 end="1147"
@@ -514,8 +621,11 @@
                 inherittype="local"
                 line="24"
                 name="matrix_t"
-                start="1098">
-     <Type>attribute</Type>
+                start="1098"
+                type="attribute">
+     <Type type="set">
+      <Type type="real8"/>
+     </Type>
     </Definition>
     <Definition body="1193"
                 end="1220"
@@ -523,8 +633,9 @@
                 inherittype="local"
                 line="25"
                 name="Triangle"
-                start="1171">
-     <Type>attribute</Type>
+                start="1171"
+                type="attribute">
+     <Type type="unsigned1"/>
     </Definition>
     <Definition body="1287"
                 end="1314"
@@ -532,8 +643,9 @@
                 inherittype="local"
                 line="26"
                 name="Diagonal"
-                start="1265">
-     <Type>attribute</Type>
+                start="1265"
+                type="attribute">
+     <Type type="unsigned1"/>
     </Definition>
     <Definition body="1388"
                 end="1411"
@@ -541,8 +653,9 @@
                 inherittype="local"
                 line="27"
                 name="Side"
-                start="1366">
-     <Type>attribute</Type>
+                start="1366"
+                type="attribute">
+     <Type type="unsigned1"/>
     </Definition>
     <Parents/>
    </Definition>
@@ -553,8 +666,9 @@
                inherittype="local"
                line="37"
                name="ICellFunc"
-               start="1639">
-    <Type>function</Type>
+               start="1639"
+               type="function">
+    <Type type="real8"/>
     <Documentation>
      <content>&#13;&#10;&#32;&#32;&#32;* Function prototype for Apply2Cell.
    * @param v the value
@@ -563,9 +677,15 @@
    * @return the updated value&#13;&#10;&#32;&#32;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="v"/>
-     <Param name="r"/>
-     <Param name="c"/>
+     <Param name="v">
+      <Type type="real8"/>
+     </Param>
+     <Param name="r">
+      <Type type="unsigned4"/>
+     </Param>
+     <Param name="c">
+      <Type type="unsigned4"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="2237"
@@ -575,8 +695,11 @@
                inherittype="local"
                line="49"
                name="Apply2Cells"
-               start="2017">
-    <Type>function</Type>
+               start="2017"
+               type="function">
+    <Type type="set">
+     <Type type="real8"/>
+    </Type>
     <Documentation>
      <content>&#13;&#10;&#32;&#32;&#32;* Iterate matrix and apply function to each cell
    *@param m number of rows
@@ -586,10 +709,27 @@
    *@return updated matrix&#13;&#10;&#32;&#32;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="m"/>
-     <Param name="n"/>
-     <Param name="x"/>
-     <Param name="f"/>
+     <Param name="m">
+      <Type type="unsigned4"/>
+     </Param>
+     <Param name="n">
+      <Type type="unsigned4"/>
+     </Param>
+     <Param name="x">
+      <Type type="set">
+       <Type type="real8"/>
+      </Type>
+     </Param>
+     <Param name="f">
+      <Type type="function">
+       <Type type="real8"/>
+       <Params>
+        <Type type="real8"/>
+        <Type type="unsigned4"/>
+        <Type type="unsigned4"/>
+       </Params>
+      </Type>
+     </Param>
     </Params>
    </Definition>
    <Definition body="3082"
@@ -599,8 +739,9 @@
                inherittype="local"
                line="73"
                name="dasum"
-               start="2934">
-    <Type>function</Type>
+               start="2934"
+               type="function">
+    <Type type="real8"/>
     <Documentation>
      <content>&#13;&#10;&#32;&#32;&#32;* Absolute sum, the 1 norm of a vector.
    *@param m the number of entries
@@ -611,10 +752,20 @@
    *@return the sum of the absolute values&#13;&#10;&#32;&#32;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="m"/>
-     <Param name="x"/>
-     <Param name="incx"/>
-     <Param name="skipped"/>
+     <Param name="m">
+      <Type type="unsigned4"/>
+     </Param>
+     <Param name="x">
+      <Type type="set">
+       <Type type="real8"/>
+      </Type>
+     </Param>
+     <Param name="incx">
+      <Type type="unsigned4"/>
+     </Param>
+     <Param name="skipped">
+      <Type type="unsigned4"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="3887"
@@ -624,8 +775,11 @@
                inherittype="local"
                line="90"
                name="daxpy"
-               start="3626">
-    <Type>function</Type>
+               start="3626"
+               type="function">
+    <Type type="set">
+     <Type type="real8"/>
+    </Type>
     <Documentation>
      <content>&#13;&#10;&#32;* alpha*X + Y
  * @param N number of elements in vector
@@ -639,14 +793,34 @@
  * @return the updated matrix&#13;&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="N"/>
-     <Param name="alpha"/>
-     <Param name="X"/>
-     <Param name="incX"/>
-     <Param name="Y"/>
-     <Param name="incY"/>
-     <Param name="x_skipped"/>
-     <Param name="y_skipped"/>
+     <Param name="N">
+      <Type type="unsigned4"/>
+     </Param>
+     <Param name="alpha">
+      <Type type="real8"/>
+     </Param>
+     <Param name="X">
+      <Type type="set">
+       <Type type="real8"/>
+      </Type>
+     </Param>
+     <Param name="incX">
+      <Type type="unsigned4"/>
+     </Param>
+     <Param name="Y">
+      <Type type="set">
+       <Type type="real8"/>
+      </Type>
+     </Param>
+     <Param name="incY">
+      <Type type="unsigned4"/>
+     </Param>
+     <Param name="x_skipped">
+      <Type type="unsigned4"/>
+     </Param>
+     <Param name="y_skipped">
+      <Type type="unsigned4"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="4764"
@@ -656,8 +830,11 @@
                inherittype="local"
                line="109"
                name="dgemm"
-               start="4465">
-    <Type>function</Type>
+               start="4465"
+               type="function">
+    <Type type="set">
+     <Type type="real8"/>
+    </Type>
     <Documentation>
      <content>&#13;&#10;&#32;&#32;&#32;* alpha*op(A) op(B) + beta*C where op() is transpose
    * @param transposeA true when transpose of A is used
@@ -672,16 +849,42 @@
    * @param C matrix C or empty&#13;&#10;&#32;&#32;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="transposeA"/>
-     <Param name="transposeB"/>
-     <Param name="M"/>
-     <Param name="N"/>
-     <Param name="K"/>
-     <Param name="alpha"/>
-     <Param name="A"/>
-     <Param name="B"/>
-     <Param name="beta"/>
-     <Param name="C"/>
+     <Param name="transposeA">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="transposeB">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="M">
+      <Type type="unsigned4"/>
+     </Param>
+     <Param name="N">
+      <Type type="unsigned4"/>
+     </Param>
+     <Param name="K">
+      <Type type="unsigned4"/>
+     </Param>
+     <Param name="alpha">
+      <Type type="real8"/>
+     </Param>
+     <Param name="A">
+      <Type type="set">
+       <Type type="real8"/>
+      </Type>
+     </Param>
+     <Param name="B">
+      <Type type="set">
+       <Type type="real8"/>
+      </Type>
+     </Param>
+     <Param name="beta">
+      <Type type="real8"/>
+     </Param>
+     <Param name="C">
+      <Type type="set">
+       <Type type="real8"/>
+      </Type>
+     </Param>
     </Params>
    </Definition>
    <Definition body="5261"
@@ -691,8 +894,11 @@
                inherittype="local"
                line="124"
                name="dgetf2"
-               start="5153">
-    <Type>function</Type>
+               start="5153"
+               type="function">
+    <Type type="set">
+     <Type type="real8"/>
+    </Type>
     <Documentation>
      <content>&#13;&#10;&#32;&#32;&#32;* Compute LU Factorization of matrix A.
    * @param m number of rows of A
@@ -702,9 +908,17 @@
    *         composite.&#13;&#10;&#32;&#32;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="m"/>
-     <Param name="n"/>
-     <Param name="a"/>
+     <Param name="m">
+      <Type type="unsigned4"/>
+     </Param>
+     <Param name="n">
+      <Type type="unsigned4"/>
+     </Param>
+     <Param name="a">
+      <Type type="set">
+       <Type type="real8"/>
+      </Type>
+     </Param>
     </Params>
    </Definition>
    <Definition body="6087"
@@ -714,8 +928,11 @@
                inherittype="local"
                line="143"
                name="dpotf2"
-               start="5934">
-    <Type>function</Type>
+               start="5934"
+               type="function">
+    <Type type="set">
+     <Type type="real8"/>
+    </Type>
     <Documentation>
      <content>&#13;&#10;&#32;&#32;&#32;* DPOTF2 computes the Cholesky factorization of a real symmetric
    * positive definite matrix A.
@@ -731,10 +948,20 @@
    * @return the triangular matrix requested.&#13;&#10;&#32;&#32;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="tri"/>
-     <Param name="r"/>
-     <Param name="A"/>
-     <Param name="clear"/>
+     <Param name="tri">
+      <Type type="unsigned1"/>
+     </Param>
+     <Param name="r">
+      <Type type="unsigned4"/>
+     </Param>
+     <Param name="A">
+      <Type type="set">
+       <Type type="real8"/>
+      </Type>
+     </Param>
+     <Param name="clear">
+      <Type type="boolean"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="6683"
@@ -744,8 +971,11 @@
                inherittype="local"
                line="157"
                name="dscal"
-               start="6507">
-    <Type>function</Type>
+               start="6507"
+               type="function">
+    <Type type="set">
+     <Type type="real8"/>
+    </Type>
     <Documentation>
      <content>&#13;&#10;&#32;&#32;&#32;* Scale a vector alpha
    * @param N number of elements in the vector
@@ -756,11 +986,23 @@
    * @return the updated matrix&#13;&#10;&#32;&#32;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="N"/>
-     <Param name="alpha"/>
-     <Param name="X"/>
-     <Param name="incX"/>
-     <Param name="skipped"/>
+     <Param name="N">
+      <Type type="unsigned4"/>
+     </Param>
+     <Param name="alpha">
+      <Type type="real8"/>
+     </Param>
+     <Param name="X">
+      <Type type="set">
+       <Type type="real8"/>
+      </Type>
+     </Param>
+     <Param name="incX">
+      <Type type="unsigned4"/>
+     </Param>
+     <Param name="skipped">
+      <Type type="unsigned4"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="7689"
@@ -770,8 +1012,11 @@
                inherittype="local"
                line="177"
                name="dsyrk"
-               start="7415">
-    <Type>function</Type>
+               start="7415"
+               type="function">
+    <Type type="set">
+     <Type type="real8"/>
+    </Type>
     <Documentation>
      <content>&#13;&#10;&#32;&#32;&#32;* Implements symmetric rank update C &lt;- alpha A**T A + beta C or
    * c &lt;- alpha A A**T + beta C.  C is N x N.
@@ -788,15 +1033,37 @@
    * option lets you make that true.&#13;&#10;&#32;&#32;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="tri"/>
-     <Param name="transposeA"/>
-     <Param name="N"/>
-     <Param name="K"/>
-     <Param name="alpha"/>
-     <Param name="A"/>
-     <Param name="beta"/>
-     <Param name="C"/>
-     <Param name="clear"/>
+     <Param name="tri">
+      <Type type="unsigned1"/>
+     </Param>
+     <Param name="transposeA">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="N">
+      <Type type="unsigned4"/>
+     </Param>
+     <Param name="K">
+      <Type type="unsigned4"/>
+     </Param>
+     <Param name="alpha">
+      <Type type="real8"/>
+     </Param>
+     <Param name="A">
+      <Type type="set">
+       <Type type="real8"/>
+      </Type>
+     </Param>
+     <Param name="beta">
+      <Type type="real8"/>
+     </Param>
+     <Param name="C">
+      <Type type="set">
+       <Type type="real8"/>
+      </Type>
+     </Param>
+     <Param name="clear">
+      <Type type="boolean"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="8753"
@@ -806,8 +1073,11 @@
                inherittype="local"
                line="199"
                name="dtrsm"
-               start="8458">
-    <Type>function</Type>
+               start="8458"
+               type="function">
+    <Type type="set">
+     <Type type="real8"/>
+    </Type>
     <Documentation>
      <content>&#13;&#10;&#32;&#32;&#32;* Triangular matrix solver.  op(A) X = alpha B or X op(A) = alpha B
    * where op is Transpose, X and B is MxN
@@ -824,16 +1094,40 @@
    * @return the matrix of coefficients to get B.&#13;&#10;&#32;&#32;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="side"/>
-     <Param name="tri"/>
-     <Param name="transposeA"/>
-     <Param name="diag"/>
-     <Param name="M"/>
-     <Param name="N"/>
-     <Param name="lda"/>
-     <Param name="alpha"/>
-     <Param name="A"/>
-     <Param name="B"/>
+     <Param name="side">
+      <Type type="unsigned1"/>
+     </Param>
+     <Param name="tri">
+      <Type type="unsigned1"/>
+     </Param>
+     <Param name="transposeA">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="diag">
+      <Type type="unsigned1"/>
+     </Param>
+     <Param name="M">
+      <Type type="unsigned4"/>
+     </Param>
+     <Param name="N">
+      <Type type="unsigned4"/>
+     </Param>
+     <Param name="lda">
+      <Type type="unsigned4"/>
+     </Param>
+     <Param name="alpha">
+      <Type type="real8"/>
+     </Param>
+     <Param name="A">
+      <Type type="set">
+       <Type type="real8"/>
+      </Type>
+     </Param>
+     <Param name="B">
+      <Type type="set">
+       <Type type="real8"/>
+      </Type>
+     </Param>
     </Params>
    </Definition>
    <Definition body="9216"
@@ -843,8 +1137,11 @@
                inherittype="local"
                line="213"
                name="extract_diag"
-               start="9043">
-    <Type>function</Type>
+               start="9043"
+               type="function">
+    <Type type="set">
+     <Type type="real8"/>
+    </Type>
     <Documentation>
      <content>&#13;&#10;&#32;&#32;&#32;* Extract the diagonal of he matrix
    * @param m number of rows
@@ -853,9 +1150,17 @@
    * @return diagonal matrix&#13;&#10;&#32;&#32;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="m"/>
-     <Param name="n"/>
-     <Param name="x"/>
+     <Param name="m">
+      <Type type="unsigned4"/>
+     </Param>
+     <Param name="n">
+      <Type type="unsigned4"/>
+     </Param>
+     <Param name="x">
+      <Type type="set">
+       <Type type="real8"/>
+      </Type>
+     </Param>
     </Params>
    </Definition>
    <Definition body="10129"
@@ -865,8 +1170,11 @@
                inherittype="local"
                line="236"
                name="extract_tri"
-               start="9932">
-    <Type>function</Type>
+               start="9932"
+               type="function">
+    <Type type="set">
+     <Type type="real8"/>
+    </Type>
     <Documentation>
      <content>&#13;&#10;&#32;&#32;&#32;* Extract the upper or lower triangle.  Diagonal can be actual or implied
    * unit diagonal.
@@ -878,11 +1186,23 @@
    * @return the triangle&#13;&#10;&#32;&#32;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="m"/>
-     <Param name="n"/>
-     <Param name="tri"/>
-     <Param name="dt"/>
-     <Param name="a"/>
+     <Param name="m">
+      <Type type="unsigned4"/>
+     </Param>
+     <Param name="n">
+      <Type type="unsigned4"/>
+     </Param>
+     <Param name="tri">
+      <Type type="unsigned1"/>
+     </Param>
+     <Param name="dt">
+      <Type type="unsigned1"/>
+     </Param>
+     <Param name="a">
+      <Type type="set">
+       <Type type="real8"/>
+      </Type>
+     </Param>
     </Params>
    </Definition>
    <Definition body="10545"
@@ -892,8 +1212,11 @@
                inherittype="local"
                line="249"
                name="make_diag"
-               start="10418">
-    <Type>function</Type>
+               start="10418"
+               type="function">
+    <Type type="set">
+     <Type type="real8"/>
+    </Type>
     <Documentation>
      <content>&#13;&#10;&#32;&#32;&#32;* Generate a diagonal matrix.
    * @param m number of diagonal entries
@@ -902,9 +1225,17 @@
    * @return a diagonal matrix&#13;&#10;&#32;&#32;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="m"/>
-     <Param name="v"/>
-     <Param name="X"/>
+     <Param name="m">
+      <Type type="unsigned4"/>
+     </Param>
+     <Param name="v">
+      <Type type="real8"/>
+     </Param>
+     <Param name="X">
+      <Type type="set">
+       <Type type="real8"/>
+      </Type>
+     </Param>
     </Params>
    </Definition>
    <Definition body="11071"
@@ -914,8 +1245,11 @@
                inherittype="local"
                line="268"
                name="make_vector"
-               start="10967">
-    <Type>function</Type>
+               start="10967"
+               type="function">
+    <Type type="set">
+     <Type type="real8"/>
+    </Type>
     <Documentation>
      <content>&#13;&#10;&#32;&#32;&#32;* Make a vector of dimension m
    * @param m number of elements
@@ -923,8 +1257,12 @@
    * @return the vector&#13;&#10;&#32;&#32;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="m"/>
-     <Param name="v"/>
+     <Param name="m">
+      <Type type="unsigned4"/>
+     </Param>
+     <Param name="v">
+      <Type type="real8"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="11426"
@@ -934,8 +1272,9 @@
                inherittype="local"
                line="279"
                name="trace"
-               start="11297">
-    <Type>function</Type>
+               start="11297"
+               type="function">
+    <Type type="real8"/>
     <Documentation>
      <content>&#13;&#10;&#32;&#32;&#32;* The trace of the input matrix
    * @param m number of rows
@@ -944,9 +1283,17 @@
    * @return the trace (sum of the diagonal entries)&#13;&#10;&#32;&#32;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="m"/>
-     <Param name="n"/>
-     <Param name="x"/>
+     <Param name="m">
+      <Type type="unsigned4"/>
+     </Param>
+     <Param name="n">
+      <Type type="unsigned4"/>
+     </Param>
+     <Param name="x">
+      <Type type="set">
+       <Type type="real8"/>
+      </Type>
+     </Param>
     </Params>
    </Definition>
    <Parents/>
@@ -990,8 +1337,9 @@
               inherittype="local"
               line="7"
               name="dimension_t"
-              start="295">
-   <Type>attribute</Type>
+              start="295"
+              type="attribute">
+   <Type type="unsigned4"/>
   </Definition>
   <Definition body="344"
               end="364"
@@ -999,8 +1347,9 @@
               inherittype="local"
               line="8"
               name="partition_t"
-              start="330">
-   <Type>attribute</Type>
+              start="330"
+              type="attribute">
+   <Type type="unsigned2"/>
   </Definition>
   <Definition body="379"
               end="399"
@@ -1008,8 +1357,9 @@
               inherittype="local"
               line="9"
               name="work_item_t"
-              start="365">
-   <Type>attribute</Type>
+              start="365"
+              type="attribute">
+   <Type type="unsigned2"/>
   </Definition>
   <Definition body="636"
               end="8878"
@@ -1018,9 +1368,8 @@
               inherittype="local"
               line="16"
               name="Types"
-              start="621">
-   <Type>module</Type>
-   <Parents/>
+              start="621"
+              type="module">
    <Definition body="747"
                end="758"
                exported="1"
@@ -1028,8 +1377,9 @@
                inherittype="local"
                line="20"
                name="partition_t"
-               start="725">
-    <Type>attribute</Type>
+               start="725"
+               type="attribute">
+    <Type type="unsigned2"/>
     <Documentation>
      <content>&#10;&#32;&#32;&#32;&#32;* Type for partition id -- only supports up to 64K partitions&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
@@ -1041,8 +1391,9 @@
                inherittype="local"
                line="24"
                name="node_t"
-               start="830">
-    <Type>attribute</Type>
+               start="830"
+               type="attribute">
+    <Type type="unsigned2"/>
     <Documentation>
      <content>&#10;&#32;&#32;&#32;&#32;* Type for node id -- only supports up to 64K nodes&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
@@ -1054,8 +1405,9 @@
                inherittype="local"
                line="30"
                name="value_t"
-               start="962">
-    <Type>attribute</Type>
+               start="962"
+               type="attribute">
+    <Type type="real8"/>
     <Documentation>
      <content>&#10;&#32;&#32;&#32;&#32;* Type for matrix cell values
     * 
@@ -1069,8 +1421,9 @@
                inherittype="local"
                line="35"
                name="m_label_t"
-               start="1125">
-    <Type>attribute</Type>
+               start="1125"
+               type="attribute">
+    <Type type="string3"/>
     <Documentation>
      <content>&#10;&#32;&#32;&#32;&#32;* Type for matrix label.  Used for Matrix dimensions (see Layout_Dims)
     * and for partitions (see Layout_Part)&#10;&#32;&#32;&#32;&#32;</content>
@@ -1083,8 +1436,11 @@
                inherittype="local"
                line="58"
                name="matrix_t"
-               start="1871">
-    <Type>attribute</Type>
+               start="1871"
+               type="attribute">
+    <Type type="set">
+     <Type type="real8"/>
+    </Type>
     <Documentation>
      <content>&#10;&#32;&#32;&#32;&#32;* Type for dense matrix storage
     *
@@ -1114,8 +1470,9 @@
                inherittype="local"
                line="63"
                name="PartitionType"
-               start="1964">
-    <Type>attribute</Type>
+               start="1964"
+               type="attribute">
+    <Type type="unsigned1"/>
     <Documentation>
      <content>&#10;&#32;&#32;&#32;&#32;* Enumeration for Partitioning Type&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
@@ -1127,13 +1484,16 @@
                inherittype="local"
                line="73"
                name="PartitionTypeString"
-               start="2356">
-    <Type>function</Type>
+               start="2356"
+               type="function">
+    <Type type="string6"/>
     <Documentation>
      <content>&#10;&#32;&#32;&#32;&#32;* Translation of PartitionType enumeration&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="pt"/>
+     <Param name="pt">
+      <Type type="unsigned1"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="2445"
@@ -1142,8 +1502,9 @@
                inherittype="local"
                line="74"
                name="OpType"
-               start="2429">
-    <Type>attribute</Type>
+               start="2429"
+               type="attribute">
+    <Type type="unsigned1"/>
    </Definition>
    <Definition body="3090"
                end="3101"
@@ -1152,8 +1513,9 @@
                inherittype="local"
                line="88"
                name="t_mu_no"
-               start="3068">
-    <Type>attribute</Type>
+               start="3068"
+               type="attribute">
+    <Type type="unsigned2"/>
     <Documentation>
      <content>&#10;&#32;&#32;&#32;&#32;* Type for matrix universe number
     *
@@ -1168,23 +1530,55 @@
                inherittype="local"
                line="133"
                name="Layout_Part"
-               start="5851">
-    <Type>record</Type>
-    <Field name="m_label" type="string3"/>
-    <Field name="wi_id" type="unsigned2"/>
-    <Field name="partition_id" type="unsigned2"/>
-    <Field name="node_id" type="unsigned2"/>
-    <Field name="m_rows" type="unsigned4"/>
-    <Field name="m_cols" type="unsigned4"/>
-    <Field name="row_blocks" type="unsigned4"/>
-    <Field name="col_blocks" type="unsigned4"/>
-    <Field name="block_row" type="unsigned4"/>
-    <Field name="block_col" type="unsigned4"/>
-    <Field name="part_rows" type="unsigned4"/>
-    <Field name="part_cols" type="unsigned4"/>
-    <Field name="first_row" type="unsigned4"/>
-    <Field name="first_col" type="unsigned4"/>
-    <Field name="mat_part" type="set of real8"/>
+               start="5851"
+               type="record">
+    <Field name="m_label">
+     <Type type="string3"/>
+    </Field>
+    <Field name="wi_id">
+     <Type type="unsigned2"/>
+    </Field>
+    <Field name="partition_id">
+     <Type type="unsigned2"/>
+    </Field>
+    <Field name="node_id">
+     <Type type="unsigned2"/>
+    </Field>
+    <Field name="m_rows">
+     <Type type="unsigned4"/>
+    </Field>
+    <Field name="m_cols">
+     <Type type="unsigned4"/>
+    </Field>
+    <Field name="row_blocks">
+     <Type type="unsigned4"/>
+    </Field>
+    <Field name="col_blocks">
+     <Type type="unsigned4"/>
+    </Field>
+    <Field name="block_row">
+     <Type type="unsigned4"/>
+    </Field>
+    <Field name="block_col">
+     <Type type="unsigned4"/>
+    </Field>
+    <Field name="part_rows">
+     <Type type="unsigned4"/>
+    </Field>
+    <Field name="part_cols">
+     <Type type="unsigned4"/>
+    </Field>
+    <Field name="first_row">
+     <Type type="unsigned4"/>
+    </Field>
+    <Field name="first_col">
+     <Type type="unsigned4"/>
+    </Field>
+    <Field name="mat_part">
+     <Type type="set">
+      <Type type="real8"/>
+     </Type>
+    </Field>
     <Documentation>
      <content>&#10;&#32;&#32;&#32;&#32;* Alternate form for storage of large matrixes as a set of partitions
     * Each partition holds the dense form of a piece of the matrix (see matrix_t)
@@ -1236,28 +1630,70 @@
                inherittype="local"
                line="164"
                name="Layout_Target"
-               start="7144">
-    <Type>record</Type>
-    <Field name="t_part_id" type="unsigned2"/>
-    <Field name="t_node_id" type="unsigned2"/>
-    <Field name="t_block_row" type="unsigned4"/>
-    <Field name="t_block_col" type="unsigned4"/>
-    <Field name="t_term" type="unsigned4"/>
-    <Field name="m_label" type="string3"/>
-    <Field name="wi_id" type="unsigned2"/>
-    <Field name="partition_id" type="unsigned2"/>
-    <Field name="node_id" type="unsigned2"/>
-    <Field name="m_rows" type="unsigned4"/>
-    <Field name="m_cols" type="unsigned4"/>
-    <Field name="row_blocks" type="unsigned4"/>
-    <Field name="col_blocks" type="unsigned4"/>
-    <Field name="block_row" type="unsigned4"/>
-    <Field name="block_col" type="unsigned4"/>
-    <Field name="part_rows" type="unsigned4"/>
-    <Field name="part_cols" type="unsigned4"/>
-    <Field name="first_row" type="unsigned4"/>
-    <Field name="first_col" type="unsigned4"/>
-    <Field name="mat_part" type="set of real8"/>
+               start="7144"
+               type="record">
+    <Field name="t_part_id">
+     <Type type="unsigned2"/>
+    </Field>
+    <Field name="t_node_id">
+     <Type type="unsigned2"/>
+    </Field>
+    <Field name="t_block_row">
+     <Type type="unsigned4"/>
+    </Field>
+    <Field name="t_block_col">
+     <Type type="unsigned4"/>
+    </Field>
+    <Field name="t_term">
+     <Type type="unsigned4"/>
+    </Field>
+    <Field name="m_label">
+     <Type type="string3"/>
+    </Field>
+    <Field name="wi_id">
+     <Type type="unsigned2"/>
+    </Field>
+    <Field name="partition_id">
+     <Type type="unsigned2"/>
+    </Field>
+    <Field name="node_id">
+     <Type type="unsigned2"/>
+    </Field>
+    <Field name="m_rows">
+     <Type type="unsigned4"/>
+    </Field>
+    <Field name="m_cols">
+     <Type type="unsigned4"/>
+    </Field>
+    <Field name="row_blocks">
+     <Type type="unsigned4"/>
+    </Field>
+    <Field name="col_blocks">
+     <Type type="unsigned4"/>
+    </Field>
+    <Field name="block_row">
+     <Type type="unsigned4"/>
+    </Field>
+    <Field name="block_col">
+     <Type type="unsigned4"/>
+    </Field>
+    <Field name="part_rows">
+     <Type type="unsigned4"/>
+    </Field>
+    <Field name="part_cols">
+     <Type type="unsigned4"/>
+    </Field>
+    <Field name="first_row">
+     <Type type="unsigned4"/>
+    </Field>
+    <Field name="first_col">
+     <Type type="unsigned4"/>
+    </Field>
+    <Field name="mat_part">
+     <Type type="set">
+      <Type type="real8"/>
+     </Type>
+    </Field>
     <Documentation>
      <content>&#10;&#32;&#32;&#32;&#32;* Represents the relationship of a partition to the partition holding the
     * results of a matrix operation.  This is used internally to PBblas functions
@@ -1279,16 +1715,32 @@
                inherittype="local"
                line="186"
                name="Layout_Dims"
-               start="8285">
-    <Type>record</Type>
-    <Field name="m_label" type="string3"/>
-    <Field name="wi_id" type="unsigned2"/>
-    <Field name="m_rows" type="unsigned4"/>
-    <Field name="m_cols" type="unsigned4"/>
-    <Field name="block_rows" type="unsigned4"/>
-    <Field name="block_cols" type="unsigned4"/>
-    <Field name="row_blocks" type="unsigned4"/>
-    <Field name="col_blocks" type="unsigned4"/>
+               start="8285"
+               type="record">
+    <Field name="m_label">
+     <Type type="string3"/>
+    </Field>
+    <Field name="wi_id">
+     <Type type="unsigned2"/>
+    </Field>
+    <Field name="m_rows">
+     <Type type="unsigned4"/>
+    </Field>
+    <Field name="m_cols">
+     <Type type="unsigned4"/>
+    </Field>
+    <Field name="block_rows">
+     <Type type="unsigned4"/>
+    </Field>
+    <Field name="block_cols">
+     <Type type="unsigned4"/>
+    </Field>
+    <Field name="row_blocks">
+     <Type type="unsigned4"/>
+    </Field>
+    <Field name="col_blocks">
+     <Type type="unsigned4"/>
+    </Field>
     <Documentation>
      <content>&#10;&#32;&#32;&#32;&#32;* Record format for matrix and matrix partition dimensions.  Each record describes
     * A single matrix or matrix partition.  Partitions use all of the fields, while
@@ -1311,9 +1763,11 @@
                inherittype="local"
                line="202"
                name="Layout_WI_ID"
-               start="8815">
-    <Type>record</Type>
-    <Field name="wi_id" type="unsigned2"/>
+               start="8815"
+               type="record">
+    <Field name="wi_id">
+     <Type type="unsigned2"/>
+    </Field>
     <Documentation>
      <content>&#32;&#10;&#32;&#32;&#32;&#32;* Record for a list of work-item ids used internally
     *
@@ -1326,6 +1780,7 @@
   * WARNING: attributes marked with WARNING can not be changed without making
   * corresponding changes to the C++ attributes.&#10;&#32;&#32;</content>
    </Documentation>
+   <Parents/>
   </Definition>
  </Source>
  <Source name="std.system.Thorlib" sourcePath="/home/sarthak/runtime/opt/HPCCSystems/6.5.0/clienttools/share/ecllibrary/std/system/Thorlib.ecl">
@@ -1334,8 +1789,8 @@
               inherittype="local"
               line="11"
               name="externals"
-              start="452">
-   <Type>module</Type>
+              start="452"
+              type="module">
    <Definition body="0"
                end="0"
                exported="1"
@@ -1343,8 +1798,9 @@
                inherittype="local"
                line="13"
                name="node"
-               start="0">
-    <Type>function</Type>
+               start="0"
+               type="function">
+    <Type type="unsigned4"/>
     <Params/>
    </Definition>
    <Definition body="0"
@@ -1354,8 +1810,9 @@
                inherittype="local"
                line="14"
                name="nodes"
-               start="0">
-    <Type>function</Type>
+               start="0"
+               type="function">
+    <Type type="unsigned4"/>
     <Params/>
    </Definition>
    <Definition body="0"
@@ -1365,11 +1822,16 @@
                inherittype="local"
                line="15"
                name="l2p"
-               start="0">
-    <Type>function</Type>
+               start="0"
+               type="function">
+    <Type type="varstring"/>
     <Params>
-     <Param name="name"/>
-     <Param name="create"/>
+     <Param name="name">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="create">
+      <Type type="boolean"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="0"
@@ -1379,10 +1841,13 @@
                inherittype="local"
                line="16"
                name="getFileOffset"
-               start="0">
-    <Type>function</Type>
+               start="0"
+               type="function">
+    <Type type="unsigned8"/>
     <Params>
-     <Param name="lfname"/>
+     <Param name="lfname">
+      <Type type="varstring"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="0"
@@ -1392,8 +1857,9 @@
                inherittype="local"
                line="17"
                name="daliServer"
-               start="0">
-    <Type>function</Type>
+               start="0"
+               type="function">
+    <Type type="varstring"/>
     <Params/>
    </Definition>
    <Definition body="0"
@@ -1403,8 +1869,9 @@
                inherittype="local"
                line="18"
                name="cluster"
-               start="0">
-    <Type>function</Type>
+               start="0"
+               type="function">
+    <Type type="varstring"/>
     <Params/>
    </Definition>
    <Definition body="0"
@@ -1414,10 +1881,13 @@
                inherittype="local"
                line="19"
                name="getExpandLogicalName"
-               start="0">
-    <Type>function</Type>
+               start="0"
+               type="function">
+    <Type type="varstring"/>
     <Params>
-     <Param name="name"/>
+     <Param name="name">
+      <Type type="varstring"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="0"
@@ -1427,8 +1897,9 @@
                inherittype="local"
                line="20"
                name="group"
-               start="0">
-    <Type>function</Type>
+               start="0"
+               type="function">
+    <Type type="varstring"/>
     <Params/>
    </Definition>
    <Definition body="0"
@@ -1438,8 +1909,9 @@
                inherittype="local"
                line="21"
                name="platform"
-               start="0">
-    <Type>function</Type>
+               start="0"
+               type="function">
+    <Type type="varstring"/>
     <Params/>
    </Definition>
    <Parents/>
@@ -1505,16 +1977,18 @@
               inherittype="local"
               line="7"
               name="dimension_t"
-              start="295">
-   <Type>attribute</Type>
+              start="295"
+              type="attribute">
+   <Type type="unsigned4"/>
   </Definition>
   <Definition body="404"
               end="426"
               inherittype="local"
               line="12"
               name="p_types"
-              start="394">
-   <Type>attribute</Type>
+              start="394"
+              type="attribute">
+   <Type type="unsigned1"/>
    <Documentation>
     <content>&#10;&#32;&#32;&#32;&#32;* Enumeration for Partitioning Type&#10;&#32;&#32;&#32;&#32;</content>
    </Documentation>
@@ -1526,13 +2000,21 @@
               inherittype="local"
               line="37"
               name="BlockDimensions"
-              start="1563">
-   <Type>module</Type>
+              start="1563"
+              type="module">
    <Params>
-    <Param name="N"/>
-    <Param name="M"/>
-    <Param name="max_partition_size_or"/>
-    <Param name="nodes_override"/>
+    <Param name="N">
+     <Type type="unsigned4"/>
+    </Param>
+    <Param name="M">
+     <Type type="unsigned4"/>
+    </Param>
+    <Param name="max_partition_size_or">
+     <Type type="integer8"/>
+    </Param>
+    <Param name="nodes_override">
+     <Type type="integer8"/>
+    </Param>
    </Params>
    <Parents/>
    <Definition body="1879"
@@ -1542,8 +2024,9 @@
                line="41"
                name="max_partition_size"
                shared="1"
-               start="1851">
-    <Type>attribute</Type>
+               start="1851"
+               type="attribute">
+    <Type type="integer8"/>
    </Definition>
    <Definition body="2126"
                end="2180"
@@ -1552,8 +2035,9 @@
                line="45"
                name="nodes"
                shared="1"
-               start="2111">
-    <Type>attribute</Type>
+               start="2111"
+               type="attribute">
+    <Type type="integer8"/>
    </Definition>
    <Definition body="2312"
                end="2387"
@@ -1562,8 +2046,9 @@
                line="47"
                name="single_partition_size"
                shared="1"
-               start="2281">
-    <Type>attribute</Type>
+               start="2281"
+               type="attribute">
+    <Type type="real8"/>
    </Definition>
    <Definition body="2513"
                end="2625"
@@ -1572,10 +2057,13 @@
                line="49"
                name="round_up_to_nodes"
                shared="1"
-               start="2459">
-    <Type>function</Type>
+               start="2459"
+               type="function">
+    <Type type="unsigned4"/>
     <Params>
-     <Param name="d"/>
+     <Param name="d">
+      <Type type="unsigned4"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="2644"
@@ -1585,8 +2073,9 @@
                line="54"
                name="cells"
                shared="1"
-               start="2629">
-    <Type>attribute</Type>
+               start="2629"
+               type="attribute">
+    <Type type="integer8"/>
    </Definition>
    <Definition body="2708"
                end="2715"
@@ -1595,8 +2084,9 @@
                line="55"
                name="is_square"
                shared="1"
-               start="2689">
-    <Type>attribute</Type>
+               start="2689"
+               type="attribute">
+    <Type type="boolean"/>
    </Definition>
    <Definition body="2785"
                end="2798"
@@ -1605,8 +2095,9 @@
                line="56"
                name="min_rc"
                shared="1"
-               start="2769">
-    <Type>attribute</Type>
+               start="2769"
+               type="attribute">
+    <Type type="unsigned4"/>
    </Definition>
    <Definition body="2853"
                end="2865"
@@ -1615,8 +2106,9 @@
                line="57"
                name="max_rc"
                shared="1"
-               start="2837">
-    <Type>attribute</Type>
+               start="2837"
+               type="attribute">
+    <Type type="unsigned4"/>
    </Definition>
    <Definition body="4282"
                end="4333"
@@ -1625,8 +2117,9 @@
                line="78"
                name="test_D"
                shared="1"
-               start="4254">
-    <Type>attribute</Type>
+               start="4254"
+               type="attribute">
+    <Type type="unsigned4"/>
    </Definition>
    <Definition body="4484"
                end="4859"
@@ -1635,10 +2128,13 @@
                line="81"
                name="calc_vector_block_size"
                shared="1"
-               start="4420">
-    <Type>function</Type>
+               start="4420"
+               type="function">
+    <Type type="unsigned4"/>
     <Params>
-     <Param name="dlimit"/>
+     <Param name="dlimit">
+      <Type type="unsigned4"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="5188"
@@ -1648,8 +2144,9 @@
                inherittype="local"
                line="94"
                name="Partitioning"
-               start="5166">
-    <Type>attribute</Type>
+               start="5166"
+               type="attribute">
+    <Type type="integer8"/>
     <Documentation>
      <content>&#10;&#32;&#32;&#32;&#32;* The type of partitioning employed: Types.PartitionType.square, .row, or .column or .single&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
@@ -1661,8 +2158,9 @@
                inherittype="local"
                line="102"
                name="PN"
-               start="5623">
-    <Type>attribute</Type>
+               start="5623"
+               type="attribute">
+    <Type type="unsigned4"/>
     <Documentation>
      <content>&#10;&#32;&#32;&#32;&#32;* The row dimension of the optimal Partition Matrix&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
@@ -1674,8 +2172,9 @@
                inherittype="local"
                line="107"
                name="PM"
-               start="5851">
-    <Type>attribute</Type>
+               start="5851"
+               type="attribute">
+    <Type type="unsigned4"/>
     <Documentation>
      <content>&#10;&#32;&#32;&#32;&#32;* The column dimension of the optimal Partition Matrix&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
@@ -1687,8 +2186,9 @@
                inherittype="local"
                line="112"
                name="BlockRows"
-               start="6077">
-    <Type>attribute</Type>
+               start="6077"
+               type="attribute">
+    <Type type="integer8"/>
     <Documentation>
      <content>&#10;&#32;&#32;&#32;&#32;* The number of rows in each partition (i.e. block)&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
@@ -1700,8 +2200,9 @@
                inherittype="local"
                line="116"
                name="BlockCols"
-               start="6186">
-    <Type>attribute</Type>
+               start="6186"
+               type="attribute">
+    <Type type="integer8"/>
     <Documentation>
      <content>&#10;&#32;&#32;&#32;&#32;* The number of columns in each partition (i.e. block)&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
@@ -1780,8 +2281,9 @@
               inherittype="local"
               line="7"
               name="dimension_t"
-              start="295">
-   <Type>attribute</Type>
+              start="295"
+              type="attribute">
+   <Type type="unsigned4"/>
   </Definition>
   <Definition body="1973"
               end="5853"
@@ -1790,14 +2292,24 @@
               inherittype="local"
               line="36"
               name="BlockDimensionsMultiply"
-              start="1859">
-   <Type>module</Type>
+              start="1859"
+              type="module">
    <Params>
-    <Param name="N"/>
-    <Param name="M"/>
-    <Param name="P"/>
-    <Param name="max_part_size_or"/>
-    <Param name="nodes_or"/>
+    <Param name="N">
+     <Type type="unsigned4"/>
+    </Param>
+    <Param name="M">
+     <Type type="unsigned4"/>
+    </Param>
+    <Param name="P">
+     <Type type="unsigned4"/>
+    </Param>
+    <Param name="max_part_size_or">
+     <Type type="integer8"/>
+    </Param>
+    <Param name="nodes_or">
+     <Type type="integer8"/>
+    </Param>
    </Params>
    <Parents/>
    <Definition body="2191"
@@ -1807,8 +2319,9 @@
                line="41"
                name="max_part_size"
                shared="1"
-               start="2168">
-    <Type>attribute</Type>
+               start="2168"
+               type="attribute">
+    <Type type="integer8"/>
    </Definition>
    <Definition body="2277"
                end="2282"
@@ -1817,8 +2330,9 @@
                line="42"
                name="a_cells"
                shared="1"
-               start="2260">
-    <Type>attribute</Type>
+               start="2260"
+               type="attribute">
+    <Type type="integer8"/>
    </Definition>
    <Definition body="2302"
                end="2307"
@@ -1827,8 +2341,9 @@
                line="43"
                name="b_cells"
                shared="1"
-               start="2285">
-    <Type>attribute</Type>
+               start="2285"
+               type="attribute">
+    <Type type="integer8"/>
    </Definition>
    <Definition body="2327"
                end="2332"
@@ -1837,8 +2352,9 @@
                line="44"
                name="c_cells"
                shared="1"
-               start="2310">
-    <Type>attribute</Type>
+               start="2310"
+               type="attribute">
+    <Type type="integer8"/>
    </Definition>
    <Definition body="2354"
                end="2388"
@@ -1847,8 +2363,9 @@
                inherittype="local"
                line="45"
                name="min_cells"
-               start="2335">
-    <Type>attribute</Type>
+               start="2335"
+               type="attribute">
+    <Type type="integer8"/>
    </Definition>
    <Definition body="2410"
                end="2444"
@@ -1857,8 +2374,9 @@
                inherittype="local"
                line="46"
                name="max_cells"
-               start="2391">
-    <Type>attribute</Type>
+               start="2391"
+               type="attribute">
+    <Type type="integer8"/>
    </Definition>
    <Definition body="2484"
                end="3190"
@@ -1867,8 +2385,11 @@
                line="48"
                name="A_first"
                shared="1"
-               start="2448">
-    <Type>attribute</Type>
+               start="2448"
+               type="attribute">
+    <Type type="set">
+     <Type type="unsigned4"/>
+    </Type>
    </Definition>
    <Definition body="3229"
                end="3940"
@@ -1877,8 +2398,11 @@
                line="63"
                name="B_first"
                shared="1"
-               start="3193">
-    <Type>attribute</Type>
+               start="3193"
+               type="attribute">
+    <Type type="set">
+     <Type type="unsigned4"/>
+    </Type>
    </Definition>
    <Definition body="3979"
                end="4654"
@@ -1887,8 +2411,11 @@
                line="78"
                name="C_first"
                shared="1"
-               start="3943">
-    <Type>attribute</Type>
+               start="3943"
+               type="attribute">
+    <Type type="set">
+     <Type type="unsigned4"/>
+    </Type>
    </Definition>
    <Definition body="4731"
                end="4813"
@@ -1897,8 +2424,11 @@
                line="94"
                name="solution"
                shared="1"
-               start="4713">
-    <Type>attribute</Type>
+               start="4713"
+               type="attribute">
+    <Type type="set">
+     <Type type="unsigned4"/>
+    </Type>
    </Definition>
    <Definition body="4932"
                end="4945"
@@ -1907,8 +2437,9 @@
                inherittype="local"
                line="99"
                name="PN"
-               start="4920">
-    <Type>attribute</Type>
+               start="4920"
+               type="attribute">
+    <Type type="unsigned4"/>
     <Documentation>
      <content>&#10;&#32;&#32;&#32;&#32;* The row dimension of A&apos;s partition matrix and of the C and result partition matrixes&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
@@ -1920,8 +2451,9 @@
                inherittype="local"
                line="103"
                name="PM"
-               start="5058">
-    <Type>attribute</Type>
+               start="5058"
+               type="attribute">
+    <Type type="unsigned4"/>
     <Documentation>
      <content>&#10;&#32;&#32;&#32;&#32;* The column dimension of A&apos;s partition matrix and the row dimension of B&apos;s partition matrix&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
@@ -1933,8 +2465,9 @@
                inherittype="local"
                line="107"
                name="PP"
-               start="5193">
-    <Type>attribute</Type>
+               start="5193"
+               type="attribute">
+    <Type type="unsigned4"/>
     <Documentation>
      <content>&#10;&#32;&#32;&#32;&#32;* The column dimension of B&apos;s partition matrix and of the C and result partition matrixes&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
@@ -1946,8 +2479,9 @@
                inherittype="local"
                line="111"
                name="AblockRows"
-               start="5305">
-    <Type>attribute</Type>
+               start="5305"
+               type="attribute">
+    <Type type="integer8"/>
     <Documentation>
      <content>&#10;&#32;&#32;&#32;&#32;* The number of rows in each partition of A, C and result matrixes&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
@@ -1959,8 +2493,9 @@
                inherittype="local"
                line="115"
                name="AblockCols"
-               start="5461">
-    <Type>attribute</Type>
+               start="5461"
+               type="attribute">
+    <Type type="integer8"/>
     <Documentation>
      <content>&#10;&#32;&#32;&#32;&#32;* The number of columns in each partition of A, and the number of rows in each partition of B matrix&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
@@ -1972,8 +2507,9 @@
                inherittype="local"
                line="119"
                name="BblockCols"
-               start="5587">
-    <Type>attribute</Type>
+               start="5587"
+               type="attribute">
+    <Type type="integer8"/>
     <Documentation>
      <content>&#10;&#32;&#32;&#32;&#32;* The number of columns in each partition of B, C, and result matrixes&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
@@ -1985,8 +2521,9 @@
                inherittype="local"
                line="125"
                name="Partitioning"
-               start="5737">
-    <Type>attribute</Type>
+               start="5737"
+               type="attribute">
+    <Type type="unsigned1"/>
     <Documentation>
      <content>&#10;&#32;&#32;&#32;&#32;* The type of partitioning used. See Types.PartitionType
     *
@@ -2057,8 +2594,9 @@
               inherittype="local"
               line="7"
               name="dimension_t"
-              start="295">
-   <Type>attribute</Type>
+              start="295"
+              type="attribute">
+   <Type type="unsigned4"/>
   </Definition>
   <Definition body="2007"
               end="3584"
@@ -2067,13 +2605,21 @@
               inherittype="local"
               line="39"
               name="BlockDimensionsSolve"
-              start="1911">
-   <Type>module</Type>
+              start="1911"
+              type="module">
    <Params>
-    <Param name="N"/>
-    <Param name="M"/>
-    <Param name="max_part_size_or"/>
-    <Param name="nodes_or"/>
+    <Param name="N">
+     <Type type="unsigned4"/>
+    </Param>
+    <Param name="M">
+     <Type type="unsigned4"/>
+    </Param>
+    <Param name="max_part_size_or">
+     <Type type="integer8"/>
+    </Param>
+    <Param name="nodes_or">
+     <Type type="integer8"/>
+    </Param>
    </Params>
    <Parents/>
    <Definition body="2224"
@@ -2083,8 +2629,9 @@
                line="44"
                name="max_part_size"
                shared="1"
-               start="2201">
-    <Type>attribute</Type>
+               start="2201"
+               type="attribute">
+    <Type type="integer8"/>
    </Definition>
    <Definition body="2310"
                end="2315"
@@ -2093,8 +2640,9 @@
                line="45"
                name="a_cells"
                shared="1"
-               start="2293">
-    <Type>attribute</Type>
+               start="2293"
+               type="attribute">
+    <Type type="integer8"/>
    </Definition>
    <Definition body="2335"
                end="2340"
@@ -2103,8 +2651,9 @@
                line="46"
                name="b_cells"
                shared="1"
-               start="2318">
-    <Type>attribute</Type>
+               start="2318"
+               type="attribute">
+    <Type type="integer8"/>
    </Definition>
    <Definition body="2362"
                end="2385"
@@ -2113,8 +2662,9 @@
                inherittype="local"
                line="47"
                name="min_cells"
-               start="2343">
-    <Type>attribute</Type>
+               start="2343"
+               type="attribute">
+    <Type type="integer8"/>
    </Definition>
    <Definition body="2407"
                end="2430"
@@ -2123,8 +2673,9 @@
                inherittype="local"
                line="48"
                name="max_cells"
-               start="2388">
-    <Type>attribute</Type>
+               start="2388"
+               type="attribute">
+    <Type type="integer8"/>
    </Definition>
    <Definition body="2654"
                end="2667"
@@ -2133,8 +2684,9 @@
                line="53"
                name="PN0"
                shared="1"
-               start="2641">
-    <Type>attribute</Type>
+               start="2641"
+               type="attribute">
+    <Type type="unsigned4"/>
     <Documentation>
      <content>&#10;&#32;&#32;&#32;&#32;* The row dimension of the optimal Partition Matrix&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
@@ -2146,8 +2698,9 @@
                line="57"
                name="PM0"
                shared="1"
-               start="2874">
-    <Type>attribute</Type>
+               start="2874"
+               type="attribute">
+    <Type type="integer8"/>
    </Definition>
    <Definition body="3057"
                end="3062"
@@ -2156,8 +2709,9 @@
                inherittype="local"
                line="62"
                name="PN"
-               start="3045">
-    <Type>attribute</Type>
+               start="3045"
+               type="attribute">
+    <Type type="unsigned4"/>
     <Documentation>
      <content>&#10;&#32;&#32;&#32;&#32;* The row and column dimension of A&apos;s partition matrix and either row or column of B&apos;s&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
@@ -2169,8 +2723,9 @@
                inherittype="local"
                line="67"
                name="PM"
-               start="3203">
-    <Type>attribute</Type>
+               start="3203"
+               type="attribute">
+    <Type type="integer8"/>
     <Documentation>
      <content>&#10;&#32;&#32;&#32;&#32;* The row or column dimension of B and X(result) matrixes depending on the type
     * of solve (see module description).&#10;&#32;&#32;&#32;&#32;</content>
@@ -2183,8 +2738,9 @@
                inherittype="local"
                line="72"
                name="AblockDim"
-               start="3358">
-    <Type>attribute</Type>
+               start="3358"
+               type="attribute">
+    <Type type="integer8"/>
     <Documentation>
      <content>&#10;&#32;&#32;&#32;&#32;* The number of rows and columns in each partition of A
     * @return  The side dimension of &apos;A&apos; matrix (a is square)&#10;&#32;&#32;&#32;&#32;</content>
@@ -2197,8 +2753,9 @@
                inherittype="local"
                line="77"
                name="BblockDim"
-               start="3545">
-    <Type>attribute</Type>
+               start="3545"
+               type="attribute">
+    <Type type="integer8"/>
     <Documentation>
      <content>&#10;&#32;&#32;&#32;&#32;* The number of rows or columns in each partition of B and X (result) depending
     * on the type of solve (see module description).&#10;&#32;&#32;&#32;&#32;</content>
@@ -2286,8 +2843,9 @@
               inherittype="local"
               line="7"
               name="dimension_t"
-              start="295">
-   <Type>attribute</Type>
+              start="295"
+              type="attribute">
+   <Type type="unsigned4"/>
   </Definition>
   <Definition body="379"
               end="399"
@@ -2295,8 +2853,9 @@
               inherittype="local"
               line="9"
               name="work_item_t"
-              start="365">
-   <Type>attribute</Type>
+              start="365"
+              type="attribute">
+   <Type type="unsigned2"/>
   </Definition>
   <Definition body="413"
               end="432"
@@ -2304,12 +2863,20 @@
               inherittype="local"
               line="10"
               name="Layout_Cell"
-              start="399">
-   <Type>record</Type>
-   <Field name="wi_id" type="unsigned2"/>
-   <Field name="x" type="unsigned4"/>
-   <Field name="y" type="unsigned4"/>
-   <Field name="v" type="real8"/>
+              start="399"
+              type="record">
+   <Field name="wi_id">
+    <Type type="unsigned2"/>
+   </Field>
+   <Field name="x">
+    <Type type="unsigned4"/>
+   </Field>
+   <Field name="y">
+    <Type type="unsigned4"/>
+   </Field>
+   <Field name="v">
+    <Type type="real8"/>
+   </Field>
    <Documentation>
     <content>&#10;&#32;&#32;&#32;&#32;* Layout for Matrix Cell
     *
@@ -2350,16 +2917,32 @@
               inherittype="local"
               line="11"
               name="Layout_Dims"
-              start="433">
-   <Type>record</Type>
-   <Field name="m_label" type="string3"/>
-   <Field name="wi_id" type="unsigned2"/>
-   <Field name="m_rows" type="unsigned4"/>
-   <Field name="m_cols" type="unsigned4"/>
-   <Field name="block_rows" type="unsigned4"/>
-   <Field name="block_cols" type="unsigned4"/>
-   <Field name="row_blocks" type="unsigned4"/>
-   <Field name="col_blocks" type="unsigned4"/>
+              start="433"
+              type="record">
+   <Field name="m_label">
+    <Type type="string3"/>
+   </Field>
+   <Field name="wi_id">
+    <Type type="unsigned2"/>
+   </Field>
+   <Field name="m_rows">
+    <Type type="unsigned4"/>
+   </Field>
+   <Field name="m_cols">
+    <Type type="unsigned4"/>
+   </Field>
+   <Field name="block_rows">
+    <Type type="unsigned4"/>
+   </Field>
+   <Field name="block_cols">
+    <Type type="unsigned4"/>
+   </Field>
+   <Field name="row_blocks">
+    <Type type="unsigned4"/>
+   </Field>
+   <Field name="col_blocks">
+    <Type type="unsigned4"/>
+   </Field>
    <Documentation>
     <content>&#10;&#32;&#32;&#32;&#32;* Record format for matrix and matrix partition dimensions.  Each record describes
     * A single matrix or matrix partition.  Partitions use all of the fields, while
@@ -2380,8 +2963,9 @@
               inherittype="local"
               line="12"
               name="OpType"
-              start="468">
-   <Type>attribute</Type>
+              start="468"
+              type="attribute">
+   <Type type="unsigned1"/>
   </Definition>
   <Definition body="512"
               end="530"
@@ -2389,8 +2973,9 @@
               inherittype="local"
               line="13"
               name="m_label_t"
-              start="498">
-   <Type>attribute</Type>
+              start="498"
+              type="attribute">
+   <Type type="string3"/>
   </Definition>
   <Definition body="658"
               end="14974"
@@ -2399,9 +2984,8 @@
               inherittype="local"
               line="19"
               name="MatDims"
-              start="641">
-   <Type>module</Type>
-   <Parents/>
+              start="641"
+              type="module">
    <Definition body="1478"
                end="1840"
                exported="1"
@@ -2409,8 +2993,36 @@
                inherittype="local"
                line="33"
                name="FromCells"
-               start="1409">
-    <Type>function</Type>
+               start="1409"
+               type="function">
+    <Type type="table">
+     <Type type="record" unnamed="1">
+      <Field name="m_label">
+       <Type type="string3"/>
+      </Field>
+      <Field name="wi_id">
+       <Type type="unsigned2"/>
+      </Field>
+      <Field name="m_rows">
+       <Type type="unsigned4"/>
+      </Field>
+      <Field name="m_cols">
+       <Type type="unsigned4"/>
+      </Field>
+      <Field name="block_rows">
+       <Type type="unsigned4"/>
+      </Field>
+      <Field name="block_cols">
+       <Type type="unsigned4"/>
+      </Field>
+      <Field name="row_blocks">
+       <Type type="unsigned4"/>
+      </Field>
+      <Field name="col_blocks">
+       <Type type="unsigned4"/>
+      </Field>
+     </Type>
+    </Type>
     <Documentation>
      <content>&#10;&#32;&#32;&#32;&#32;* Get basic matrix dimensions (m_rows, m_cols) from a dataset of cells (Layout_Cell).
     * Multiple matrices can be included in the dataset separated by wi_id.  One record of 
@@ -2425,8 +3037,14 @@
     * @see Std/PBblas/Types.Layout_Dims&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="cells"/>
-     <Param name="m_label"/>
+     <Param name="cells">
+      <Type type="table">
+       <Type fullname="pbblas.internal.layout_cell" name="Layout_Cell" type="record"/>
+      </Type>
+     </Param>
+     <Param name="m_label">
+      <Type type="string3"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="2238"
@@ -2436,8 +3054,36 @@
                inherittype="local"
                line="52"
                name="PartitionedFromDims"
-               start="2182">
-    <Type>function</Type>
+               start="2182"
+               type="function">
+    <Type type="table">
+     <Type type="record" unnamed="1">
+      <Field name="m_label">
+       <Type type="string3"/>
+      </Field>
+      <Field name="wi_id">
+       <Type type="unsigned2"/>
+      </Field>
+      <Field name="m_rows">
+       <Type type="unsigned4"/>
+      </Field>
+      <Field name="m_cols">
+       <Type type="unsigned4"/>
+      </Field>
+      <Field name="block_rows">
+       <Type type="unsigned4"/>
+      </Field>
+      <Field name="block_cols">
+       <Type type="unsigned4"/>
+      </Field>
+      <Field name="row_blocks">
+       <Type type="unsigned4"/>
+      </Field>
+      <Field name="col_blocks">
+       <Type type="unsigned4"/>
+      </Field>
+     </Type>
+    </Type>
     <Documentation>
      <content>&#10;&#32;&#32;&#32;&#32;* Determine optimal partitioning scheme for one or more matrixes based on the dimensions
     * provided.
@@ -2447,7 +3093,11 @@
     * @see Std/PBblas/Types.Layout_Dims&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="dims"/>
+     <Param name="dims">
+      <Type type="table">
+       <Type fullname="pbblas.internal.layout_dims" name="Layout_Dims" type="record"/>
+      </Type>
+     </Param>
     </Params>
    </Definition>
    <Definition body="3389"
@@ -2457,8 +3107,36 @@
                inherittype="local"
                line="78"
                name="PartitionedFromCells"
-               start="3309">
-    <Type>function</Type>
+               start="3309"
+               type="function">
+    <Type type="table">
+     <Type type="record" unnamed="1">
+      <Field name="m_label">
+       <Type type="string3"/>
+      </Field>
+      <Field name="wi_id">
+       <Type type="unsigned2"/>
+      </Field>
+      <Field name="m_rows">
+       <Type type="unsigned4"/>
+      </Field>
+      <Field name="m_cols">
+       <Type type="unsigned4"/>
+      </Field>
+      <Field name="block_rows">
+       <Type type="unsigned4"/>
+      </Field>
+      <Field name="block_cols">
+       <Type type="unsigned4"/>
+      </Field>
+      <Field name="row_blocks">
+       <Type type="unsigned4"/>
+      </Field>
+      <Field name="col_blocks">
+       <Type type="unsigned4"/>
+      </Field>
+     </Type>
+    </Type>
     <Documentation>
      <content>&#10;&#32;&#32;&#32;&#32;* Generate a partitioning scheme from a set of matrices in cell form.
     * Essentially a shortcut for FromCells followed by PartitionedFromDims
@@ -2474,8 +3152,14 @@
     * @see PartitionedFromDims&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="cells"/>
-     <Param name="m_label"/>
+     <Param name="cells">
+      <Type type="table">
+       <Type fullname="pbblas.internal.layout_cell" name="Layout_Cell" type="record"/>
+      </Type>
+     </Param>
+     <Param name="m_label">
+      <Type type="string3"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="4788"
@@ -2485,8 +3169,36 @@
                inherittype="local"
                line="104"
                name="PartitionedFromDimsForOp"
-               start="4716">
-    <Type>function</Type>
+               start="4716"
+               type="function">
+    <Type type="table">
+     <Type type="record" unnamed="1">
+      <Field name="m_label">
+       <Type type="string3"/>
+      </Field>
+      <Field name="wi_id">
+       <Type type="unsigned2"/>
+      </Field>
+      <Field name="m_rows">
+       <Type type="unsigned4"/>
+      </Field>
+      <Field name="m_cols">
+       <Type type="unsigned4"/>
+      </Field>
+      <Field name="block_rows">
+       <Type type="unsigned4"/>
+      </Field>
+      <Field name="block_cols">
+       <Type type="unsigned4"/>
+      </Field>
+      <Field name="row_blocks">
+       <Type type="unsigned4"/>
+      </Field>
+      <Field name="col_blocks">
+       <Type type="unsigned4"/>
+      </Field>
+     </Type>
+    </Type>
     <Documentation>
      <content>&#10;&#32;&#32;&#32;&#32;* Determines an optimal partitioning scheme for a set of matrixes involved in
     * a given operation.  This handles interlocking dimensions such as those involved
@@ -2509,8 +3221,14 @@
     * @see PartitionedFromDims&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="op"/>
-     <Param name="dims"/>
+     <Param name="op">
+      <Type type="unsigned1"/>
+     </Param>
+     <Param name="dims">
+      <Type type="table">
+       <Type fullname="pbblas.internal.layout_dims" name="Layout_Dims" type="record"/>
+      </Type>
+     </Param>
     </Params>
    </Definition>
    <Definition body="14514"
@@ -2520,8 +3238,36 @@
                inherittype="local"
                line="315"
                name="TransposeDims"
-               start="14461">
-    <Type>function</Type>
+               start="14461"
+               type="function">
+    <Type type="table">
+     <Type type="record" unnamed="1">
+      <Field name="m_label">
+       <Type type="string3"/>
+      </Field>
+      <Field name="wi_id">
+       <Type type="unsigned2"/>
+      </Field>
+      <Field name="m_rows">
+       <Type type="unsigned4"/>
+      </Field>
+      <Field name="m_cols">
+       <Type type="unsigned4"/>
+      </Field>
+      <Field name="block_rows">
+       <Type type="unsigned4"/>
+      </Field>
+      <Field name="block_cols">
+       <Type type="unsigned4"/>
+      </Field>
+      <Field name="row_blocks">
+       <Type type="unsigned4"/>
+      </Field>
+      <Field name="col_blocks">
+       <Type type="unsigned4"/>
+      </Field>
+     </Type>
+    </Type>
     <Documentation>
      <content>&#10;&#32;&#32;&#32;&#32;* Transpose rows and columns for a set of matrix dimensions.
     * Can be used for single matrix dimensions or partitioned matrixes.
@@ -2533,7 +3279,11 @@
     *&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="dims_in"/>
+     <Param name="dims_in">
+      <Type type="table">
+       <Type fullname="pbblas.internal.layout_dims" name="Layout_Dims" type="record"/>
+      </Type>
+     </Param>
     </Params>
    </Definition>
    <Documentation>
@@ -2541,6 +3291,7 @@
   * matrix cells.
   *&#10;&#32;&#32;</content>
    </Documentation>
+   <Parents/>
   </Definition>
  </Source>
  <Source name="PBblas.internal.MakeR8Set" sourcePath="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles/./PBblas/internal/MakeR8Set.ecl">
@@ -2572,8 +3323,9 @@
               inherittype="local"
               line="7"
               name="dimension_t"
-              start="295">
-   <Type>attribute</Type>
+              start="295"
+              type="attribute">
+   <Type type="unsigned4"/>
   </Definition>
   <Definition body="331"
               end="346"
@@ -2581,8 +3333,9 @@
               inherittype="local"
               line="8"
               name="value_t"
-              start="321">
-   <Type>attribute</Type>
+              start="321"
+              type="attribute">
+   <Type type="real8"/>
   </Definition>
   <Definition body="413"
               end="432"
@@ -2590,12 +3343,20 @@
               inherittype="local"
               line="10"
               name="Layout_Cell"
-              start="399">
-   <Type>record</Type>
-   <Field name="wi_id" type="unsigned2"/>
-   <Field name="x" type="unsigned4"/>
-   <Field name="y" type="unsigned4"/>
-   <Field name="v" type="real8"/>
+              start="399"
+              type="record">
+   <Field name="wi_id">
+    <Type type="unsigned2"/>
+   </Field>
+   <Field name="x">
+    <Type type="unsigned4"/>
+   </Field>
+   <Field name="y">
+    <Type type="unsigned4"/>
+   </Field>
+   <Field name="v">
+    <Type type="real8"/>
+   </Field>
    <Documentation>
     <content>&#10;&#32;&#32;&#32;&#32;* Layout for Matrix Cell
     *
@@ -2637,8 +3398,11 @@
               inherittype="local"
               line="24"
               name="makeR8Set"
-              start="1080">
-   <Type>embed</Type>
+              start="1080"
+              type="embed">
+   <Type type="set">
+    <Type type="real8"/>
+   </Type>
    <Documentation>
     <content>&#10;&#32;&#32;* Take a dataset of cells (or sub-matrix thereof) and pack into a dense matrix.
   * in column major order [r1c1, r2c1, r3c1, ..., rNc1, r1c2, ..., rNcM].
@@ -2653,12 +3417,26 @@
   * @return           Dense matrix or sub-matrix (SET OF REAL8)&#10;&#32;&#32;</content>
    </Documentation>
    <Params>
-    <Param name="r"/>
-    <Param name="s"/>
-    <Param name="first_row"/>
-    <Param name="first_col"/>
-    <Param name="D"/>
-    <Param name="transpose"/>
+    <Param name="r">
+     <Type type="unsigned4"/>
+    </Param>
+    <Param name="s">
+     <Type type="unsigned4"/>
+    </Param>
+    <Param name="first_row">
+     <Type type="unsigned4"/>
+    </Param>
+    <Param name="first_col">
+     <Type type="unsigned4"/>
+    </Param>
+    <Param name="D">
+     <Type type="table">
+      <Type fullname="pbblas.internal.layout_cell" name="Layout_Cell" type="record"/>
+     </Type>
+    </Param>
+    <Param name="transpose">
+     <Type type="boolean"/>
+    </Param>
    </Params>
   </Definition>
  </Source>
@@ -2722,8 +3500,9 @@
               inherittype="local"
               line="7"
               name="dimension_t"
-              start="295">
-   <Type>attribute</Type>
+              start="295"
+              type="attribute">
+   <Type type="unsigned4"/>
   </Definition>
   <Definition body="413"
               end="432"
@@ -2731,12 +3510,20 @@
               inherittype="local"
               line="10"
               name="Layout_Cell"
-              start="399">
-   <Type>record</Type>
-   <Field name="wi_id" type="unsigned2"/>
-   <Field name="x" type="unsigned4"/>
-   <Field name="y" type="unsigned4"/>
-   <Field name="v" type="real8"/>
+              start="399"
+              type="record">
+   <Field name="wi_id">
+    <Type type="unsigned2"/>
+   </Field>
+   <Field name="x">
+    <Type type="unsigned4"/>
+   </Field>
+   <Field name="y">
+    <Type type="unsigned4"/>
+   </Field>
+   <Field name="v">
+    <Type type="real8"/>
+   </Field>
    <Documentation>
     <content>&#10;&#32;&#32;&#32;&#32;* Layout for Matrix Cell
     *
@@ -2777,16 +3564,32 @@
               inherittype="local"
               line="11"
               name="Layout_Dims"
-              start="433">
-   <Type>record</Type>
-   <Field name="m_label" type="string3"/>
-   <Field name="wi_id" type="unsigned2"/>
-   <Field name="m_rows" type="unsigned4"/>
-   <Field name="m_cols" type="unsigned4"/>
-   <Field name="block_rows" type="unsigned4"/>
-   <Field name="block_cols" type="unsigned4"/>
-   <Field name="row_blocks" type="unsigned4"/>
-   <Field name="col_blocks" type="unsigned4"/>
+              start="433"
+              type="record">
+   <Field name="m_label">
+    <Type type="string3"/>
+   </Field>
+   <Field name="wi_id">
+    <Type type="unsigned2"/>
+   </Field>
+   <Field name="m_rows">
+    <Type type="unsigned4"/>
+   </Field>
+   <Field name="m_cols">
+    <Type type="unsigned4"/>
+   </Field>
+   <Field name="block_rows">
+    <Type type="unsigned4"/>
+   </Field>
+   <Field name="block_cols">
+    <Type type="unsigned4"/>
+   </Field>
+   <Field name="row_blocks">
+    <Type type="unsigned4"/>
+   </Field>
+   <Field name="col_blocks">
+    <Type type="unsigned4"/>
+   </Field>
    <Documentation>
     <content>&#10;&#32;&#32;&#32;&#32;* Record format for matrix and matrix partition dimensions.  Each record describes
     * A single matrix or matrix partition.  Partitions use all of the fields, while
@@ -2808,8 +3611,9 @@
               inherittype="local"
               line="13"
               name="m_label_t"
-              start="498">
-   <Type>attribute</Type>
+              start="498"
+              type="attribute">
+   <Type type="string3"/>
   </Definition>
   <Definition body="956"
               end="975"
@@ -2817,8 +3621,9 @@
               inherittype="local"
               line="21"
               name="partition_t"
-              start="942">
-   <Type>attribute</Type>
+              start="942"
+              type="attribute">
+   <Type type="unsigned2"/>
    <Documentation>
     <content>&#32;&#10;&#32;&#32;* Module:  Converted
   *
@@ -2838,8 +3643,9 @@
               inherittype="local"
               line="23"
               name="node_t"
-              start="1010">
-   <Type>attribute</Type>
+              start="1010"
+              type="attribute">
+   <Type type="unsigned2"/>
   </Definition>
   <Definition body="1086"
               end="1106"
@@ -2847,23 +3653,55 @@
               inherittype="local"
               line="25"
               name="Layout_Part"
-              start="1072">
-   <Type>record</Type>
-   <Field name="m_label" type="string3"/>
-   <Field name="wi_id" type="unsigned2"/>
-   <Field name="partition_id" type="unsigned2"/>
-   <Field name="node_id" type="unsigned2"/>
-   <Field name="m_rows" type="unsigned4"/>
-   <Field name="m_cols" type="unsigned4"/>
-   <Field name="row_blocks" type="unsigned4"/>
-   <Field name="col_blocks" type="unsigned4"/>
-   <Field name="block_row" type="unsigned4"/>
-   <Field name="block_col" type="unsigned4"/>
-   <Field name="part_rows" type="unsigned4"/>
-   <Field name="part_cols" type="unsigned4"/>
-   <Field name="first_row" type="unsigned4"/>
-   <Field name="first_col" type="unsigned4"/>
-   <Field name="mat_part" type="set of real8"/>
+              start="1072"
+              type="record">
+   <Field name="m_label">
+    <Type type="string3"/>
+   </Field>
+   <Field name="wi_id">
+    <Type type="unsigned2"/>
+   </Field>
+   <Field name="partition_id">
+    <Type type="unsigned2"/>
+   </Field>
+   <Field name="node_id">
+    <Type type="unsigned2"/>
+   </Field>
+   <Field name="m_rows">
+    <Type type="unsigned4"/>
+   </Field>
+   <Field name="m_cols">
+    <Type type="unsigned4"/>
+   </Field>
+   <Field name="row_blocks">
+    <Type type="unsigned4"/>
+   </Field>
+   <Field name="col_blocks">
+    <Type type="unsigned4"/>
+   </Field>
+   <Field name="block_row">
+    <Type type="unsigned4"/>
+   </Field>
+   <Field name="block_col">
+    <Type type="unsigned4"/>
+   </Field>
+   <Field name="part_rows">
+    <Type type="unsigned4"/>
+   </Field>
+   <Field name="part_cols">
+    <Type type="unsigned4"/>
+   </Field>
+   <Field name="first_row">
+    <Type type="unsigned4"/>
+   </Field>
+   <Field name="first_col">
+    <Type type="unsigned4"/>
+   </Field>
+   <Field name="mat_part">
+    <Type type="set">
+     <Type type="real8"/>
+    </Type>
+   </Field>
    <Documentation>
     <content>&#10;&#32;&#32;&#32;&#32;* Alternate form for storage of large matrixes as a set of partitions
     * Each partition holds the dense form of a piece of the matrix (see matrix_t)
@@ -2915,8 +3753,8 @@
               inherittype="local"
               line="29"
               name="Converted"
-              start="1177">
-   <Type>module</Type>
+              start="1177"
+              type="module">
    <Definition body="1222"
                end="1545"
                fullname="pbblas.internal.converted.work1"
@@ -2924,23 +3762,53 @@
                line="31"
                name="Work1"
                shared="1"
-               start="1207">
-    <Type>record</Type>
-    <Field name="wi_id" type="unsigned2"/>
-    <Field name="x" type="unsigned4"/>
-    <Field name="y" type="unsigned4"/>
-    <Field name="v" type="real8"/>
-    <Field name="partition_id" type="unsigned2"/>
-    <Field name="node_id" type="unsigned2"/>
-    <Field name="m_rows" type="unsigned4"/>
-    <Field name="m_cols" type="unsigned4"/>
-    <Field name="row_blocks" type="unsigned4"/>
-    <Field name="col_blocks" type="unsigned4"/>
-    <Field name="block_rows" type="unsigned4"/>
-    <Field name="block_cols" type="unsigned4"/>
-    <Field name="block_row" type="unsigned4"/>
-    <Field name="block_col" type="unsigned4"/>
-    <Field name="m_label" type="string3"/>
+               start="1207"
+               type="record">
+    <Field name="wi_id">
+     <Type type="unsigned2"/>
+    </Field>
+    <Field name="x">
+     <Type type="unsigned4"/>
+    </Field>
+    <Field name="y">
+     <Type type="unsigned4"/>
+    </Field>
+    <Field name="v">
+     <Type type="real8"/>
+    </Field>
+    <Field name="partition_id">
+     <Type type="unsigned2"/>
+    </Field>
+    <Field name="node_id">
+     <Type type="unsigned2"/>
+    </Field>
+    <Field name="m_rows">
+     <Type type="unsigned4"/>
+    </Field>
+    <Field name="m_cols">
+     <Type type="unsigned4"/>
+    </Field>
+    <Field name="row_blocks">
+     <Type type="unsigned4"/>
+    </Field>
+    <Field name="col_blocks">
+     <Type type="unsigned4"/>
+    </Field>
+    <Field name="block_rows">
+     <Type type="unsigned4"/>
+    </Field>
+    <Field name="block_cols">
+     <Type type="unsigned4"/>
+    </Field>
+    <Field name="block_row">
+     <Type type="unsigned4"/>
+    </Field>
+    <Field name="block_col">
+     <Type type="unsigned4"/>
+    </Field>
+    <Field name="m_label">
+     <Type type="string3"/>
+    </Field>
    </Definition>
    <Definition body="2744"
                end="5680"
@@ -2949,8 +3817,59 @@
                inherittype="local"
                line="65"
                name="FromCells"
-               start="2617">
-    <Type>function</Type>
+               start="2617"
+               type="function">
+    <Type type="table">
+     <Type type="record" unnamed="1">
+      <Field name="m_label">
+       <Type type="string3"/>
+      </Field>
+      <Field name="wi_id">
+       <Type type="unsigned2"/>
+      </Field>
+      <Field name="partition_id">
+       <Type type="unsigned2"/>
+      </Field>
+      <Field name="node_id">
+       <Type type="unsigned2"/>
+      </Field>
+      <Field name="m_rows">
+       <Type type="unsigned4"/>
+      </Field>
+      <Field name="m_cols">
+       <Type type="unsigned4"/>
+      </Field>
+      <Field name="row_blocks">
+       <Type type="unsigned4"/>
+      </Field>
+      <Field name="col_blocks">
+       <Type type="unsigned4"/>
+      </Field>
+      <Field name="block_row">
+       <Type type="unsigned4"/>
+      </Field>
+      <Field name="block_col">
+       <Type type="unsigned4"/>
+      </Field>
+      <Field name="part_rows">
+       <Type type="unsigned4"/>
+      </Field>
+      <Field name="part_cols">
+       <Type type="unsigned4"/>
+      </Field>
+      <Field name="first_row">
+       <Type type="unsigned4"/>
+      </Field>
+      <Field name="first_col">
+       <Type type="unsigned4"/>
+      </Field>
+      <Field name="mat_part">
+       <Type type="set">
+        <Type type="real8"/>
+       </Type>
+      </Field>
+     </Type>
+    </Type>
     <Documentation>
      <content>&#10;&#32;&#32;&#32;&#32;* Convert a matrix in cell-based form (i.e. DATASET(Layout_Cell)) to a partition-based
     * form (i.e. DATASET(Layout_Part).  Partition sizes will be automatically determined.
@@ -2972,9 +3891,19 @@
     * @see PBblas/internal/Types.Layout_Dims&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="dims"/>
-     <Param name="cells"/>
-     <Param name="transpose"/>
+     <Param name="dims">
+      <Type type="table">
+       <Type fullname="pbblas.internal.layout_dims" name="Layout_Dims" type="record"/>
+      </Type>
+     </Param>
+     <Param name="cells">
+      <Type type="table">
+       <Type fullname="pbblas.internal.layout_cell" name="Layout_Cell" type="record"/>
+      </Type>
+     </Param>
+     <Param name="transpose">
+      <Type type="boolean"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="6553"
@@ -2984,8 +3913,24 @@
                inherittype="local"
                line="145"
                name="FromParts"
-               start="6477">
-    <Type>function</Type>
+               start="6477"
+               type="function">
+    <Type type="table">
+     <Type type="record" unnamed="1">
+      <Field name="wi_id">
+       <Type type="unsigned2"/>
+      </Field>
+      <Field name="x">
+       <Type type="unsigned4"/>
+      </Field>
+      <Field name="y">
+       <Type type="unsigned4"/>
+      </Field>
+      <Field name="v">
+       <Type type="real8"/>
+      </Field>
+     </Type>
+    </Type>
     <Documentation>
      <content>&#10;&#32;&#32;&#32;&#32;* Convert a matrix in Partition-based form (i.e. DATASET(Layout_Part))
     * to Cell-based form (i.e. DATASET(Layout_Cell)).
@@ -3003,8 +3948,14 @@
     * @see Std/PBblas/Types.Layout_Part&#10;&#32;&#32;&#32;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="part_recs"/>
-     <Param name="transpose"/>
+     <Param name="part_recs">
+      <Type type="table">
+       <Type fullname="pbblas.internal.layout_part" name="Layout_Part" type="record"/>
+      </Type>
+     </Param>
+     <Param name="transpose">
+      <Type type="boolean"/>
+     </Param>
     </Params>
    </Definition>
    <Parents/>
@@ -3100,12 +4051,20 @@
               inherittype="local"
               line="13"
               name="Layout_Cell"
-              start="430">
-   <Type>record</Type>
-   <Field name="wi_id" type="unsigned2"/>
-   <Field name="x" type="unsigned4"/>
-   <Field name="y" type="unsigned4"/>
-   <Field name="v" type="real8"/>
+              start="430"
+              type="record">
+   <Field name="wi_id">
+    <Type type="unsigned2"/>
+   </Field>
+   <Field name="x">
+    <Type type="unsigned4"/>
+   </Field>
+   <Field name="y">
+    <Type type="unsigned4"/>
+   </Field>
+   <Field name="v">
+    <Type type="real8"/>
+   </Field>
    <Documentation>
     <content>&#10;&#32;&#32;&#32;&#32;* Layout for Matrix Cell
     *
@@ -3146,23 +4105,55 @@
               inherittype="local"
               line="14"
               name="Layout_Part"
-              start="464">
-   <Type>record</Type>
-   <Field name="m_label" type="string3"/>
-   <Field name="wi_id" type="unsigned2"/>
-   <Field name="partition_id" type="unsigned2"/>
-   <Field name="node_id" type="unsigned2"/>
-   <Field name="m_rows" type="unsigned4"/>
-   <Field name="m_cols" type="unsigned4"/>
-   <Field name="row_blocks" type="unsigned4"/>
-   <Field name="col_blocks" type="unsigned4"/>
-   <Field name="block_row" type="unsigned4"/>
-   <Field name="block_col" type="unsigned4"/>
-   <Field name="part_rows" type="unsigned4"/>
-   <Field name="part_cols" type="unsigned4"/>
-   <Field name="first_row" type="unsigned4"/>
-   <Field name="first_col" type="unsigned4"/>
-   <Field name="mat_part" type="set of real8"/>
+              start="464"
+              type="record">
+   <Field name="m_label">
+    <Type type="string3"/>
+   </Field>
+   <Field name="wi_id">
+    <Type type="unsigned2"/>
+   </Field>
+   <Field name="partition_id">
+    <Type type="unsigned2"/>
+   </Field>
+   <Field name="node_id">
+    <Type type="unsigned2"/>
+   </Field>
+   <Field name="m_rows">
+    <Type type="unsigned4"/>
+   </Field>
+   <Field name="m_cols">
+    <Type type="unsigned4"/>
+   </Field>
+   <Field name="row_blocks">
+    <Type type="unsigned4"/>
+   </Field>
+   <Field name="col_blocks">
+    <Type type="unsigned4"/>
+   </Field>
+   <Field name="block_row">
+    <Type type="unsigned4"/>
+   </Field>
+   <Field name="block_col">
+    <Type type="unsigned4"/>
+   </Field>
+   <Field name="part_rows">
+    <Type type="unsigned4"/>
+   </Field>
+   <Field name="part_cols">
+    <Type type="unsigned4"/>
+   </Field>
+   <Field name="first_row">
+    <Type type="unsigned4"/>
+   </Field>
+   <Field name="first_col">
+    <Type type="unsigned4"/>
+   </Field>
+   <Field name="mat_part">
+    <Type type="set">
+     <Type type="real8"/>
+    </Type>
+   </Field>
    <Documentation>
     <content>&#10;&#32;&#32;&#32;&#32;* Alternate form for storage of large matrixes as a set of partitions
     * Each partition holds the dense form of a piece of the matrix (see matrix_t)
@@ -3213,28 +4204,70 @@
               inherittype="local"
               line="15"
               name="Layout_Target"
-              start="499">
-   <Type>record</Type>
-   <Field name="t_part_id" type="unsigned2"/>
-   <Field name="t_node_id" type="unsigned2"/>
-   <Field name="t_block_row" type="unsigned4"/>
-   <Field name="t_block_col" type="unsigned4"/>
-   <Field name="t_term" type="unsigned4"/>
-   <Field name="m_label" type="string3"/>
-   <Field name="wi_id" type="unsigned2"/>
-   <Field name="partition_id" type="unsigned2"/>
-   <Field name="node_id" type="unsigned2"/>
-   <Field name="m_rows" type="unsigned4"/>
-   <Field name="m_cols" type="unsigned4"/>
-   <Field name="row_blocks" type="unsigned4"/>
-   <Field name="col_blocks" type="unsigned4"/>
-   <Field name="block_row" type="unsigned4"/>
-   <Field name="block_col" type="unsigned4"/>
-   <Field name="part_rows" type="unsigned4"/>
-   <Field name="part_cols" type="unsigned4"/>
-   <Field name="first_row" type="unsigned4"/>
-   <Field name="first_col" type="unsigned4"/>
-   <Field name="mat_part" type="set of real8"/>
+              start="499"
+              type="record">
+   <Field name="t_part_id">
+    <Type type="unsigned2"/>
+   </Field>
+   <Field name="t_node_id">
+    <Type type="unsigned2"/>
+   </Field>
+   <Field name="t_block_row">
+    <Type type="unsigned4"/>
+   </Field>
+   <Field name="t_block_col">
+    <Type type="unsigned4"/>
+   </Field>
+   <Field name="t_term">
+    <Type type="unsigned4"/>
+   </Field>
+   <Field name="m_label">
+    <Type type="string3"/>
+   </Field>
+   <Field name="wi_id">
+    <Type type="unsigned2"/>
+   </Field>
+   <Field name="partition_id">
+    <Type type="unsigned2"/>
+   </Field>
+   <Field name="node_id">
+    <Type type="unsigned2"/>
+   </Field>
+   <Field name="m_rows">
+    <Type type="unsigned4"/>
+   </Field>
+   <Field name="m_cols">
+    <Type type="unsigned4"/>
+   </Field>
+   <Field name="row_blocks">
+    <Type type="unsigned4"/>
+   </Field>
+   <Field name="col_blocks">
+    <Type type="unsigned4"/>
+   </Field>
+   <Field name="block_row">
+    <Type type="unsigned4"/>
+   </Field>
+   <Field name="block_col">
+    <Type type="unsigned4"/>
+   </Field>
+   <Field name="part_rows">
+    <Type type="unsigned4"/>
+   </Field>
+   <Field name="part_cols">
+    <Type type="unsigned4"/>
+   </Field>
+   <Field name="first_row">
+    <Type type="unsigned4"/>
+   </Field>
+   <Field name="first_col">
+    <Type type="unsigned4"/>
+   </Field>
+   <Field name="mat_part">
+    <Type type="set">
+     <Type type="real8"/>
+    </Type>
+   </Field>
    <Documentation>
     <content>&#10;&#32;&#32;&#32;&#32;* Represents the relationship of a partition to the partition holding the
     * results of a matrix operation.  This is used internally to PBblas functions
@@ -3254,16 +4287,18 @@
               inherittype="local"
               line="16"
               name="OpType"
-              start="538">
-   <Type>attribute</Type>
+              start="538"
+              type="attribute">
+   <Type type="unsigned1"/>
   </Definition>
   <Definition body="574"
               end="590"
               inherittype="local"
               line="17"
               name="Triangle"
-              start="563">
-   <Type>attribute</Type>
+              start="563"
+              type="attribute">
+   <Type type="unsigned1"/>
    <Documentation>
     <content>&#10;&#32;&#32;&#32;&#32;* Enumeration for Triangle type
     * 
@@ -3276,8 +4311,9 @@
               inherittype="local"
               line="18"
               name="Upper"
-              start="591">
-   <Type>attribute</Type>
+              start="591"
+              type="attribute">
+   <Type type="unsigned1"/>
   </Definition>
   <Definition body="628"
               end="650"
@@ -3285,16 +4321,18 @@
               inherittype="local"
               line="19"
               name="Lower"
-              start="621">
-   <Type>attribute</Type>
+              start="621"
+              type="attribute">
+   <Type type="unsigned1"/>
   </Definition>
   <Definition body="662"
               end="678"
               inherittype="local"
               line="20"
               name="Diagonal"
-              start="651">
-   <Type>attribute</Type>
+              start="651"
+              type="attribute">
+   <Type type="unsigned1"/>
    <Documentation>
     <content>&#10;&#32;&#32;&#32;&#32;* Enumeration for Diagonal type
     * 
@@ -3307,8 +4345,11 @@
               inherittype="local"
               line="21"
               name="empty_mat"
-              start="679">
-   <Type>attribute</Type>
+              start="679"
+              type="attribute">
+   <Type type="set">
+    <Type type="real8"/>
+   </Type>
   </Definition>
   <Definition body="726"
               end="745"
@@ -3316,8 +4357,9 @@
               inherittype="local"
               line="22"
               name="dimension_t"
-              start="712">
-   <Type>attribute</Type>
+              start="712"
+              type="attribute">
+   <Type type="unsigned4"/>
   </Definition>
   <Definition body="2182"
               end="9049"
@@ -3326,8 +4368,24 @@
               inherittype="local"
               line="55"
               name="potrf"
-              start="2105">
-   <Type>function</Type>
+              start="2105"
+              type="function">
+   <Type type="table">
+    <Type type="record" unnamed="1">
+     <Field name="wi_id">
+      <Type type="unsigned2"/>
+     </Field>
+     <Field name="x">
+      <Type type="unsigned4"/>
+     </Field>
+     <Field name="y">
+      <Type type="unsigned4"/>
+     </Field>
+     <Field name="v">
+      <Type type="real8"/>
+     </Field>
+    </Type>
+   </Type>
    <Documentation>
     <content>&#10;&#32;&#32;* Implements Cholesky factorization of A = U**T * U if Triangular.Upper requested
   * or A = L * L**T if Triangualr.Lower is requested.
@@ -3360,8 +4418,14 @@
   *&#10;&#32;&#32;</content>
    </Documentation>
    <Params>
-    <Param name="tri"/>
-    <Param name="A_in"/>
+    <Param name="tri">
+     <Type type="unsigned1"/>
+    </Param>
+    <Param name="A_in">
+     <Type type="table">
+      <Type fullname="pbblas.layout_cell" name="Layout_Cell" type="record"/>
+     </Type>
+    </Param>
    </Params>
   </Definition>
  </Source>

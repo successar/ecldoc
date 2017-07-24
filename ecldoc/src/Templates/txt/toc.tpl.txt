@@ -2,7 +2,7 @@
   {{ name }}
 {{ '+' * (name|length + 4) }}
 
-{% if bundle -%}
+{% if bundle is not none -%}
 {%- for tag in bundle.iterchildren() %}
 {{ tag.tag }} : {{ tag.text }}
 {% endfor -%}

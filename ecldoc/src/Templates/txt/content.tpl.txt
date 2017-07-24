@@ -18,7 +18,7 @@
 {{ '\n' }}
 {%- endfor -%}
 {%- endif -%}
-{%- if def['Parents'] -%}
+{%- if def['Parents'] is not none -%}
 {%- for parent in def['Parents'].findall('./Parent') -%}
 {%- if 'ref' in parent.attrib -%}
 {{ '\n' }}Parent : {{ parent.attrib['ref'] }} <{{ parent.attrib['target'] }}>{{ '\n' }}

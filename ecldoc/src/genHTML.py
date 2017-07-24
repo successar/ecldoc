@@ -25,13 +25,25 @@ def construct_type(ele) :
     if typename == 'record' :
         if 'unnamed' in attribs :
             typestring += '{ '
+            fields = []
             for field in ele.findall('Field') :
-                typestring += construct_type(field.find('./Type')) + " " + field.attrib['name'] + ', '
-            typestring += ' }'
+                fields.append(construct_type(field.find('./Type')) + " " + field.attrib['name'])
+            typestring += ' , '.join(fields) + ' }'
         else :
             typestring += attribs['origfn'] if 'origfn' in attribs else attribs['name']
     else :
         typestring += typename.upper()
+        if 'origfn' in attribs :
+            typestring += ' ( ' + attribs['origfn'] + ' )'
+        elif 'name' in attribs :
+            typestring += ' ( ' + attribs['name'] + ' )'
+
+    if typename == 'function' :
+        typestring += ' [ '
+        params = []
+        for p in ele.find('Params').findall('Type') :
+            params.append(construct_type(p))
+        typestring += ' , '.join(params) + ' ]'
 
     if ele.find('./Type') is not None :
         typestring += ' ( ' + construct_type(ele.find('./Type')) + ' )'

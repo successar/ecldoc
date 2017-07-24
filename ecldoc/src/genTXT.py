@@ -35,7 +35,6 @@ class ParseTXT(object) :
 		os.makedirs(dirname(self.txt_file), exist_ok=True)
 
 	def parse(self) :
-		print(self.txt_file)
 		root = etree.parse(self.xml_file).getroot()
 		src = root.find('./Source')
 		self.src = src

@@ -8,8 +8,9 @@
               inherittype="local"
               line="7"
               name="gamma"
-              start="179">
-   <Type>embed</Type>
+              start="179"
+              type="embed">
+   <Type type="real8"/>
    <Documentation>
     <content>&#10;&#32;* Return the value of gamma function of real number x
  * A wrapper for the standard C tgamma function.
@@ -17,7 +18,9 @@
  *@return the value of GAMMA evaluated at x&#10;&#32;</content>
    </Documentation>
    <Params>
-    <Param name="x"/>
+    <Param name="x">
+     <Type type="real8"/>
+    </Param>
    </Params>
   </Definition>
  </Source>
@@ -29,8 +32,9 @@
               inherittype="local"
               line="8"
               name="lowerGamma"
-              start="214">
-   <Type>embed</Type>
+              start="214"
+              type="embed">
+   <Type type="real8"/>
    <Documentation>
     <content>&#10;&#32;* Return the lower incomplete gamma value of two real numbers,
  *  x and y
@@ -39,8 +43,12 @@
  *@return   the lower incomplete gamma value&#10;&#32;</content>
    </Documentation>
    <Params>
-    <Param name="x"/>
-    <Param name="y"/>
+    <Param name="x">
+     <Type type="real8"/>
+    </Param>
+    <Param name="y">
+     <Type type="real8"/>
+    </Param>
    </Params>
   </Definition>
  </Source>
@@ -52,8 +60,9 @@
               inherittype="local"
               line="8"
               name="upperGamma"
-              start="214">
-   <Type>embed</Type>
+              start="214"
+              type="embed">
+   <Type type="real8"/>
    <Documentation>
     <content>&#10;&#32;* Return the upper incomplete gamma value of two real numbers,
  * x and y.
@@ -62,8 +71,12 @@
  *@return   the upper incomplete gamma value&#10;&#32;</content>
    </Documentation>
    <Params>
-    <Param name="x"/>
-    <Param name="y"/>
+    <Param name="x">
+     <Type type="real8"/>
+    </Param>
+    <Param name="y">
+     <Type type="real8"/>
+    </Param>
    </Params>
   </Definition>
  </Source>
@@ -100,10 +113,13 @@
               inherittype="local"
               line="7"
               name="scipy_gamma"
-              start="188">
-   <Type>embed</Type>
+              start="188"
+              type="embed">
+   <Type type="real8"/>
    <Params>
-    <Param name="x"/>
+    <Param name="x">
+     <Type type="real8"/>
+    </Param>
    </Params>
   </Definition>
   <Definition body="358"
@@ -112,11 +128,16 @@
               inherittype="local"
               line="12"
               name="scipy_lowerGamma"
-              start="315">
-   <Type>embed</Type>
+              start="315"
+              type="embed">
+   <Type type="real8"/>
    <Params>
-    <Param name="x"/>
-    <Param name="z"/>
+    <Param name="x">
+     <Type type="real8"/>
+    </Param>
+    <Param name="z">
+     <Type type="real8"/>
+    </Param>
    </Params>
   </Definition>
   <Definition body="530"
@@ -125,11 +146,16 @@
               inherittype="local"
               line="17"
               name="scipy_upperGamma"
-              start="487">
-   <Type>embed</Type>
+              start="487"
+              type="embed">
+   <Type type="real8"/>
    <Params>
-    <Param name="x"/>
-    <Param name="z"/>
+    <Param name="x">
+     <Type type="real8"/>
+    </Param>
+    <Param name="z">
+     <Type type="real8"/>
+    </Param>
    </Params>
   </Definition>
   <Definition body="679"
@@ -138,8 +164,11 @@
               inherittype="local"
               line="23"
               name="tv"
-              start="661">
-   <Type>attribute</Type>
+              start="661"
+              type="attribute">
+   <Type type="set">
+    <Type type="real8"/>
+   </Type>
   </Definition>
   <Definition body="897"
               end="944"
@@ -147,8 +176,11 @@
               inherittype="local"
               line="27"
               name="sv"
-              start="879">
-   <Type>attribute</Type>
+              start="879"
+              type="attribute">
+   <Type type="set">
+    <Type type="real8"/>
+   </Type>
   </Definition>
   <Definition body="961"
               end="974"
@@ -156,8 +188,9 @@
               inherittype="local"
               line="28"
               name="epsilon"
-              start="945">
-   <Type>attribute</Type>
+              start="945"
+              type="attribute">
+   <Type type="real8"/>
   </Definition>
   <Definition body="983"
               end="1140"
@@ -165,19 +198,41 @@
               inherittype="local"
               line="29"
               name="Work1"
-              start="975">
-   <Type>record</Type>
-   <Field name="x" type="real8"/>
-   <Field name="z" type="real8"/>
-   <Field name="g" type="real8"/>
-   <Field name="l" type="real8"/>
-   <Field name="u" type="real8"/>
-   <Field name="g_diff" type="real8"/>
-   <Field name="l_diff" type="real8"/>
-   <Field name="u_diff" type="real8"/>
-   <Field name="py_g" type="real8"/>
-   <Field name="py_l" type="real8"/>
-   <Field name="py_u" type="real8"/>
+              start="975"
+              type="record">
+   <Field name="x">
+    <Type type="real8"/>
+   </Field>
+   <Field name="z">
+    <Type type="real8"/>
+   </Field>
+   <Field name="g">
+    <Type type="real8"/>
+   </Field>
+   <Field name="l">
+    <Type type="real8"/>
+   </Field>
+   <Field name="u">
+    <Type type="real8"/>
+   </Field>
+   <Field name="g_diff">
+    <Type type="real8"/>
+   </Field>
+   <Field name="l_diff">
+    <Type type="real8"/>
+   </Field>
+   <Field name="u_diff">
+    <Type type="real8"/>
+   </Field>
+   <Field name="py_g">
+    <Type type="real8"/>
+   </Field>
+   <Field name="py_l">
+    <Type type="real8"/>
+   </Field>
+   <Field name="py_u">
+    <Type type="real8"/>
+   </Field>
   </Definition>
   <Definition body="1169"
               end="2094"
@@ -185,12 +240,14 @@
               inherittype="local"
               line="43"
               name="makeT"
-              start="1142">
-   <Type>transform</Type>
+              start="1142"
+              type="transform">
+   <Type fullname="ml_core.tests.work1" name="Work1" type="record"/>
    <Params>
-    <Param name="ts"/>
+    <Param name="ts">
+     <Type type="unsigned8"/>
+    </Param>
    </Params>
-   <Return>work1</Return>
   </Definition>
   <Definition body="2140"
               end="2440"
@@ -198,11 +255,16 @@
               inherittype="local"
               line="66"
               name="range_cat"
-              start="2095">
-   <Type>function</Type>
+              start="2095"
+              type="function">
+   <Type type="string"/>
    <Params>
-    <Param name="x"/>
-    <Param name="z"/>
+    <Param name="x">
+     <Type type="real8"/>
+    </Param>
+    <Param name="z">
+     <Type type="real8"/>
+    </Param>
    </Params>
   </Definition>
   <Definition body="2472"
@@ -211,11 +273,16 @@
               inherittype="local"
               line="76"
               name="cat"
-              start="2441">
-   <Type>function</Type>
+              start="2441"
+              type="function">
+   <Type type="string"/>
    <Params>
-    <Param name="x"/>
-    <Param name="z"/>
+    <Param name="x">
+     <Type type="real8"/>
+    </Param>
+    <Param name="z">
+     <Type type="real8"/>
+    </Param>
    </Params>
   </Definition>
   <Definition body="2799"
@@ -224,8 +291,11 @@
               inherittype="local"
               line="85"
               name="test_set"
-              start="2788">
-   <Type>attribute</Type>
+              start="2788"
+              type="attribute">
+   <Type type="table">
+    <Type fullname="ml_core.tests.work1" name="Work1" type="record"/>
+   </Type>
   </Definition>
   <Definition body="2859"
               end="2906"
@@ -233,8 +303,11 @@
               inherittype="local"
               line="86"
               name="bad_result"
-              start="2846">
-   <Type>attribute</Type>
+              start="2846"
+              type="attribute">
+   <Type type="table">
+    <Type fullname="ml_core.tests.work1" name="Work1" type="record"/>
+   </Type>
   </Definition>
   <Definition body="2918"
               end="3363"
@@ -242,8 +315,33 @@
               inherittype="local"
               line="87"
               name="test_sum"
-              start="2907">
-   <Type>attribute</Type>
+              start="2907"
+              type="attribute">
+   <Type type="table">
+    <Type type="record" unnamed="1">
+     <Field name="c">
+      <Type type="string"/>
+     </Field>
+     <Field name="Good_u">
+      <Type type="integer8"/>
+     </Field>
+     <Field name="Bad_u">
+      <Type type="integer8"/>
+     </Field>
+     <Field name="Good_l">
+      <Type type="integer8"/>
+     </Field>
+     <Field name="Bad_l">
+      <Type type="integer8"/>
+     </Field>
+     <Field name="Good_g">
+      <Type type="integer8"/>
+     </Field>
+     <Field name="Bad_g">
+      <Type type="integer8"/>
+     </Field>
+    </Type>
+   </Type>
   </Definition>
   <Definition body="3381"
               end="3427"
@@ -251,8 +349,9 @@
               inherittype="local"
               line="97"
               name="Passed_Action"
-              start="3365">
-   <Type>attribute</Type>
+              start="3365"
+              type="attribute">
+   <Type type=""/>
   </Definition>
   <Definition body="3444"
               end="3957"
@@ -260,8 +359,9 @@
               inherittype="local"
               line="98"
               name="Failed_Action"
-              start="3428">
-   <Type>attribute</Type>
+              start="3428"
+              type="attribute">
+   <Type type=""/>
   </Definition>
   <Definition body="3985"
               end="4097"
@@ -270,8 +370,9 @@
               inherittype="local"
               line="110"
               name="Validate_Gammas"
-              start="3960">
-   <Type>attribute</Type>
+              start="3960"
+              type="attribute">
+   <Type type=""/>
   </Definition>
  </Source>
 </Meta>

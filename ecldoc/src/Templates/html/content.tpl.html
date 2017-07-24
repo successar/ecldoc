@@ -1,26 +1,26 @@
-{% macro simpletag(name, xpath, def, double=false) %}
-	{% if def.find('./Documentation') %}
-	{% if def.find('./Documentation').findall(xpath) %}
+{%- macro simpletag(name, xpath, def, double=false) %}
+	{%- if def.find('Documentation') is not none %}
+	{%- if def.find('Documentation').findall(xpath) %}
 	<div class="row">
 		<div class="col-md-1 doc-type">{{ name }}</div>
 		<div class="col-md-11" style="padding-left: 0px;">
 			<table class="table">
-				{% for tag in def.find('./Documentation').findall(xpath) %}
+				{%- for tag in def.find('Documentation').findall(xpath) %}
 				<tr>
-					{% if double %}
-					<td width="20%"><b>{{ tag.find('./name').text }}</b> </td>
-					<td>{{ tag.find('./desc').text }}</td>
-					{% else %}
+					{%- if double %}
+					<td width="20%"><b>{{ tag.find('name').text }}</b> </td>
+					<td>{{ tag.find('desc').text }}</td>
+					{%- else %}
 					<td>{{ tag.text }}</td>
-					{% endif %}
+					{%- endif %}
 				</tr>
-				{% endfor %}
+				{%- endfor %}
 			</table>
 		</div>
 	</div>
-	{% endif %}
-	{% endif %}
-{% endmacro %}
+	{%- endif %}
+	{%- endif %}
+{%- endmacro %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -64,11 +64,11 @@
 						Up
 					</a>
 				</li>
-				{% for d in files %}
+				{%- for d in files %}
 				<li>
 					<a href="{{ d.target }}">{{ d.name }}</a>
 				</li>
-				{% endfor %}
+				{%- endfor %}
 			</ul>
 		</div>
 
@@ -77,21 +77,21 @@
 				<section id="ecldoc-section-import">
 					<h3 class="page-header">IMPORTS</h3>
 					<ul class="pagination">
-						{% for imp in src.findall('./Import') -%}
+						{%- for imp in src.findall('./Import') -%}
 						<li>
-							{% if 'ref' in imp.attrib -%}
+							{%- if 'ref' in imp.attrib -%}
 							<a href="{{ imp.attrib['target'] }}">
 								{{ imp.attrib['ref'] }}
 							</a>
-							{% endif -%}
+							{%- endif -%}
 						</li>
-						{% endfor -%}
+						{%- endfor -%}
 					</ul>
 				</section>
 				<section id="ecldoc-section-desc">
 					<h3 class="page-header">CONTENTS</h3>
 					<div class="panel-group desc-panel-group">
-						{% for def in src.findall('./Definition') recursive -%}
+						{%- for def in src.findall('./Definition') recursive -%}
 						<div class="panel panel-info desc-panel" id="d{{ def.attrib['fullname'] }}">
 							<a href=".desc-{{ def.attrib['fullname'] }}" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">
@@ -102,81 +102,98 @@
 										{{ def.attrib['name'] }}
 									</div>
 									<div class="pull-right desc-btns">
-										{% if def.attrib['inherittype'] != 'local' %}
+										{%- if def.attrib['inherittype'] != 'local' %}
 										<span class="inherittype"> {{ def.attrib['inherittype'].upper() }}</span>
-										{% endif %}
+										{%- endif %}
 									</div>
 								</div>
 							</a>
 
 							<table class="table sign-list">
 								<tr>
-									<td class="ret">{{ def.find('./Signature').attrib['ret'] }}</td>
-									<td class="name">{{ def.find('./Signature').attrib['name'] }}</td>
-									<td class="param">{{ def.find('./Signature').attrib['param'] }}</td>
+									<td class="ret">{{ def.find('Signature').attrib['ret'] }}</td>
+									<td class="name">{{ def.find('Signature').attrib['name'] }}</td>
+									<td class="param">{{ def.find('Signature').attrib['param'] }}</td>
 								</tr>
 
-								<tr>
-									<td >{{ def.find('./Type')|construct_type }}</td>
-									<td colspan="2">
-										{% for p in (def.find('./Params')|construct_params) %}
-											{{ p[0] + ' ' + p[1] + ', ' }}
-										{% endfor %}
-									</td>
-								</tr>
-
-								{% if def.find('./Documentation') is not none -%}
+								{%- if def.find('Documentation') is not none -%}
 								<tr style="background: #f2f7ff;">
 									<td colspan="3">
-										{{ def.find('./Documentation').find('./firstline').text }}
+										{{ def.find('Documentation').find('firstline').text }}
 									</td>
 								</tr>
-								{% endif %}
+								{%- endif %}
 							</table>
-							{% if loop.depth0 == 0 %}
+
+							<table class="table">
+								{%- if def.find('Params') is not none %}
+								<tr>
+									<td width="20%"><b>Parameters</b></td>
+									<td style="padding:0px;">
+										<table class="table" style="margin: 0px;">
+										{%- for p in (def.find('Params')|construct_params) %}
+										<tr style="border-bottom: 2px;">
+											<td style="border-top: 0px; border-bottom-width: 1pt;">
+												<div style="flex: 1 1 auto; max-width: 50%; margin-right: 10px; display : inline-flex;">{{ p[0] }}</div>
+												<div style="flex: 1 1 auto;  display : inline-flex; font-weight: bold;">{{ p[1] }}</div>
+											</td>
+										</tr>
+										{%- endfor %}
+										</table>
+									</td>
+								</tr>
+								{%- endif %}
+								{%- if def.find('Type') is not none %}
+								<tr>
+									<td width="20%"><b>Returns</b></td>
+									<td >{{ def.find('./Type')|construct_type }}</td>
+								</tr>
+								{%- endif %}
+							</table>
+							{%- if loop.depth0 == 0 %}
 							<div class="panel-collapse collapse in desc-{{ def.attrib['fullname'] }}">
-							{% else %}
+							{%- else %}
 							<div class="panel-collapse collapse desc-{{ def.attrib['fullname'] }}">
-							{% endif %}
+							{%- endif %}
 								<div class="panel-body desc-panel-body">
-									{% if def.find('./Documentation') is not none -%}
+									{%- if def.find('Documentation') is not none -%}
 									<div class="row">
 										<div class="col-md-12" style="padding-bottom: 10px;">
 											{{ def.find('./Documentation').find('./content').text }}
 										</div>
 									</div>
-									{% endif %}
+									{%- endif %}
 									{{ simpletag('Parameters', './param', def, double=true) }}
 									{{ simpletag('Fields', './field', def, double=true) }}
 									{{ simpletag('Returns', './return', def) }}
 									{{ simpletag('Also See', './see', def) }}
 
-									{% if def.find('./Parents') -%}
+									{%- if def.find('Parents') is not none and def.find('Parents').findall('./Parent')|length != 0 -%}
 									<div class="row">
 										<div class="col-md-1 doc-type">Parent</div>
 										<div class="col-md-11" style="padding-left: 0px;">
 											<ul class="pagination" style="margin-top: 0px;">
-												{% for parent in def.find('./Parents').findall('./Parent') -%}
+												{%- for parent in def.find('./Parents').findall('./Parent') -%}
 												<li>
-													{% if 'ref' in parent.attrib -%}
+													{%- if 'ref' in parent.attrib -%}
 													<a href="{{ parent.attrib['target'] }}">
 														{{ parent.attrib['ref'] }}
 													</a>
-													{% endif -%}
+													{%- endif -%}
 												</li>
-												{% endfor -%}
+												{%- endfor -%}
 											</ul>
 										</div>
 									</div>
-									{% endif -%}
+									{%- endif -%}
 
-									{% if 'target' in def.attrib -%}
+									{%- if 'target' in def.attrib -%}
 									<div class="row">
 										<div class="col-md-12">
 											<a href="{{ def.attrib['target'] }}" class="btn btn-success" style="background: #00563B;">External Link</a>
 										</div>
 									</div>
-									{% endif -%}
+									{%- endif -%}
 								</div>
 								<div class="panel-footer desc-panel-footer">
 									<div class="panel-group desc-panel-group">
@@ -185,7 +202,7 @@
 								</div>
 							</div>
 						</div>
-						{% endfor -%}
+						{%- endfor -%}
 					</div>
 				</section>
 			</div>

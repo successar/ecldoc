@@ -8,8 +8,8 @@
               inherittype="local"
               line="19"
               name="BLAS"
-              start="839">
-   <Type>module</Type>
+              start="839"
+              type="module">
    <Definition body="947"
                end="1456"
                exported="1"
@@ -17,8 +17,8 @@
                inherittype="local"
                line="21"
                name="Types"
-               start="932">
-    <Type>module</Type>
+               start="932"
+               type="module">
     <Definition body="982"
                 end="1008"
                 exported="1"
@@ -26,8 +26,9 @@
                 inherittype="local"
                 line="22"
                 name="value_t"
-                start="960">
-     <Type>attribute</Type>
+                start="960"
+                type="attribute">
+     <Type type="real8"/>
     </Definition>
     <Definition body="1049"
                 end="1079"
@@ -36,8 +37,9 @@
                 inherittype="local"
                 line="23"
                 name="dimension_t"
-                start="1027">
-     <Type>attribute</Type>
+                start="1027"
+                type="attribute">
+     <Type type="unsigned4"/>
     </Definition>
     <Definition body="1120"
                 end="1147"
@@ -46,8 +48,11 @@
                 inherittype="local"
                 line="24"
                 name="matrix_t"
-                start="1098">
-     <Type>attribute</Type>
+                start="1098"
+                type="attribute">
+     <Type type="set">
+      <Type type="real8"/>
+     </Type>
     </Definition>
     <Definition body="1193"
                 end="1220"
@@ -55,8 +60,9 @@
                 inherittype="local"
                 line="25"
                 name="Triangle"
-                start="1171">
-     <Type>attribute</Type>
+                start="1171"
+                type="attribute">
+     <Type type="unsigned1"/>
     </Definition>
     <Definition body="1287"
                 end="1314"
@@ -64,8 +70,9 @@
                 inherittype="local"
                 line="26"
                 name="Diagonal"
-                start="1265">
-     <Type>attribute</Type>
+                start="1265"
+                type="attribute">
+     <Type type="unsigned1"/>
     </Definition>
     <Definition body="1388"
                 end="1411"
@@ -73,8 +80,9 @@
                 inherittype="local"
                 line="27"
                 name="Side"
-                start="1366">
-     <Type>attribute</Type>
+                start="1366"
+                type="attribute">
+     <Type type="unsigned1"/>
     </Definition>
     <Parents/>
    </Definition>
@@ -85,8 +93,9 @@
                inherittype="local"
                line="37"
                name="ICellFunc"
-               start="1639">
-    <Type>function</Type>
+               start="1639"
+               type="function">
+    <Type type="real8"/>
     <Documentation>
      <content>&#13;&#10;&#32;&#32;&#32;* Function prototype for Apply2Cell.
    * @param v the value
@@ -95,9 +104,15 @@
    * @return the updated value&#13;&#10;&#32;&#32;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="v"/>
-     <Param name="r"/>
-     <Param name="c"/>
+     <Param name="v">
+      <Type type="real8"/>
+     </Param>
+     <Param name="r">
+      <Type type="unsigned4"/>
+     </Param>
+     <Param name="c">
+      <Type type="unsigned4"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="2237"
@@ -107,8 +122,11 @@
                inherittype="local"
                line="49"
                name="Apply2Cells"
-               start="2017">
-    <Type>function</Type>
+               start="2017"
+               type="function">
+    <Type type="set">
+     <Type type="real8"/>
+    </Type>
     <Documentation>
      <content>&#13;&#10;&#32;&#32;&#32;* Iterate matrix and apply function to each cell
    *@param m number of rows
@@ -118,10 +136,27 @@
    *@return updated matrix&#13;&#10;&#32;&#32;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="m"/>
-     <Param name="n"/>
-     <Param name="x"/>
-     <Param name="f"/>
+     <Param name="m">
+      <Type type="unsigned4"/>
+     </Param>
+     <Param name="n">
+      <Type type="unsigned4"/>
+     </Param>
+     <Param name="x">
+      <Type type="set">
+       <Type type="real8"/>
+      </Type>
+     </Param>
+     <Param name="f">
+      <Type type="function">
+       <Type type="real8"/>
+       <Params>
+        <Type type="real8"/>
+        <Type type="unsigned4"/>
+        <Type type="unsigned4"/>
+       </Params>
+      </Type>
+     </Param>
     </Params>
    </Definition>
    <Definition body="3082"
@@ -131,8 +166,9 @@
                inherittype="local"
                line="73"
                name="dasum"
-               start="2934">
-    <Type>function</Type>
+               start="2934"
+               type="function">
+    <Type type="real8"/>
     <Documentation>
      <content>&#13;&#10;&#32;&#32;&#32;* Absolute sum, the 1 norm of a vector.
    *@param m the number of entries
@@ -143,10 +179,20 @@
    *@return the sum of the absolute values&#13;&#10;&#32;&#32;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="m"/>
-     <Param name="x"/>
-     <Param name="incx"/>
-     <Param name="skipped"/>
+     <Param name="m">
+      <Type type="unsigned4"/>
+     </Param>
+     <Param name="x">
+      <Type type="set">
+       <Type type="real8"/>
+      </Type>
+     </Param>
+     <Param name="incx">
+      <Type type="unsigned4"/>
+     </Param>
+     <Param name="skipped">
+      <Type type="unsigned4"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="3887"
@@ -156,8 +202,11 @@
                inherittype="local"
                line="90"
                name="daxpy"
-               start="3626">
-    <Type>function</Type>
+               start="3626"
+               type="function">
+    <Type type="set">
+     <Type type="real8"/>
+    </Type>
     <Documentation>
      <content>&#13;&#10;&#32;* alpha*X + Y
  * @param N number of elements in vector
@@ -171,14 +220,34 @@
  * @return the updated matrix&#13;&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="N"/>
-     <Param name="alpha"/>
-     <Param name="X"/>
-     <Param name="incX"/>
-     <Param name="Y"/>
-     <Param name="incY"/>
-     <Param name="x_skipped"/>
-     <Param name="y_skipped"/>
+     <Param name="N">
+      <Type type="unsigned4"/>
+     </Param>
+     <Param name="alpha">
+      <Type type="real8"/>
+     </Param>
+     <Param name="X">
+      <Type type="set">
+       <Type type="real8"/>
+      </Type>
+     </Param>
+     <Param name="incX">
+      <Type type="unsigned4"/>
+     </Param>
+     <Param name="Y">
+      <Type type="set">
+       <Type type="real8"/>
+      </Type>
+     </Param>
+     <Param name="incY">
+      <Type type="unsigned4"/>
+     </Param>
+     <Param name="x_skipped">
+      <Type type="unsigned4"/>
+     </Param>
+     <Param name="y_skipped">
+      <Type type="unsigned4"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="4764"
@@ -188,8 +257,11 @@
                inherittype="local"
                line="109"
                name="dgemm"
-               start="4465">
-    <Type>function</Type>
+               start="4465"
+               type="function">
+    <Type type="set">
+     <Type type="real8"/>
+    </Type>
     <Documentation>
      <content>&#13;&#10;&#32;&#32;&#32;* alpha*op(A) op(B) + beta*C where op() is transpose
    * @param transposeA true when transpose of A is used
@@ -204,16 +276,42 @@
    * @param C matrix C or empty&#13;&#10;&#32;&#32;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="transposeA"/>
-     <Param name="transposeB"/>
-     <Param name="M"/>
-     <Param name="N"/>
-     <Param name="K"/>
-     <Param name="alpha"/>
-     <Param name="A"/>
-     <Param name="B"/>
-     <Param name="beta"/>
-     <Param name="C"/>
+     <Param name="transposeA">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="transposeB">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="M">
+      <Type type="unsigned4"/>
+     </Param>
+     <Param name="N">
+      <Type type="unsigned4"/>
+     </Param>
+     <Param name="K">
+      <Type type="unsigned4"/>
+     </Param>
+     <Param name="alpha">
+      <Type type="real8"/>
+     </Param>
+     <Param name="A">
+      <Type type="set">
+       <Type type="real8"/>
+      </Type>
+     </Param>
+     <Param name="B">
+      <Type type="set">
+       <Type type="real8"/>
+      </Type>
+     </Param>
+     <Param name="beta">
+      <Type type="real8"/>
+     </Param>
+     <Param name="C">
+      <Type type="set">
+       <Type type="real8"/>
+      </Type>
+     </Param>
     </Params>
    </Definition>
    <Definition body="5261"
@@ -223,8 +321,11 @@
                inherittype="local"
                line="124"
                name="dgetf2"
-               start="5153">
-    <Type>function</Type>
+               start="5153"
+               type="function">
+    <Type type="set">
+     <Type type="real8"/>
+    </Type>
     <Documentation>
      <content>&#13;&#10;&#32;&#32;&#32;* Compute LU Factorization of matrix A.
    * @param m number of rows of A
@@ -234,9 +335,17 @@
    *         composite.&#13;&#10;&#32;&#32;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="m"/>
-     <Param name="n"/>
-     <Param name="a"/>
+     <Param name="m">
+      <Type type="unsigned4"/>
+     </Param>
+     <Param name="n">
+      <Type type="unsigned4"/>
+     </Param>
+     <Param name="a">
+      <Type type="set">
+       <Type type="real8"/>
+      </Type>
+     </Param>
     </Params>
    </Definition>
    <Definition body="6087"
@@ -246,8 +355,11 @@
                inherittype="local"
                line="143"
                name="dpotf2"
-               start="5934">
-    <Type>function</Type>
+               start="5934"
+               type="function">
+    <Type type="set">
+     <Type type="real8"/>
+    </Type>
     <Documentation>
      <content>&#13;&#10;&#32;&#32;&#32;* DPOTF2 computes the Cholesky factorization of a real symmetric
    * positive definite matrix A.
@@ -263,10 +375,20 @@
    * @return the triangular matrix requested.&#13;&#10;&#32;&#32;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="tri"/>
-     <Param name="r"/>
-     <Param name="A"/>
-     <Param name="clear"/>
+     <Param name="tri">
+      <Type type="unsigned1"/>
+     </Param>
+     <Param name="r">
+      <Type type="unsigned4"/>
+     </Param>
+     <Param name="A">
+      <Type type="set">
+       <Type type="real8"/>
+      </Type>
+     </Param>
+     <Param name="clear">
+      <Type type="boolean"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="6683"
@@ -276,8 +398,11 @@
                inherittype="local"
                line="157"
                name="dscal"
-               start="6507">
-    <Type>function</Type>
+               start="6507"
+               type="function">
+    <Type type="set">
+     <Type type="real8"/>
+    </Type>
     <Documentation>
      <content>&#13;&#10;&#32;&#32;&#32;* Scale a vector alpha
    * @param N number of elements in the vector
@@ -288,11 +413,23 @@
    * @return the updated matrix&#13;&#10;&#32;&#32;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="N"/>
-     <Param name="alpha"/>
-     <Param name="X"/>
-     <Param name="incX"/>
-     <Param name="skipped"/>
+     <Param name="N">
+      <Type type="unsigned4"/>
+     </Param>
+     <Param name="alpha">
+      <Type type="real8"/>
+     </Param>
+     <Param name="X">
+      <Type type="set">
+       <Type type="real8"/>
+      </Type>
+     </Param>
+     <Param name="incX">
+      <Type type="unsigned4"/>
+     </Param>
+     <Param name="skipped">
+      <Type type="unsigned4"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="7689"
@@ -302,8 +439,11 @@
                inherittype="local"
                line="177"
                name="dsyrk"
-               start="7415">
-    <Type>function</Type>
+               start="7415"
+               type="function">
+    <Type type="set">
+     <Type type="real8"/>
+    </Type>
     <Documentation>
      <content>&#13;&#10;&#32;&#32;&#32;* Implements symmetric rank update C &lt;- alpha A**T A + beta C or
    * c &lt;- alpha A A**T + beta C.  C is N x N.
@@ -320,15 +460,37 @@
    * option lets you make that true.&#13;&#10;&#32;&#32;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="tri"/>
-     <Param name="transposeA"/>
-     <Param name="N"/>
-     <Param name="K"/>
-     <Param name="alpha"/>
-     <Param name="A"/>
-     <Param name="beta"/>
-     <Param name="C"/>
-     <Param name="clear"/>
+     <Param name="tri">
+      <Type type="unsigned1"/>
+     </Param>
+     <Param name="transposeA">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="N">
+      <Type type="unsigned4"/>
+     </Param>
+     <Param name="K">
+      <Type type="unsigned4"/>
+     </Param>
+     <Param name="alpha">
+      <Type type="real8"/>
+     </Param>
+     <Param name="A">
+      <Type type="set">
+       <Type type="real8"/>
+      </Type>
+     </Param>
+     <Param name="beta">
+      <Type type="real8"/>
+     </Param>
+     <Param name="C">
+      <Type type="set">
+       <Type type="real8"/>
+      </Type>
+     </Param>
+     <Param name="clear">
+      <Type type="boolean"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="8753"
@@ -338,8 +500,11 @@
                inherittype="local"
                line="199"
                name="dtrsm"
-               start="8458">
-    <Type>function</Type>
+               start="8458"
+               type="function">
+    <Type type="set">
+     <Type type="real8"/>
+    </Type>
     <Documentation>
      <content>&#13;&#10;&#32;&#32;&#32;* Triangular matrix solver.  op(A) X = alpha B or X op(A) = alpha B
    * where op is Transpose, X and B is MxN
@@ -356,16 +521,40 @@
    * @return the matrix of coefficients to get B.&#13;&#10;&#32;&#32;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="side"/>
-     <Param name="tri"/>
-     <Param name="transposeA"/>
-     <Param name="diag"/>
-     <Param name="M"/>
-     <Param name="N"/>
-     <Param name="lda"/>
-     <Param name="alpha"/>
-     <Param name="A"/>
-     <Param name="B"/>
+     <Param name="side">
+      <Type type="unsigned1"/>
+     </Param>
+     <Param name="tri">
+      <Type type="unsigned1"/>
+     </Param>
+     <Param name="transposeA">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="diag">
+      <Type type="unsigned1"/>
+     </Param>
+     <Param name="M">
+      <Type type="unsigned4"/>
+     </Param>
+     <Param name="N">
+      <Type type="unsigned4"/>
+     </Param>
+     <Param name="lda">
+      <Type type="unsigned4"/>
+     </Param>
+     <Param name="alpha">
+      <Type type="real8"/>
+     </Param>
+     <Param name="A">
+      <Type type="set">
+       <Type type="real8"/>
+      </Type>
+     </Param>
+     <Param name="B">
+      <Type type="set">
+       <Type type="real8"/>
+      </Type>
+     </Param>
     </Params>
    </Definition>
    <Definition body="9216"
@@ -375,8 +564,11 @@
                inherittype="local"
                line="213"
                name="extract_diag"
-               start="9043">
-    <Type>function</Type>
+               start="9043"
+               type="function">
+    <Type type="set">
+     <Type type="real8"/>
+    </Type>
     <Documentation>
      <content>&#13;&#10;&#32;&#32;&#32;* Extract the diagonal of he matrix
    * @param m number of rows
@@ -385,9 +577,17 @@
    * @return diagonal matrix&#13;&#10;&#32;&#32;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="m"/>
-     <Param name="n"/>
-     <Param name="x"/>
+     <Param name="m">
+      <Type type="unsigned4"/>
+     </Param>
+     <Param name="n">
+      <Type type="unsigned4"/>
+     </Param>
+     <Param name="x">
+      <Type type="set">
+       <Type type="real8"/>
+      </Type>
+     </Param>
     </Params>
    </Definition>
    <Definition body="10129"
@@ -397,8 +597,11 @@
                inherittype="local"
                line="236"
                name="extract_tri"
-               start="9932">
-    <Type>function</Type>
+               start="9932"
+               type="function">
+    <Type type="set">
+     <Type type="real8"/>
+    </Type>
     <Documentation>
      <content>&#13;&#10;&#32;&#32;&#32;* Extract the upper or lower triangle.  Diagonal can be actual or implied
    * unit diagonal.
@@ -410,11 +613,23 @@
    * @return the triangle&#13;&#10;&#32;&#32;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="m"/>
-     <Param name="n"/>
-     <Param name="tri"/>
-     <Param name="dt"/>
-     <Param name="a"/>
+     <Param name="m">
+      <Type type="unsigned4"/>
+     </Param>
+     <Param name="n">
+      <Type type="unsigned4"/>
+     </Param>
+     <Param name="tri">
+      <Type type="unsigned1"/>
+     </Param>
+     <Param name="dt">
+      <Type type="unsigned1"/>
+     </Param>
+     <Param name="a">
+      <Type type="set">
+       <Type type="real8"/>
+      </Type>
+     </Param>
     </Params>
    </Definition>
    <Definition body="10545"
@@ -424,8 +639,11 @@
                inherittype="local"
                line="249"
                name="make_diag"
-               start="10418">
-    <Type>function</Type>
+               start="10418"
+               type="function">
+    <Type type="set">
+     <Type type="real8"/>
+    </Type>
     <Documentation>
      <content>&#13;&#10;&#32;&#32;&#32;* Generate a diagonal matrix.
    * @param m number of diagonal entries
@@ -434,9 +652,17 @@
    * @return a diagonal matrix&#13;&#10;&#32;&#32;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="m"/>
-     <Param name="v"/>
-     <Param name="X"/>
+     <Param name="m">
+      <Type type="unsigned4"/>
+     </Param>
+     <Param name="v">
+      <Type type="real8"/>
+     </Param>
+     <Param name="X">
+      <Type type="set">
+       <Type type="real8"/>
+      </Type>
+     </Param>
     </Params>
    </Definition>
    <Definition body="11071"
@@ -446,8 +672,11 @@
                inherittype="local"
                line="268"
                name="make_vector"
-               start="10967">
-    <Type>function</Type>
+               start="10967"
+               type="function">
+    <Type type="set">
+     <Type type="real8"/>
+    </Type>
     <Documentation>
      <content>&#13;&#10;&#32;&#32;&#32;* Make a vector of dimension m
    * @param m number of elements
@@ -455,8 +684,12 @@
    * @return the vector&#13;&#10;&#32;&#32;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="m"/>
-     <Param name="v"/>
+     <Param name="m">
+      <Type type="unsigned4"/>
+     </Param>
+     <Param name="v">
+      <Type type="real8"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="11426"
@@ -466,8 +699,9 @@
                inherittype="local"
                line="279"
                name="trace"
-               start="11297">
-    <Type>function</Type>
+               start="11297"
+               type="function">
+    <Type type="real8"/>
     <Documentation>
      <content>&#13;&#10;&#32;&#32;&#32;* The trace of the input matrix
    * @param m number of rows
@@ -476,9 +710,17 @@
    * @return the trace (sum of the diagonal entries)&#13;&#10;&#32;&#32;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="m"/>
-     <Param name="n"/>
-     <Param name="x"/>
+     <Param name="m">
+      <Type type="unsigned4"/>
+     </Param>
+     <Param name="n">
+      <Type type="unsigned4"/>
+     </Param>
+     <Param name="x">
+      <Type type="set">
+       <Type type="real8"/>
+      </Type>
+     </Param>
     </Params>
    </Definition>
    <Parents/>
@@ -501,8 +743,11 @@
               inherittype="local"
               line="21"
               name="dimm"
-              start="698">
-   <Type>embed</Type>
+              start="698"
+              type="embed">
+   <Type type="set">
+    <Type type="real8"/>
+   </Type>
    <Documentation>
     <content>&#10;&#32;* Matrix multiply when either A or B is a diagonal and is passed
  * as a vector.
@@ -521,18 +766,48 @@
  * @param C matrix C or empty&#10;&#32;</content>
    </Documentation>
    <Params>
-    <Param name="transposeA"/>
-    <Param name="transposeB"/>
-    <Param name="diagonalA"/>
-    <Param name="diagonalB"/>
-    <Param name="m"/>
-    <Param name="n"/>
-    <Param name="k"/>
-    <Param name="alpha"/>
-    <Param name="A"/>
-    <Param name="B"/>
-    <Param name="beta"/>
-    <Param name="C"/>
+    <Param name="transposeA">
+     <Type type="boolean"/>
+    </Param>
+    <Param name="transposeB">
+     <Type type="boolean"/>
+    </Param>
+    <Param name="diagonalA">
+     <Type type="boolean"/>
+    </Param>
+    <Param name="diagonalB">
+     <Type type="boolean"/>
+    </Param>
+    <Param name="m">
+     <Type type="unsigned4"/>
+    </Param>
+    <Param name="n">
+     <Type type="unsigned4"/>
+    </Param>
+    <Param name="k">
+     <Type type="unsigned4"/>
+    </Param>
+    <Param name="alpha">
+     <Type type="real8"/>
+    </Param>
+    <Param name="A">
+     <Type type="set">
+      <Type type="real8"/>
+     </Type>
+    </Param>
+    <Param name="B">
+     <Type type="set">
+      <Type type="real8"/>
+     </Type>
+    </Param>
+    <Param name="beta">
+     <Type type="real8"/>
+    </Param>
+    <Param name="C">
+     <Type type="set">
+      <Type type="real8"/>
+     </Type>
+    </Param>
    </Params>
   </Definition>
   <Import body="0"
@@ -575,8 +850,11 @@
               inherittype="local"
               line="3"
               name="x"
-              start="50">
-   <Type>attribute</Type>
+              start="50"
+              type="attribute">
+   <Type type="set">
+    <Type type="real8"/>
+   </Type>
   </Definition>
   <Definition body="122"
               end="134"
@@ -584,8 +862,11 @@
               inherittype="local"
               line="4"
               name="a2"
-              start="102">
-   <Type>attribute</Type>
+              start="102"
+              type="attribute">
+   <Type type="set">
+    <Type type="real8"/>
+   </Type>
   </Definition>
   <Definition body="155"
               end="172"
@@ -593,8 +874,11 @@
               inherittype="local"
               line="5"
               name="a3"
-              start="135">
-   <Type>attribute</Type>
+              start="135"
+              type="attribute">
+   <Type type="set">
+    <Type type="real8"/>
+   </Type>
   </Definition>
   <Definition body="192"
               end="230"
@@ -602,8 +886,11 @@
               inherittype="local"
               line="6"
               name="c"
-              start="173">
-   <Type>attribute</Type>
+              start="173"
+              type="attribute">
+   <Type type="set">
+    <Type type="real8"/>
+   </Type>
   </Definition>
   <Definition body="253"
               end="271"
@@ -611,8 +898,11 @@
               inherittype="local"
               line="7"
               name="std1"
-              start="231">
-   <Type>attribute</Type>
+              start="231"
+              type="attribute">
+   <Type type="set">
+    <Type type="real8"/>
+   </Type>
   </Definition>
   <Definition body="294"
               end="312"
@@ -620,8 +910,11 @@
               inherittype="local"
               line="8"
               name="std2"
-              start="272">
-   <Type>attribute</Type>
+              start="272"
+              type="attribute">
+   <Type type="set">
+    <Type type="real8"/>
+   </Type>
   </Definition>
   <Definition body="335"
               end="352"
@@ -629,8 +922,11 @@
               inherittype="local"
               line="9"
               name="std3"
-              start="313">
-   <Type>attribute</Type>
+              start="313"
+              type="attribute">
+   <Type type="set">
+    <Type type="real8"/>
+   </Type>
   </Definition>
   <Definition body="375"
               end="393"
@@ -638,8 +934,11 @@
               inherittype="local"
               line="10"
               name="std4"
-              start="353">
-   <Type>attribute</Type>
+              start="353"
+              type="attribute">
+   <Type type="set">
+    <Type type="real8"/>
+   </Type>
   </Definition>
   <Definition body="416"
               end="441"
@@ -647,8 +946,11 @@
               inherittype="local"
               line="11"
               name="std5"
-              start="394">
-   <Type>attribute</Type>
+              start="394"
+              type="attribute">
+   <Type type="set">
+    <Type type="real8"/>
+   </Type>
   </Definition>
   <Definition body="453"
               end="543"
@@ -656,12 +958,22 @@
               inherittype="local"
               line="12"
               name="Test_Rec"
-              start="442">
-   <Type>record</Type>
-   <Field name="test_name" type="string"/>
-   <Field name="rows" type="unsigned2"/>
-   <Field name="cols" type="unsigned2"/>
-   <Field name="mat" type="set of real8"/>
+              start="442"
+              type="record">
+   <Field name="test_name">
+    <Type type="string"/>
+   </Field>
+   <Field name="rows">
+    <Type type="unsigned2"/>
+   </Field>
+   <Field name="cols">
+    <Type type="unsigned2"/>
+   </Field>
+   <Field name="mat">
+    <Type type="set">
+     <Type type="real8"/>
+    </Type>
+   </Field>
   </Definition>
   <Definition body="559"
               end="573"
@@ -669,8 +981,9 @@
               inherittype="local"
               line="18"
               name="desc1"
-              start="544">
-   <Type>attribute</Type>
+              start="544"
+              type="attribute">
+   <Type type="string"/>
   </Definition>
   <Definition body="589"
               end="602"
@@ -678,8 +991,9 @@
               inherittype="local"
               line="19"
               name="desc2"
-              start="574">
-   <Type>attribute</Type>
+              start="574"
+              type="attribute">
+   <Type type="string"/>
   </Definition>
   <Definition body="618"
               end="633"
@@ -687,8 +1001,9 @@
               inherittype="local"
               line="20"
               name="desc3"
-              start="603">
-   <Type>attribute</Type>
+              start="603"
+              type="attribute">
+   <Type type="string"/>
   </Definition>
   <Definition body="649"
               end="663"
@@ -696,8 +1011,9 @@
               inherittype="local"
               line="21"
               name="desc4"
-              start="634">
-   <Type>attribute</Type>
+              start="634"
+              type="attribute">
+   <Type type="string"/>
   </Definition>
   <Definition body="679"
               end="704"
@@ -705,8 +1021,9 @@
               inherittype="local"
               line="22"
               name="desc5"
-              start="664">
-   <Type>attribute</Type>
+              start="664"
+              type="attribute">
+   <Type type="string"/>
   </Definition>
   <Definition body="711"
               end="869"
@@ -714,8 +1031,11 @@
               inherittype="local"
               line="23"
               name="std"
-              start="705">
-   <Type>attribute</Type>
+              start="705"
+              type="attribute">
+   <Type type="table">
+    <Type fullname="logisticregression.validation.test_rec" name="Test_Rec" type="record"/>
+   </Type>
   </Definition>
   <Definition body="891"
               end="948"
@@ -723,8 +1043,11 @@
               inherittype="local"
               line="27"
               name="test1"
-              start="883">
-   <Type>attribute</Type>
+              start="883"
+              type="attribute">
+   <Type type="set">
+    <Type type="real8"/>
+   </Type>
    <Documentation>
     <content>&#10;&#32;* Matrix multiply when either A or B is a diagonal and is passed
  * as a vector.
@@ -749,8 +1072,11 @@
               inherittype="local"
               line="28"
               name="test2"
-              start="949">
-   <Type>attribute</Type>
+              start="949"
+              type="attribute">
+   <Type type="set">
+    <Type type="real8"/>
+   </Type>
    <Documentation>
     <content>&#10;&#32;* Matrix multiply when either A or B is a diagonal and is passed
  * as a vector.
@@ -775,8 +1101,11 @@
               inherittype="local"
               line="29"
               name="test3"
-              start="1015">
-   <Type>attribute</Type>
+              start="1015"
+              type="attribute">
+   <Type type="set">
+    <Type type="real8"/>
+   </Type>
    <Documentation>
     <content>&#10;&#32;* Matrix multiply when either A or B is a diagonal and is passed
  * as a vector.
@@ -801,8 +1130,11 @@
               inherittype="local"
               line="30"
               name="test4"
-              start="1080">
-   <Type>attribute</Type>
+              start="1080"
+              type="attribute">
+   <Type type="set">
+    <Type type="real8"/>
+   </Type>
    <Documentation>
     <content>&#10;&#32;* Matrix multiply when either A or B is a diagonal and is passed
  * as a vector.
@@ -827,8 +1159,11 @@
               inherittype="local"
               line="31"
               name="test5"
-              start="1145">
-   <Type>attribute</Type>
+              start="1145"
+              type="attribute">
+   <Type type="set">
+    <Type type="real8"/>
+   </Type>
    <Documentation>
     <content>&#10;&#32;* Matrix multiply when either A or B is a diagonal and is passed
  * as a vector.
@@ -853,8 +1188,11 @@
               inherittype="local"
               line="32"
               name="test"
-              start="1219">
-   <Type>attribute</Type>
+              start="1219"
+              type="attribute">
+   <Type type="table">
+    <Type fullname="logisticregression.validation.test_rec" name="Test_Rec" type="record"/>
+   </Type>
   </Definition>
   <Definition body="1411"
               end="1484"
@@ -862,12 +1200,20 @@
               inherittype="local"
               line="36"
               name="Cell"
-              start="1404">
-   <Type>record</Type>
-   <Field name="test_name" type="string"/>
-   <Field name="r" type="unsigned2"/>
-   <Field name="c" type="unsigned2"/>
-   <Field name="v" type="real8"/>
+              start="1404"
+              type="record">
+   <Field name="test_name">
+    <Type type="string"/>
+   </Field>
+   <Field name="r">
+    <Type type="unsigned2"/>
+   </Field>
+   <Field name="c">
+    <Type type="unsigned2"/>
+   </Field>
+   <Field name="v">
+    <Type type="real8"/>
+   </Field>
   </Definition>
   <Definition body="1527"
               end="1670"
@@ -875,13 +1221,19 @@
               inherittype="local"
               line="42"
               name="cvt2cell"
-              start="1485">
-   <Type>transform</Type>
+              start="1485"
+              type="transform">
+   <Type fullname="logisticregression.validation.cell" name="Cell" type="record"/>
    <Params>
-    <Param name="tr"/>
-    <Param name="c"/>
+    <Param name="tr">
+     <Type type="row">
+      <Type fullname="logisticregression.validation.test_rec" name="Test_Rec" type="record"/>
+     </Type>
+    </Param>
+    <Param name="c">
+     <Type type="unsigned2"/>
+    </Param>
    </Params>
-   <Return>cell</Return>
   </Definition>
   <Definition body="1683"
               end="1741"
@@ -889,8 +1241,24 @@
               inherittype="local"
               line="48"
               name="std_cells"
-              start="1671">
-   <Type>attribute</Type>
+              start="1671"
+              type="attribute">
+   <Type type="table">
+    <Type type="record" unnamed="1">
+     <Field name="test_name">
+      <Type type="string"/>
+     </Field>
+     <Field name="r">
+      <Type type="unsigned2"/>
+     </Field>
+     <Field name="c">
+      <Type type="unsigned2"/>
+     </Field>
+     <Field name="v">
+      <Type type="real8"/>
+     </Field>
+    </Type>
+   </Type>
   </Definition>
   <Definition body="1755"
               end="1814"
@@ -898,8 +1266,24 @@
               inherittype="local"
               line="49"
               name="test_cells"
-              start="1742">
-   <Type>attribute</Type>
+              start="1742"
+              type="attribute">
+   <Type type="table">
+    <Type type="record" unnamed="1">
+     <Field name="test_name">
+      <Type type="string"/>
+     </Field>
+     <Field name="r">
+      <Type type="unsigned2"/>
+     </Field>
+     <Field name="c">
+      <Type type="unsigned2"/>
+     </Field>
+     <Field name="v">
+      <Type type="real8"/>
+     </Field>
+    </Type>
+   </Type>
   </Definition>
   <Definition body="1826"
               end="1953"
@@ -907,15 +1291,29 @@
               inherittype="local"
               line="51"
               name="Compare"
-              start="1816">
-   <Type>record</Type>
-   <Field name="test_name" type="string"/>
-   <Field name="r" type="unsigned2"/>
-   <Field name="c" type="unsigned2"/>
-   <Field name="v_std" type="real8"/>
-   <Field name="v_test" type="real8"/>
-   <Field name="err" type="boolean"/>
-   <Field name="missing" type="boolean"/>
+              start="1816"
+              type="record">
+   <Field name="test_name">
+    <Type type="string"/>
+   </Field>
+   <Field name="r">
+    <Type type="unsigned2"/>
+   </Field>
+   <Field name="c">
+    <Type type="unsigned2"/>
+   </Field>
+   <Field name="v_std">
+    <Type type="real8"/>
+   </Field>
+   <Field name="v_test">
+    <Type type="real8"/>
+   </Field>
+   <Field name="err">
+    <Type type="boolean"/>
+   </Field>
+   <Field name="missing">
+    <Type type="boolean"/>
+   </Field>
   </Definition>
   <Definition body="1986"
               end="2291"
@@ -923,13 +1321,21 @@
               inherittype="local"
               line="61"
               name="cmpr"
-              start="1955">
-   <Type>transform</Type>
+              start="1955"
+              type="transform">
+   <Type fullname="logisticregression.validation.compare" name="Compare" type="record"/>
    <Params>
-    <Param name="s"/>
-    <Param name="t"/>
+    <Param name="s">
+     <Type type="row">
+      <Type fullname="logisticregression.validation.cell" name="Cell" type="record"/>
+     </Type>
+    </Param>
+    <Param name="t">
+     <Type type="row">
+      <Type fullname="logisticregression.validation.cell" name="Cell" type="record"/>
+     </Type>
+    </Param>
    </Params>
-   <Return>compare</Return>
   </Definition>
   <Definition body="2299"
               end="2465"
@@ -937,8 +1343,33 @@
               inherittype="local"
               line="70"
               name="rslt"
-              start="2292">
-   <Type>attribute</Type>
+              start="2292"
+              type="attribute">
+   <Type type="table">
+    <Type type="record" unnamed="1">
+     <Field name="test_name">
+      <Type type="string"/>
+     </Field>
+     <Field name="r">
+      <Type type="unsigned2"/>
+     </Field>
+     <Field name="c">
+      <Type type="unsigned2"/>
+     </Field>
+     <Field name="v_std">
+      <Type type="real8"/>
+     </Field>
+     <Field name="v_test">
+      <Type type="real8"/>
+     </Field>
+     <Field name="err">
+      <Type type="boolean"/>
+     </Field>
+     <Field name="missing">
+      <Type type="boolean"/>
+     </Field>
+    </Type>
+   </Type>
   </Definition>
   <Definition body="2475"
               end="2509"
@@ -946,8 +1377,33 @@
               inherittype="local"
               line="74"
               name="errors"
-              start="2466">
-   <Type>attribute</Type>
+              start="2466"
+              type="attribute">
+   <Type type="table">
+    <Type type="record" unnamed="1">
+     <Field name="test_name">
+      <Type type="string"/>
+     </Field>
+     <Field name="r">
+      <Type type="unsigned2"/>
+     </Field>
+     <Field name="c">
+      <Type type="unsigned2"/>
+     </Field>
+     <Field name="v_std">
+      <Type type="real8"/>
+     </Field>
+     <Field name="v_test">
+      <Type type="real8"/>
+     </Field>
+     <Field name="err">
+      <Type type="boolean"/>
+     </Field>
+     <Field name="missing">
+      <Type type="boolean"/>
+     </Field>
+    </Type>
+   </Type>
   </Definition>
   <Definition body="2519"
               end="2559"
@@ -955,8 +1411,9 @@
               inherittype="local"
               line="75"
               name="status"
-              start="2510">
-   <Type>attribute</Type>
+              start="2510"
+              type="attribute">
+   <Type type="string6"/>
   </Definition>
   <Definition body="2584"
               end="2724"
@@ -965,8 +1422,9 @@
               inherittype="local"
               line="76"
               name="unit_test_dimm"
-              start="2560">
-   <Type>attribute</Type>
+              start="2560"
+              type="attribute">
+   <Type type=""/>
   </Definition>
  </Source>
 </Meta>

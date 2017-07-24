@@ -7,8 +7,9 @@
               inherittype="local"
               line="7"
               name="gamma"
-              start="179">
-   <Type>embed</Type>
+              start="179"
+              type="embed">
+   <Type type="real8"/>
    <Documentation>
     <content>&#10;&#32;* Return the value of gamma function of real number x
  * A wrapper for the standard C tgamma function.
@@ -16,7 +17,9 @@
  *@return the value of GAMMA evaluated at x&#10;&#32;</content>
    </Documentation>
    <Params>
-    <Param name="x"/>
+    <Param name="x">
+     <Type type="real8"/>
+    </Param>
    </Params>
   </Definition>
  </Source>
@@ -28,8 +31,9 @@
               inherittype="local"
               line="10"
               name="log_gamma"
-              start="337">
-   <Type>embed</Type>
+              start="337"
+              type="embed">
+   <Type type="real8"/>
    <Documentation>
     <content>&#10;&#32;* Return the value of the log gamma function of the absolute value
  * of X.
@@ -40,7 +44,9 @@
  *@return the value of the log of the GAMMA evaluated at ABS(x)&#10;&#32;</content>
    </Documentation>
    <Params>
-    <Param name="x"/>
+    <Param name="x">
+     <Type type="real8"/>
+    </Param>
    </Params>
   </Definition>
  </Source>
@@ -59,8 +65,9 @@
               inherittype="local"
               line="2"
               name="gamma"
-              start="19">
-   <Type>embed</Type>
+              start="19"
+              type="embed">
+   <Type type="real8"/>
    <Documentation>
     <content>&#10;&#32;* Return the value of gamma function of real number x
  * A wrapper for the standard C tgamma function.
@@ -68,7 +75,9 @@
  *@return the value of GAMMA evaluated at x&#10;&#32;</content>
    </Documentation>
    <Params>
-    <Param name="x"/>
+    <Param name="x">
+     <Type type="real8"/>
+    </Param>
    </Params>
   </Definition>
   <Definition body="52"
@@ -77,8 +86,9 @@
               inherittype="local"
               line="3"
               name="log_gamma"
-              start="40">
-   <Type>embed</Type>
+              start="40"
+              type="embed">
+   <Type type="real8"/>
    <Documentation>
     <content>&#10;&#32;* Return the value of the log gamma function of the absolute value
  * of X.
@@ -89,7 +99,9 @@
  *@return the value of the log of the GAMMA evaluated at ABS(x)&#10;&#32;</content>
    </Documentation>
    <Params>
-    <Param name="x"/>
+    <Param name="x">
+     <Type type="real8"/>
+    </Param>
    </Params>
   </Definition>
   <Definition body="78"
@@ -98,8 +110,9 @@
               inherittype="local"
               line="4"
               name="MAXGAM"
-              start="69">
-   <Type>attribute</Type>
+              start="69"
+              type="attribute">
+   <Type type="integer8"/>
   </Definition>
   <Definition body="92"
               end="101"
@@ -107,8 +120,9 @@
               inherittype="local"
               line="5"
               name="ASYMP"
-              start="84">
-   <Type>attribute</Type>
+              start="84"
+              type="attribute">
+   <Type type="integer8"/>
   </Definition>
   <Definition body="323"
               end="1698"
@@ -117,8 +131,9 @@
               inherittype="local"
               line="12"
               name="Beta"
-              start="291">
-   <Type>function</Type>
+              start="291"
+              type="function">
+   <Type type="real8"/>
    <Documentation>
     <content>&#10;&#32;* Return the beta value of two positive real numbers, x and y
  *@param x  the value of the first number
@@ -126,8 +141,12 @@
  *@return   the beta value&#10;&#32;</content>
    </Documentation>
    <Params>
-    <Param name="x"/>
-    <Param name="y"/>
+    <Param name="x">
+     <Type type="real8"/>
+    </Param>
+    <Param name="y">
+     <Type type="real8"/>
+    </Param>
    </Params>
   </Definition>
  </Source>

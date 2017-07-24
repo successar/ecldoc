@@ -5,16 +5,60 @@
   <Import name="Core_Types" ref="ML_Core.Types" target="../ML_Core/Types.ecl.xml"/>
   <Import name="LR" ref="LogisticRegression" target="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles-docs/$$_ECLDOC-FORM_$$/LogisticRegression/pkg.toc.xml"/>
   <Import name="Types" ref="LogisticRegression.Types" target="Types.ecl.xml"/>
-  <Definition exported="1" fullname="logisticregression.deviance_detail" inherittype="local" line="25" name="Deviance_Detail">
-   <Type>function</Type>
+  <Definition exported="1" fullname="logisticregression.deviance_detail" inherittype="local" line="25" name="Deviance_Detail" type="function">
+   <Type type="table">
+    <Type type="record" unnamed="1">
+     <Field name="wi">
+      <Type type="unsigned2"/>
+     </Field>
+     <Field name="id">
+      <Type type="unsigned8"/>
+     </Field>
+     <Field name="classifier">
+      <Type type="unsigned4"/>
+     </Field>
+     <Field name="actual">
+      <Type type="integer4"/>
+     </Field>
+     <Field name="predicted">
+      <Type type="integer4"/>
+     </Field>
+     <Field name="mod_ll">
+      <Type type="real8"/>
+     </Field>
+     <Field name="mod_dev_component">
+      <Type type="real8"/>
+     </Field>
+     <Field name="mod_dev_residual">
+      <Type type="real8"/>
+     </Field>
+     <Field name="nil_ll">
+      <Type type="real8"/>
+     </Field>
+     <Field name="nil_dev_component">
+      <Type type="real8"/>
+     </Field>
+     <Field name="nil_dev_residual">
+      <Type type="real8"/>
+     </Field>
+    </Type>
+   </Type>
    <Documentation>
-    <content>Detail deviance for each observation.</content><firstline>Detail deviance for each observation</firstline><param><name>dependents</name><desc>original dependent records for the model</desc></param><param><name>predicts</name><desc>the predicted values of the response variable</desc></param><return>the deviance information by observation and the log likelihood of the predicted result.</return></Documentation>
+    <return>the deviance information by observation and the log likelihood of the predicted result.</return><firstline>Detail deviance for each observation</firstline><content>Detail deviance for each observation.</content><param><name>dependents</name><desc>original dependent records for the model</desc></param><param><name>predicts</name><desc>the predicted values of the response variable</desc></param></Documentation>
    <Signature name="Deviance_Detail" ret="DATASET(Types.Observation_Deviance)" param="(DATASET(Core_Types.DiscreteField) dependents, DATASET(Types.Raw_Prediction) predicts)" hlen="51">DATASET(Types.Observation_Deviance) Deviance_Detail(DATASET(Core_Types.DiscreteField) dependents, DATASET(Types.Raw_Prediction) predicts)</Signature><Params>
-    <Param name="dependents"/>
-    <Param name="predicts"/>
+    <Param name="dependents">
+     <Type type="table">
+      <Type fullname="ml_core.types.discretefield" name="DiscreteField" type="record"/>
+     </Type>
+    </Param>
+    <Param name="predicts">
+     <Type type="table">
+      <Type fullname="logisticregression.types.raw_prediction" name="Raw_Prediction" type="record"/>
+     </Type>
+    </Param>
    </Params>
   </Definition>
  <Documentation>
-    <content>Detail deviance for each observation.</content><firstline>Detail deviance for each observation</firstline><param><name>dependents</name><desc>original dependent records for the model</desc></param><param><name>predicts</name><desc>the predicted values of the response variable</desc></param><return>the deviance information by observation and the log likelihood of the predicted result.</return></Documentation>
+    <return>the deviance information by observation and the log likelihood of the predicted result.</return><firstline>Detail deviance for each observation</firstline><content>Detail deviance for each observation.</content><param><name>dependents</name><desc>original dependent records for the model</desc></param><param><name>predicts</name><desc>the predicted values of the response variable</desc></param></Documentation>
    </Source>
 </Meta>
