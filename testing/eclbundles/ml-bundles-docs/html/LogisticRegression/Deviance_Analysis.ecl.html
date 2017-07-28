@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -145,73 +143,74 @@
 									<td class="ret">DATASET(Types.AOD_Record)</td>
 									<td class="name">Deviance_Analysis</td>
 									<td class="param">(DATASET(Types.Deviance_Record) proposed, DATASET(Types.Deviance_Record) base)</td>
-								</tr><tr style="background: #f2f7ff;">
+								</tr>
+
+								<tr style="background: #f2f7ff;">
 									<td colspan="3">
 										Compare deviance information for an analysis of deviance
 									</td>
 								</tr>
 							</table>
-
-							<table class="table">
-								<tr>
-									<td width="20%"><b>Parameters</b></td>
-									<td style="padding:0px;">
-										<table class="table" style="margin: 0px;">
-										<tr style="border-bottom: 2px;">
-											<td style="border-top: 0px; border-bottom-width: 1pt;">
-												<div style="flex: 1 1 auto; max-width: 50%; margin-right: 10px; display : inline-flex;">TABLE ( logisticregression.types.deviance_record )</div>
-												<div style="flex: 1 1 auto;  display : inline-flex; font-weight: bold;">proposed</div>
-											</td>
-										</tr>
-										<tr style="border-bottom: 2px;">
-											<td style="border-top: 0px; border-bottom-width: 1pt;">
-												<div style="flex: 1 1 auto; max-width: 50%; margin-right: 10px; display : inline-flex;">TABLE ( logisticregression.types.deviance_record )</div>
-												<div style="flex: 1 1 auto;  display : inline-flex; font-weight: bold;">base</div>
-											</td>
-										</tr>
-										</table>
-									</td>
-								</tr>
-								<tr>
-									<td width="20%"><b>Returns</b></td>
-									<td >TABLE ( { UNSIGNED2 wi , UNSIGNED4 classifier , UNSIGNED8 residual_df , UNSIGNED8 df , REAL8 residual_dev , REAL8 deviance , REAL8 p_value } )</td>
-								</tr>
-							</table>
 							<div class="panel-collapse collapse in desc-logisticregression-deviance_analysis">
-								<div class="panel-body desc-panel-body"><div class="row">
-										<div class="col-md-12" style="padding-bottom: 10px;">
-											Compare deviance information for an analysis of deviance.
-										</div>
-									</div>
+								<div class="panel-body desc-panel-body">
 									
-	<div class="row">
-		<div class="col-md-1 doc-type">Parameters</div>
-		<div class="col-md-11" style="padding-left: 0px;">
-			<table class="table">
-				<tr>
-					<td width="20%"><b>proposed</b> </td>
-					<td>the proposed model</td>
-				</tr>
-				<tr>
-					<td width="20%"><b>base</b> </td>
-					<td>the base model for comparison</td>
-				</tr>
-			</table>
-		</div>
+
+
+
+
+
+
+<div class="row">
+<div class="col-md-12" style="padding-bottom: 10px;">
+	Compare deviance information for an analysis of deviance.
+</div>
+</div>
+
+									
+
+
+
+
+
+
+<div class="row">
+	<div class="col-md-1 doc-type">Parameters</div>
+	<div class="col-md-11" style="padding-left: 0px;">
+		<table class="table">
+			
+			<tr>
+				<td width="20%"><b>base</b></td>
+				<td><b>TABLE ( Deviance_Record )</b> -- the base model for comparison</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>proposed</b></td>
+				<td><b>TABLE ( Deviance_Record )</b> -- the proposed model</td>
+			</tr>
+		</table>
 	</div>
+</div>
 									
 									
-	<div class="row">
-		<div class="col-md-1 doc-type">Returns</div>
-		<div class="col-md-11" style="padding-left: 0px;">
-			<table class="table">
-				<tr>
-					<td>the comparison of the deviance between the models</td>
-				</tr>
-			</table>
-		</div>
+
+
+
+
+
+
+<div class="row">
+	<div class="col-md-1 doc-type">Returns</div>
+	<div class="col-md-11" style="padding-left: 0px;">
+		<table class="table">
+			
+			<tr>
+				<td width="20%"><b>TABLE ( { UNSIGNED2 wi , UNSIGNED4 classifier , UNSIGNED8 residual_df , UNSIGNED8 df , REAL8 residual_dev , REAL8 deviance , REAL8 p_value } )</b></td>
+				<td>the comparison of the deviance between the models</td>
+			</tr>
+		</table>
 	</div>
-									</div>
+</div>
+									
+								</div>
 								<div class="panel-footer desc-panel-footer">
 									<div class="panel-group desc-panel-group">
 									

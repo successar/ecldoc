@@ -14,13 +14,17 @@ FUNCTION : DATASET(Layout_Cell) axpy(value_t alpha, DATASET(Layout_Cell) X, DATA
 
 Implements alpha*X + Y X and Y must have same shape
 
-Parameter : alpha ||| Scalar multiplier for the X matrix
+Parameter : alpha REAL8 --- Scalar multiplier for the X matrix
 
-Parameter : X ||| X matrix in DATASET(Layout_Cell) form
+Parameter : Y TABLE ( Layout_Cell ) --- Y matrix in
+              DATASET(Layout_Call) form
 
-Parameter : Y ||| Y matrix in DATASET(Layout_Call) form
+Parameter : X TABLE ( Layout_Cell ) --- X matrix in
+              DATASET(Layout_Cell) form
 
-Return : Matrix in DATASET(Layout_Cell) form
+Return : TABLE ( { UNSIGNED2 wi_id , UNSIGNED4 x ,
+         UNSIGNED4 y , REAL8 v } ) Matrix in
+         DATASET(Layout_Cell) form
 
 See : PBblas/Types.layout_cell
 

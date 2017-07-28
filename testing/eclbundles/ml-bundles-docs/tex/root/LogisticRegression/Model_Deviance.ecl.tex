@@ -31,13 +31,36 @@ Model\_Deviance}}
 }
 
 \par
+
+
+
+
+
 Model Deviance.
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{od}} observation deviance record
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{mod}} model co-efficients
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{\underline{}} model deviance
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{od}} ||| TABLE ( Observation\_Deviance ) --- observation deviance record
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{mod}} ||| TABLE ( Model\_Coef ) --- model co-efficients
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{TABLE ( \{ UNSIGNED2 wi , UNSIGNED4 classifier , UNSIGNED8 df , REAL8 deviance , REAL8 AIC \} )} --- model deviance
+\end{description}
+
+
+
 
 \rule{\linewidth}{0.5pt}

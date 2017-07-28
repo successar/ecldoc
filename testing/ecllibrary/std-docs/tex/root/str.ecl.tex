@@ -28,6 +28,17 @@ Str}}
 \par
 
 
+
+
+
+No Documentation Found
+
+
+
+
+
+
+
 \textbf{Children}
 \begin{enumerate}
 \item \hyperlink{ecldoc:str.compareignorecase}{CompareIgnoreCase}
@@ -99,10 +110,15 @@ Str}}
 \item \hyperlink{ecldoc:str.findword}{FindWord}
 : Tests if the search string contains the supplied word as a whole word
 \item \hyperlink{ecldoc:str.repeat}{Repeat}
+: No Documentation Found
 \item \hyperlink{ecldoc:str.tohexpairs}{ToHexPairs}
+: No Documentation Found
 \item \hyperlink{ecldoc:str.fromhexpairs}{FromHexPairs}
+: No Documentation Found
 \item \hyperlink{ecldoc:str.encodebase64}{EncodeBase64}
+: No Documentation Found
 \item \hyperlink{ecldoc:str.decodebase64}{DecodeBase64}
+: No Documentation Found
 \end{enumerate}
 
 \rule{\linewidth}{0.5pt}
@@ -124,14 +140,47 @@ CompareIgnoreCase}}
 }
 
 \par
+
+
+
+
+
 Compares the two strings case insensitively. Returns a negative integer, zero, or a positive integer according to whether the first string is less than, equal to, or greater than the second.
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{src1}} The first string to be compared.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{src2}} The second string to be compared.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{SEE}}}] \textbf{\underline{}} Str.EqualIgnoreCase
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{src2}} ||| STRING --- The second string to be compared.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{src1}} ||| STRING --- The first string to be compared.
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{INTEGER4} --- 
+\end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{SEE}}}] Str.EqualIgnoreCase
+\end{description}
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} FUNCTION}
@@ -151,14 +200,47 @@ EqualIgnoreCase}}
 }
 
 \par
+
+
+
+
+
 Tests whether the two strings are identical ignoring differences in case.
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{src1}} The first string to be compared.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{src2}} The second string to be compared.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{SEE}}}] \textbf{\underline{}} Str.CompareIgnoreCase
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{src2}} ||| STRING --- The second string to be compared.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{src1}} ||| STRING --- The first string to be compared.
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{BOOLEAN} --- 
+\end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{SEE}}}] Str.CompareIgnoreCase
+\end{description}
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} FUNCTION}
@@ -178,14 +260,38 @@ Find}}
 }
 
 \par
+
+
+
+
+
 Returns the character position of the nth match of the search string with the first string. If no match is found the attribute returns 0. If an instance is omitted the position of the first instance is returned.
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{src}} The string that is searched
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sought}} The string being sought.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{instance}} Which match instance are we interested in?
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sought}} ||| STRING --- The string being sought.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{src}} ||| STRING --- The string that is searched
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{instance}} ||| UNSIGNED4 --- Which match instance are we interested in?
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{UNSIGNED4} --- 
+\end{description}
+
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} FUNCTION}
@@ -205,13 +311,37 @@ FindCount}}
 }
 
 \par
+
+
+
+
+
 Returns the number of occurences of the second string within the first string.
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{src}} The string that is searched
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sought}} The string being sought.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sought}} ||| STRING --- The string being sought.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{src}} ||| STRING --- The string that is searched
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{UNSIGNED4} --- 
+\end{description}
+
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} FUNCTION}
@@ -231,14 +361,39 @@ WildMatch}}
 }
 
 \par
+
+
+
+
+
 Tests if the search string matches the pattern. The pattern can contain wildcards '?' (single character) and '*' (multiple character).
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{src}} The string that is being tested.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{pattern}} The pattern to match against.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{ignore\_case}} Whether to ignore differences in case between characters
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{pattern}} |||  --- The pattern to match against.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{src}} ||| STRING --- The string that is being tested.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{ignore\_case}} ||| BOOLEAN --- Whether to ignore differences in case between characters
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{\_pattern}} ||| STRING --- No Doc
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{BOOLEAN} --- 
+\end{description}
+
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} FUNCTION}
@@ -258,14 +413,39 @@ Contains}}
 }
 
 \par
+
+
+
+
+
 Tests if the search string contains each of the characters in the pattern. If the pattern contains duplicate characters those characters will match once for each occurence in the pattern.
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{src}} The string that is being tested.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{pattern}} The pattern to match against.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{ignore\_case}} Whether to ignore differences in case between characters
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{pattern}} |||  --- The pattern to match against.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{src}} ||| STRING --- The string that is being tested.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{ignore\_case}} ||| BOOLEAN --- Whether to ignore differences in case between characters
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{\_pattern}} ||| STRING --- No Doc
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{BOOLEAN} --- 
+\end{description}
+
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} FUNCTION}
@@ -285,14 +465,47 @@ FilterOut}}
 }
 
 \par
+
+
+
+
+
 Returns the first string with all characters within the second string removed.
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{src}} The string that is being tested.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{filter}} The string containing the set of characters to be excluded.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{SEE}}}] \textbf{\underline{}} Str.Filter
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{filter}} ||| STRING --- The string containing the set of characters to be excluded.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{src}} ||| STRING --- The string that is being tested.
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{STRING} --- 
+\end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{SEE}}}] Str.Filter
+\end{description}
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} FUNCTION}
@@ -312,14 +525,47 @@ Filter}}
 }
 
 \par
+
+
+
+
+
 Returns the first string with all characters not within the second string removed.
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{src}} The string that is being tested.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{filter}} The string containing the set of characters to be included.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{SEE}}}] \textbf{\underline{}} Str.FilterOut
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{filter}} ||| STRING --- The string containing the set of characters to be included.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{src}} ||| STRING --- The string that is being tested.
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{STRING} --- 
+\end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{SEE}}}] Str.FilterOut
+\end{description}
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} FUNCTION}
@@ -339,15 +585,48 @@ SubstituteIncluded}}
 }
 
 \par
+
+
+
+
+
 Returns the source string with the replacement character substituted for all characters included in the filter string. MORE: Should this be a general string substitution?
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{src}} The string that is being tested.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{filter}} The string containing the set of characters to be included.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{replace\_char}} The character to be substituted into the result.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{SEE}}}] \textbf{\underline{}} Std.Str.Translate, Std.Str.SubstituteExcluded
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{filter}} ||| STRING --- The string containing the set of characters to be included.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{src}} ||| STRING --- The string that is being tested.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{replace\_char}} ||| STRING1 --- The character to be substituted into the result.
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{STRING} --- 
+\end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{SEE}}}] Std.Str.Translate, Std.Str.SubstituteExcluded
+\end{description}
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} FUNCTION}
@@ -367,15 +646,48 @@ SubstituteExcluded}}
 }
 
 \par
+
+
+
+
+
 Returns the source string with the replacement character substituted for all characters not included in the filter string. MORE: Should this be a general string substitution?
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{src}} The string that is being tested.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{filter}} The string containing the set of characters to be included.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{replace\_char}} The character to be substituted into the result.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{SEE}}}] \textbf{\underline{}} Std.Str.SubstituteIncluded
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{filter}} ||| STRING --- The string containing the set of characters to be included.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{src}} ||| STRING --- The string that is being tested.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{replace\_char}} ||| STRING1 --- The character to be substituted into the result.
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{STRING} --- 
+\end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{SEE}}}] Std.Str.SubstituteIncluded
+\end{description}
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} FUNCTION}
@@ -395,15 +707,48 @@ Translate}}
 }
 
 \par
+
+
+
+
+
 Returns the source string with the all characters that match characters in the search string replaced with the character at the corresponding position in the replacement string.
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{src}} The string that is being tested.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{search}} The string containing the set of characters to be included.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{replacement}} The string containing the characters to act as replacements.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{SEE}}}] \textbf{\underline{}} Std.Str.SubstituteIncluded
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{search}} ||| STRING --- The string containing the set of characters to be included.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{replacement}} ||| STRING --- The string containing the characters to act as replacements.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{src}} ||| STRING --- The string that is being tested.
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{STRING} --- 
+\end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{SEE}}}] Std.Str.SubstituteIncluded
+\end{description}
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} FUNCTION}
@@ -423,12 +768,36 @@ ToLowerCase}}
 }
 
 \par
+
+
+
+
+
 Returns the argument string with all upper case characters converted to lower case.
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{src}} The string that is being converted.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{src}} ||| STRING --- The string that is being converted.
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{STRING} --- 
+\end{description}
+
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} FUNCTION}
@@ -448,12 +817,36 @@ ToUpperCase}}
 }
 
 \par
+
+
+
+
+
 Return the argument string with all lower case characters converted to upper case.
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{src}} The string that is being converted.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{src}} ||| STRING --- The string that is being converted.
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{STRING} --- 
+\end{description}
+
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} FUNCTION}
@@ -473,12 +866,36 @@ ToCapitalCase}}
 }
 
 \par
+
+
+
+
+
 Returns the argument string with the first letter of each word in upper case and all other letters left as-is. A contiguous sequence of alphanumeric characters is treated as a word.
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{src}} The string that is being converted.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{src}} ||| STRING --- The string that is being converted.
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{STRING} --- 
+\end{description}
+
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} FUNCTION}
@@ -498,12 +915,36 @@ ToTitleCase}}
 }
 
 \par
+
+
+
+
+
 Returns the argument string with the first letter of each word in upper case and all other letters lower case. A contiguous sequence of alphanumeric characters is treated as a word.
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{src}} The string that is being converted.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{src}} ||| STRING --- The string that is being converted.
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{STRING} --- 
+\end{description}
+
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} FUNCTION}
@@ -523,12 +964,36 @@ Reverse}}
 }
 
 \par
+
+
+
+
+
 Returns the argument string with all characters in reverse order. Note the argument is not TRIMMED before it is reversed.
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{src}} The string that is being reversed.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{src}} ||| STRING --- The string that is being reversed.
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{STRING} --- 
+\end{description}
+
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} FUNCTION}
@@ -548,14 +1013,38 @@ FindReplace}}
 }
 
 \par
+
+
+
+
+
 Returns the source string with the replacement string substituted for all instances of the search string.
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{src}} The string that is being transformed.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sought}} The string to be replaced.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{replacement}} The string to be substituted into the result.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sought}} ||| STRING --- The string to be replaced.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{replacement}} ||| STRING --- The string to be substituted into the result.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{src}} ||| STRING --- The string that is being transformed.
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{STRING} --- 
+\end{description}
+
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} FUNCTION}
@@ -575,13 +1064,37 @@ Extract}}
 }
 
 \par
+
+
+
+
+
 Returns the nth element from a comma separated string.
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{src}} The string containing the comma separated list.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{instance}} Which item to select from the list.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{src}} ||| STRING --- The string containing the comma separated list.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{instance}} ||| UNSIGNED4 --- Which item to select from the list.
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{STRING} --- 
+\end{description}
+
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} FUNCTION}
@@ -601,12 +1114,36 @@ CleanSpaces}}
 }
 
 \par
+
+
+
+
+
 Returns the source string with all instances of multiple adjacent space characters (2 or more spaces together) reduced to a single space character. Leading and trailing spaces are removed, and tab characters are converted to spaces.
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{src}} The string to be cleaned.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{src}} ||| STRING --- The string to be cleaned.
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{STRING} --- 
+\end{description}
+
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} FUNCTION}
@@ -626,13 +1163,37 @@ StartsWith}}
 }
 
 \par
+
+
+
+
+
 Returns true if the prefix string matches the leading characters in the source string. Trailing spaces are stripped from the prefix before matching. // x.myString.StartsWith('x') as an alternative syntax would be even better
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{src}} The string being searched in.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{prefix}} The prefix to search for.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{src}} ||| STRING --- The string being searched in.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{prefix}} ||| STRING --- The prefix to search for.
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{BOOLEAN} --- 
+\end{description}
+
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} FUNCTION}
@@ -652,13 +1213,37 @@ EndsWith}}
 }
 
 \par
+
+
+
+
+
 Returns true if the suffix string matches the trailing characters in the source string. Trailing spaces are stripped from both strings before matching.
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{src}} The string being searched in.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{suffix}} The prefix to search for.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{suffix}} ||| STRING --- The prefix to search for.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{src}} ||| STRING --- The string being searched in.
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{BOOLEAN} --- 
+\end{description}
+
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} FUNCTION}
@@ -678,13 +1263,37 @@ RemoveSuffix}}
 }
 
 \par
+
+
+
+
+
 Removes the suffix from the search string, if present, and returns the result. Trailing spaces are stripped from both strings before matching.
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{src}} The string being searched in.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{suffix}} The prefix to search for.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{suffix}} ||| STRING --- The prefix to search for.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{src}} ||| STRING --- The string being searched in.
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{STRING} --- 
+\end{description}
+
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} FUNCTION}
@@ -704,13 +1313,37 @@ ExtractMultiple}}
 }
 
 \par
+
+
+
+
+
 Returns a string containing a list of elements from a comma separated string.
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{src}} The string containing the comma separated list.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{mask}} A bitmask of which elements should be included. Bit 0 is item1, bit1 item 2 etc.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{mask}} ||| UNSIGNED8 --- A bitmask of which elements should be included. Bit 0 is item1, bit1 item 2 etc.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{src}} ||| STRING --- The string containing the comma separated list.
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{STRING} --- 
+\end{description}
+
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} FUNCTION}
@@ -730,14 +1363,38 @@ CountWords}}
 }
 
 \par
+
+
+
+
+
 Returns the number of words that the string contains. Words are separated by one or more separator strings. No spaces are stripped from either string before matching.
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{src}} The string being searched in.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{separator}} The string used to separate words
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{allow\_blank}} Indicates if empty/blank string items are included in the results.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{allow\_blank}} ||| BOOLEAN --- Indicates if empty/blank string items are included in the results.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{src}} ||| STRING --- The string being searched in.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{separator}} ||| STRING --- The string used to separate words
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{UNSIGNED4} --- 
+\end{description}
+
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} FUNCTION}
@@ -757,14 +1414,38 @@ SplitWords}}
 }
 
 \par
+
+
+
+
+
 Returns the list of words extracted from the string. Words are separated by one or more separator strings. No spaces are stripped from either string before matching.
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{src}} The string being searched in.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{separator}} The string used to separate words
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{allow\_blank}} Indicates if empty/blank string items are included in the results.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{allow\_blank}} ||| BOOLEAN --- Indicates if empty/blank string items are included in the results.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{src}} ||| STRING --- The string being searched in.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{separator}} ||| STRING --- The string used to separate words
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{SET ( STRING )} --- 
+\end{description}
+
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} FUNCTION}
@@ -784,13 +1465,37 @@ CombineWords}}
 }
 
 \par
+
+
+
+
+
 Returns the list of words extracted from the string. Words are separated by one or more separator strings. No spaces are stripped from either string before matching.
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{words}} The set of strings to be combined.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{separator}} The string used to separate words.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{words}} ||| SET ( STRING ) --- The set of strings to be combined.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{separator}} ||| STRING --- The string used to separate words.
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{STRING} --- 
+\end{description}
+
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} FUNCTION}
@@ -810,14 +1515,37 @@ EditDistance}}
 }
 
 \par
+
+
+
+
+
 Returns the minimum edit distance between the two strings. An insert change or delete counts as a single edit. The two strings are trimmed before comparing.
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{\_left}} The first string to be compared.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{\_right}} The second string to be compared.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{\underline{}} The minimum edit distance between the two strings.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{\_right}} ||| STRING --- The second string to be compared.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{\_left}} ||| STRING --- The first string to be compared.
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{UNSIGNED4} --- The minimum edit distance between the two strings.
+\end{description}
+
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} FUNCTION}
@@ -837,15 +1565,38 @@ EditDistanceWithinRadius}}
 }
 
 \par
+
+
+
+
+
 Returns true if the minimum edit distance between the two strings is with a specific range. The two strings are trimmed before comparing.
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{\_left}} The first string to be compared.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{\_right}} The second string to be compared.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{radius}} The maximum edit distance that is accepable.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{\underline{}} Whether or not the two strings are within the given specified edit distance.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{radius}} ||| UNSIGNED4 --- The maximum edit distance that is accepable.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{\_right}} ||| STRING --- The second string to be compared.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{\_left}} ||| STRING --- The first string to be compared.
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{BOOLEAN} --- Whether or not the two strings are within the given specified edit distance.
+\end{description}
+
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} FUNCTION}
@@ -865,13 +1616,36 @@ WordCount}}
 }
 
 \par
+
+
+
+
+
 Returns the number of words in the string. Words are separated by one or more spaces.
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{text}} The string to be broken into words.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{\underline{}} The number of words in the string.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{text}} ||| STRING --- The string to be broken into words.
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{UNSIGNED4} --- The number of words in the string.
+\end{description}
+
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} FUNCTION}
@@ -891,14 +1665,37 @@ GetNthWord}}
 }
 
 \par
+
+
+
+
+
 Returns the n-th word from the string. Words are separated by one or more spaces.
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{text}} The string to be broken into words.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{n}} Which word should be returned from the function.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{\underline{}} The number of words in the string.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{text}} ||| STRING --- The string to be broken into words.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{n}} ||| UNSIGNED4 --- Which word should be returned from the function.
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{STRING} --- The number of words in the string.
+\end{description}
+
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} FUNCTION}
@@ -918,13 +1715,36 @@ ExcludeFirstWord}}
 }
 
 \par
+
+
+
+
+
 Returns everything except the first word from the string. Words are separated by one or more whitespace characters. Whitespace before and after the first word is also removed.
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{text}} The string to be broken into words.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{\underline{}} The string excluding the first word.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{text}} ||| STRING --- The string to be broken into words.
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{STRING} --- The string excluding the first word.
+\end{description}
+
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} FUNCTION}
@@ -944,13 +1764,36 @@ ExcludeLastWord}}
 }
 
 \par
+
+
+
+
+
 Returns everything except the last word from the string. Words are separated by one or more whitespace characters. Whitespace after a word is removed with the word and leading whitespace is removed with the first word.
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{text}} The string to be broken into words.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{\underline{}} The string excluding the last word.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{text}} ||| STRING --- The string to be broken into words.
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{STRING} --- The string excluding the last word.
+\end{description}
+
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} FUNCTION}
@@ -970,14 +1813,37 @@ ExcludeNthWord}}
 }
 
 \par
+
+
+
+
+
 Returns everything except the nth word from the string. Words are separated by one or more whitespace characters. Whitespace after a word is removed with the word and leading whitespace is removed with the first word.
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{text}} The string to be broken into words.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{n}} Which word should be returned from the function.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{\underline{}} The string excluding the nth word.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{text}} ||| STRING --- The string to be broken into words.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{n}} ||| UNSIGNED2 --- Which word should be returned from the function.
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{STRING} --- The string excluding the nth word.
+\end{description}
+
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} FUNCTION}
@@ -997,14 +1863,38 @@ FindWord}}
 }
 
 \par
+
+
+
+
+
 Tests if the search string contains the supplied word as a whole word.
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{src}} The string that is being tested.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{word}} The word to be searched for.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{ignore\_case}} Whether to ignore differences in case between characters.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{word}} ||| STRING --- The word to be searched for.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{src}} ||| STRING --- The string that is being tested.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{ignore\_case}} ||| BOOLEAN --- Whether to ignore differences in case between characters.
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{BOOLEAN} --- 
+\end{description}
+
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} FUNCTION}
@@ -1024,6 +1914,36 @@ Repeat}}
 }
 
 \par
+
+
+
+
+
+No Documentation Found
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{text}} ||| STRING --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{n}} ||| UNSIGNED4 --- No Doc
+\end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{STRING} --- 
+\end{description}
+
+
 
 
 \rule{\linewidth}{0.5pt}
@@ -1046,6 +1966,35 @@ ToHexPairs}}
 \par
 
 
+
+
+
+No Documentation Found
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{value}} ||| DATA --- No Doc
+\end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{STRING} --- 
+\end{description}
+
+
+
+
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} FUNCTION}
 FromHexPairs}}
@@ -1064,6 +2013,35 @@ FromHexPairs}}
 }
 
 \par
+
+
+
+
+
+No Documentation Found
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{hex\_pairs}} ||| STRING --- No Doc
+\end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{DATA} --- 
+\end{description}
+
+
 
 
 \rule{\linewidth}{0.5pt}
@@ -1086,6 +2064,35 @@ EncodeBase64}}
 \par
 
 
+
+
+
+No Documentation Found
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{value}} ||| DATA --- No Doc
+\end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{STRING} --- 
+\end{description}
+
+
+
+
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} FUNCTION}
 DecodeBase64}}
@@ -1104,6 +2111,35 @@ DecodeBase64}}
 }
 
 \par
+
+
+
+
+
+No Documentation Found
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{value}} ||| STRING --- No Doc
+\end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{DATA} --- 
+\end{description}
+
+
 
 
 \rule{\linewidth}{0.5pt}

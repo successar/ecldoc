@@ -32,12 +32,28 @@ MatUtils}}
 }
 
 \par
+
+
+
+
+
 Provides various utility attributes for manipulating cell-based matrixes
+
+
+
+
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{SEE}}}] \textbf{\underline{}} Std/PBblas/Types.Layout\_Cell
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{SEE}}}] Std/PBblas/Types.Layout\_Cell
 \end{description}
+
+
 
 \textbf{Children}
 \begin{enumerate}
@@ -68,15 +84,47 @@ GetWorkItems}}
 }
 
 \par
+
+
+
+
+
 Get a list of work-item ids from a matrix containing one or more work items
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{cells}} A matrix in Layout\_Cell format
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{\underline{}} DATASET(Layout\_WI\_ID), one record per work-item
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{SEE}}}] \textbf{\underline{}} PBblas/Types.Layout\_Cell
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{SEE}}}] \textbf{\underline{}} PBblas/Types.Layout\_WI\_ID
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{cells}} ||| TABLE ( Layout\_Cell ) --- A matrix in Layout\_Cell format
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{TABLE ( \{ UNSIGNED2 wi\_id \} )} --- DATASET(Layout\_WI\_ID), one record per work-item
+\end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{SEE}}}] PBblas/Types.Layout\_Cell
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{SEE}}}] PBblas/Types.Layout\_WI\_ID
+\end{description}
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} FUNCTION}
@@ -96,15 +144,38 @@ InsertCols}}
 }
 
 \par
+
+
+
+
+
 Insert one or more columns of a fixed value into a matrix. Columns are inserted before the first original column. This attribute supports the myriad interface. Multiple independent matrixes can be represented by M.
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{M}} the input matrix
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{cols\_to\_insert}} the number of columns to insert, default 1
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{insert\_val}} the value for each cell of the new column(s), default 0
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{\underline{}} matrix in Layout\_Cell format with additional column(s)
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{insert\_val}} ||| REAL8 --- the value for each cell of the new column(s), default 0
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{cols\_to\_insert}} ||| UNSIGNED8 --- the number of columns to insert, default 1
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{M}} ||| TABLE ( Layout\_Cell ) --- the input matrix
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{TABLE ( \{ UNSIGNED2 wi\_id , UNSIGNED4 x , UNSIGNED4 y , REAL8 v \} )} --- matrix in Layout\_Cell format with additional column(s)
+\end{description}
+
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} FUNCTION}
@@ -124,14 +195,46 @@ Transpose}}
 }
 
 \par
+
+
+
+
+
 Transpose a matrix This attribute supports the myriad interface. Multiple independent matrixes can be represented by M.
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{M}} A matrix represented as DATASET(Layout\_Cell)
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{\underline{}} Transposed matrix in Layout\_Cell format
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{SEE}}}] \textbf{\underline{}} PBblas/Types.Layout\_Cell
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{M}} ||| TABLE ( Layout\_Cell ) --- A matrix represented as DATASET(Layout\_Cell)
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{TABLE ( \{ UNSIGNED2 wi\_id , UNSIGNED4 x , UNSIGNED4 y , REAL8 v \} )} --- Transposed matrix in Layout\_Cell format
+\end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{SEE}}}] PBblas/Types.Layout\_Cell
+\end{description}
+
+
 
 \rule{\linewidth}{0.5pt}
 

@@ -186,9 +186,8 @@ class ParseXML(object):
         return sign
 
     def parseDocumentation(self, doc):
-        defn = list(doc.iterancestors('Definition'))[0]
         content = doc.find('./content')
-        elements = parseDocstring(content.text, defn)
+        elements = parseDocstring(content.text)
         doc.remove(content)
         for tag in elements:
             for desc in elements[tag]:
@@ -249,6 +248,45 @@ class ParseXML(object):
                   (defn.find('Documentation') is not None) and
                   (defn.find('Documentation').find('internal') is not None))
         return test_1 or test_2 or test_3
+
+    def appendTypes(self, defn) :
+        if defn.find('Documentation') is not None :
+            doc = defn.find('Documentation')
+            doc.attrib['generated'] = False
+            return
+
+        doc = etree.Element('Documentation')
+        defn.append(doc)
+        doc.attrib['generated'] = True
+
+        params = defn.find('Params').findall('Param') if defn.find('Params') is not None else []
+        _return = defn.find('Type')
+        fields = defn.findall('Field')
+        two = {'param' : params, 'field' : fields}
+
+        for tag in two :
+            for p in two[tag] :
+                name = p.attrib['name']
+                _type = p.find('Type')
+                p = etree.Element(tag)
+                name_e = etree.Element('name')
+                name_e.text = name
+                desc = etree.Element('desc')
+                desc.text = ''
+                p.append(name_e)
+                p.append(desc)
+                p.append(_type)
+                doc.append(p)
+
+        if _return is not None :
+            return_e = etree.Element('return')
+            return_e.append(_return)
+            desc = etree.Element('desc')
+            desc.text = ''
+            return_e.append(desc)
+            doc.append(return_e)
+
+
 
 
 def parseBundle(generator, ecl_file):

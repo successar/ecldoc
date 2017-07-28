@@ -14,11 +14,12 @@ FUNCTION : DATASET(Types.DiscreteField) FatD(DATASET(Types.DiscreteField) d0, Ty
 Will take a potentially sparse file d and fill in the missing with value v
 for Discrete Field datasets
 
-Parameter : d0 ||| They myriad format Discrete Field dataset
-            to be filled
+Parameter : d0 TABLE ( DiscreteField ) --- They myriad format
+               Discrete Field dataset to be filled
 
-Parameter : v ||| The value to assign missing records
+Parameter : v INTEGER4 --- The value to assign missing records
 
-Return : A full Discrete Field dataset with every field
-         populated
+Return : TABLE ( { UNSIGNED2 wi , UNSIGNED8 id , UNSIGNED4
+         number , INTEGER4 value } ) A full Discrete Field
+         dataset with every field populated
 

@@ -36,13 +36,45 @@ asum}}
 }
 
 \par
+
+
+
+
+
 Absolute sum -- the ''Entrywise'' 1-norm Compute SUM(ABS(X))
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{X}} Matrix or set of matrices in Layout\_Cell format
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{\underline{}} DATASET(Layout\_Norm) with one record per work item
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{SEE}}}] \textbf{\underline{}} PBblas/Types.Layout\_Cell
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{X}} ||| TABLE ( Layout\_Cell ) --- Matrix or set of matrices in Layout\_Cell format
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{TABLE ( \{ UNSIGNED2 wi\_id , REAL8 v \} )} --- DATASET(Layout\_Norm) with one record per work item
+\end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{SEE}}}] PBblas/Types.Layout\_Cell
+\end{description}
+
+
 
 \rule{\linewidth}{0.5pt}

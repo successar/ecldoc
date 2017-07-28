@@ -32,13 +32,36 @@ ExtractBeta\_CI}}
 }
 
 \par
+
+
+
+
+
 Extract the beta values form the model dataset.
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{mod\_ds}} the model dataset
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{level}} the significance value for the intervals
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{\underline{}} the beta values with confidence intervals term.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{level}} ||| REAL8 --- the significance value for the intervals
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{mod\_ds}} ||| TABLE ( Layout\_Model ) --- the model dataset
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{TABLE ( \{ UNSIGNED2 wi , UNSIGNED4 ind\_col , UNSIGNED4 dep\_nom , REAL8 w , REAL8 SE , REAL8 upper , REAL8 lower \} )} --- the beta values with confidence intervals term.
+\end{description}
+
+
+
 
 \rule{\linewidth}{0.5pt}

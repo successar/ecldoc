@@ -37,6 +37,11 @@ potrf}}
 }
 
 \par
+
+
+
+
+
 Implements Cholesky factorization of A = U**T * U if Triangular.Upper requested or A = L * L**T if Triangualr.Lower is requested. The matrix A must be symmetric positive definite. 
 \begin{verbatim}
 
@@ -57,13 +62,40 @@ Implements Cholesky factorization of A = U**T * U if Triangular.Upper requested 
 
 
 
+
+
+
+
+
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{tri}} Types.Triangle enumeration indicating whether we are looking for the Upper or the Lower factor
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{A\_in}} The matrix or matrixes to be factored in Types.Layout\_Cell format
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{\underline{}} Triangular matrix in Layout\_Cell format
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{SEE}}}] \textbf{\underline{}} Std.PBblas.Types.Layout\_Cell
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{SEE}}}] \textbf{\underline{}} Std.PBblas.Types.Triangle
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{tri}} ||| UNSIGNED1 --- Types.Triangle enumeration indicating whether we are looking for the Upper or the Lower factor
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{A\_in}} ||| TABLE ( Layout\_Cell ) --- The matrix or matrixes to be factored in Types.Layout\_Cell format
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{TABLE ( \{ UNSIGNED2 wi\_id , UNSIGNED4 x , UNSIGNED4 y , REAL8 v \} )} --- Triangular matrix in Layout\_Cell format
+\end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{SEE}}}] Std.PBblas.Types.Layout\_Cell
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{SEE}}}] Std.PBblas.Types.Triangle
+\end{description}
+
+
 
 \rule{\linewidth}{0.5pt}

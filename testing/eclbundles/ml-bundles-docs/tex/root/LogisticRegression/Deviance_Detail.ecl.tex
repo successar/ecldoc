@@ -33,13 +33,36 @@ Deviance\_Detail}}
 }
 
 \par
+
+
+
+
+
 Detail deviance for each observation.
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{dependents}} original dependent records for the model
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{predicts}} the predicted values of the response variable
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{\underline{}} the deviance information by observation and the log likelihood of the predicted result.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{dependents}} ||| TABLE ( DiscreteField ) --- original dependent records for the model
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{predicts}} ||| TABLE ( Raw\_Prediction ) --- the predicted values of the response variable
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{TABLE ( \{ UNSIGNED2 wi , UNSIGNED8 id , UNSIGNED4 classifier , INTEGER4 actual , INTEGER4 predicted , REAL8 mod\_ll , REAL8 mod\_dev\_component , REAL8 mod\_dev\_residual , REAL8 nil\_ll , REAL8 nil\_dev\_component , REAL8 nil\_dev\_residual \} )} --- the deviance information by observation and the log likelihood of the predicted result.
+\end{description}
+
+
+
 
 \rule{\linewidth}{0.5pt}

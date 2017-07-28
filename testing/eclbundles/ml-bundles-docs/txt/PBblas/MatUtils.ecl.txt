@@ -25,9 +25,11 @@ See : Std/PBblas/Types.Layout_Cell
   | 
   | Get a list of work-item ids from a matrix containing one or more work items
   | 
-  | Parameter : cells ||| A matrix in Layout_Cell format
+  | Parameter : cells TABLE ( Layout_Cell ) --- A matrix in Layout_Cell
+  |                   format
   | 
-  | Return : DATASET(Layout_WI_ID), one record per work-item
+  | Return : TABLE ( { UNSIGNED2 wi_id } )
+  |          DATASET(Layout_WI_ID), one record per work-item
   | 
   | See : PBblas/Types.Layout_Cell
   | 
@@ -42,16 +44,17 @@ See : Std/PBblas/Types.Layout_Cell
   | inserted before the first original column. This attribute supports the
   | myriad interface. Multiple independent matrixes can be represented by M.
   | 
-  | Parameter : M ||| the input matrix
+  | Parameter : insert_val REAL8 --- the value for each cell of the new
+  |                        column(s), default 0
   | 
-  | Parameter : cols_to_insert ||| the number of columns to
-  |             insert, default 1
+  | Parameter : cols_to_insert UNSIGNED8 --- the number of columns to insert,
+  |                            default 1
   | 
-  | Parameter : insert_val ||| the value for each cell of the new
-  |             column(s), default 0
+  | Parameter : M TABLE ( Layout_Cell ) --- the input matrix
   | 
-  | Return : matrix in Layout_Cell format with additional
-  |          column(s)
+  | Return : TABLE ( { UNSIGNED2 wi_id , UNSIGNED4 x ,
+  |          UNSIGNED4 y , REAL8 v } ) matrix in Layout_Cell
+  |          format with additional column(s)
   | 
   | ----------------------------------------------------------------------------------------------------------------------------------
   | FUNCTION : DATASET(Layout_Cell) Transpose(DATASET(Layout_Cell) M)
@@ -60,9 +63,12 @@ See : Std/PBblas/Types.Layout_Cell
   | Transpose a matrix This attribute supports the myriad interface. Multiple
   | independent matrixes can be represented by M.
   | 
-  | Parameter : M ||| A matrix represented as DATASET(Layout_Cell)
+  | Parameter : M TABLE ( Layout_Cell ) --- A matrix represented as
+  |               DATASET(Layout_Cell)
   | 
-  | Return : Transposed matrix in Layout_Cell format
+  | Return : TABLE ( { UNSIGNED2 wi_id , UNSIGNED4 x ,
+  |          UNSIGNED4 y , REAL8 v } ) Transposed matrix in
+  |          Layout_Cell format
   | 
   | See : PBblas/Types.Layout_Cell
   | 

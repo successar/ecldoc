@@ -31,13 +31,36 @@ Deviance\_Analysis}}
 }
 
 \par
+
+
+
+
+
 Compare deviance information for an analysis of deviance.
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{proposed}} the proposed model
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{base}} the base model for comparison
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{\underline{}} the comparison of the deviance between the models
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{base}} ||| TABLE ( Deviance\_Record ) --- the base model for comparison
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{proposed}} ||| TABLE ( Deviance\_Record ) --- the proposed model
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{TABLE ( \{ UNSIGNED2 wi , UNSIGNED4 classifier , UNSIGNED8 residual\_df , UNSIGNED8 df , REAL8 residual\_dev , REAL8 deviance , REAL8 p\_value \} )} --- the comparison of the deviance between the models
+\end{description}
+
+
+
 
 \rule{\linewidth}{0.5pt}

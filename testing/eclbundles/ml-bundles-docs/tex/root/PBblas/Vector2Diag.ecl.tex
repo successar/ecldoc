@@ -35,13 +35,45 @@ Vector2Diag}}
 }
 
 \par
+
+
+
+
+
 Convert a vector into a diagonal matrix. The typical notation is D = diag(V). The input X must be a 1 x N column vector or an N x 1 row vector. The resulting matrix, in either case will be N x N, with zero everywhere except the diagonal.
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{X}} A row or column vector (i.e. N x 1 or 1 x N) in Layout\_Cell format
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{\underline{}} An N x N matrix in Layout\_Cell format
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{SEE}}}] \textbf{\underline{}} PBblas/Types.Layout\_cell
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{X}} ||| TABLE ( Layout\_Cell ) --- A row or column vector (i.e. N x 1 or 1 x N) in Layout\_Cell format
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{TABLE ( \{ UNSIGNED2 wi\_id , UNSIGNED4 x , UNSIGNED4 y , REAL8 v \} )} --- An N x N matrix in Layout\_Cell format
+\end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{SEE}}}] PBblas/Types.Layout\_cell
+\end{description}
+
+
 
 \rule{\linewidth}{0.5pt}

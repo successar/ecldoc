@@ -22,10 +22,12 @@ and DiscreteField) and PBblas matrix layout (i.e. Layout_Cell)
   | 
   | Convert NumericField dataset to Matrix
   | 
-  | Parameter : recs ||| Record Dataset in DATASET(NumericField)
-  |             format
+  | Parameter : recs TABLE ( NumericField ) --- Record Dataset in
+  |                  DATASET(NumericField) format
   | 
-  | Return : Matrix in DATASET(Layout_Cell) format
+  | Return : TABLE ( { UNSIGNED2 wi_id , UNSIGNED4 x ,
+  |          UNSIGNED4 y , REAL8 v } ) Matrix in
+  |          DATASET(Layout_Cell) format
   | 
   | See : PBblas/Types.Layout_Cell
   | 
@@ -37,10 +39,12 @@ and DiscreteField) and PBblas matrix layout (i.e. Layout_Cell)
   | 
   | Convert DiscreteField dataset to Matrix
   | 
-  | Parameter : recs ||| Record Dataset in DATASET(DiscreteField)
-  |             format
+  | Parameter : recs TABLE ( DiscreteField ) --- Record Dataset in
+  |                  DATASET(DiscreteField) format
   | 
-  | Return : Matrix in DATASET(Layout_Cell) format
+  | Return : TABLE ( { UNSIGNED2 wi_id , UNSIGNED4 x ,
+  |          UNSIGNED4 y , REAL8 v } ) Matrix in
+  |          DATASET(Layout_Cell) format
   | 
   | See : PBblas/Types.Layout_Cell
   | 
@@ -52,9 +56,11 @@ and DiscreteField) and PBblas matrix layout (i.e. Layout_Cell)
   | 
   | Convert Matrix to NumericField dataset
   | 
-  | Parameter : mat ||| Matrix in DATASET(Layout_Cell) format
+  | Parameter : mat TABLE ( Layout_Cell ) --- Matrix in
+  |                 DATASET(Layout_Cell) format
   | 
-  | Return : NumericField Dataset
+  | Return : TABLE ( { UNSIGNED2 wi , UNSIGNED8 id , UNSIGNED4
+  |          number , REAL8 value } ) NumericField Dataset
   | 
   | See : PBblas/Types.Layout_Cell
   | 
@@ -66,9 +72,11 @@ and DiscreteField) and PBblas matrix layout (i.e. Layout_Cell)
   | 
   | Convert Matrix to DiscreteField dataset
   | 
-  | Parameter : mat ||| Matrix in DATASET(Layout_Cell) format
+  | Parameter : mat TABLE ( Layout_Cell ) --- Matrix in
+  |                 DATASET(Layout_Cell) format
   | 
-  | Return : DiscreteField Dataset
+  | Return : TABLE ( { UNSIGNED2 wi , UNSIGNED8 id , UNSIGNED4
+  |          number , INTEGER4 value } ) DiscreteField Dataset
   | 
   | See : PBblas/Types.Layout_Cell
   | 

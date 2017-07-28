@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -145,73 +143,74 @@
 									<td class="ret">DATASET(Types.Deviance_Record)</td>
 									<td class="name">Model_Deviance</td>
 									<td class="param">(DATASET(Types.Observation_Deviance) od, DATASET(Types.Model_Coef) mod)</td>
-								</tr><tr style="background: #f2f7ff;">
+								</tr>
+
+								<tr style="background: #f2f7ff;">
 									<td colspan="3">
 										Model Deviance
 									</td>
 								</tr>
 							</table>
-
-							<table class="table">
-								<tr>
-									<td width="20%"><b>Parameters</b></td>
-									<td style="padding:0px;">
-										<table class="table" style="margin: 0px;">
-										<tr style="border-bottom: 2px;">
-											<td style="border-top: 0px; border-bottom-width: 1pt;">
-												<div style="flex: 1 1 auto; max-width: 50%; margin-right: 10px; display : inline-flex;">TABLE ( logisticregression.types.observation_deviance )</div>
-												<div style="flex: 1 1 auto;  display : inline-flex; font-weight: bold;">od</div>
-											</td>
-										</tr>
-										<tr style="border-bottom: 2px;">
-											<td style="border-top: 0px; border-bottom-width: 1pt;">
-												<div style="flex: 1 1 auto; max-width: 50%; margin-right: 10px; display : inline-flex;">TABLE ( logisticregression.types.model_coef )</div>
-												<div style="flex: 1 1 auto;  display : inline-flex; font-weight: bold;">mod</div>
-											</td>
-										</tr>
-										</table>
-									</td>
-								</tr>
-								<tr>
-									<td width="20%"><b>Returns</b></td>
-									<td >TABLE ( { UNSIGNED2 wi , UNSIGNED4 classifier , UNSIGNED8 df , REAL8 deviance , REAL8 AIC } )</td>
-								</tr>
-							</table>
 							<div class="panel-collapse collapse in desc-logisticregression-model_deviance">
-								<div class="panel-body desc-panel-body"><div class="row">
-										<div class="col-md-12" style="padding-bottom: 10px;">
-											Model Deviance.
-										</div>
-									</div>
+								<div class="panel-body desc-panel-body">
 									
-	<div class="row">
-		<div class="col-md-1 doc-type">Parameters</div>
-		<div class="col-md-11" style="padding-left: 0px;">
-			<table class="table">
-				<tr>
-					<td width="20%"><b>od</b> </td>
-					<td>observation deviance record</td>
-				</tr>
-				<tr>
-					<td width="20%"><b>mod</b> </td>
-					<td>model co-efficients</td>
-				</tr>
-			</table>
-		</div>
+
+
+
+
+
+
+<div class="row">
+<div class="col-md-12" style="padding-bottom: 10px;">
+	Model Deviance.
+</div>
+</div>
+
+									
+
+
+
+
+
+
+<div class="row">
+	<div class="col-md-1 doc-type">Parameters</div>
+	<div class="col-md-11" style="padding-left: 0px;">
+		<table class="table">
+			
+			<tr>
+				<td width="20%"><b>od</b></td>
+				<td><b>TABLE ( Observation_Deviance )</b> -- observation deviance record</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>mod</b></td>
+				<td><b>TABLE ( Model_Coef )</b> -- model co-efficients</td>
+			</tr>
+		</table>
 	</div>
+</div>
 									
 									
-	<div class="row">
-		<div class="col-md-1 doc-type">Returns</div>
-		<div class="col-md-11" style="padding-left: 0px;">
-			<table class="table">
-				<tr>
-					<td>model deviance</td>
-				</tr>
-			</table>
-		</div>
+
+
+
+
+
+
+<div class="row">
+	<div class="col-md-1 doc-type">Returns</div>
+	<div class="col-md-11" style="padding-left: 0px;">
+		<table class="table">
+			
+			<tr>
+				<td width="20%"><b>TABLE ( { UNSIGNED2 wi , UNSIGNED4 classifier , UNSIGNED8 df , REAL8 deviance , REAL8 AIC } )</b></td>
+				<td>model deviance</td>
+			</tr>
+		</table>
 	</div>
-									</div>
+</div>
+									
+								</div>
 								<div class="panel-footer desc-panel-footer">
 									<div class="panel-group desc-panel-group">
 									

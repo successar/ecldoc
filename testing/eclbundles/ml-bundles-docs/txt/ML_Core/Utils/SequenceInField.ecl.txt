@@ -17,15 +17,15 @@ one value of infield per node and to work with very large numbers of
 records where a global count project would be inappropriate. This is useful
 for assigning rank positions with the groupings.
 
-Parameter : infile ||| the input file, any type
+Parameter : infield INTEGER8 --- field name of grouping field
 
-Parameter : infield ||| field name of grouping field
+Parameter : seq INTEGER8 --- name of the field to receive the
+                sequence number
 
-Parameter : seq ||| name of the field to receive the sequence
-            number
+Parameter : infile INTEGER8 --- the input file, any type
 
-Parameter : wi_name ||| work item field name, default is wi
+Parameter : wi_name INTEGER8 --- work item field name, default is wi
 
-Return : a file of the same type with sequence numbers
-         applied
+Return : BOOLEAN a file of the same type with sequence
+         numbers applied
 

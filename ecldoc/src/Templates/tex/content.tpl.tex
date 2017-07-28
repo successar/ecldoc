@@ -45,20 +45,16 @@
 }
 
 \par
-\BLOCK{ if 'content' in def['doc'] }
-\BLOCK{ for line in def['doc']['content'] }
-\VAR{ line }
-\BLOCK{ endfor }
+\VAR{def.doc.content}
+\VAR{def.doc.param}
+\VAR{def.doc.field}
+\VAR{def.doc.return}
+\BLOCK{ for tag in def.doc }
+\BLOCK{ if tag not in ['content', 'firstline', 'param', 'return', 'field', 'parent'] }
+\VAR{def.doc[tag]}
 \BLOCK{ endif }
-
-\BLOCK{ if def['doc']['tags']|length > 0 }
-\par
-\begin{description}
-\BLOCK{ for tag in def['doc']['tags'] }
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{\VAR{tag[1].upper()}}}}] \textbf{\underline{\VAR{tag[0][0]|escape_tex}}} \VAR{tag[0][1]|escape_tex}
 \BLOCK{ endfor }
-\end{description}
-\BLOCK{ endif }
+\VAR{def.doc.parent}
 
 \BLOCK{ if def['defns']|length > 0 }
 \textbf{Children}

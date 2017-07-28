@@ -17,10 +17,12 @@ FUNCTION : DATASET(Classify_Result) LogitPredict(DATASET(Model_Coef) coef, DATAS
 Predict the category values with the logit function and the the supplied
 beta coefficients.
 
-Parameter : coef ||| the model beta coefficients
+Parameter : independents TABLE ( NumericField ) --- the observations
 
-Parameter : independents ||| the observations
+Parameter : coef TABLE ( Model_Coef ) --- the model beta
+                 coefficients
 
-Return : the predicted category values and a confidence
-         score
+Return : TABLE ( { UNSIGNED2 wi , UNSIGNED8 id , UNSIGNED4
+         number , INTEGER4 value , REAL8 conf } ) the
+         predicted category values and a confidence score
 

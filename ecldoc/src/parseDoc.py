@@ -4,7 +4,7 @@ from lxml.builder import E
 import lxml.html as H
 from collections import defaultdict
 
-def parseDocstring(docstring, defn) :
+def parseDocstring(docstring) :
     docstring = re.sub(r'\n\s*\*', '\n', docstring)
     docstring = re.sub(r'\r', ' ', docstring)
     docstring = docstring.strip().split('\n')
@@ -31,16 +31,6 @@ def parseDocstring(docstring, defn) :
         docdict['firstline'] = [findFirstLine(current_text)]
     docdict[current_tag].append(current_text.strip())
 
-    params = {}
-    if defn.find('Params') is not None:
-        _params = defn.find('Params').findall('Param')
-        params = { x.attrib['name'].lower() : x for x in _params }
-
-    fields = { x.attrib['name'] : x for x in defn.findall('Field') }
-
-    map_tags = { 'param' : params, 'field' : fields }
-
-
     for tag in docdict :
         for i, desc in enumerate(docdict[tag]) :
             root = H.fragment_fromstring(desc, create_parent='div')
@@ -49,24 +39,17 @@ def parseDocstring(docstring, defn) :
             content.text = etree.tostring(root)
             content.text = re.sub(r'^<div>', '', content.text)
             content.text = re.sub(r'</div>$', '', content.text)
-
-            if tag in ['param', 'field'] :
-                text = content.text.split(' ', 1)
-                name, desc = etree.Element('name'), etree.Element('desc')
-                name.text, desc.text = text[0], ' '.join(text[1:])
-                content.append(name)
-                content.append(desc)
-                content.text = ''
-                actual_list = map_tags[tag]
-                if name.text.lower() in actual_list :
-                    actual = actual_list[name.text.lower()]
-                    #content.append(actual.find('Type'))
-
-
             docdict[tag][i] = content
 
-
     return docdict
+
+def getTags(doc) :
+    tag_dict = defaultdict(list)
+    if doc is None : return tag_dict
+    for child in doc.getchildren() :
+        tag_dict[child.tag].append(child.text)
+
+    return tag_dict
 
 def removeWS(element) :
     '''
@@ -103,6 +86,44 @@ def findFirstLine(current_text) :
     split_2 = re.split(r'\n', current_text.strip(), maxsplit=1)
     return split_2[0].strip()
 
+##########################################################
+
+def construct_type(ele) :
+    if ele is None : return ''
+    if type(ele) == list : return ''
+
+    typestring = ''
+    attribs = ele.attrib
+    typename = attribs['type']
+    if typename == 'record' :
+        if 'unnamed' in attribs :
+            typestring += '{ '
+            fields = []
+            for field in ele.findall('Field') :
+                fields.append(construct_type(field.find('./Type')) + " " + field.attrib['name'])
+            typestring += ' , '.join(fields) + ' }'
+        else :
+            typestring += attribs['origfn'] if 'origfn' in attribs else attribs['name']
+    else :
+        typestring += typename.upper()
+        if 'origfn' in attribs :
+            typestring += ' ( ' + attribs['origfn'] + ' )'
+        elif 'name' in attribs :
+            typestring += ' ( ' + attribs['name'] + ' )'
+
+    if typename == 'function' :
+        typestring += ' [ '
+        params = []
+        for p in ele.find('Params').findall('Type') :
+            params.append(construct_type(p))
+        typestring += ' , '.join(params) + ' ]'
+
+    if ele.find('./Type') is not None :
+        typestring += ' ( ' + construct_type(ele.find('./Type')) + ' )'
+
+    return typestring
+
+##########################################################
 
 def convertToMarkdown(html_text) :
     '''
@@ -152,6 +173,8 @@ def parseHTMltoMK(element) :
         text = text + ' <' + a.attrib['href'] + '>'
 
     return text
+
+##########################################################
 
 from Utils import escape_tex
 

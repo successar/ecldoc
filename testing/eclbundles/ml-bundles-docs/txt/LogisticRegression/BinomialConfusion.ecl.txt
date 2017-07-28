@@ -18,8 +18,18 @@ Binomial confusion matrix. Work items with multinomial responses are
 ignored by this function. The higher value lexically is considered to be
 the positive indication.
 
-Parameter : d ||| confusion detail for the work item and
-            classifier
+Parameter : d TABLE ( Confusion_Detail ) --- confusion detail
+              for the work item and classifier
 
-Return : confusion matrix for a binomial classifier
+Return : TABLE ( { UNSIGNED2 wi , UNSIGNED4 classifier ,
+         UNSIGNED8 true_positive , UNSIGNED8 true_negative
+         , UNSIGNED8 false_positive , UNSIGNED8
+         false_negative , UNSIGNED8 cond_pos , UNSIGNED8
+         pred_pos , UNSIGNED8 cond_neg , UNSIGNED8 pred_neg
+         , REAL8 prevalence , REAL8 accuracy , REAL8
+         true_pos_rate , REAL8 false_neg_rate , REAL8
+         false_pos_rate , REAL8 true_neg_rate , REAL8
+         pos_pred_val , REAL8 false_disc_rate , REAL8
+         false_omit_rate , REAL8 neg_pred_val } ) confusion
+         matrix for a binomial classifier
 

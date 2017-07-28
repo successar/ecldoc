@@ -15,8 +15,11 @@ FUNCTION : DATASET(Types.pval_Model_Coef) ExtractBeta_pval(DATASET(Core_Types.La
 
 Extract the beta values form the model dataset.
 
-Parameter : mod_ds ||| the model dataset
+Parameter : mod_ds TABLE ( Layout_Model ) --- the model dataset
 
-Return : the beta values with p-values as Model Coefficient
-         records, zero as the constant term.
+Return : TABLE ( { UNSIGNED2 wi , UNSIGNED4 ind_col ,
+         UNSIGNED4 dep_nom , REAL8 w , REAL8 SE , REAL8 z ,
+         REAL8 p_value } ) the beta values with p-values as
+         Model Coefficient records, zero as the constant
+         term.
 

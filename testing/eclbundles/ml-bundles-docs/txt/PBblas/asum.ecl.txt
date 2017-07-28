@@ -19,10 +19,11 @@ FUNCTION : DATASET(Layout_Norm) asum(DATASET(Layout_Cell) X)
 
 Absolute sum -- the "Entrywise" 1-norm Compute SUM(ABS(X))
 
-Parameter : X ||| Matrix or set of matrices in Layout_Cell
-            format
+Parameter : X TABLE ( Layout_Cell ) --- Matrix or set of
+              matrices in Layout_Cell format
 
-Return : DATASET(Layout_Norm) with one record per work item
+Return : TABLE ( { UNSIGNED2 wi_id , REAL8 v } )
+         DATASET(Layout_Norm) with one record per work item
 
 See : PBblas/Types.Layout_Cell
 

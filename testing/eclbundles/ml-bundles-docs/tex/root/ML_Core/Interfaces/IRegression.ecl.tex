@@ -32,13 +32,28 @@ IRegression}}
 }
 
 \par
+
+
+
+
+
 Interface Definition for Regression Modules Regression learns a function that maps a set of input data to one or more output variables. The resulting learned function is known as the model. That model can then be used repetitively to predict (i.e. estimate) the output value(s) based on new input data.
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{X}} The independent data in DATASET(NumericField) format. Each statistical unit (e.g. record) is identified by 'id', and each feature is identified by field number (i.e. 'number').
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{Y}} The dependent variable(s) in DATASET(NumericField) format. Each statistical unit (e.g. record) is identified by 'id', and each feature is identified by field number (i.e. 'number').
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{Y}} ||| TABLE ( NumericField ) --- The dependent variable(s) in DATASET(NumericField) format. Each statistical unit (e.g. record) is identified by 'id', and each feature is identified by field number (i.e. 'number').
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{X}} ||| TABLE ( NumericField ) --- The independent data in DATASET(NumericField) format. Each statistical unit (e.g. record) is identified by 'id', and each feature is identified by field number (i.e. 'number').
 \end{description}
+
+
+
+
+
 
 \textbf{Children}
 \begin{enumerate}
@@ -65,12 +80,27 @@ GetModel}}
 }
 
 \par
+
+
+
+
+
 Calculate and return the 'learned' model The model may be persisted and later used to make predictions using 'Predict' below.
+
+
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{\underline{}} DATASET(LayoutModel) describing the learned model parameters
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{TABLE ( \{ UNSIGNED2 wi , UNSIGNED8 id , UNSIGNED4 number , REAL8 value \} )} --- DATASET(LayoutModel) describing the learned model parameters
 \end{description}
+
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} FUNCTION}
@@ -90,13 +120,37 @@ Predict}}
 }
 
 \par
+
+
+
+
+
 Predict the output variable(s) based on a previously learned model
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{newX}} DATASET(NumericField) containing the X values to b predicted.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{\underline{}} DATASET(NumericField) containing one entry per observation (i.e. id) in newX. This represents the predicted values for Y.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{newX}} ||| TABLE ( NumericField ) --- DATASET(NumericField) containing the X values to b predicted.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{model}} ||| TABLE ( Layout\_Model ) --- No Doc
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{TABLE ( \{ UNSIGNED2 wi , UNSIGNED8 id , UNSIGNED4 number , REAL8 value \} )} --- DATASET(NumericField) containing one entry per observation (i.e. id) in newX. This represents the predicted values for Y.
+\end{description}
+
+
+
 
 \rule{\linewidth}{0.5pt}
 

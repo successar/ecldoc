@@ -7,9 +7,8 @@
               inherittype="local"
               line="23"
               name="Example_3"
-              start="385">
-   <Type>module</Type>
-   <Parents/>
+              start="385"
+              type="module">
    <Definition body="431"
                end="894"
                exported="1"
@@ -17,8 +16,8 @@
                inherittype="local"
                line="24"
                name="mod_1"
-               start="416">
-    <Type>module</Type>
+               start="416"
+               type="module">
     <Definition body="580"
                 end="585"
                 exported="1"
@@ -26,8 +25,9 @@
                 inherittype="local"
                 line="31"
                 name="v1_m1"
-                start="565">
-     <Type>attribute</Type>
+                start="565"
+                type="attribute">
+     <Type type="real8"/>
      <Documentation>
       <content>&#32;Doc test 2. Title end by
         * period not newline
@@ -35,10 +35,6 @@
     	* ABCD ||||
     	* CDEF ||||&#10;&#32;&#32;&#32;&#32;&#9;</content>
      </Documentation>
-     <RType issigned="1"
-            length="8"
-            precision="0"
-            type="real"/>
     </Definition>
     <Definition body="673"
                 end="678"
@@ -47,16 +43,13 @@
                 inherittype="local"
                 line="35"
                 name="v2_m1_ex3"
-                start="654">
-     <Type>attribute</Type>
+                start="654"
+                type="attribute">
+     <Type type="real8"/>
      <Documentation>
       <content>&#32;DOC Test 3
         * No Period title&#10;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</content>
      </Documentation>
-     <RType issigned="1"
-            length="8"
-            precision="0"
-            type="real"/>
     </Definition>
     <Definition body="880"
                 end="885"
@@ -65,80 +58,51 @@
                 inherittype="local"
                 line="36"
                 name="long_name"
-                start="687">
-     <Type>function</Type>
+                start="687"
+                type="function">
+     <Type type="real8"/>
      <Params>
       <Param name="X">
-       <RType type="table">
-        <RType type="row">
-         <RType type="record">
-          <Field name="u">
-           <RType issigned="1"
-                  length="8"
-                  precision="0"
-                  type="real"/>
-          </Field>
-         </RType>
-        </RType>
-       </RType>
+       <Type type="table">
+        <Type type="record" unnamed="1">
+         <Field name="u">
+          <Type type="real8"/>
+         </Field>
+        </Type>
+       </Type>
       </Param>
       <Param name="IntW">
-       <RType type="table">
-        <RType type="row">
-         <RType type="record">
-          <Field name="u">
-           <RType issigned="1"
-                  length="8"
-                  precision="0"
-                  type="real"/>
-          </Field>
-         </RType>
-        </RType>
-       </RType>
+       <Type type="table">
+        <Type type="record" unnamed="1">
+         <Field name="u">
+          <Type type="real8"/>
+         </Field>
+        </Type>
+       </Type>
       </Param>
       <Param name="Intb">
-       <RType type="table">
-        <RType type="row">
-         <RType type="record">
-          <Field name="u">
-           <RType issigned="1"
-                  length="8"
-                  precision="0"
-                  type="real"/>
-          </Field>
-         </RType>
-        </RType>
-       </RType>
+       <Type type="table">
+        <Type type="record" unnamed="1">
+         <Field name="u">
+          <Type type="real8"/>
+         </Field>
+        </Type>
+       </Type>
       </Param>
       <Param name="BETA">
-       <RType issigned="1"
-              length="8"
-              precision="0"
-              type="real"/>
+       <Type type="real8"/>
       </Param>
       <Param name="sparsityParam">
-       <RType issigned="1"
-              length="8"
-              precision="0"
-              type="real"/>
+       <Type type="real8"/>
       </Param>
       <Param name="LAMBDA">
-       <RType issigned="1"
-              length="8"
-              precision="0"
-              type="real"/>
+       <Type type="real8"/>
       </Param>
       <Param name="ALPHA">
-       <RType issigned="1"
-              length="8"
-              precision="0"
-              type="real"/>
+       <Type type="real8"/>
       </Param>
       <Param name="MaxIter">
-       <RType issigned="0"
-              length="2"
-              precision="0"
-              type="int"/>
+       <Type type="unsigned2"/>
       </Param>
      </Params>
     </Definition>
@@ -166,6 +130,7 @@
 *   @return rec_1
 *   @see example_1.mod_1&#10;</content>
    </Documentation>
+   <Parents/>
   </Definition>
  </Source>
 </Meta>

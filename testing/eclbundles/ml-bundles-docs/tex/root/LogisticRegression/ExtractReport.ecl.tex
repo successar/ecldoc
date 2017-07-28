@@ -33,12 +33,35 @@ ExtractReport}}
 }
 
 \par
+
+
+
+
+
 Extract Report records from model
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{mod\_ds}} the model dataset
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{\underline{}} the model report dataset
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{mod\_ds}} ||| TABLE ( Layout\_Model ) --- the model dataset
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{TABLE ( \{ UNSIGNED2 wi , UNSIGNED4 max\_iterations , REAL8 epsilon , UNSIGNED4 dep\_vars , UNSIGNED4 ind\_vars , UNSIGNED8 obs , UNSIGNED2 builder , TABLE ( Classifier\_Stats ) stats \} )} --- the model report dataset
+\end{description}
+
+
+
 
 \rule{\linewidth}{0.5pt}

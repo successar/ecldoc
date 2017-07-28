@@ -17,8 +17,8 @@
               inherittype="local"
               line="5"
               name="File"
-              start="244">
-   <Type>module</Type>
+              start="244"
+              type="module">
    <Definition body="655"
                end="690"
                exported="1"
@@ -26,11 +26,17 @@
                inherittype="local"
                line="19"
                name="FsFilenameRecord"
-               start="629">
-    <Type>record</Type>
-    <Field name="name" type="string"/>
-    <Field name="size" type="integer8"/>
-    <Field name="modified" type="string19"/>
+               start="629"
+               type="record">
+    <Field name="name">
+     <Type type="string"/>
+    </Field>
+    <Field name="size">
+     <Type type="integer8"/>
+    </Field>
+    <Field name="modified">
+     <Type type="string19"/>
+    </Field>
     <Documentation>
      <content>&#10;&#32;* A record containing information about filename.  Includes name, size and when last modified.
  * export FsFilenameRecord := RECORD
@@ -47,8 +53,9 @@
                inherittype="local"
                line="25"
                name="FsLogicalFileName"
-               start="761">
-    <Type>attribute</Type>
+               start="761"
+               type="attribute">
+    <Type type="string"/>
     <Documentation>
      <content>&#10;&#32;* An alias for a logical filename that is stored in a row.&#10;&#32;</content>
     </Documentation>
@@ -60,9 +67,11 @@
                inherittype="local"
                line="33"
                name="FsLogicalFileNameRecord"
-               start="969">
-    <Type>record</Type>
-    <Field name="name" type="string"/>
+               start="969"
+               type="record">
+    <Field name="name">
+     <Type type="string"/>
+    </Field>
     <Documentation>
      <content>&#10;&#32;* A record containing a logical filename. It contains the following fields:
  *
@@ -76,15 +85,29 @@
                inherittype="local"
                line="47"
                name="FsLogicalFileInfoRecord"
-               start="1582">
-    <Type>record</Type>
-    <Field name="name" type="string"/>
-    <Field name="superfile" type="boolean"/>
-    <Field name="size" type="integer8"/>
-    <Field name="rowcount" type="integer8"/>
-    <Field name="modified" type="string19"/>
-    <Field name="owner" type="string"/>
-    <Field name="cluster" type="string"/>
+               start="1582"
+               type="record">
+    <Field name="name">
+     <Type type="string"/>
+    </Field>
+    <Field name="superfile">
+     <Type type="boolean"/>
+    </Field>
+    <Field name="size">
+     <Type type="integer8"/>
+    </Field>
+    <Field name="rowcount">
+     <Type type="integer8"/>
+    </Field>
+    <Field name="modified">
+     <Type type="string19"/>
+    </Field>
+    <Field name="owner">
+     <Type type="string"/>
+    </Field>
+    <Field name="cluster">
+     <Type type="string"/>
+    </Field>
     <Documentation>
      <content>&#10;&#32;* A record containing information about a logical file.
  *
@@ -104,10 +127,14 @@
                inherittype="local"
                line="56"
                name="FsLogicalSuperSubRecord"
-               start="1841">
-    <Type>record</Type>
-    <Field name="supername" type="string"/>
-    <Field name="subname" type="string"/>
+               start="1841"
+               type="record">
+    <Field name="supername">
+     <Type type="string"/>
+    </Field>
+    <Field name="subname">
+     <Type type="string"/>
+    </Field>
     <Documentation>
      <content>&#10;&#32;* A record containing information about a superfile and its contents.
  *
@@ -122,16 +149,32 @@
                inherittype="local"
                line="74"
                name="FsFileRelationshipRecord"
-               start="2896">
-    <Type>record</Type>
-    <Field name="primaryfile" type="string"/>
-    <Field name="secondaryfile" type="string"/>
-    <Field name="primaryflds" type="string"/>
-    <Field name="secondaryflds" type="string"/>
-    <Field name="kind" type="string"/>
-    <Field name="cardinality" type="string"/>
-    <Field name="payload" type="boolean"/>
-    <Field name="description" type="string"/>
+               start="2896"
+               type="record">
+    <Field name="primaryfile">
+     <Type type="string"/>
+    </Field>
+    <Field name="secondaryfile">
+     <Type type="string"/>
+    </Field>
+    <Field name="primaryflds">
+     <Type type="string"/>
+    </Field>
+    <Field name="secondaryflds">
+     <Type type="string"/>
+    </Field>
+    <Field name="kind">
+     <Type type="string"/>
+    </Field>
+    <Field name="cardinality">
+     <Type type="string"/>
+    </Field>
+    <Field name="payload">
+     <Type type="boolean"/>
+    </Field>
+    <Field name="description">
+     <Type type="string"/>
+    </Field>
     <Documentation>
      <content>&#10;&#32;* A record containing information about the relationship between two files.
  *
@@ -155,8 +198,9 @@
                inherittype="local"
                line="80"
                name="RECFMV_RECSIZE"
-               start="3086">
-    <Type>attribute</Type>
+               start="3086"
+               type="attribute">
+    <Type type="integer4"/>
     <Documentation>
      <content>&#10;&#32;* Constant that indicates IBM RECFM V format file.  Can be passed to SprayFixed for the record size.&#10;&#32;</content>
     </Documentation>
@@ -168,8 +212,9 @@
                inherittype="local"
                line="86"
                name="RECFMVB_RECSIZE"
-               start="3257">
-    <Type>attribute</Type>
+               start="3257"
+               type="attribute">
+    <Type type="integer4"/>
     <Documentation>
      <content>&#10;&#32;* Constant that indicates IBM RECFM VB format file.  Can be passed to SprayFixed for the record size.&#10;&#32;</content>
     </Documentation>
@@ -181,8 +226,9 @@
                inherittype="local"
                line="92"
                name="PREFIX_VARIABLE_RECSIZE"
-               start="3458">
-    <Type>attribute</Type>
+               start="3458"
+               type="attribute">
+    <Type type="integer4"/>
     <Documentation>
      <content>&#10;&#32;* Constant that indicates a variable little endian 4 byte length prefixed file.  Can be passed to SprayFixed for the record size.&#10;&#32;</content>
     </Documentation>
@@ -194,8 +240,9 @@
                inherittype="local"
                line="98"
                name="PREFIX_VARIABLE_BIGENDIAN_RECSIZE"
-               start="3681">
-    <Type>attribute</Type>
+               start="3681"
+               type="attribute">
+    <Type type="integer4"/>
     <Documentation>
      <content>&#10;&#32;* Constant that indicates a variable big endian 4 byte length prefixed file.  Can be passed to SprayFixed for the record size.&#10;&#32;</content>
     </Documentation>
@@ -207,8 +254,9 @@
                inherittype="local"
                line="110"
                name="FileExists"
-               start="4159">
-    <Type>function</Type>
+               start="4159"
+               type="function">
+    <Type type="boolean"/>
     <Documentation>
      <content>&#10;&#32;* Returns whether the file exists.
  *
@@ -217,8 +265,12 @@
  * @return              Whether the file exists.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="lfn"/>
-     <Param name="physical"/>
+     <Param name="lfn">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="physical">
+      <Type type="boolean"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="4601"
@@ -228,8 +280,9 @@
                inherittype="local"
                line="120"
                name="DeleteLogicalFile"
-               start="4531">
-    <Type>function</Type>
+               start="4531"
+               type="function">
+    <Type type=""/>
     <Documentation>
      <content>&#10;&#32;* Removes the logical file from the system, and deletes from the disk.
  *
@@ -237,8 +290,12 @@
  * @param allowMissing  Whether to suppress an error if the filename does not exist. Defaults to FALSE.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="lfn"/>
-     <Param name="allowMissing"/>
+     <Param name="lfn">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="allowMissing">
+      <Type type="boolean"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="4937"
@@ -248,8 +305,9 @@
                inherittype="local"
                line="129"
                name="SetReadOnly"
-               start="4884">
-    <Type>function</Type>
+               start="4884"
+               type="function">
+    <Type type=""/>
     <Documentation>
      <content>&#10;&#32;* Changes whether access to a file is read only or not.
  *
@@ -257,8 +315,12 @@
  * @param ro            Whether updates to the file are disallowed.  Defaults to TRUE.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="lfn"/>
-     <Param name="ro"/>
+     <Param name="lfn">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="ro">
+      <Type type="boolean"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="5237"
@@ -268,8 +330,9 @@
                inherittype="local"
                line="139"
                name="RenameLogicalFile"
-               start="5172">
-    <Type>function</Type>
+               start="5172"
+               type="function">
+    <Type type=""/>
     <Documentation>
      <content>&#10;&#32;* Changes the name of a logical file.
  *
@@ -277,8 +340,12 @@
  * @param newname       The new logical name of the file.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="oldname"/>
-     <Param name="newname"/>
+     <Param name="oldname">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="newname">
+      <Type type="varstring"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="5870"
@@ -288,8 +355,9 @@
                inherittype="local"
                line="151"
                name="ForeignLogicalFileName"
-               start="5763">
-    <Type>function</Type>
+               start="5763"
+               type="function">
+    <Type type="varstring"/>
     <Documentation>
      <content>&#10;&#32;* Returns a logical filename that can be used to refer to a logical file in a local or remote dali.
  *
@@ -299,9 +367,15 @@
  * @param abspath       Should a tilde (~) be prepended to the resulting logical file name.  Defaults to FALSE.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="name"/>
-     <Param name="foreigndali"/>
-     <Param name="abspath"/>
+     <Param name="name">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="foreigndali">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="abspath">
+      <Type type="boolean"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="6608"
@@ -311,8 +385,9 @@
                inherittype="local"
                line="164"
                name="ExternalLogicalFileName"
-               start="6507">
-    <Type>function</Type>
+               start="6507"
+               type="function">
+    <Type type="varstring"/>
     <Documentation>
      <content>&#10;&#32;* Returns an encoded logical filename that can be used to refer to a external file.  Examples include directly
  * reading from a landing zone.  Upper case characters and other details are escaped.
@@ -323,9 +398,15 @@
  * @return              The encoded logical filename.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="location"/>
-     <Param name="path"/>
-     <Param name="abspath"/>
+     <Param name="location">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="path">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="abspath">
+      <Type type="boolean"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="7022"
@@ -335,8 +416,9 @@
                inherittype="local"
                line="174"
                name="GetFileDescription"
-               start="6969">
-    <Type>function</Type>
+               start="6969"
+               type="function">
+    <Type type="varstring"/>
     <Documentation>
      <content>&#10;&#32;* Returns a string containing the description information associated with the specified filename. This description
  * is set either through ECL watch or by using the FileServices.SetFileDescription function.
@@ -344,7 +426,9 @@
  * @param lfn           The logical name of the file.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="lfn"/>
+     <Param name="lfn">
+      <Type type="varstring"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="7343"
@@ -354,8 +438,9 @@
                inherittype="local"
                line="184"
                name="SetFileDescription"
-               start="7285">
-    <Type>function</Type>
+               start="7285"
+               type="function">
+    <Type type=""/>
     <Documentation>
      <content>&#10;&#32;* Sets the description associated with the specified filename.
  *
@@ -363,8 +448,12 @@
  * @param val           The description to be associated with the file.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="lfn"/>
-     <Param name="val"/>
+     <Param name="lfn">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="val">
+      <Type type="varstring"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="8106"
@@ -374,8 +463,11 @@
                inherittype="local"
                line="196"
                name="RemoteDirectory"
-               start="7976">
-    <Type>function</Type>
+               start="7976"
+               type="function">
+    <Type type="table">
+     <Type fullname="lib_fileservices.fsfilenamerecord" name="FsFilenameRecord" type="record"/>
+    </Type>
     <Documentation>
      <content>&#10;&#32;* Returns a dataset containing a list of files from the specified machineIP and directory.
  *
@@ -386,10 +478,18 @@
  * @param recurse       Whether to include files from subdirectories under the directory. Defaults to FALSE.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="machineIP"/>
-     <Param name="dir"/>
-     <Param name="mask"/>
-     <Param name="recurse"/>
+     <Param name="machineIP">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="dir">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="mask">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="recurse">
+      <Type type="boolean"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="9010"
@@ -399,8 +499,11 @@
                inherittype="local"
                line="209"
                name="LogicalFileList"
-               start="8815">
-    <Type>function</Type>
+               start="8815"
+               type="function">
+    <Type type="table">
+     <Type fullname="lib_fileservices.fslogicalfileinforecord" name="FsLogicalFileInfoRecord" type="record"/>
+    </Type>
     <Documentation>
      <content>&#10;&#32;* Returns a dataset of information about the logical files known to the system.
  *
@@ -412,11 +515,21 @@
  *                      locally.  Defaults to blank.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="namepattern"/>
-     <Param name="includenormal"/>
-     <Param name="includesuper"/>
-     <Param name="unknownszero"/>
-     <Param name="foreigndali"/>
+     <Param name="namepattern">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="includenormal">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="includesuper">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="unknownszero">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="foreigndali">
+      <Type type="varstring"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="10231"
@@ -426,8 +539,9 @@
                inherittype="local"
                line="228"
                name="CompareFiles"
-               start="10117">
-    <Type>function</Type>
+               start="10117"
+               type="function">
+    <Type type="integer4"/>
     <Documentation>
      <content>&#10;&#32;* Compares two files, and returns a result indicating how well they match.
  *
@@ -444,10 +558,18 @@
  *                      -2 if file1 and file2 contents do not match and file2 is newer than file1&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="lfn1"/>
-     <Param name="lfn2"/>
-     <Param name="logical_only"/>
-     <Param name="use_crcs"/>
+     <Param name="lfn1">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="lfn2">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="logical_only">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="use_crcs">
+      <Type type="boolean"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="11216"
@@ -457,8 +579,9 @@
                inherittype="local"
                line="244"
                name="VerifyFile"
-               start="11154">
-    <Type>function</Type>
+               start="11154"
+               type="function">
+    <Type type="varstring"/>
     <Documentation>
      <content>&#10;&#32;* Checks the system datastore (Dali) information for the file against the physical parts on disk.
  *
@@ -472,8 +595,12 @@
  *                      &apos;File CRC differs for: &lt;partname&gt;&apos; - The partname has a different CRC&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="lfn"/>
-     <Param name="usecrcs"/>
+     <Param name="lfn">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="usecrcs">
+      <Type type="boolean"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="12682"
@@ -483,8 +610,9 @@
                inherittype="local"
                line="265"
                name="AddFileRelationship"
-               start="12475">
-    <Type>function</Type>
+               start="12475"
+               type="function">
+    <Type type=""/>
     <Documentation>
      <content>&#10;&#32;* Defines the relationship between two files. These may be DATASETs or INDEXes. Each record in the primary file
  * should be uniquely defined by the primaryfields (ideally), preferably efficiently.  This information is used
@@ -503,14 +631,30 @@
  * @param description   The description of the relationship.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="primary"/>
-     <Param name="secondary"/>
-     <Param name="primaryflds"/>
-     <Param name="secondaryflds"/>
-     <Param name="kind"/>
-     <Param name="cardinality"/>
-     <Param name="payload"/>
-     <Param name="description"/>
+     <Param name="primary">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="secondary">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="primaryflds">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="secondaryflds">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="kind">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="cardinality">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="payload">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="description">
+      <Type type="varstring"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="13616"
@@ -520,8 +664,11 @@
                inherittype="local"
                line="279"
                name="FileRelationshipList"
-               start="13437">
-    <Type>function</Type>
+               start="13437"
+               type="function">
+    <Type type="table">
+     <Type fullname="lib_fileservices.fsfilerelationshiprecord" name="FsFileRelationshipRecord" type="record"/>
+    </Type>
     <Documentation>
      <content>&#10;&#32;* Returns a dataset of relationships.   The return records are structured in the FsFileRelationshipRecord format.
  *
@@ -533,11 +680,21 @@
  *                      Containing either &apos;link&apos; or &apos;view&apos;.  Default is &quot;link&quot;.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="primary"/>
-     <Param name="secondary"/>
-     <Param name="primflds"/>
-     <Param name="secondaryflds"/>
-     <Param name="kind"/>
+     <Param name="primary">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="secondary">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="primflds">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="secondaryflds">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="kind">
+      <Type type="varstring"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="14407"
@@ -547,8 +704,9 @@
                inherittype="local"
                line="293"
                name="RemoveFileRelationship"
-               start="14256">
-    <Type>function</Type>
+               start="14256"
+               type="function">
+    <Type type=""/>
     <Documentation>
      <content>&#10;&#32;* Removes a relationship between two files.
  *
@@ -560,11 +718,21 @@
  *                      Containing either &apos;link&apos; or &apos;view&apos;.  Default is &quot;link&quot;.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="primary"/>
-     <Param name="secondary"/>
-     <Param name="primaryflds"/>
-     <Param name="secondaryflds"/>
-     <Param name="kind"/>
+     <Param name="primary">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="secondary">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="primaryflds">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="secondaryflds">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="kind">
+      <Type type="varstring"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="14760"
@@ -574,15 +742,18 @@
                inherittype="local"
                line="302"
                name="GetColumnMapping"
-               start="14709">
-    <Type>function</Type>
+               start="14709"
+               type="function">
+    <Type type="varstring"/>
     <Documentation>
      <content>&#10;&#32;* Returns the field mappings for the file, in the same format specified for the SetColumnMapping function.
  *
  * @param lfn           The logical filename of the primary file.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="lfn"/>
+     <Param name="lfn">
+      <Type type="varstring"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="15259"
@@ -592,8 +763,9 @@
                inherittype="local"
                line="313"
                name="SetColumnMapping"
-               start="15199">
-    <Type>function</Type>
+               start="15199"
+               type="function">
+    <Type type=""/>
     <Documentation>
      <content>&#10;&#32;* Defines how the data in the fields of the file mist be transformed between the actual data storage format and the
  * input format used to query that data.  This is used by the user interface of the roxie browser.
@@ -602,8 +774,12 @@
  * @param mapping       A string containing a comma separated list of field mappings.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="lfn"/>
-     <Param name="mapping"/>
+     <Param name="lfn">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="mapping">
+      <Type type="varstring"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="15721"
@@ -613,8 +789,9 @@
                inherittype="local"
                line="324"
                name="EncodeRfsQuery"
-               start="15652">
-    <Type>function</Type>
+               start="15652"
+               type="function">
+    <Type type="varstring"/>
     <Documentation>
      <content>&#10;&#32;* Returns a string that can be used in a DATASET declaration to read data from an RFS (Remote File Server) instance
  * (e.g. rfsmysql) on another node.
@@ -623,8 +800,12 @@
  * @param query         The text of the query to send to the server&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="server"/>
-     <Param name="query"/>
+     <Param name="server">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="query">
+      <Type type="varstring"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="16046"
@@ -634,8 +815,9 @@
                inherittype="local"
                line="334"
                name="RfsAction"
-               start="15992">
-    <Type>function</Type>
+               start="15992"
+               type="function">
+    <Type type=""/>
     <Documentation>
      <content>&#10;&#32;* Sends the query to the rfs server.
  *
@@ -643,8 +825,12 @@
  * @param query         The text of the query to send to the server&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="server"/>
-     <Param name="query"/>
+     <Param name="server">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="query">
+      <Type type="varstring"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="16541"
@@ -654,8 +840,9 @@
                inherittype="local"
                line="345"
                name="MoveExternalFile"
-               start="16457">
-    <Type>function</Type>
+               start="16457"
+               type="function">
+    <Type type=""/>
     <Documentation>
      <content>&#10;&#32;* Moves the single physical file between two locations on the same remote machine. The
  * dafileserv utility program must be running on the location machine.
@@ -665,9 +852,15 @@
  * @param topath        The path/name of the target file.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="location"/>
-     <Param name="frompath"/>
-     <Param name="topath"/>
+     <Param name="location">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="frompath">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="topath">
+      <Type type="varstring"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="16953"
@@ -677,8 +870,9 @@
                inherittype="local"
                line="355"
                name="DeleteExternalFile"
-               start="16889">
-    <Type>function</Type>
+               start="16889"
+               type="function">
+    <Type type=""/>
     <Documentation>
      <content>&#10;&#32;* Removes a single physical file from a remote machine. The
  * dafileserv utility program must be running on the location machine.
@@ -687,8 +881,12 @@
  * @param path          The path/name of the file to remove.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="location"/>
-     <Param name="path"/>
+     <Param name="location">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="path">
+      <Type type="varstring"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="17371"
@@ -698,8 +896,9 @@
                inherittype="local"
                line="365"
                name="CreateExternalDirectory"
-               start="17302">
-    <Type>function</Type>
+               start="17302"
+               type="function">
+    <Type type=""/>
     <Documentation>
      <content>&#10;&#32;* Creates the path on the location (if it does not already exist). The
  * dafileserv utility program must be running on the location machine.
@@ -708,8 +907,12 @@
  * @param path          The path/name of the file to remove.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="location"/>
-     <Param name="path"/>
+     <Param name="location">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="path">
+      <Type type="varstring"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="17736"
@@ -719,8 +922,9 @@
                inherittype="local"
                line="374"
                name="GetLogicalFileAttribute"
-               start="17658">
-    <Type>function</Type>
+               start="17658"
+               type="function">
+    <Type type="varstring"/>
     <Documentation>
      <content>&#10;&#32;* Returns the value of the given attribute for the specified logicalfilename.
  *
@@ -728,8 +932,12 @@
  * @param attrname      The name of the file attribute to return.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="lfn"/>
-     <Param name="attrname"/>
+     <Param name="lfn">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="attrname">
+      <Type type="varstring"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="18077"
@@ -739,8 +947,9 @@
                inherittype="local"
                line="383"
                name="ProtectLogicalFile"
-               start="18014">
-    <Type>function</Type>
+               start="18014"
+               type="function">
+    <Type type=""/>
     <Documentation>
      <content>&#10;&#32;* Toggles protection on and off for the specified logicalfilename.
  *
@@ -748,8 +957,12 @@
  * @param value         TRUE to enable protection, FALSE to disable.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="lfn"/>
-     <Param name="value"/>
+     <Param name="lfn">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="value">
+      <Type type="boolean"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="18611"
@@ -759,8 +972,9 @@
                inherittype="local"
                line="393"
                name="DfuPlusExec"
-               start="18571">
-    <Type>function</Type>
+               start="18571"
+               type="function">
+    <Type type=""/>
     <Documentation>
      <content>&#10;&#32;* The DfuPlusExec action executes the specified command line just as the DfuPLus.exe program would do. This
  * allows you to have all the functionality of the DfuPLus.exe program available within your ECL code.
@@ -769,7 +983,9 @@
  *                      Tools manual, in the section describing the DfuPlus.exe program.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="cmdline"/>
+     <Param name="cmdline">
+      <Type type="varstring"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="20576"
@@ -779,8 +995,9 @@
                inherittype="local"
                line="418"
                name="fSprayFixed"
-               start="20184">
-    <Type>function</Type>
+               start="20184"
+               type="function">
+    <Type type="varstring"/>
     <Documentation>
      <content>&#10;&#32;* Sprays a file of fixed length records from a single machine and distributes it across the nodes of the
  * destination group.
@@ -802,19 +1019,45 @@
  * @return              The DFU workunit id for the job.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="sourceIP"/>
-     <Param name="sourcePath"/>
-     <Param name="recordSize"/>
-     <Param name="destinationGroup"/>
-     <Param name="destinationLogicalName"/>
-     <Param name="timeOut"/>
-     <Param name="espServerIpPort"/>
-     <Param name="maxConnections"/>
-     <Param name="allowOverwrite"/>
-     <Param name="replicate"/>
-     <Param name="compress"/>
-     <Param name="failIfNoSourceFile"/>
-     <Param name="expireDays"/>
+     <Param name="sourceIP">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="sourcePath">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="recordSize">
+      <Type type="integer4"/>
+     </Param>
+     <Param name="destinationGroup">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="destinationLogicalName">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="timeOut">
+      <Type type="integer4"/>
+     </Param>
+     <Param name="espServerIpPort">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="maxConnections">
+      <Type type="integer4"/>
+     </Param>
+     <Param name="allowOverwrite">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="replicate">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="compress">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="failIfNoSourceFile">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="expireDays">
+      <Type type="integer4"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="21290"
@@ -824,27 +1067,54 @@
                inherittype="local"
                line="427"
                name="SprayFixed"
-               start="20909">
-    <Type>function</Type>
+               start="20909"
+               type="function">
+    <Type type=""/>
     <Documentation>
      <content>&#10;&#32;* Same as fSprayFixed, but does not return the DFU Workunit ID.
  *
  * @see fSprayFixed&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="sourceIP"/>
-     <Param name="sourcePath"/>
-     <Param name="recordSize"/>
-     <Param name="destinationGroup"/>
-     <Param name="destinationLogicalName"/>
-     <Param name="timeOut"/>
-     <Param name="espServerIpPort"/>
-     <Param name="maxConnections"/>
-     <Param name="allowOverwrite"/>
-     <Param name="replicate"/>
-     <Param name="compress"/>
-     <Param name="failIfNoSourceFile"/>
-     <Param name="expireDays"/>
+     <Param name="sourceIP">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="sourcePath">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="recordSize">
+      <Type type="integer4"/>
+     </Param>
+     <Param name="destinationGroup">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="destinationLogicalName">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="timeOut">
+      <Type type="integer4"/>
+     </Param>
+     <Param name="espServerIpPort">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="maxConnections">
+      <Type type="integer4"/>
+     </Param>
+     <Param name="allowOverwrite">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="replicate">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="compress">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="failIfNoSourceFile">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="expireDays">
+      <Type type="integer4"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="22277"
@@ -854,29 +1124,70 @@
                inherittype="local"
                line="431"
                name="fSprayVariable"
-               start="21632">
-    <Type>function</Type>
+               start="21632"
+               type="function">
+    <Type type="varstring"/>
     <Params>
-     <Param name="sourceIP"/>
-     <Param name="sourcePath"/>
-     <Param name="sourceMaxRecordSize"/>
-     <Param name="sourceCsvSeparate"/>
-     <Param name="sourceCsvTerminate"/>
-     <Param name="sourceCsvQuote"/>
-     <Param name="destinationGroup"/>
-     <Param name="destinationLogicalName"/>
-     <Param name="timeOut"/>
-     <Param name="espServerIpPort"/>
-     <Param name="maxConnections"/>
-     <Param name="allowOverwrite"/>
-     <Param name="replicate"/>
-     <Param name="compress"/>
-     <Param name="sourceCsvEscape"/>
-     <Param name="failIfNoSourceFile"/>
-     <Param name="recordStructurePresent"/>
-     <Param name="quotedTerminator"/>
-     <Param name="encoding"/>
-     <Param name="expireDays"/>
+     <Param name="sourceIP">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="sourcePath">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="sourceMaxRecordSize">
+      <Type type="integer4"/>
+     </Param>
+     <Param name="sourceCsvSeparate">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="sourceCsvTerminate">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="sourceCsvQuote">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="destinationGroup">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="destinationLogicalName">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="timeOut">
+      <Type type="integer4"/>
+     </Param>
+     <Param name="espServerIpPort">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="maxConnections">
+      <Type type="integer4"/>
+     </Param>
+     <Param name="allowOverwrite">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="replicate">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="compress">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="sourceCsvEscape">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="failIfNoSourceFile">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="recordStructurePresent">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="quotedTerminator">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="encoding">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="expireDays">
+      <Type type="integer4"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="23388"
@@ -886,29 +1197,70 @@
                inherittype="local"
                line="435"
                name="SprayVariable"
-               start="22754">
-    <Type>function</Type>
+               start="22754"
+               type="function">
+    <Type type=""/>
     <Params>
-     <Param name="sourceIP"/>
-     <Param name="sourcePath"/>
-     <Param name="sourceMaxRecordSize"/>
-     <Param name="sourceCsvSeparate"/>
-     <Param name="sourceCsvTerminate"/>
-     <Param name="sourceCsvQuote"/>
-     <Param name="destinationGroup"/>
-     <Param name="destinationLogicalName"/>
-     <Param name="timeOut"/>
-     <Param name="espServerIpPort"/>
-     <Param name="maxConnections"/>
-     <Param name="allowOverwrite"/>
-     <Param name="replicate"/>
-     <Param name="compress"/>
-     <Param name="sourceCsvEscape"/>
-     <Param name="failIfNoSourceFile"/>
-     <Param name="recordStructurePresent"/>
-     <Param name="quotedTerminator"/>
-     <Param name="encoding"/>
-     <Param name="expireDays"/>
+     <Param name="sourceIP">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="sourcePath">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="sourceMaxRecordSize">
+      <Type type="integer4"/>
+     </Param>
+     <Param name="sourceCsvSeparate">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="sourceCsvTerminate">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="sourceCsvQuote">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="destinationGroup">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="destinationLogicalName">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="timeOut">
+      <Type type="integer4"/>
+     </Param>
+     <Param name="espServerIpPort">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="maxConnections">
+      <Type type="integer4"/>
+     </Param>
+     <Param name="allowOverwrite">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="replicate">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="compress">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="sourceCsvEscape">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="failIfNoSourceFile">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="recordStructurePresent">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="quotedTerminator">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="encoding">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="expireDays">
+      <Type type="integer4"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="26492"
@@ -918,8 +1270,9 @@
                inherittype="local"
                line="465"
                name="fSprayDelimited"
-               start="25846">
-    <Type>function</Type>
+               start="25846"
+               type="function">
+    <Type type="varstring"/>
     <Documentation>
      <content>&#10;&#32;* Sprays a file of fixed delimited records from a single machine and distributes it across the nodes of the
  * destination group.
@@ -948,26 +1301,66 @@
  * @return              The DFU workunit id for the job.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="sourceIP"/>
-     <Param name="sourcePath"/>
-     <Param name="sourceMaxRecordSize"/>
-     <Param name="sourceCsvSeparate"/>
-     <Param name="sourceCsvTerminate"/>
-     <Param name="sourceCsvQuote"/>
-     <Param name="destinationGroup"/>
-     <Param name="destinationLogicalName"/>
-     <Param name="timeOut"/>
-     <Param name="espServerIpPort"/>
-     <Param name="maxConnections"/>
-     <Param name="allowOverwrite"/>
-     <Param name="replicate"/>
-     <Param name="compress"/>
-     <Param name="sourceCsvEscape"/>
-     <Param name="failIfNoSourceFile"/>
-     <Param name="recordStructurePresent"/>
-     <Param name="quotedTerminator"/>
-     <Param name="encoding"/>
-     <Param name="expireDays"/>
+     <Param name="sourceIP">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="sourcePath">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="sourceMaxRecordSize">
+      <Type type="integer4"/>
+     </Param>
+     <Param name="sourceCsvSeparate">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="sourceCsvTerminate">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="sourceCsvQuote">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="destinationGroup">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="destinationLogicalName">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="timeOut">
+      <Type type="integer4"/>
+     </Param>
+     <Param name="espServerIpPort">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="maxConnections">
+      <Type type="integer4"/>
+     </Param>
+     <Param name="allowOverwrite">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="replicate">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="compress">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="sourceCsvEscape">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="failIfNoSourceFile">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="recordStructurePresent">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="quotedTerminator">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="encoding">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="expireDays">
+      <Type type="integer4"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="27610"
@@ -977,34 +1370,75 @@
                inherittype="local"
                line="474"
                name="SprayDelimited"
-               start="26969">
-    <Type>function</Type>
+               start="26969"
+               type="function">
+    <Type type=""/>
     <Documentation>
      <content>&#10;&#32;* Same as fSprayDelimited, but does not return the DFU Workunit ID.
  *
  * @see fSprayDelimited&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="sourceIP"/>
-     <Param name="sourcePath"/>
-     <Param name="sourceMaxRecordSize"/>
-     <Param name="sourceCsvSeparate"/>
-     <Param name="sourceCsvTerminate"/>
-     <Param name="sourceCsvQuote"/>
-     <Param name="destinationGroup"/>
-     <Param name="destinationLogicalName"/>
-     <Param name="timeOut"/>
-     <Param name="espServerIpPort"/>
-     <Param name="maxConnections"/>
-     <Param name="allowOverwrite"/>
-     <Param name="replicate"/>
-     <Param name="compress"/>
-     <Param name="sourceCsvEscape"/>
-     <Param name="failIfNoSourceFile"/>
-     <Param name="recordStructurePresent"/>
-     <Param name="quotedTerminator"/>
-     <Param name="encoding"/>
-     <Param name="expireDays"/>
+     <Param name="sourceIP">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="sourcePath">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="sourceMaxRecordSize">
+      <Type type="integer4"/>
+     </Param>
+     <Param name="sourceCsvSeparate">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="sourceCsvTerminate">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="sourceCsvQuote">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="destinationGroup">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="destinationLogicalName">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="timeOut">
+      <Type type="integer4"/>
+     </Param>
+     <Param name="espServerIpPort">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="maxConnections">
+      <Type type="integer4"/>
+     </Param>
+     <Param name="allowOverwrite">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="replicate">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="compress">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="sourceCsvEscape">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="failIfNoSourceFile">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="recordStructurePresent">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="quotedTerminator">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="encoding">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="expireDays">
+      <Type type="integer4"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="30063"
@@ -1014,8 +1448,9 @@
                inherittype="local"
                line="499"
                name="fSprayXml"
-               start="29602">
-    <Type>function</Type>
+               start="29602"
+               type="function">
+    <Type type="varstring"/>
     <Documentation>
      <content>&#10;&#32;* Sprays an xml file from a single machine and distributes it across the nodes of the destination group.
  *
@@ -1038,21 +1473,51 @@
  * @return              The DFU workunit id for the job.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="sourceIP"/>
-     <Param name="sourcePath"/>
-     <Param name="sourceMaxRecordSize"/>
-     <Param name="sourceRowTag"/>
-     <Param name="sourceEncoding"/>
-     <Param name="destinationGroup"/>
-     <Param name="destinationLogicalName"/>
-     <Param name="timeOut"/>
-     <Param name="espServerIpPort"/>
-     <Param name="maxConnections"/>
-     <Param name="allowOverwrite"/>
-     <Param name="replicate"/>
-     <Param name="compress"/>
-     <Param name="failIfNoSourceFile"/>
-     <Param name="expireDays"/>
+     <Param name="sourceIP">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="sourcePath">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="sourceMaxRecordSize">
+      <Type type="integer4"/>
+     </Param>
+     <Param name="sourceRowTag">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="sourceEncoding">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="destinationGroup">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="destinationLogicalName">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="timeOut">
+      <Type type="integer4"/>
+     </Param>
+     <Param name="espServerIpPort">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="maxConnections">
+      <Type type="integer4"/>
+     </Param>
+     <Param name="allowOverwrite">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="replicate">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="compress">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="failIfNoSourceFile">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="expireDays">
+      <Type type="integer4"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="30879"
@@ -1062,29 +1527,60 @@
                inherittype="local"
                line="508"
                name="SprayXml"
-               start="30429">
-    <Type>function</Type>
+               start="30429"
+               type="function">
+    <Type type=""/>
     <Documentation>
      <content>&#10;&#32;* Same as fSprayXml, but does not return the DFU Workunit ID.
  *
  * @see fSprayXml&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="sourceIP"/>
-     <Param name="sourcePath"/>
-     <Param name="sourceMaxRecordSize"/>
-     <Param name="sourceRowTag"/>
-     <Param name="sourceEncoding"/>
-     <Param name="destinationGroup"/>
-     <Param name="destinationLogicalName"/>
-     <Param name="timeOut"/>
-     <Param name="espServerIpPort"/>
-     <Param name="maxConnections"/>
-     <Param name="allowOverwrite"/>
-     <Param name="replicate"/>
-     <Param name="compress"/>
-     <Param name="failIfNoSourceFile"/>
-     <Param name="expireDays"/>
+     <Param name="sourceIP">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="sourcePath">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="sourceMaxRecordSize">
+      <Type type="integer4"/>
+     </Param>
+     <Param name="sourceRowTag">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="sourceEncoding">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="destinationGroup">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="destinationLogicalName">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="timeOut">
+      <Type type="integer4"/>
+     </Param>
+     <Param name="espServerIpPort">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="maxConnections">
+      <Type type="integer4"/>
+     </Param>
+     <Param name="allowOverwrite">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="replicate">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="compress">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="failIfNoSourceFile">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="expireDays">
+      <Type type="integer4"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="32270"
@@ -1094,8 +1590,9 @@
                inherittype="local"
                line="525"
                name="fDespray"
-               start="32038">
-    <Type>function</Type>
+               start="32038"
+               type="function">
+    <Type type="varstring"/>
     <Documentation>
      <content>&#10;&#32;* Copies a distributed file from multiple machines, and desprays it to a single file on a single machine.
  *
@@ -1110,13 +1607,27 @@
  * @return              The DFU workunit id for the job.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="logicalName"/>
-     <Param name="destinationIP"/>
-     <Param name="destinationPath"/>
-     <Param name="timeOut"/>
-     <Param name="espServerIpPort"/>
-     <Param name="maxConnections"/>
-     <Param name="allowOverwrite"/>
+     <Param name="logicalName">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="destinationIP">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="destinationPath">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="timeOut">
+      <Type type="integer4"/>
+     </Param>
+     <Param name="espServerIpPort">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="maxConnections">
+      <Type type="integer4"/>
+     </Param>
+     <Param name="allowOverwrite">
+      <Type type="boolean"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="32731"
@@ -1126,21 +1637,36 @@
                inherittype="local"
                line="534"
                name="Despray"
-               start="32510">
-    <Type>function</Type>
+               start="32510"
+               type="function">
+    <Type type=""/>
     <Documentation>
      <content>&#10;&#32;* Same as fDespray, but does not return the DFU Workunit ID.
  *
  * @see fDespray&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="logicalName"/>
-     <Param name="destinationIP"/>
-     <Param name="destinationPath"/>
-     <Param name="timeOut"/>
-     <Param name="espServerIpPort"/>
-     <Param name="maxConnections"/>
-     <Param name="allowOverwrite"/>
+     <Param name="logicalName">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="destinationIP">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="destinationPath">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="timeOut">
+      <Type type="integer4"/>
+     </Param>
+     <Param name="espServerIpPort">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="maxConnections">
+      <Type type="integer4"/>
+     </Param>
+     <Param name="allowOverwrite">
+      <Type type="boolean"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="35112"
@@ -1150,8 +1676,9 @@
                inherittype="local"
                line="560"
                name="fCopy"
-               start="34676">
-    <Type>function</Type>
+               start="34676"
+               type="function">
+    <Type type="varstring"/>
     <Documentation>
      <content>&#10;&#32;* Copies a distributed file to another distributed file.
  *
@@ -1175,20 +1702,48 @@
  * @return              The DFU workunit id for the job.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="sourceLogicalName"/>
-     <Param name="destinationGroup"/>
-     <Param name="destinationLogicalName"/>
-     <Param name="sourceDali"/>
-     <Param name="timeOut"/>
-     <Param name="espServerIpPort"/>
-     <Param name="maxConnections"/>
-     <Param name="allowOverwrite"/>
-     <Param name="replicate"/>
-     <Param name="asSuperfile"/>
-     <Param name="compress"/>
-     <Param name="forcePush"/>
-     <Param name="transferBufferSize"/>
-     <Param name="preserveCompression"/>
+     <Param name="sourceLogicalName">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="destinationGroup">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="destinationLogicalName">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="sourceDali">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="timeOut">
+      <Type type="integer4"/>
+     </Param>
+     <Param name="espServerIpPort">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="maxConnections">
+      <Type type="integer4"/>
+     </Param>
+     <Param name="allowOverwrite">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="replicate">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="asSuperfile">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="compress">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="forcePush">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="transferBufferSize">
+      <Type type="integer4"/>
+     </Param>
+     <Param name="preserveCompression">
+      <Type type="boolean"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="35882"
@@ -1198,28 +1753,57 @@
                inherittype="local"
                line="569"
                name="Copy"
-               start="35457">
-    <Type>function</Type>
+               start="35457"
+               type="function">
+    <Type type=""/>
     <Documentation>
      <content>&#10;&#32;* Same as fCopy, but does not return the DFU Workunit ID.
  *
  * @see fCopy&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="sourceLogicalName"/>
-     <Param name="destinationGroup"/>
-     <Param name="destinationLogicalName"/>
-     <Param name="sourceDali"/>
-     <Param name="timeOut"/>
-     <Param name="espServerIpPort"/>
-     <Param name="maxConnections"/>
-     <Param name="allowOverwrite"/>
-     <Param name="replicate"/>
-     <Param name="asSuperfile"/>
-     <Param name="compress"/>
-     <Param name="forcePush"/>
-     <Param name="transferBufferSize"/>
-     <Param name="preserveCompression"/>
+     <Param name="sourceLogicalName">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="destinationGroup">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="destinationLogicalName">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="sourceDali">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="timeOut">
+      <Type type="integer4"/>
+     </Param>
+     <Param name="espServerIpPort">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="maxConnections">
+      <Type type="integer4"/>
+     </Param>
+     <Param name="allowOverwrite">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="replicate">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="asSuperfile">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="compress">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="forcePush">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="transferBufferSize">
+      <Type type="integer4"/>
+     </Param>
+     <Param name="preserveCompression">
+      <Type type="boolean"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="36768"
@@ -1229,8 +1813,9 @@
                inherittype="local"
                line="582"
                name="fReplicate"
-               start="36644">
-    <Type>function</Type>
+               start="36644"
+               type="function">
+    <Type type="varstring"/>
     <Documentation>
      <content>&#10;&#32;* Ensures the specified file is replicated to its mirror copies.
  *
@@ -1241,9 +1826,15 @@
  * @return              The DFU workunit id for the job.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="logicalName"/>
-     <Param name="timeOut"/>
-     <Param name="espServerIpPort"/>
+     <Param name="logicalName">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="timeOut">
+      <Type type="integer4"/>
+     </Param>
+     <Param name="espServerIpPort">
+      <Type type="varstring"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="37064"
@@ -1253,17 +1844,24 @@
                inherittype="local"
                line="591"
                name="Replicate"
-               start="36951">
-    <Type>function</Type>
+               start="36951"
+               type="function">
+    <Type type=""/>
     <Documentation>
      <content>&#10;&#32;* Same as fReplicated, but does not return the DFU Workunit ID.
  *
  * @see fReplicate&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="logicalName"/>
-     <Param name="timeOut"/>
-     <Param name="espServerIpPort"/>
+     <Param name="logicalName">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="timeOut">
+      <Type type="integer4"/>
+     </Param>
+     <Param name="espServerIpPort">
+      <Type type="varstring"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="39540"
@@ -1273,8 +1871,9 @@
                inherittype="local"
                line="619"
                name="fRemotePull"
-               start="39161">
-    <Type>function</Type>
+               start="39161"
+               type="function">
+    <Type type="varstring"/>
     <Documentation>
      <content>&#10;&#32;* Copies a distributed file to a distributed file on remote system.  Similar to fCopy, except the copy executes
  * remotely.  Since the DFU workunit executes on the remote DFU server, the user name authentication must be the same
@@ -1300,19 +1899,45 @@
  * @return              The DFU workunit id for the job.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="remoteEspFsURL"/>
-     <Param name="sourceLogicalName"/>
-     <Param name="destinationGroup"/>
-     <Param name="destinationLogicalName"/>
-     <Param name="timeOut"/>
-     <Param name="maxConnections"/>
-     <Param name="allowOverwrite"/>
-     <Param name="Replicate"/>
-     <Param name="asSuperfile"/>
-     <Param name="forcePush"/>
-     <Param name="transferBufferSize"/>
-     <Param name="wrap"/>
-     <Param name="compress"/>
+     <Param name="remoteEspFsURL">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="sourceLogicalName">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="destinationGroup">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="destinationLogicalName">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="timeOut">
+      <Type type="integer4"/>
+     </Param>
+     <Param name="maxConnections">
+      <Type type="integer4"/>
+     </Param>
+     <Param name="allowOverwrite">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="Replicate">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="asSuperfile">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="forcePush">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="transferBufferSize">
+      <Type type="integer4"/>
+     </Param>
+     <Param name="wrap">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="compress">
+      <Type type="boolean"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="40243"
@@ -1322,27 +1947,54 @@
                inherittype="local"
                line="628"
                name="RemotePull"
-               start="39875">
-    <Type>function</Type>
+               start="39875"
+               type="function">
+    <Type type=""/>
     <Documentation>
      <content>&#10;&#32;* Same as fRemotePull, but does not return the DFU Workunit ID.
  *
  * @see fRemotePull&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="remoteEspFsURL"/>
-     <Param name="sourceLogicalName"/>
-     <Param name="destinationGroup"/>
-     <Param name="destinationLogicalName"/>
-     <Param name="timeOut"/>
-     <Param name="maxConnections"/>
-     <Param name="allowOverwrite"/>
-     <Param name="Replicate"/>
-     <Param name="asSuperfile"/>
-     <Param name="forcePush"/>
-     <Param name="transferBufferSize"/>
-     <Param name="wrap"/>
-     <Param name="compress"/>
+     <Param name="remoteEspFsURL">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="sourceLogicalName">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="destinationGroup">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="destinationLogicalName">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="timeOut">
+      <Type type="integer4"/>
+     </Param>
+     <Param name="maxConnections">
+      <Type type="integer4"/>
+     </Param>
+     <Param name="allowOverwrite">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="Replicate">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="asSuperfile">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="forcePush">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="transferBufferSize">
+      <Type type="integer4"/>
+     </Param>
+     <Param name="wrap">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="compress">
+      <Type type="boolean"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="41689"
@@ -1352,8 +2004,9 @@
                inherittype="local"
                line="646"
                name="fMonitorLogicalFileName"
-               start="41535">
-    <Type>function</Type>
+               start="41535"
+               type="function">
+    <Type type="varstring"/>
     <Documentation>
      <content>&#10;&#32;* Creates a file monitor job in the DFU Server. If an appropriately named file arrives in this interval it will fire
  * the event with the name of the triggering object as the event subtype (see the EVENT function).
@@ -1367,10 +2020,18 @@
  * @return              The DFU workunit id for the job.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="eventToFire"/>
-     <Param name="name"/>
-     <Param name="shotCount"/>
-     <Param name="espServerIpPort"/>
+     <Param name="eventToFire">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="name">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="shotCount">
+      <Type type="integer4"/>
+     </Param>
+     <Param name="espServerIpPort">
+      <Type type="varstring"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="42061"
@@ -1380,18 +2041,27 @@
                inherittype="local"
                line="655"
                name="MonitorLogicalFileName"
-               start="41918">
-    <Type>function</Type>
+               start="41918"
+               type="function">
+    <Type type=""/>
     <Documentation>
      <content>&#10;&#32;* Same as fMonitorLogicalFileName, but does not return the DFU Workunit ID.
  *
  * @see fMonitorLogicalFileName&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="eventToFire"/>
-     <Param name="name"/>
-     <Param name="shotCount"/>
-     <Param name="espServerIpPort"/>
+     <Param name="eventToFire">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="name">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="shotCount">
+      <Type type="integer4"/>
+     </Param>
+     <Param name="espServerIpPort">
+      <Type type="varstring"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="43573"
@@ -1401,8 +2071,9 @@
                inherittype="local"
                line="674"
                name="fMonitorFile"
-               start="43389">
-    <Type>function</Type>
+               start="43389"
+               type="function">
+    <Type type="varstring"/>
     <Documentation>
      <content>&#10;&#32;* Creates a file monitor job in the DFU Server. If an appropriately named file arrives in this interval it will fire
  * the event with the name of the triggering object as the event subtype (see the EVENT function).
@@ -1419,12 +2090,24 @@
  * @return              The DFU workunit id for the job.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="eventToFire"/>
-     <Param name="ip"/>
-     <Param name="filename"/>
-     <Param name="subDirs"/>
-     <Param name="shotCount"/>
-     <Param name="espServerIpPort"/>
+     <Param name="eventToFire">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="ip">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="filename">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="subDirs">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="shotCount">
+      <Type type="integer4"/>
+     </Param>
+     <Param name="espServerIpPort">
+      <Type type="varstring"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="43959"
@@ -1434,20 +2117,33 @@
                inherittype="local"
                line="683"
                name="MonitorFile"
-               start="43786">
-    <Type>function</Type>
+               start="43786"
+               type="function">
+    <Type type=""/>
     <Documentation>
      <content>&#10;&#32;* Same as fMonitorFile, but does not return the DFU Workunit ID.
  *
  * @see fMonitorFile&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="eventToFire"/>
-     <Param name="ip"/>
-     <Param name="filename"/>
-     <Param name="subdirs"/>
-     <Param name="shotCount"/>
-     <Param name="espServerIpPort"/>
+     <Param name="eventToFire">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="ip">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="filename">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="subdirs">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="shotCount">
+      <Type type="integer4"/>
+     </Param>
+     <Param name="espServerIpPort">
+      <Type type="varstring"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="44705"
@@ -1457,8 +2153,9 @@
                inherittype="local"
                line="696"
                name="WaitDfuWorkunit"
-               start="44583">
-    <Type>function</Type>
+               start="44583"
+               type="function">
+    <Type type="varstring"/>
     <Documentation>
      <content>&#10;&#32;* Waits for the specified DFU workunit to finish.
  *
@@ -1469,9 +2166,15 @@
  * @return              A string containing the final status string of the DFU workunit.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="wuid"/>
-     <Param name="timeOut"/>
-     <Param name="espServerIpPort"/>
+     <Param name="wuid">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="timeOut">
+      <Type type="integer4"/>
+     </Param>
+     <Param name="espServerIpPort">
+      <Type type="varstring"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="45104"
@@ -1481,8 +2184,9 @@
                inherittype="local"
                line="706"
                name="AbortDfuWorkunit"
-               start="45012">
-    <Type>function</Type>
+               start="45012"
+               type="function">
+    <Type type=""/>
     <Documentation>
      <content>&#10;&#32;* Aborts the specified DFU workunit.
  *
@@ -1490,8 +2194,12 @@
  * @param espServerIpPort The url of the ESP file copying service. Defaults to the value of ws_fs_server in the environment.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="wuid"/>
-     <Param name="espServerIpPort"/>
+     <Param name="wuid">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="espServerIpPort">
+      <Type type="varstring"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="45824"
@@ -1501,8 +2209,9 @@
                inherittype="local"
                line="720"
                name="CreateSuperFile"
-               start="45721">
-    <Type>function</Type>
+               start="45721"
+               type="function">
+    <Type type=""/>
     <Documentation>
      <content>&#10;&#32;* Creates an empty superfile. This function is not included in a superfile transaction.
  *
@@ -1512,9 +2221,15 @@
  *                      posted. Defaults to FALSE.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="superName"/>
-     <Param name="sequentialParts"/>
-     <Param name="allowExist"/>
+     <Param name="superName">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="sequentialParts">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="allowExist">
+      <Type type="boolean"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="46218"
@@ -1524,8 +2239,9 @@
                inherittype="local"
                line="732"
                name="SuperFileExists"
-               start="46164">
-    <Type>function</Type>
+               start="46164"
+               type="function">
+    <Type type="boolean"/>
     <Documentation>
      <content>&#10;&#32;* Checks if the specified filename is present in the Distributed File Utility (DFU) and is a SuperFile.
  *
@@ -1535,7 +2251,9 @@
  * @see FileExists&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="superName"/>
+     <Param name="superName">
+      <Type type="varstring"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="46472"
@@ -1545,8 +2263,9 @@
                inherittype="local"
                line="743"
                name="DeleteSuperFile"
-               start="46401">
-    <Type>function</Type>
+               start="46401"
+               type="function">
+    <Type type=""/>
     <Documentation>
      <content>&#10;&#32;* Deletes the superfile.
  *
@@ -1555,8 +2274,12 @@
  * @see FileExists&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="superName"/>
-     <Param name="deletesub"/>
+     <Param name="superName">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="deletesub">
+      <Type type="boolean"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="46814"
@@ -1566,8 +2289,9 @@
                inherittype="local"
                line="753"
                name="GetSuperFileSubCount"
-               start="46753">
-    <Type>function</Type>
+               start="46753"
+               type="function">
+    <Type type="unsigned4"/>
     <Documentation>
      <content>&#10;&#32;* Returns the number of sub-files contained within a superfile.
  *
@@ -1575,7 +2299,9 @@
  * @return              The number of sub-files within the superfile.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="superName"/>
+     <Param name="superName">
+      <Type type="varstring"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="47362"
@@ -1585,8 +2311,9 @@
                inherittype="local"
                line="765"
                name="GetSuperFileSubName"
-               start="47260">
-    <Type>function</Type>
+               start="47260"
+               type="function">
+    <Type type="varstring"/>
     <Documentation>
      <content>&#10;&#32;* Returns the name of the Nth sub-file within a superfile.
  *
@@ -1596,9 +2323,15 @@
  * @return              The logical name of the selected sub-file.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="superName"/>
-     <Param name="fileNum"/>
-     <Param name="absPath"/>
+     <Param name="superName">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="fileNum">
+      <Type type="unsigned4"/>
+     </Param>
+     <Param name="absPath">
+      <Type type="boolean"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="47794"
@@ -1608,8 +2341,9 @@
                inherittype="local"
                line="776"
                name="FindSuperFileSubName"
-               start="47714">
-    <Type>function</Type>
+               start="47714"
+               type="function">
+    <Type type="unsigned4"/>
     <Documentation>
      <content>&#10;&#32;* Returns the position of a file within a superfile.
  *
@@ -1618,8 +2352,12 @@
  * @return              The 1-based position of the sub-file within the superfile.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="superName"/>
-     <Param name="subName"/>
+     <Param name="superName">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="subName">
+      <Type type="varstring"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="48089"
@@ -1629,8 +2367,9 @@
                inherittype="local"
                line="784"
                name="StartSuperFileTransaction"
-               start="48052">
-    <Type>function</Type>
+               start="48052"
+               type="function">
+    <Type type=""/>
     <Documentation>
      <content>&#10;&#32;* Starts a superfile transaction.  All superfile operations within the transaction will either be
  * executed atomically or rolled back when the transaction is finished.&#10;&#32;</content>
@@ -1644,8 +2383,9 @@
                inherittype="local"
                line="797"
                name="AddSuperFile"
-               start="48643">
-    <Type>function</Type>
+               start="48643"
+               type="function">
+    <Type type=""/>
     <Documentation>
      <content>&#10;&#32;* Adds a file to a superfile.
  *
@@ -1656,11 +2396,21 @@
  * @param strict        Check addContents only if subName is a superfile, and ensure superfiles exist.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="superName"/>
-     <Param name="subName"/>
-     <Param name="atPos"/>
-     <Param name="addContents"/>
-     <Param name="strict"/>
+     <Param name="superName">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="subName">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="atPos">
+      <Type type="unsigned4"/>
+     </Param>
+     <Param name="addContents">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="strict">
+      <Type type="boolean"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="49410"
@@ -1670,8 +2420,9 @@
                inherittype="local"
                line="809"
                name="RemoveSuperFile"
-               start="49296">
-    <Type>function</Type>
+               start="49296"
+               type="function">
+    <Type type=""/>
     <Documentation>
      <content>&#10;&#32;* Removes a sub-file from a superfile.
  *
@@ -1681,10 +2432,18 @@
  * @param removeContents Controls whether the contents of a sub-file which is a superfile should be recursively removed.  Defaults to FALSE.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="superName"/>
-     <Param name="subName"/>
-     <Param name="del"/>
-     <Param name="removeContents"/>
+     <Param name="superName">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="subName">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="del">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="removeContents">
+      <Type type="boolean"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="49796"
@@ -1694,8 +2453,9 @@
                inherittype="local"
                line="819"
                name="ClearSuperFile"
-               start="49732">
-    <Type>function</Type>
+               start="49732"
+               type="function">
+    <Type type=""/>
     <Documentation>
      <content>&#10;&#32;* Removes all sub-files from a superfile.
  *
@@ -1703,8 +2463,12 @@
  * @param del           Indicates whether the sub-files should also be removed from the disk.  Defaults to FALSE.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="superName"/>
-     <Param name="del"/>
+     <Param name="superName">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="del">
+      <Type type="boolean"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="50141"
@@ -1714,8 +2478,9 @@
                inherittype="local"
                line="829"
                name="RemoveOwnedSubFiles"
-               start="50072">
-    <Type>function</Type>
+               start="50072"
+               type="function">
+    <Type type=""/>
     <Documentation>
      <content>&#10;&#32;* Removes all soley-owned sub-files from a superfile.  If a sub-file is also contained within another superfile
  * then it is retained.
@@ -1723,8 +2488,12 @@
  * @param superName     The logical name of the superfile.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="superName"/>
-     <Param name="del"/>
+     <Param name="superName">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="del">
+      <Type type="boolean"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="50396"
@@ -1734,15 +2503,18 @@
                inherittype="local"
                line="838"
                name="DeleteOwnedSubFiles"
-               start="50346">
-    <Type>function</Type>
+               start="50346"
+               type="function">
+    <Type type=""/>
     <Documentation>
      <content>&#10;&#32;* Legacy version of RemoveOwnedSubFiles which was incorrectly named in a previous version.
  *
  * @see RemoveOwnedSubFIles&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="superName"/>
+     <Param name="superName">
+      <Type type="varstring"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="50752"
@@ -1752,8 +2524,9 @@
                inherittype="local"
                line="848"
                name="SwapSuperFile"
-               start="50685">
-    <Type>function</Type>
+               start="50685"
+               type="function">
+    <Type type=""/>
     <Documentation>
      <content>&#10;&#32;* Swap the contents of two superfiles.
  *
@@ -1761,8 +2534,12 @@
  * @param superName2    The logical name of the second superfile.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="superName1"/>
-     <Param name="superName2"/>
+     <Param name="superName1">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="superName2">
+      <Type type="varstring"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="51216"
@@ -1772,8 +2549,9 @@
                inherittype="local"
                line="859"
                name="ReplaceSuperFile"
-               start="51125">
-    <Type>function</Type>
+               start="51125"
+               type="function">
+    <Type type=""/>
     <Documentation>
      <content>&#10;&#32;* Removes a sub-file from a superfile and replaces it with another.
  *
@@ -1782,9 +2560,15 @@
  * @param newSubFile    The logical name of the sub-file to replace within the superfile.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="superName"/>
-     <Param name="oldSubFile"/>
-     <Param name="newSubFile"/>
+     <Param name="superName">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="oldSubFile">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="newSubFile">
+      <Type type="varstring"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="51565"
@@ -1794,14 +2578,17 @@
                inherittype="local"
                line="867"
                name="FinishSuperFileTransaction"
-               start="51505">
-    <Type>function</Type>
+               start="51505"
+               type="function">
+    <Type type=""/>
     <Documentation>
      <content>&#10;&#32;* Finishes a superfile transaction.  This executes all the operations since the matching StartSuperFileTransaction().
  * If there are any errors, then all of the operations are rolled back.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="rollback"/>
+     <Param name="rollback">
+      <Type type="boolean"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="52046"
@@ -1811,8 +2598,11 @@
                inherittype="local"
                line="878"
                name="SuperFileContents"
-               start="51942">
-    <Type>function</Type>
+               start="51942"
+               type="function">
+    <Type type="table">
+     <Type fullname="lib_fileservices.fslogicalfilenamerecord" name="FsLogicalFileNameRecord" type="record"/>
+    </Type>
     <Documentation>
      <content>&#10;&#32;* Returns the list of sub-files contained within a superfile.
  *
@@ -1821,8 +2611,12 @@
  * @return              A dataset containing the names of the sub-files.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="superName"/>
-     <Param name="recurse"/>
+     <Param name="superName">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="recurse">
+      <Type type="boolean"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="52417"
@@ -1832,8 +2626,11 @@
                inherittype="local"
                line="888"
                name="LogicalFileSuperOwners"
-               start="52336">
-    <Type>function</Type>
+               start="52336"
+               type="function">
+    <Type type="table">
+     <Type fullname="lib_fileservices.fslogicalfilenamerecord" name="FsLogicalFileNameRecord" type="record"/>
+    </Type>
     <Documentation>
      <content>&#10;&#32;* Returns the list of superfiles that a logical file is contained within.
  *
@@ -1841,7 +2638,9 @@
  * @return              A dataset containing the names of the superfiles.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="name"/>
+     <Param name="name">
+      <Type type="varstring"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="52747"
@@ -1851,8 +2650,11 @@
                inherittype="local"
                line="897"
                name="LogicalFileSuperSubList"
-               start="52679">
-    <Type>function</Type>
+               start="52679"
+               type="function">
+    <Type type="table">
+     <Type fullname="lib_fileservices.fslogicalsupersubrecord" name="FsLogicalSuperSubRecord" type="record"/>
+    </Type>
     <Documentation>
      <content>&#10;&#32;* Returns the list of all the superfiles in the system and their component sub-files.
  *
@@ -1867,8 +2669,9 @@
                inherittype="local"
                line="915"
                name="fPromoteSuperFileList"
-               start="53979">
-    <Type>function</Type>
+               start="53979"
+               type="function">
+    <Type type="varstring"/>
     <Documentation>
      <content>&#10;&#32;* Moves the sub-files from the first entry in the list of superfiles to the next in the list, repeating the process
  * through the list of superfiles.
@@ -1885,11 +2688,23 @@
  * @return              A string containing a comma separated list of the previous sub-file contents of the emptied superfile.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="superNames"/>
-     <Param name="addHead"/>
-     <Param name="delTail"/>
-     <Param name="createOnlyOne"/>
-     <Param name="reverse"/>
+     <Param name="superNames">
+      <Type type="set">
+       <Type type="varstring"/>
+      </Type>
+     </Param>
+     <Param name="addHead">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="delTail">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="createOnlyOne">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="reverse">
+      <Type type="boolean"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="54532"
@@ -1899,19 +2714,32 @@
                inherittype="local"
                line="924"
                name="PromoteSuperFileList"
-               start="54376">
-    <Type>function</Type>
+               start="54376"
+               type="function">
+    <Type type=""/>
     <Documentation>
      <content>&#10;&#32;* Same as fPromoteSuperFileList, but does not return the DFU Workunit ID.
  *
  * @see fPromoteSuperFileList&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="superNames"/>
-     <Param name="addHead"/>
-     <Param name="delTail"/>
-     <Param name="createOnlyOne"/>
-     <Param name="reverse"/>
+     <Param name="superNames">
+      <Type type="set">
+       <Type type="varstring"/>
+      </Type>
+     </Param>
+     <Param name="addHead">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="delTail">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="createOnlyOne">
+      <Type type="boolean"/>
+     </Param>
+     <Param name="reverse">
+      <Type type="boolean"/>
+     </Param>
     </Params>
    </Definition>
    <Parents/>

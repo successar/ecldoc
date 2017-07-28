@@ -15,8 +15,8 @@
               inherittype="local"
               line="6"
               name="externals"
-              start="248">
-   <Type>module</Type>
+              start="248"
+              type="module">
    <Definition body="0"
                end="0"
                exported="1"
@@ -24,10 +24,13 @@
                inherittype="local"
                line="8"
                name="EncodeBase64"
-               start="0">
-    <Type>function</Type>
+               start="0"
+               type="function">
+    <Type type="string"/>
     <Params>
-     <Param name="src"/>
+     <Param name="src">
+      <Type type="data"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="0"
@@ -37,10 +40,13 @@
                inherittype="local"
                line="9"
                name="DecodeBase64"
-               start="0">
-    <Type>function</Type>
+               start="0"
+               type="function">
+    <Type type="data"/>
     <Params>
-     <Param name="src"/>
+     <Param name="src">
+      <Type type="string"/>
+     </Param>
     </Params>
    </Definition>
    <Parents/>
@@ -52,8 +58,8 @@
               inherittype="local"
               line="12"
               name="Str"
-              start="504">
-   <Type>module</Type>
+              start="504"
+              type="module">
    <Definition body="1178"
                end="1241"
                exported="1"
@@ -61,8 +67,9 @@
                inherittype="local"
                line="31"
                name="CompareIgnoreCase"
-               start="1116">
-    <Type>function</Type>
+               start="1116"
+               type="function">
+    <Type type="integer4"/>
     <Documentation>
      <content>&#10;&#32;* Compares the two strings case insensitively.  Returns a negative integer, zero, or a positive integer according to
  * whether the first string is less than, equal to, or greater than the second.
@@ -72,8 +79,12 @@
  * @see                 Str.EqualIgnoreCase&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src1"/>
-     <Param name="src2"/>
+     <Param name="src1">
+      <Type type="string"/>
+     </Param>
+     <Param name="src2">
+      <Type type="string"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="1552"
@@ -83,8 +94,9 @@
                inherittype="local"
                line="42"
                name="EqualIgnoreCase"
-               start="1493">
-    <Type>function</Type>
+               start="1493"
+               type="function">
+    <Type type="boolean"/>
     <Documentation>
      <content>&#10;&#32;* Tests whether the two strings are identical ignoring differences in case.
  *
@@ -93,8 +105,12 @@
  * @see                 Str.CompareIgnoreCase&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src1"/>
-     <Param name="src2"/>
+     <Param name="src1">
+      <Type type="string"/>
+     </Param>
+     <Param name="src2">
+      <Type type="string"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="2065"
@@ -104,8 +120,9 @@
                inherittype="local"
                line="54"
                name="Find"
-               start="1990">
-    <Type>function</Type>
+               start="1990"
+               type="function">
+    <Type type="unsigned4"/>
     <Documentation>
      <content>&#10;&#32;* Returns the character position of the nth match of the search string with the first string.
  * If no match is found the attribute returns 0.
@@ -116,9 +133,15 @@
  * @param instance      Which match instance are we interested in?&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src"/>
-     <Param name="sought"/>
-     <Param name="instance"/>
+     <Param name="src">
+      <Type type="string"/>
+     </Param>
+     <Param name="sought">
+      <Type type="string"/>
+     </Param>
+     <Param name="instance">
+      <Type type="unsigned4"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="2379"
@@ -128,8 +151,9 @@
                inherittype="local"
                line="64"
                name="FindCount"
-               start="2323">
-    <Type>function</Type>
+               start="2323"
+               type="function">
+    <Type type="unsigned4"/>
     <Documentation>
      <content>&#10;&#32;* Returns the number of occurences of the second string within the first string.
  *
@@ -137,8 +161,12 @@
  * @param sought        The string being sought.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src"/>
-     <Param name="sought"/>
+     <Param name="src">
+      <Type type="string"/>
+     </Param>
+     <Param name="sought">
+      <Type type="string"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="2857"
@@ -148,8 +176,9 @@
                inherittype="local"
                line="75"
                name="WildMatch"
-               start="2780">
-    <Type>function</Type>
+               start="2780"
+               type="function">
+    <Type type="boolean"/>
     <Documentation>
      <content>&#10;&#32;* Tests if the search string matches the pattern.
  * The pattern can contain wildcards &apos;?&apos; (single character) and &apos;*&apos; (multiple character).
@@ -159,9 +188,15 @@
  * @param ignore_case   Whether to ignore differences in case between characters&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src"/>
-     <Param name="_pattern"/>
-     <Param name="ignore_case"/>
+     <Param name="src">
+      <Type type="string"/>
+     </Param>
+     <Param name="_pattern">
+      <Type type="string"/>
+     </Param>
+     <Param name="ignore_case">
+      <Type type="boolean"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="3409"
@@ -171,8 +206,9 @@
                inherittype="local"
                line="87"
                name="Contains"
-               start="3333">
-    <Type>function</Type>
+               start="3333"
+               type="function">
+    <Type type="boolean"/>
     <Documentation>
      <content>&#10;&#32;* Tests if the search string contains each of the characters in the pattern.
  * If the pattern contains duplicate characters those characters will match once for each occurence in the pattern.
@@ -182,9 +218,15 @@
  * @param ignore_case   Whether to ignore differences in case between characters&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src"/>
-     <Param name="_pattern"/>
-     <Param name="ignore_case"/>
+     <Param name="src">
+      <Type type="string"/>
+     </Param>
+     <Param name="_pattern">
+      <Type type="string"/>
+     </Param>
+     <Param name="ignore_case">
+      <Type type="boolean"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="3804"
@@ -194,8 +236,9 @@
                inherittype="local"
                line="98"
                name="FilterOut"
-               start="3751">
-    <Type>function</Type>
+               start="3751"
+               type="function">
+    <Type type="string"/>
     <Documentation>
      <content>&#10;&#32;* Returns the first string with all characters within the second string removed.
  *
@@ -204,8 +247,12 @@
  * @see                 Str.Filter&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src"/>
-     <Param name="filter"/>
+     <Param name="src">
+      <Type type="string"/>
+     </Param>
+     <Param name="filter">
+      <Type type="string"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="4187"
@@ -215,8 +262,9 @@
                inherittype="local"
                line="108"
                name="Filter"
-               start="4137">
-    <Type>function</Type>
+               start="4137"
+               type="function">
+    <Type type="string"/>
     <Documentation>
      <content>&#10;&#32;* Returns the first string with all characters not within the second string removed.
  *
@@ -225,8 +273,12 @@
  * @see                 Str.FilterOut&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src"/>
-     <Param name="filter"/>
+     <Param name="src">
+      <Type type="string"/>
+     </Param>
+     <Param name="filter">
+      <Type type="string"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="4800"
@@ -236,8 +288,9 @@
                inherittype="local"
                line="121"
                name="SubstituteIncluded"
-               start="4716">
-    <Type>function</Type>
+               start="4716"
+               type="function">
+    <Type type="string"/>
     <Documentation>
      <content>&#10;&#32;* Returns the source string with the replacement character substituted for all characters included in the
  * filter string.
@@ -249,9 +302,15 @@
  * @see                 Std.Str.Translate, Std.Str.SubstituteExcluded&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src"/>
-     <Param name="Filter"/>
-     <Param name="replace_char"/>
+     <Param name="src">
+      <Type type="string"/>
+     </Param>
+     <Param name="Filter">
+      <Type type="string"/>
+     </Param>
+     <Param name="replace_char">
+      <Type type="string1"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="5421"
@@ -261,8 +320,9 @@
                inherittype="local"
                line="135"
                name="SubstituteExcluded"
-               start="5337">
-    <Type>function</Type>
+               start="5337"
+               type="function">
+    <Type type="string"/>
     <Documentation>
      <content>&#10;&#32;* Returns the source string with the replacement character substituted for all characters not included in the
  * filter string.
@@ -274,9 +334,15 @@
  * @see                 Std.Str.SubstituteIncluded&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src"/>
-     <Param name="Filter"/>
-     <Param name="replace_char"/>
+     <Param name="src">
+      <Type type="string"/>
+     </Param>
+     <Param name="Filter">
+      <Type type="string"/>
+     </Param>
+     <Param name="replace_char">
+      <Type type="string1"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="6143"
@@ -286,8 +352,9 @@
                inherittype="local"
                line="149"
                name="Translate"
-               start="6070">
-    <Type>function</Type>
+               start="6070"
+               type="function">
+    <Type type="string"/>
     <Documentation>
      <content>&#10;&#32;* Returns the source string with the all characters that match characters in the search string replaced
  * with the character at the corresponding position in the replacement string.
@@ -298,9 +365,15 @@
  * @see                 Std.Str.SubstituteIncluded&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src"/>
-     <Param name="search"/>
-     <Param name="replacement"/>
+     <Param name="src">
+      <Type type="string"/>
+     </Param>
+     <Param name="search">
+      <Type type="string"/>
+     </Param>
+     <Param name="replacement">
+      <Type type="string"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="6413"
@@ -310,15 +383,18 @@
                inherittype="local"
                line="158"
                name="ToLowerCase"
-               start="6373">
-    <Type>function</Type>
+               start="6373"
+               type="function">
+    <Type type="string"/>
     <Documentation>
      <content>&#10;&#32;* Returns the argument string with all upper case characters converted to lower case.
  *
  * @param src           The string that is being converted.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src"/>
+     <Param name="src">
+      <Type type="string"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="6661"
@@ -328,15 +404,18 @@
                inherittype="local"
                line="166"
                name="ToUpperCase"
-               start="6621">
-    <Type>function</Type>
+               start="6621"
+               type="function">
+    <Type type="string"/>
     <Documentation>
      <content>&#10;&#32;* Return the argument string with all lower case characters converted to upper case.
  *
  * @param src           The string that is being converted.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src"/>
+     <Param name="src">
+      <Type type="string"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="7016"
@@ -346,8 +425,9 @@
                inherittype="local"
                line="176"
                name="ToCapitalCase"
-               start="6974">
-    <Type>function</Type>
+               start="6974"
+               type="function">
+    <Type type="string"/>
     <Documentation>
      <content>&#10;&#32;* Returns the argument string with the first letter of each word in upper case and all other
  * letters left as-is.
@@ -356,7 +436,9 @@
  * @param src           The string that is being converted.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src"/>
+     <Param name="src">
+      <Type type="string"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="7371"
@@ -366,8 +448,9 @@
                inherittype="local"
                line="186"
                name="ToTitleCase"
-               start="7331">
-    <Type>function</Type>
+               start="7331"
+               type="function">
+    <Type type="string"/>
     <Documentation>
      <content>&#10;&#32;* Returns the argument string with the first letter of each word in upper case and all other
  * letters lower case.
@@ -376,7 +459,9 @@
  * @param src           The string that is being converted.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src"/>
+     <Param name="src">
+      <Type type="string"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="7656"
@@ -386,8 +471,9 @@
                inherittype="local"
                line="195"
                name="Reverse"
-               start="7620">
-    <Type>function</Type>
+               start="7620"
+               type="function">
+    <Type type="string"/>
     <Documentation>
      <content>&#10;&#32;* Returns the argument string with all characters in reverse order.
  * Note the argument is not TRIMMED before it is reversed.
@@ -395,7 +481,9 @@
  * @param src           The string that is being reversed.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src"/>
+     <Param name="src">
+      <Type type="string"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="8081"
@@ -405,8 +493,9 @@
                inherittype="local"
                line="205"
                name="FindReplace"
-               start="8006">
-    <Type>function</Type>
+               start="8006"
+               type="function">
+    <Type type="string"/>
     <Documentation>
      <content>&#10;&#32;* Returns the source string with the replacement string substituted for all instances of the search string.
  *
@@ -415,9 +504,15 @@
  * @param replacement   The string to be substituted into the result.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src"/>
-     <Param name="sought"/>
-     <Param name="replacement"/>
+     <Param name="src">
+      <Type type="string"/>
+     </Param>
+     <Param name="sought">
+      <Type type="string"/>
+     </Param>
+     <Param name="replacement">
+      <Type type="string"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="8412"
@@ -427,8 +522,9 @@
                inherittype="local"
                line="215"
                name="Extract"
-               start="8356">
-    <Type>function</Type>
+               start="8356"
+               type="function">
+    <Type type="string"/>
     <Documentation>
      <content>&#10;&#32;* Returns the nth element from a comma separated string.
  *
@@ -436,8 +532,12 @@
  * @param instance      Which item to select from the list.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src"/>
-     <Param name="instance"/>
+     <Param name="src">
+      <Type type="string"/>
+     </Param>
+     <Param name="instance">
+      <Type type="unsigned4"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="8813"
@@ -447,8 +547,9 @@
                inherittype="local"
                line="225"
                name="CleanSpaces"
-               start="8773">
-    <Type>function</Type>
+               start="8773"
+               type="function">
+    <Type type="string"/>
     <Documentation>
      <content>&#10;&#32;* Returns the source string with all instances of multiple adjacent space characters (2 or more spaces together)
  * reduced to a single space character.  Leading and trailing spaces are removed, and tab characters are converted
@@ -457,7 +558,9 @@
  * @param src           The string to be cleaned.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src"/>
+     <Param name="src">
+      <Type type="string"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="9269"
@@ -467,8 +570,9 @@
                inherittype="local"
                line="236"
                name="StartsWith"
-               start="9214">
-    <Type>function</Type>
+               start="9214"
+               type="function">
+    <Type type="boolean"/>
     <Documentation>
      <content>&#10;&#32;* Returns true if the prefix string matches the leading characters in the source string.  Trailing spaces are
  * stripped from the prefix before matching.
@@ -478,8 +582,12 @@
  * @param prefix        The prefix to search for.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src"/>
-     <Param name="prefix"/>
+     <Param name="src">
+      <Type type="string"/>
+     </Param>
+     <Param name="prefix">
+      <Type type="string"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="9635"
@@ -489,8 +597,9 @@
                inherittype="local"
                line="245"
                name="EndsWith"
-               start="9582">
-    <Type>function</Type>
+               start="9582"
+               type="function">
+    <Type type="boolean"/>
     <Documentation>
      <content>&#10;&#32;* Returns true if the suffix string matches the trailing characters in the source string.  Trailing spaces are
  * stripped from both strings before matching.
@@ -499,8 +608,12 @@
  * @param suffix        The prefix to search for.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src"/>
-     <Param name="suffix"/>
+     <Param name="src">
+      <Type type="string"/>
+     </Param>
+     <Param name="suffix">
+      <Type type="string"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="10015"
@@ -510,8 +623,9 @@
                inherittype="local"
                line="255"
                name="RemoveSuffix"
-               start="9959">
-    <Type>function</Type>
+               start="9959"
+               type="function">
+    <Type type="string"/>
     <Documentation>
      <content>&#10;&#32;* Removes the suffix from the search string, if present, and returns the result.  Trailing spaces are
  * stripped from both strings before matching.
@@ -520,8 +634,12 @@
  * @param suffix        The prefix to search for.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src"/>
-     <Param name="suffix"/>
+     <Param name="src">
+      <Type type="string"/>
+     </Param>
+     <Param name="suffix">
+      <Type type="string"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="10441"
@@ -531,8 +649,9 @@
                inherittype="local"
                line="266"
                name="ExtractMultiple"
-               start="10381">
-    <Type>function</Type>
+               start="10381"
+               type="function">
+    <Type type="string"/>
     <Documentation>
      <content>&#10;&#32;* Returns a string containing a list of elements from a comma separated string.
  *
@@ -540,8 +659,12 @@
  * @param mask          A bitmask of which elements should be included.  Bit 0 is item1, bit1 item 2 etc.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src"/>
-     <Param name="mask"/>
+     <Param name="src">
+      <Type type="string"/>
+     </Param>
+     <Param name="mask">
+      <Type type="unsigned8"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="10979"
@@ -551,8 +674,9 @@
                inherittype="local"
                line="277"
                name="CountWords"
-               start="10890">
-    <Type>function</Type>
+               start="10890"
+               type="function">
+    <Type type="unsigned4"/>
     <Documentation>
      <content>&#10;&#32;* Returns the number of words that the string contains.  Words are separated by one or more separator strings. No
  * spaces are stripped from either string before matching.
@@ -562,9 +686,15 @@
  * @param allow_blank   Indicates if empty/blank string items are included in the results.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src"/>
-     <Param name="separator"/>
-     <Param name="allow_blank"/>
+     <Param name="src">
+      <Type type="string"/>
+     </Param>
+     <Param name="separator">
+      <Type type="string"/>
+     </Param>
+     <Param name="allow_blank">
+      <Type type="boolean"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="11527"
@@ -574,8 +704,11 @@
                inherittype="local"
                line="288"
                name="SplitWords"
-               start="11434">
-    <Type>function</Type>
+               start="11434"
+               type="function">
+    <Type type="set">
+     <Type type="string"/>
+    </Type>
     <Documentation>
      <content>&#10;&#32;* Returns the list of words extracted from the string.  Words are separated by one or more separator strings. No
  * spaces are stripped from either string before matching.
@@ -585,9 +718,15 @@
  * @param allow_blank   Indicates if empty/blank string items are included in the results.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src"/>
-     <Param name="separator"/>
-     <Param name="allow_blank"/>
+     <Param name="src">
+      <Type type="string"/>
+     </Param>
+     <Param name="separator">
+      <Type type="string"/>
+     </Param>
+     <Param name="allow_blank">
+      <Type type="boolean"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="11966"
@@ -597,8 +736,9 @@
                inherittype="local"
                line="299"
                name="CombineWords"
-               start="11898">
-    <Type>function</Type>
+               start="11898"
+               type="function">
+    <Type type="string"/>
     <Documentation>
      <content>&#10;&#32;* Returns the list of words extracted from the string.  Words are separated by one or more separator strings. No
  * spaces are stripped from either string before matching.
@@ -607,8 +747,14 @@
  * @param separator     The string used to separate words.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="words"/>
-     <Param name="separator"/>
+     <Param name="words">
+      <Type type="set">
+       <Type type="string"/>
+      </Type>
+     </Param>
+     <Param name="separator">
+      <Type type="string"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="12452"
@@ -618,8 +764,9 @@
                inherittype="local"
                line="311"
                name="EditDistance"
-               start="12391">
-    <Type>function</Type>
+               start="12391"
+               type="function">
+    <Type type="unsigned4"/>
     <Documentation>
      <content>&#10;&#32;* Returns the minimum edit distance between the two strings.  An insert change or delete counts as a single edit.
  * The two strings are trimmed before comparing.
@@ -629,8 +776,12 @@
  * @return              The minimum edit distance between the two strings.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="_left"/>
-     <Param name="_right"/>
+     <Param name="_left">
+      <Type type="string"/>
+     </Param>
+     <Param name="_right">
+      <Type type="string"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="13043"
@@ -640,8 +791,9 @@
                inherittype="local"
                line="324"
                name="EditDistanceWithinRadius"
-               start="12954">
-    <Type>function</Type>
+               start="12954"
+               type="function">
+    <Type type="boolean"/>
     <Documentation>
      <content>&#10;&#32;* Returns true if the minimum edit distance between the two strings is with a specific range.
  * The two strings are trimmed before comparing.
@@ -652,9 +804,15 @@
  * @return              Whether or not the two strings are within the given specified edit distance.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="_left"/>
-     <Param name="_right"/>
-     <Param name="radius"/>
+     <Param name="_left">
+      <Type type="string"/>
+     </Param>
+     <Param name="_right">
+      <Type type="string"/>
+     </Param>
+     <Param name="radius">
+      <Type type="unsigned4"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="13388"
@@ -664,8 +822,9 @@
                inherittype="local"
                line="335"
                name="WordCount"
-               start="13346">
-    <Type>function</Type>
+               start="13346"
+               type="function">
+    <Type type="unsigned4"/>
     <Documentation>
      <content>&#10;&#32;* Returns the number of words in the string.  Words are separated by one or more spaces.
  *
@@ -673,7 +832,9 @@
  * @return              The number of words in the string.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="text"/>
+     <Param name="text">
+      <Type type="string"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="13784"
@@ -683,8 +844,9 @@
                inherittype="local"
                line="346"
                name="GetNthWord"
-               start="13731">
-    <Type>function</Type>
+               start="13731"
+               type="function">
+    <Type type="string"/>
     <Documentation>
      <content>&#10;&#32;* Returns the n-th word from the string.  Words are separated by one or more spaces.
  *
@@ -693,8 +855,12 @@
  * @return              The number of words in the string.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="text"/>
-     <Param name="n"/>
+     <Param name="text">
+      <Type type="string"/>
+     </Param>
+     <Param name="n">
+      <Type type="unsigned4"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="14196"
@@ -704,8 +870,9 @@
                inherittype="local"
                line="357"
                name="ExcludeFirstWord"
-               start="14157">
-    <Type>function</Type>
+               start="14157"
+               type="function">
+    <Type type="string"/>
     <Documentation>
      <content>&#10;&#32;* Returns everything except the first word from the string.  Words are separated by one or more whitespace characters.
  * Whitespace before and after the first word is also removed.
@@ -714,7 +881,9 @@
  * @return              The string excluding the first word.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="text"/>
+     <Param name="text">
+      <Type type="string"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="14649"
@@ -724,8 +893,9 @@
                inherittype="local"
                line="367"
                name="ExcludeLastWord"
-               start="14611">
-    <Type>function</Type>
+               start="14611"
+               type="function">
+    <Type type="string"/>
     <Documentation>
      <content>&#10;&#32;* Returns everything except the last word from the string.  Words are separated by one or more whitespace characters.
  * Whitespace after a word is removed with the word and leading whitespace is removed with the first word.
@@ -734,7 +904,9 @@
  * @return              The string excluding the last word.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="text"/>
+     <Param name="text">
+      <Type type="string"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="15183"
@@ -744,8 +916,9 @@
                inherittype="local"
                line="378"
                name="ExcludeNthWord"
-               start="15133">
-    <Type>function</Type>
+               start="15133"
+               type="function">
+    <Type type="string"/>
     <Documentation>
      <content>&#10;&#32;* Returns everything except the nth word from the string.  Words are separated by one or more whitespace characters.
  * Whitespace after a word is removed with the word and leading whitespace is removed with the first word.
@@ -755,8 +928,12 @@
  * @return              The string excluding the nth word.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="text"/>
-     <Param name="n"/>
+     <Param name="text">
+      <Type type="string"/>
+     </Param>
+     <Param name="n">
+      <Type type="unsigned2"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="15596"
@@ -766,8 +943,9 @@
                inherittype="local"
                line="388"
                name="FindWord"
-               start="15518">
-    <Type>function</Type>
+               start="15518"
+               type="function">
+    <Type type="boolean"/>
     <Documentation>
      <content>&#10;&#32;* Tests if the search string contains the supplied word as a whole word.
  *
@@ -776,9 +954,15 @@
  * @param ignore_case   Whether to ignore differences in case between characters.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src"/>
-     <Param name="word"/>
-     <Param name="ignore_case"/>
+     <Param name="src">
+      <Type type="string"/>
+     </Param>
+     <Param name="word">
+      <Type type="string"/>
+     </Param>
+     <Param name="ignore_case">
+      <Type type="boolean"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="16037"
@@ -788,11 +972,16 @@
                inherittype="local"
                line="402"
                name="Repeat"
-               start="15988">
-    <Type>function</Type>
+               start="15988"
+               type="function">
+    <Type type="string"/>
     <Params>
-     <Param name="text"/>
-     <Param name="n"/>
+     <Param name="text">
+      <Type type="string"/>
+     </Param>
+     <Param name="n">
+      <Type type="unsigned4"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="16351"
@@ -802,10 +991,13 @@
                inherittype="local"
                line="411"
                name="ToHexPairs"
-               start="16312">
-    <Type>function</Type>
+               start="16312"
+               type="function">
+    <Type type="string"/>
     <Params>
-     <Param name="value"/>
+     <Param name="value">
+      <Type type="data"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="16824"
@@ -815,10 +1007,13 @@
                inherittype="local"
                line="424"
                name="FromHexPairs"
-               start="16779">
-    <Type>function</Type>
+               start="16779"
+               type="function">
+    <Type type="data"/>
     <Params>
-     <Param name="hex_pairs"/>
+     <Param name="hex_pairs">
+      <Type type="string"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="17240"
@@ -828,10 +1023,13 @@
                inherittype="local"
                line="437"
                name="EncodeBase64"
-               start="17199">
-    <Type>function</Type>
+               start="17199"
+               type="function">
+    <Type type="string"/>
     <Params>
-     <Param name="value"/>
+     <Param name="value">
+      <Type type="data"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="17674"
@@ -841,10 +1039,13 @@
                inherittype="local"
                line="450"
                name="DecodeBase64"
-               start="17633">
-    <Type>function</Type>
+               start="17633"
+               type="function">
+    <Type type="data"/>
     <Params>
-     <Param name="value"/>
+     <Param name="value">
+      <Type type="string"/>
+     </Param>
     </Params>
    </Definition>
    <Parents/>

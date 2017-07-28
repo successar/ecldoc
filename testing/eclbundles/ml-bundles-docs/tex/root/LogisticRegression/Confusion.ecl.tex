@@ -33,13 +33,36 @@ Confusion}}
 }
 
 \par
+
+
+
+
+
 Detail confusion records to compare actual versus predicted response variable values.
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{dependents}} the original response values
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{predicts}} the predicted responses
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{\underline{}} confusion counts by predicted and actual response values.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{dependents}} ||| TABLE ( DiscreteField ) --- the original response values
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{predicts}} ||| TABLE ( DiscreteField ) --- the predicted responses
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{TABLE ( \{ UNSIGNED2 wi , UNSIGNED4 classifier , INTEGER4 actual\_class , INTEGER4 predict\_class , UNSIGNED4 occurs , BOOLEAN correct \} )} --- confusion counts by predicted and actual response values.
+\end{description}
+
+
+
 
 \rule{\linewidth}{0.5pt}

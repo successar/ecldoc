@@ -22,6 +22,17 @@ Math}}
 \par
 
 
+
+
+
+No Documentation Found
+
+
+
+
+
+
+
 \textbf{Children}
 \begin{enumerate}
 \item \hyperlink{ecldoc:math.infinity}{Infinity}
@@ -57,7 +68,26 @@ Infinity}}
 }
 
 \par
+
+
+
+
+
 Return a real ''infinity'' value.
+
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{REAL8} --- 
+\end{description}
+
+
 
 
 \rule{\linewidth}{0.5pt}
@@ -76,7 +106,26 @@ NaN}}
 }
 
 \par
+
+
+
+
+
 Return a non-signalling NaN (Not a Number)value.
+
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{REAL8} --- 
+\end{description}
+
+
 
 
 \rule{\linewidth}{0.5pt}
@@ -97,12 +146,36 @@ isInfinite}}
 }
 
 \par
+
+
+
+
+
 Return whether a real value is infinite (positive or negative).
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{val}} The value to test.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{val}} ||| REAL8 --- The value to test.
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{BOOLEAN} --- 
+\end{description}
+
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} FUNCTION}
@@ -122,12 +195,36 @@ isNaN}}
 }
 
 \par
+
+
+
+
+
 Return whether a real value is a NaN (not a number) value.
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{val}} The value to test.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{val}} ||| REAL8 --- The value to test.
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{BOOLEAN} --- 
+\end{description}
+
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} FUNCTION}
@@ -147,12 +244,36 @@ isFinite}}
 }
 
 \par
+
+
+
+
+
 Return whether a real value is a valid value (neither infinite not NaN).
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{val}} The value to test.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{val}} ||| REAL8 --- The value to test.
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{BOOLEAN} --- 
+\end{description}
+
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} FUNCTION}
@@ -172,13 +293,37 @@ FMod}}
 }
 
 \par
+
+
+
+
+
 Returns the floating-point remainder of numer/denom (rounded towards zero). If denom is zero, the result depends on the -fdivideByZero flag: 'zero' or unset: return zero. 'nan': return a non-signalling NaN value 'fail': throw an exception
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{numer}} The numerator.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{denom}} The numerator.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{numer}} ||| REAL8 --- The numerator.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{denom}} ||| REAL8 --- The numerator.
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{REAL8} --- 
+\end{description}
+
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} FUNCTION}
@@ -198,14 +343,38 @@ FMatch}}
 }
 
 \par
+
+
+
+
+
 Returns whether two floating point values are the same, within margin of error epsilon.
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{a}} The first value.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{b}} The second value.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{epsilon}} The allowable margin of error.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{b}} ||| REAL8 --- The second value.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{a}} ||| REAL8 --- The first value.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{epsilon}} ||| REAL8 --- The allowable margin of error.
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{BOOLEAN} --- 
+\end{description}
+
+
+
 
 \rule{\linewidth}{0.5pt}
 

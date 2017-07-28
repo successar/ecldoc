@@ -23,11 +23,15 @@ corresponding changes to the C++ attributes.
   | Type for matrix dimensions. Uses UNSIGNED four as matrixes are not designed
   | to support more than 4 B rows or columns.
   | 
+  | Return : UNSIGNED4
+  | 
   | ----------------------------------------------------------------------------------------------------------------------------------
   | ATTRIBUTE : partition_t
   | ----------------------------------------------------------------------------------------------------------------------------------
   | 
   | Type for partition id -- only supports up to 64K partitions
+  | 
+  | Return : UNSIGNED2
   | 
   | ----------------------------------------------------------------------------------------------------------------------------------
   | ATTRIBUTE : work_item_t
@@ -35,11 +39,15 @@ corresponding changes to the C++ attributes.
   | 
   | Type for work-item id -- only supports up to 64K work items
   | 
+  | Return : UNSIGNED2
+  | 
   | ----------------------------------------------------------------------------------------------------------------------------------
   | ATTRIBUTE : value_t
   | ----------------------------------------------------------------------------------------------------------------------------------
   | 
   | Type for matrix cell values WARNING: type used in C++ attribute
+  | 
+  | Return : REAL8
   | 
   | ----------------------------------------------------------------------------------------------------------------------------------
   | ATTRIBUTE : m_label_t
@@ -48,11 +56,15 @@ corresponding changes to the C++ attributes.
   | Type for matrix label. Used for Matrix dimensions (see Layout_Dims) and for
   | partitions (see Layout_Part)
   | 
+  | Return : STRING3
+  | 
   | ----------------------------------------------------------------------------------------------------------------------------------
   | ATTRIBUTE : Triangle
   | ----------------------------------------------------------------------------------------------------------------------------------
   | 
   | Enumeration for Triangle type WARNING: type used in C++ attribute
+  | 
+  | Return : UNSIGNED1
   | 
   | ----------------------------------------------------------------------------------------------------------------------------------
   | ATTRIBUTE : Diagonal
@@ -60,17 +72,23 @@ corresponding changes to the C++ attributes.
   | 
   | Enumeration for Diagonal type WARNING: type used in C++ attribute
   | 
+  | Return : UNSIGNED1
+  | 
   | ----------------------------------------------------------------------------------------------------------------------------------
   | ATTRIBUTE : Side
   | ----------------------------------------------------------------------------------------------------------------------------------
   | 
   | Enumeration for Side type WARNING: type used in C++ attribute
   | 
+  | Return : UNSIGNED1
+  | 
   | ----------------------------------------------------------------------------------------------------------------------------------
   | ATTRIBUTE : t_mu_no
   | ----------------------------------------------------------------------------------------------------------------------------------
   | 
   | Type for matrix universe number Allow up to 64k matrices in one universe
+  | 
+  | Return : UNSIGNED2
   | 
   | ----------------------------------------------------------------------------------------------------------------------------------
   | RECORD : Layout_Cell
@@ -93,15 +111,17 @@ corresponding changes to the C++ attributes.
   | utility functions to convert to and from a set of partitions (See
   | Layout_parts).
   | 
-  | Field : wi_id ||| Work Item Number -- An identifier from 1
-  |         to 64K-1 that separates and identifies individual
-  |         matrixes
+  | Field : v REAL8 --- Real value for the cell
   | 
-  | Field : x ||| 1-based row position within the matrix
+  | Field : x UNSIGNED4 --- 1-based row position within the
+  |           matrix
   | 
-  | Field : y ||| 1-based column position within the matrix
+  | Field : y UNSIGNED4 --- 1-based column position within the
+  |           matrix
   | 
-  | Field : v ||| Real value for the cell
+  | Field : wi_id UNSIGNED2 --- Work Item Number -- An identifier
+  |               from 1 to 64K-1 that separates and identifies
+  |               individual matrixes
   | 
   | See : matrix_t
   | 
@@ -117,9 +137,9 @@ corresponding changes to the C++ attributes.
   | 
   | Layout for Norm results.
   | 
-  | Field : wi_id ||| Work Item Number -- An identifier from 1
-  |         to 64K-1 that separates and identifies individual
-  |         matrixes
+  | Field : v REAL8 --- Real value for the norm
   | 
-  | Field : v ||| Real value for the norm
+  | Field : wi_id UNSIGNED2 --- Work Item Number -- An identifier
+  |               from 1 to 64K-1 that separates and identifies
+  |               individual matrixes
   | 

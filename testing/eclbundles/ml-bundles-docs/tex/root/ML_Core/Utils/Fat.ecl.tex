@@ -31,13 +31,36 @@ Fat}}
 }
 
 \par
+
+
+
+
+
 Will take a potentially sparse file d and fill in the missing with value v for Numeric Field datasets
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{d0}} They myriad format Numeric Field dataset to be filled
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{v}} The value to assign missing records
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{\underline{}} A full Numeric Field dataset with every field populated
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{d0}} ||| TABLE ( NumericField ) --- They myriad format Numeric Field dataset to be filled
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{v}} ||| REAL8 --- The value to assign missing records
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{TABLE ( \{ UNSIGNED2 wi , UNSIGNED8 id , UNSIGNED4 number , REAL8 value \} )} --- A full Numeric Field dataset with every field populated
+\end{description}
+
+
+
 
 \rule{\linewidth}{0.5pt}

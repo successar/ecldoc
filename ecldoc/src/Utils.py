@@ -1,6 +1,13 @@
 import os
 import re
 
+from jinja2 import contextfilter
+
+@contextfilter
+def call_macro_by_name(context, macro_name, *args, **kwargs):
+    return context.vars[macro_name](*args, **kwargs)
+
+
 def genPathTree(ecl_files, ext='') :
     path_tree = { "root" : {} }
     for file in ecl_files :

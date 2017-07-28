@@ -8,8 +8,8 @@
               inherittype="local"
               line="7"
               name="Uni"
-              start="268">
-   <Type>module</Type>
+              start="268"
+              type="module">
    <Definition body="620"
                end="681"
                exported="1"
@@ -17,8 +17,9 @@
                inherittype="local"
                line="17"
                name="FilterOut"
-               start="564">
-    <Type>function</Type>
+               start="564"
+               type="function">
+    <Type type="unicode"/>
     <Documentation>
      <content>&#10;&#32;* Returns the first string with all characters within the second string removed.
  *
@@ -27,8 +28,12 @@
  * @see                 Std.Uni.Filter&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src"/>
-     <Param name="filter"/>
+     <Param name="src">
+      <Type type="unicode"/>
+     </Param>
+     <Param name="filter">
+      <Type type="unicode"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="1017"
@@ -38,8 +43,9 @@
                inherittype="local"
                line="28"
                name="Filter"
-               start="964">
-    <Type>function</Type>
+               start="964"
+               type="function">
+    <Type type="unicode"/>
     <Documentation>
      <content>&#10;&#32;* Returns the first string with all characters not within the second string removed.
  *
@@ -48,8 +54,12 @@
  * @see                 Std.Uni.FilterOut&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src"/>
-     <Param name="filter"/>
+     <Param name="src">
+      <Type type="unicode"/>
+     </Param>
+     <Param name="filter">
+      <Type type="unicode"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="1616"
@@ -59,8 +69,9 @@
                inherittype="local"
                line="42"
                name="SubstituteIncluded"
-               start="1529">
-    <Type>function</Type>
+               start="1529"
+               type="function">
+    <Type type="unicode"/>
     <Documentation>
      <content>&#10;&#32;* Returns the source string with the replacement character substituted for all characters included in the
  * filter string.
@@ -72,9 +83,15 @@
  * @see                 Std.Uni.SubstituteOut&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src"/>
-     <Param name="Filter"/>
-     <Param name="replace_char"/>
+     <Param name="src">
+      <Type type="unicode"/>
+     </Param>
+     <Param name="Filter">
+      <Type type="unicode"/>
+     </Param>
+     <Param name="replace_char">
+      <Type type="unicode"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="2245"
@@ -84,8 +101,9 @@
                inherittype="local"
                line="56"
                name="SubstituteExcluded"
-               start="2158">
-    <Type>function</Type>
+               start="2158"
+               type="function">
+    <Type type="unicode"/>
     <Documentation>
      <content>&#10;&#32;* Returns the source string with the replacement character substituted for all characters not included in the
  * filter string.
@@ -97,9 +115,15 @@
  * @see                 Std.Uni.SubstituteIncluded&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src"/>
-     <Param name="Filter"/>
-     <Param name="replace_char"/>
+     <Param name="src">
+      <Type type="unicode"/>
+     </Param>
+     <Param name="Filter">
+      <Type type="unicode"/>
+     </Param>
+     <Param name="replace_char">
+      <Type type="unicode"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="2797"
@@ -109,8 +133,9 @@
                inherittype="local"
                line="69"
                name="Find"
-               start="2724">
-    <Type>function</Type>
+               start="2724"
+               type="function">
+    <Type type="unsigned4"/>
     <Documentation>
      <content>&#10;&#32;* Returns the character position of the nth match of the search string with the first string.
  * If no match is found the attribute returns 0.
@@ -121,9 +146,15 @@
  * @param instance      Which match instance are we interested in?&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src"/>
-     <Param name="sought"/>
-     <Param name="instance"/>
+     <Param name="src">
+      <Type type="unicode"/>
+     </Param>
+     <Param name="sought">
+      <Type type="unicode"/>
+     </Param>
+     <Param name="instance">
+      <Type type="unsigned4"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="3223"
@@ -133,8 +164,9 @@
                inherittype="local"
                line="80"
                name="FindWord"
-               start="3143">
-    <Type>function</Type>
+               start="3143"
+               type="function">
+    <Type type="boolean"/>
     <Documentation>
      <content>&#10;&#32;* Tests if the search string contains the supplied word as a whole word.
  *
@@ -143,9 +175,15 @@
  * @param ignore_case   Whether to ignore differences in case between characters.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src"/>
-     <Param name="word"/>
-     <Param name="ignore_case"/>
+     <Param name="src">
+      <Type type="unicode"/>
+     </Param>
+     <Param name="word">
+      <Type type="unicode"/>
+     </Param>
+     <Param name="ignore_case">
+      <Type type="boolean"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="3939"
@@ -155,8 +193,9 @@
                inherittype="local"
                line="97"
                name="LocaleFind"
-               start="3837">
-    <Type>function</Type>
+               start="3837"
+               type="function">
+    <Type type="unsigned4"/>
     <Documentation>
      <content>&#10;&#32;* Returns the character position of the nth match of the search string with the first string.
  * If no match is found the attribute returns 0.
@@ -168,10 +207,18 @@
  * @param locale_name   The locale to use for the comparison&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src"/>
-     <Param name="sought"/>
-     <Param name="instance"/>
-     <Param name="locale_name"/>
+     <Param name="src">
+      <Type type="unicode"/>
+     </Param>
+     <Param name="sought">
+      <Type type="unicode"/>
+     </Param>
+     <Param name="instance">
+      <Type type="unsigned4"/>
+     </Param>
+     <Param name="locale_name">
+      <Type type="varstring"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="5239"
@@ -181,8 +228,9 @@
                inherittype="local"
                line="117"
                name="LocaleFindAtStrength"
-               start="5108">
-    <Type>function</Type>
+               start="5108"
+               type="function">
+    <Type type="unsigned4"/>
     <Documentation>
      <content>&#10;&#32;* Returns the character position of the nth match of the search string with the first string.
  * If no match is found the attribute returns 0.
@@ -200,11 +248,21 @@
                         5 differentiates between all strings whose canonically decomposed forms (NFDNormalization Form D) are non-identical&#10;</content>
     </Documentation>
     <Params>
-     <Param name="src"/>
-     <Param name="tofind"/>
-     <Param name="instance"/>
-     <Param name="locale_name"/>
-     <Param name="strength"/>
+     <Param name="src">
+      <Type type="unicode"/>
+     </Param>
+     <Param name="tofind">
+      <Type type="unicode"/>
+     </Param>
+     <Param name="instance">
+      <Type type="unsigned4"/>
+     </Param>
+     <Param name="locale_name">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="strength">
+      <Type type="integer1"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="5606"
@@ -214,8 +272,9 @@
                inherittype="local"
                line="127"
                name="Extract"
-               start="5548">
-    <Type>function</Type>
+               start="5548"
+               type="function">
+    <Type type="unicode"/>
     <Documentation>
      <content>&#10;&#32;* Returns the nth element from a comma separated string.
  *
@@ -223,8 +282,12 @@
  * @param instance      Which item to select from the list.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src"/>
-     <Param name="instance"/>
+     <Param name="src">
+      <Type type="unicode"/>
+     </Param>
+     <Param name="instance">
+      <Type type="unsigned4"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="5870"
@@ -234,15 +297,18 @@
                inherittype="local"
                line="136"
                name="ToLowerCase"
-               start="5828">
-    <Type>function</Type>
+               start="5828"
+               type="function">
+    <Type type="unicode"/>
     <Documentation>
      <content>&#10;&#32;* Returns the argument string with all upper case characters converted to lower case.
  *
  * @param src           The string that is being converted.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src"/>
+     <Param name="src">
+      <Type type="unicode"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="6127"
@@ -252,15 +318,18 @@
                inherittype="local"
                line="145"
                name="ToUpperCase"
-               start="6085">
-    <Type>function</Type>
+               start="6085"
+               type="function">
+    <Type type="unicode"/>
     <Documentation>
      <content>&#10;&#32;* Return the argument string with all lower case characters converted to upper case.
  *
  * @param src           The string that is being converted.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src"/>
+     <Param name="src">
+      <Type type="unicode"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="6448"
@@ -270,8 +339,9 @@
                inherittype="local"
                line="155"
                name="ToTitleCase"
-               start="6406">
-    <Type>function</Type>
+               start="6406"
+               type="function">
+    <Type type="unicode"/>
     <Documentation>
      <content>&#10;&#32;* Returns the upper case variant of the string using the rules for a particular locale.
  *
@@ -279,7 +349,9 @@
  * @param locale_name   The locale to use for the comparison&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src"/>
+     <Param name="src">
+      <Type type="unicode"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="6799"
@@ -289,8 +361,9 @@
                inherittype="local"
                line="165"
                name="LocaleToLowerCase"
-               start="6728">
-    <Type>function</Type>
+               start="6728"
+               type="function">
+    <Type type="unicode"/>
     <Documentation>
      <content>&#10;&#32;* Returns the lower case variant of the string using the rules for a particular locale.
  *
@@ -298,8 +371,12 @@
  * @param locale_name   The locale to use for the comparison&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src"/>
-     <Param name="locale_name"/>
+     <Param name="src">
+      <Type type="unicode"/>
+     </Param>
+     <Param name="locale_name">
+      <Type type="varstring"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="7168"
@@ -309,8 +386,9 @@
                inherittype="local"
                line="175"
                name="LocaleToUpperCase"
-               start="7097">
-    <Type>function</Type>
+               start="7097"
+               type="function">
+    <Type type="unicode"/>
     <Documentation>
      <content>&#10;&#32;* Returns the upper case variant of the string using the rules for a particular locale.
  *
@@ -318,8 +396,12 @@
  * @param locale_name   The locale to use for the comparison&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src"/>
-     <Param name="locale_name"/>
+     <Param name="src">
+      <Type type="unicode"/>
+     </Param>
+     <Param name="locale_name">
+      <Type type="varstring"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="7537"
@@ -329,8 +411,9 @@
                inherittype="local"
                line="185"
                name="LocaleToTitleCase"
-               start="7466">
-    <Type>function</Type>
+               start="7466"
+               type="function">
+    <Type type="unicode"/>
     <Documentation>
      <content>&#10;&#32;* Returns the upper case variant of the string using the rules for a particular locale.
  *
@@ -338,8 +421,12 @@
  * @param locale_name   The locale to use for the comparison&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src"/>
-     <Param name="locale_name"/>
+     <Param name="src">
+      <Type type="unicode"/>
+     </Param>
+     <Param name="locale_name">
+      <Type type="varstring"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="7943"
@@ -349,8 +436,9 @@
                inherittype="local"
                line="196"
                name="CompareIgnoreCase"
-               start="7879">
-    <Type>function</Type>
+               start="7879"
+               type="function">
+    <Type type="integer4"/>
     <Documentation>
      <content>&#10;&#32;* Compares the two strings case insensitively.  Equivalent to comparing at strength 2.
  *
@@ -359,8 +447,12 @@
  * @see                 Std.Uni.CompareAtStrength&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src1"/>
-     <Param name="src2"/>
+     <Param name="src1">
+      <Type type="unicode"/>
+     </Param>
+     <Param name="src2">
+      <Type type="unicode"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="8981"
@@ -370,8 +462,9 @@
                inherittype="local"
                line="213"
                name="CompareAtStrength"
-               start="8898">
-    <Type>function</Type>
+               start="8898"
+               type="function">
+    <Type type="integer4"/>
     <Documentation>
      <content>&#10;&#32;* Compares the two strings case insensitively.  Equivalent to comparing at strength 2.
  *
@@ -386,9 +479,15 @@
  * @see                 Std.Uni.CompareAtStrength&#10;</content>
     </Documentation>
     <Params>
-     <Param name="src1"/>
-     <Param name="src2"/>
-     <Param name="strength"/>
+     <Param name="src1">
+      <Type type="unicode"/>
+     </Param>
+     <Param name="src2">
+      <Type type="unicode"/>
+     </Param>
+     <Param name="strength">
+      <Type type="integer1"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="9480"
@@ -398,8 +497,9 @@
                inherittype="local"
                line="225"
                name="LocaleCompareIgnoreCase"
-               start="9387">
-    <Type>function</Type>
+               start="9387"
+               type="function">
+    <Type type="integer4"/>
     <Documentation>
      <content>&#10;&#32;* Compares the two strings case insensitively.  Equivalent to comparing at strength 2.
  *
@@ -409,9 +509,15 @@
  * @see                 Std.Uni.CompareAtStrength&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src1"/>
-     <Param name="src2"/>
-     <Param name="locale_name"/>
+     <Param name="src1">
+      <Type type="unicode"/>
+     </Param>
+     <Param name="src2">
+      <Type type="unicode"/>
+     </Param>
+     <Param name="locale_name">
+      <Type type="varstring"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="10577"
@@ -421,8 +527,9 @@
                inherittype="local"
                line="242"
                name="LocaleCompareAtStrength"
-               start="10465">
-    <Type>function</Type>
+               start="10465"
+               type="function">
+    <Type type="integer4"/>
     <Documentation>
      <content>&#10;&#32;* Compares the two strings case insensitively.  Equivalent to comparing at strength 2.
  *
@@ -437,10 +544,18 @@
                         5 differentiates between all strings whose canonically decomposed forms (NFDNormalization Form D) are non-identical&#10;</content>
     </Documentation>
     <Params>
-     <Param name="src1"/>
-     <Param name="src2"/>
-     <Param name="locale_name"/>
-     <Param name="strength"/>
+     <Param name="src1">
+      <Type type="unicode"/>
+     </Param>
+     <Param name="src2">
+      <Type type="unicode"/>
+     </Param>
+     <Param name="locale_name">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="strength">
+      <Type type="integer1"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="10913"
@@ -450,8 +565,9 @@
                inherittype="local"
                line="252"
                name="Reverse"
-               start="10875">
-    <Type>function</Type>
+               start="10875"
+               type="function">
+    <Type type="unicode"/>
     <Documentation>
      <content>&#10;&#32;* Returns the argument string with all characters in reverse order.
  * Note the argument is not TRIMMED before it is reversed.
@@ -459,7 +575,9 @@
  * @param src           The string that is being reversed.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src"/>
+     <Param name="src">
+      <Type type="unicode"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="11349"
@@ -469,8 +587,9 @@
                inherittype="local"
                line="263"
                name="FindReplace"
-               start="11270">
-    <Type>function</Type>
+               start="11270"
+               type="function">
+    <Type type="unicode"/>
     <Documentation>
      <content>&#10;&#32;* Returns the source string with the replacement string substituted for all instances of the search string.
  *
@@ -479,9 +598,15 @@
  * @param replacement   The string to be substituted into the result.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src"/>
-     <Param name="sought"/>
-     <Param name="replacement"/>
+     <Param name="src">
+      <Type type="unicode"/>
+     </Param>
+     <Param name="sought">
+      <Type type="unicode"/>
+     </Param>
+     <Param name="replacement">
+      <Type type="unicode"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="11900"
@@ -491,8 +616,9 @@
                inherittype="local"
                line="275"
                name="LocaleFindReplace"
-               start="11792">
-    <Type>function</Type>
+               start="11792"
+               type="function">
+    <Type type="unicode"/>
     <Documentation>
      <content>&#10;&#32;* Returns the source string with the replacement string substituted for all instances of the search string.
  *
@@ -502,10 +628,18 @@
  * @param locale_name   The locale to use for the comparison&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src"/>
-     <Param name="sought"/>
-     <Param name="replacement"/>
-     <Param name="locale_name"/>
+     <Param name="src">
+      <Type type="unicode"/>
+     </Param>
+     <Param name="sought">
+      <Type type="unicode"/>
+     </Param>
+     <Param name="replacement">
+      <Type type="unicode"/>
+     </Param>
+     <Param name="locale_name">
+      <Type type="varstring"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="12554"
@@ -515,8 +649,9 @@
                inherittype="local"
                line="288"
                name="LocaleFindAtStrengthReplace"
-               start="12417">
-    <Type>function</Type>
+               start="12417"
+               type="function">
+    <Type type="unicode"/>
     <Documentation>
      <content>&#10;&#32;* Returns the source string with the replacement string substituted for all instances of the search string.
  *
@@ -527,11 +662,21 @@
  * @param strength      The strength of the comparison&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src"/>
-     <Param name="sought"/>
-     <Param name="replacement"/>
-     <Param name="locale_name"/>
-     <Param name="strength"/>
+     <Param name="src">
+      <Type type="unicode"/>
+     </Param>
+     <Param name="sought">
+      <Type type="unicode"/>
+     </Param>
+     <Param name="replacement">
+      <Type type="unicode"/>
+     </Param>
+     <Param name="locale_name">
+      <Type type="varstring"/>
+     </Param>
+     <Param name="strength">
+      <Type type="integer1"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="12872"
@@ -541,15 +686,18 @@
                inherittype="local"
                line="297"
                name="CleanAccents"
-               start="12829">
-    <Type>function</Type>
+               start="12829"
+               type="function">
+    <Type type="unicode"/>
     <Documentation>
      <content>&#10;&#32;* Returns the source string with all accented characters replaced with unaccented.
  *
  * @param src           The string that is being transformed.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src"/>
+     <Param name="src">
+      <Type type="unicode"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="13277"
@@ -559,8 +707,9 @@
                inherittype="local"
                line="308"
                name="CleanSpaces"
-               start="13235">
-    <Type>function</Type>
+               start="13235"
+               type="function">
+    <Type type="unicode"/>
     <Documentation>
      <content>&#10;&#32;* Returns the source string with all instances of multiple adjacent space characters (2 or more spaces together)
  * reduced to a single space character.  Leading and trailing spaces are removed, and tab characters are converted
@@ -569,7 +718,9 @@
  * @param src           The string to be cleaned.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src"/>
+     <Param name="src">
+      <Type type="unicode"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="13754"
@@ -579,8 +730,9 @@
                inherittype="local"
                line="320"
                name="WildMatch"
-               start="13679">
-    <Type>function</Type>
+               start="13679"
+               type="function">
+    <Type type="boolean"/>
     <Documentation>
      <content>&#10;&#32;* Tests if the search string matches the pattern.
  * The pattern can contain wildcards &apos;?&apos; (single character) and &apos;*&apos; (multiple character).
@@ -590,9 +742,15 @@
  * @param ignore_case   Whether to ignore differences in case between characters&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src"/>
-     <Param name="_pattern"/>
-     <Param name="_noCase"/>
+     <Param name="src">
+      <Type type="unicode"/>
+     </Param>
+     <Param name="_pattern">
+      <Type type="unicode"/>
+     </Param>
+     <Param name="_noCase">
+      <Type type="boolean"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="14300"
@@ -602,8 +760,9 @@
                inherittype="local"
                line="332"
                name="Contains"
-               start="14226">
-    <Type>function</Type>
+               start="14226"
+               type="function">
+    <Type type="boolean"/>
     <Documentation>
      <content>&#10;&#32;* Tests if the search string contains each of the characters in the pattern.
  * If the pattern contains duplicate characters those characters will match once for each occurence in the pattern.
@@ -613,9 +772,15 @@
  * @param ignore_case   Whether to ignore differences in case between characters&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="src"/>
-     <Param name="_pattern"/>
-     <Param name="_noCase"/>
+     <Param name="src">
+      <Type type="unicode"/>
+     </Param>
+     <Param name="_pattern">
+      <Type type="unicode"/>
+     </Param>
+     <Param name="_noCase">
+      <Type type="boolean"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="14908"
@@ -625,8 +790,9 @@
                inherittype="local"
                line="345"
                name="EditDistance"
-               start="14818">
-    <Type>function</Type>
+               start="14818"
+               type="function">
+    <Type type="unsigned4"/>
     <Documentation>
      <content>&#10;&#32;* Returns the minimum edit distance between the two strings.  An insert change or delete counts as a single edit.
  * The two strings are trimmed before comparing.
@@ -637,9 +803,15 @@
  * @return              The minimum edit distance between the two strings.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="_left"/>
-     <Param name="_right"/>
-     <Param name="localename"/>
+     <Param name="_left">
+      <Type type="unicode"/>
+     </Param>
+     <Param name="_right">
+      <Type type="unicode"/>
+     </Param>
+     <Param name="localename">
+      <Type type="varstring"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="15632"
@@ -649,8 +821,9 @@
                inherittype="local"
                line="359"
                name="EditDistanceWithinRadius"
-               start="15514">
-    <Type>function</Type>
+               start="15514"
+               type="function">
+    <Type type="boolean"/>
     <Documentation>
      <content>&#10;&#32;* Returns true if the minimum edit distance between the two strings is with a specific range.
  * The two strings are trimmed before comparing.
@@ -662,10 +835,18 @@
  * @return              Whether or not the two strings are within the given specified edit distance.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="_left"/>
-     <Param name="_right"/>
-     <Param name="radius"/>
-     <Param name="localename"/>
+     <Param name="_left">
+      <Type type="unicode"/>
+     </Param>
+     <Param name="_right">
+      <Type type="unicode"/>
+     </Param>
+     <Param name="radius">
+      <Type type="unsigned4"/>
+     </Param>
+     <Param name="localename">
+      <Type type="varstring"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="16129"
@@ -675,8 +856,9 @@
                inherittype="local"
                line="370"
                name="WordCount"
-               start="16059">
-    <Type>function</Type>
+               start="16059"
+               type="function">
+    <Type type="unsigned4"/>
     <Documentation>
      <content>&#10;&#32;* Returns the number of words in the string.  Word boundaries are marked by the unicode break semantics.
  *
@@ -685,8 +867,12 @@
  * @return              The number of words in the string.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="text"/>
-     <Param name="localename"/>
+     <Param name="text">
+      <Type type="unicode"/>
+     </Param>
+     <Param name="localename">
+      <Type type="varstring"/>
+     </Param>
     </Params>
    </Definition>
    <Definition body="16675"
@@ -696,8 +882,9 @@
                inherittype="local"
                line="382"
                name="GetNthWord"
-               start="16593">
-    <Type>function</Type>
+               start="16593"
+               type="function">
+    <Type type="unicode"/>
     <Documentation>
      <content>&#10;&#32;* Returns the n-th word from the string.  Word boundaries are marked by the unicode break semantics.
  *
@@ -707,9 +894,15 @@
  * @return              The number of words in the string.&#10;&#32;</content>
     </Documentation>
     <Params>
-     <Param name="text"/>
-     <Param name="n"/>
-     <Param name="localename"/>
+     <Param name="text">
+      <Type type="unicode"/>
+     </Param>
+     <Param name="n">
+      <Type type="unsigned4"/>
+     </Param>
+     <Param name="localename">
+      <Type type="varstring"/>
+     </Param>
     </Params>
    </Definition>
    <Parents/>

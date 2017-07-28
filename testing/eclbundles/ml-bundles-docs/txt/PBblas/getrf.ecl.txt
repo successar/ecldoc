@@ -41,9 +41,12 @@ Triangle (diagonal all ones), so the diagonal contained in the returned
 matrix is for the Upper factor and must be ignored (i.e. assumed to be all
 ones) when referencing the Lower triangle.
 
-Parameter : A ||| The input matrix in Types.Layout_Cell format
+Parameter : A TABLE ( Layout_Cell ) --- The input matrix in
+              Types.Layout_Cell format
 
-Return : Resulting factored matrix in Layout_Cell format
+Return : TABLE ( { UNSIGNED2 wi_id , UNSIGNED4 x ,
+         UNSIGNED4 y , REAL8 v } ) Resulting factored
+         matrix in Layout_Cell format
 
 See : Types.Layout_Cell
 

@@ -21,10 +21,12 @@ diag(V). The input X must be a 1 x N column vector or an N x 1 row vector.
 The resulting matrix, in either case will be N x N, with zero everywhere
 except the diagonal.
 
-Parameter : X ||| A row or column vector (i.e. N x 1 or 1 x N)
-            in Layout_Cell format
+Parameter : X TABLE ( Layout_Cell ) --- A row or column vector
+              (i.e. N x 1 or 1 x N) in Layout_Cell format
 
-Return : An N x N matrix in Layout_Cell format
+Return : TABLE ( { UNSIGNED2 wi_id , UNSIGNED4 x ,
+         UNSIGNED4 y , REAL8 v } ) An N x N matrix in
+         Layout_Cell format
 
 See : PBblas/Types.Layout_cell
 

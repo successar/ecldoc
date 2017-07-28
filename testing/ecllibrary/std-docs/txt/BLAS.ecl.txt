@@ -11,33 +11,61 @@ DESCRIPTIONS
 MODULE : BLAS
 ----------------------------------------------------------------------------------------------------------------------------------
 
+No Documentation Found
+
   | ----------------------------------------------------------------------------------------------------------------------------------
   | MODULE : Types
   | ----------------------------------------------------------------------------------------------------------------------------------
+  | 
+  | No Documentation Found
   | 
   |   | ----------------------------------------------------------------------------------------------------------------------------------
   |   | ATTRIBUTE : value_t
   |   | ----------------------------------------------------------------------------------------------------------------------------------
   |   | 
+  |   | No Documentation Found
+  |   | 
+  |   | Return : REAL8
+  |   | 
   |   | ----------------------------------------------------------------------------------------------------------------------------------
   |   | ATTRIBUTE : dimension_t
   |   | ----------------------------------------------------------------------------------------------------------------------------------
+  |   | 
+  |   | No Documentation Found
+  |   | 
+  |   | Return : UNSIGNED4
   |   | 
   |   | ----------------------------------------------------------------------------------------------------------------------------------
   |   | ATTRIBUTE : matrix_t
   |   | ----------------------------------------------------------------------------------------------------------------------------------
   |   | 
+  |   | No Documentation Found
+  |   | 
+  |   | Return : SET ( REAL8 )
+  |   | 
   |   | ----------------------------------------------------------------------------------------------------------------------------------
   |   | ATTRIBUTE : Triangle
   |   | ----------------------------------------------------------------------------------------------------------------------------------
+  |   | 
+  |   | No Documentation Found
+  |   | 
+  |   | Return : UNSIGNED1
   |   | 
   |   | ----------------------------------------------------------------------------------------------------------------------------------
   |   | ATTRIBUTE : Diagonal
   |   | ----------------------------------------------------------------------------------------------------------------------------------
   |   | 
+  |   | No Documentation Found
+  |   | 
+  |   | Return : UNSIGNED1
+  |   | 
   |   | ----------------------------------------------------------------------------------------------------------------------------------
   |   | ATTRIBUTE : Side
   |   | ----------------------------------------------------------------------------------------------------------------------------------
+  |   | 
+  |   | No Documentation Found
+  |   | 
+  |   | Return : UNSIGNED1
   |   | 
   | ----------------------------------------------------------------------------------------------------------------------------------
   | FUNCTION : Types.value_t ICellFunc(Types.value_t v, Types.dimension_t r, Types.dimension_t c)
@@ -45,13 +73,13 @@ MODULE : BLAS
   | 
   | Function prototype for Apply2Cell.
   | 
-  | Parameter : v ||| the value
+  | Parameter : v REAL8 --- the value
   | 
-  | Parameter : r ||| the row ordinal
+  | Parameter : c UNSIGNED4 --- the column ordinal
   | 
-  | Parameter : c ||| the column ordinal
+  | Parameter : r UNSIGNED4 --- the row ordinal
   | 
-  | Return : the updated value
+  | Return : REAL8 the updated value
   | 
   | ----------------------------------------------------------------------------------------------------------------------------------
   | FUNCTION : Types.matrix_t Apply2Cells(Types.dimension_t m, Types.dimension_t n, Types.matrix_t x,
@@ -60,15 +88,16 @@ MODULE : BLAS
   | 
   | Iterate matrix and apply function to each cell
   | 
-  | Parameter : m ||| number of rows
+  | Parameter : f FUNCTION [ REAL8 , UNSIGNED4 , UNSIGNED4 ] ( REAL8
+  |               ) --- function to apply
   | 
-  | Parameter : n ||| number of columns
+  | Parameter : x SET ( REAL8 ) --- matrix
   | 
-  | Parameter : x ||| matrix
+  | Parameter : n UNSIGNED4 --- number of columns
   | 
-  | Parameter : f ||| function to apply
+  | Parameter : m UNSIGNED4 --- number of rows
   | 
-  | Return : updated matrix
+  | Return : SET ( REAL8 ) updated matrix
   | 
   | ----------------------------------------------------------------------------------------------------------------------------------
   | FUNCTION : Types.value_t dasum(Types.dimension_t m, Types.matrix_t x, Types.dimension_t incx,
@@ -77,17 +106,18 @@ MODULE : BLAS
   | 
   | Absolute sum, the 1 norm of a vector.
   | 
-  | Parameter : m ||| the number of entries
+  | Parameter : skipped UNSIGNED4 --- default is zero, the number of
+  |                     entries stepped over to get to the first entry
   | 
-  | Parameter : x ||| the column major matrix holding the vector
+  | Parameter : incx UNSIGNED4 --- the increment for x, 1 in the case
+  |                  of an actual vector
   | 
-  | Parameter : incx ||| the increment for x, 1 in the case of an
-  |             actual vector
+  | Parameter : x SET ( REAL8 ) --- the column major matrix holding
+  |               the vector
   | 
-  | Parameter : skipped ||| default is zero, the number of entries
-  |             stepped over to get to the first entry
+  | Parameter : m UNSIGNED4 --- the number of entries
   | 
-  | Return : the sum of the absolute values
+  | Return : REAL8 the sum of the absolute values
   | 
   | ----------------------------------------------------------------------------------------------------------------------------------
   | FUNCTION : Types.matrix_t daxpy(Types.dimension_t N, Types.value_t alpha, Types.matrix_t X,
@@ -97,25 +127,28 @@ MODULE : BLAS
   | 
   | alpha*X + Y
   | 
-  | Parameter : N ||| number of elements in vector
+  | Parameter : y_skipped UNSIGNED4 --- number of entries skipped to get to
+  |                       the first Y
   | 
-  | Parameter : alpha ||| the scalar multiplier
+  | Parameter : X SET ( REAL8 ) --- the column major matrix holding
+  |               the vector X
   | 
-  | Parameter : X ||| the column major matrix holding the vector X
+  | Parameter : incX UNSIGNED4 --- the increment or stride for the
+  |                  vector
   | 
-  | Parameter : incX ||| the increment or stride for the vector
+  | Parameter : N UNSIGNED4 --- number of elements in vector
   | 
-  | Parameter : Y ||| the column major matrix holding the vector Y
+  | Parameter : alpha REAL8 --- the scalar multiplier
   | 
-  | Parameter : incY ||| the increment or stride of Y
+  | Parameter : Y SET ( REAL8 ) --- the column major matrix holding
+  |               the vector Y
   | 
-  | Parameter : x_skipped ||| number of entries skipped to get to
-  |             the first X
+  | Parameter : incY UNSIGNED4 --- the increment or stride of Y
   | 
-  | Parameter : y_skipped ||| number of entries skipped to get to
-  |             the first Y
+  | Parameter : x_skipped UNSIGNED4 --- number of entries skipped to get to
+  |                       the first X
   | 
-  | Return : the updated matrix
+  | Return : SET ( REAL8 ) the updated matrix
   | 
   | ----------------------------------------------------------------------------------------------------------------------------------
   | FUNCTION : Types.matrix_t dgemm(BOOLEAN transposeA, BOOLEAN transposeB, Types.dimension_t M,
@@ -125,26 +158,28 @@ MODULE : BLAS
   | 
   | alpha*op(A) op(B) + beta*C where op() is transpose
   | 
-  | Parameter : transposeA ||| true when transpose of A is used
+  | Parameter : B SET ( REAL8 ) --- matrix B
   | 
-  | Parameter : transposeB ||| true when transpose of B is used
+  | Parameter : A SET ( REAL8 ) --- matrix A
   | 
-  | Parameter : M ||| number of rows in product
+  | Parameter : transposeB BOOLEAN --- true when transpose of B is used
   | 
-  | Parameter : N ||| number of columns in product
+  | Parameter : K UNSIGNED4 --- number of columns/rows for the
+  |               multiplier/multiplicand
   | 
-  | Parameter : K ||| number of columns/rows for the
-  |             multiplier/multiplicand
+  | Parameter : transposeA BOOLEAN --- true when transpose of A is used
   | 
-  | Parameter : alpha ||| scalar used on A
+  | Parameter : alpha REAL8 --- scalar used on A
   | 
-  | Parameter : A ||| matrix A
+  | Parameter : beta REAL8 --- scalar for matrix C
   | 
-  | Parameter : B ||| matrix B
+  | Parameter : C SET ( REAL8 ) --- matrix C or empty
   | 
-  | Parameter : beta ||| scalar for matrix C
+  | Parameter : M UNSIGNED4 --- number of rows in product
   | 
-  | Parameter : C ||| matrix C or empty
+  | Parameter : N UNSIGNED4 --- number of columns in product
+  | 
+  | Return : SET ( REAL8 )
   | 
   | ----------------------------------------------------------------------------------------------------------------------------------
   | FUNCTION : Types.matrix_t dgetf2(Types.dimension_t m, Types.dimension_t n, Types.matrix_t a)
@@ -152,13 +187,15 @@ MODULE : BLAS
   | 
   | Compute LU Factorization of matrix A.
   | 
-  | Parameter : m ||| number of rows of A
+  | Parameter : n UNSIGNED4 --- number of columns of A
   | 
-  | Parameter : n ||| number of columns of A
+  | Parameter : m UNSIGNED4 --- number of rows of A
   | 
-  | Return : composite matrix of factors, lower triangle has an
-  |          implied diagonal of ones. Upper triangle has the
-  |          diagonal of the composite.
+  | Parameter : a SET ( REAL8 ) --- No Doc
+  | 
+  | Return : SET ( REAL8 ) composite matrix of factors, lower
+  |          triangle has an implied diagonal of ones. Upper
+  |          triangle has the diagonal of the composite.
   | 
   | ----------------------------------------------------------------------------------------------------------------------------------
   | FUNCTION : Types.matrix_t dpotf2(Types.Triangle tri, Types.dimension_t r, Types.matrix_t A, BOOLEAN
@@ -171,16 +208,17 @@ MODULE : BLAS
   | and L is lower triangular. This is the unblocked version of the algorithm,
   | calling Level 2 BLAS.
   | 
-  | Parameter : tri ||| indicate whether upper or lower triangle
-  |             is used
+  | Parameter : tri UNSIGNED1 --- indicate whether upper or lower
+  |                 triangle is used
   | 
-  | Parameter : r ||| number of rows/columns in the square matrix
+  | Parameter : A SET ( REAL8 ) --- the square matrix
   | 
-  | Parameter : A ||| the square matrix
+  | Parameter : r UNSIGNED4 --- number of rows/columns in the square
+  |               matrix
   | 
-  | Parameter : clear ||| clears the unused triangle
+  | Parameter : clear BOOLEAN --- clears the unused triangle
   | 
-  | Return : the triangular matrix requested.
+  | Return : SET ( REAL8 ) the triangular matrix requested.
   | 
   | ----------------------------------------------------------------------------------------------------------------------------------
   | FUNCTION : Types.matrix_t dscal(Types.dimension_t N, Types.value_t alpha, Types.matrix_t X,
@@ -189,19 +227,20 @@ MODULE : BLAS
   | 
   | Scale a vector alpha
   | 
-  | Parameter : N ||| number of elements in the vector
+  | Parameter : alpha REAL8 --- the scaling factor
   | 
-  | Parameter : alpha ||| the scaling factor
+  | Parameter : X SET ( REAL8 ) --- the column major matrix holding
+  |               the vector
   | 
-  | Parameter : X ||| the column major matrix holding the vector
+  | Parameter : incX UNSIGNED4 --- the stride to get to the next
+  |                  element in the vector
   | 
-  | Parameter : incX ||| the stride to get to the next element in
-  |             the vector
+  | Parameter : N UNSIGNED4 --- number of elements in the vector
   | 
-  | Parameter : skipped ||| the number of elements skipped to get
-  |             to the first element
+  | Parameter : skipped UNSIGNED4 --- the number of elements skipped to
+  |                     get to the first element
   | 
-  | Return : the updated matrix
+  | Return : SET ( REAL8 ) the updated matrix
   | 
   | ----------------------------------------------------------------------------------------------------------------------------------
   | FUNCTION : Types.matrix_t dsyrk(Types.Triangle tri, BOOLEAN transposeA, Types.dimension_t N,
@@ -211,27 +250,30 @@ MODULE : BLAS
   | 
   | Implements symmetric rank update C
   | 
-  | Parameter : tri ||| update upper or lower triangle
+  | Parameter : tri UNSIGNED1 --- update upper or lower triangle
   | 
-  | Parameter : transposeA ||| Transpose the A matrix to be NxK
+  | Parameter : A SET ( REAL8 ) --- the update matrix, either NxK or
+  |               KxN
   | 
-  | Parameter : N ||| number of rows
+  | Parameter : K UNSIGNED4 --- number of columns in the update
+  |               matrix or transpose
   | 
-  | Parameter : K ||| number of columns in the update matrix or
-  |             transpose
+  | Parameter : transposeA BOOLEAN --- Transpose the A matrix to be NxK
   | 
-  | Parameter : alpha ||| the alpha scalar
+  | Parameter : clear BOOLEAN --- clear the triangle that is not
+  |                   updated. BLAS assumes that symmetric matrices have
+  |                   only one of the triangles and this option lets you
+  |                   make that true.
   | 
-  | Parameter : A ||| the update matrix, either NxK or KxN
+  | Parameter : alpha REAL8 --- the alpha scalar
   | 
-  | Parameter : beta ||| the beta scalar
+  | Parameter : beta REAL8 --- the beta scalar
   | 
-  | Parameter : C ||| the matrix to update
+  | Parameter : C SET ( REAL8 ) --- the matrix to update
   | 
-  | Parameter : clear ||| clear the triangle that is not updated.
-  |             BLAS assumes that symmetric matrices have only one
-  |             of the triangles and this option lets you make
-  |             that true.
+  | Parameter : N UNSIGNED4 --- number of rows
+  | 
+  | Return : SET ( REAL8 )
   | 
   | ----------------------------------------------------------------------------------------------------------------------------------
   | FUNCTION : Types.matrix_t dtrsm(Types.Side side, Types.Triangle tri, BOOLEAN transposeA,
@@ -242,29 +284,32 @@ MODULE : BLAS
   | Triangular matrix solver. op(A) X = alpha B or X op(A) = alpha B where op
   | is Transpose, X and B is MxN
   | 
-  | Parameter : side ||| side for A, Side.Ax is op(A) X = alpha B
+  | Parameter : B SET ( REAL8 ) --- the matrix of values for the
+  |               solve
   | 
-  | Parameter : tri ||| Says whether A is Upper or Lower triangle
+  | Parameter : tri UNSIGNED1 --- Says whether A is Upper or Lower
+  |                 triangle
   | 
-  | Parameter : transposeA ||| is op(A) the transpose of A
+  | Parameter : A SET ( REAL8 ) --- a triangular matrix
   | 
-  | Parameter : diag ||| is the diagonal an implied unit diagonal
-  |             or supplied
+  | Parameter : M UNSIGNED4 --- number of rows
   | 
-  | Parameter : M ||| number of rows
+  | Parameter : transposeA BOOLEAN --- is op(A) the transpose of A
   | 
-  | Parameter : N ||| number of columns
+  | Parameter : side UNSIGNED1 --- side for A, Side.Ax is op(A) X =
+  |                  alpha B
   | 
-  | Parameter : lda ||| the leading dimension of the A matrix,
-  |             either M or N
+  | Parameter : alpha REAL8 --- the scalar multiplier for B
   | 
-  | Parameter : alpha ||| the scalar multiplier for B
+  | Parameter : lda UNSIGNED4 --- the leading dimension of the A
+  |                 matrix, either M or N
   | 
-  | Parameter : A ||| a triangular matrix
+  | Parameter : diag UNSIGNED1 --- is the diagonal an implied unit
+  |                  diagonal or supplied
   | 
-  | Parameter : B ||| the matrix of values for the solve
+  | Parameter : N UNSIGNED4 --- number of columns
   | 
-  | Return : the matrix of coefficients to get B.
+  | Return : SET ( REAL8 ) the matrix of coefficients to get B.
   | 
   | ----------------------------------------------------------------------------------------------------------------------------------
   | FUNCTION : Types.matrix_t extract_diag(Types.dimension_t m, Types.dimension_t n, Types.matrix_t x)
@@ -272,13 +317,14 @@ MODULE : BLAS
   | 
   | Extract the diagonal of he matrix
   | 
-  | Parameter : m ||| number of rows
+  | Parameter : x SET ( REAL8 ) --- matrix from which to extract the
+  |               diagonal
   | 
-  | Parameter : n ||| number of columns
+  | Parameter : n UNSIGNED4 --- number of columns
   | 
-  | Parameter : x ||| matrix from which to extract the diagonal
+  | Parameter : m UNSIGNED4 --- number of rows
   | 
-  | Return : diagonal matrix
+  | Return : SET ( REAL8 ) diagonal matrix
   | 
   | ----------------------------------------------------------------------------------------------------------------------------------
   | FUNCTION : Types.matrix_t extract_tri(Types.dimension_t m, Types.dimension_t n, Types.Triangle tri,
@@ -288,18 +334,20 @@ MODULE : BLAS
   | Extract the upper or lower triangle. Diagonal can be actual or implied unit
   | diagonal.
   | 
-  | Parameter : m ||| number of rows
+  | Parameter : dt UNSIGNED1 --- Use Diagonal.NotUnitTri or
+  |                Diagonal.UnitTri
   | 
-  | Parameter : n ||| number of columns
+  | Parameter : tri UNSIGNED1 --- Upper or Lower specifier,
+  |                 Triangle.Lower or Triangle.Upper
   | 
-  | Parameter : tri ||| Upper or Lower specifier, Triangle.Lower
-  |             or Triangle.Upper
+  | Parameter : a SET ( REAL8 ) --- Matrix, usually a composite from
+  |               factoring
   | 
-  | Parameter : dt ||| Use Diagonal.NotUnitTri or Diagonal.UnitTri
+  | Parameter : n UNSIGNED4 --- number of columns
   | 
-  | Parameter : a ||| Matrix, usually a composite from factoring
+  | Parameter : m UNSIGNED4 --- number of rows
   | 
-  | Return : the triangle
+  | Return : SET ( REAL8 ) the triangle
   | 
   | ----------------------------------------------------------------------------------------------------------------------------------
   | FUNCTION : Types.matrix_t make_diag(Types.dimension_t m, Types.value_t v=1.0, Types.matrix_t X=[])
@@ -307,14 +355,14 @@ MODULE : BLAS
   | 
   | Generate a diagonal matrix.
   | 
-  | Parameter : m ||| number of diagonal entries
+  | Parameter : X SET ( REAL8 ) --- optional input of diagonal
+  |               values, multiplied by v.
   | 
-  | Parameter : v ||| option value, defaults to 1
+  | Parameter : v REAL8 --- option value, defaults to 1
   | 
-  | Parameter : X ||| optional input of diagonal values,
-  |             multiplied by v.
+  | Parameter : m UNSIGNED4 --- number of diagonal entries
   | 
-  | Return : a diagonal matrix
+  | Return : SET ( REAL8 ) a diagonal matrix
   | 
   | ----------------------------------------------------------------------------------------------------------------------------------
   | FUNCTION : Types.matrix_t make_vector(Types.dimension_t m, Types.value_t v=1.0)
@@ -322,11 +370,11 @@ MODULE : BLAS
   | 
   | Make a vector of dimension m
   | 
-  | Parameter : m ||| number of elements
+  | Parameter : v REAL8 --- the values, defaults to 1
   | 
-  | Parameter : v ||| the values, defaults to 1
+  | Parameter : m UNSIGNED4 --- number of elements
   | 
-  | Return : the vector
+  | Return : SET ( REAL8 ) the vector
   | 
   | ----------------------------------------------------------------------------------------------------------------------------------
   | FUNCTION : Types.value_t trace(Types.dimension_t m, Types.dimension_t n, Types.matrix_t x)
@@ -334,11 +382,11 @@ MODULE : BLAS
   | 
   | The trace of the input matrix
   | 
-  | Parameter : m ||| number of rows
+  | Parameter : x SET ( REAL8 ) --- the matrix
   | 
-  | Parameter : n ||| number of columns
+  | Parameter : n UNSIGNED4 --- number of columns
   | 
-  | Parameter : x ||| the matrix
+  | Parameter : m UNSIGNED4 --- number of rows
   | 
-  | Return : the trace (sum of the diagonal entries)
+  | Return : REAL8 the trace (sum of the diagonal entries)
   | 

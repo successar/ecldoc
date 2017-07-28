@@ -12,6 +12,8 @@ DESCRIPTIONS
 MODULE : Distributions
 ----------------------------------------------------------------------------------------------------------------------------------
 
+No Documentation Found
+
   | ----------------------------------------------------------------------------------------------------------------------------------
   | FUNCTION : REAL8 Normal_CDF(REAL8 x)
   | ----------------------------------------------------------------------------------------------------------------------------------
@@ -21,7 +23,9 @@ MODULE : Distributions
   | deviations above or below the mean. Taken from C/C++ Mathematical
   | Algorithms for Scientists and Engineers, n. Shammas, McGraw-Hill, 1995
   | 
-  | Parameter : x ||| the number of standard deviations
+  | Parameter : x REAL8 --- the number of standard deviations
+  | 
+  | Return : REAL8
   | 
   | ----------------------------------------------------------------------------------------------------------------------------------
   | FUNCTION : REAL8 Normal_PPF(REAL8 x)
@@ -31,7 +35,9 @@ MODULE : Distributions
   | Mathematical Algorithms for Scientists and Engineers, N. Shammas, McGraw-
   | Hill, 1995
   | 
-  | Parameter : x ||| probability
+  | Parameter : x REAL8 --- probability
+  | 
+  | Return : REAL8
   | 
   | ----------------------------------------------------------------------------------------------------------------------------------
   | FUNCTION : REAL8 T_CDF(REAL8 x, REAL8 df)
@@ -40,9 +46,11 @@ MODULE : Distributions
   | Students t distribution integral evaluated between negative infinity and x.
   | Translated from NIST SEL DATAPAC Fortran TCDF.f source
   | 
-  | Parameter : x ||| value of the evaluation
+  | Parameter : x REAL8 --- value of the evaluation
   | 
-  | Parameter : df ||| degrees of freedom
+  | Parameter : df REAL8 --- degrees of freedom
+  | 
+  | Return : REAL8
   | 
   | ----------------------------------------------------------------------------------------------------------------------------------
   | FUNCTION : REAL8 T_PPF(REAL8 x, REAL8 df)
@@ -50,6 +58,12 @@ MODULE : Distributions
   | 
   | Percentage point function for the T distribution. Translated from NIST SEL
   | DATAPAC Fortran TPPF.f source
+  | 
+  | Parameter : x REAL8 --- No Doc
+  | 
+  | Parameter : df REAL8 --- No Doc
+  | 
+  | Return : REAL8
   | 
   | ----------------------------------------------------------------------------------------------------------------------------------
   | FUNCTION : REAL8 Chi2_CDF(REAL8 x, REAL8 df)
@@ -59,10 +73,22 @@ MODULE : Distributions
   | CDF for the specfied degrees of freedom. Translated from the NIST SEL
   | DATAPAC Fortran subroutine CHSCDF.
   | 
+  | Parameter : x REAL8 --- No Doc
+  | 
+  | Parameter : df REAL8 --- No Doc
+  | 
+  | Return : REAL8
+  | 
   | ----------------------------------------------------------------------------------------------------------------------------------
   | FUNCTION : REAL8 Chi2_PPF(REAL8 x, REAL8 df)
   | ----------------------------------------------------------------------------------------------------------------------------------
   | 
   | The Chi Squared PPF function. Translated from the NIST SEL DATAPAC Fortran
   | subroutine CHSPPF.
+  | 
+  | Parameter : x REAL8 --- No Doc
+  | 
+  | Parameter : df REAL8 --- No Doc
+  | 
+  | Return : REAL8
   | 

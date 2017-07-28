@@ -32,13 +32,36 @@ LogitScore}}
 }
 
 \par
+
+
+
+
+
 Calculate the score using the logit function and the the supplied beta coefficients.
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{coef}} the model beta coefficients
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{independents}} the observations
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{\underline{}} the raw prediction value
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{independents}} ||| TABLE ( NumericField ) --- the observations
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{coef}} ||| TABLE ( Model\_Coef ) --- the model beta coefficients
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{TABLE ( \{ UNSIGNED2 wi , UNSIGNED8 id , UNSIGNED4 number , REAL8 raw \} )} --- the raw prediction value
+\end{description}
+
+
+
 
 \rule{\linewidth}{0.5pt}

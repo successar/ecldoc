@@ -23,18 +23,20 @@ FUNCTION : DATASET(Layout_Model) GetModel_local(DATASET(NumericField) independen
 Internal function to determine values for the model co-efficients and
 selected stats from building the model.
 
-Parameter : independents ||| the independent values
+Parameter : independents TABLE ( NumericField ) --- the independent values
 
-Parameter : dependents ||| the dependent values.
+Parameter : ridge REAL8 --- a value to populate a diagonal matrix
+                  that is added to a matrix help assure that the
+                  matrix is invertible.
 
-Parameter : max_iter ||| maximum number of iterations to try
+Parameter : epsilon REAL8 --- the minimum change in the Beta value
+                    estimate to continue
 
-Parameter : epsilon ||| the minimum change in the Beta value
-            estimate to continue
+Parameter : dependents TABLE ( DiscreteField ) --- the dependent values.
 
-Parameter : ridge ||| a value to populate a diagonal matrix
-            that is added to a matrix help assure that the
-            matrix is invertible.
+Parameter : max_iter UNSIGNED2 --- maximum number of iterations to try
 
-Return : coefficient matrix plus model building stats
+Return : TABLE ( { UNSIGNED2 wi , UNSIGNED8 id , UNSIGNED4
+         number , REAL8 value } ) coefficient matrix plus
+         model building stats
 

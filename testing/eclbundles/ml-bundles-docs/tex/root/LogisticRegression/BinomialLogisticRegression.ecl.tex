@@ -33,14 +33,38 @@ BinomialLogisticRegression}}
 }
 
 \par
+
+
+
+
+
 Binomial logistic regression using iteratively re-weighted least squares.
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{max\_iter}} maximum number of iterations to try
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{epsilon}} the minimum change in the Beta value estimate to continue
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{ridge}} a value to populate a diagonal matrix that is added to a matrix help assure that the matrix is invertible.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{ridge}} ||| REAL8 --- a value to populate a diagonal matrix that is added to a matrix help assure that the matrix is invertible.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{epsilon}} ||| REAL8 --- the minimum change in the Beta value estimate to continue
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{max\_iter}} ||| UNSIGNED8 --- maximum number of iterations to try
 \end{description}
+
+
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARENT}}}] \textbf{ML\_Core.Interfaces.IClassify} <../ML\_Core/Interfaces/IClassify.ecl.xml>
+\end{description}
+
 
 \textbf{Children}
 \begin{enumerate}
@@ -71,15 +95,46 @@ GetModel}}
 }
 
 \par
+
+
+
+
+
 Calculate the model to fit the observation data to the observed classes.
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{observations}} the observed explanatory values
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{classifications}} the observed classification used to build the model
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{\underline{}} the encoded model
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{OVERRIDE}}}] \textbf{\underline{}} True
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{classifications}} ||| TABLE ( DiscreteField ) --- the observed classification used to build the model
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{observations}} ||| TABLE ( NumericField ) --- the observed explanatory values
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{TABLE ( \{ UNSIGNED2 wi , UNSIGNED8 id , UNSIGNED4 number , REAL8 value \} )} --- the encoded model
+\end{description}
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{OVERRIDE}}}] 
+\end{description}
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} FUNCTION}
@@ -99,15 +154,46 @@ Classify}}
 }
 
 \par
+
+
+
+
+
 Classify the observations using a model.
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{model}} The model, which must be produced by a corresponding getModel function.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{new\_observations}} observations to be classified
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{\underline{}} Classification with a confidence value
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{OVERRIDE}}}] \textbf{\underline{}} True
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{new\_observations}} ||| TABLE ( NumericField ) --- observations to be classified
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{model}} ||| TABLE ( Layout\_Model ) --- The model, which must be produced by a corresponding getModel function.
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{TABLE ( \{ UNSIGNED2 wi , UNSIGNED8 id , UNSIGNED4 number , INTEGER4 value , REAL8 conf \} )} --- Classification with a confidence value
+\end{description}
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{OVERRIDE}}}] 
+\end{description}
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} FUNCTION}
@@ -127,16 +213,47 @@ Report}}
 }
 
 \par
+
+
+
+
+
 Report the confusion matrix for the classifier and training data.
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{model}} the encoded model
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{observations}} the explanatory values.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{classifications}} the classifications associated with the observations
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{\underline{}} the confusion matrix showing correct and incorrect results
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{OVERRIDE}}}] \textbf{\underline{}} True
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{classifications}} ||| TABLE ( DiscreteField ) --- the classifications associated with the observations
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{observations}} ||| TABLE ( NumericField ) --- the explanatory values.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{model}} ||| TABLE ( Layout\_Model ) --- the encoded model
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{TABLE ( \{ UNSIGNED2 wi , UNSIGNED4 classifier , INTEGER4 actual\_class , INTEGER4 predict\_class , UNSIGNED4 occurs , BOOLEAN correct \} )} --- the confusion matrix showing correct and incorrect results
+\end{description}
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{OVERRIDE}}}] 
+\end{description}
+
+
 
 \rule{\linewidth}{0.5pt}
 

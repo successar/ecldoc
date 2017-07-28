@@ -14,11 +14,12 @@ FUNCTION : DATASET(Types.NumericField) Fat(DATASET(Types.NumericField) d0, Types
 Will take a potentially sparse file d and fill in the missing with value v
 for Numeric Field datasets
 
-Parameter : d0 ||| They myriad format Numeric Field dataset to
-            be filled
+Parameter : d0 TABLE ( NumericField ) --- They myriad format
+               Numeric Field dataset to be filled
 
-Parameter : v ||| The value to assign missing records
+Parameter : v REAL8 --- The value to assign missing records
 
-Return : A full Numeric Field dataset with every field
-         populated
+Return : TABLE ( { UNSIGNED2 wi , UNSIGNED8 id , UNSIGNED4
+         number , REAL8 value } ) A full Numeric Field
+         dataset with every field populated
 

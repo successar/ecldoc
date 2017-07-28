@@ -36,13 +36,37 @@ OLS}}
 }
 
 \par
+
+
+
+
+
 Ordinary Least Squares (OLS) Linear Regression aka Ordinary Linear Regression Regression learns a function that maps a set of input data (independents) to one or more output variables (dependents). The resulting learned function is known as the model. That model can then be used repetitively to predict (i.e. estimate) the output value(s) based on new input data. Two major use cases are supported: 1) Learn and return a model 2) Use an existing (e.g. persisted) model to predict new values for Y Of course, both can be done in a single run. Alternatively, the model can be persisted and used indefinitely for prediction of Y values, as long as the record format has not changed, and the original training data remains representative of the population. OLS supports any number of independent variables (Multiple Regression) and multiple dependent variables (Multivariate Regression). In this way, multiple variables' values can be predicted from the same input (i.e. independent) data. Training data is presented as parameters to this module. When using a previously persisted model (use case 2 above), these parameters should be omitted. This module provides a rich set of analytics to assess the usefulness of the resulting linear regression model, and to determine the best subset of independent variables to include in the model. These include: For the whole model: - Analysis of Variance (ANOVA) - R-squared - Adjusted R-squared - F-Test - Akaike Information Criterion (AIC) For each coefficient: - Standard Error (SE) - T-statistic - P-value - Confidence Interval
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{X}} The independent variable training data in DATASET(NumericField) format. Each observation (e.g. record) is identified by 'id', and each feature is identified by field number (i.e. 'number'). Omit this parameter when predicting from a persisted model.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{Y}} The dependent variable training data in DATASET(NumericField) format. Each observation (e.g. record) is identified by 'id', and each feature is identified by field number. Omit this parameter when predicting from a persisted model.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{Y}} ||| TABLE ( NumericField ) --- The dependent variable training data in DATASET(NumericField) format. Each observation (e.g. record) is identified by 'id', and each feature is identified by field number. Omit this parameter when predicting from a persisted model.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{X}} ||| TABLE ( NumericField ) --- The independent variable training data in DATASET(NumericField) format. Each observation (e.g. record) is identified by 'id', and each feature is identified by field number (i.e. 'number'). Omit this parameter when predicting from a persisted model.
 \end{description}
+
+
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARENT}}}] \textbf{ML\_Core.Interfaces.IRegression} <../ML\_Core/Interfaces/IRegression.ecl.xml>
+\end{description}
+
 
 \textbf{Children}
 \begin{enumerate}
@@ -53,10 +77,13 @@ Ordinary Least Squares (OLS) Linear Regression aka Ordinary Linear Regression Re
 \item \hyperlink{ecldoc:linearregression.ols.predict}{Predict}
 : Predict the dependent variable values (Y) for any set of independent variables (X)
 \item \hyperlink{ecldoc:linearregression.ols.makersq}{makeRSQ}
+: No Documentation Found
 \item \hyperlink{ecldoc:linearregression.ols.rsquared}{RSquared}
 : RSquared Calculate the R-Squared Metric used to assess the fit of the regression line to the training data
 \item \hyperlink{ecldoc:linearregression.ols.anovarec}{AnovaRec}
+: No Documentation Found
 \item \hyperlink{ecldoc:linearregression.ols.calcanova}{calcAnova}
+: No Documentation Found
 \item \hyperlink{ecldoc:linearregression.ols.anova}{Anova}
 : ANOVA (Analysis of Variance) report Analyzes the sources of variance
 \item \hyperlink{ecldoc:linearregression.ols.se}{SE}
@@ -66,19 +93,27 @@ Ordinary Least Squares (OLS) Linear Regression aka Ordinary Linear Regression Re
 \item \hyperlink{ecldoc:linearregression.ols.adjrsquared}{AdjRSquared}
 : Adjusted R2 Calculate Adjusted R Squared which is a scaled version of R Squared that does not arbitrarily increase with the number of features
 \item \hyperlink{ecldoc:linearregression.ols.aicrec}{AICRec}
+: No Documentation Found
 \item \hyperlink{ecldoc:linearregression.ols.aic}{AIC}
 : Akaike Information Criterion (AIC) Information theory based criterion for assessing Goodness of Fit (GOF)
 \item \hyperlink{ecldoc:linearregression.ols.rangevec}{RangeVec}
+: No Documentation Found
 \item \hyperlink{ecldoc:linearregression.ols.distributionbase}{DistributionBase}
+: No Documentation Found
 \item \hyperlink{ecldoc:linearregression.ols.tdistribution}{TDistribution}
+: No Documentation Found
 \item \hyperlink{ecldoc:linearregression.ols.fdistribution}{FDistribution}
+: No Documentation Found
 \item \hyperlink{ecldoc:linearregression.ols.normaldistribution}{NormalDistribution}
+: No Documentation Found
 \item \hyperlink{ecldoc:linearregression.ols.pval}{pVal}
 : P-Value Calculate the P-value for each coefficient, which is the probability that the coefficient is insignificant (i.e
 \item \hyperlink{ecldoc:linearregression.ols.confintrec}{ConfintRec}
+: No Documentation Found
 \item \hyperlink{ecldoc:linearregression.ols.confint}{ConfInt}
 : Confidence Interval The Confidence Interval determines the upper and lower bounds of each estimated coefficient given a confidence level (level) that is required
 \item \hyperlink{ecldoc:linearregression.ols.ftestrec}{FTestRec}
+: No Documentation Found
 \item \hyperlink{ecldoc:linearregression.ols.ftest}{FTest}
 : F-Test Calculate the P-value for the full regression, which is the probability that all of the coefficients are insignificant (i.e
 \end{enumerate}
@@ -100,14 +135,46 @@ GetModel}}
 }
 
 \par
+
+
+
+
+
 GetModel Returns the learned model that maps X's to Y's. In the case of OLS, the model represents a set of Betas which are the coefficients of the linear model: Beta0 * 1 + Beta1 * Field1 + Beta2 * Field2 \ldots The ID of each model record specifies to which Y variable the coefficient applies. The Field Number ('number') indicates to which field of X the beta is to be applied. Field number 1 provides the intercept portion of the linear model and is always multiplied by 1. Note that if multiple work-items are provided within X and Y, there will be multiple models returned. The models can be separated by their work item id (i.e. 'wi'). A single model can be extracted from a myriad model by using e.g., model(wi=myWI\_id). GetModel should not be called when predicting using a previously persisted model (i.e. when training data was not passed to the module.
+
+
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{\underline{}} Model in DATASET(Layout\_Model) format
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{SEE}}}] \textbf{\underline{}} ML\_core/Types.Layout\_Model
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{OVERRIDE}}}] \textbf{\underline{}} True
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{TABLE ( \{ UNSIGNED2 wi , UNSIGNED8 id , UNSIGNED4 number , REAL8 value \} )} --- Model in DATASET(Layout\_Model) format
 \end{description}
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{OVERRIDE}}}] 
+\end{description}
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{SEE}}}] ML\_core/Types.Layout\_Model
+\end{description}
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} FUNCTION}
@@ -127,13 +194,36 @@ Betas}}
 }
 
 \par
+
+
+
+
+
 Return raw Beta values as numeric fields Extracts Beta values from the model. Can be used during training and prediction phases. For use during training phase, the 'model' parameter can be omitted. GetModel will be called to retrieve the model based on the training data. For use during prediction phase, a previously persisted model should be provided. The 'number' field of the returned NumericField records specifies to which Y the coefficient applies. The 'id' field of the returned record indicates the position of the Beta value. ID = 1 provides the Beta for the constant term (i.e. the Y intercept) while subsequent values reflect the Beta for each correspondingly numbered X feature. Feature 1 corresponds to Beta with 'id' = 2 and so on. If 'model' contains multiple work-items, Separate sets of Betas will be returned for each of the 'myriad' models (distinguished by 'wi').
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{model}} Optional parameter provides a model that was previously retrieved using GetModel. If omitted, GetModel will be used as the model.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{\underline{}} DATASET(NumericField) containing the Beta values.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{model}} ||| TABLE ( Layout\_Model ) --- Optional parameter provides a model that was previously retrieved using GetModel. If omitted, GetModel will be used as the model.
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{TABLE ( \{ UNSIGNED2 wi , UNSIGNED8 id , UNSIGNED4 number , REAL8 value \} )} --- DATASET(NumericField) containing the Beta values.
+\end{description}
+
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} FUNCTION}
@@ -153,15 +243,46 @@ Predict}}
 }
 
 \par
+
+
+
+
+
 Predict the dependent variable values (Y) for any set of independent variables (X). Returns a predicted Y values for each observation (i.e. record) of X. This supports the 'myriad' style interface in that multiple independent work items may be present in 'newX', and multiple independent models may be provided in 'model'. The resulting predicted values will also be separable by work item (i.e. wi).
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{newX}} The set of observations of independent variables in DATASET(NumericField) format.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{model}} Optional. A model that was previously returned from GetModel (above). Note that a model from a previous run will only be valid if the field numbers in X are the same as when the model was learned. If this parameter is omitted, the current model will be used.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{\underline{}} An estimation of the corresponding Y value for each observation of newX. Returned in DATASET(NumericField) format with field number (i.e. 'number') indicating the dependent variable that is predicted.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{OVERRIDE}}}] \textbf{\underline{}} True
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{model}} ||| TABLE ( Layout\_Model ) --- Optional. A model that was previously returned from GetModel (above). Note that a model from a previous run will only be valid if the field numbers in X are the same as when the model was learned. If this parameter is omitted, the current model will be used.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{newX}} ||| TABLE ( NumericField ) --- The set of observations of independent variables in DATASET(NumericField) format.
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{TABLE ( \{ UNSIGNED2 wi , UNSIGNED8 id , UNSIGNED4 number , REAL8 value \} )} --- An estimation of the corresponding Y value for each observation of newX. Returned in DATASET(NumericField) format with field number (i.e. 'number') indicating the dependent variable that is predicted.
+\end{description}
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{OVERRIDE}}}] 
+\end{description}
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} TRANSFORM}
@@ -183,6 +304,35 @@ makeRSQ}}
 \par
 
 
+
+
+
+No Documentation Found
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{coco}} ||| ROW ( CoCoRec ) --- No Doc
+\end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{R2Rec} --- 
+\end{description}
+
+
+
+
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} ATTRIBUTE}
 RSquared}}
@@ -199,12 +349,27 @@ RSquared}}
 }
 
 \par
+
+
+
+
+
 RSquared Calculate the R-Squared Metric used to assess the fit of the regression line to the training data. Since the regression has chosen the best (i.e. least squared error) line matching the data, this can be thought of as a measurement of the linearity of the training data. R Squared generally varies between 0 and 1, with 1 indicating an exact linear fit, and 0 indicating that a linear fit will have no predictive power. Negative values are possible under certain conditions, and indicate that the mean(Y) will be more predictive than any linear fit. Moderate values of R squared (e.g. .5) may indicate that the relationship of X -> Y is non-linear, or that the measurement error is high relative to the linear correlation (e.g. many outliers). In the former case, increasing the dimensionality of X, such as by using polynomial variants of the features, may yield a better fit. R squared always increases when additional independent variables are added, so it should not be used to determine the optimal set of X variables to include. For that purpose, use Adjusted R Squared (below) which penalizes larger numbers of variables. Note that the result of this call is only meaningful during training phase (use case 1 above) as it is an analysis based on the training data which is not provided during a prediction-only phase.
+
+
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{\underline{}} DATASET(R2Rec) with one record per dependent variable, per work-item. The number field indicates the dependent variable and coresponds to the number field of the dependent (Y) variable to which it applies.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{TABLE ( \{ UNSIGNED2 wi , UNSIGNED4 number , REAL8 RSquared \} )} --- DATASET(R2Rec) with one record per dependent variable, per work-item. The number field indicates the dependent variable and coresponds to the number field of the dependent (Y) variable to which it applies.
 \end{description}
+
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} RECORD}
@@ -222,6 +387,37 @@ AnovaRec}}
 }
 
 \par
+
+
+
+
+
+No Documentation Found
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{error\_ss}} ||| REAL8 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{model\_df}} ||| UNSIGNED8 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{error\_df}} ||| UNSIGNED8 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{model\_ss}} ||| REAL8 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{model\_ms}} ||| REAL8 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{error\_ms}} ||| REAL8 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{total\_df}} ||| UNSIGNED8 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{number}} ||| UNSIGNED4 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{total\_ms}} ||| REAL8 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{model\_f}} ||| REAL8 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{wi}} ||| UNSIGNED2 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{total\_ss}} ||| REAL8 --- No Doc
+\end{description}
+
+
+
 
 
 \rule{\linewidth}{0.5pt}
@@ -244,6 +440,35 @@ calcAnova}}
 \par
 
 
+
+
+
+No Documentation Found
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{le}} ||| ROW ( tmpRec ) --- No Doc
+\end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{AnovaRec} --- 
+\end{description}
+
+
+
+
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} ATTRIBUTE}
 Anova}}
@@ -260,12 +485,27 @@ Anova}}
 }
 
 \par
+
+
+
+
+
 ANOVA (Analysis of Variance) report Analyzes the sources of variance. Basic ANOVA equality: Model + Error = Total Determines how much of the variance of Y is explained by the regression model, versus how much is due to the error term (i.e. unexplained variance). This attribute is only meaningful during the training phase. Provides one record per work-item. Each record provides the following statistics: - Total\_SS -- Total Sum of Squares (SS) variance of the dependent data - Model\_SS -- The SS variance represented within the model - Error\_SS -- The SS variance not reflected by the model (i.e. Total\_SS - Error\_SS) - Total\_DF -- The total degrees of freedom within the dependent data - Model\_DF -- Degrees of freedom of the model - Error\_DF -- Degrees of freedom of the error component - Total\_MS -- The Mean Square (MS) variance of the dependent data - Model\_MS -- The Mean Square (MS) variance represented within the model - Error\_MS -- The MS variance not reflected by the model - Model\_F -- The F-Test statistic: Model\_MS / Error\_MS
+
+
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{\underline{}} DATASET(AnovaRec), one per work-item per dependent (Y) variable The number field indicates the dependent variable to which the analysis applies.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{TABLE ( \{ UNSIGNED2 wi , UNSIGNED4 number , REAL8 Total\_SS , REAL8 Model\_SS , REAL8 Error\_SS , UNSIGNED8 Total\_DF , UNSIGNED8 Model\_DF , UNSIGNED8 Error\_DF , REAL8 Total\_MS , REAL8 Model\_MS , REAL8 Error\_MS , REAL8 Model\_F \} )} --- DATASET(AnovaRec), one per work-item per dependent (Y) variable The number field indicates the dependent variable to which the analysis applies.
 \end{description}
+
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} ATTRIBUTE}
@@ -283,12 +523,27 @@ SE}}
 }
 
 \par
+
+
+
+
+
 Standard Error of the Regression Coefficients Describes the variability of the regression error for each coefficient. Only meaningful during the training phase.
+
+
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{\underline{}} DATASET(NumericField), one record per Beta coefficient per dependent variable per work-item. The 'id' field is the coefficient number, with 1 being the Y intercept, 2 being the coefficient for the first feature, etc. The 'number' field indicates the dependent variable to which the coefficient applies.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{TABLE ( \{ UNSIGNED2 wi , UNSIGNED8 id , UNSIGNED4 number , REAL8 value \} )} --- DATASET(NumericField), one record per Beta coefficient per dependent variable per work-item. The 'id' field is the coefficient number, with 1 being the Y intercept, 2 being the coefficient for the first feature, etc. The 'number' field indicates the dependent variable to which the coefficient applies.
 \end{description}
+
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} ATTRIBUTE}
@@ -306,12 +561,27 @@ TStat}}
 }
 
 \par
+
+
+
+
+
 T-Statistic The T-statistic identifies the significance of the value of each regression coefficient. Its calculation is simply the value of the coefficient divided by the Standard Error of the coefficient. A larger absolute value of the T-statistic indicates that the coefficient is more significant. Only meaningful during the training phase.
+
+
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{\underline{}} DATSET(NumericField), one record per Beta coefficient per dependent variable per work-item. The 'id' field is the coefficient number, with 1 being the Y intercept, 2 being the coefficient for the first feature, etc. The number field indicates the dependent variable to which the coefficient applies.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{TABLE ( \{ UNSIGNED2 wi , UNSIGNED8 id , UNSIGNED4 number , REAL8 value \} )} --- DATSET(NumericField), one record per Beta coefficient per dependent variable per work-item. The 'id' field is the coefficient number, with 1 being the Y intercept, 2 being the coefficient for the first feature, etc. The number field indicates the dependent variable to which the coefficient applies.
 \end{description}
+
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} ATTRIBUTE}
@@ -329,12 +599,27 @@ AdjRSquared}}
 }
 
 \par
+
+
+
+
+
 Adjusted R2 Calculate Adjusted R Squared which is a scaled version of R Squared that does not arbitrarily increase with the number of features. Adjusted R2, rather than R2 should always be used when trying to determine the best set of features to include in a model. When adding features, R2 will always increase, whether or not it improves the predictive power of the model. Adjusted R2, however, will only increase with the predictive power of the model.
+
+
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{\underline{}} DATASET(R2Rec), one record per dependent variable per work-item. The number field indicates the dependent variable and corresponds to the number field of the dependent (Y) variable to which it applies.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{TABLE ( \{ UNSIGNED2 wi , UNSIGNED4 number , REAL8 RSquared \} )} --- DATASET(R2Rec), one record per dependent variable per work-item. The number field indicates the dependent variable and corresponds to the number field of the dependent (Y) variable to which it applies.
 \end{description}
+
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} RECORD}
@@ -354,6 +639,28 @@ AICRec}}
 \par
 
 
+
+
+
+No Documentation Found
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{wi}} ||| UNSIGNED2 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{aic}} ||| REAL8 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{number}} ||| UNSIGNED4 --- No Doc
+\end{description}
+
+
+
+
+
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} ATTRIBUTE}
 AIC}}
@@ -370,12 +677,27 @@ AIC}}
 }
 
 \par
+
+
+
+
+
 Akaike Information Criterion (AIC) Information theory based criterion for assessing Goodness of Fit (GOF). Lower values mean better fit.
+
+
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{\underline{}} DATASET(AICRec), one record per dependent variable per work-item. The number field indicates the dependent variable and corresponds to the number field of the dependent (Y) variable to which it applies.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{TABLE ( \{ UNSIGNED2 wi , UNSIGNED4 number , REAL8 AIC \} )} --- DATASET(AICRec), one record per dependent variable per work-item. The number field indicates the dependent variable and corresponds to the number field of the dependent (Y) variable to which it applies.
 \end{description}
+
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} RECORD}
@@ -393,6 +715,29 @@ RangeVec}}
 }
 
 \par
+
+
+
+
+
+No Documentation Found
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{rangehigh}} ||| REAL8 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{rangenumber}} ||| UNSIGNED8 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{rangelow}} ||| REAL8 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{p}} ||| REAL8 --- No Doc
+\end{description}
+
+
+
 
 
 \rule{\linewidth}{0.5pt}
@@ -415,18 +760,48 @@ DistributionBase}}
 \par
 
 
+
+
+
+No Documentation Found
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{nranges}} ||| UNSIGNED8 --- No Doc
+\end{description}
+
+
+
+
+
+
 \textbf{Children}
 \begin{enumerate}
 \item \hyperlink{ecldoc:linearregression.ols.distributionbase.low}{Low}
+: No Documentation Found
 \item \hyperlink{ecldoc:linearregression.ols.distributionbase.high}{High}
+: No Documentation Found
 \item \hyperlink{ecldoc:linearregression.ols.distributionbase.density}{Density}
+: No Documentation Found
 \item \hyperlink{ecldoc:linearregression.ols.distributionbase.rangewidth}{RangeWidth}
+: No Documentation Found
 \item \hyperlink{ecldoc:linearregression.ols.distributionbase.densityv}{DensityV}
+: No Documentation Found
 \item \hyperlink{ecldoc:linearregression.ols.distributionbase.cumulativev}{CumulativeV}
+: No Documentation Found
 \item \hyperlink{ecldoc:linearregression.ols.distributionbase.cumulative}{Cumulative}
+: No Documentation Found
 \item \hyperlink{ecldoc:linearregression.ols.distributionbase.ntile}{NTile}
+: No Documentation Found
 \item \hyperlink{ecldoc:linearregression.ols.distributionbase.invdensity}{InvDensity}
+: No Documentation Found
 \item \hyperlink{ecldoc:linearregression.ols.distributionbase.discrete}{Discrete}
+: No Documentation Found
 \end{enumerate}
 
 \rule{\linewidth}{0.5pt}
@@ -449,6 +824,26 @@ Low}}
 \par
 
 
+
+
+
+No Documentation Found
+
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{INTEGER8} --- 
+\end{description}
+
+
+
+
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} ATTRIBUTE}
 High}}
@@ -466,6 +861,26 @@ High}}
 }
 
 \par
+
+
+
+
+
+No Documentation Found
+
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{INTEGER8} --- 
+\end{description}
+
+
 
 
 \rule{\linewidth}{0.5pt}
@@ -489,6 +904,35 @@ Density}}
 \par
 
 
+
+
+
+No Documentation Found
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{t}} ||| REAL8 --- No Doc
+\end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{REAL8} --- 
+\end{description}
+
+
+
+
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} ATTRIBUTE}
 RangeWidth}}
@@ -506,6 +950,26 @@ RangeWidth}}
 }
 
 \par
+
+
+
+
+
+No Documentation Found
+
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{REAL8} --- 
+\end{description}
+
+
 
 
 \rule{\linewidth}{0.5pt}
@@ -529,6 +993,26 @@ DensityV}}
 \par
 
 
+
+
+
+No Documentation Found
+
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{TABLE ( \{ UNSIGNED8 RangeNumber , REAL8 RangeLow , REAL8 RangeHigh , REAL8 P \} )} --- 
+\end{description}
+
+
+
+
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} FUNCTION}
 CumulativeV}}
@@ -548,6 +1032,26 @@ CumulativeV}}
 }
 
 \par
+
+
+
+
+
+No Documentation Found
+
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{TABLE ( \{ UNSIGNED8 RangeNumber , REAL8 RangeLow , REAL8 RangeHigh , REAL8 P \} )} --- 
+\end{description}
+
+
 
 
 \rule{\linewidth}{0.5pt}
@@ -571,6 +1075,35 @@ Cumulative}}
 \par
 
 
+
+
+
+No Documentation Found
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{t}} ||| REAL8 --- No Doc
+\end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{REAL8} --- 
+\end{description}
+
+
+
+
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} FUNCTION}
 NTile}}
@@ -590,6 +1123,35 @@ NTile}}
 }
 
 \par
+
+
+
+
+
+No Documentation Found
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{pc}} ||| REAL8 --- No Doc
+\end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{REAL8} --- 
+\end{description}
+
+
 
 
 \rule{\linewidth}{0.5pt}
@@ -613,6 +1175,35 @@ InvDensity}}
 \par
 
 
+
+
+
+No Documentation Found
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{delta}} ||| REAL8 --- No Doc
+\end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{REAL8} --- 
+\end{description}
+
+
+
+
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} ATTRIBUTE}
 Discrete}}
@@ -630,6 +1221,26 @@ Discrete}}
 }
 
 \par
+
+
+
+
+
+No Documentation Found
+
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{BOOLEAN} --- 
+\end{description}
+
+
 
 
 \rule{\linewidth}{0.5pt}
@@ -654,18 +1265,58 @@ TDistribution}}
 \par
 
 
+
+
+
+No Documentation Found
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{nranges}} ||| UNSIGNED8 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{v\_in}} ||| INTEGER4 --- No Doc
+\end{description}
+
+
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARENT}}}] \textbf{linearregression.ols.distributionbase} <OLS.ecl.xml>
+\end{description}
+
+
 \textbf{Children}
 \begin{enumerate}
 \item \hyperlink{ecldoc:linearregression.ols.distributionbase.densityv}{DensityV}
+: No Documentation Found
 \item \hyperlink{ecldoc:linearregression.ols.distributionbase.ntile}{NTile}
+: No Documentation Found
 \item \hyperlink{ecldoc:linearregression.ols.distributionbase.discrete}{Discrete}
+: No Documentation Found
 \item \hyperlink{ecldoc:linearregression.ols.tdistribution.invdensity}{InvDensity}
+: No Documentation Found
 \item \hyperlink{ecldoc:linearregression.ols.tdistribution.high}{High}
+: No Documentation Found
 \item \hyperlink{ecldoc:linearregression.ols.tdistribution.low}{Low}
+: No Documentation Found
 \item \hyperlink{ecldoc:linearregression.ols.tdistribution.rangewidth}{RangeWidth}
+: No Documentation Found
 \item \hyperlink{ecldoc:linearregression.ols.tdistribution.density}{Density}
+: No Documentation Found
 \item \hyperlink{ecldoc:linearregression.ols.tdistribution.cumulativev}{CumulativeV}
+: No Documentation Found
 \item \hyperlink{ecldoc:linearregression.ols.tdistribution.cumulative}{Cumulative}
+: No Documentation Found
 \end{enumerate}
 
 \rule{\linewidth}{0.5pt}
@@ -689,10 +1340,35 @@ DensityV}}
 
 \par
 
+
+
+
+
+No Documentation Found
+
+
+
+
+
+
+
+
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{OVERRIDE}}}] \textbf{\underline{}} True
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{TABLE ( \{ UNSIGNED8 RangeNumber , REAL8 RangeLow , REAL8 RangeHigh , REAL8 P \} )} --- 
 \end{description}
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{OVERRIDE}}}] 
+\end{description}
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} FUNCTION}
@@ -714,10 +1390,44 @@ NTile}}
 
 \par
 
+
+
+
+
+No Documentation Found
+
+
+
+
+
+
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{OVERRIDE}}}] \textbf{\underline{}} True
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{pc}} ||| REAL8 --- No Doc
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{REAL8} --- 
+\end{description}
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{OVERRIDE}}}] 
+\end{description}
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} ATTRIBUTE}
@@ -737,10 +1447,35 @@ Discrete}}
 
 \par
 
+
+
+
+
+No Documentation Found
+
+
+
+
+
+
+
+
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{INHERITED}}}] \textbf{\underline{}} True
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{BOOLEAN} --- 
 \end{description}
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{INHERITED}}}] 
+\end{description}
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} FUNCTION}
@@ -762,10 +1497,44 @@ InvDensity}}
 
 \par
 
+
+
+
+
+No Documentation Found
+
+
+
+
+
+
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{OVERRIDE}}}] \textbf{\underline{}} True
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{delta}} ||| REAL8 --- No Doc
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{REAL8} --- 
+\end{description}
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{OVERRIDE}}}] 
+\end{description}
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} ATTRIBUTE}
@@ -785,10 +1554,35 @@ High}}
 
 \par
 
+
+
+
+
+No Documentation Found
+
+
+
+
+
+
+
+
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{OVERRIDE}}}] \textbf{\underline{}} True
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{INTEGER8} --- 
 \end{description}
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{OVERRIDE}}}] 
+\end{description}
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} ATTRIBUTE}
@@ -808,10 +1602,35 @@ Low}}
 
 \par
 
+
+
+
+
+No Documentation Found
+
+
+
+
+
+
+
+
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{INHERITED}}}] \textbf{\underline{}} True
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{INTEGER8} --- 
 \end{description}
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{INHERITED}}}] 
+\end{description}
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} ATTRIBUTE}
@@ -831,10 +1650,35 @@ RangeWidth}}
 
 \par
 
+
+
+
+
+No Documentation Found
+
+
+
+
+
+
+
+
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{OVERRIDE}}}] \textbf{\underline{}} True
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{REAL8} --- 
 \end{description}
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{OVERRIDE}}}] 
+\end{description}
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} FUNCTION}
@@ -856,10 +1700,44 @@ Density}}
 
 \par
 
+
+
+
+
+No Documentation Found
+
+
+
+
+
+
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{OVERRIDE}}}] \textbf{\underline{}} True
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{t}} ||| REAL8 --- No Doc
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{REAL8} --- 
+\end{description}
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{OVERRIDE}}}] 
+\end{description}
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} FUNCTION}
@@ -881,10 +1759,35 @@ CumulativeV}}
 
 \par
 
+
+
+
+
+No Documentation Found
+
+
+
+
+
+
+
+
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{OVERRIDE}}}] \textbf{\underline{}} True
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{TABLE ( \{ UNSIGNED8 RangeNumber , REAL8 RangeLow , REAL8 RangeHigh , REAL8 P \} )} --- 
 \end{description}
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{OVERRIDE}}}] 
+\end{description}
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} FUNCTION}
@@ -906,10 +1809,44 @@ Cumulative}}
 
 \par
 
+
+
+
+
+No Documentation Found
+
+
+
+
+
+
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{OVERRIDE}}}] \textbf{\underline{}} True
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{t}} ||| REAL8 --- No Doc
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{REAL8} --- 
+\end{description}
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{OVERRIDE}}}] 
+\end{description}
+
+
 
 \rule{\linewidth}{0.5pt}
 
@@ -933,18 +1870,59 @@ FDistribution}}
 \par
 
 
+
+
+
+No Documentation Found
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{d2\_in}} ||| INTEGER4 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{nranges}} ||| UNSIGNED8 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{d1\_in}} ||| INTEGER4 --- No Doc
+\end{description}
+
+
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARENT}}}] \textbf{linearregression.ols.distributionbase} <OLS.ecl.xml>
+\end{description}
+
+
 \textbf{Children}
 \begin{enumerate}
 \item \hyperlink{ecldoc:linearregression.ols.distributionbase.densityv}{DensityV}
+: No Documentation Found
 \item \hyperlink{ecldoc:linearregression.ols.distributionbase.cumulativev}{CumulativeV}
+: No Documentation Found
 \item \hyperlink{ecldoc:linearregression.ols.distributionbase.cumulative}{Cumulative}
+: No Documentation Found
 \item \hyperlink{ecldoc:linearregression.ols.distributionbase.ntile}{NTile}
+: No Documentation Found
 \item \hyperlink{ecldoc:linearregression.ols.distributionbase.invdensity}{InvDensity}
+: No Documentation Found
 \item \hyperlink{ecldoc:linearregression.ols.distributionbase.discrete}{Discrete}
+: No Documentation Found
 \item \hyperlink{ecldoc:linearregression.ols.fdistribution.low}{Low}
+: No Documentation Found
 \item \hyperlink{ecldoc:linearregression.ols.fdistribution.high}{High}
+: No Documentation Found
 \item \hyperlink{ecldoc:linearregression.ols.fdistribution.rangewidth}{RangeWidth}
+: No Documentation Found
 \item \hyperlink{ecldoc:linearregression.ols.fdistribution.density}{Density}
+: No Documentation Found
 \end{enumerate}
 
 \rule{\linewidth}{0.5pt}
@@ -968,10 +1946,35 @@ DensityV}}
 
 \par
 
+
+
+
+
+No Documentation Found
+
+
+
+
+
+
+
+
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{OVERRIDE}}}] \textbf{\underline{}} True
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{TABLE ( \{ UNSIGNED8 RangeNumber , REAL8 RangeLow , REAL8 RangeHigh , REAL8 P \} )} --- 
 \end{description}
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{OVERRIDE}}}] 
+\end{description}
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} FUNCTION}
@@ -993,10 +1996,35 @@ CumulativeV}}
 
 \par
 
+
+
+
+
+No Documentation Found
+
+
+
+
+
+
+
+
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{OVERRIDE}}}] \textbf{\underline{}} True
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{TABLE ( \{ UNSIGNED8 RangeNumber , REAL8 RangeLow , REAL8 RangeHigh , REAL8 P \} )} --- 
 \end{description}
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{OVERRIDE}}}] 
+\end{description}
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} FUNCTION}
@@ -1018,10 +2046,44 @@ Cumulative}}
 
 \par
 
+
+
+
+
+No Documentation Found
+
+
+
+
+
+
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{OVERRIDE}}}] \textbf{\underline{}} True
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{t}} ||| REAL8 --- No Doc
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{REAL8} --- 
+\end{description}
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{OVERRIDE}}}] 
+\end{description}
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} FUNCTION}
@@ -1043,10 +2105,44 @@ NTile}}
 
 \par
 
+
+
+
+
+No Documentation Found
+
+
+
+
+
+
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{OVERRIDE}}}] \textbf{\underline{}} True
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{pc}} ||| REAL8 --- No Doc
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{REAL8} --- 
+\end{description}
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{OVERRIDE}}}] 
+\end{description}
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} FUNCTION}
@@ -1068,10 +2164,44 @@ InvDensity}}
 
 \par
 
+
+
+
+
+No Documentation Found
+
+
+
+
+
+
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{INHERITED}}}] \textbf{\underline{}} True
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{delta}} ||| REAL8 --- No Doc
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{REAL8} --- 
+\end{description}
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{INHERITED}}}] 
+\end{description}
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} ATTRIBUTE}
@@ -1091,10 +2221,35 @@ Discrete}}
 
 \par
 
+
+
+
+
+No Documentation Found
+
+
+
+
+
+
+
+
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{INHERITED}}}] \textbf{\underline{}} True
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{BOOLEAN} --- 
 \end{description}
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{INHERITED}}}] 
+\end{description}
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} ATTRIBUTE}
@@ -1114,10 +2269,35 @@ Low}}
 
 \par
 
+
+
+
+
+No Documentation Found
+
+
+
+
+
+
+
+
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{INHERITED}}}] \textbf{\underline{}} True
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{INTEGER8} --- 
 \end{description}
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{INHERITED}}}] 
+\end{description}
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} ATTRIBUTE}
@@ -1137,10 +2317,35 @@ High}}
 
 \par
 
+
+
+
+
+No Documentation Found
+
+
+
+
+
+
+
+
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{OVERRIDE}}}] \textbf{\underline{}} True
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{INTEGER8} --- 
 \end{description}
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{OVERRIDE}}}] 
+\end{description}
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} ATTRIBUTE}
@@ -1160,10 +2365,35 @@ RangeWidth}}
 
 \par
 
+
+
+
+
+No Documentation Found
+
+
+
+
+
+
+
+
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{OVERRIDE}}}] \textbf{\underline{}} True
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{REAL8} --- 
 \end{description}
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{OVERRIDE}}}] 
+\end{description}
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} FUNCTION}
@@ -1185,10 +2415,44 @@ Density}}
 
 \par
 
+
+
+
+
+No Documentation Found
+
+
+
+
+
+
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{OVERRIDE}}}] \textbf{\underline{}} True
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{t}} ||| REAL8 --- No Doc
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{REAL8} --- 
+\end{description}
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{OVERRIDE}}}] 
+\end{description}
+
+
 
 \rule{\linewidth}{0.5pt}
 
@@ -1212,18 +2476,57 @@ NormalDistribution}}
 \par
 
 
+
+
+
+No Documentation Found
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{nranges}} ||| UNSIGNED8 --- No Doc
+\end{description}
+
+
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARENT}}}] \textbf{linearregression.ols.distributionbase} <OLS.ecl.xml>
+\end{description}
+
+
 \textbf{Children}
 \begin{enumerate}
 \item \hyperlink{ecldoc:linearregression.ols.distributionbase.low}{Low}
+: No Documentation Found
 \item \hyperlink{ecldoc:linearregression.ols.distributionbase.high}{High}
+: No Documentation Found
 \item \hyperlink{ecldoc:linearregression.ols.distributionbase.rangewidth}{RangeWidth}
+: No Documentation Found
 \item \hyperlink{ecldoc:linearregression.ols.distributionbase.densityv}{DensityV}
+: No Documentation Found
 \item \hyperlink{ecldoc:linearregression.ols.distributionbase.cumulativev}{CumulativeV}
+: No Documentation Found
 \item \hyperlink{ecldoc:linearregression.ols.distributionbase.cumulative}{Cumulative}
+: No Documentation Found
 \item \hyperlink{ecldoc:linearregression.ols.distributionbase.ntile}{NTile}
+: No Documentation Found
 \item \hyperlink{ecldoc:linearregression.ols.distributionbase.invdensity}{InvDensity}
+: No Documentation Found
 \item \hyperlink{ecldoc:linearregression.ols.distributionbase.discrete}{Discrete}
+: No Documentation Found
 \item \hyperlink{ecldoc:linearregression.ols.normaldistribution.density}{Density}
+: No Documentation Found
 \end{enumerate}
 
 \rule{\linewidth}{0.5pt}
@@ -1245,10 +2548,35 @@ Low}}
 
 \par
 
+
+
+
+
+No Documentation Found
+
+
+
+
+
+
+
+
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{INHERITED}}}] \textbf{\underline{}} True
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{INTEGER8} --- 
 \end{description}
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{INHERITED}}}] 
+\end{description}
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} ATTRIBUTE}
@@ -1268,10 +2596,35 @@ High}}
 
 \par
 
+
+
+
+
+No Documentation Found
+
+
+
+
+
+
+
+
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{INHERITED}}}] \textbf{\underline{}} True
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{INTEGER8} --- 
 \end{description}
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{INHERITED}}}] 
+\end{description}
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} ATTRIBUTE}
@@ -1291,10 +2644,35 @@ RangeWidth}}
 
 \par
 
+
+
+
+
+No Documentation Found
+
+
+
+
+
+
+
+
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{OVERRIDE}}}] \textbf{\underline{}} True
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{REAL8} --- 
 \end{description}
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{OVERRIDE}}}] 
+\end{description}
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} FUNCTION}
@@ -1316,10 +2694,35 @@ DensityV}}
 
 \par
 
+
+
+
+
+No Documentation Found
+
+
+
+
+
+
+
+
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{OVERRIDE}}}] \textbf{\underline{}} True
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{TABLE ( \{ UNSIGNED8 RangeNumber , REAL8 RangeLow , REAL8 RangeHigh , REAL8 P \} )} --- 
 \end{description}
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{OVERRIDE}}}] 
+\end{description}
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} FUNCTION}
@@ -1341,10 +2744,35 @@ CumulativeV}}
 
 \par
 
+
+
+
+
+No Documentation Found
+
+
+
+
+
+
+
+
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{OVERRIDE}}}] \textbf{\underline{}} True
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{TABLE ( \{ UNSIGNED8 RangeNumber , REAL8 RangeLow , REAL8 RangeHigh , REAL8 P \} )} --- 
 \end{description}
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{OVERRIDE}}}] 
+\end{description}
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} FUNCTION}
@@ -1366,10 +2794,44 @@ Cumulative}}
 
 \par
 
+
+
+
+
+No Documentation Found
+
+
+
+
+
+
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{OVERRIDE}}}] \textbf{\underline{}} True
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{t}} ||| REAL8 --- No Doc
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{REAL8} --- 
+\end{description}
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{OVERRIDE}}}] 
+\end{description}
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} FUNCTION}
@@ -1391,10 +2853,44 @@ NTile}}
 
 \par
 
+
+
+
+
+No Documentation Found
+
+
+
+
+
+
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{OVERRIDE}}}] \textbf{\underline{}} True
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{pc}} ||| REAL8 --- No Doc
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{REAL8} --- 
+\end{description}
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{OVERRIDE}}}] 
+\end{description}
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} FUNCTION}
@@ -1416,10 +2912,44 @@ InvDensity}}
 
 \par
 
+
+
+
+
+No Documentation Found
+
+
+
+
+
+
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{INHERITED}}}] \textbf{\underline{}} True
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{delta}} ||| REAL8 --- No Doc
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{REAL8} --- 
+\end{description}
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{INHERITED}}}] 
+\end{description}
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} ATTRIBUTE}
@@ -1439,10 +2969,35 @@ Discrete}}
 
 \par
 
+
+
+
+
+No Documentation Found
+
+
+
+
+
+
+
+
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{INHERITED}}}] \textbf{\underline{}} True
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{BOOLEAN} --- 
 \end{description}
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{INHERITED}}}] 
+\end{description}
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} FUNCTION}
@@ -1464,10 +3019,44 @@ Density}}
 
 \par
 
+
+
+
+
+No Documentation Found
+
+
+
+
+
+
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{OVERRIDE}}}] \textbf{\underline{}} True
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{t}} ||| REAL8 --- No Doc
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{REAL8} --- 
+\end{description}
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{OVERRIDE}}}] 
+\end{description}
+
+
 
 \rule{\linewidth}{0.5pt}
 
@@ -1487,12 +3076,27 @@ pVal}}
 }
 
 \par
+
+
+
+
+
 P-Value Calculate the P-value for each coefficient, which is the probability that the coefficient is insignificant (i.e. actually zero). A low P-value (e.g. .05) provides evidence that the coefficient is significant in the model. A high P-value indicates that the coefficient value should, in fact, be zero. P-value is related to the T-Statistic, and can be thought of as a normalized version of the T-Statistic. Only meaningful during the training phase.
+
+
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{\underline{}} DATSET(NumericField), one record per Beta coefficient per dependent variable per work-item. The 'id' field is the coefficient number, with 1 being the Y intercept, 2 being the coefficient for the first feature, etc. The number field indicates the dependent variable and corresponds to the number field of the dependent (Y) variable to which it applies.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{TABLE ( \{ UNSIGNED2 wi , UNSIGNED8 id , UNSIGNED4 number , REAL8 value \} )} --- DATSET(NumericField), one record per Beta coefficient per dependent variable per work-item. The 'id' field is the coefficient number, with 1 being the Y intercept, 2 being the coefficient for the first feature, etc. The number field indicates the dependent variable and corresponds to the number field of the dependent (Y) variable to which it applies.
 \end{description}
+
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} RECORD}
@@ -1510,6 +3114,30 @@ ConfintRec}}
 }
 
 \par
+
+
+
+
+
+No Documentation Found
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{wi}} ||| UNSIGNED2 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{lowerint}} ||| REAL8 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{id}} ||| UNSIGNED8 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{number}} ||| UNSIGNED4 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{upperint}} ||| REAL8 --- No Doc
+\end{description}
+
+
+
 
 
 \rule{\linewidth}{0.5pt}
@@ -1530,13 +3158,36 @@ ConfInt}}
 }
 
 \par
+
+
+
+
+
 Confidence Interval The Confidence Interval determines the upper and lower bounds of each estimated coefficient given a confidence level (level) that is required. For example, one could say that there is a 95\% probability (level) that the coefficient of the first independent variable is between 2.05 and 3.62. This allows error margins to be determined with the desired confidence level. If the confidence interval spans zero, it implies that the coefficient may not be significant at the specified confidence level.
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{level}} The level of confidence required, expressed as a percentage from 0.0 to 100.0
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{\underline{}} DATASET(ConfintRec) with one record per coefficient per dependent variable per work-item. The 'id' field is the coefficient number, with 1 being the Y intercept, 2 being the coefficient for the first feature, etc. The number field indicates the dependent variable and corresponds to the number field of the dependent (Y) variable to which it applies.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{level}} ||| REAL8 --- The level of confidence required, expressed as a percentage from 0.0 to 100.0
 \end{description}
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{TABLE ( \{ UNSIGNED2 wi , UNSIGNED8 id , UNSIGNED4 number , REAL8 LowerInt , REAL8 UpperInt \} )} --- DATASET(ConfintRec) with one record per coefficient per dependent variable per work-item. The 'id' field is the coefficient number, with 1 being the Y intercept, 2 being the coefficient for the first feature, etc. The number field indicates the dependent variable and corresponds to the number field of the dependent (Y) variable to which it applies.
+\end{description}
+
+
+
 
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} RECORD}
@@ -1556,6 +3207,29 @@ FTestRec}}
 \par
 
 
+
+
+
+No Documentation Found
+
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{wi}} ||| UNSIGNED2 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{number}} ||| UNSIGNED4 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{pvalue}} ||| REAL8 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{model\_f}} ||| REAL8 --- No Doc
+\end{description}
+
+
+
+
+
 \rule{\linewidth}{0.5pt}
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} ATTRIBUTE}
 FTest}}
@@ -1572,12 +3246,27 @@ FTest}}
 }
 
 \par
+
+
+
+
+
 F-Test Calculate the P-value for the full regression, which is the probability that all of the coefficients are insignificant (i.e. actually zero). A low P-value (e.g. .05) provides evidence that at least one coefficient is significant. A high P-value indicates that all the coefficient values should in fact be zero, implying that the regression has no statistically significant predictive power. P-value is related to the ANOVA F-Statistic, and can be thought of as a standardized version of the ANOVA F-Statistic. The F-Test and T-Test are similar, except that the T-test is used to test the significance of each coefficient, while the F-Test is used to test the significance of the entire regression. For simple linear regression (i.e. only one independent variable, the T-Test and F-Test are equivalent.
+
+
+
+
+
+
+
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{\underline{}} DATASET(FTestRec), one record per dependent variable per work-item. The number field indicates the dependent variable and corresponds to the number field of the dependent (Y) variable to which it applies.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{RETURN}}}] \textbf{TABLE ( \{ UNSIGNED2 wi , UNSIGNED4 number , REAL8 Model\_F , REAL8 pValue \} )} --- DATASET(FTestRec), one record per dependent variable per work-item. The number field indicates the dependent variable and corresponds to the number field of the dependent (Y) variable to which it applies.
 \end{description}
+
+
+
 
 \rule{\linewidth}{0.5pt}
 

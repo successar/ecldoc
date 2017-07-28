@@ -1,69 +1,21 @@
-import os
-import re
-import shutil
-import subprocess
-from Constants import TEMPLATE_DIR
+import os, re, shutil, subprocess
 
 from lxml import etree
 from Utils import genPathTree, getRoot, write_to_file
 from Utils import joinpath, relpath, dirname
 
-import jinja2
-from Utils import breaksign
+from Constants import TEMPLATE_DIR
+HTML_TEMPLATE_DIR = joinpath(TEMPLATE_DIR, 'html')
 
+import jinja2
 html_jinja_env = jinja2.Environment(
     loader = jinja2.FileSystemLoader(os.path.abspath('/'))
 )
 
-def construct_type(ele) :
-    if ele is None : return ''
-    if type(ele) == list : return ''
-
-    typestring = ''
-    attribs = ele.attrib
-    typename = attribs['type']
-    if typename == 'record' :
-        if 'unnamed' in attribs :
-            typestring += '{ '
-            fields = []
-            for field in ele.findall('Field') :
-                fields.append(construct_type(field.find('./Type')) + " " + field.attrib['name'])
-            typestring += ' , '.join(fields) + ' }'
-        else :
-            typestring += attribs['origfn'] if 'origfn' in attribs else attribs['name']
-    else :
-        typestring += typename.upper()
-        if 'origfn' in attribs :
-            typestring += ' ( ' + attribs['origfn'] + ' )'
-        elif 'name' in attribs :
-            typestring += ' ( ' + attribs['name'] + ' )'
-
-    if typename == 'function' :
-        typestring += ' [ '
-        params = []
-        for p in ele.find('Params').findall('Type') :
-            params.append(construct_type(p))
-        typestring += ' , '.join(params) + ' ]'
-
-    if ele.find('./Type') is not None :
-        typestring += ' ( ' + construct_type(ele.find('./Type')) + ' )'
-
-    return typestring
-
-def construct_params(params) :
-    if params is None : return ''
-    params = params.findall('./Param')
-    plist = []
-    for p in params :
-        type_ = construct_type(p.find('./Type'))
-        name = p.attrib['name']
-        plist.append((type_, name))
-
-    return plist
-
-
-html_jinja_env.filters['construct_type'] = construct_type
-html_jinja_env.filters['construct_params'] = construct_params
+from Utils import breaksign
+from parseDoc import getTags
+from Taglets import taglets
+from tagHTML import tag_renders
 
 class ParseHTML(object) :
     def __init__(self, generator, ecl_file) :
@@ -81,6 +33,7 @@ class ParseHTML(object) :
         root = tree.getroot()
         src = root.find('./Source')
         self.src = src
+        self.parseSource()
         self.doc = src.find('./Documentation')
 
         for child in root.iter() :
@@ -115,7 +68,8 @@ class ParseHTML(object) :
         render = self.template.render(src=src,
                                     files=files,
                                     parent=parent,
-                                    output_root=output_relpath)
+                                    output_root=output_relpath,
+                                    render_dict=self.render_dict)
         write_to_file(self.html_file, render)
 
     def docstring(self) :
@@ -126,6 +80,35 @@ class ParseHTML(object) :
                 text = content.text
         return text
 
+    def parseSource(self) :
+        self.render_dict = []
+        for defn in self.src.findall('./Definition') :
+            self.parseDefinition(defn, self.render_dict)
+
+    def parseDefinition(self, defn, render_dict) :
+        doc = self.parseDocs(defn)
+        defn_dict = { 'tag' : defn, 'doc' : doc, 'defns' : [] }
+
+        for childdefn in defn.findall('./Definition') :
+            self.parseDefinition(childdefn, defn_dict['defns'])
+
+        render_dict.append(defn_dict)
+
+    def parseDocs(self, defn) :
+        renders = {}
+        tags = getTags(defn.find('Documentation'))
+        always = ['param', 'field', 'return', 'parent', 'content', 'firstline']
+        common_tags = list(set(tags.keys()) | set(always))
+        for tag in common_tags :
+            if tag not in taglets or tag not in tag_renders :
+                renders[tag] = tags[tag]
+                continue
+            render = tag_renders[tag](taglets[tag](doc=tags[tag], defn=defn))
+            renders[tag] = render
+
+        return renders
+
+
 class GenHTML(object) :
     def __init__(self, input_root, output_root, ecl_file_tree, options) :
         self.input_root = input_root
@@ -133,7 +116,7 @@ class GenHTML(object) :
         self.html_root = joinpath(output_root, 'html')
         self.xml_root = joinpath(output_root, 'xml')
 
-        self.template_dir = joinpath(TEMPLATE_DIR, 'html')
+        self.template_dir = HTML_TEMPLATE_DIR
         self.content_template = html_jinja_env.get_template(joinpath(self.template_dir, 'content.tpl.html'))
         self.toc_template = html_jinja_env.get_template(joinpath(self.template_dir, 'toc.tpl.html'))
         self.ecl_file_tree = ecl_file_tree
