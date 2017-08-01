@@ -4,6 +4,7 @@ class tag :
 	def __init__(self, **kwargs) :
 		self.docstrings = kwargs['doc']
 		self.defn = kwargs['defn']
+		self.tagname = kwargs['tagname'] if 'tagname' in kwargs else 'tag'
 
 class tag_param(tag) :
 	def __init__(self, **kwargs) :
@@ -104,6 +105,12 @@ class tag_firstline(tag) :
 		else :
 			self.text = self.docstrings[0]
 
+class tag_generaltag(tag) :
+	def __init__(self, **kwargs) :
+		super().__init__(**kwargs)
+		self.tuples = {'tuples' : [], 'name' : self.tagname}
+		for d in self.docstrings :
+			self.tuples['tuples'].append((d, ))
 
 taglets= {  'param' : tag_param,
 			'field' : tag_field,
@@ -111,5 +118,6 @@ taglets= {  'param' : tag_param,
 			'return' : tag_return,
 			'parent' : tag_parent,
 			'content' : tag_content,
-			'firstline' : tag_firstline
+			'firstline' : tag_firstline,
+			'generaltag' : tag_generaltag
 		 }

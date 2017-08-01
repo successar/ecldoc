@@ -101,9 +101,14 @@ class ParseHTML(object) :
         common_tags = list(set(tags.keys()) | set(always))
         for tag in common_tags :
             if tag not in taglets or tag not in tag_renders :
-                renders[tag] = tags[tag]
+                if 'generaltag' in tag_renders :
+                    render = tag_renders['generaltag'](
+                                taglets['generaltag'](doc=tags[tag], defn=defn, tagname=tag))
+                else :
+                    render = tags[tag]
+                renders[tag] = render
                 continue
-            render = tag_renders[tag](taglets[tag](doc=tags[tag], defn=defn))
+            render = tag_renders[tag](taglets[tag](doc=tags[tag], defn=defn, tagname=tag))
             renders[tag] = render
 
         return renders

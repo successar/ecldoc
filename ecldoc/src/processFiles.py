@@ -38,7 +38,7 @@ def configParser(configfile, options) :
         options['exclude'] = exclude
 
     options['output_root'] = None
-    options['formats'] = ['html', 'text', 'pdf']#, 'pdf']
+    options['formats'] = ['html', 'text', 'pdf']
     if 'OUTPUT' in cfgparser.sections() :
         options['output_root'] = cfgparser['OUTPUT']['root']
         if 'format' in cfgparser['OUTPUT'] :
@@ -54,16 +54,19 @@ def configParser(configfile, options) :
         paths = split(cfgparser['EXDOC']['paths'], sep=',')
         options['exdoc_paths'] = paths
 
-def argsParser(args, options) :
-    options['input_root'] = args.iroot
-    options['output_root'] = args.oroot
-    options['include'] = split(args.include, ',')
-    options['exclude'] = split(args.exclude, ',')
-    options['eclcc'] = split(args.eclcc, ';')
-    options['nodoc'] = args.hideNoDoc
-    options['nointernal'] = args.hideInternal
-    options['exdoc_paths'] = split(args.exdocpaths, ',', apply=lambda x : realpath(x))
-    options['formats'] = split(args.format, ',', apply=lambda x : x.lower())
+def argsParserEcldoc(args, options) :
+    if args.config is not None :
+        configParser(args.config, options)
+    else :
+        options['input_root'] = args.iroot
+        options['output_root'] = args.oroot
+        options['include'] = split(args.include, ',')
+        options['exclude'] = split(args.exclude, ',')
+        options['eclcc'] = split(args.eclcc, ';')
+        options['nodoc'] = args.hideNoDoc
+        options['nointernal'] = args.hideInternal
+        options['exdoc_paths'] = split(args.exdocpaths, ',', apply=lambda x : realpath(x))
+        options['formats'] = split(args.format, ',', apply=lambda x : x.lower())
 
 def doMain() :
     parser = argparse.ArgumentParser(description='Parser for ECLDOC')
@@ -81,10 +84,7 @@ def doMain() :
     print(args)
 
     options = {}
-    if args.config is not None :
-        configParser(args.config, options)
-    else :
-        argsParser(args, options)
+    argsParserEcldoc(args, options)
 
     assert options['input_root'] is not None
     assert options['output_root'] is not None

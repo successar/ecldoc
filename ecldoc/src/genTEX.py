@@ -108,8 +108,12 @@ class ParseTEX(object) :
             if tag not in taglets or tag not in tag_renders :
                 if tag in ['content', 'firstline'] :
                     assert False, 'Taglet not found for required tags (content, firstline)'
+                if 'generaltag' in tag_renders :
+                    render = tag_renders['generaltag'](
+                                taglets['generaltag'](doc=tags[tag], defn=defn, tagname=tag))
+                    renders[tag] = render
                 continue
-            render = tag_renders[tag](taglets[tag](doc=tags[tag], defn=defn))
+            render = tag_renders[tag](taglets[tag](doc=tags[tag], defn=defn, tagname=tag))
             renders[tag] = render
 
         renders['inherit'] = tag_renders['inherit'](defn.attrib['inherittype'])

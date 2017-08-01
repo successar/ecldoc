@@ -43,13 +43,18 @@ def render_content(tag_content) :
 def render_firstline(tag_firstline) :
 	return tag_firstline.text
 
+def render_generaltag(tag_generaltag) :
+	render = tag_template.render(render_name='onetag', args=[tag_generaltag.tuples['name'], tag_generaltag.tuples['tuples']])
+	return render
+
 tag_renders = { 'param' : render_param,
 				'field' : render_field,
 				'return' : render_return,
 				'see' : render_see,
 				'parent' : render_parent,
 				'content' : render_content,
-				'firstline' : render_firstline
+				'firstline' : render_firstline,
+				'generaltag' : render_generaltag
 			  }
 
 

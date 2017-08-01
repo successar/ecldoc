@@ -19,6 +19,7 @@
 *   @field f2 oka_f2
 *   @return rec_1
 *   @see example_1.mod_1
+*   @author example_1.sarthakjain
 */
  EXPORT Example_3 := MODULE
     EXPORT mod_1 := MODULE

@@ -5,6 +5,11 @@ import lxml.html as H
 from collections import defaultdict
 
 def parseDocstring(docstring) :
+    '''
+    Parse Docstring as returned by eclcc,
+    break into individual tags and
+    return them as XML Elements
+    '''
     docstring = re.sub(r'\n\s*\*', '\n', docstring)
     docstring = re.sub(r'\r', ' ', docstring)
     docstring = docstring.strip().split('\n')
@@ -44,6 +49,10 @@ def parseDocstring(docstring) :
     return docdict
 
 def getTags(doc) :
+    '''
+    Convert XML Documentation (generated using parseDocstring)
+    back to JSON (ie Python Dictionary)
+    '''
     tag_dict = defaultdict(list)
     if doc is None : return tag_dict
     for child in doc.getchildren() :
@@ -89,6 +98,9 @@ def findFirstLine(current_text) :
 ##########################################################
 
 def construct_type(ele) :
+    '''
+    Parse Type Tree into single string representation
+    '''
     if ele is None : return ''
     if type(ele) == list : return ''
 
