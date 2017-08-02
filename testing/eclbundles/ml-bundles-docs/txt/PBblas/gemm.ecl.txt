@@ -42,11 +42,8 @@ x and y for each work-item.
 
 Parameter : alpha REAL8 --- Scalar multiplier for alpha * A * B
 
-Parameter : transposeA BOOLEAN --- Boolean indicating whether matrix A
-                       should be transposed before multiplying
-
-Parameter : C_in TABLE ( Layout_Cell ) --- Same as above for the
-                 'C' matrix (addend). May be omitted.
+Parameter : A_in TABLE ( Layout_Cell ) --- 'A' matrix (multiplier)
+                 in Layout_Cell format
 
 Parameter : beta REAL8 --- A scalar multiplier for beta * C, scales
                  the C matrix before addition. May be omitted.
@@ -54,10 +51,13 @@ Parameter : beta REAL8 --- A scalar multiplier for beta * C, scales
 Parameter : B_in TABLE ( Layout_Cell ) --- Same as above for the
                  'B' matrix (multiplicand)
 
-Parameter : transposeB BOOLEAN --- Same as above but for matrix B
+Parameter : transposeA BOOLEAN --- Boolean indicating whether matrix A
+                       should be transposed before multiplying
 
-Parameter : A_in TABLE ( Layout_Cell ) --- 'A' matrix (multiplier)
-                 in Layout_Cell format
+Parameter : C_in TABLE ( Layout_Cell ) --- Same as above for the
+                 'C' matrix (addend). May be omitted.
+
+Parameter : transposeB BOOLEAN --- Same as above but for matrix B
 
 Return : TABLE ( { UNSIGNED2 wi_id , UNSIGNED4 x ,
          UNSIGNED4 y , REAL8 v } ) Result matrix in

@@ -1,5 +1,59 @@
-from parseDoc import construct_type, convertToMarkdown
+from parseDoc import construct_type
 from genTXT import CPL, _break
+import lxml.html as H
+
+##########################################################
+
+def convertToMarkdown(html_text) :
+    '''
+    Convert HTML String to Markdown Format
+    '''
+    root = H.fragment_fromstring(html_text, create_parent='div')
+    text = parseHTMltoMK(root)
+    return text
+
+def parseHTMltoMK(element) :
+    '''
+    Convert Single HTML element to Markdown Text (recursive)
+    '''
+    text = ''
+    if element.text :
+        text += element.text
+    for e in element.iterchildren() :
+        text += parseHTMltoMK(e)
+        if e.tail :
+            text += e.tail
+
+    if element.tag in ['p', 'pre', 'ul', 'ol', 'table'] :
+        text = '\n' + text + '\n'
+
+    if element.tag == 'br' :
+        text = '\n'
+
+    if element.tag == 'code' :
+        text = '```' + text  + '```'
+
+    if element.tag == 'li' and element.getparent().tag == 'ul':
+        text = '+ ' + text + '\n'
+
+    if element.tag == 'li' and element.getparent().tag == 'ol':
+        text = '# ' + text + '\n'
+
+    if element.tag == 'td' :
+        text = text + ' | '
+
+    if element.tag == 'tr' :
+        text = '| ' + text + '\n'
+
+    if element.tag == 'hr' :
+        text = '\n************\n'
+
+    if element.tag == 'a' :
+        text = text + ' <' + element.attrib['href'] + '>'
+
+    return text
+
+##########################################################
 
 def parseTag(text, heading) :
     heading = heading

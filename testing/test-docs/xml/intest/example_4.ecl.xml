@@ -1,77 +1,65 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <Meta>
  <Depends sourcePath="/media/sarthak/Data/ecldoc/testing/test/example_3.ecl" name="example_3" target="../example_3.ecl.xml"/><Source name="intest.example_4" sourcePath="/media/sarthak/Data/ecldoc/testing/test/intest/example_4.ecl" target="example_4.ecl.xml">
-  <Definition exported="1" fullname="intest.example_4" inherittype="local" line="8" name="example_4">
-   <Type>module</Type>
-   <Parents/>
-   <Definition exported="1" fullname="intest.example_4.mod_1" inherittype="local" line="9" name="mod_1">
-    <Type>module</Type>
-    <Definition exported="1" fullname="intest.example_4.mod_1.v2_m1_ex4" inherittype="local" line="10" name="v2_m1_ex4">
-     <Type>attribute</Type>
-     <Signature name="v2_m1_ex4" ret="" param="" hlen="9">v2_m1_ex4</Signature><RType issigned="1" length="8" precision="0" type="real"/>
+  <Definition exported="1" fullname="intest.example_4" inherittype="local" line="8" name="example_4" type="module">
+   <Definition exported="1" fullname="intest.example_4.mod_1" inherittype="local" line="9" name="mod_1" type="module">
+    <Definition exported="1" fullname="intest.example_4.mod_1.v2_m1_ex4" inherittype="local" line="10" name="v2_m1_ex4" type="attribute">
+     <Signature name="v2_m1_ex4" ret="" param="" hlen="9">v2_m1_ex4</Signature><Type type="real8"/>
     </Definition>
-    <Definition exported="1" fullname="example_3.mod_1.v1_m1" inherittype="inherited" line="31" name="v1_m1" target="../example_3.ecl.xml">
-     <Type>attribute</Type>
-     <Documentation>
+    <Definition exported="1" fullname="example_3.mod_1.v1_m1" inherittype="inherited" line="32" name="v1_m1" type="attribute" target="../example_3.ecl.xml">
+     <Type type="real8"/>
+     <Signature name="v1_m1" ret="" param="" hlen="5">v1_m1</Signature><Documentation>
       <content>Doc test 2. Title end by period not newline &lt;pre&gt;&lt;br/&gt; ABCD ||||&lt;br/&gt; CDEF ||||&lt;/pre&gt;</content><firstline>Doc test 2</firstline></Documentation>
-     <Signature name="v1_m1" ret="" param="" hlen="5">v1_m1</Signature><RType issigned="1" length="8" precision="0" type="real"/>
     </Definition>
-    <Definition exported="1" fullname="example_3.mod_1.v2_m1_ex3" inherittype="inherited" line="35" name="v2_m1_ex3" target="../example_3.ecl.xml">
-     <Type>attribute</Type>
-     <Documentation>
+    <Definition exported="1" fullname="example_3.mod_1.v2_m1_ex3" inherittype="inherited" line="36" name="v2_m1_ex3" type="attribute" target="../example_3.ecl.xml">
+     <Type type="real8"/>
+     <Signature name="v2_m1_ex3" ret="" param="" hlen="9">v2_m1_ex3</Signature><Documentation>
       <content>DOC Test 3 No Period title</content><firstline>DOC Test 3</firstline></Documentation>
-     <Signature name="v2_m1_ex3" ret="" param="" hlen="9">v2_m1_ex3</Signature><RType issigned="1" length="8" precision="0" type="real"/>
     </Definition>
-    <Definition exported="1" fullname="example_3.mod_1.long_name" inherittype="inherited" line="36" name="long_name" target="../example_3.ecl.xml">
-     <Type>function</Type>
+    <Definition exported="1" fullname="example_3.mod_1.long_name" inherittype="inherited" line="37" name="long_name" type="function" target="../example_3.ecl.xml">
+     <Type type="real8"/>
      <Signature name="long_name" ret="" param="(DATASET({REAL8 u}) X, DATASET({REAL8 u}) IntW, DATASET({REAL8 u}) Intb, REAL8 BETA=0.1, REAL8 sparsityParam=0.1 , REAL8 LAMBDA=0.001, REAL8 ALPHA=0.1, UNSIGNED2 MaxIter=100)" hlen="9">long_name(DATASET({REAL8 u}) X, DATASET({REAL8 u}) IntW, DATASET({REAL8 u}) Intb, REAL8 BETA=0.1, REAL8 sparsityParam=0.1 , REAL8 LAMBDA=0.001, REAL8 ALPHA=0.1, UNSIGNED2 MaxIter=100)</Signature><Params>
       <Param name="X">
-       <RType type="table">
-        <RType type="row">
-         <RType type="record">
-          <Field name="u">
-           <RType issigned="1" length="8" precision="0" type="real"/>
-          </Field>
-         </RType>
-        </RType>
-       </RType>
+       <Type type="table">
+        <Type type="record" unnamed="1">
+         <Field name="u">
+          <Type type="real8"/>
+         </Field>
+        </Type>
+       </Type>
       </Param>
       <Param name="IntW">
-       <RType type="table">
-        <RType type="row">
-         <RType type="record">
-          <Field name="u">
-           <RType issigned="1" length="8" precision="0" type="real"/>
-          </Field>
-         </RType>
-        </RType>
-       </RType>
+       <Type type="table">
+        <Type type="record" unnamed="1">
+         <Field name="u">
+          <Type type="real8"/>
+         </Field>
+        </Type>
+       </Type>
       </Param>
       <Param name="Intb">
-       <RType type="table">
-        <RType type="row">
-         <RType type="record">
-          <Field name="u">
-           <RType issigned="1" length="8" precision="0" type="real"/>
-          </Field>
-         </RType>
-        </RType>
-       </RType>
+       <Type type="table">
+        <Type type="record" unnamed="1">
+         <Field name="u">
+          <Type type="real8"/>
+         </Field>
+        </Type>
+       </Type>
       </Param>
       <Param name="BETA">
-       <RType issigned="1" length="8" precision="0" type="real"/>
+       <Type type="real8"/>
       </Param>
       <Param name="sparsityParam">
-       <RType issigned="1" length="8" precision="0" type="real"/>
+       <Type type="real8"/>
       </Param>
       <Param name="LAMBDA">
-       <RType issigned="1" length="8" precision="0" type="real"/>
+       <Type type="real8"/>
       </Param>
       <Param name="ALPHA">
-       <RType issigned="1" length="8" precision="0" type="real"/>
+       <Type type="real8"/>
       </Param>
       <Param name="MaxIter">
-       <RType issigned="0" length="2" precision="0" type="int"/>
+       <Type type="unsigned2"/>
       </Param>
      </Params>
     </Definition>
@@ -79,11 +67,12 @@
      <Parent name="mod_1_ex3" ref="Example_3.mod_1" target="../example_3.ecl.xml"/>
     </Parents>
    </Definition>
-   <Signature name="example_4" ret="" param="" hlen="9">example_4</Signature><Documentation>
+   <Documentation>
     <content>Example : Inheritance across files mod_1 in Example_4 inherits mod_1 in Example_3</content><firstline>Example : Inheritance across files</firstline></Documentation>
+   <Signature name="example_4" ret="" param="" hlen="9">example_4</Signature><Parents/>
   </Definition>
   <Import name="mod_1_ex3" ref="Example_3.mod_1" target="../example_3.ecl.xml"/>
  <Documentation>
     <content>Example : Inheritance across files mod_1 in Example_4 inherits mod_1 in Example_3</content><firstline>Example : Inheritance across files</firstline></Documentation>
-  </Source>
+   </Source>
 </Meta>

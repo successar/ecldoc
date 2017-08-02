@@ -126,12 +126,12 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>Y</b></td>
-				<td><b>TABLE ( NumericField )</b> -- The dependent variable training data in DATASET(NumericField) format. Each observation (e.g. record) is identified by 'id', and each feature is identified by field number. Omit this parameter when predicting from a persisted model.</td>
+				<td width="20%"><b>X</b></td>
+				<td><b>TABLE ( linearregression.numericfield )</b> -- The independent variable training data in DATASET(NumericField) format. Each observation (e.g. record) is identified by 'id', and each feature is identified by field number (i.e. 'number'). Omit this parameter when predicting from a persisted model.</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>X</b></td>
-				<td><b>TABLE ( NumericField )</b> -- The independent variable training data in DATASET(NumericField) format. Each observation (e.g. record) is identified by 'id', and each feature is identified by field number (i.e. 'number'). Omit this parameter when predicting from a persisted model.</td>
+				<td width="20%"><b>Y</b></td>
+				<td><b>TABLE ( linearregression.numericfield )</b> -- The dependent variable training data in DATASET(NumericField) format. Each observation (e.g. record) is identified by 'id', and each feature is identified by field number. Omit this parameter when predicting from a persisted model.</td>
 			</tr>
 		</table>
 	</div>
@@ -149,7 +149,7 @@
 <div class="col-md-1 doc-type">Parents</div>
 <div class="col-md-11" style="padding-left: 0px;">
 <ul class="pagination" style="margin-top: 0px;"><li>
-		<a href="../ML_Core/Interfaces/IRegression.ecl.xml">
+		<a href="../ML_Core/Interfaces/IRegression.ecl.html">
 			ML_Core.Interfaces.IRegression
 		</a>
 	</li></ul>
@@ -305,7 +305,7 @@
 			
 			<tr>
 				<td width="20%"><b>model</b></td>
-				<td><b>TABLE ( Layout_Model )</b> -- Optional parameter provides a model that was previously retrieved using GetModel. If omitted, GetModel will be used as the model.</td>
+				<td><b>TABLE ( linearregression.layout_model )</b> -- Optional parameter provides a model that was previously retrieved using GetModel. If omitted, GetModel will be used as the model.</td>
 			</tr>
 		</table>
 	</div>
@@ -394,12 +394,12 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>model</b></td>
-				<td><b>TABLE ( Layout_Model )</b> -- Optional. A model that was previously returned from GetModel (above). Note that a model from a previous run will only be valid if the field numbers in X are the same as when the model was learned. If this parameter is omitted, the current model will be used.</td>
+				<td width="20%"><b>newX</b></td>
+				<td><b>TABLE ( linearregression.numericfield )</b> -- The set of observations of independent variables in DATASET(NumericField) format.</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>newX</b></td>
-				<td><b>TABLE ( NumericField )</b> -- The set of observations of independent variables in DATASET(NumericField) format.</td>
+				<td width="20%"><b>model</b></td>
+				<td><b>TABLE ( linearregression.layout_model )</b> -- Optional. A model that was previously returned from GetModel (above). Note that a model from a previous run will only be valid if the field numbers in X are the same as when the model was learned. If this parameter is omitted, the current model will be used.</td>
 			</tr>
 		</table>
 	</div>
@@ -488,7 +488,7 @@
 			
 			<tr>
 				<td width="20%"><b>coco</b></td>
-				<td><b>ROW ( CoCoRec )</b> -- No Doc</td>
+				<td><b>ROW ( linearregression.ols.cocorec )</b> -- No Doc</td>
 			</tr>
 		</table>
 	</div>
@@ -507,7 +507,7 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>R2Rec</b></td>
+				<td width="20%"><b>linearregression.ols.r2rec</b></td>
 				<td></td>
 			</tr>
 		</table>
@@ -648,19 +648,15 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>error_ss</b></td>
-				<td><b>REAL8</b> -- No Doc</td>
+				<td width="20%"><b>error_df</b></td>
+				<td><b>UNSIGNED8</b> -- No Doc</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>model_df</b></td>
 				<td><b>UNSIGNED8</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>error_df</b></td>
-				<td><b>UNSIGNED8</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>model_ss</b></td>
+				<td width="20%"><b>error_ms</b></td>
 				<td><b>REAL8</b> -- No Doc</td>
 			</tr>
 			<tr>
@@ -668,7 +664,23 @@
 				<td><b>REAL8</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>error_ms</b></td>
+				<td width="20%"><b>total_ss</b></td>
+				<td><b>REAL8</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>total_ms</b></td>
+				<td><b>REAL8</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>number</b></td>
+				<td><b>UNSIGNED4</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>wi</b></td>
+				<td><b>UNSIGNED2</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>error_ss</b></td>
 				<td><b>REAL8</b> -- No Doc</td>
 			</tr>
 			<tr>
@@ -676,23 +688,11 @@
 				<td><b>UNSIGNED8</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>number</b></td>
-				<td><b>UNSIGNED4</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>total_ms</b></td>
-				<td><b>REAL8</b> -- No Doc</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>model_f</b></td>
 				<td><b>REAL8</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>wi</b></td>
-				<td><b>UNSIGNED2</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>total_ss</b></td>
+				<td width="20%"><b>model_ss</b></td>
 				<td><b>REAL8</b> -- No Doc</td>
 			</tr>
 		</table>
@@ -763,7 +763,7 @@
 			
 			<tr>
 				<td width="20%"><b>le</b></td>
-				<td><b>ROW ( tmpRec )</b> -- No Doc</td>
+				<td><b>ROW ( linearregression.ols.tmprec )</b> -- No Doc</td>
 			</tr>
 		</table>
 	</div>
@@ -782,7 +782,7 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>AnovaRec</b></td>
+				<td width="20%"><b>linearregression.ols.anovarec</b></td>
 				<td></td>
 			</tr>
 		</table>
@@ -1136,16 +1136,16 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>wi</b></td>
-				<td><b>UNSIGNED2</b> -- No Doc</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>aic</b></td>
 				<td><b>REAL8</b> -- No Doc</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>number</b></td>
 				<td><b>UNSIGNED4</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>wi</b></td>
+				<td><b>UNSIGNED2</b> -- No Doc</td>
 			</tr>
 		</table>
 	</div>
@@ -1286,20 +1286,20 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>rangehigh</b></td>
+				<td width="20%"><b>p</b></td>
 				<td><b>REAL8</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>rangenumber</b></td>
-				<td><b>UNSIGNED8</b> -- No Doc</td>
+				<td width="20%"><b>rangehigh</b></td>
+				<td><b>REAL8</b> -- No Doc</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>rangelow</b></td>
 				<td><b>REAL8</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>p</b></td>
-				<td><b>REAL8</b> -- No Doc</td>
+				<td width="20%"><b>rangenumber</b></td>
+				<td><b>UNSIGNED8</b> -- No Doc</td>
 			</tr>
 		</table>
 	</div>
@@ -2244,7 +2244,7 @@
 <div class="col-md-1 doc-type">Parents</div>
 <div class="col-md-11" style="padding-left: 0px;">
 <ul class="pagination" style="margin-top: 0px;"><li>
-		<a href="OLS.ecl.xml">
+		<a href="OLS.ecl.html">
 			linearregression.ols.distributionbase
 		</a>
 	</li></ul>
@@ -3109,12 +3109,12 @@
 				<td><b>INTEGER4</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>nranges</b></td>
-				<td><b>UNSIGNED8</b> -- No Doc</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>d1_in</b></td>
 				<td><b>INTEGER4</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>nranges</b></td>
+				<td><b>UNSIGNED8</b> -- No Doc</td>
 			</tr>
 		</table>
 	</div>
@@ -3132,7 +3132,7 @@
 <div class="col-md-1 doc-type">Parents</div>
 <div class="col-md-11" style="padding-left: 0px;">
 <ul class="pagination" style="margin-top: 0px;"><li>
-		<a href="OLS.ecl.xml">
+		<a href="OLS.ecl.html">
 			linearregression.ols.distributionbase
 		</a>
 	</li></ul>
@@ -4012,7 +4012,7 @@
 <div class="col-md-1 doc-type">Parents</div>
 <div class="col-md-11" style="padding-left: 0px;">
 <ul class="pagination" style="margin-top: 0px;"><li>
-		<a href="OLS.ecl.xml">
+		<a href="OLS.ecl.html">
 			linearregression.ols.distributionbase
 		</a>
 	</li></ul>
@@ -4945,24 +4945,24 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>wi</b></td>
-				<td><b>UNSIGNED2</b> -- No Doc</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>lowerint</b></td>
 				<td><b>REAL8</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>id</b></td>
-				<td><b>UNSIGNED8</b> -- No Doc</td>
+				<td width="20%"><b>upperint</b></td>
+				<td><b>REAL8</b> -- No Doc</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>number</b></td>
 				<td><b>UNSIGNED4</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>upperint</b></td>
-				<td><b>REAL8</b> -- No Doc</td>
+				<td width="20%"><b>wi</b></td>
+				<td><b>UNSIGNED2</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>id</b></td>
+				<td><b>UNSIGNED8</b> -- No Doc</td>
 			</tr>
 		</table>
 	</div>
@@ -5121,19 +5121,19 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>wi</b></td>
-				<td><b>UNSIGNED2</b> -- No Doc</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>number</b></td>
 				<td><b>UNSIGNED4</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>pvalue</b></td>
-				<td><b>REAL8</b> -- No Doc</td>
+				<td width="20%"><b>wi</b></td>
+				<td><b>UNSIGNED2</b> -- No Doc</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>model_f</b></td>
+				<td><b>REAL8</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>pvalue</b></td>
 				<td><b>REAL8</b> -- No Doc</td>
 			</tr>
 		</table>

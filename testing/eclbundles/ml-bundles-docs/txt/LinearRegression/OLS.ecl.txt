@@ -40,13 +40,6 @@ Analysis of Variance (ANOVA) - R-squared - Adjusted R-squared - F-Test -
 Akaike Information Criterion (AIC) For each coefficient: - Standard Error
 (SE) - T-statistic - P-value - Confidence Interval
 
-Parameter : Y TABLE ( NumericField ) --- The dependent variable
-              training data in DATASET(NumericField) format.
-              Each observation (e.g. record) is identified by
-              'id', and each feature is identified by field
-              number. Omit this parameter when predicting from a
-              persisted model.
-
 Parameter : X TABLE ( NumericField ) --- The independent
               variable training data in DATASET(NumericField)
               format. Each observation (e.g. record) is
@@ -54,8 +47,15 @@ Parameter : X TABLE ( NumericField ) --- The independent
               by field number (i.e. 'number'). Omit this
               parameter when predicting from a persisted model.
 
+Parameter : Y TABLE ( NumericField ) --- The dependent variable
+              training data in DATASET(NumericField) format.
+              Each observation (e.g. record) is identified by
+              'id', and each feature is identified by field
+              number. Omit this parameter when predicting from a
+              persisted model.
+
 Parent : ML_Core.Interfaces.IRegression
-         <../ML_Core/Interfaces/IRegression.ecl.xml>
+         <../ML_Core/Interfaces/IRegression.ecl.txt>
 
   | ----------------------------------------------------------------------------------------------------------------------------------
   | ATTRIBUTE : DATASET(Layout_Model) GetModel ||| OVERRIDE
@@ -119,16 +119,16 @@ Parent : ML_Core.Interfaces.IRegression
   | models may be provided in 'model'. The resulting predicted values will also
   | be separable by work item (i.e. wi).
   | 
+  | Parameter : newX TABLE ( NumericField ) --- The set of observations
+  |                  of independent variables in DATASET(NumericField)
+  |                  format.
+  | 
   | Parameter : model TABLE ( Layout_Model ) --- Optional. A model that
   |                   was previously returned from GetModel (above).
   |                   Note that a model from a previous run will only be
   |                   valid if the field numbers in X are the same as
   |                   when the model was learned. If this parameter is
   |                   omitted, the current model will be used.
-  | 
-  | Parameter : newX TABLE ( NumericField ) --- The set of observations
-  |                  of independent variables in DATASET(NumericField)
-  |                  format.
   | 
   | Return : TABLE ( { UNSIGNED2 wi , UNSIGNED8 id , UNSIGNED4
   |          number , REAL8 value } ) An estimation of the
@@ -184,29 +184,29 @@ Parent : ML_Core.Interfaces.IRegression
   | 
   | No Documentation Found
   | 
-  | Field : error_ss REAL8 --- No Doc
+  | Field : error_df UNSIGNED8 --- No Doc
   | 
   | Field : model_df UNSIGNED8 --- No Doc
   | 
-  | Field : error_df UNSIGNED8 --- No Doc
-  | 
-  | Field : model_ss REAL8 --- No Doc
+  | Field : error_ms REAL8 --- No Doc
   | 
   | Field : model_ms REAL8 --- No Doc
   | 
-  | Field : error_ms REAL8 --- No Doc
-  | 
-  | Field : total_df UNSIGNED8 --- No Doc
-  | 
-  | Field : number UNSIGNED4 --- No Doc
+  | Field : total_ss REAL8 --- No Doc
   | 
   | Field : total_ms REAL8 --- No Doc
   | 
-  | Field : model_f REAL8 --- No Doc
+  | Field : number UNSIGNED4 --- No Doc
   | 
   | Field : wi UNSIGNED2 --- No Doc
   | 
-  | Field : total_ss REAL8 --- No Doc
+  | Field : error_ss REAL8 --- No Doc
+  | 
+  | Field : total_df UNSIGNED8 --- No Doc
+  | 
+  | Field : model_f REAL8 --- No Doc
+  | 
+  | Field : model_ss REAL8 --- No Doc
   | 
   | ----------------------------------------------------------------------------------------------------------------------------------
   | TRANSFORM : AnovaRec calcAnova(tmpRec le)
@@ -308,11 +308,11 @@ Parent : ML_Core.Interfaces.IRegression
   | 
   | No Documentation Found
   | 
-  | Field : wi UNSIGNED2 --- No Doc
-  | 
   | Field : aic REAL8 --- No Doc
   | 
   | Field : number UNSIGNED4 --- No Doc
+  | 
+  | Field : wi UNSIGNED2 --- No Doc
   | 
   | ----------------------------------------------------------------------------------------------------------------------------------
   | ATTRIBUTE : DATASET(AICRec) AIC
@@ -334,13 +334,13 @@ Parent : ML_Core.Interfaces.IRegression
   | 
   | No Documentation Found
   | 
-  | Field : rangehigh REAL8 --- No Doc
+  | Field : p REAL8 --- No Doc
   | 
-  | Field : rangenumber UNSIGNED8 --- No Doc
+  | Field : rangehigh REAL8 --- No Doc
   | 
   | Field : rangelow REAL8 --- No Doc
   | 
-  | Field : p REAL8 --- No Doc
+  | Field : rangenumber UNSIGNED8 --- No Doc
   | 
   | ----------------------------------------------------------------------------------------------------------------------------------
   | MODULE : DistributionBase(t_Count Nranges = 10000)
@@ -451,7 +451,7 @@ Parent : ML_Core.Interfaces.IRegression
   | Parameter : v_in INTEGER4 --- No Doc
   | 
   | Parent : linearregression.ols.distributionbase
-  |          <OLS.ecl.xml>
+  |          <OLS.ecl.txt>
   | 
   |   | ----------------------------------------------------------------------------------------------------------------------------------
   |   | FUNCTION : DATASET(RangeVec) DensityV() ||| OVERRIDE
@@ -551,12 +551,12 @@ Parent : ML_Core.Interfaces.IRegression
   | 
   | Parameter : d2_in INTEGER4 --- No Doc
   | 
-  | Parameter : nranges UNSIGNED8 --- No Doc
-  | 
   | Parameter : d1_in INTEGER4 --- No Doc
   | 
+  | Parameter : nranges UNSIGNED8 --- No Doc
+  | 
   | Parent : linearregression.ols.distributionbase
-  |          <OLS.ecl.xml>
+  |          <OLS.ecl.txt>
   | 
   |   | ----------------------------------------------------------------------------------------------------------------------------------
   |   | FUNCTION : DATASET(RangeVec) DensityV() ||| OVERRIDE
@@ -657,7 +657,7 @@ Parent : ML_Core.Interfaces.IRegression
   | Parameter : nranges UNSIGNED8 --- No Doc
   | 
   | Parent : linearregression.ols.distributionbase
-  |          <OLS.ecl.xml>
+  |          <OLS.ecl.txt>
   | 
   |   | ----------------------------------------------------------------------------------------------------------------------------------
   |   | ATTRIBUTE : Low ||| INHERITED
@@ -777,15 +777,15 @@ Parent : ML_Core.Interfaces.IRegression
   | 
   | No Documentation Found
   | 
-  | Field : wi UNSIGNED2 --- No Doc
-  | 
   | Field : lowerint REAL8 --- No Doc
   | 
-  | Field : id UNSIGNED8 --- No Doc
+  | Field : upperint REAL8 --- No Doc
   | 
   | Field : number UNSIGNED4 --- No Doc
   | 
-  | Field : upperint REAL8 --- No Doc
+  | Field : wi UNSIGNED2 --- No Doc
+  | 
+  | Field : id UNSIGNED8 --- No Doc
   | 
   | ----------------------------------------------------------------------------------------------------------------------------------
   | FUNCTION : ConfInt(Types.t_fieldReal level)
@@ -819,13 +819,13 @@ Parent : ML_Core.Interfaces.IRegression
   | 
   | No Documentation Found
   | 
-  | Field : wi UNSIGNED2 --- No Doc
-  | 
   | Field : number UNSIGNED4 --- No Doc
   | 
-  | Field : pvalue REAL8 --- No Doc
+  | Field : wi UNSIGNED2 --- No Doc
   | 
   | Field : model_f REAL8 --- No Doc
+  | 
+  | Field : pvalue REAL8 --- No Doc
   | 
   | ----------------------------------------------------------------------------------------------------------------------------------
   | ATTRIBUTE : DATASET(FTestRec) FTest

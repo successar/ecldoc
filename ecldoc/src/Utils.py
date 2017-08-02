@@ -1,5 +1,6 @@
 import os
-import re
+
+########################################################################
 
 from jinja2 import contextfilter
 
@@ -7,13 +8,17 @@ from jinja2 import contextfilter
 def call_macro_by_name(context, macro_name, *args, **kwargs):
     return context.vars[macro_name](*args, **kwargs)
 
+########################################################################
 
 def genPathTree(ecl_files, ext='') :
+    '''
+    Convert filepaths recovered from glob pattern into a tree structure
+    '''
     path_tree = { "root" : {} }
     for file in ecl_files :
         path = os.path.normpath(file).split(os.sep)
         parent = path_tree["root"]
-        for ind, node in enumerate(path[:-1]) :
+        for node in path[:-1] :
             if node not in parent :
                 parent[node] = {}
             parent = parent[node]
@@ -25,6 +30,9 @@ def genPathTree(ecl_files, ext='') :
     return path_tree
 
 def getRoot(path_tree, ecl_file) :
+    '''
+    walk the filepath tree to get parent of ecl_file
+    '''
     path = os.path.normpath(ecl_file).split(os.sep)[:-1]
     parent_path = ''
     parent = path_tree['root']
@@ -34,53 +42,17 @@ def getRoot(path_tree, ecl_file) :
 
     return parent
 
-
-def breaksign(name, string) :
-    name = name.lower()
-    string = ' ' + string.lower() + ' '
-    pos = 1
-    open_bracks = ['{', '(', '[']
-    close_bracks = ['}', ')', ']']
-    stack = []
-    for i in range(1, len(string)) :
-        c = string[i]
-        if c in open_bracks :
-            stack.append(c)
-        elif c in close_bracks :
-            if stack[-1] == open_bracks[close_bracks.index(c)] :
-                stack = stack[:-1]
-            else :
-                raise
-
-        else :
-            if len(stack) == 0 :
-                m = re.match(r'[\s\)]' + name + r'([^0-9A-Za-z_])', string[pos-1:])
-                if m :
-                    return pos-1
-
-        pos += 1
-
-    return -1
-
-LATEX_SUBS = (
-    (re.compile(r'\\'), r'\\textbackslash '),
-    (re.compile(r'([{}_#%&$])'), r'\\\1'),
-    (re.compile(r'~'), r'\~{}'),
-    (re.compile(r'\^'), r'\^{}'),
-    (re.compile(r'"'), r"''"),
-    (re.compile(r'\.\.\.+'), r'\\ldots'),
-)
-
-def escape_tex(value):
-    newval = value
-    for pattern, replacement in LATEX_SUBS:
-        newval = pattern.sub(replacement, newval)
-    return newval
+########################################################################
 
 def write_to_file(filename, text) :
     fp = open(filename, 'w')
     fp.write(text)
     fp.close()
+
+def read_file(filename) :
+    return open(filename).read()
+
+########################################################################
 
 def relpath(p1, p2) :
     return os.path.relpath(p1, p2)
@@ -93,12 +65,3 @@ def dirname(p1) :
 
 def realpath(p1) :
     return os.path.realpath(p1)
-
-def check_if_modified(fpin, fpout):
-    return os.path.exists(fpout) and os.path.getmtime(fpout) > os.path.getmtime(fpin)
-
-def indent_doc(s, level, width=4) :
-    indention = (u' ' * (width-1) + u'| ') * level
-    rv = (u'\n' + indention).join(s.splitlines())
-    rv = indention + rv
-    return rv

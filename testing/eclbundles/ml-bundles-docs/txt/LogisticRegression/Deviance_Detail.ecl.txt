@@ -17,11 +17,11 @@ FUNCTION : DATASET(Types.Observation_Deviance) Deviance_Detail(DATASET(Core_Type
 
 Detail deviance for each observation.
 
-Parameter : dependents TABLE ( DiscreteField ) --- original dependent
-                       records for the model
-
 Parameter : predicts TABLE ( Raw_Prediction ) --- the predicted values
                      of the response variable
+
+Parameter : dependents TABLE ( DiscreteField ) --- original dependent
+                       records for the model
 
 Return : TABLE ( { UNSIGNED2 wi , UNSIGNED8 id , UNSIGNED4
          classifier , INTEGER4 actual , INTEGER4 predicted

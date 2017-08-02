@@ -240,9 +240,9 @@ No Documentation Found
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{year}} ||| INTEGER2 --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{month}} ||| UNSIGNED1 --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{day}} ||| UNSIGNED1 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{month}} ||| UNSIGNED1 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{year}} ||| INTEGER2 --- No Doc
 \end{description}
 
 
@@ -356,8 +356,8 @@ No Documentation Found
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{minute}} ||| UNSIGNED1 --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{second}} ||| UNSIGNED1 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{minute}} ||| UNSIGNED1 --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{hour}} ||| UNSIGNED1 --- No Doc
 \end{description}
 
@@ -472,12 +472,12 @@ No Documentation Found
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{year}} ||| INTEGER2 --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{second}} ||| UNSIGNED1 --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{hour}} ||| UNSIGNED1 --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{minute}} ||| UNSIGNED1 --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{month}} ||| UNSIGNED1 --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{day}} ||| UNSIGNED1 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{second}} ||| UNSIGNED1 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{year}} ||| INTEGER2 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{minute}} ||| UNSIGNED1 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{hour}} ||| UNSIGNED1 --- No Doc
 \end{description}
 
 
@@ -848,9 +848,9 @@ Combines year, month day to create a date type.
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{year}} ||| INTEGER2 --- The year (0-9999).
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{month}} ||| UNSIGNED1 --- The month (1-12).
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{day}} ||| UNSIGNED1 --- The day (1..daysInMonth).
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{month}} ||| UNSIGNED1 --- The month (1-12).
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{year}} ||| INTEGER2 --- The year (0-9999).
 \end{description}
 
 
@@ -899,8 +899,8 @@ Combines hour, minute second to create a time type.
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{minute}} ||| UNSIGNED1 --- The minute (0-59).
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{second}} ||| UNSIGNED1 --- The second (0-59).
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{minute}} ||| UNSIGNED1 --- The minute (0-59).
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{hour}} ||| UNSIGNED1 --- The hour (0-23).
 \end{description}
 
@@ -950,13 +950,13 @@ Combines date and time components to create a seconds type. The date must be rep
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{year}} ||| INTEGER2 --- The year (1601-30827).
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{second}} ||| UNSIGNED1 --- The second (0-59).
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{hour}} ||| UNSIGNED1 --- The hour (0-23).
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{minute}} ||| UNSIGNED1 --- The minute (0-59).
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{is\_local\_time}} ||| BOOLEAN --- TRUE if the datetime components are expressed in local time rather than UTC, FALSE if the components are expressed in UTC. Optional, defaults to FALSE.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{month}} ||| UNSIGNED1 --- The month (1-12).
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{day}} ||| UNSIGNED1 --- The day (1..daysInMonth).
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{is\_local\_time}} ||| BOOLEAN --- TRUE if the datetime components are expressed in local time rather than UTC, FALSE if the components are expressed in UTC. Optional, defaults to FALSE.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{second}} ||| UNSIGNED1 --- The second (0-59).
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{year}} ||| INTEGER2 --- The year (1601-30827).
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{minute}} ||| UNSIGNED1 --- The minute (0-59).
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{hour}} ||| UNSIGNED1 --- The hour (0-23).
 \end{description}
 
 
@@ -1349,9 +1349,9 @@ Combines year, month day to create a date type.
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{year}} |||  --- The year (0-9999).
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{month}} |||  --- The month (1-12).
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{day}} |||  --- The day (1..daysInMonth).
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{month}} |||  --- The month (1-12).
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{year}} |||  --- The year (0-9999).
 \end{description}
 
 
@@ -1399,8 +1399,8 @@ Combines hour, minute second to create a time type.
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{minute}} |||  --- The minute (0-59).
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{second}} |||  --- The second (0-59).
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{minute}} |||  --- The minute (0-59).
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{hour}} |||  --- The hour (0-23).
 \end{description}
 
@@ -1599,9 +1599,9 @@ Combines year, month, day in the Gregorian calendar to create the number days si
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{year}} ||| INTEGER2 --- The year (-4713..9999).
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{month}} ||| UNSIGNED1 --- The month (1-12). A missing value (0) is treated as 1.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{day}} ||| UNSIGNED1 --- The day (1..daysInMonth). A missing value (0) is treated as 1.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{month}} ||| UNSIGNED1 --- The month (1-12). A missing value (0) is treated as 1.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{year}} ||| INTEGER2 --- The year (-4713..9999).
 \end{description}
 
 
@@ -2074,9 +2074,9 @@ Combines year, month, day in the Julian calendar to create the number days since
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{year}} ||| INTEGER2 --- The year (-4800..9999).
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{month}} ||| UNSIGNED1 --- The month (1-12).
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{day}} ||| UNSIGNED1 --- The day (1..daysInMonth).
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{month}} ||| UNSIGNED1 --- The month (1-12).
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{year}} ||| INTEGER2 --- The year (-4800..9999).
 \end{description}
 
 
@@ -2402,9 +2402,9 @@ Returns the number of days since 1st January 1900 (using the Gregorian Calendar)
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{year}} ||| INTEGER2 --- The year (-4713..9999).
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{month}} ||| UNSIGNED1 --- The month (1-12). A missing value (0) is treated as 1.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{day}} ||| UNSIGNED1 --- The day (1..daysInMonth). A missing value (0) is treated as 1.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{month}} ||| UNSIGNED1 --- The month (1-12). A missing value (0) is treated as 1.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{year}} ||| INTEGER2 --- The year (-4713..9999).
 \end{description}
 
 
@@ -2946,8 +2946,8 @@ Combines the date and time fields from a DateTime\_rec to create a Seconds\_t
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{datetime}} ||| ROW ( DateTime\_rec ) --- The row containing the datetime.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{is\_local\_time}} ||| BOOLEAN --- TRUE if the datetime components are expressed in local time rather than UTC, FALSE if the components are expressed in UTC. Optional, defaults to FALSE.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{datetime}} ||| ROW ( DateTime\_rec ) --- The row containing the datetime.
 \end{description}
 
 
@@ -2996,8 +2996,8 @@ Converts a string to a Date\_t using the relevant string format. The resulting d
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{date\_text}} ||| STRING --- The string to be converted.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{format}} ||| VARSTRING --- The format of the input string. (See documentation for strftime)
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{date\_text}} ||| STRING --- The string to be converted.
 \end{description}
 
 
@@ -3046,8 +3046,8 @@ Converts a string to a date using the relevant string format.
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{date\_text}} ||| STRING --- The string to be converted.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{format}} ||| VARSTRING --- The format of the input string. (See documentation for strftime)
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{date\_text}} ||| STRING --- The string to be converted.
 \end{description}
 
 
@@ -3096,8 +3096,8 @@ Converts a string to a Time\_t using the relevant string format.
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{date\_text}} |||  --- The string to be converted.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{format}} ||| VARSTRING --- The format of the input string. (See documentation for strftime)
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{date\_text}} |||  --- The string to be converted.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{time\_text}} ||| STRING --- No Doc
 \end{description}
 
@@ -3247,8 +3247,8 @@ Formats a date as a string.
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{date}} ||| UNSIGNED4 --- The date to be converted.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{format}} ||| VARSTRING --- The format template to use for the conversion; see strftime() for appropriate values. The maximum length of the resulting string is 255 characters. Optional; defaults to '\%Y-\%m-\%d' which is YYYY-MM-DD.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{date}} ||| UNSIGNED4 --- The date to be converted.
 \end{description}
 
 
@@ -3397,8 +3397,8 @@ Formats a date as a string.
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{date}} ||| UNSIGNED4 --- The date to be converted.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{format}} ||| VARSTRING --- The format the date is output in. (See documentation for strftime)
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{date}} ||| UNSIGNED4 --- The date to be converted.
 \end{description}
 
 
@@ -3447,9 +3447,9 @@ Converts a date from one format to another
 
 \par
 \begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{to\_format}} ||| VARSTRING --- The format the date is to be converted to.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{from\_format}} ||| VARSTRING --- The format the date is to be converted from.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{date\_text}} ||| STRING --- The string containing the date to be converted.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{to\_format}} ||| VARSTRING --- The format the date is to be converted to.
 \end{description}
 
 
@@ -3498,9 +3498,9 @@ Converts a date from one format to another
 
 \par
 \begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{to\_format}} ||| VARSTRING --- The format the date is to be converted to.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{from\_format}} ||| VARSTRING --- The format the date is to be converted from.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{date\_text}} ||| STRING --- The string containing the date to be converted.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{to\_format}} ||| VARSTRING --- The format the date is to be converted to.
 \end{description}
 
 
@@ -3549,8 +3549,8 @@ Converts a time from one format to another
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{from\_format}} ||| VARSTRING --- The format the time is to be converted from.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{to\_format}} ||| VARSTRING --- The format the time is to be converted to.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{from\_format}} ||| VARSTRING --- The format the time is to be converted from.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{time\_text}} ||| STRING --- The string containing the time to be converted.
 \end{description}
 
@@ -3600,9 +3600,9 @@ Converts a date that matches one of a set of formats to another.
 
 \par
 \begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{to\_format}} ||| VARSTRING --- The format the date is to be converted to.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{from\_formats}} ||| SET ( VARSTRING ) --- The list of formats the date is to be converted from.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{date\_text}} ||| STRING --- The string containing the date to be converted.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{to\_format}} ||| VARSTRING --- The format the date is to be converted to.
 \end{description}
 
 
@@ -3651,9 +3651,9 @@ Converts a date that matches one of a set of formats to another.
 
 \par
 \begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{to\_format}} ||| VARSTRING --- The format the date is to be converted to.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{from\_formats}} ||| SET ( VARSTRING ) --- The list of formats the date is to be converted from.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{date\_text}} ||| STRING --- The string containing the date to be converted.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{to\_format}} ||| VARSTRING --- The format the date is to be converted to.
 \end{description}
 
 
@@ -3702,8 +3702,8 @@ Converts a time that matches one of a set of formats to another.
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{from\_formats}} ||| SET ( VARSTRING ) --- The list of formats the time is to be converted from.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{to\_format}} ||| VARSTRING --- The format the time is to be converted to.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{from\_formats}} ||| SET ( VARSTRING ) --- The list of formats the time is to be converted from.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{time\_text}} ||| STRING --- The string containing the time to be converted.
 \end{description}
 
@@ -3753,10 +3753,10 @@ Adjusts a date by incrementing or decrementing year, month and/or day values. Th
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{date}} ||| UNSIGNED4 --- The date to adjust.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{month\_delta}} ||| INTEGER4 --- The requested change to the month value; optional, defaults to zero.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{year\_delta}} ||| INTEGER2 --- The requested change to the year value; optional, defaults to zero.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{date}} ||| UNSIGNED4 --- The date to adjust.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{day\_delta}} ||| INTEGER4 --- The requested change to the day of month value; optional, defaults to zero.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{month\_delta}} ||| INTEGER4 --- The requested change to the month value; optional, defaults to zero.
 \end{description}
 
 
@@ -3856,9 +3856,9 @@ Adjusts a time by incrementing or decrementing hour, minute and/or second values
 \par
 \begin{description}
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{time}} ||| UNSIGNED3 --- The time to adjust.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{second\_delta}} ||| INTEGER4 --- The requested change to the second of month value; optional, defaults to zero.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{hour\_delta}} ||| INTEGER2 --- The requested change to the hour value; optional, defaults to zero.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{minute\_delta}} ||| INTEGER4 --- The requested change to the minute value; optional, defaults to zero.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{second\_delta}} ||| INTEGER4 --- The requested change to the second of month value; optional, defaults to zero.
 \end{description}
 
 
@@ -3957,13 +3957,13 @@ Adjusts a Seconds\_t value by adding or subtracting years, months, days, hours, 
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{month\_delta}} ||| INTEGER4 --- The requested change to the month value; optional, defaults to zero.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{second\_delta}} ||| INTEGER4 --- The requested change to the second of month value; optional, defaults to zero.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{seconds}} ||| INTEGER8 --- The number of seconds to adjust.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{day\_delta}} ||| INTEGER4 --- The requested change to the day of month value; optional, defaults to zero.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{minute\_delta}} ||| INTEGER4 --- The requested change to the minute value; optional, defaults to zero.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{year\_delta}} ||| INTEGER2 --- The requested change to the year value; optional, defaults to zero.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{hour\_delta}} ||| INTEGER4 --- The requested change to the hour value; optional, defaults to zero.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{year\_delta}} ||| INTEGER2 --- The requested change to the year value; optional, defaults to zero.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{seconds}} ||| INTEGER8 --- The number of seconds to adjust.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{minute\_delta}} ||| INTEGER4 --- The requested change to the minute value; optional, defaults to zero.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{month\_delta}} ||| INTEGER4 --- The requested change to the month value; optional, defaults to zero.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{day\_delta}} ||| INTEGER4 --- The requested change to the day of month value; optional, defaults to zero.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{second\_delta}} ||| INTEGER4 --- The requested change to the second of month value; optional, defaults to zero.
 \end{description}
 
 
@@ -4012,10 +4012,10 @@ Adjusts a date by incrementing or decrementing months and/or years. This routine
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{date}} ||| UNSIGNED4 --- The date to adjust, in the Gregorian calendar after 1600.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{month\_delta}} ||| INTEGER4 --- The requested change to the month value; optional, defaults to zero.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{year\_delta}} ||| INTEGER2 --- The requested change to the year value; optional, defaults to zero.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{date}} ||| UNSIGNED4 --- The date to adjust, in the Gregorian calendar after 1600.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{day\_delta}} ||| INTEGER4 --- The requested change to the day value; optional, defaults to zero.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{month\_delta}} ||| INTEGER4 --- The requested change to the month value; optional, defaults to zero.
 \end{description}
 
 
@@ -4656,8 +4656,8 @@ Tests whether a date is valid, both by range-checking the year and by validating
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{date}} ||| UNSIGNED4 --- The date to validate.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{yearUpperBound}} ||| INTEGER2 --- The maximum acceptable year. Optional; defaults to 2100.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{date}} ||| UNSIGNED4 --- The date to validate.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{yearLowerBound}} ||| INTEGER2 --- The minimum acceptable year. Optional; defaults to 1800.
 \end{description}
 
@@ -4805,9 +4805,9 @@ A transform to create a Date\_rec from the individual elements
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{year}} ||| INTEGER2 --- The year
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{month}} ||| UNSIGNED1 --- The month (1-12).
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{day}} ||| UNSIGNED1 --- The day (1..daysInMonth).
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{month}} ||| UNSIGNED1 --- The month (1-12).
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{year}} ||| INTEGER2 --- The year
 \end{description}
 
 
@@ -4905,8 +4905,8 @@ A transform to create a Time\_rec from the individual elements
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{minute}} ||| UNSIGNED1 --- The minute (0-59).
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{second}} ||| UNSIGNED1 --- The second (0-59).
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{minute}} ||| UNSIGNED1 --- The minute (0-59).
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{hour}} ||| UNSIGNED1 --- The hour (0-23).
 \end{description}
 
@@ -5005,12 +5005,12 @@ A transform to create a DateTime\_rec from the individual elements
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{year}} ||| INTEGER2 --- The year
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{second}} ||| UNSIGNED1 --- The second (0-59).
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{hour}} ||| UNSIGNED1 --- The hour (0-23).
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{minute}} ||| UNSIGNED1 --- The minute (0-59).
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{month}} ||| UNSIGNED1 --- The month (1-12).
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{day}} ||| UNSIGNED1 --- The day (1..daysInMonth).
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{second}} ||| UNSIGNED1 --- The second (0-59).
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{year}} ||| INTEGER2 --- The year
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{minute}} ||| UNSIGNED1 --- The minute (0-59).
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{hour}} ||| UNSIGNED1 --- The hour (0-23).
 \end{description}
 
 

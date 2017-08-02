@@ -183,12 +183,12 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>indep</b></td>
-				<td><b>TABLE ( NumericField )</b> -- data set of independent variables</td>
+				<td width="20%"><b>dep</b></td>
+				<td><b>TABLE ( ml_core.types.discretefield )</b> -- data set of dependent variables</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>dep</b></td>
-				<td><b>TABLE ( DiscreteField )</b> -- data set of dependent variables</td>
+				<td width="20%"><b>indep</b></td>
+				<td><b>TABLE ( ml_core.types.numericfield )</b> -- data set of independent variables</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>field_details</b></td>
@@ -211,13 +211,30 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>TABLE ( { UNSIGNED2 wi , UNSIGNED4 dependent_fields , UNSIGNED4 dependent_records , UNSIGNED4 independent_fields , UNSIGNED4 independent_records , UNSIGNED4 dependent_count , UNSIGNED4 independent_count , TABLE ( Field_Desc ) dependent_stats , TABLE ( Field_Desc ) independent_stats } )</b></td>
+				<td width="20%"><b>TABLE ( { UNSIGNED2 wi , UNSIGNED4 dependent_fields , UNSIGNED4 dependent_records , UNSIGNED4 independent_fields , UNSIGNED4 independent_records , UNSIGNED4 dependent_count , UNSIGNED4 independent_count , TABLE ( logisticregression.types.field_desc ) dependent_stats , TABLE ( logisticregression.types.field_desc ) independent_stats } )</b></td>
 				<td></td>
 			</tr>
 		</table>
 	</div>
 </div>
-											['a data set of information on each work item']
+											
+
+
+
+
+
+
+<div class="row">
+	<div class="col-md-1 doc-type">returns</div>
+	<div class="col-md-11" style="padding-left: 0px;">
+		<table class="table">
+			
+			<tr>
+				<td>a data set of information on each work item</td>
+			</tr>
+		</table>
+	</div>
+</div>
 									
 								</div>
 								<div class="panel-footer desc-panel-footer">

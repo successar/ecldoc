@@ -6,19 +6,13 @@
               inherittype="local"
               line="6"
               name="rec_1"
-              start="125">
-   <Type>record</Type>
+              start="125"
+              type="record">
    <Field name="f">
-    <RType issigned="1"
-           length="8"
-           precision="0"
-           type="real"/>
+    <Type type="real8"/>
    </Field>
    <Field name="g">
-    <RType issigned="1"
-           length="8"
-           precision="0"
-           type="real"/>
+    <Type type="real8"/>
    </Field>
    <Documentation>
     <content>&#10;* Basic ECL file : without enclosing module
@@ -31,25 +25,16 @@
               inherittype="local"
               line="11"
               name="rec_2"
-              start="169">
-   <Type>record</Type>
+              start="169"
+              type="record">
    <Field name="a">
-    <RType issigned="0"
-           length="4"
-           precision="0"
-           type="int"/>
+    <Type type="unsigned4"/>
    </Field>
    <Field name="b">
-    <RType issigned="1"
-           length="8"
-           precision="0"
-           type="real"/>
+    <Type type="real8"/>
    </Field>
    <Field name="g">
-    <RType issigned="1"
-           length="8"
-           precision="0"
-           type="real"/>
+    <Type type="real8"/>
    </Field>
   </Definition>
   <Definition body="243"
@@ -58,8 +43,8 @@
               inherittype="local"
               line="17"
               name="interface_ex"
-              start="228">
-   <Type>interface</Type>
+              start="228"
+              type="interface">
    <Definition body="283"
                end="282"
                fullname="interface_ex.iface_v1"
@@ -67,12 +52,9 @@
                line="18"
                name="iface_v1"
                shared="1"
-               start="255">
-    <Type>attribute</Type>
-    <RType issigned="0"
-           length="4"
-           precision="0"
-           type="int"/>
+               start="255"
+               type="attribute">
+    <Type type="unsigned4"/>
    </Definition>
    <Definition body="312"
                end="316"
@@ -81,9 +63,9 @@
                inherittype="local"
                line="19"
                name="iface_v3"
-               start="284">
-    <Type>attribute</Type>
-    <RType length="25" locale="ascii" type="string"/>
+               start="284"
+               type="attribute">
+    <Type type="string25"/>
    </Definition>
    <Parents/>
   </Definition>
@@ -93,17 +75,15 @@
               inherittype="local"
               line="22"
               name="func_1"
-              start="323">
-   <Type>function</Type>
+              start="323"
+              type="function">
+   <Type type="real8"/>
    <Params>
     <Param name="x">
-     <RType issigned="1"
-            length="8"
-            precision="0"
-            type="real"/>
+     <Type type="real8"/>
     </Param>
     <Param name="y">
-     <RType length="25" locale="ascii" type="string"/>
+     <Type type="string25"/>
     </Param>
    </Params>
   </Definition>
@@ -113,31 +93,16 @@
               inherittype="local"
               line="26"
               name="trans_1"
-              start="385">
-   <Type>transform</Type>
+              start="385"
+              type="transform">
+   <Type fullname="rec_2" name="rec_2" type="record"/>
    <Params>
     <Param name="rec">
-     <RType type="row">
-      <RType fullname="rec_1" name="rec_1">
-       <RType type="record">
-        <Field name="f">
-         <RType issigned="1"
-                length="8"
-                precision="0"
-                type="real"/>
-        </Field>
-        <Field name="g">
-         <RType issigned="1"
-                length="8"
-                precision="0"
-                type="real"/>
-        </Field>
-       </RType>
-      </RType>
-     </RType>
+     <Type type="row">
+      <Type fullname="rec_1" name="rec_1" type="record"/>
+     </Type>
     </Param>
    </Params>
-   <Return>rec_2</Return>
   </Definition>
   <Definition body="553"
               end="602"
@@ -145,30 +110,26 @@
               inherittype="local"
               line="32"
               name="func_2"
-              start="511">
-   <Type>function</Type>
+              start="511"
+              type="function">
+   <Type type="table">
+    <Type type="record" unnamed="1">
+     <Field name="a">
+      <Type type="unsigned4"/>
+     </Field>
+     <Field name="b">
+      <Type type="real8"/>
+     </Field>
+     <Field name="g">
+      <Type type="real8"/>
+     </Field>
+    </Type>
+   </Type>
    <Params>
     <Param name="d">
-     <RType type="table">
-      <RType type="row">
-       <RType fullname="rec_1" name="rec_1">
-        <RType type="record">
-         <Field name="f">
-          <RType issigned="1"
-                 length="8"
-                 precision="0"
-                 type="real"/>
-         </Field>
-         <Field name="g">
-          <RType issigned="1"
-                 length="8"
-                 precision="0"
-                 type="real"/>
-         </Field>
-        </RType>
-       </RType>
-      </RType>
-     </RType>
+     <Type type="table">
+      <Type fullname="rec_1" name="rec_1" type="record"/>
+     </Type>
     </Param>
    </Params>
   </Definition>
@@ -178,17 +139,8 @@
               inherittype="local"
               line="36"
               name="mod_1"
-              start="604">
-   <Type>module</Type>
-   <Params>
-    <Param name="a">
-     <RType issigned="1"
-            length="8"
-            precision="0"
-            type="real"/>
-    </Param>
-   </Params>
-   <Parents/>
+              start="604"
+              type="module">
    <Definition body="644"
                end="649"
                exported="1"
@@ -196,13 +148,16 @@
                inherittype="local"
                line="37"
                name="pi_w"
-               start="630">
-    <Type>attribute</Type>
-    <RType issigned="1"
-           length="8"
-           precision="0"
-           type="real"/>
+               start="630"
+               type="attribute">
+    <Type type="real8"/>
    </Definition>
+   <Params>
+    <Param name="a">
+     <Type type="real8"/>
+    </Param>
+   </Params>
+   <Parents/>
   </Definition>
   <Definition body="664"
               end="699"
@@ -210,8 +165,8 @@
               inherittype="local"
               line="40"
               name="mod_2"
-              start="656">
-   <Type>module</Type>
+              start="656"
+              type="module">
    <Definition body="689"
                end="694"
                exported="1"
@@ -219,12 +174,9 @@
                inherittype="local"
                line="41"
                name="pi_wo"
-               start="674">
-    <Type>attribute</Type>
-    <RType issigned="1"
-           length="8"
-           precision="0"
-           type="real"/>
+               start="674"
+               type="attribute">
+    <Type type="real8"/>
    </Definition>
    <Parents/>
   </Definition>
@@ -234,14 +186,12 @@
               inherittype="local"
               line="45"
               name="cpp_1"
-              start="702">
-   <Type>embed</Type>
+              start="702"
+              type="embed">
+   <Type type="data"/>
    <Params>
     <Param name="varcpp">
-     <RType issigned="1"
-            length="8"
-            precision="0"
-            type="real"/>
+     <Type type="real8"/>
     </Param>
    </Params>
   </Definition>
@@ -251,14 +201,12 @@
               inherittype="local"
               line="49"
               name="funcmacro_1"
-              start="749">
-   <Type>macro</Type>
+              start="749"
+              type="macro">
+   <Type type="boolean"/>
    <Params>
     <Param name="num">
-     <RType issigned="1"
-            length="8"
-            precision="0"
-            type="int"/>
+     <Type type="integer8"/>
     </Param>
    </Params>
   </Definition>
@@ -268,20 +216,15 @@
               inherittype="local"
               line="54"
               name="macro_1"
-              start="840">
-   <Type>macro</Type>
+              start="840"
+              type="macro">
+   <Type type=""/>
    <Params>
     <Param name="num_1">
-     <RType issigned="1"
-            length="8"
-            precision="0"
-            type="int"/>
+     <Type type="integer8"/>
     </Param>
     <Param name="num_2">
-     <RType issigned="1"
-            length="8"
-            precision="0"
-            type="int"/>
+     <Type type="integer8"/>
     </Param>
    </Params>
   </Definition>
@@ -291,8 +234,9 @@
               inherittype="local"
               line="58"
               name="macro_2"
-              start="918">
-   <Type>macro</Type>
+              start="918"
+              type="macro">
+   <Type type=""/>
    <Params/>
   </Definition>
   <Definition body="971"
@@ -301,12 +245,9 @@
               inherittype="local"
               line="62"
               name="a"
-              start="967">
-   <Type>attribute</Type>
-   <RType issigned="1"
-          length="8"
-          precision="0"
-          type="real"/>
+              start="967"
+              type="attribute">
+   <Type type="real8"/>
   </Definition>
   <Definition body="1007"
               end="1047"
@@ -314,32 +255,21 @@
               inherittype="local"
               line="65"
               name="b"
-              start="1003">
-   <Type>attribute</Type>
-   <RType type="table">
-    <RType type="row">
-     <RType type="record">
-      <Field name="a">
-       <RType issigned="0"
-              length="4"
-              precision="0"
-              type="int"/>
-      </Field>
-      <Field name="b">
-       <RType issigned="1"
-              length="8"
-              precision="0"
-              type="real"/>
-      </Field>
-      <Field name="g">
-       <RType issigned="1"
-              length="8"
-              precision="0"
-              type="real"/>
-      </Field>
-     </RType>
-    </RType>
-   </RType>
+              start="1003"
+              type="attribute">
+   <Type type="table">
+    <Type type="record" unnamed="1">
+     <Field name="a">
+      <Type type="unsigned4"/>
+     </Field>
+     <Field name="b">
+      <Type type="real8"/>
+     </Field>
+     <Field name="g">
+      <Type type="real8"/>
+     </Field>
+    </Type>
+   </Type>
   </Definition>
  </Source>
 </Meta>

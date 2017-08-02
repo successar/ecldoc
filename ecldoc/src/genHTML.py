@@ -1,18 +1,23 @@
-import os, re, shutil, subprocess
+import os, re, shutil
 
 from lxml import etree
-from Utils import genPathTree, getRoot, write_to_file
+from Utils import getRoot, write_to_file
 from Utils import joinpath, relpath, dirname
+
+##################################################################
 
 from Constants import TEMPLATE_DIR
 HTML_TEMPLATE_DIR = joinpath(TEMPLATE_DIR, 'html')
+
+##################################################################
 
 import jinja2
 html_jinja_env = jinja2.Environment(
     loader = jinja2.FileSystemLoader(os.path.abspath('/'))
 )
 
-from Utils import breaksign
+#################################################################
+
 from parseDoc import getTags
 from Taglets import taglets
 from tagHTML import tag_renders
@@ -31,10 +36,9 @@ class ParseHTML(object) :
     def parse(self) :
         tree = etree.parse(self.xml_file)
         root = tree.getroot()
-        src = root.find('./Source')
+        src = root.find('Source')
         self.src = src
-        self.parseSource()
-        self.doc = src.find('./Documentation')
+        self.doc = src.find('Documentation')
 
         for child in root.iter() :
             attribs = child.attrib
@@ -46,6 +50,7 @@ class ParseHTML(object) :
                 attribs['origfn'] = attribs['fullname']
                 attribs['fullname'] = re.sub(r'\.', '-', attribs['fullname'])
 
+        self.parseSource()
 
         files = []
         keys = sorted(self.parent.keys(), key=str.lower)
@@ -66,30 +71,30 @@ class ParseHTML(object) :
         parent = 'pkg.toc.html'
         output_relpath = relpath(self.output_root, dirname(self.html_file))
         render = self.template.render(src=src,
-                                    files=files,
-                                    parent=parent,
-                                    output_root=output_relpath,
-                                    render_dict=self.render_dict)
+                                      files=files,
+                                      parent=parent,
+                                      output_root=output_relpath,
+                                      render_dict=self.render_dict)
         write_to_file(self.html_file, render)
 
     def docstring(self) :
         text = ''
         if self.doc is not None :
-            content = self.doc.find('./firstline')
+            content = self.doc.find('firstline')
             if content is not None :
                 text = content.text
         return text
 
     def parseSource(self) :
         self.render_dict = []
-        for defn in self.src.findall('./Definition') :
+        for defn in self.src.findall('Definition') :
             self.parseDefinition(defn, self.render_dict)
 
     def parseDefinition(self, defn, render_dict) :
         doc = self.parseDocs(defn)
         defn_dict = { 'tag' : defn, 'doc' : doc, 'defns' : [] }
 
-        for childdefn in defn.findall('./Definition') :
+        for childdefn in defn.findall('Definition') :
             self.parseDefinition(childdefn, defn_dict['defns'])
 
         render_dict.append(defn_dict)

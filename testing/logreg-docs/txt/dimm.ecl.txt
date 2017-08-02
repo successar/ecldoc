@@ -17,28 +17,30 @@ EMBED : Types.matrix_t dimm(BOOLEAN transposeA, BOOLEAN transposeB, BOOLEAN diag
 Matrix multiply when either A or B is a diagonal and is passed as a vector.
 alpha*op(A) op(B) + beta*C where op() is transpose
 
-Parameter : transposeA ||| true when transpose of A is used
+Parameter : transposeA BOOLEAN --- true when transpose of A is used
 
-Parameter : transposeB ||| true when transpose of B is used
+Parameter : n UNSIGNED4 --- number of columns in product
 
-Parameter : diagonalA ||| true when A is the diagonal matrix
+Parameter : diagonalB BOOLEAN --- true when B is the diagonal matrix
 
-Parameter : diagonalB ||| true when B is the diagonal matrix
+Parameter : A SET ( REAL8 ) --- matrix A
 
-Parameter : m ||| number of rows in product
+Parameter : k UNSIGNED4 --- number of columns/rows for the
+              multiplier/multiplicand
 
-Parameter : n ||| number of columns in product
+Parameter : alpha REAL8 --- scalar used on A
 
-Parameter : k ||| number of columns/rows for the
-            multiplier/multiplicand
+Parameter : B SET ( REAL8 ) --- matrix B
 
-Parameter : alpha ||| scalar used on A
+Parameter : transposeB BOOLEAN --- true when transpose of B is used
 
-Parameter : A ||| matrix A
+Parameter : C SET ( REAL8 ) --- matrix C or empty
 
-Parameter : B ||| matrix B
+Parameter : beta REAL8 --- scalar for matrix C
 
-Parameter : beta ||| scalar for matrix C
+Parameter : m UNSIGNED4 --- number of rows in product
 
-Parameter : C ||| matrix C or empty
+Parameter : diagonalA BOOLEAN --- true when A is the diagonal matrix
+
+Return : SET ( REAL8 )
 

@@ -1,6 +1,5 @@
 import re
 from lxml import etree
-from lxml.builder import E
 import lxml.html as H
 from collections import defaultdict
 
@@ -47,18 +46,6 @@ def parseDocstring(docstring) :
             docdict[tag][i] = content
 
     return docdict
-
-def getTags(doc) :
-    '''
-    Convert XML Documentation (generated using parseDocstring)
-    back to JSON (ie Python Dictionary)
-    '''
-    tag_dict = defaultdict(list)
-    if doc is None : return tag_dict
-    for child in doc.getchildren() :
-        tag_dict[child.tag].append(child.text)
-
-    return tag_dict
 
 def removeWS(element) :
     '''
@@ -137,105 +124,48 @@ def construct_type(ele) :
 
 ##########################################################
 
-def convertToMarkdown(html_text) :
+def breaksign(name, string) :
     '''
-    Convert HTML String to Markdown Format
+    Heuristically break signature of ECL Definition
+    recovered from ecl file into "return name (Paramters)"
     '''
-    root = H.fragment_fromstring(html_text, create_parent='div')
-    text = parseHTMltoMK(root)
-    return text
+    name = name.lower()
+    string = ' ' + string.lower() + ' '
+    pos = 1
+    open_bracks = ['{', '(', '[']
+    close_bracks = ['}', ')', ']']
+    stack = []
+    for i in range(1, len(string)) :
+        c = string[i]
+        if c in open_bracks :
+            stack.append(c)
+        elif c in close_bracks :
+            if stack[-1] == open_bracks[close_bracks.index(c)] :
+                stack = stack[:-1]
+            else :
+                raise
 
-def parseHTMltoMK(element) :
-    '''
-    Convert Single HTML element to Markdown Text (recursive)
-    '''
-    text = ''
-    if element.text :
-        text += element.text
-    for e in element.iterchildren() :
-        text += parseHTMltoMK(e)
-        if e.tail :
-            text += e.tail
+        else :
+            if len(stack) == 0 :
+                m = re.match(r'[\s\)]' + name + r'([^0-9A-Za-z_])', string[pos-1:])
+                if m :
+                    return pos-1
 
-    if element.tag in ['p', 'pre', 'ul', 'ol', 'table'] :
-        text = '\n' + text + '\n'
+        pos += 1
 
-    if element.tag == 'br' :
-        text = '\n'
-
-    if element.tag == 'code' :
-        text = '```' + text  + '```'
-
-    if element.tag == 'li' and element.getparent().tag == 'ul':
-        text = '+ ' + text + '\n'
-
-    if element.tag == 'li' and element.getparent().tag == 'ol':
-        text = '# ' + text + '\n'
-
-    if element.tag == 'td' :
-        text = text + ' | '
-
-    if element.tag == 'tr' :
-        text = '| ' + text + '\n'
-
-    if element.tag == 'hr' :
-        text = '\n************\n'
-
-    if element.tag == 'a' :
-        text = text + ' <' + a.attrib['href'] + '>'
-
-    return text
+    return -1
 
 ##########################################################
 
-from Utils import escape_tex
-
-
-def convertToLatex(html_text) :
+def getTags(doc) :
     '''
-    Convert HTML String to Markdown Format
+    Convert XML Documentation (generated using parseDocstring)
+    back to JSON (ie Python Dictionary)
     '''
-    root = H.fragment_fromstring(html_text, create_parent='div')
-    text = parseHTMltoLatex(root)
-    return text
+    tag_dict = defaultdict(list)
+    if doc is None : return tag_dict
+    for child in doc.getchildren() :
+        tag_dict[child.tag].append(child.text)
 
-def parseHTMltoLatex(element) :
-    '''
-    Convert Single HTML element to Markdown Text (recursive)
-    '''
-    text = ''
-    if element.text :
-        text += escape_tex(element.text)
-    for e in element.iterchildren() :
-        text += parseHTMltoLatex(e)
-        if e.tail :
-            text += escape_tex(e.tail)
+    return tag_dict
 
-    if element.tag in ['p'] :
-        text = '\n\\par\n' + text + '\n\n'
-
-    if element.tag == 'br' :
-        text = '\\\\\n'
-
-    if element.tag == 'br' and element.getparent().tag == 'pre' :
-        text = '\n'
-
-    if element.tag == 'code' :
-        text = '```' + text  + '```'
-
-    if element.tag == 'li' :
-        text = '\\item ' + text + '\n'
-
-    if element.tag == 'ul' :
-        text = '\n\\begin{itemize}\n' + text + '\\end{itemize}\n\n'
-
-    if element.tag == 'ul' :
-        text = '\n\\begin{enumerate}\n' + text + '\\end{enumerate}\n\n'
-
-    if element.tag == 'a' :
-        text = '\n\\url{' + a.attrib['href'] + '}'
-
-    if element.tag == 'pre' :
-        text = '\n\\begin{verbatim}\n' + text + '\\end{verbatim}\n\n'
-
-    return text

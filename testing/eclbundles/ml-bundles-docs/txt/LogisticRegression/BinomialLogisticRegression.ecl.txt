@@ -17,17 +17,17 @@ MODULE : BinomialLogisticRegression(UNSIGNED max_iter=200, REAL8 epsilon=Constan
 
 Binomial logistic regression using iteratively re-weighted least squares.
 
-Parameter : ridge REAL8 --- a value to populate a diagonal matrix
-                  that is added to a matrix help assure that the
-                  matrix is invertible.
+Parameter : max_iter UNSIGNED8 --- maximum number of iterations to try
 
 Parameter : epsilon REAL8 --- the minimum change in the Beta value
                     estimate to continue
 
-Parameter : max_iter UNSIGNED8 --- maximum number of iterations to try
+Parameter : ridge REAL8 --- a value to populate a diagonal matrix
+                  that is added to a matrix help assure that the
+                  matrix is invertible.
 
 Parent : ML_Core.Interfaces.IClassify
-         <../ML_Core/Interfaces/IClassify.ecl.xml>
+         <../ML_Core/Interfaces/IClassify.ecl.txt>
 
   | ----------------------------------------------------------------------------------------------------------------------------------
   | FUNCTION : DATASET(Types.Layout_Model) GetModel(DATASET(Types.NumericField) observations,

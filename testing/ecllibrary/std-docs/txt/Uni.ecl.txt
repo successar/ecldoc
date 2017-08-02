@@ -20,10 +20,10 @@ No Documentation Found
   | Returns the first string with all characters within the second string
   | removed.
   | 
+  | Parameter : src UNICODE --- The string that is being tested.
+  | 
   | Parameter : filter UNICODE --- The string containing the set of
   |                    characters to be excluded.
-  | 
-  | Parameter : src UNICODE --- The string that is being tested.
   | 
   | Return : UNICODE
   | 
@@ -36,10 +36,10 @@ No Documentation Found
   | Returns the first string with all characters not within the second string
   | removed.
   | 
+  | Parameter : src UNICODE --- The string that is being tested.
+  | 
   | Parameter : filter UNICODE --- The string containing the set of
   |                    characters to be included.
-  | 
-  | Parameter : src UNICODE --- The string that is being tested.
   | 
   | Return : UNICODE
   | 
@@ -53,10 +53,10 @@ No Documentation Found
   | all characters included in the filter string. MORE: Should this be a
   | general string substitution?
   | 
+  | Parameter : src UNICODE --- The string that is being tested.
+  | 
   | Parameter : filter UNICODE --- The string containing the set of
   |                    characters to be included.
-  | 
-  | Parameter : src UNICODE --- The string that is being tested.
   | 
   | Parameter : replace_char UNICODE --- The character to be substituted into
   |                          the result.
@@ -73,10 +73,10 @@ No Documentation Found
   | all characters not included in the filter string. MORE: Should this be a
   | general string substitution?
   | 
+  | Parameter : src UNICODE --- The string that is being tested.
+  | 
   | Parameter : filter UNICODE --- The string containing the set of
   |                    characters to be included.
-  | 
-  | Parameter : src UNICODE --- The string that is being tested.
   | 
   | Parameter : replace_char UNICODE --- The character to be substituted into
   |                          the result.
@@ -108,9 +108,9 @@ No Documentation Found
   | 
   | Tests if the search string contains the supplied word as a whole word.
   | 
-  | Parameter : word UNICODE --- The word to be searched for.
-  | 
   | Parameter : src UNICODE --- The string that is being tested.
+  | 
+  | Parameter : word UNICODE --- The word to be searched for.
   | 
   | Parameter : ignore_case BOOLEAN --- Whether to ignore differences in case
   |                         between characters.
@@ -148,6 +148,8 @@ No Documentation Found
   | 
   | Parameter : sought  --- The string being sought.
   | 
+  | Parameter : src UNICODE --- The string that is searched
+  | 
   | Parameter : strength INTEGER1 --- The strength of the comparison 1
   |                      ignores accents and case, differentiating only
   |                      between letters 2 ignores case but differentiates
@@ -159,8 +161,6 @@ No Documentation Found
   |                      differentiates between all strings whose
   |                      canonically decomposed forms (NFDNormalization
   |                      Form D) are non-identical
-  | 
-  | Parameter : src UNICODE --- The string that is searched
   | 
   | Parameter : instance UNSIGNED4 --- Which match instance are we
   |                      interested in?
@@ -265,9 +265,9 @@ No Documentation Found
   | Compares the two strings case insensitively. Equivalent to comparing at
   | strength 2.
   | 
-  | Parameter : src2 UNICODE --- The second string to be compared.
-  | 
   | Parameter : src1 UNICODE --- The first string to be compared.
+  | 
+  | Parameter : src2 UNICODE --- The second string to be compared.
   | 
   | Return : INTEGER4
   | 
@@ -280,9 +280,9 @@ No Documentation Found
   | Compares the two strings case insensitively. Equivalent to comparing at
   | strength 2.
   | 
-  | Parameter : src2 UNICODE --- The second string to be compared.
-  | 
   | Parameter : src1 UNICODE --- The first string to be compared.
+  | 
+  | Parameter : src2 UNICODE --- The second string to be compared.
   | 
   | Parameter : strength INTEGER1 --- The strength of the comparison 1
   |                      ignores accents and case, differentiating only
@@ -307,9 +307,9 @@ No Documentation Found
   | Compares the two strings case insensitively. Equivalent to comparing at
   | strength 2.
   | 
-  | Parameter : src2 UNICODE --- The second string to be compared.
-  | 
   | Parameter : src1 UNICODE --- The first string to be compared.
+  | 
+  | Parameter : src2 UNICODE --- The second string to be compared.
   | 
   | Parameter : locale_name VARSTRING --- The locale to use for the comparison
   | 
@@ -325,9 +325,9 @@ No Documentation Found
   | Compares the two strings case insensitively. Equivalent to comparing at
   | strength 2.
   | 
-  | Parameter : src2 UNICODE --- The second string to be compared.
-  | 
   | Parameter : src1 UNICODE --- The first string to be compared.
+  | 
+  | Parameter : src2 UNICODE --- The second string to be compared.
   | 
   | Parameter : strength INTEGER1 --- The strength of the comparison 1
   |                      ignores accents and case, differentiating only
@@ -365,10 +365,10 @@ No Documentation Found
   | 
   | Parameter : sought UNICODE --- The string to be replaced.
   | 
+  | Parameter : src UNICODE --- The string that is being transformed.
+  | 
   | Parameter : replacement UNICODE --- The string to be substituted into the
   |                         result.
-  | 
-  | Parameter : src UNICODE --- The string that is being transformed.
   | 
   | Return : UNICODE
   | 
@@ -382,10 +382,10 @@ No Documentation Found
   | 
   | Parameter : sought UNICODE --- The string to be replaced.
   | 
+  | Parameter : src UNICODE --- The string that is being transformed.
+  | 
   | Parameter : replacement UNICODE --- The string to be substituted into the
   |                         result.
-  | 
-  | Parameter : src UNICODE --- The string that is being transformed.
   | 
   | Parameter : locale_name VARSTRING --- The locale to use for the comparison
   | 
@@ -401,12 +401,12 @@ No Documentation Found
   | 
   | Parameter : sought UNICODE --- The string to be replaced.
   | 
+  | Parameter : src UNICODE --- The string that is being transformed.
+  | 
   | Parameter : strength INTEGER1 --- The strength of the comparison
   | 
   | Parameter : replacement UNICODE --- The string to be substituted into the
   |                         result.
-  | 
-  | Parameter : src UNICODE --- The string that is being transformed.
   | 
   | Parameter : locale_name VARSTRING --- The locale to use for the comparison
   | 
@@ -443,16 +443,16 @@ No Documentation Found
   | Tests if the search string matches the pattern. The pattern can contain
   | wildcards '?' (single character) and '*' (multiple character).
   | 
-  | Parameter : pattern  --- The pattern to match against.
-  | 
   | Parameter : src UNICODE --- The string that is being tested.
+  | 
+  | Parameter : pattern  --- The pattern to match against.
   | 
   | Parameter : ignore_case  --- Whether to ignore differences in case between
   |                         characters
   | 
-  | Parameter : _pattern UNICODE --- No Doc
-  | 
   | Parameter : _nocase BOOLEAN --- No Doc
+  | 
+  | Parameter : _pattern UNICODE --- No Doc
   | 
   | Return : BOOLEAN
   | 
@@ -464,16 +464,16 @@ No Documentation Found
   | If the pattern contains duplicate characters those characters will match
   | once for each occurence in the pattern.
   | 
-  | Parameter : pattern  --- The pattern to match against.
-  | 
   | Parameter : src UNICODE --- The string that is being tested.
+  | 
+  | Parameter : pattern  --- The pattern to match against.
   | 
   | Parameter : ignore_case  --- Whether to ignore differences in case between
   |                         characters
   | 
-  | Parameter : _pattern UNICODE --- No Doc
-  | 
   | Parameter : _nocase BOOLEAN --- No Doc
+  | 
+  | Parameter : _pattern UNICODE --- No Doc
   | 
   | Return : BOOLEAN
   | 
@@ -487,10 +487,10 @@ No Documentation Found
   | 
   | Parameter : _right UNICODE --- The second string to be compared.
   | 
+  | Parameter : _left UNICODE --- The first string to be compared.
+  | 
   | Parameter : localname  --- The locale to use for the comparison.
   |                       Defaults to ''.
-  | 
-  | Parameter : _left UNICODE --- The first string to be compared.
   | 
   | Parameter : localename VARSTRING --- No Doc
   | 
@@ -505,15 +505,15 @@ No Documentation Found
   | Returns true if the minimum edit distance between the two strings is with a
   | specific range. The two strings are trimmed before comparing.
   | 
-  | Parameter : radius UNSIGNED4 --- The maximum edit distance that is
-  |                    accepable.
-  | 
   | Parameter : _right UNICODE --- The second string to be compared.
+  | 
+  | Parameter : _left UNICODE --- The first string to be compared.
   | 
   | Parameter : localname  --- The locale to use for the comparison.
   |                       Defaults to ''.
   | 
-  | Parameter : _left UNICODE --- The first string to be compared.
+  | Parameter : radius UNSIGNED4 --- The maximum edit distance that is
+  |                    accepable.
   | 
   | Parameter : localename VARSTRING --- No Doc
   | 
@@ -527,10 +527,10 @@ No Documentation Found
   | Returns the number of words in the string. Word boundaries are marked by
   | the unicode break semantics.
   | 
-  | Parameter : text UNICODE --- The string to be broken into words.
-  | 
   | Parameter : localname  --- The locale to use for the break semantics.
   |                       Defaults to ''.
+  | 
+  | Parameter : text UNICODE --- The string to be broken into words.
   | 
   | Parameter : localename VARSTRING --- No Doc
   | 
@@ -543,13 +543,13 @@ No Documentation Found
   | Returns the n-th word from the string. Word boundaries are marked by the
   | unicode break semantics.
   | 
+  | Parameter : localname  --- The locale to use for the break semantics.
+  |                       Defaults to ''.
+  | 
   | Parameter : text UNICODE --- The string to be broken into words.
   | 
   | Parameter : n UNSIGNED4 --- Which word should be returned from
   |               the function.
-  | 
-  | Parameter : localname  --- The locale to use for the break semantics.
-  |                       Defaults to ''.
   | 
   | Parameter : localename VARSTRING --- No Doc
   | 

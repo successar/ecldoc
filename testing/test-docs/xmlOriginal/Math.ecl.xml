@@ -5,8 +5,8 @@
               inherittype="local"
               line="6"
               name="rtl"
-              start="245">
-   <Type>module</Type>
+              start="245"
+              type="module">
    <Definition body="0"
                end="0"
                exported="1"
@@ -14,8 +14,9 @@
                inherittype="local"
                line="8"
                name="Infinity"
-               start="0">
-    <Type>function</Type>
+               start="0"
+               type="function">
+    <Type type="real8"/>
     <Params/>
    </Definition>
    <Definition body="0"
@@ -25,8 +26,9 @@
                inherittype="local"
                line="9"
                name="Nan"
-               start="0">
-    <Type>function</Type>
+               start="0"
+               type="function">
+    <Type type="real8"/>
     <Params/>
    </Definition>
    <Definition body="0"
@@ -36,14 +38,12 @@
                inherittype="local"
                line="10"
                name="IsInfinite"
-               start="0">
-    <Type>function</Type>
+               start="0"
+               type="function">
+    <Type type="boolean"/>
     <Params>
      <Param name="value">
-      <RType issigned="1"
-             length="8"
-             precision="0"
-             type="real"/>
+      <Type type="real8"/>
      </Param>
     </Params>
    </Definition>
@@ -54,14 +54,12 @@
                inherittype="local"
                line="11"
                name="IsNaN"
-               start="0">
-    <Type>function</Type>
+               start="0"
+               type="function">
+    <Type type="boolean"/>
     <Params>
      <Param name="value">
-      <RType issigned="1"
-             length="8"
-             precision="0"
-             type="real"/>
+      <Type type="real8"/>
      </Param>
     </Params>
    </Definition>
@@ -72,14 +70,12 @@
                inherittype="local"
                line="12"
                name="IsFinite"
-               start="0">
-    <Type>function</Type>
+               start="0"
+               type="function">
+    <Type type="boolean"/>
     <Params>
      <Param name="value">
-      <RType issigned="1"
-             length="8"
-             precision="0"
-             type="real"/>
+      <Type type="real8"/>
      </Param>
     </Params>
    </Definition>
@@ -90,26 +86,18 @@
                inherittype="local"
                line="13"
                name="fmod"
-               start="0">
-    <Type>function</Type>
+               start="0"
+               type="function">
+    <Type type="real8"/>
     <Params>
      <Param name="numer">
-      <RType issigned="1"
-             length="8"
-             precision="0"
-             type="real"/>
+      <Type type="real8"/>
      </Param>
      <Param name="denom">
-      <RType issigned="1"
-             length="8"
-             precision="0"
-             type="real"/>
+      <Type type="real8"/>
      </Param>
      <Param name="dbz">
-      <RType issigned="0"
-             length="1"
-             precision="0"
-             type="int"/>
+      <Type type="unsigned1"/>
      </Param>
     </Params>
    </Definition>
@@ -120,26 +108,18 @@
                inherittype="local"
                line="14"
                name="fmatch"
-               start="0">
-    <Type>function</Type>
+               start="0"
+               type="function">
+    <Type type="boolean"/>
     <Params>
      <Param name="a">
-      <RType issigned="1"
-             length="8"
-             precision="0"
-             type="real"/>
+      <Type type="real8"/>
      </Param>
      <Param name="b">
-      <RType issigned="1"
-             length="8"
-             precision="0"
-             type="real"/>
+      <Type type="real8"/>
      </Param>
      <Param name="epsilon">
-      <RType issigned="1"
-             length="8"
-             precision="0"
-             type="real"/>
+      <Type type="real8"/>
      </Param>
     </Params>
    </Definition>
@@ -152,8 +132,8 @@
               inherittype="local"
               line="17"
               name="Math"
-              start="964">
-   <Type>module</Type>
+              start="964"
+              type="module">
    <Definition body="1058"
                end="1074"
                exported="1"
@@ -161,16 +141,13 @@
                inherittype="local"
                line="24"
                name="Infinity"
-               start="1034">
-    <Type>attribute</Type>
+               start="1034"
+               type="attribute">
+    <Type type="real8"/>
     <Documentation>
      <content>&#10;&#32;* Return a real &quot;infinity&quot; value.
  *&#10;&#32;</content>
     </Documentation>
-    <RType issigned="1"
-           length="8"
-           precision="0"
-           type="real"/>
    </Definition>
    <Definition body="1159"
                end="1170"
@@ -179,16 +156,13 @@
                inherittype="local"
                line="31"
                name="NaN"
-               start="1140">
-    <Type>attribute</Type>
+               start="1140"
+               type="attribute">
+    <Type type="real8"/>
     <Documentation>
      <content>&#10;&#32;* Return a non-signalling NaN (Not a Number)value.
  *&#10;&#32;</content>
     </Documentation>
-    <RType issigned="1"
-           length="8"
-           precision="0"
-           type="real"/>
    </Definition>
    <Definition body="1333"
                end="1354"
@@ -197,8 +171,9 @@
                inherittype="local"
                line="39"
                name="isInfinite"
-               start="1294">
-    <Type>function</Type>
+               start="1294"
+               type="function">
+    <Type type="boolean"/>
     <Documentation>
      <content>&#10;&#32;* Return whether a real value is infinite (positive or negative).
  *
@@ -206,10 +181,7 @@
     </Documentation>
     <Params>
      <Param name="val">
-      <RType issigned="1"
-             length="8"
-             precision="0"
-             type="real"/>
+      <Type type="real8"/>
      </Param>
     </Params>
    </Definition>
@@ -220,8 +192,9 @@
                inherittype="local"
                line="47"
                name="isNaN"
-               start="1473">
-    <Type>function</Type>
+               start="1473"
+               type="function">
+    <Type type="boolean"/>
     <Documentation>
      <content>&#10;&#32;* Return whether a real value is a NaN (not a number) value.
  *
@@ -229,10 +202,7 @@
     </Documentation>
     <Params>
      <Param name="val">
-      <RType issigned="1"
-             length="8"
-             precision="0"
-             type="real"/>
+      <Type type="real8"/>
      </Param>
     </Params>
    </Definition>
@@ -243,8 +213,9 @@
                inherittype="local"
                line="55"
                name="isFinite"
-               start="1656">
-    <Type>function</Type>
+               start="1656"
+               type="function">
+    <Type type="boolean"/>
     <Documentation>
      <content>&#10;&#32;* Return whether a real value is a valid value (neither infinite not NaN).
  *
@@ -252,10 +223,7 @@
     </Documentation>
     <Params>
      <Param name="val">
-      <RType issigned="1"
-             length="8"
-             precision="0"
-             type="real"/>
+      <Type type="real8"/>
      </Param>
     </Params>
    </Definition>
@@ -266,8 +234,9 @@
                inherittype="local"
                line="68"
                name="FMod"
-               start="2068">
-    <Type>function</Type>
+               start="2068"
+               type="function">
+    <Type type="real8"/>
     <Documentation>
      <content>&#10;&#32;* Returns the floating-point remainder of numer/denom (rounded towards zero).
  * If denom is zero, the result depends on the -fdivideByZero flag:
@@ -280,16 +249,10 @@
     </Documentation>
     <Params>
      <Param name="numer">
-      <RType issigned="1"
-             length="8"
-             precision="0"
-             type="real"/>
+      <Type type="real8"/>
      </Param>
      <Param name="denom">
-      <RType issigned="1"
-             length="8"
-             precision="0"
-             type="real"/>
+      <Type type="real8"/>
      </Param>
     </Params>
    </Definition>
@@ -300,8 +263,9 @@
                inherittype="local"
                line="83"
                name="FMatch"
-               start="2456">
-    <Type>function</Type>
+               start="2456"
+               type="function">
+    <Type type="boolean"/>
     <Documentation>
      <content>&#10;&#32;* Returns whether two floating point values are the same, within margin of error epsilon.
  *
@@ -311,22 +275,13 @@
     </Documentation>
     <Params>
      <Param name="a">
-      <RType issigned="1"
-             length="8"
-             precision="0"
-             type="real"/>
+      <Type type="real8"/>
      </Param>
      <Param name="b">
-      <RType issigned="1"
-             length="8"
-             precision="0"
-             type="real"/>
+      <Type type="real8"/>
      </Param>
      <Param name="epsilon">
-      <RType issigned="1"
-             length="8"
-             precision="0"
-             type="real"/>
+      <Type type="real8"/>
      </Param>
     </Params>
    </Definition>

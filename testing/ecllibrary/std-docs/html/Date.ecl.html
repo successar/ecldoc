@@ -183,16 +183,16 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>year</b></td>
-				<td><b>INTEGER2</b> -- No Doc</td>
+				<td width="20%"><b>day</b></td>
+				<td><b>UNSIGNED1</b> -- No Doc</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>month</b></td>
 				<td><b>UNSIGNED1</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>day</b></td>
-				<td><b>UNSIGNED1</b> -- No Doc</td>
+				<td width="20%"><b>year</b></td>
+				<td><b>INTEGER2</b> -- No Doc</td>
 			</tr>
 		</table>
 	</div>
@@ -404,11 +404,11 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>minute</b></td>
+				<td width="20%"><b>second</b></td>
 				<td><b>UNSIGNED1</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>second</b></td>
+				<td width="20%"><b>minute</b></td>
 				<td><b>UNSIGNED1</b> -- No Doc</td>
 			</tr>
 			<tr>
@@ -625,27 +625,27 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>year</b></td>
-				<td><b>INTEGER2</b> -- No Doc</td>
+				<td width="20%"><b>month</b></td>
+				<td><b>UNSIGNED1</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>day</b></td>
+				<td><b>UNSIGNED1</b> -- No Doc</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>second</b></td>
 				<td><b>UNSIGNED1</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>hour</b></td>
-				<td><b>UNSIGNED1</b> -- No Doc</td>
+				<td width="20%"><b>year</b></td>
+				<td><b>INTEGER2</b> -- No Doc</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>minute</b></td>
 				<td><b>UNSIGNED1</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>month</b></td>
-				<td><b>UNSIGNED1</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>day</b></td>
+				<td width="20%"><b>hour</b></td>
 				<td><b>UNSIGNED1</b> -- No Doc</td>
 			</tr>
 		</table>
@@ -1320,16 +1320,16 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>year</b></td>
-				<td><b>INTEGER2</b> -- The year (0-9999).</td>
+				<td width="20%"><b>day</b></td>
+				<td><b>UNSIGNED1</b> -- The day (1..daysInMonth).</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>month</b></td>
 				<td><b>UNSIGNED1</b> -- The month (1-12).</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>day</b></td>
-				<td><b>UNSIGNED1</b> -- The day (1..daysInMonth).</td>
+				<td width="20%"><b>year</b></td>
+				<td><b>INTEGER2</b> -- The year (0-9999).</td>
 			</tr>
 		</table>
 	</div>
@@ -1417,12 +1417,12 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>minute</b></td>
-				<td><b>UNSIGNED1</b> -- The minute (0-59).</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>second</b></td>
 				<td><b>UNSIGNED1</b> -- The second (0-59).</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>minute</b></td>
+				<td><b>UNSIGNED1</b> -- The minute (0-59).</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>hour</b></td>
@@ -1514,20 +1514,8 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>year</b></td>
-				<td><b>INTEGER2</b> -- The year (1601-30827).</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>second</b></td>
-				<td><b>UNSIGNED1</b> -- The second (0-59).</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>hour</b></td>
-				<td><b>UNSIGNED1</b> -- The hour (0-23).</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>minute</b></td>
-				<td><b>UNSIGNED1</b> -- The minute (0-59).</td>
+				<td width="20%"><b>is_local_time</b></td>
+				<td><b>BOOLEAN</b> -- TRUE if the datetime components are expressed in local time rather than UTC, FALSE if the components are expressed in UTC. Optional, defaults to FALSE.</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>month</b></td>
@@ -1538,8 +1526,20 @@
 				<td><b>UNSIGNED1</b> -- The day (1..daysInMonth).</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>is_local_time</b></td>
-				<td><b>BOOLEAN</b> -- TRUE if the datetime components are expressed in local time rather than UTC, FALSE if the components are expressed in UTC. Optional, defaults to FALSE.</td>
+				<td width="20%"><b>second</b></td>
+				<td><b>UNSIGNED1</b> -- The second (0-59).</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>year</b></td>
+				<td><b>INTEGER2</b> -- The year (1601-30827).</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>minute</b></td>
+				<td><b>UNSIGNED1</b> -- The minute (0-59).</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>hour</b></td>
+				<td><b>UNSIGNED1</b> -- The hour (0-23).</td>
 			</tr>
 		</table>
 	</div>
@@ -2209,16 +2209,16 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>year</b></td>
-				<td><b></b> -- The year (0-9999).</td>
+				<td width="20%"><b>day</b></td>
+				<td><b></b> -- The day (1..daysInMonth).</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>month</b></td>
 				<td><b></b> -- The month (1-12).</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>day</b></td>
-				<td><b></b> -- The day (1..daysInMonth).</td>
+				<td width="20%"><b>year</b></td>
+				<td><b></b> -- The year (0-9999).</td>
 			</tr>
 		</table>
 	</div>
@@ -2306,12 +2306,12 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>minute</b></td>
-				<td><b></b> -- The minute (0-59).</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>second</b></td>
 				<td><b></b> -- The second (0-59).</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>minute</b></td>
+				<td><b></b> -- The minute (0-59).</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>hour</b></td>
@@ -2674,16 +2674,16 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>year</b></td>
-				<td><b>INTEGER2</b> -- The year (-4713..9999).</td>
+				<td width="20%"><b>day</b></td>
+				<td><b>UNSIGNED1</b> -- The day (1..daysInMonth). A missing value (0) is treated as 1.</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>month</b></td>
 				<td><b>UNSIGNED1</b> -- The month (1-12). A missing value (0) is treated as 1.</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>day</b></td>
-				<td><b>UNSIGNED1</b> -- The day (1..daysInMonth). A missing value (0) is treated as 1.</td>
+				<td width="20%"><b>year</b></td>
+				<td><b>INTEGER2</b> -- The year (-4713..9999).</td>
 			</tr>
 		</table>
 	</div>
@@ -3518,16 +3518,16 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>year</b></td>
-				<td><b>INTEGER2</b> -- The year (-4800..9999).</td>
+				<td width="20%"><b>day</b></td>
+				<td><b>UNSIGNED1</b> -- The day (1..daysInMonth).</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>month</b></td>
 				<td><b>UNSIGNED1</b> -- The month (1-12).</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>day</b></td>
-				<td><b>UNSIGNED1</b> -- The day (1..daysInMonth).</td>
+				<td width="20%"><b>year</b></td>
+				<td><b>INTEGER2</b> -- The year (-4800..9999).</td>
 			</tr>
 		</table>
 	</div>
@@ -4095,16 +4095,16 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>year</b></td>
-				<td><b>INTEGER2</b> -- The year (-4713..9999).</td>
+				<td width="20%"><b>day</b></td>
+				<td><b>UNSIGNED1</b> -- The day (1..daysInMonth). A missing value (0) is treated as 1.</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>month</b></td>
 				<td><b>UNSIGNED1</b> -- The month (1-12). A missing value (0) is treated as 1.</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>day</b></td>
-				<td><b>UNSIGNED1</b> -- The day (1..daysInMonth). A missing value (0) is treated as 1.</td>
+				<td width="20%"><b>year</b></td>
+				<td><b>INTEGER2</b> -- The year (-4713..9999).</td>
 			</tr>
 		</table>
 	</div>
@@ -5094,12 +5094,12 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>datetime</b></td>
-				<td><b>ROW ( DateTime_rec )</b> -- The row containing the datetime.</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>is_local_time</b></td>
 				<td><b>BOOLEAN</b> -- TRUE if the datetime components are expressed in local time rather than UTC, FALSE if the components are expressed in UTC. Optional, defaults to FALSE.</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>datetime</b></td>
+				<td><b>ROW ( DateTime_rec )</b> -- The row containing the datetime.</td>
 			</tr>
 		</table>
 	</div>
@@ -5187,12 +5187,12 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>date_text</b></td>
-				<td><b>STRING</b> -- The string to be converted.</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>format</b></td>
 				<td><b>VARSTRING</b> -- The format of the input string. (See documentation for strftime)</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>date_text</b></td>
+				<td><b>STRING</b> -- The string to be converted.</td>
 			</tr>
 		</table>
 	</div>
@@ -5280,12 +5280,12 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>date_text</b></td>
-				<td><b>STRING</b> -- The string to be converted.</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>format</b></td>
 				<td><b>VARSTRING</b> -- The format of the input string. (See documentation for strftime)</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>date_text</b></td>
+				<td><b>STRING</b> -- The string to be converted.</td>
 			</tr>
 		</table>
 	</div>
@@ -5373,12 +5373,12 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>date_text</b></td>
-				<td><b></b> -- The string to be converted.</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>format</b></td>
 				<td><b>VARSTRING</b> -- The format of the input string. (See documentation for strftime)</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>date_text</b></td>
+				<td><b></b> -- The string to be converted.</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>time_text</b></td>
@@ -5656,12 +5656,12 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>date</b></td>
-				<td><b>UNSIGNED4</b> -- The date to be converted.</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>format</b></td>
 				<td><b>VARSTRING</b> -- The format template to use for the conversion; see strftime() for appropriate values. The maximum length of the resulting string is 255 characters. Optional; defaults to '%Y-%m-%d' which is YYYY-MM-DD.</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>date</b></td>
+				<td><b>UNSIGNED4</b> -- The date to be converted.</td>
 			</tr>
 		</table>
 	</div>
@@ -5935,12 +5935,12 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>date</b></td>
-				<td><b>UNSIGNED4</b> -- The date to be converted.</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>format</b></td>
 				<td><b>VARSTRING</b> -- The format the date is output in. (See documentation for strftime)</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>date</b></td>
+				<td><b>UNSIGNED4</b> -- The date to be converted.</td>
 			</tr>
 		</table>
 	</div>
@@ -6028,16 +6028,16 @@
 		<table class="table">
 			
 			<tr>
+				<td width="20%"><b>to_format</b></td>
+				<td><b>VARSTRING</b> -- The format the date is to be converted to.</td>
+			</tr>
+			<tr>
 				<td width="20%"><b>from_format</b></td>
 				<td><b>VARSTRING</b> -- The format the date is to be converted from.</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>date_text</b></td>
 				<td><b>STRING</b> -- The string containing the date to be converted.</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>to_format</b></td>
-				<td><b>VARSTRING</b> -- The format the date is to be converted to.</td>
 			</tr>
 		</table>
 	</div>
@@ -6125,16 +6125,16 @@
 		<table class="table">
 			
 			<tr>
+				<td width="20%"><b>to_format</b></td>
+				<td><b>VARSTRING</b> -- The format the date is to be converted to.</td>
+			</tr>
+			<tr>
 				<td width="20%"><b>from_format</b></td>
 				<td><b>VARSTRING</b> -- The format the date is to be converted from.</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>date_text</b></td>
 				<td><b>STRING</b> -- The string containing the date to be converted.</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>to_format</b></td>
-				<td><b>VARSTRING</b> -- The format the date is to be converted to.</td>
 			</tr>
 		</table>
 	</div>
@@ -6222,12 +6222,12 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>from_format</b></td>
-				<td><b>VARSTRING</b> -- The format the time is to be converted from.</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>to_format</b></td>
 				<td><b>VARSTRING</b> -- The format the time is to be converted to.</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>from_format</b></td>
+				<td><b>VARSTRING</b> -- The format the time is to be converted from.</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>time_text</b></td>
@@ -6319,16 +6319,16 @@
 		<table class="table">
 			
 			<tr>
+				<td width="20%"><b>to_format</b></td>
+				<td><b>VARSTRING</b> -- The format the date is to be converted to.</td>
+			</tr>
+			<tr>
 				<td width="20%"><b>from_formats</b></td>
 				<td><b>SET ( VARSTRING )</b> -- The list of formats the date is to be converted from.</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>date_text</b></td>
 				<td><b>STRING</b> -- The string containing the date to be converted.</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>to_format</b></td>
-				<td><b>VARSTRING</b> -- The format the date is to be converted to.</td>
 			</tr>
 		</table>
 	</div>
@@ -6416,16 +6416,16 @@
 		<table class="table">
 			
 			<tr>
+				<td width="20%"><b>to_format</b></td>
+				<td><b>VARSTRING</b> -- The format the date is to be converted to.</td>
+			</tr>
+			<tr>
 				<td width="20%"><b>from_formats</b></td>
 				<td><b>SET ( VARSTRING )</b> -- The list of formats the date is to be converted from.</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>date_text</b></td>
 				<td><b>STRING</b> -- The string containing the date to be converted.</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>to_format</b></td>
-				<td><b>VARSTRING</b> -- The format the date is to be converted to.</td>
 			</tr>
 		</table>
 	</div>
@@ -6513,12 +6513,12 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>from_formats</b></td>
-				<td><b>SET ( VARSTRING )</b> -- The list of formats the time is to be converted from.</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>to_format</b></td>
 				<td><b>VARSTRING</b> -- The format the time is to be converted to.</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>from_formats</b></td>
+				<td><b>SET ( VARSTRING )</b> -- The list of formats the time is to be converted from.</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>time_text</b></td>
@@ -6610,20 +6610,20 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>date</b></td>
-				<td><b>UNSIGNED4</b> -- The date to adjust.</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>month_delta</b></td>
-				<td><b>INTEGER4</b> -- The requested change to the month value; optional, defaults to zero.</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>year_delta</b></td>
 				<td><b>INTEGER2</b> -- The requested change to the year value; optional, defaults to zero.</td>
 			</tr>
 			<tr>
+				<td width="20%"><b>date</b></td>
+				<td><b>UNSIGNED4</b> -- The date to adjust.</td>
+			</tr>
+			<tr>
 				<td width="20%"><b>day_delta</b></td>
 				<td><b>INTEGER4</b> -- The requested change to the day of month value; optional, defaults to zero.</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>month_delta</b></td>
+				<td><b>INTEGER4</b> -- The requested change to the month value; optional, defaults to zero.</td>
 			</tr>
 		</table>
 	</div>
@@ -6808,16 +6808,16 @@
 				<td><b>UNSIGNED3</b> -- The time to adjust.</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>second_delta</b></td>
-				<td><b>INTEGER4</b> -- The requested change to the second of month value; optional, defaults to zero.</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>hour_delta</b></td>
 				<td><b>INTEGER2</b> -- The requested change to the hour value; optional, defaults to zero.</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>minute_delta</b></td>
 				<td><b>INTEGER4</b> -- The requested change to the minute value; optional, defaults to zero.</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>second_delta</b></td>
+				<td><b>INTEGER4</b> -- The requested change to the second of month value; optional, defaults to zero.</td>
 			</tr>
 		</table>
 	</div>
@@ -6998,32 +6998,32 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>month_delta</b></td>
-				<td><b>INTEGER4</b> -- The requested change to the month value; optional, defaults to zero.</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>second_delta</b></td>
-				<td><b>INTEGER4</b> -- The requested change to the second of month value; optional, defaults to zero.</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>seconds</b></td>
-				<td><b>INTEGER8</b> -- The number of seconds to adjust.</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>day_delta</b></td>
-				<td><b>INTEGER4</b> -- The requested change to the day of month value; optional, defaults to zero.</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>minute_delta</b></td>
-				<td><b>INTEGER4</b> -- The requested change to the minute value; optional, defaults to zero.</td>
+				<td width="20%"><b>hour_delta</b></td>
+				<td><b>INTEGER4</b> -- The requested change to the hour value; optional, defaults to zero.</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>year_delta</b></td>
 				<td><b>INTEGER2</b> -- The requested change to the year value; optional, defaults to zero.</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>hour_delta</b></td>
-				<td><b>INTEGER4</b> -- The requested change to the hour value; optional, defaults to zero.</td>
+				<td width="20%"><b>seconds</b></td>
+				<td><b>INTEGER8</b> -- The number of seconds to adjust.</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>minute_delta</b></td>
+				<td><b>INTEGER4</b> -- The requested change to the minute value; optional, defaults to zero.</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>month_delta</b></td>
+				<td><b>INTEGER4</b> -- The requested change to the month value; optional, defaults to zero.</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>day_delta</b></td>
+				<td><b>INTEGER4</b> -- The requested change to the day of month value; optional, defaults to zero.</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>second_delta</b></td>
+				<td><b>INTEGER4</b> -- The requested change to the second of month value; optional, defaults to zero.</td>
 			</tr>
 		</table>
 	</div>
@@ -7111,20 +7111,20 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>date</b></td>
-				<td><b>UNSIGNED4</b> -- The date to adjust, in the Gregorian calendar after 1600.</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>month_delta</b></td>
-				<td><b>INTEGER4</b> -- The requested change to the month value; optional, defaults to zero.</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>year_delta</b></td>
 				<td><b>INTEGER2</b> -- The requested change to the year value; optional, defaults to zero.</td>
 			</tr>
 			<tr>
+				<td width="20%"><b>date</b></td>
+				<td><b>UNSIGNED4</b> -- The date to adjust, in the Gregorian calendar after 1600.</td>
+			</tr>
+			<tr>
 				<td width="20%"><b>day_delta</b></td>
 				<td><b>INTEGER4</b> -- The requested change to the day value; optional, defaults to zero.</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>month_delta</b></td>
+				<td><b>INTEGER4</b> -- The requested change to the month value; optional, defaults to zero.</td>
 			</tr>
 		</table>
 	</div>
@@ -8243,12 +8243,12 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>date</b></td>
-				<td><b>UNSIGNED4</b> -- The date to validate.</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>yearUpperBound</b></td>
 				<td><b>INTEGER2</b> -- The maximum acceptable year. Optional; defaults to 2100.</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>date</b></td>
+				<td><b>UNSIGNED4</b> -- The date to validate.</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>yearLowerBound</b></td>
@@ -8518,16 +8518,16 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>year</b></td>
-				<td><b>INTEGER2</b> -- The year</td>
+				<td width="20%"><b>day</b></td>
+				<td><b>UNSIGNED1</b> -- The day (1..daysInMonth).</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>month</b></td>
 				<td><b>UNSIGNED1</b> -- The month (1-12).</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>day</b></td>
-				<td><b>UNSIGNED1</b> -- The day (1..daysInMonth).</td>
+				<td width="20%"><b>year</b></td>
+				<td><b>INTEGER2</b> -- The year</td>
 			</tr>
 		</table>
 	</div>
@@ -8704,12 +8704,12 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>minute</b></td>
-				<td><b>UNSIGNED1</b> -- The minute (0-59).</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>second</b></td>
 				<td><b>UNSIGNED1</b> -- The second (0-59).</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>minute</b></td>
+				<td><b>UNSIGNED1</b> -- The minute (0-59).</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>hour</b></td>
@@ -8890,28 +8890,28 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>year</b></td>
-				<td><b>INTEGER2</b> -- The year</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>second</b></td>
-				<td><b>UNSIGNED1</b> -- The second (0-59).</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>hour</b></td>
-				<td><b>UNSIGNED1</b> -- The hour (0-23).</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>minute</b></td>
-				<td><b>UNSIGNED1</b> -- The minute (0-59).</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>month</b></td>
 				<td><b>UNSIGNED1</b> -- The month (1-12).</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>day</b></td>
 				<td><b>UNSIGNED1</b> -- The day (1..daysInMonth).</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>second</b></td>
+				<td><b>UNSIGNED1</b> -- The second (0-59).</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>year</b></td>
+				<td><b>INTEGER2</b> -- The year</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>minute</b></td>
+				<td><b>UNSIGNED1</b> -- The minute (0-59).</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>hour</b></td>
+				<td><b>UNSIGNED1</b> -- The hour (0-23).</td>
 			</tr>
 		</table>
 	</div>

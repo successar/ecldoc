@@ -51,12 +51,12 @@ Partitioned block parallel triangular matrix solver. Solves for X using: AX = B 
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{transposeA}} ||| BOOLEAN --- Boolean indicating whether or not to transpose the A matrix before solving
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{diag}} ||| UNSIGNED1 --- Types.Diagonal enumeration indicating whether A is a unit matrix or not. This is primarily used after factoring matrixes using getrf (LU factorization). That module produces a factored matrix stored within the same space as the original matrix. Since the diagonal is used by both factors, by convention, the Lower triangle has a unit matrix (diagonal all 1's) while the Upper triangle uses the diagonal cells. Setting this to UnitTri, causes the contents of the diagonal to be ignored, and assumed to be 1. NotUnitTri should be used for most other cases.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{tri}} ||| UNSIGNED1 --- Types.Triangle enumeration indicating whether we are solving an Upper or Lower triangle.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{alpha}} ||| REAL8 --- Multiplier to scale A
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{B\_in}} ||| TABLE ( Layout\_Cell ) --- The B matrix in Layout\_Cell format
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{A\_in}} ||| TABLE ( Layout\_Cell ) --- The A matrix in Layout\_Cell format
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{diag}} ||| UNSIGNED1 --- Types.Diagonal enumeration indicating whether A is a unit matrix or not. This is primarily used after factoring matrixes using getrf (LU factorization). That module produces a factored matrix stored within the same space as the original matrix. Since the diagonal is used by both factors, by convention, the Lower triangle has a unit matrix (diagonal all 1's) while the Upper triangle uses the diagonal cells. Setting this to UnitTri, causes the contents of the diagonal to be ignored, and assumed to be 1. NotUnitTri should be used for most other cases.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{B\_in}} ||| TABLE ( Layout\_Cell ) --- The B matrix in Layout\_Cell format
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{transposeA}} ||| BOOLEAN --- Boolean indicating whether or not to transpose the A matrix before solving
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{tri}} ||| UNSIGNED1 --- Types.Triangle enumeration indicating whether we are solving an Upper or Lower triangle.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{s}} ||| UNSIGNED1 --- Types.Side enumeration indicating whether we are solving AX = B or XA = B
 \end{description}
 

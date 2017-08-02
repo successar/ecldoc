@@ -47,7 +47,8 @@ def configParser(configfile, options) :
     options['eclcc'] = []
     if 'ECLCC' in cfgparser.sections() :
         for key in cfgparser['ECLCC'] :
-            options['eclcc'].append(key)
+            if cfgparser['ECLCC'].getboolean(key) :
+                options['eclcc'].append(key)
 
     options['exdoc_paths'] = []
     if 'EXDOC' in cfgparser.sections() :

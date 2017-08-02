@@ -3,19 +3,23 @@ import re
 import subprocess
 
 from lxml import etree
-from Utils import genPathTree, getRoot, write_to_file
+from Utils import write_to_file
 from Utils import joinpath, relpath, dirname
+
+##############################################################
 
 from Constants import TEMPLATE_DIR
 TEX_TEMPLATE_DIR = joinpath(TEMPLATE_DIR, 'tex')
 
+##############################################################
+
 import jinja2
 latex_jinja_env = jinja2.Environment(
-    block_start_string = '\BLOCK{',
+    block_start_string = '\\BLOCK{',
     block_end_string = '}',
-    variable_start_string = '\VAR{',
+    variable_start_string = '\\VAR{',
     variable_end_string = '}',
-    comment_start_string = '\#{',
+    comment_start_string = '\\#{',
     comment_end_string = '}',
     line_statement_prefix = '%%',
     line_comment_prefix = '%#',
@@ -24,8 +28,24 @@ latex_jinja_env = jinja2.Environment(
     loader = jinja2.FileSystemLoader(os.path.abspath('/'))
 )
 
-from Utils import escape_tex
+LATEX_SUBS = (
+    (re.compile(r'\\'), r'\\textbackslash '),
+    (re.compile(r'([{}_#%&$])'), r'\\\1'),
+    (re.compile(r'~'), r'\~{}'),
+    (re.compile(r'\^'), r'\^{}'),
+    (re.compile(r'"'), r"''"),
+    (re.compile(r'\.\.\.+'), r'\\ldots'),
+)
+
+def escape_tex(value):
+    newval = value
+    for pattern, replacement in LATEX_SUBS:
+        newval = pattern.sub(replacement, newval)
+    return newval
+
 latex_jinja_env.filters['escape_tex'] = escape_tex
+
+###############################################################
 
 from parseDoc import getTags
 from Taglets import taglets
@@ -47,10 +67,9 @@ class ParseTEX(object) :
 
     def parse(self) :
         root = etree.parse(self.xml_file).getroot()
-        src = root.find('./Source')
+        src = root.find('Source')
         self.src = src
-        self.doc = src.find('./Documentation')
-        self.parseSource()
+        self.doc = src.find('Documentation')
 
         for child in root.iter() :
             attribs = child.attrib
@@ -59,6 +78,7 @@ class ParseTEX(object) :
                 attribs['target'] = re.sub(r'\.xml$', '.tex', attribs['target'])
 
         name = src.attrib['name'].split('.')
+        self.parseSource()
 
         render = self.template.render(name=name, src=src, render_dict=self.render_dict, up=('toc:'+self.dirname))
         write_to_file(self.tex_file, render)
@@ -75,25 +95,24 @@ class ParseTEX(object) :
     def docstring(self) :
         text = ''
         if self.doc is not None :
-            content = self.doc.find('./firstline')
+            content = self.doc.find('firstline')
             if content is not None :
                 text = content.text
         return text
 
     def parseSource(self) :
         self.render_dict = []
-        for defn in self.src.findall('./Definition') :
+        for defn in self.src.findall('Definition') :
             defn_dict = self.parseDefinition(defn)
             self.render_dict.append(defn_dict)
 
     def parseDefinition(self, defn) :
-        defn_type = defn.attrib['type']
-        sign = defn.find('./Signature')
+        sign = defn.find('Signature')
         doc = self.parseDocs(defn)
 
         defn_dict = {'sign' : sign, 'doc' : doc, 'defns' : [], 'tag' : defn }
 
-        for childdefn in defn.findall('./Definition') :
+        for childdefn in defn.findall('Definition') :
             child_dict = self.parseDefinition(childdefn)
             defn_dict['defns'].append(child_dict)
 
@@ -181,7 +200,7 @@ class GenTEX(object) :
             write_to_file(render_path, render)
 
             render = self.toc_template.render(name=key,
-                                            files=list(filter(lambda x : x['type'] == 'file', childfiles)),
+                                            files=[x for x in childfiles if x['type'] == 'file'],
                                             bundle=bundle, label=tex_relpath, up="")
             write_to_file(temptoc_render_path, render)
 

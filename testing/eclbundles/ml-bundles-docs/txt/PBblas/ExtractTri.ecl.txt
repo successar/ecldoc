@@ -23,11 +23,11 @@ Extract the upper or lower triangle from the composite output from getrf
 Parameter : tri UNSIGNED1 --- Triangle type: Upper or Lower (see
                 Types.Triangle)
 
-Parameter : dt UNSIGNED1 --- Diagonal type: Unit or non unit (see
-               Types.Diagonal)
-
 Parameter : A TABLE ( Layout_Cell ) --- Matrix of cells. See
               Types.Layout_Cell
+
+Parameter : dt UNSIGNED1 --- Diagonal type: Unit or non unit (see
+               Types.Diagonal)
 
 Return : TABLE ( { UNSIGNED2 wi_id , UNSIGNED4 x ,
          UNSIGNED4 y , REAL8 v } ) Matrix of cells in

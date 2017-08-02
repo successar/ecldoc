@@ -189,12 +189,12 @@
 				<td><b>INTEGER8</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>name</b></td>
-				<td><b>STRING</b> -- No Doc</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>modified</b></td>
 				<td><b>STRING19</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>name</b></td>
+				<td><b>STRING</b> -- No Doc</td>
 			</tr>
 		</table>
 	</div>
@@ -410,19 +410,15 @@
 				<td><b>INTEGER8</b> -- Number of bytes in the file (before compression)</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>superfile</b></td>
-				<td><b>BOOLEAN</b> -- Is this a superfile?</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>rowcount</b></td>
 				<td><b>INTEGER8</b> -- Number of rows in the file.</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>name</b></td>
-				<td><b>STRING</b> -- No Doc</td>
+				<td width="20%"><b>superfile</b></td>
+				<td><b>BOOLEAN</b> -- Is this a superfile?</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>owner</b></td>
+				<td width="20%"><b>cluster</b></td>
 				<td><b>STRING</b> -- No Doc</td>
 			</tr>
 			<tr>
@@ -430,17 +426,89 @@
 				<td><b>STRING19</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>cluster</b></td>
+				<td width="20%"><b>owner</b></td>
+				<td><b>STRING</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>name</b></td>
 				<td><b>STRING</b> -- No Doc</td>
 			</tr>
 		</table>
 	</div>
 </div>
 									
-											['Contains all the fields in FsLogicalFileNameRecord)']
-											['The cluster that this file was created on.']
-											['The username of the owner who ran the job to create this file.']
-											['Timestamp when the file was last modified;']
+											
+
+
+
+
+
+
+<div class="row">
+	<div class="col-md-1 doc-type">cluster</div>
+	<div class="col-md-11" style="padding-left: 0px;">
+		<table class="table">
+			
+			<tr>
+				<td>The cluster that this file was created on.</td>
+			</tr>
+		</table>
+	</div>
+</div>
+											
+
+
+
+
+
+
+<div class="row">
+	<div class="col-md-1 doc-type">modified</div>
+	<div class="col-md-11" style="padding-left: 0px;">
+		<table class="table">
+			
+			<tr>
+				<td>Timestamp when the file was last modified;</td>
+			</tr>
+		</table>
+	</div>
+</div>
+											
+
+
+
+
+
+
+<div class="row">
+	<div class="col-md-1 doc-type">owner</div>
+	<div class="col-md-11" style="padding-left: 0px;">
+		<table class="table">
+			
+			<tr>
+				<td>The username of the owner who ran the job to create this file.</td>
+			</tr>
+		</table>
+	</div>
+</div>
+											
+
+
+
+
+
+
+<div class="row">
+	<div class="col-md-1 doc-type">inherits</div>
+	<div class="col-md-11" style="padding-left: 0px;">
+		<table class="table">
+			
+			<tr>
+				<td>Contains all the fields in FsLogicalFileNameRecord)</td>
+			</tr>
+		</table>
+	</div>
+</div>
 									
 								</div>
 								<div class="panel-footer desc-panel-footer">
@@ -505,12 +573,12 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>subname</b></td>
-				<td><b>STRING</b> -- The name of the sub-file</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>supername</b></td>
 				<td><b>STRING</b> -- The name of the superfile</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>subname</b></td>
+				<td><b>STRING</b> -- The name of the sub-file</td>
 			</tr>
 		</table>
 	</div>
@@ -580,28 +648,28 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>payload</b></td>
-				<td><b>BOOLEAN</b> -- Indicates whether the primary or secondary are payload INDEXes.</td>
+				<td width="20%"><b>secondaryfile</b></td>
+				<td><b>STRING</b> -- The logical filename of the secondary file.</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>primaryfile</b></td>
-				<td><b>STRING</b> -- The logical filename of the primary file</td>
+				<td width="20%"><b>secondaryflds</b></td>
+				<td><b>STRING</b> -- The name of the foreign key field relating to the primary file.</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>payload</b></td>
+				<td><b>BOOLEAN</b> -- Indicates whether the primary or secondary are payload INDEXes.</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>primaryflds</b></td>
 				<td><b>STRING</b> -- The name of the primary key field for the primary file. The value "__fileposition__" indicates the secondary is an INDEX that must use FETCH to access non-keyed fields.</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>secondaryfile</b></td>
-				<td><b>STRING</b> -- The logical filename of the secondary file.</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>kind</b></td>
 				<td><b>STRING</b> -- The type of relationship between the primary and secondary files. Containing either 'link' or 'view'.</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>secondaryflds</b></td>
-				<td><b>STRING</b> -- The name of the foreign key field relating to the primary file.</td>
+				<td width="20%"><b>primaryfile</b></td>
+				<td><b>STRING</b> -- The logical filename of the primary file</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>cardinality</b></td>
@@ -1148,12 +1216,12 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>ro</b></td>
-				<td><b>BOOLEAN</b> -- Whether updates to the file are disallowed. Defaults to TRUE.</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>lfn</b></td>
 				<td><b>VARSTRING</b> -- The logical name of the file.</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>ro</b></td>
+				<td><b>BOOLEAN</b> -- Whether updates to the file are disallowed. Defaults to TRUE.</td>
 			</tr>
 		</table>
 	</div>
@@ -1334,16 +1402,16 @@
 		<table class="table">
 			
 			<tr>
+				<td width="20%"><b>abspath</b></td>
+				<td><b>BOOLEAN</b> -- Should a tilde (~) be prepended to the resulting logical file name. Defaults to FALSE.</td>
+			</tr>
+			<tr>
 				<td width="20%"><b>foreigndali</b></td>
 				<td><b>VARSTRING</b> -- The IP address of the foreign dali used to resolve the file. If blank then the file is resolved locally. Defaults to blank.</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>name</b></td>
 				<td><b>VARSTRING</b> -- The logical name of the file.</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>abspath</b></td>
-				<td><b>BOOLEAN</b> -- Should a tilde (~) be prepended to the resulting logical file name. Defaults to FALSE.</td>
 			</tr>
 		</table>
 	</div>
@@ -1431,16 +1499,16 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>location</b></td>
-				<td><b>VARSTRING</b> -- The IP address of the remote machine. '.' can be used for the local machine.</td>
+				<td width="20%"><b>abspath</b></td>
+				<td><b>BOOLEAN</b> -- Should a tilde (~) be prepended to the resulting logical file name. Defaults to TRUE.</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>path</b></td>
 				<td><b>VARSTRING</b> -- The path/name of the file on the remote machine.</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>abspath</b></td>
-				<td><b>BOOLEAN</b> -- Should a tilde (~) be prepended to the resulting logical file name. Defaults to TRUE.</td>
+				<td width="20%"><b>location</b></td>
+				<td><b>VARSTRING</b> -- The IP address of the remote machine. '.' can be used for the local machine.</td>
 			</tr>
 		</table>
 	</div>
@@ -1617,12 +1685,12 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>val</b></td>
-				<td><b>VARSTRING</b> -- The description to be associated with the file.</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>lfn</b></td>
 				<td><b>VARSTRING</b> -- The logical name of the file.</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>val</b></td>
+				<td><b>VARSTRING</b> -- The description to be associated with the file.</td>
 			</tr>
 		</table>
 	</div>
@@ -1710,20 +1778,20 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>mask</b></td>
-				<td><b>VARSTRING</b> -- The filemask specifying which files to include in the result. Defaults to '*' (all files).</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>machineIP</b></td>
-				<td><b>VARSTRING</b> -- The IP address of the remote machine.</td>
+				<td width="20%"><b>directory</b></td>
+				<td><b></b> -- The path to the directory to read. This must be in the appropriate format for the operating system running on the remote machine.</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>recurse</b></td>
 				<td><b>BOOLEAN</b> -- Whether to include files from subdirectories under the directory. Defaults to FALSE.</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>directory</b></td>
-				<td><b></b> -- The path to the directory to read. This must be in the appropriate format for the operating system running on the remote machine.</td>
+				<td width="20%"><b>machineIP</b></td>
+				<td><b>VARSTRING</b> -- The IP address of the remote machine.</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>mask</b></td>
+				<td><b>VARSTRING</b> -- The filemask specifying which files to include in the result. Defaults to '*' (all files).</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>dir</b></td>
@@ -1815,16 +1883,8 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>unknownszero</b></td>
-				<td><b>BOOLEAN</b> -- Whether to set file sizes that are unknown to zero(0) instead of minus-one (-1). Defaults to FALSE.</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>namepattern</b></td>
 				<td><b>VARSTRING</b> -- The mask of the files to list. Defaults to '*' (all files).</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>foreigndali</b></td>
-				<td><b>VARSTRING</b> -- The IP address of the foreign dali used to resolve the file. If blank then the file is resolved locally. Defaults to blank.</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>includesuper</b></td>
@@ -1833,6 +1893,14 @@
 			<tr>
 				<td width="20%"><b>includenormal</b></td>
 				<td><b>BOOLEAN</b> -- Whether to include 'normal' files. Defaults to TRUE.</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>foreigndali</b></td>
+				<td><b>VARSTRING</b> -- The IP address of the foreign dali used to resolve the file. If blank then the file is resolved locally. Defaults to blank.</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>unknownszero</b></td>
+				<td><b>BOOLEAN</b> -- Whether to set file sizes that are unknown to zero(0) instead of minus-one (-1). Defaults to FALSE.</td>
 			</tr>
 		</table>
 	</div>
@@ -1924,16 +1992,16 @@
 				<td><b>BOOLEAN</b> -- Whether to only compare logical information in the system datastore (Dali), and ignore physical information on disk. [Default TRUE]</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>file1</b></td>
-				<td><b></b> -- The logical name of the first file.</td>
+				<td width="20%"><b>use_crcs</b></td>
+				<td><b>BOOLEAN</b> -- Whether to compare physical CRCs of all the parts on disk. This may be slow on large files. Defaults to FALSE.</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>file2</b></td>
 				<td><b></b> -- The logical name of the second file.</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>use_crcs</b></td>
-				<td><b>BOOLEAN</b> -- Whether to compare physical CRCs of all the parts on disk. This may be slow on large files. Defaults to FALSE.</td>
+				<td width="20%"><b>file1</b></td>
+				<td><b></b> -- The logical name of the first file.</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>lfn2</b></td>
@@ -2130,12 +2198,8 @@
 				<td><b></b> -- The name of the primary key field for the primary file. The value "__fileposition__" indicates the secondary is an INDEX that must use FETCH to access non-keyed fields.</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>payload</b></td>
-				<td><b>BOOLEAN</b> -- Indicates whether the primary or secondary are payload INDEXes.</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>description</b></td>
-				<td><b>VARSTRING</b> -- The description of the relationship.</td>
+				<td width="20%"><b>secondaryfields</b></td>
+				<td><b></b> -- The name of the foreign key field relating to the primary file.</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>secondary</b></td>
@@ -2146,19 +2210,23 @@
 				<td><b>VARSTRING</b> -- The cardinality of the relationship. The format is <primary>:<secondary>. Valid values are "1" or "M".</secondary></primary></td>
 			</tr>
 			<tr>
-				<td width="20%"><b>relationship</b></td>
-				<td><b></b> -- The type of relationship between the primary and secondary files. Containing either 'link' or 'view'. Default is "link".</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>secondaryfields</b></td>
-				<td><b></b> -- The name of the foreign key field relating to the primary file.</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>primary</b></td>
 				<td><b>VARSTRING</b> -- The logical filename of the primary file.</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>primaryflds</b></td>
+				<td width="20%"><b>relationship</b></td>
+				<td><b></b> -- The type of relationship between the primary and secondary files. Containing either 'link' or 'view'. Default is "link".</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>payload</b></td>
+				<td><b>BOOLEAN</b> -- Indicates whether the primary or secondary are payload INDEXes.</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>description</b></td>
+				<td><b>VARSTRING</b> -- The description of the relationship.</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>secondaryflds</b></td>
 				<td><b>VARSTRING</b> -- No Doc</td>
 			</tr>
 			<tr>
@@ -2166,7 +2234,7 @@
 				<td><b>VARSTRING</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>secondaryflds</b></td>
+				<td width="20%"><b>primaryflds</b></td>
 				<td><b>VARSTRING</b> -- No Doc</td>
 			</tr>
 		</table>
@@ -2255,35 +2323,35 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>primaryfields</b></td>
-				<td><b></b> -- The name of the primary key field for the primary file.</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>relationship</b></td>
-				<td><b></b> -- The type of relationship between the primary and secondary files. Containing either 'link' or 'view'. Default is "link".</td>
+				<td width="20%"><b>primary</b></td>
+				<td><b>VARSTRING</b> -- The logical filename of the primary file.</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>secondaryfields</b></td>
 				<td><b></b> -- The name of the foreign key field relating to the primary file.</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>primary</b></td>
-				<td><b>VARSTRING</b> -- The logical filename of the primary file.</td>
+				<td width="20%"><b>relationship</b></td>
+				<td><b></b> -- The type of relationship between the primary and secondary files. Containing either 'link' or 'view'. Default is "link".</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>secondary</b></td>
 				<td><b>VARSTRING</b> -- The logical filename of the secondary file.</td>
 			</tr>
 			<tr>
+				<td width="20%"><b>primaryfields</b></td>
+				<td><b></b> -- The name of the primary key field for the primary file.</td>
+			</tr>
+			<tr>
 				<td width="20%"><b>secondaryflds</b></td>
 				<td><b>VARSTRING</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>primflds</b></td>
+				<td width="20%"><b>kind</b></td>
 				<td><b>VARSTRING</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>kind</b></td>
+				<td width="20%"><b>primflds</b></td>
 				<td><b>VARSTRING</b> -- No Doc</td>
 			</tr>
 		</table>
@@ -2372,24 +2440,24 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>primaryfields</b></td>
-				<td><b></b> -- The name of the primary key field for the primary file.</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>relationship</b></td>
-				<td><b></b> -- The type of relationship between the primary and secondary files. Containing either 'link' or 'view'. Default is "link".</td>
+				<td width="20%"><b>primary</b></td>
+				<td><b>VARSTRING</b> -- The logical filename of the primary file.</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>secondaryfields</b></td>
 				<td><b></b> -- The name of the foreign key field relating to the primary file.</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>primary</b></td>
-				<td><b>VARSTRING</b> -- The logical filename of the primary file.</td>
+				<td width="20%"><b>relationship</b></td>
+				<td><b></b> -- The type of relationship between the primary and secondary files. Containing either 'link' or 'view'. Default is "link".</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>secondary</b></td>
 				<td><b>VARSTRING</b> -- The logical filename of the secondary file.</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>primaryfields</b></td>
+				<td><b></b> -- The name of the primary key field for the primary file.</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>secondaryflds</b></td>
@@ -2578,12 +2646,12 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>mapping</b></td>
-				<td><b>VARSTRING</b> -- A string containing a comma separated list of field mappings.</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>lfn</b></td>
 				<td><b>VARSTRING</b> -- The logical filename of the primary file.</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>mapping</b></td>
+				<td><b>VARSTRING</b> -- A string containing a comma separated list of field mappings.</td>
 			</tr>
 		</table>
 	</div>
@@ -2857,16 +2925,16 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>location</b></td>
-				<td><b>VARSTRING</b> -- The IP address of the remote machine.</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>frompath</b></td>
 				<td><b>VARSTRING</b> -- The path/name of the file to move.</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>topath</b></td>
 				<td><b>VARSTRING</b> -- The path/name of the target file.</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>location</b></td>
+				<td><b>VARSTRING</b> -- The IP address of the remote machine.</td>
 			</tr>
 		</table>
 	</div>
@@ -2954,12 +3022,12 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>location</b></td>
-				<td><b>VARSTRING</b> -- The IP address of the remote machine.</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>path</b></td>
 				<td><b>VARSTRING</b> -- The path/name of the file to remove.</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>location</b></td>
+				<td><b>VARSTRING</b> -- The IP address of the remote machine.</td>
 			</tr>
 		</table>
 	</div>
@@ -3047,12 +3115,12 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>location</b></td>
-				<td><b>VARSTRING</b> -- The IP address of the remote machine.</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>path</b></td>
 				<td><b>VARSTRING</b> -- The path/name of the file to remove.</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>location</b></td>
+				<td><b>VARSTRING</b> -- The IP address of the remote machine.</td>
 			</tr>
 		</table>
 	</div>
@@ -3233,12 +3301,12 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>lfn</b></td>
-				<td><b>VARSTRING</b> -- The name of the logical file.</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>value</b></td>
 				<td><b>BOOLEAN</b> -- TRUE to enable protection, FALSE to disable.</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>lfn</b></td>
+				<td><b>VARSTRING</b> -- The name of the logical file.</td>
 			</tr>
 		</table>
 	</div>
@@ -3415,52 +3483,52 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>destinationLogicalName</b></td>
-				<td><b>VARSTRING</b> -- The logical name of the file to create.</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>expireDays</b></td>
 				<td><b>INTEGER4</b> -- Number of days to auto-remove file. Default is -1, not expire.</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>espServerIpPort</b></td>
-				<td><b>VARSTRING</b> -- The url of the ESP file copying service. Defaults to the value of ws_fs_server in the environment.</td>
+				<td width="20%"><b>failIfNoSourceFile</b></td>
+				<td><b>BOOLEAN</b> -- If TRUE it causes a missing source file to trigger a failure. Defaults to FALSE.</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>recordsize</b></td>
 				<td><b>INTEGER4</b> -- The size (in bytes) of the records in the file.</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>sourcePath</b></td>
-				<td><b>VARSTRING</b> -- The path and name of the file.</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>timeOut</b></td>
-				<td><b>INTEGER4</b> -- The time in ms to wait for the operation to complete. A value of 0 causes the call to return immediately. Defaults to no timeout (-1).</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>compress</b></td>
 				<td><b>BOOLEAN</b> -- Whether to compress the new file. Defaults to FALSE.</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>sourceIP</b></td>
-				<td><b>VARSTRING</b> -- The IP address of the file.</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>replicate</b></td>
-				<td><b>BOOLEAN</b> -- Whether to replicate the new file. Defaults to FALSE.</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>destinationGroup</b></td>
 				<td><b>VARSTRING</b> -- The name of the group to distribute the file across.</td>
 			</tr>
 			<tr>
+				<td width="20%"><b>timeOut</b></td>
+				<td><b>INTEGER4</b> -- The time in ms to wait for the operation to complete. A value of 0 causes the call to return immediately. Defaults to no timeout (-1).</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>replicate</b></td>
+				<td><b>BOOLEAN</b> -- Whether to replicate the new file. Defaults to FALSE.</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>sourceIP</b></td>
+				<td><b>VARSTRING</b> -- The IP address of the file.</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>sourcePath</b></td>
+				<td><b>VARSTRING</b> -- The path and name of the file.</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>destinationLogicalName</b></td>
+				<td><b>VARSTRING</b> -- The logical name of the file to create.</td>
+			</tr>
+			<tr>
 				<td width="20%"><b>maxConnections</b></td>
 				<td><b>INTEGER4</b> -- The maximum number of target nodes to write to concurrently. Defaults to 1.</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>failIfNoSourceFile</b></td>
-				<td><b>BOOLEAN</b> -- If TRUE it causes a missing source file to trigger a failure. Defaults to FALSE.</td>
+				<td width="20%"><b>espServerIpPort</b></td>
+				<td><b>VARSTRING</b> -- The url of the ESP file copying service. Defaults to the value of ws_fs_server in the environment.</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>allowOverwrite</b></td>
@@ -3552,7 +3620,7 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>sourceip</b></td>
+				<td width="20%"><b>espserveripport</b></td>
 				<td><b>VARSTRING</b> -- No Doc</td>
 			</tr>
 			<tr>
@@ -3560,12 +3628,24 @@
 				<td><b>INTEGER4</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>expiredays</b></td>
-				<td><b>INTEGER4</b> -- No Doc</td>
+				<td width="20%"><b>compress</b></td>
+				<td><b>BOOLEAN</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>replicate</b></td>
+				<td><b>BOOLEAN</b> -- No Doc</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>failifnosourcefile</b></td>
 				<td><b>BOOLEAN</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>allowoverwrite</b></td>
+				<td><b>BOOLEAN</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>sourceip</b></td>
+				<td><b>VARSTRING</b> -- No Doc</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>timeout</b></td>
@@ -3576,23 +3656,11 @@
 				<td><b>INTEGER4</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>compress</b></td>
-				<td><b>BOOLEAN</b> -- No Doc</td>
+				<td width="20%"><b>expiredays</b></td>
+				<td><b>INTEGER4</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>sourcepath</b></td>
-				<td><b>VARSTRING</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>allowoverwrite</b></td>
-				<td><b>BOOLEAN</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>replicate</b></td>
-				<td><b>BOOLEAN</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>espserveripport</b></td>
+				<td width="20%"><b>destinationgroup</b></td>
 				<td><b>VARSTRING</b> -- No Doc</td>
 			</tr>
 			<tr>
@@ -3600,7 +3668,7 @@
 				<td><b>VARSTRING</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>destinationgroup</b></td>
+				<td width="20%"><b>sourcepath</b></td>
 				<td><b>VARSTRING</b> -- No Doc</td>
 			</tr>
 		</table>
@@ -3707,36 +3775,52 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>sourceip</b></td>
+				<td width="20%"><b>espserveripport</b></td>
 				<td><b>VARSTRING</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>quotedterminator</b></td>
-				<td><b>BOOLEAN</b> -- No Doc</td>
+				<td width="20%"><b>sourcecsvquote</b></td>
+				<td><b>VARSTRING</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>timeout</b></td>
+				<td><b>INTEGER4</b> -- No Doc</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>destinationgroup</b></td>
 				<td><b>VARSTRING</b> -- No Doc</td>
 			</tr>
 			<tr>
+				<td width="20%"><b>replicate</b></td>
+				<td><b>BOOLEAN</b> -- No Doc</td>
+			</tr>
+			<tr>
 				<td width="20%"><b>failifnosourcefile</b></td>
 				<td><b>BOOLEAN</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>recordstructurepresent</b></td>
+				<td><b>BOOLEAN</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>allowoverwrite</b></td>
+				<td><b>BOOLEAN</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>sourceip</b></td>
+				<td><b>VARSTRING</b> -- No Doc</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>sourcemaxrecordsize</b></td>
 				<td><b>INTEGER4</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>sourcecsvseparate</b></td>
+				<td width="20%"><b>sourcecsvterminate</b></td>
 				<td><b>VARSTRING</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>encoding</b></td>
-				<td><b>VARSTRING</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>sourcecsvquote</b></td>
-				<td><b>VARSTRING</b> -- No Doc</td>
+				<td width="20%"><b>quotedterminator</b></td>
+				<td><b>BOOLEAN</b> -- No Doc</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>maxconnections</b></td>
@@ -3747,35 +3831,15 @@
 				<td><b>VARSTRING</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>recordstructurepresent</b></td>
-				<td><b>BOOLEAN</b> -- No Doc</td>
+				<td width="20%"><b>expiredays</b></td>
+				<td><b>INTEGER4</b> -- No Doc</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>compress</b></td>
 				<td><b>BOOLEAN</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>sourcepath</b></td>
-				<td><b>VARSTRING</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>allowoverwrite</b></td>
-				<td><b>BOOLEAN</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>replicate</b></td>
-				<td><b>BOOLEAN</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>expiredays</b></td>
-				<td><b>INTEGER4</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>espserveripport</b></td>
-				<td><b>VARSTRING</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>sourcecsvterminate</b></td>
+				<td width="20%"><b>sourcecsvseparate</b></td>
 				<td><b>VARSTRING</b> -- No Doc</td>
 			</tr>
 			<tr>
@@ -3783,8 +3847,12 @@
 				<td><b>VARSTRING</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>timeout</b></td>
-				<td><b>INTEGER4</b> -- No Doc</td>
+				<td width="20%"><b>sourcepath</b></td>
+				<td><b>VARSTRING</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>encoding</b></td>
+				<td><b>VARSTRING</b> -- No Doc</td>
 			</tr>
 		</table>
 	</div>
@@ -3872,36 +3940,52 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>sourceip</b></td>
+				<td width="20%"><b>espserveripport</b></td>
 				<td><b>VARSTRING</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>quotedterminator</b></td>
-				<td><b>BOOLEAN</b> -- No Doc</td>
+				<td width="20%"><b>sourcecsvquote</b></td>
+				<td><b>VARSTRING</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>timeout</b></td>
+				<td><b>INTEGER4</b> -- No Doc</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>destinationgroup</b></td>
 				<td><b>VARSTRING</b> -- No Doc</td>
 			</tr>
 			<tr>
+				<td width="20%"><b>replicate</b></td>
+				<td><b>BOOLEAN</b> -- No Doc</td>
+			</tr>
+			<tr>
 				<td width="20%"><b>failifnosourcefile</b></td>
 				<td><b>BOOLEAN</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>recordstructurepresent</b></td>
+				<td><b>BOOLEAN</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>allowoverwrite</b></td>
+				<td><b>BOOLEAN</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>sourceip</b></td>
+				<td><b>VARSTRING</b> -- No Doc</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>sourcemaxrecordsize</b></td>
 				<td><b>INTEGER4</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>sourcecsvseparate</b></td>
+				<td width="20%"><b>sourcecsvterminate</b></td>
 				<td><b>VARSTRING</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>encoding</b></td>
-				<td><b>VARSTRING</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>sourcecsvquote</b></td>
-				<td><b>VARSTRING</b> -- No Doc</td>
+				<td width="20%"><b>quotedterminator</b></td>
+				<td><b>BOOLEAN</b> -- No Doc</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>maxconnections</b></td>
@@ -3912,35 +3996,15 @@
 				<td><b>VARSTRING</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>recordstructurepresent</b></td>
-				<td><b>BOOLEAN</b> -- No Doc</td>
+				<td width="20%"><b>expiredays</b></td>
+				<td><b>INTEGER4</b> -- No Doc</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>compress</b></td>
 				<td><b>BOOLEAN</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>sourcepath</b></td>
-				<td><b>VARSTRING</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>allowoverwrite</b></td>
-				<td><b>BOOLEAN</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>replicate</b></td>
-				<td><b>BOOLEAN</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>expiredays</b></td>
-				<td><b>INTEGER4</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>espserveripport</b></td>
-				<td><b>VARSTRING</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>sourcecsvterminate</b></td>
+				<td width="20%"><b>sourcecsvseparate</b></td>
 				<td><b>VARSTRING</b> -- No Doc</td>
 			</tr>
 			<tr>
@@ -3948,8 +4012,12 @@
 				<td><b>VARSTRING</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>timeout</b></td>
-				<td><b>INTEGER4</b> -- No Doc</td>
+				<td width="20%"><b>sourcepath</b></td>
+				<td><b>VARSTRING</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>encoding</b></td>
+				<td><b>VARSTRING</b> -- No Doc</td>
 			</tr>
 		</table>
 	</div>
@@ -4037,12 +4105,68 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>destinationLogicalName</b></td>
-				<td><b>VARSTRING</b> -- The logical name of the file to create.</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>expireDays</b></td>
 				<td><b>INTEGER4</b> -- Number of days to auto-remove file. Default is -1, not expire.</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>failIfNoSourceFile</b></td>
+				<td><b>BOOLEAN</b> -- If TRUE it causes a missing source file to trigger a failure. Defaults to FALSE.</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>sourceCsvEscape</b></td>
+				<td><b>VARSTRING</b> -- A character that is used to escape quote characters. Defaults to none.</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>sourceCsvSeparate</b></td>
+				<td><b>VARSTRING</b> -- The character sequence which separates fields in the file.</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>quotedTerminator</b></td>
+				<td><b>BOOLEAN</b> -- Can the terminator character be included in a quoted field. Defaults to TRUE. If FALSE it allows quicker partitioning of the file (avoiding a complete file scan).</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>compress</b></td>
+				<td><b>BOOLEAN</b> -- Whether to compress the new file. Defaults to FALSE.</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>sourceCsvTerminate</b></td>
+				<td><b>VARSTRING</b> -- The character sequence which separates records in the file.</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>timeOut</b></td>
+				<td><b>INTEGER4</b> -- The time in ms to wait for the operation to complete. A value of 0 causes the call to return immediately. Defaults to no timeout (-1).</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>allowOverwrite</b></td>
+				<td><b>BOOLEAN</b> -- Is it valid to overwrite an existing file of the same name? Defaults to FALSE</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>recordStructurePresent</b></td>
+				<td><b>BOOLEAN</b> -- If TRUE derives the record structure from the header of the file.</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>sourceCsvQuote</b></td>
+				<td><b>VARSTRING</b> -- A string which can be used to delimit fields in the file.</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>replicate</b></td>
+				<td><b>BOOLEAN</b> -- Whether to replicate the new file. Defaults to FALSE.</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>sourceIP</b></td>
+				<td><b>VARSTRING</b> -- The IP address of the file.</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>sourcePath</b></td>
+				<td><b>VARSTRING</b> -- The path and name of the file.</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>maxConnections</b></td>
+				<td><b>INTEGER4</b> -- The maximum number of target nodes to write to concurrently. Defaults to 1.</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>destinationLogicalName</b></td>
+				<td><b>VARSTRING</b> -- The logical name of the file to create.</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>sourceMaxRecordSize</b></td>
@@ -4053,64 +4177,8 @@
 				<td><b>VARSTRING</b> -- The url of the ESP file copying service. Defaults to the value of ws_fs_server in the environment.</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>quotedTerminator</b></td>
-				<td><b>BOOLEAN</b> -- Can the terminator character be included in a quoted field. Defaults to TRUE. If FALSE it allows quicker partitioning of the file (avoiding a complete file scan).</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>sourcePath</b></td>
-				<td><b>VARSTRING</b> -- The path and name of the file.</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>timeOut</b></td>
-				<td><b>INTEGER4</b> -- The time in ms to wait for the operation to complete. A value of 0 causes the call to return immediately. Defaults to no timeout (-1).</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>compress</b></td>
-				<td><b>BOOLEAN</b> -- Whether to compress the new file. Defaults to FALSE.</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>sourceIP</b></td>
-				<td><b>VARSTRING</b> -- The IP address of the file.</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>sourceCsvSeparate</b></td>
-				<td><b>VARSTRING</b> -- The character sequence which separates fields in the file.</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>replicate</b></td>
-				<td><b>BOOLEAN</b> -- Whether to replicate the new file. Defaults to FALSE.</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>sourceCsvTerminate</b></td>
-				<td><b>VARSTRING</b> -- The character sequence which separates records in the file.</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>destinationGroup</b></td>
 				<td><b>VARSTRING</b> -- The name of the group to distribute the file across.</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>recordStructurePresent</b></td>
-				<td><b>BOOLEAN</b> -- If TRUE derives the record structure from the header of the file.</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>sourceCsvEscape</b></td>
-				<td><b>VARSTRING</b> -- A character that is used to escape quote characters. Defaults to none.</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>maxConnections</b></td>
-				<td><b>INTEGER4</b> -- The maximum number of target nodes to write to concurrently. Defaults to 1.</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>failIfNoSourceFile</b></td>
-				<td><b>BOOLEAN</b> -- If TRUE it causes a missing source file to trigger a failure. Defaults to FALSE.</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>allowOverwrite</b></td>
-				<td><b>BOOLEAN</b> -- Is it valid to overwrite an existing file of the same name? Defaults to FALSE</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>sourceCsvQuote</b></td>
-				<td><b>VARSTRING</b> -- A string which can be used to delimit fields in the file.</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>encoding</b></td>
@@ -4202,36 +4270,52 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>sourceip</b></td>
+				<td width="20%"><b>espserveripport</b></td>
 				<td><b>VARSTRING</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>quotedterminator</b></td>
-				<td><b>BOOLEAN</b> -- No Doc</td>
+				<td width="20%"><b>sourcecsvquote</b></td>
+				<td><b>VARSTRING</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>timeout</b></td>
+				<td><b>INTEGER4</b> -- No Doc</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>destinationgroup</b></td>
 				<td><b>VARSTRING</b> -- No Doc</td>
 			</tr>
 			<tr>
+				<td width="20%"><b>replicate</b></td>
+				<td><b>BOOLEAN</b> -- No Doc</td>
+			</tr>
+			<tr>
 				<td width="20%"><b>failifnosourcefile</b></td>
 				<td><b>BOOLEAN</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>recordstructurepresent</b></td>
+				<td><b>BOOLEAN</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>allowoverwrite</b></td>
+				<td><b>BOOLEAN</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>sourceip</b></td>
+				<td><b>VARSTRING</b> -- No Doc</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>sourcemaxrecordsize</b></td>
 				<td><b>INTEGER4</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>sourcecsvseparate</b></td>
+				<td width="20%"><b>sourcecsvterminate</b></td>
 				<td><b>VARSTRING</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>encoding</b></td>
-				<td><b>VARSTRING</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>sourcecsvquote</b></td>
-				<td><b>VARSTRING</b> -- No Doc</td>
+				<td width="20%"><b>quotedterminator</b></td>
+				<td><b>BOOLEAN</b> -- No Doc</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>maxconnections</b></td>
@@ -4242,35 +4326,15 @@
 				<td><b>VARSTRING</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>recordstructurepresent</b></td>
-				<td><b>BOOLEAN</b> -- No Doc</td>
+				<td width="20%"><b>expiredays</b></td>
+				<td><b>INTEGER4</b> -- No Doc</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>compress</b></td>
 				<td><b>BOOLEAN</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>sourcepath</b></td>
-				<td><b>VARSTRING</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>allowoverwrite</b></td>
-				<td><b>BOOLEAN</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>replicate</b></td>
-				<td><b>BOOLEAN</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>expiredays</b></td>
-				<td><b>INTEGER4</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>espserveripport</b></td>
-				<td><b>VARSTRING</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>sourcecsvterminate</b></td>
+				<td width="20%"><b>sourcecsvseparate</b></td>
 				<td><b>VARSTRING</b> -- No Doc</td>
 			</tr>
 			<tr>
@@ -4278,8 +4342,12 @@
 				<td><b>VARSTRING</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>timeout</b></td>
-				<td><b>INTEGER4</b> -- No Doc</td>
+				<td width="20%"><b>sourcepath</b></td>
+				<td><b>VARSTRING</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>encoding</b></td>
+				<td><b>VARSTRING</b> -- No Doc</td>
 			</tr>
 		</table>
 	</div>
@@ -4385,64 +4453,64 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>destinationLogicalName</b></td>
-				<td><b>VARSTRING</b> -- The logical name of the file to create.</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>expireDays</b></td>
 				<td><b>INTEGER4</b> -- Number of days to auto-remove file. Default is -1, not expire.</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>sourceMaxRecordSize</b></td>
-				<td><b>INTEGER4</b> -- The maximum size (in bytes) of the records in the file.</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>espServerIpPort</b></td>
-				<td><b>VARSTRING</b> -- The url of the ESP file copying service. Defaults to the value of ws_fs_server in the environment.</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>sourceRowTag</b></td>
-				<td><b>VARSTRING</b> -- The xml tag that is used to delimit records in the source file. (This tag cannot recursivly nest.)</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>sourcePath</b></td>
-				<td><b>VARSTRING</b> -- The path and name of the file.</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>timeOut</b></td>
-				<td><b>INTEGER4</b> -- The time in ms to wait for the operation to complete. A value of 0 causes the call to return immediately. Defaults to no timeout (-1).</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>compress</b></td>
-				<td><b>BOOLEAN</b> -- Whether to compress the new file. Defaults to FALSE.</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>sourceIP</b></td>
-				<td><b>VARSTRING</b> -- The IP address of the file.</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>replicate</b></td>
-				<td><b>BOOLEAN</b> -- Whether to replicate the new file. Defaults to FALSE.</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>destinationGroup</b></td>
-				<td><b>VARSTRING</b> -- The name of the group to distribute the file across.</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>sourceEncoding</b></td>
-				<td><b>VARSTRING</b> -- The unicode encoding of the file. (utf8,utf8n,utf16be,utf16le,utf32be,utf32le)</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>maxConnections</b></td>
-				<td><b>INTEGER4</b> -- The maximum number of target nodes to write to concurrently. Defaults to 1.</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>failIfNoSourceFile</b></td>
 				<td><b>BOOLEAN</b> -- If TRUE it causes a missing source file to trigger a failure. Defaults to FALSE.</td>
 			</tr>
 			<tr>
+				<td width="20%"><b>sourceMaxRecordSize</b></td>
+				<td><b>INTEGER4</b> -- The maximum size (in bytes) of the records in the file.</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>compress</b></td>
+				<td><b>BOOLEAN</b> -- Whether to compress the new file. Defaults to FALSE.</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>destinationGroup</b></td>
+				<td><b>VARSTRING</b> -- The name of the group to distribute the file across.</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>sourceRowTag</b></td>
+				<td><b>VARSTRING</b> -- The xml tag that is used to delimit records in the source file. (This tag cannot recursivly nest.)</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>sourceEncoding</b></td>
+				<td><b>VARSTRING</b> -- The unicode encoding of the file. (utf8,utf8n,utf16be,utf16le,utf32be,utf32le)</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>replicate</b></td>
+				<td><b>BOOLEAN</b> -- Whether to replicate the new file. Defaults to FALSE.</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>timeOut</b></td>
+				<td><b>INTEGER4</b> -- The time in ms to wait for the operation to complete. A value of 0 causes the call to return immediately. Defaults to no timeout (-1).</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>sourcePath</b></td>
+				<td><b>VARSTRING</b> -- The path and name of the file.</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>destinationLogicalName</b></td>
+				<td><b>VARSTRING</b> -- The logical name of the file to create.</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>maxConnections</b></td>
+				<td><b>INTEGER4</b> -- The maximum number of target nodes to write to concurrently. Defaults to 1.</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>espServerIpPort</b></td>
+				<td><b>VARSTRING</b> -- The url of the ESP file copying service. Defaults to the value of ws_fs_server in the environment.</td>
+			</tr>
+			<tr>
 				<td width="20%"><b>allowOverwrite</b></td>
 				<td><b>BOOLEAN</b> -- Is it valid to overwrite an existing file of the same name? Defaults to FALSE</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>sourceIP</b></td>
+				<td><b>VARSTRING</b> -- The IP address of the file.</td>
 			</tr>
 		</table>
 	</div>
@@ -4530,40 +4598,8 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>sourceip</b></td>
-				<td><b>VARSTRING</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>expiredays</b></td>
-				<td><b>INTEGER4</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>failifnosourcefile</b></td>
-				<td><b>BOOLEAN</b> -- No Doc</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>timeout</b></td>
 				<td><b>INTEGER4</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>sourceencoding</b></td>
-				<td><b>VARSTRING</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>maxconnections</b></td>
-				<td><b>INTEGER4</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>compress</b></td>
-				<td><b>BOOLEAN</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>sourcepath</b></td>
-				<td><b>VARSTRING</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>allowoverwrite</b></td>
-				<td><b>BOOLEAN</b> -- No Doc</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>replicate</b></td>
@@ -4574,11 +4610,15 @@
 				<td><b>VARSTRING</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>destinationlogicalname</b></td>
-				<td><b>VARSTRING</b> -- No Doc</td>
+				<td width="20%"><b>failifnosourcefile</b></td>
+				<td><b>BOOLEAN</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>sourcerowtag</b></td>
+				<td width="20%"><b>allowoverwrite</b></td>
+				<td><b>BOOLEAN</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>sourceip</b></td>
 				<td><b>VARSTRING</b> -- No Doc</td>
 			</tr>
 			<tr>
@@ -4586,7 +4626,35 @@
 				<td><b>INTEGER4</b> -- No Doc</td>
 			</tr>
 			<tr>
+				<td width="20%"><b>compress</b></td>
+				<td><b>BOOLEAN</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>maxconnections</b></td>
+				<td><b>INTEGER4</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>sourceencoding</b></td>
+				<td><b>VARSTRING</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>expiredays</b></td>
+				<td><b>INTEGER4</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>sourcerowtag</b></td>
+				<td><b>VARSTRING</b> -- No Doc</td>
+			</tr>
+			<tr>
 				<td width="20%"><b>destinationgroup</b></td>
+				<td><b>VARSTRING</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>destinationlogicalname</b></td>
+				<td><b>VARSTRING</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>sourcepath</b></td>
 				<td><b>VARSTRING</b> -- No Doc</td>
 			</tr>
 		</table>
@@ -4693,6 +4761,14 @@
 		<table class="table">
 			
 			<tr>
+				<td width="20%"><b>logicalName</b></td>
+				<td><b>VARSTRING</b> -- The name of the file to despray.</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>destinationPath</b></td>
+				<td><b>VARSTRING</b> -- The path of the file to create on the destination machine.</td>
+			</tr>
+			<tr>
 				<td width="20%"><b>maxConnections</b></td>
 				<td><b>INTEGER4</b> -- The maximum number of target nodes to write to concurrently. Defaults to 1.</td>
 			</tr>
@@ -4701,24 +4777,16 @@
 				<td><b>VARSTRING</b> -- The url of the ESP file copying service. Defaults to the value of ws_fs_server in the environment.</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>destinationPath</b></td>
-				<td><b>VARSTRING</b> -- The path of the file to create on the destination machine.</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>timeOut</b></td>
-				<td><b>INTEGER4</b> -- The time in ms to wait for the operation to complete. A value of 0 causes the call to return immediately. Defaults to no timeout (-1).</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>logicalName</b></td>
-				<td><b>VARSTRING</b> -- The name of the file to despray.</td>
+				<td width="20%"><b>destinationIP</b></td>
+				<td><b>VARSTRING</b> -- The IP of the target machine.</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>allowOverwrite</b></td>
 				<td><b>BOOLEAN</b> -- Is it valid to overwrite an existing file of the same name? Defaults to FALSE</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>destinationIP</b></td>
-				<td><b>VARSTRING</b> -- The IP of the target machine.</td>
+				<td width="20%"><b>timeOut</b></td>
+				<td><b>INTEGER4</b> -- The time in ms to wait for the operation to complete. A value of 0 causes the call to return immediately. Defaults to no timeout (-1).</td>
 			</tr>
 		</table>
 	</div>
@@ -4806,23 +4874,11 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>allowoverwrite</b></td>
-				<td><b>BOOLEAN</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>destinationpath</b></td>
-				<td><b>VARSTRING</b> -- No Doc</td>
+				<td width="20%"><b>timeout</b></td>
+				<td><b>INTEGER4</b> -- No Doc</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>espserveripport</b></td>
-				<td><b>VARSTRING</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>logicalname</b></td>
-				<td><b>VARSTRING</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>destinationip</b></td>
 				<td><b>VARSTRING</b> -- No Doc</td>
 			</tr>
 			<tr>
@@ -4830,8 +4886,20 @@
 				<td><b>INTEGER4</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>timeout</b></td>
-				<td><b>INTEGER4</b> -- No Doc</td>
+				<td width="20%"><b>destinationpath</b></td>
+				<td><b>VARSTRING</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>destinationip</b></td>
+				<td><b>VARSTRING</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>logicalname</b></td>
+				<td><b>VARSTRING</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>allowoverwrite</b></td>
+				<td><b>BOOLEAN</b> -- No Doc</td>
 			</tr>
 		</table>
 	</div>
@@ -4937,52 +5005,52 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>sourceDali</b></td>
-				<td><b>VARSTRING</b> -- The dali that contains the source file (blank implies same dali). Defaults to same dali.</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>espServerIpPort</b></td>
-				<td><b>VARSTRING</b> -- The url of the ESP file copying service. Defaults to the value of ws_fs_server in the environment.</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>timeOut</b></td>
-				<td><b>INTEGER4</b> -- The time in ms to wait for the operation to complete. A value of 0 causes the call to return immediately. Defaults to no timeout (-1).</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>compress</b></td>
-				<td><b>BOOLEAN</b> -- Whether to compress the new file. Defaults to FALSE.</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>asSuperfile</b></td>
-				<td><b>BOOLEAN</b> -- Should the file be copied as a superfile? If TRUE and source is a superfile, then the operation creates a superfile on the target, creating sub-files as needed and only overwriting existing sub-files whose content has changed. If FALSE, a single file is created. Defaults to FALSE.</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>destinationLogicalName</b></td>
-				<td><b>VARSTRING</b> -- The logical name of the file to create.</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>sourceLogicalName</b></td>
-				<td><b>VARSTRING</b> -- The name of the file to despray.</td>
+				<td width="20%"><b>replicate</b></td>
+				<td><b>BOOLEAN</b> -- Should the copied file also be replicated on the destination? Defaults to FALSE</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>transferBufferSize</b></td>
 				<td><b>INTEGER4</b> -- Overrides the size (in bytes) of the internal buffer used to copy the file. Default is 64k.</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>replicate</b></td>
-				<td><b>BOOLEAN</b> -- Should the copied file also be replicated on the destination? Defaults to FALSE</td>
+				<td width="20%"><b>compress</b></td>
+				<td><b>BOOLEAN</b> -- Whether to compress the new file. Defaults to FALSE.</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>destinationGroup</b></td>
 				<td><b>VARSTRING</b> -- The name of the group to distribute the file across.</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>maxConnections</b></td>
-				<td><b>INTEGER4</b> -- The maximum number of target nodes to write to concurrently. Defaults to 1.</td>
+				<td width="20%"><b>timeOut</b></td>
+				<td><b>INTEGER4</b> -- The time in ms to wait for the operation to complete. A value of 0 causes the call to return immediately. Defaults to no timeout (-1).</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>allowOverwrite</b></td>
 				<td><b>BOOLEAN</b> -- Is it valid to overwrite an existing file of the same name? Defaults to FALSE</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>asSuperfile</b></td>
+				<td><b>BOOLEAN</b> -- Should the file be copied as a superfile? If TRUE and source is a superfile, then the operation creates a superfile on the target, creating sub-files as needed and only overwriting existing sub-files whose content has changed. If FALSE, a single file is created. Defaults to FALSE.</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>sourceDali</b></td>
+				<td><b>VARSTRING</b> -- The dali that contains the source file (blank implies same dali). Defaults to same dali.</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>destinationLogicalName</b></td>
+				<td><b>VARSTRING</b> -- The logical name of the file to create.</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>maxConnections</b></td>
+				<td><b>INTEGER4</b> -- The maximum number of target nodes to write to concurrently. Defaults to 1.</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>sourceLogicalName</b></td>
+				<td><b>VARSTRING</b> -- The name of the file to despray.</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>espServerIpPort</b></td>
+				<td><b>VARSTRING</b> -- The url of the ESP file copying service. Defaults to the value of ws_fs_server in the environment.</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>forcePush</b></td>
@@ -5078,20 +5146,36 @@
 		<table class="table">
 			
 			<tr>
+				<td width="20%"><b>espserveripport</b></td>
+				<td><b>VARSTRING</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>replicate</b></td>
+				<td><b>BOOLEAN</b> -- No Doc</td>
+			</tr>
+			<tr>
 				<td width="20%"><b>forcepush</b></td>
+				<td><b>BOOLEAN</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>compress</b></td>
+				<td><b>BOOLEAN</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>sourcelogicalname</b></td>
+				<td><b>VARSTRING</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>preservecompression</b></td>
+				<td><b>BOOLEAN</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>allowoverwrite</b></td>
 				<td><b>BOOLEAN</b> -- No Doc</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>timeout</b></td>
 				<td><b>INTEGER4</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>transferbuffersize</b></td>
-				<td><b>INTEGER4</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>sourcelogicalname</b></td>
-				<td><b>VARSTRING</b> -- No Doc</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>assuperfile</b></td>
@@ -5102,36 +5186,20 @@
 				<td><b>INTEGER4</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>sourcedali</b></td>
+				<td width="20%"><b>destinationgroup</b></td>
 				<td><b>VARSTRING</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>compress</b></td>
-				<td><b>BOOLEAN</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>allowoverwrite</b></td>
-				<td><b>BOOLEAN</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>replicate</b></td>
-				<td><b>BOOLEAN</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>espserveripport</b></td>
-				<td><b>VARSTRING</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>preservecompression</b></td>
-				<td><b>BOOLEAN</b> -- No Doc</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>destinationlogicalname</b></td>
 				<td><b>VARSTRING</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>destinationgroup</b></td>
+				<td width="20%"><b>sourcedali</b></td>
 				<td><b>VARSTRING</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>transferbuffersize</b></td>
+				<td><b>INTEGER4</b> -- No Doc</td>
 			</tr>
 		</table>
 	</div>
@@ -5237,12 +5305,12 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>timeOut</b></td>
-				<td><b>INTEGER4</b> -- The time in ms to wait for the operation to complete. A value of 0 causes the call to return immediately. Defaults to no timeout (-1).</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>espServerIpPort</b></td>
 				<td><b>VARSTRING</b> -- The url of the ESP file copying service. Defaults to the value of ws_fs_server in the environment.</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>timeOut</b></td>
+				<td><b>INTEGER4</b> -- The time in ms to wait for the operation to complete. A value of 0 causes the call to return immediately. Defaults to no timeout (-1).</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>logicalName</b></td>
@@ -5334,15 +5402,15 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>logicalname</b></td>
-				<td><b>VARSTRING</b> -- No Doc</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>timeout</b></td>
 				<td><b>INTEGER4</b> -- No Doc</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>espserveripport</b></td>
+				<td><b>VARSTRING</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>logicalname</b></td>
 				<td><b>VARSTRING</b> -- No Doc</td>
 			</tr>
 		</table>
@@ -5449,16 +5517,32 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>timeOut</b></td>
-				<td><b>INTEGER4</b> -- The time in ms to wait for the operation to complete. A value of 0 causes the call to return immediately. Defaults to no timeout (-1).</td>
+				<td width="20%"><b>remoteEspFsURL</b></td>
+				<td><b>VARSTRING</b> -- The url of the remote ESP file copying service.</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>replicate</b></td>
+				<td><b>BOOLEAN</b> -- Should the copied file also be replicated on the destination? Defaults to FALSE</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>transferBufferSize</b></td>
+				<td><b>INTEGER4</b> -- Overrides the size (in bytes) of the internal buffer used to copy the file. Default is 64k.</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>compress</b></td>
+				<td><b>BOOLEAN</b> -- Whether to compress the new file. Defaults to FALSE.</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>destinationGroup</b></td>
+				<td><b>VARSTRING</b> -- The name of the group to distribute the file across.</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>wrap</b></td>
 				<td><b>BOOLEAN</b> -- Should the fileparts be wrapped when copying to a smaller sized cluster? The default is FALSE.</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>compress</b></td>
-				<td><b>BOOLEAN</b> -- Whether to compress the new file. Defaults to FALSE.</td>
+				<td width="20%"><b>timeOut</b></td>
+				<td><b>INTEGER4</b> -- The time in ms to wait for the operation to complete. A value of 0 causes the call to return immediately. Defaults to no timeout (-1).</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>asSuperfile</b></td>
@@ -5469,28 +5553,12 @@
 				<td><b>VARSTRING</b> -- The logical name of the file to create.</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>sourceLogicalName</b></td>
-				<td><b>VARSTRING</b> -- The name of the file to despray.</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>remoteEspFsURL</b></td>
-				<td><b>VARSTRING</b> -- The url of the remote ESP file copying service.</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>transferBufferSize</b></td>
-				<td><b>INTEGER4</b> -- Overrides the size (in bytes) of the internal buffer used to copy the file. Default is 64k.</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>replicate</b></td>
-				<td><b>BOOLEAN</b> -- Should the copied file also be replicated on the destination? Defaults to FALSE</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>destinationGroup</b></td>
-				<td><b>VARSTRING</b> -- The name of the group to distribute the file across.</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>maxConnections</b></td>
 				<td><b>INTEGER4</b> -- The maximum number of target nodes to write to concurrently. Defaults to 1.</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>sourceLogicalName</b></td>
+				<td><b>VARSTRING</b> -- The name of the file to despray.</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>allowOverwrite</b></td>
@@ -5590,16 +5658,32 @@
 				<td><b>BOOLEAN</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>timeout</b></td>
-				<td><b>INTEGER4</b> -- No Doc</td>
+				<td width="20%"><b>replicate</b></td>
+				<td><b>BOOLEAN</b> -- No Doc</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>transferbuffersize</b></td>
 				<td><b>INTEGER4</b> -- No Doc</td>
 			</tr>
 			<tr>
+				<td width="20%"><b>destinationgroup</b></td>
+				<td><b>VARSTRING</b> -- No Doc</td>
+			</tr>
+			<tr>
 				<td width="20%"><b>sourcelogicalname</b></td>
 				<td><b>VARSTRING</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>wrap</b></td>
+				<td><b>BOOLEAN</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>allowoverwrite</b></td>
+				<td><b>BOOLEAN</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>timeout</b></td>
+				<td><b>INTEGER4</b> -- No Doc</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>assuperfile</b></td>
@@ -5610,31 +5694,15 @@
 				<td><b>INTEGER4</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>wrap</b></td>
-				<td><b>BOOLEAN</b> -- No Doc</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>compress</b></td>
 				<td><b>BOOLEAN</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>allowoverwrite</b></td>
-				<td><b>BOOLEAN</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>replicate</b></td>
-				<td><b>BOOLEAN</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>remoteespfsurl</b></td>
-				<td><b>VARSTRING</b> -- No Doc</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>destinationlogicalname</b></td>
 				<td><b>VARSTRING</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>destinationgroup</b></td>
+				<td width="20%"><b>remoteespfsurl</b></td>
 				<td><b>VARSTRING</b> -- No Doc</td>
 			</tr>
 		</table>
@@ -5745,16 +5813,16 @@
 				<td><b>VARSTRING</b> -- The url of the ESP file copying service. Defaults to the value of ws_fs_server in the environment.</td>
 			</tr>
 			<tr>
+				<td width="20%"><b>shotCount</b></td>
+				<td><b>INTEGER4</b> -- The number of times to generate the event before the monitoring job completes. A value of -1 indicates the monitoring job continues until manually aborted. The default is 1.</td>
+			</tr>
+			<tr>
 				<td width="20%"><b>eventToFire</b></td>
 				<td><b>VARSTRING</b> -- The user-defined name of the event to fire when the filename appears. This value is used as the first parameter to the EVENT function.</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>name</b></td>
 				<td><b>VARSTRING</b> -- The name of the logical file to monitor. This may contain wildcard characters ( * and ?)</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>shotCount</b></td>
-				<td><b>INTEGER4</b> -- The number of times to generate the event before the monitoring job completes. A value of -1 indicates the monitoring job continues until manually aborted. The default is 1.</td>
 			</tr>
 		</table>
 	</div>
@@ -5842,6 +5910,10 @@
 		<table class="table">
 			
 			<tr>
+				<td width="20%"><b>espserveripport</b></td>
+				<td><b>VARSTRING</b> -- No Doc</td>
+			</tr>
+			<tr>
 				<td width="20%"><b>shotcount</b></td>
 				<td><b>INTEGER4</b> -- No Doc</td>
 			</tr>
@@ -5851,10 +5923,6 @@
 			</tr>
 			<tr>
 				<td width="20%"><b>name</b></td>
-				<td><b>VARSTRING</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>espserveripport</b></td>
 				<td><b>VARSTRING</b> -- No Doc</td>
 			</tr>
 		</table>
@@ -5965,20 +6033,20 @@
 				<td><b>VARSTRING</b> -- The full path of the file(s) to monitor. This may contain wildcard characters ( * and ?)</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>subDirs</b></td>
-				<td><b>BOOLEAN</b> -- Whether to include files in sub-directories (when the filename contains wildcards). Defaults to FALSE.</td>
+				<td width="20%"><b>ip</b></td>
+				<td><b>VARSTRING</b> -- The the IP address for the file to monitor. This may be omitted if the filename parameter contains a complete URL.</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>espServerIpPort</b></td>
 				<td><b>VARSTRING</b> -- The url of the ESP file copying service. Defaults to the value of ws_fs_server in the environment.</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>shotCount</b></td>
-				<td><b>INTEGER4</b> -- The number of times to generate the event before the monitoring job completes. A value of -1 indicates the monitoring job continues until manually aborted. The default is 1.</td>
+				<td width="20%"><b>subDirs</b></td>
+				<td><b>BOOLEAN</b> -- Whether to include files in sub-directories (when the filename contains wildcards). Defaults to FALSE.</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>ip</b></td>
-				<td><b>VARSTRING</b> -- The the IP address for the file to monitor. This may be omitted if the filename parameter contains a complete URL.</td>
+				<td width="20%"><b>shotCount</b></td>
+				<td><b>INTEGER4</b> -- The number of times to generate the event before the monitoring job completes. A value of -1 indicates the monitoring job continues until manually aborted. The default is 1.</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>eventToFire</b></td>
@@ -6078,10 +6146,6 @@
 				<td><b>INTEGER4</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>subdirs</b></td>
-				<td><b>BOOLEAN</b> -- No Doc</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>ip</b></td>
 				<td><b>VARSTRING</b> -- No Doc</td>
 			</tr>
@@ -6092,6 +6156,10 @@
 			<tr>
 				<td width="20%"><b>eventtofire</b></td>
 				<td><b>VARSTRING</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>subdirs</b></td>
+				<td><b>BOOLEAN</b> -- No Doc</td>
 			</tr>
 		</table>
 	</div>
@@ -6197,16 +6265,16 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>timeOut</b></td>
-				<td><b>INTEGER4</b> -- The time in ms to wait for the operation to complete. A value of 0 causes the call to return immediately. Defaults to no timeout (-1).</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>wuid</b></td>
 				<td><b>VARSTRING</b> -- The dfu wfid to wait for.</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>espServerIpPort</b></td>
 				<td><b>VARSTRING</b> -- The url of the ESP file copying service. Defaults to the value of ws_fs_server in the environment.</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>timeOut</b></td>
+				<td><b>INTEGER4</b> -- The time in ms to wait for the operation to complete. A value of 0 causes the call to return immediately. Defaults to no timeout (-1).</td>
 			</tr>
 		</table>
 	</div>
@@ -6387,16 +6455,16 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>superName</b></td>
-				<td><b>VARSTRING</b> -- The logical name of the superfile.</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>sequentialParts</b></td>
 				<td><b>BOOLEAN</b> -- Whether the sub-files must be sequentially ordered. Default to FALSE.</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>allowExist</b></td>
 				<td><b>BOOLEAN</b> -- Indicating whether to post an error if the superfile already exists. If TRUE, no error is posted. Defaults to FALSE.</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>superName</b></td>
+				<td><b>VARSTRING</b> -- The logical name of the superfile.</td>
 			</tr>
 		</table>
 	</div>
@@ -6791,16 +6859,16 @@
 		<table class="table">
 			
 			<tr>
+				<td width="20%"><b>fileNum</b></td>
+				<td><b>UNSIGNED4</b> -- The 1-based position of the sub-file to return the name of.</td>
+			</tr>
+			<tr>
 				<td width="20%"><b>superName</b></td>
 				<td><b>VARSTRING</b> -- The logical name of the superfile.</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>absPath</b></td>
 				<td><b>BOOLEAN</b> -- Whether to prepend '~' to the name of the resulting logical file name.</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>fileNum</b></td>
-				<td><b>UNSIGNED4</b> -- The 1-based position of the sub-file to return the name of.</td>
 			</tr>
 		</table>
 	</div>
@@ -7052,24 +7120,24 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>superName</b></td>
-				<td><b>VARSTRING</b> -- The logical name of the superfile.</td>
+				<td width="20%"><b>addContents</b></td>
+				<td><b>BOOLEAN</b> -- Controls whether adding a superfile adds the superfile, or its contents. Defaults to FALSE (do not expand).</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>strict</b></td>
 				<td><b>BOOLEAN</b> -- Check addContents only if subName is a superfile, and ensure superfiles exist.</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>addContents</b></td>
-				<td><b>BOOLEAN</b> -- Controls whether adding a superfile adds the superfile, or its contents. Defaults to FALSE (do not expand).</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>subName</b></td>
-				<td><b>VARSTRING</b> -- The name of the logical file to add.</td>
+				<td width="20%"><b>superName</b></td>
+				<td><b>VARSTRING</b> -- The logical name of the superfile.</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>atPos</b></td>
 				<td><b>UNSIGNED4</b> -- The position to add the sub-file, or 0 to append. Defaults to 0.</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>subName</b></td>
+				<td><b>VARSTRING</b> -- The name of the logical file to add.</td>
 			</tr>
 		</table>
 	</div>
@@ -7157,16 +7225,16 @@
 		<table class="table">
 			
 			<tr>
+				<td width="20%"><b>del</b></td>
+				<td><b>BOOLEAN</b> -- Indicates whether the sub-file should also be removed from the disk. Defaults to FALSE.</td>
+			</tr>
+			<tr>
 				<td width="20%"><b>superName</b></td>
 				<td><b>VARSTRING</b> -- The logical name of the superfile.</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>removeContents</b></td>
 				<td><b>BOOLEAN</b> -- Controls whether the contents of a sub-file which is a superfile should be recursively removed. Defaults to FALSE.</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>del</b></td>
-				<td><b>BOOLEAN</b> -- Indicates whether the sub-file should also be removed from the disk. Defaults to FALSE.</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>subName</b></td>
@@ -7258,12 +7326,12 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>superName</b></td>
-				<td><b>VARSTRING</b> -- The logical name of the superfile.</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>del</b></td>
 				<td><b>BOOLEAN</b> -- Indicates whether the sub-files should also be removed from the disk. Defaults to FALSE.</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>superName</b></td>
+				<td><b>VARSTRING</b> -- The logical name of the superfile.</td>
 			</tr>
 		</table>
 	</div>
@@ -7830,12 +7898,12 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>superName</b></td>
-				<td><b>VARSTRING</b> -- The logical name of the superfile.</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>recurse</b></td>
 				<td><b>BOOLEAN</b> -- Should the contents of child-superfiles be expanded. Default is FALSE.</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>superName</b></td>
+				<td><b>VARSTRING</b> -- The logical name of the superfile.</td>
 			</tr>
 		</table>
 	</div>
@@ -8083,24 +8151,24 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>superNames</b></td>
-				<td><b>SET ( VARSTRING )</b> -- A set of the names of the superfiles to act on. Any that do not exist will be created. The contents of each superfile will be moved to the next in the list.</td>
+				<td width="20%"><b>reverse</b></td>
+				<td><b>BOOLEAN</b> -- Reverse the order of processing the superfiles list, effectively 'demoting' instead of 'promoting' the sub-files. The default is FALSE.</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>createOnlyOne</b></td>
 				<td><b>BOOLEAN</b> -- Specifies whether to only create a single superfile (truncate the list at the first non-existent superfile). The default is FALSE.</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>delTail</b></td>
-				<td><b>BOOLEAN</b> -- Indicates whether to physically delete the contents moved out of the last superfile. The default is FALSE.</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>addHead</b></td>
 				<td><b>VARSTRING</b> -- A string containing a comma-delimited list of logical file names to add to the first superfile after the promotion process is complete. Defaults to ''.</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>reverse</b></td>
-				<td><b>BOOLEAN</b> -- Reverse the order of processing the superfiles list, effectively 'demoting' instead of 'promoting' the sub-files. The default is FALSE.</td>
+				<td width="20%"><b>superNames</b></td>
+				<td><b>SET ( VARSTRING )</b> -- A set of the names of the superfiles to act on. Any that do not exist will be created. The contents of each superfile will be moved to the next in the list.</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>delTail</b></td>
+				<td><b>BOOLEAN</b> -- Indicates whether to physically delete the contents moved out of the last superfile. The default is FALSE.</td>
 			</tr>
 		</table>
 	</div>
@@ -8188,11 +8256,11 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>deltail</b></td>
-				<td><b>BOOLEAN</b> -- No Doc</td>
+				<td width="20%"><b>addhead</b></td>
+				<td><b>VARSTRING</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>reverse</b></td>
+				<td width="20%"><b>createonlyone</b></td>
 				<td><b>BOOLEAN</b> -- No Doc</td>
 			</tr>
 			<tr>
@@ -8200,12 +8268,12 @@
 				<td><b>SET ( VARSTRING )</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>createonlyone</b></td>
+				<td width="20%"><b>reverse</b></td>
 				<td><b>BOOLEAN</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>addhead</b></td>
-				<td><b>VARSTRING</b> -- No Doc</td>
+				<td width="20%"><b>deltail</b></td>
+				<td><b>BOOLEAN</b> -- No Doc</td>
 			</tr>
 		</table>
 	</div>

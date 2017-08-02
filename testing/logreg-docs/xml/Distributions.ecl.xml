@@ -6,7 +6,7 @@
    <Definition exported="1" fullname="distributions.normal_cdf" inherittype="local" line="15" name="Normal_CDF">
     <Type>function</Type>
     <Documentation>
-     <param><name>x</name><desc>the number of standard deviations</desc></param><returns>probability of exceeding x.</returns><firstline>Cumulative Distribution of the standard normal distribution, the probability that a normal random variable will be smaller than x standard deviations above or below the mean</firstline><content>Cumulative Distribution of the standard normal distribution, the probability that a normal random variable will be smaller than x standard deviations above or below the mean. Taken from C/C++ Mathematical Algorithms for Scientists and Engineers, n. Shammas, McGraw-Hill, 1995</content></Documentation>
+     <firstline>Cumulative Distribution of the standard normal distribution, the probability that a normal random variable will be smaller than x standard deviations above or below the mean</firstline><returns>probability of exceeding x.</returns><param>x the number of standard deviations</param><content>Cumulative Distribution of the standard normal distribution, the probability that a normal random variable will be smaller than x standard deviations above or below the mean. Taken from C/C++ Mathematical Algorithms for Scientists and Engineers, n. Shammas, McGraw-Hill, 1995</content></Documentation>
     <Signature name="Normal_CDF" ret="REAL8" param="(REAL8 x)" hlen="16">REAL8 Normal_CDF(REAL8 x)</Signature><Params>
      <Param name="x"/>
     </Params>
@@ -14,7 +14,7 @@
    <Definition exported="1" fullname="distributions.normal_ppf" inherittype="local" line="40" name="Normal_PPF">
     <Type>function</Type>
     <Documentation>
-     <param><name>x</name><desc>probability</desc></param><returns>number of standard deviations from the mean</returns><firstline>Normal Distribution Percentage Point Function</firstline><content>Normal Distribution Percentage Point Function. Translated from C/C++ Mathematical Algorithms for Scientists and Engineers, N. Shammas, McGraw-Hill, 1995</content></Documentation>
+     <firstline>Normal Distribution Percentage Point Function</firstline><returns>number of standard deviations from the mean</returns><param>x probability</param><content>Normal Distribution Percentage Point Function. Translated from C/C++ Mathematical Algorithms for Scientists and Engineers, N. Shammas, McGraw-Hill, 1995</content></Documentation>
     <Signature name="Normal_PPF" ret="REAL8" param="(REAL8 x)" hlen="16">REAL8 Normal_PPF(REAL8 x)</Signature><Params>
      <Param name="x"/>
     </Params>
@@ -22,7 +22,7 @@
    <Definition exported="1" fullname="distributions.t_cdf" inherittype="local" line="83" name="T_CDF">
     <Type>function</Type>
     <Documentation>
-     <param><name>x</name><desc>value of the evaluation</desc></param><param><name>df</name><desc>degrees of freedom</desc></param><returns>the probability that a value will be less than the specified value</returns><firstline>Students t distribution integral evaluated between negative infinity and x</firstline><content>Students t distribution integral evaluated between negative infinity and x. Translated from NIST SEL DATAPAC Fortran TCDF.f source</content></Documentation>
+     <firstline>Students t distribution integral evaluated between negative infinity and x</firstline><returns>the probability that a value will be less than the specified value</returns><param>x value of the evaluation</param><param>df degrees of freedom</param><content>Students t distribution integral evaluated between negative infinity and x. Translated from NIST SEL DATAPAC Fortran TCDF.f source</content></Documentation>
     <Signature name="T_CDF" ret="REAL8" param="(REAL8 x, REAL8 df)" hlen="11">REAL8 T_CDF(REAL8 x, REAL8 df)</Signature><Params>
      <Param name="x"/>
      <Param name="df"/>
@@ -58,9 +58,7 @@
    <Signature name="Distributions" ret="" param="" hlen="13">Distributions</Signature><Parents/>
   </Definition>
   <Import name="Core_Const" ref="ML_Core.Constants" target="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles-docs/$$_ECLDOC-FORM_$$/ML_Core/Constants.ecl.xml">
-   <Documentation>
-    <firstline>Useful constants</firstline><content>Useful constants</content></Documentation>
-  </Import>
+   </Import>
   <Import name="Math" ref="ML_Core.Math" remotescope="1" target="/media/sarthak/Data/ecldoc/testing/eclbundles/ml-bundles-docs/$$_ECLDOC-FORM_$$/ML_Core/Math/pkg.toc.xml"/>
  <Documentation><content> </content></Documentation></Source>
 </Meta>

@@ -183,16 +183,16 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>ridge</b></td>
-				<td><b>REAL8</b> -- a value to populate a diagonal matrix that is added to a matrix help assure that the matrix is invertible.</td>
+				<td width="20%"><b>max_iter</b></td>
+				<td><b>UNSIGNED8</b> -- maximum number of iterations to try</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>epsilon</b></td>
 				<td><b>REAL8</b> -- the minimum change in the Beta value estimate to continue</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>max_iter</b></td>
-				<td><b>UNSIGNED8</b> -- maximum number of iterations to try</td>
+				<td width="20%"><b>ridge</b></td>
+				<td><b>REAL8</b> -- a value to populate a diagonal matrix that is added to a matrix help assure that the matrix is invertible.</td>
 			</tr>
 		</table>
 	</div>
@@ -210,7 +210,7 @@
 <div class="col-md-1 doc-type">Parents</div>
 <div class="col-md-11" style="padding-left: 0px;">
 <ul class="pagination" style="margin-top: 0px;"><li>
-		<a href="../ML_Core/Interfaces/IClassify.ecl.xml">
+		<a href="../ML_Core/Interfaces/IClassify.ecl.html">
 			ML_Core.Interfaces.IClassify
 		</a>
 	</li></ul>
@@ -277,11 +277,11 @@
 			
 			<tr>
 				<td width="20%"><b>classifications</b></td>
-				<td><b>TABLE ( DiscreteField )</b> -- the observed classification used to build the model</td>
+				<td><b>TABLE ( ml_core.types.discretefield )</b> -- the observed classification used to build the model</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>observations</b></td>
-				<td><b>TABLE ( NumericField )</b> -- the observed explanatory values</td>
+				<td><b>TABLE ( ml_core.types.numericfield )</b> -- the observed explanatory values</td>
 			</tr>
 		</table>
 	</div>
@@ -371,11 +371,11 @@
 			
 			<tr>
 				<td width="20%"><b>new_observations</b></td>
-				<td><b>TABLE ( NumericField )</b> -- observations to be classified</td>
+				<td><b>TABLE ( ml_core.types.numericfield )</b> -- observations to be classified</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>model</b></td>
-				<td><b>TABLE ( Layout_Model )</b> -- The model, which must be produced by a corresponding getModel function.</td>
+				<td><b>TABLE ( ml_core.types.layout_model )</b> -- The model, which must be produced by a corresponding getModel function.</td>
 			</tr>
 		</table>
 	</div>
@@ -465,15 +465,15 @@
 			
 			<tr>
 				<td width="20%"><b>classifications</b></td>
-				<td><b>TABLE ( DiscreteField )</b> -- the classifications associated with the observations</td>
+				<td><b>TABLE ( ml_core.types.discretefield )</b> -- the classifications associated with the observations</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>observations</b></td>
-				<td><b>TABLE ( NumericField )</b> -- the explanatory values.</td>
+				<td><b>TABLE ( ml_core.types.numericfield )</b> -- the explanatory values.</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>model</b></td>
-				<td><b>TABLE ( Layout_Model )</b> -- the encoded model</td>
+				<td><b>TABLE ( ml_core.types.layout_model )</b> -- the encoded model</td>
 			</tr>
 		</table>
 	</div>

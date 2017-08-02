@@ -1,16 +1,17 @@
-import json
 import os
 import re
+import json
 import subprocess
 from copy import deepcopy
 
 from lxml import etree
 from lxml.builder import E
 
-from Utils import breaksign
 from Utils import genPathTree
 from Utils import joinpath, relpath, dirname, realpath
-from parseDoc import parseDocstring
+from Utils import read_file
+
+from parseDoc import parseDocstring, breaksign
 
 
 class ParseXML(object):
@@ -37,7 +38,7 @@ class ParseXML(object):
     def parse(self):
         os.makedirs(dirname(self.xml_orig_file), exist_ok=True)
         eclcc_options = ' '.join(self.options['eclcc'])
-        p = subprocess.call(['~/eclcc -M ' + eclcc_options +
+        p = subprocess.call(['eclcc -M ' + eclcc_options +
                              ' -o ' + self.xml_orig_file + ' ' +
                              self.input_file], shell=True, cwd=self.input_root)
         print("File : ", self.input_file, "Output Code : ", p)
@@ -80,9 +81,9 @@ class ParseXML(object):
 
             root.insert(-1, depend)
 
-        self.src = root.find('./Source')
+        self.src = root.find('Source')
         self.parseSource()
-        if len(self.src.findall('./Definition')) == 0:
+        if len(self.src.findall('Definition')) == 0:
             self.internal = True
 
         if self.internal is False:
@@ -92,7 +93,7 @@ class ParseXML(object):
     def parseSource(self):
         attribs = self.src.attrib
         srcpath = realpath(attribs['sourcePath'])
-        self.text = open(srcpath).read()
+        self.text = read_file(srcpath)
 
         if 'name' in attribs:
             self.depends[tuple(attribs['name'].lower().split('.'))] = self.src
@@ -103,7 +104,7 @@ class ParseXML(object):
         for doc in self.src.iter('Documentation'):
             self.parseDocumentation(doc)
 
-        for defn in self.src.findall('./Definition'):
+        for defn in self.src.findall('Definition'):
             if self.checkDefinition(defn):
                 self.src.remove(defn)
             else:
@@ -111,7 +112,7 @@ class ParseXML(object):
 
         maindefn = self.src.find("Definition")
         if maindefn is not None and maindefn.find('Documentation') is not None:
-            docstring = deepcopy(maindefn.find('./Documentation'))
+            docstring = deepcopy(maindefn.find('Documentation'))
             self.src.append(docstring)
         else:
             self.src.append(E('Documentation', E('content', ' ')))
@@ -119,8 +120,7 @@ class ParseXML(object):
     def parseDefinition(self, defn):
         attribs = defn.attrib
         if 'start' in attribs and 'body' in attribs:
-            sign = self.generateSignature(attribs)
-            defn.insert(-1, sign)
+            self.generateSignature(defn)
 
         if 'fullname' in attribs:
             fullname = attribs['fullname']
@@ -130,37 +130,39 @@ class ParseXML(object):
         elif 'name' in attribs:
             attribs['fullname'] = 'ecldoc-' + attribs['name']
 
-        for childdefn in defn.findall('./Definition'):
+        for childdefn in defn.findall('Definition'):
             if attribs['inherittype'] == 'inherited' or self.checkDefinition(childdefn):
                 defn.remove(childdefn)
             else:
                 self.parseDefinition(childdefn)
 
-        parents = defn.find('./Parents')
+        parents = defn.find('Parents')
         if parents is not None:
-            for parent in parents.findall('./Parent'):
+            for parent in parents.findall('Parent'):
                 self.parseParent(parent)
 
         attribs.pop('body', None)
         attribs.pop('start', None)
         attribs.pop('end', None)
 
-    def generateSignature(self, attribs):
-        sign = etree.Element('Signature')
-        text = self.text
+    def generateSignature(self, defn):
+        attribs = defn.attrib
         name = attribs['name']
+        is_scope = 'type' in attribs and attribs['type'] in ['module', 'interface']
+        has_params = defn.find('Params') is not None
         genSign = False
 
+        text = self.text
         if 'fullname' in attribs:
             genSign = True
-            fullname = attribs['fullname'].lower().split('.')
-            if fullname[-1] != name.lower() :
+            if is_scope and (not has_params) :
                 genSign = False
             else :
                 best_depend = self.matchPath(attribs['fullname'])
                 if best_depend is not None and best_depend != self.src:
-                    text = open(best_depend.attrib['sourcePath']).read()
+                    text = read_file(best_depend.attrib['sourcePath'])
 
+        sign = etree.Element('Signature')
         sign.text = name
         if genSign :
             sign.text = text[int(attribs['start']):int(attribs['body'])]
@@ -183,7 +185,7 @@ class ParseXML(object):
         sign.attrib['ret'] = ret.strip()
         sign.attrib['param'] = param.strip()
         sign.attrib['hlen'] = str(indent_len)
-        return sign
+        defn.insert(-1, sign)
 
     def parseDocumentation(self, doc):
         content = doc.find('./content')
@@ -249,45 +251,7 @@ class ParseXML(object):
                   (defn.find('Documentation').find('internal') is not None))
         return test_1 or test_2 or test_3
 
-    def appendTypes(self, defn) :
-        if defn.find('Documentation') is not None :
-            doc = defn.find('Documentation')
-            doc.attrib['generated'] = False
-            return
-
-        doc = etree.Element('Documentation')
-        defn.append(doc)
-        doc.attrib['generated'] = True
-
-        params = defn.find('Params').findall('Param') if defn.find('Params') is not None else []
-        _return = defn.find('Type')
-        fields = defn.findall('Field')
-        two = {'param' : params, 'field' : fields}
-
-        for tag in two :
-            for p in two[tag] :
-                name = p.attrib['name']
-                _type = p.find('Type')
-                p = etree.Element(tag)
-                name_e = etree.Element('name')
-                name_e.text = name
-                desc = etree.Element('desc')
-                desc.text = ''
-                p.append(name_e)
-                p.append(desc)
-                p.append(_type)
-                doc.append(p)
-
-        if _return is not None :
-            return_e = etree.Element('return')
-            return_e.append(_return)
-            desc = etree.Element('desc')
-            desc.text = ''
-            return_e.append(desc)
-            doc.append(return_e)
-
-
-
+###########################################################################################
 
 def parseBundle(generator, ecl_file):
     input_file = joinpath(generator.input_root, ecl_file)
@@ -300,10 +264,10 @@ def parseBundle(generator, ecl_file):
     bundle_xml_path = joinpath(dirpath_xml, 'bundle.xml')
 
     os.makedirs(dirpath_xml_orig, exist_ok=True)
-    p = subprocess.call(['~/ecl-bundle info ' + dirpath + ' > ' + bundle_orig_path], shell=True)
+    p = subprocess.call(['ecl-bundle info ' + dirpath + ' > ' + bundle_orig_path], shell=True)
     print("Output Code : ", p, "Bundle File : ", dirpath)
 
-    data = open(bundle_orig_path).read().split('\n')
+    data = read_file(bundle_orig_path).split('\n')
     data = [x.split(':', 1) for x in data]
     data = [(x[0].strip(), x[1].strip()) for x in data if len(x) == 2]
     root = etree.Element("Bundle")
@@ -315,20 +279,20 @@ def parseBundle(generator, ecl_file):
     os.makedirs(dirname(bundle_xml_path), exist_ok=True)
     etree.ElementTree(root).write(bundle_xml_path, pretty_print=True, xml_declaration=True, encoding='utf-8')
 
+###########################################################################################
 
 class GenXML(object):
     def __init__(self, input_root, output_root, ecl_files, options):
         self.input_root = input_root
         self.output_root = output_root
-        self.ecl_files = ecl_files
+        self.ecl_file_tree = genPathTree(ecl_files)
+        self.options = options
+
         self.xml_orig_root = joinpath(output_root, 'xmlOriginal')
         os.makedirs(self.xml_orig_root, exist_ok=True)
 
         self.xml_root = joinpath(output_root, 'xml')
         os.makedirs(self.xml_root, exist_ok=True)
-
-        self.ecl_file_tree = genPathTree(ecl_files)
-        self.options = options
 
     def gen(self, key, node, xml_root, content_root):
         if type(node[key]) != dict:
@@ -420,9 +384,10 @@ class GenXML(object):
     def findInTree(self, fullname, tree, child_root):
         if type(tree) == dict:
             if len(fullname) == 0: return joinpath(child_root, 'pkg.toc')
-            if fullname[0] in tree: return self.findInTree(fullname[1:],
-                                                            tree[fullname[0]]['tree'],
-                                                            joinpath(child_root, tree[fullname[0]]['key']))
+            if fullname[0] in tree:
+                return self.findInTree(fullname[1:],
+                                       tree[fullname[0]]['tree'],
+                                       joinpath(child_root, tree[fullname[0]]['key']))
             return None
 
         return tree

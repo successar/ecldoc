@@ -111,17 +111,17 @@ corresponding changes to the C++ attributes.
   | utility functions to convert to and from a set of partitions (See
   | Layout_parts).
   | 
-  | Field : v REAL8 --- Real value for the cell
-  | 
   | Field : x UNSIGNED4 --- 1-based row position within the
   |           matrix
   | 
-  | Field : y UNSIGNED4 --- 1-based column position within the
-  |           matrix
+  | Field : v REAL8 --- Real value for the cell
   | 
   | Field : wi_id UNSIGNED2 --- Work Item Number -- An identifier
   |               from 1 to 64K-1 that separates and identifies
   |               individual matrixes
+  | 
+  | Field : y UNSIGNED4 --- 1-based column position within the
+  |           matrix
   | 
   | See : matrix_t
   | 
@@ -137,9 +137,9 @@ corresponding changes to the C++ attributes.
   | 
   | Layout for Norm results.
   | 
-  | Field : v REAL8 --- Real value for the norm
-  | 
   | Field : wi_id UNSIGNED2 --- Work Item Number -- An identifier
   |               from 1 to 64K-1 that separates and identifies
   |               individual matrixes
+  | 
+  | Field : v REAL8 --- Real value for the norm
   | 

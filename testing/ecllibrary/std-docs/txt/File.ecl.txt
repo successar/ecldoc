@@ -23,9 +23,9 @@ No Documentation Found
   | 
   | Field : size INTEGER8 --- No Doc
   | 
-  | Field : name STRING --- No Doc
-  | 
   | Field : modified STRING19 --- No Doc
+  | 
+  | Field : name STRING --- No Doc
   | 
   | ----------------------------------------------------------------------------------------------------------------------------------
   | ATTRIBUTE : FsLogicalFileName
@@ -52,17 +52,27 @@ No Documentation Found
   | Field : size INTEGER8 --- Number of bytes in the file (before
   |              compression)
   | 
-  | Field : superfile BOOLEAN --- Is this a superfile?
-  | 
   | Field : rowcount INTEGER8 --- Number of rows in the file.
   | 
-  | Field : name STRING --- No Doc
+  | Field : superfile BOOLEAN --- Is this a superfile?
   | 
-  | Field : owner STRING --- No Doc
+  | Field : cluster STRING --- No Doc
   | 
   | Field : modified STRING19 --- No Doc
   | 
-  | Field : cluster STRING --- No Doc
+  | Field : owner STRING --- No Doc
+  | 
+  | Field : name STRING --- No Doc
+  | 
+  | cluster : The cluster that this file was created on.
+  | 
+  | modified : Timestamp when the file was last modified;
+  | 
+  | owner : The username of the owner who ran the job to
+  |         create this file.
+  | 
+  | inherits : Contains all the fields in
+  |            FsLogicalFileNameRecord)
   | 
   | ----------------------------------------------------------------------------------------------------------------------------------
   | RECORD : FsLogicalSuperSubRecord
@@ -70,9 +80,9 @@ No Documentation Found
   | 
   | A record containing information about a superfile and its contents.
   | 
-  | Field : subname STRING --- The name of the sub-file
-  | 
   | Field : supername STRING --- The name of the superfile
+  | 
+  | Field : subname STRING --- The name of the sub-file
   | 
   | ----------------------------------------------------------------------------------------------------------------------------------
   | RECORD : FsFileRelationshipRecord
@@ -80,26 +90,26 @@ No Documentation Found
   | 
   | A record containing information about the relationship between two files.
   | 
+  | Field : secondaryfile STRING --- The logical filename of the secondary
+  |                       file.
+  | 
+  | Field : secondaryflds STRING --- The name of the foreign key field
+  |                       relating to the primary file.
+  | 
   | Field : payload BOOLEAN --- Indicates whether the primary or
   |                 secondary are payload INDEXes.
-  | 
-  | Field : primaryfile STRING --- The logical filename of the primary
-  |                     file
   | 
   | Field : primaryflds STRING --- The name of the primary key field for
   |                     the primary file. The value "__fileposition__"
   |                     indicates the secondary is an INDEX that must use
   |                     FETCH to access non-keyed fields.
   | 
-  | Field : secondaryfile STRING --- The logical filename of the secondary
-  |                       file.
-  | 
   | Field : kind STRING --- The type of relationship between the
   |              primary and secondary files. Containing either
   |              'link' or 'view'.
   | 
-  | Field : secondaryflds STRING --- The name of the foreign key field
-  |                       relating to the primary file.
+  | Field : primaryfile STRING --- The logical filename of the primary
+  |                     file
   | 
   | Field : cardinality STRING --- The cardinality of the relationship.
   |                     The format is <primary>:<secondary>. Valid values
@@ -175,10 +185,10 @@ No Documentation Found
   | 
   | Changes whether access to a file is read only or not.
   | 
+  | Parameter : lfn VARSTRING --- The logical name of the file.
+  | 
   | Parameter : ro BOOLEAN --- Whether updates to the file are
   |                disallowed. Defaults to TRUE.
-  | 
-  | Parameter : lfn VARSTRING --- The logical name of the file.
   | 
   | Return : 
   | 
@@ -203,14 +213,14 @@ No Documentation Found
   | Returns a logical filename that can be used to refer to a logical file in a
   | local or remote dali.
   | 
+  | Parameter : abspath BOOLEAN --- Should a tilde (~) be prepended to the
+  |                     resulting logical file name. Defaults to FALSE.
+  | 
   | Parameter : foreigndali VARSTRING --- The IP address of the foreign dali
   |                         used to resolve the file. If blank then the file
   |                         is resolved locally. Defaults to blank.
   | 
   | Parameter : name VARSTRING --- The logical name of the file.
-  | 
-  | Parameter : abspath BOOLEAN --- Should a tilde (~) be prepended to the
-  |                     resulting logical file name. Defaults to FALSE.
   | 
   | Return : VARSTRING
   | 
@@ -223,14 +233,14 @@ No Documentation Found
   | file. Examples include directly reading from a landing zone. Upper case
   | characters and other details are escaped.
   | 
-  | Parameter : location VARSTRING --- The IP address of the remote
-  |                      machine. '.' can be used for the local machine.
+  | Parameter : abspath BOOLEAN --- Should a tilde (~) be prepended to the
+  |                     resulting logical file name. Defaults to TRUE.
   | 
   | Parameter : path VARSTRING --- The path/name of the file on the
   |                  remote machine.
   | 
-  | Parameter : abspath BOOLEAN --- Should a tilde (~) be prepended to the
-  |                     resulting logical file name. Defaults to TRUE.
+  | Parameter : location VARSTRING --- The IP address of the remote
+  |                      machine. '.' can be used for the local machine.
   | 
   | Return : VARSTRING The encoded logical filename.
   | 
@@ -252,10 +262,10 @@ No Documentation Found
   | 
   | Sets the description associated with the specified filename.
   | 
+  | Parameter : lfn VARSTRING --- The logical name of the file.
+  | 
   | Parameter : val VARSTRING --- The description to be associated
   |                 with the file.
-  | 
-  | Parameter : lfn VARSTRING --- The logical name of the file.
   | 
   | Return : 
   | 
@@ -267,20 +277,20 @@ No Documentation Found
   | Returns a dataset containing a list of files from the specified machineIP
   | and directory.
   | 
-  | Parameter : mask VARSTRING --- The filemask specifying which files
-  |                  to include in the result. Defaults to '*' (all
-  |                  files).
-  | 
-  | Parameter : machineIP VARSTRING --- The IP address of the remote
-  |                       machine.
+  | Parameter : directory  --- The path to the directory to read. This must
+  |                       be in the appropriate format for the operating
+  |                       system running on the remote machine.
   | 
   | Parameter : recurse BOOLEAN --- Whether to include files from
   |                     subdirectories under the directory. Defaults to
   |                     FALSE.
   | 
-  | Parameter : directory  --- The path to the directory to read. This must
-  |                       be in the appropriate format for the operating
-  |                       system running on the remote machine.
+  | Parameter : machineIP VARSTRING --- The IP address of the remote
+  |                       machine.
+  | 
+  | Parameter : mask VARSTRING --- The filemask specifying which files
+  |                  to include in the result. Defaults to '*' (all
+  |                  files).
   | 
   | Parameter : dir VARSTRING --- No Doc
   | 
@@ -295,22 +305,22 @@ No Documentation Found
   | Returns a dataset of information about the logical files known to the
   | system.
   | 
-  | Parameter : unknownszero BOOLEAN --- Whether to set file sizes that are
-  |                          unknown to zero(0) instead of minus-one (-1).
-  |                          Defaults to FALSE.
-  | 
   | Parameter : namepattern VARSTRING --- The mask of the files to list.
   |                         Defaults to '*' (all files).
-  | 
-  | Parameter : foreigndali VARSTRING --- The IP address of the foreign dali
-  |                         used to resolve the file. If blank then the file
-  |                         is resolved locally. Defaults to blank.
   | 
   | Parameter : includesuper BOOLEAN --- Whether to include SuperFiles.
   |                          Defaults to FALSE.
   | 
   | Parameter : includenormal BOOLEAN --- Whether to include 'normal' files.
   |                           Defaults to TRUE.
+  | 
+  | Parameter : foreigndali VARSTRING --- The IP address of the foreign dali
+  |                         used to resolve the file. If blank then the file
+  |                         is resolved locally. Defaults to blank.
+  | 
+  | Parameter : unknownszero BOOLEAN --- Whether to set file sizes that are
+  |                          unknown to zero(0) instead of minus-one (-1).
+  |                          Defaults to FALSE.
   | 
   | Return : TABLE ( FsLogicalFileInfoRecord )
   | 
@@ -326,13 +336,13 @@ No Documentation Found
   |                          ignore physical information on disk. [Default
   |                          TRUE]
   | 
-  | Parameter : file1  --- The logical name of the first file.
-  | 
-  | Parameter : file2  --- The logical name of the second file.
-  | 
   | Parameter : use_crcs BOOLEAN --- Whether to compare physical CRCs of
   |                      all the parts on disk. This may be slow on large
   |                      files. Defaults to FALSE.
+  | 
+  | Parameter : file2  --- The logical name of the second file.
+  | 
+  | Parameter : file1  --- The logical name of the first file.
   | 
   | Parameter : lfn2 VARSTRING --- No Doc
   | 
@@ -388,10 +398,8 @@ No Documentation Found
   |                           indicates the secondary is an INDEX that must use
   |                           FETCH to access non-keyed fields.
   | 
-  | Parameter : payload BOOLEAN --- Indicates whether the primary or
-  |                     secondary are payload INDEXes.
-  | 
-  | Parameter : description VARSTRING --- The description of the relationship.
+  | Parameter : secondaryfields  --- The name of the foreign key field relating to
+  |                             the primary file.
   | 
   | Parameter : secondary VARSTRING --- The logical filename of the
   |                       secondary file.
@@ -400,21 +408,23 @@ No Documentation Found
   |                         The format is <primary>:<secondary>. Valid values
   |                         are "1" or "M".</secondary></primary>
   | 
+  | Parameter : primary VARSTRING --- The logical filename of the primary
+  |                     file.
+  | 
   | Parameter : relationship  --- The type of relationship between the primary
   |                          and secondary files. Containing either 'link' or
   |                          'view'. Default is "link".
   | 
-  | Parameter : secondaryfields  --- The name of the foreign key field relating to
-  |                             the primary file.
+  | Parameter : payload BOOLEAN --- Indicates whether the primary or
+  |                     secondary are payload INDEXes.
   | 
-  | Parameter : primary VARSTRING --- The logical filename of the primary
-  |                     file.
+  | Parameter : description VARSTRING --- The description of the relationship.
   | 
-  | Parameter : primaryflds VARSTRING --- No Doc
+  | Parameter : secondaryflds VARSTRING --- No Doc
   | 
   | Parameter : kind VARSTRING --- No Doc
   | 
-  | Parameter : secondaryflds VARSTRING --- No Doc
+  | Parameter : primaryflds VARSTRING --- No Doc
   | 
   | Return : 
   | 
@@ -426,27 +436,27 @@ No Documentation Found
   | Returns a dataset of relationships. The return records are structured in
   | the FsFileRelationshipRecord format.
   | 
-  | Parameter : primaryfields  --- The name of the primary key field for the
-  |                           primary file.
+  | Parameter : primary VARSTRING --- The logical filename of the primary
+  |                     file.
+  | 
+  | Parameter : secondaryfields  --- The name of the foreign key field relating to
+  |                             the primary file.
   | 
   | Parameter : relationship  --- The type of relationship between the primary
   |                          and secondary files. Containing either 'link' or
   |                          'view'. Default is "link".
   | 
-  | Parameter : secondaryfields  --- The name of the foreign key field relating to
-  |                             the primary file.
-  | 
-  | Parameter : primary VARSTRING --- The logical filename of the primary
-  |                     file.
-  | 
   | Parameter : secondary VARSTRING --- The logical filename of the
   |                       secondary file.
   | 
+  | Parameter : primaryfields  --- The name of the primary key field for the
+  |                           primary file.
+  | 
   | Parameter : secondaryflds VARSTRING --- No Doc
   | 
-  | Parameter : primflds VARSTRING --- No Doc
-  | 
   | Parameter : kind VARSTRING --- No Doc
+  | 
+  | Parameter : primflds VARSTRING --- No Doc
   | 
   | Return : TABLE ( FsFileRelationshipRecord )
   | 
@@ -457,21 +467,21 @@ No Documentation Found
   | 
   | Removes a relationship between two files.
   | 
-  | Parameter : primaryfields  --- The name of the primary key field for the
-  |                           primary file.
+  | Parameter : primary VARSTRING --- The logical filename of the primary
+  |                     file.
+  | 
+  | Parameter : secondaryfields  --- The name of the foreign key field relating to
+  |                             the primary file.
   | 
   | Parameter : relationship  --- The type of relationship between the primary
   |                          and secondary files. Containing either 'link' or
   |                          'view'. Default is "link".
   | 
-  | Parameter : secondaryfields  --- The name of the foreign key field relating to
-  |                             the primary file.
-  | 
-  | Parameter : primary VARSTRING --- The logical filename of the primary
-  |                     file.
-  | 
   | Parameter : secondary VARSTRING --- The logical filename of the
   |                       secondary file.
+  | 
+  | Parameter : primaryfields  --- The name of the primary key field for the
+  |                           primary file.
   | 
   | Parameter : secondaryflds VARSTRING --- No Doc
   | 
@@ -501,11 +511,11 @@ No Documentation Found
   | the actual data storage format and the input format used to query that
   | data. This is used by the user interface of the roxie browser.
   | 
-  | Parameter : mapping VARSTRING --- A string containing a comma
-  |                     separated list of field mappings.
-  | 
   | Parameter : lfn VARSTRING --- The logical filename of the primary
   |                 file.
+  | 
+  | Parameter : mapping VARSTRING --- A string containing a comma
+  |                     separated list of field mappings.
   | 
   | Return : 
   | 
@@ -546,12 +556,12 @@ No Documentation Found
   | machine. The dafileserv utility program must be running on the location
   | machine.
   | 
-  | Parameter : location VARSTRING --- The IP address of the remote
-  |                      machine.
-  | 
   | Parameter : frompath VARSTRING --- The path/name of the file to move.
   | 
   | Parameter : topath VARSTRING --- The path/name of the target file.
+  | 
+  | Parameter : location VARSTRING --- The IP address of the remote
+  |                      machine.
   | 
   | Return : 
   | 
@@ -562,10 +572,10 @@ No Documentation Found
   | Removes a single physical file from a remote machine. The dafileserv
   | utility program must be running on the location machine.
   | 
+  | Parameter : path VARSTRING --- The path/name of the file to remove.
+  | 
   | Parameter : location VARSTRING --- The IP address of the remote
   |                      machine.
-  | 
-  | Parameter : path VARSTRING --- The path/name of the file to remove.
   | 
   | Return : 
   | 
@@ -576,10 +586,10 @@ No Documentation Found
   | Creates the path on the location (if it does not already exist). The
   | dafileserv utility program must be running on the location machine.
   | 
+  | Parameter : path VARSTRING --- The path/name of the file to remove.
+  | 
   | Parameter : location VARSTRING --- The IP address of the remote
   |                      machine.
-  | 
-  | Parameter : path VARSTRING --- The path/name of the file to remove.
   | 
   | Return : 
   | 
@@ -602,10 +612,10 @@ No Documentation Found
   | 
   | Toggles protection on and off for the specified logicalfilename.
   | 
-  | Parameter : lfn VARSTRING --- The name of the logical file.
-  | 
   | Parameter : value BOOLEAN --- TRUE to enable protection, FALSE to
   |                   disable.
+  | 
+  | Parameter : lfn VARSTRING --- The name of the logical file.
   | 
   | Return : 
   | 
@@ -635,42 +645,42 @@ No Documentation Found
   | Sprays a file of fixed length records from a single machine and distributes
   | it across the nodes of the destination group.
   | 
-  | Parameter : destinationLogicalName VARSTRING --- The logical name of the file to
-  |                                    create.
-  | 
   | Parameter : expireDays INTEGER4 --- Number of days to auto-remove file.
   |                        Default is -1, not expire.
   | 
-  | Parameter : espServerIpPort VARSTRING --- The url of the ESP file copying
-  |                             service. Defaults to the value of ws_fs_server in
-  |                             the environment.
+  | Parameter : failIfNoSourceFile BOOLEAN --- If TRUE it causes a missing source
+  |                                file to trigger a failure. Defaults to FALSE.
   | 
   | Parameter : recordsize INTEGER4 --- The size (in bytes) of the records in
   |                        the file.
   | 
-  | Parameter : sourcePath VARSTRING --- The path and name of the file.
+  | Parameter : compress BOOLEAN --- Whether to compress the new file.
+  |                      Defaults to FALSE.
+  | 
+  | Parameter : destinationGroup VARSTRING --- The name of the group to distribute
+  |                              the file across.
   | 
   | Parameter : timeOut INTEGER4 --- The time in ms to wait for the
   |                     operation to complete. A value of 0 causes the
   |                     call to return immediately. Defaults to no timeout
   |                     (-1).
   | 
-  | Parameter : compress BOOLEAN --- Whether to compress the new file.
-  |                      Defaults to FALSE.
-  | 
-  | Parameter : sourceIP VARSTRING --- The IP address of the file.
-  | 
   | Parameter : replicate BOOLEAN --- Whether to replicate the new file.
   |                       Defaults to FALSE.
   | 
-  | Parameter : destinationGroup VARSTRING --- The name of the group to distribute
-  |                              the file across.
+  | Parameter : sourceIP VARSTRING --- The IP address of the file.
+  | 
+  | Parameter : sourcePath VARSTRING --- The path and name of the file.
+  | 
+  | Parameter : destinationLogicalName VARSTRING --- The logical name of the file to
+  |                                    create.
   | 
   | Parameter : maxConnections INTEGER4 --- The maximum number of target nodes to
   |                            write to concurrently. Defaults to 1.
   | 
-  | Parameter : failIfNoSourceFile BOOLEAN --- If TRUE it causes a missing source
-  |                                file to trigger a failure. Defaults to FALSE.
+  | Parameter : espServerIpPort VARSTRING --- The url of the ESP file copying
+  |                             service. Defaults to the value of ws_fs_server in
+  |                             the environment.
   | 
   | Parameter : allowOverwrite BOOLEAN --- Is it valid to overwrite an existing
   |                            file of the same name? Defaults to FALSE
@@ -687,31 +697,31 @@ No Documentation Found
   | 
   | Same as fSprayFixed, but does not return the DFU Workunit ID.
   | 
-  | Parameter : sourceip VARSTRING --- No Doc
+  | Parameter : espserveripport VARSTRING --- No Doc
   | 
   | Parameter : recordsize INTEGER4 --- No Doc
   | 
-  | Parameter : expiredays INTEGER4 --- No Doc
+  | Parameter : compress BOOLEAN --- No Doc
+  | 
+  | Parameter : replicate BOOLEAN --- No Doc
   | 
   | Parameter : failifnosourcefile BOOLEAN --- No Doc
+  | 
+  | Parameter : allowoverwrite BOOLEAN --- No Doc
+  | 
+  | Parameter : sourceip VARSTRING --- No Doc
   | 
   | Parameter : timeout INTEGER4 --- No Doc
   | 
   | Parameter : maxconnections INTEGER4 --- No Doc
   | 
-  | Parameter : compress BOOLEAN --- No Doc
+  | Parameter : expiredays INTEGER4 --- No Doc
   | 
-  | Parameter : sourcepath VARSTRING --- No Doc
-  | 
-  | Parameter : allowoverwrite BOOLEAN --- No Doc
-  | 
-  | Parameter : replicate BOOLEAN --- No Doc
-  | 
-  | Parameter : espserveripport VARSTRING --- No Doc
+  | Parameter : destinationgroup VARSTRING --- No Doc
   | 
   | Parameter : destinationlogicalname VARSTRING --- No Doc
   | 
-  | Parameter : destinationgroup VARSTRING --- No Doc
+  | Parameter : sourcepath VARSTRING --- No Doc
   | 
   | Return : 
   | 
@@ -731,45 +741,45 @@ No Documentation Found
   | 
   | No Documentation Found
   | 
-  | Parameter : sourceip VARSTRING --- No Doc
+  | Parameter : espserveripport VARSTRING --- No Doc
   | 
-  | Parameter : quotedterminator BOOLEAN --- No Doc
+  | Parameter : sourcecsvquote VARSTRING --- No Doc
+  | 
+  | Parameter : timeout INTEGER4 --- No Doc
   | 
   | Parameter : destinationgroup VARSTRING --- No Doc
   | 
+  | Parameter : replicate BOOLEAN --- No Doc
+  | 
   | Parameter : failifnosourcefile BOOLEAN --- No Doc
+  | 
+  | Parameter : recordstructurepresent BOOLEAN --- No Doc
+  | 
+  | Parameter : allowoverwrite BOOLEAN --- No Doc
+  | 
+  | Parameter : sourceip VARSTRING --- No Doc
   | 
   | Parameter : sourcemaxrecordsize INTEGER4 --- No Doc
   | 
-  | Parameter : sourcecsvseparate VARSTRING --- No Doc
+  | Parameter : sourcecsvterminate VARSTRING --- No Doc
   | 
-  | Parameter : encoding VARSTRING --- No Doc
-  | 
-  | Parameter : sourcecsvquote VARSTRING --- No Doc
+  | Parameter : quotedterminator BOOLEAN --- No Doc
   | 
   | Parameter : maxconnections INTEGER4 --- No Doc
   | 
   | Parameter : sourcecsvescape VARSTRING --- No Doc
   | 
-  | Parameter : recordstructurepresent BOOLEAN --- No Doc
+  | Parameter : expiredays INTEGER4 --- No Doc
   | 
   | Parameter : compress BOOLEAN --- No Doc
   | 
-  | Parameter : sourcepath VARSTRING --- No Doc
-  | 
-  | Parameter : allowoverwrite BOOLEAN --- No Doc
-  | 
-  | Parameter : replicate BOOLEAN --- No Doc
-  | 
-  | Parameter : expiredays INTEGER4 --- No Doc
-  | 
-  | Parameter : espserveripport VARSTRING --- No Doc
-  | 
-  | Parameter : sourcecsvterminate VARSTRING --- No Doc
+  | Parameter : sourcecsvseparate VARSTRING --- No Doc
   | 
   | Parameter : destinationlogicalname VARSTRING --- No Doc
   | 
-  | Parameter : timeout INTEGER4 --- No Doc
+  | Parameter : sourcepath VARSTRING --- No Doc
+  | 
+  | Parameter : encoding VARSTRING --- No Doc
   | 
   | Return : VARSTRING
   | 
@@ -787,45 +797,45 @@ No Documentation Found
   | 
   | No Documentation Found
   | 
-  | Parameter : sourceip VARSTRING --- No Doc
+  | Parameter : espserveripport VARSTRING --- No Doc
   | 
-  | Parameter : quotedterminator BOOLEAN --- No Doc
+  | Parameter : sourcecsvquote VARSTRING --- No Doc
+  | 
+  | Parameter : timeout INTEGER4 --- No Doc
   | 
   | Parameter : destinationgroup VARSTRING --- No Doc
   | 
+  | Parameter : replicate BOOLEAN --- No Doc
+  | 
   | Parameter : failifnosourcefile BOOLEAN --- No Doc
+  | 
+  | Parameter : recordstructurepresent BOOLEAN --- No Doc
+  | 
+  | Parameter : allowoverwrite BOOLEAN --- No Doc
+  | 
+  | Parameter : sourceip VARSTRING --- No Doc
   | 
   | Parameter : sourcemaxrecordsize INTEGER4 --- No Doc
   | 
-  | Parameter : sourcecsvseparate VARSTRING --- No Doc
+  | Parameter : sourcecsvterminate VARSTRING --- No Doc
   | 
-  | Parameter : encoding VARSTRING --- No Doc
-  | 
-  | Parameter : sourcecsvquote VARSTRING --- No Doc
+  | Parameter : quotedterminator BOOLEAN --- No Doc
   | 
   | Parameter : maxconnections INTEGER4 --- No Doc
   | 
   | Parameter : sourcecsvescape VARSTRING --- No Doc
   | 
-  | Parameter : recordstructurepresent BOOLEAN --- No Doc
+  | Parameter : expiredays INTEGER4 --- No Doc
   | 
   | Parameter : compress BOOLEAN --- No Doc
   | 
-  | Parameter : sourcepath VARSTRING --- No Doc
-  | 
-  | Parameter : allowoverwrite BOOLEAN --- No Doc
-  | 
-  | Parameter : replicate BOOLEAN --- No Doc
-  | 
-  | Parameter : expiredays INTEGER4 --- No Doc
-  | 
-  | Parameter : espserveripport VARSTRING --- No Doc
-  | 
-  | Parameter : sourcecsvterminate VARSTRING --- No Doc
+  | Parameter : sourcecsvseparate VARSTRING --- No Doc
   | 
   | Parameter : destinationlogicalname VARSTRING --- No Doc
   | 
-  | Parameter : timeout INTEGER4 --- No Doc
+  | Parameter : sourcepath VARSTRING --- No Doc
+  | 
+  | Parameter : encoding VARSTRING --- No Doc
   | 
   | Return : 
   | 
@@ -844,11 +854,55 @@ No Documentation Found
   | Sprays a file of fixed delimited records from a single machine and
   | distributes it across the nodes of the destination group.
   | 
-  | Parameter : destinationLogicalName VARSTRING --- The logical name of the file to
-  |                                    create.
-  | 
   | Parameter : expireDays INTEGER4 --- Number of days to auto-remove file.
   |                        Default is -1, not expire.
+  | 
+  | Parameter : failIfNoSourceFile BOOLEAN --- If TRUE it causes a missing source
+  |                                file to trigger a failure. Defaults to FALSE.
+  | 
+  | Parameter : sourceCsvEscape VARSTRING --- A character that is used to escape
+  |                             quote characters. Defaults to none.
+  | 
+  | Parameter : sourceCsvSeparate VARSTRING --- The character sequence which
+  |                               separates fields in the file.
+  | 
+  | Parameter : quotedTerminator BOOLEAN --- Can the terminator character be
+  |                              included in a quoted field. Defaults to TRUE. If
+  |                              FALSE it allows quicker partitioning of the file
+  |                              (avoiding a complete file scan).
+  | 
+  | Parameter : compress BOOLEAN --- Whether to compress the new file.
+  |                      Defaults to FALSE.
+  | 
+  | Parameter : sourceCsvTerminate VARSTRING --- The character sequence which
+  |                                separates records in the file.
+  | 
+  | Parameter : timeOut INTEGER4 --- The time in ms to wait for the
+  |                     operation to complete. A value of 0 causes the
+  |                     call to return immediately. Defaults to no timeout
+  |                     (-1).
+  | 
+  | Parameter : allowOverwrite BOOLEAN --- Is it valid to overwrite an existing
+  |                            file of the same name? Defaults to FALSE
+  | 
+  | Parameter : recordStructurePresent BOOLEAN --- If TRUE derives the record structure
+  |                                    from the header of the file.
+  | 
+  | Parameter : sourceCsvQuote VARSTRING --- A string which can be used to
+  |                            delimit fields in the file.
+  | 
+  | Parameter : replicate BOOLEAN --- Whether to replicate the new file.
+  |                       Defaults to FALSE.
+  | 
+  | Parameter : sourceIP VARSTRING --- The IP address of the file.
+  | 
+  | Parameter : sourcePath VARSTRING --- The path and name of the file.
+  | 
+  | Parameter : maxConnections INTEGER4 --- The maximum number of target nodes to
+  |                            write to concurrently. Defaults to 1.
+  | 
+  | Parameter : destinationLogicalName VARSTRING --- The logical name of the file to
+  |                                    create.
   | 
   | Parameter : sourceMaxRecordSize INTEGER4 --- The maximum size (in bytes) of the
   |                                 records in the file.
@@ -857,52 +911,8 @@ No Documentation Found
   |                             service. Defaults to the value of ws_fs_server in
   |                             the environment.
   | 
-  | Parameter : quotedTerminator BOOLEAN --- Can the terminator character be
-  |                              included in a quoted field. Defaults to TRUE. If
-  |                              FALSE it allows quicker partitioning of the file
-  |                              (avoiding a complete file scan).
-  | 
-  | Parameter : sourcePath VARSTRING --- The path and name of the file.
-  | 
-  | Parameter : timeOut INTEGER4 --- The time in ms to wait for the
-  |                     operation to complete. A value of 0 causes the
-  |                     call to return immediately. Defaults to no timeout
-  |                     (-1).
-  | 
-  | Parameter : compress BOOLEAN --- Whether to compress the new file.
-  |                      Defaults to FALSE.
-  | 
-  | Parameter : sourceIP VARSTRING --- The IP address of the file.
-  | 
-  | Parameter : sourceCsvSeparate VARSTRING --- The character sequence which
-  |                               separates fields in the file.
-  | 
-  | Parameter : replicate BOOLEAN --- Whether to replicate the new file.
-  |                       Defaults to FALSE.
-  | 
-  | Parameter : sourceCsvTerminate VARSTRING --- The character sequence which
-  |                                separates records in the file.
-  | 
   | Parameter : destinationGroup VARSTRING --- The name of the group to distribute
   |                              the file across.
-  | 
-  | Parameter : recordStructurePresent BOOLEAN --- If TRUE derives the record structure
-  |                                    from the header of the file.
-  | 
-  | Parameter : sourceCsvEscape VARSTRING --- A character that is used to escape
-  |                             quote characters. Defaults to none.
-  | 
-  | Parameter : maxConnections INTEGER4 --- The maximum number of target nodes to
-  |                            write to concurrently. Defaults to 1.
-  | 
-  | Parameter : failIfNoSourceFile BOOLEAN --- If TRUE it causes a missing source
-  |                                file to trigger a failure. Defaults to FALSE.
-  | 
-  | Parameter : allowOverwrite BOOLEAN --- Is it valid to overwrite an existing
-  |                            file of the same name? Defaults to FALSE
-  | 
-  | Parameter : sourceCsvQuote VARSTRING --- A string which can be used to
-  |                            delimit fields in the file.
   | 
   | Parameter : encoding VARSTRING --- No Doc
   | 
@@ -922,45 +932,45 @@ No Documentation Found
   | 
   | Same as fSprayDelimited, but does not return the DFU Workunit ID.
   | 
-  | Parameter : sourceip VARSTRING --- No Doc
+  | Parameter : espserveripport VARSTRING --- No Doc
   | 
-  | Parameter : quotedterminator BOOLEAN --- No Doc
+  | Parameter : sourcecsvquote VARSTRING --- No Doc
+  | 
+  | Parameter : timeout INTEGER4 --- No Doc
   | 
   | Parameter : destinationgroup VARSTRING --- No Doc
   | 
+  | Parameter : replicate BOOLEAN --- No Doc
+  | 
   | Parameter : failifnosourcefile BOOLEAN --- No Doc
+  | 
+  | Parameter : recordstructurepresent BOOLEAN --- No Doc
+  | 
+  | Parameter : allowoverwrite BOOLEAN --- No Doc
+  | 
+  | Parameter : sourceip VARSTRING --- No Doc
   | 
   | Parameter : sourcemaxrecordsize INTEGER4 --- No Doc
   | 
-  | Parameter : sourcecsvseparate VARSTRING --- No Doc
+  | Parameter : sourcecsvterminate VARSTRING --- No Doc
   | 
-  | Parameter : encoding VARSTRING --- No Doc
-  | 
-  | Parameter : sourcecsvquote VARSTRING --- No Doc
+  | Parameter : quotedterminator BOOLEAN --- No Doc
   | 
   | Parameter : maxconnections INTEGER4 --- No Doc
   | 
   | Parameter : sourcecsvescape VARSTRING --- No Doc
   | 
-  | Parameter : recordstructurepresent BOOLEAN --- No Doc
+  | Parameter : expiredays INTEGER4 --- No Doc
   | 
   | Parameter : compress BOOLEAN --- No Doc
   | 
-  | Parameter : sourcepath VARSTRING --- No Doc
-  | 
-  | Parameter : allowoverwrite BOOLEAN --- No Doc
-  | 
-  | Parameter : replicate BOOLEAN --- No Doc
-  | 
-  | Parameter : expiredays INTEGER4 --- No Doc
-  | 
-  | Parameter : espserveripport VARSTRING --- No Doc
-  | 
-  | Parameter : sourcecsvterminate VARSTRING --- No Doc
+  | Parameter : sourcecsvseparate VARSTRING --- No Doc
   | 
   | Parameter : destinationlogicalname VARSTRING --- No Doc
   | 
-  | Parameter : timeout INTEGER4 --- No Doc
+  | Parameter : sourcepath VARSTRING --- No Doc
+  | 
+  | Parameter : encoding VARSTRING --- No Doc
   | 
   | Return : 
   | 
@@ -978,52 +988,52 @@ No Documentation Found
   | Sprays an xml file from a single machine and distributes it across the
   | nodes of the destination group.
   | 
-  | Parameter : destinationLogicalName VARSTRING --- The logical name of the file to
-  |                                    create.
-  | 
   | Parameter : expireDays INTEGER4 --- Number of days to auto-remove file.
   |                        Default is -1, not expire.
+  | 
+  | Parameter : failIfNoSourceFile BOOLEAN --- If TRUE it causes a missing source
+  |                                file to trigger a failure. Defaults to FALSE.
   | 
   | Parameter : sourceMaxRecordSize INTEGER4 --- The maximum size (in bytes) of the
   |                                 records in the file.
   | 
-  | Parameter : espServerIpPort VARSTRING --- The url of the ESP file copying
-  |                             service. Defaults to the value of ws_fs_server in
-  |                             the environment.
+  | Parameter : compress BOOLEAN --- Whether to compress the new file.
+  |                      Defaults to FALSE.
+  | 
+  | Parameter : destinationGroup VARSTRING --- The name of the group to distribute
+  |                              the file across.
   | 
   | Parameter : sourceRowTag VARSTRING --- The xml tag that is used to delimit
   |                          records in the source file. (This tag cannot
   |                          recursivly nest.)
   | 
-  | Parameter : sourcePath VARSTRING --- The path and name of the file.
+  | Parameter : sourceEncoding VARSTRING --- The unicode encoding of the file.
+  |                            (utf8,utf8n,utf16be,utf16le,utf32be,utf32le)
+  | 
+  | Parameter : replicate BOOLEAN --- Whether to replicate the new file.
+  |                       Defaults to FALSE.
   | 
   | Parameter : timeOut INTEGER4 --- The time in ms to wait for the
   |                     operation to complete. A value of 0 causes the
   |                     call to return immediately. Defaults to no timeout
   |                     (-1).
   | 
-  | Parameter : compress BOOLEAN --- Whether to compress the new file.
-  |                      Defaults to FALSE.
+  | Parameter : sourcePath VARSTRING --- The path and name of the file.
   | 
-  | Parameter : sourceIP VARSTRING --- The IP address of the file.
-  | 
-  | Parameter : replicate BOOLEAN --- Whether to replicate the new file.
-  |                       Defaults to FALSE.
-  | 
-  | Parameter : destinationGroup VARSTRING --- The name of the group to distribute
-  |                              the file across.
-  | 
-  | Parameter : sourceEncoding VARSTRING --- The unicode encoding of the file.
-  |                            (utf8,utf8n,utf16be,utf16le,utf32be,utf32le)
+  | Parameter : destinationLogicalName VARSTRING --- The logical name of the file to
+  |                                    create.
   | 
   | Parameter : maxConnections INTEGER4 --- The maximum number of target nodes to
   |                            write to concurrently. Defaults to 1.
   | 
-  | Parameter : failIfNoSourceFile BOOLEAN --- If TRUE it causes a missing source
-  |                                file to trigger a failure. Defaults to FALSE.
+  | Parameter : espServerIpPort VARSTRING --- The url of the ESP file copying
+  |                             service. Defaults to the value of ws_fs_server in
+  |                             the environment.
   | 
   | Parameter : allowOverwrite BOOLEAN --- Is it valid to overwrite an existing
   |                            file of the same name? Defaults to FALSE
+  | 
+  | Parameter : sourceIP VARSTRING --- The IP address of the file.
   | 
   | Return : VARSTRING The DFU workunit id for the job.
   | 
@@ -1038,35 +1048,35 @@ No Documentation Found
   | 
   | Same as fSprayXml, but does not return the DFU Workunit ID.
   | 
-  | Parameter : sourceip VARSTRING --- No Doc
-  | 
-  | Parameter : expiredays INTEGER4 --- No Doc
-  | 
-  | Parameter : failifnosourcefile BOOLEAN --- No Doc
-  | 
   | Parameter : timeout INTEGER4 --- No Doc
-  | 
-  | Parameter : sourceencoding VARSTRING --- No Doc
-  | 
-  | Parameter : maxconnections INTEGER4 --- No Doc
-  | 
-  | Parameter : compress BOOLEAN --- No Doc
-  | 
-  | Parameter : sourcepath VARSTRING --- No Doc
-  | 
-  | Parameter : allowoverwrite BOOLEAN --- No Doc
   | 
   | Parameter : replicate BOOLEAN --- No Doc
   | 
   | Parameter : espserveripport VARSTRING --- No Doc
   | 
-  | Parameter : destinationlogicalname VARSTRING --- No Doc
+  | Parameter : failifnosourcefile BOOLEAN --- No Doc
   | 
-  | Parameter : sourcerowtag VARSTRING --- No Doc
+  | Parameter : allowoverwrite BOOLEAN --- No Doc
+  | 
+  | Parameter : sourceip VARSTRING --- No Doc
   | 
   | Parameter : sourcemaxrecordsize INTEGER4 --- No Doc
   | 
+  | Parameter : compress BOOLEAN --- No Doc
+  | 
+  | Parameter : maxconnections INTEGER4 --- No Doc
+  | 
+  | Parameter : sourceencoding VARSTRING --- No Doc
+  | 
+  | Parameter : expiredays INTEGER4 --- No Doc
+  | 
+  | Parameter : sourcerowtag VARSTRING --- No Doc
+  | 
   | Parameter : destinationgroup VARSTRING --- No Doc
+  | 
+  | Parameter : destinationlogicalname VARSTRING --- No Doc
+  | 
+  | Parameter : sourcepath VARSTRING --- No Doc
   | 
   | Return : 
   | 
@@ -1081,6 +1091,11 @@ No Documentation Found
   | Copies a distributed file from multiple machines, and desprays it to a
   | single file on a single machine.
   | 
+  | Parameter : logicalName VARSTRING --- The name of the file to despray.
+  | 
+  | Parameter : destinationPath VARSTRING --- The path of the file to create on
+  |                             the destination machine.
+  | 
   | Parameter : maxConnections INTEGER4 --- The maximum number of target nodes to
   |                            write to concurrently. Defaults to 1.
   | 
@@ -1088,20 +1103,15 @@ No Documentation Found
   |                             service. Defaults to the value of ws_fs_server in
   |                             the environment.
   | 
-  | Parameter : destinationPath VARSTRING --- The path of the file to create on
-  |                             the destination machine.
+  | Parameter : destinationIP VARSTRING --- The IP of the target machine.
+  | 
+  | Parameter : allowOverwrite BOOLEAN --- Is it valid to overwrite an existing
+  |                            file of the same name? Defaults to FALSE
   | 
   | Parameter : timeOut INTEGER4 --- The time in ms to wait for the
   |                     operation to complete. A value of 0 causes the
   |                     call to return immediately. Defaults to no timeout
   |                     (-1).
-  | 
-  | Parameter : logicalName VARSTRING --- The name of the file to despray.
-  | 
-  | Parameter : allowOverwrite BOOLEAN --- Is it valid to overwrite an existing
-  |                            file of the same name? Defaults to FALSE
-  | 
-  | Parameter : destinationIP VARSTRING --- The IP of the target machine.
   | 
   | Return : VARSTRING The DFU workunit id for the job.
   | 
@@ -1113,19 +1123,19 @@ No Documentation Found
   | 
   | Same as fDespray, but does not return the DFU Workunit ID.
   | 
-  | Parameter : allowoverwrite BOOLEAN --- No Doc
-  | 
-  | Parameter : destinationpath VARSTRING --- No Doc
+  | Parameter : timeout INTEGER4 --- No Doc
   | 
   | Parameter : espserveripport VARSTRING --- No Doc
   | 
-  | Parameter : logicalname VARSTRING --- No Doc
+  | Parameter : maxconnections INTEGER4 --- No Doc
+  | 
+  | Parameter : destinationpath VARSTRING --- No Doc
   | 
   | Parameter : destinationip VARSTRING --- No Doc
   | 
-  | Parameter : maxconnections INTEGER4 --- No Doc
+  | Parameter : logicalname VARSTRING --- No Doc
   | 
-  | Parameter : timeout INTEGER4 --- No Doc
+  | Parameter : allowoverwrite BOOLEAN --- No Doc
   | 
   | Return : 
   | 
@@ -1142,21 +1152,26 @@ No Documentation Found
   | 
   | Copies a distributed file to another distributed file.
   | 
-  | Parameter : sourceDali VARSTRING --- The dali that contains the source
-  |                        file (blank implies same dali). Defaults to same
-  |                        dali.
+  | Parameter : replicate BOOLEAN --- Should the copied file also be
+  |                       replicated on the destination? Defaults to FALSE
   | 
-  | Parameter : espServerIpPort VARSTRING --- The url of the ESP file copying
-  |                             service. Defaults to the value of ws_fs_server in
-  |                             the environment.
+  | Parameter : transferBufferSize INTEGER4 --- Overrides the size (in bytes) of the
+  |                                internal buffer used to copy the file. Default is
+  |                                64k.
+  | 
+  | Parameter : compress BOOLEAN --- Whether to compress the new file.
+  |                      Defaults to FALSE.
+  | 
+  | Parameter : destinationGroup VARSTRING --- The name of the group to distribute
+  |                              the file across.
   | 
   | Parameter : timeOut INTEGER4 --- The time in ms to wait for the
   |                     operation to complete. A value of 0 causes the
   |                     call to return immediately. Defaults to no timeout
   |                     (-1).
   | 
-  | Parameter : compress BOOLEAN --- Whether to compress the new file.
-  |                      Defaults to FALSE.
+  | Parameter : allowOverwrite BOOLEAN --- Is it valid to overwrite an existing
+  |                            file of the same name? Defaults to FALSE
   | 
   | Parameter : asSuperfile BOOLEAN --- Should the file be copied as a
   |                         superfile? If TRUE and source is a superfile, then
@@ -1166,26 +1181,21 @@ No Documentation Found
   |                         FALSE, a single file is created. Defaults to
   |                         FALSE.
   | 
+  | Parameter : sourceDali VARSTRING --- The dali that contains the source
+  |                        file (blank implies same dali). Defaults to same
+  |                        dali.
+  | 
   | Parameter : destinationLogicalName VARSTRING --- The logical name of the file to
   |                                    create.
-  | 
-  | Parameter : sourceLogicalName VARSTRING --- The name of the file to despray.
-  | 
-  | Parameter : transferBufferSize INTEGER4 --- Overrides the size (in bytes) of the
-  |                                internal buffer used to copy the file. Default is
-  |                                64k.
-  | 
-  | Parameter : replicate BOOLEAN --- Should the copied file also be
-  |                       replicated on the destination? Defaults to FALSE
-  | 
-  | Parameter : destinationGroup VARSTRING --- The name of the group to distribute
-  |                              the file across.
   | 
   | Parameter : maxConnections INTEGER4 --- The maximum number of target nodes to
   |                            write to concurrently. Defaults to 1.
   | 
-  | Parameter : allowOverwrite BOOLEAN --- Is it valid to overwrite an existing
-  |                            file of the same name? Defaults to FALSE
+  | Parameter : sourceLogicalName VARSTRING --- The name of the file to despray.
+  | 
+  | Parameter : espServerIpPort VARSTRING --- The url of the ESP file copying
+  |                             service. Defaults to the value of ws_fs_server in
+  |                             the environment.
   | 
   | Parameter : forcePush BOOLEAN --- Should the copy process be executed on
   |                       the source nodes (push) or on the destination
@@ -1206,33 +1216,33 @@ No Documentation Found
   | 
   | Same as fCopy, but does not return the DFU Workunit ID.
   | 
+  | Parameter : espserveripport VARSTRING --- No Doc
+  | 
+  | Parameter : replicate BOOLEAN --- No Doc
+  | 
   | Parameter : forcepush BOOLEAN --- No Doc
   | 
-  | Parameter : timeout INTEGER4 --- No Doc
-  | 
-  | Parameter : transferbuffersize INTEGER4 --- No Doc
+  | Parameter : compress BOOLEAN --- No Doc
   | 
   | Parameter : sourcelogicalname VARSTRING --- No Doc
+  | 
+  | Parameter : preservecompression BOOLEAN --- No Doc
+  | 
+  | Parameter : allowoverwrite BOOLEAN --- No Doc
+  | 
+  | Parameter : timeout INTEGER4 --- No Doc
   | 
   | Parameter : assuperfile BOOLEAN --- No Doc
   | 
   | Parameter : maxconnections INTEGER4 --- No Doc
   | 
-  | Parameter : sourcedali VARSTRING --- No Doc
-  | 
-  | Parameter : compress BOOLEAN --- No Doc
-  | 
-  | Parameter : allowoverwrite BOOLEAN --- No Doc
-  | 
-  | Parameter : replicate BOOLEAN --- No Doc
-  | 
-  | Parameter : espserveripport VARSTRING --- No Doc
-  | 
-  | Parameter : preservecompression BOOLEAN --- No Doc
+  | Parameter : destinationgroup VARSTRING --- No Doc
   | 
   | Parameter : destinationlogicalname VARSTRING --- No Doc
   | 
-  | Parameter : destinationgroup VARSTRING --- No Doc
+  | Parameter : sourcedali VARSTRING --- No Doc
+  | 
+  | Parameter : transferbuffersize INTEGER4 --- No Doc
   | 
   | Return : 
   | 
@@ -1245,14 +1255,14 @@ No Documentation Found
   | 
   | Ensures the specified file is replicated to its mirror copies.
   | 
+  | Parameter : espServerIpPort VARSTRING --- The url of the ESP file copying
+  |                             service. Defaults to the value of ws_fs_server in
+  |                             the environment.
+  | 
   | Parameter : timeOut INTEGER4 --- The time in ms to wait for the
   |                     operation to complete. A value of 0 causes the
   |                     call to return immediately. Defaults to no timeout
   |                     (-1).
-  | 
-  | Parameter : espServerIpPort VARSTRING --- The url of the ESP file copying
-  |                             service. Defaults to the value of ws_fs_server in
-  |                             the environment.
   | 
   | Parameter : logicalName VARSTRING --- The name of the file to replicate.
   | 
@@ -1265,11 +1275,11 @@ No Documentation Found
   | 
   | Same as fReplicated, but does not return the DFU Workunit ID.
   | 
-  | Parameter : logicalname VARSTRING --- No Doc
-  | 
   | Parameter : timeout INTEGER4 --- No Doc
   | 
   | Parameter : espserveripport VARSTRING --- No Doc
+  | 
+  | Parameter : logicalname VARSTRING --- No Doc
   | 
   | Return : 
   | 
@@ -1289,17 +1299,30 @@ No Documentation Found
   | same on both systems, and the user must have rights to copy files on both
   | systems.
   | 
-  | Parameter : timeOut INTEGER4 --- The time in ms to wait for the
-  |                     operation to complete. A value of 0 causes the
-  |                     call to return immediately. Defaults to no timeout
-  |                     (-1).
+  | Parameter : remoteEspFsURL VARSTRING --- The url of the remote ESP file
+  |                            copying service.
+  | 
+  | Parameter : replicate BOOLEAN --- Should the copied file also be
+  |                       replicated on the destination? Defaults to FALSE
+  | 
+  | Parameter : transferBufferSize INTEGER4 --- Overrides the size (in bytes) of the
+  |                                internal buffer used to copy the file. Default is
+  |                                64k.
+  | 
+  | Parameter : compress BOOLEAN --- Whether to compress the new file.
+  |                      Defaults to FALSE.
+  | 
+  | Parameter : destinationGroup VARSTRING --- The name of the group to distribute
+  |                              the file across.
   | 
   | Parameter : wrap BOOLEAN --- Should the fileparts be wrapped when
   |                  copying to a smaller sized cluster? The default is
   |                  FALSE.
   | 
-  | Parameter : compress BOOLEAN --- Whether to compress the new file.
-  |                      Defaults to FALSE.
+  | Parameter : timeOut INTEGER4 --- The time in ms to wait for the
+  |                     operation to complete. A value of 0 causes the
+  |                     call to return immediately. Defaults to no timeout
+  |                     (-1).
   | 
   | Parameter : asSuperfile BOOLEAN --- Should the file be copied as a
   |                         superfile? If TRUE and source is a superfile, then
@@ -1311,23 +1334,10 @@ No Documentation Found
   | Parameter : destinationLogicalName VARSTRING --- The logical name of the file to
   |                                    create.
   | 
-  | Parameter : sourceLogicalName VARSTRING --- The name of the file to despray.
-  | 
-  | Parameter : remoteEspFsURL VARSTRING --- The url of the remote ESP file
-  |                            copying service.
-  | 
-  | Parameter : transferBufferSize INTEGER4 --- Overrides the size (in bytes) of the
-  |                                internal buffer used to copy the file. Default is
-  |                                64k.
-  | 
-  | Parameter : replicate BOOLEAN --- Should the copied file also be
-  |                       replicated on the destination? Defaults to FALSE
-  | 
-  | Parameter : destinationGroup VARSTRING --- The name of the group to distribute
-  |                              the file across.
-  | 
   | Parameter : maxConnections INTEGER4 --- The maximum number of target nodes to
   |                            write to concurrently. Defaults to 1.
+  | 
+  | Parameter : sourceLogicalName VARSTRING --- The name of the file to despray.
   | 
   | Parameter : allowOverwrite BOOLEAN --- Is it valid to overwrite an existing
   |                            file of the same name? Defaults to FALSE
@@ -1350,29 +1360,29 @@ No Documentation Found
   | 
   | Parameter : forcepush BOOLEAN --- No Doc
   | 
-  | Parameter : timeout INTEGER4 --- No Doc
+  | Parameter : replicate BOOLEAN --- No Doc
   | 
   | Parameter : transferbuffersize INTEGER4 --- No Doc
   | 
+  | Parameter : destinationgroup VARSTRING --- No Doc
+  | 
   | Parameter : sourcelogicalname VARSTRING --- No Doc
+  | 
+  | Parameter : wrap BOOLEAN --- No Doc
+  | 
+  | Parameter : allowoverwrite BOOLEAN --- No Doc
+  | 
+  | Parameter : timeout INTEGER4 --- No Doc
   | 
   | Parameter : assuperfile BOOLEAN --- No Doc
   | 
   | Parameter : maxconnections INTEGER4 --- No Doc
   | 
-  | Parameter : wrap BOOLEAN --- No Doc
-  | 
   | Parameter : compress BOOLEAN --- No Doc
-  | 
-  | Parameter : allowoverwrite BOOLEAN --- No Doc
-  | 
-  | Parameter : replicate BOOLEAN --- No Doc
-  | 
-  | Parameter : remoteespfsurl VARSTRING --- No Doc
   | 
   | Parameter : destinationlogicalname VARSTRING --- No Doc
   | 
-  | Parameter : destinationgroup VARSTRING --- No Doc
+  | Parameter : remoteespfsurl VARSTRING --- No Doc
   | 
   | Return : 
   | 
@@ -1391,6 +1401,11 @@ No Documentation Found
   |                             service. Defaults to the value of ws_fs_server in
   |                             the environment.
   | 
+  | Parameter : shotCount INTEGER4 --- The number of times to generate the
+  |                       event before the monitoring job completes. A value
+  |                       of -1 indicates the monitoring job continues until
+  |                       manually aborted. The default is 1.
+  | 
   | Parameter : eventToFire VARSTRING --- The user-defined name of the event
   |                         to fire when the filename appears. This value is
   |                         used as the first parameter to the EVENT function.
@@ -1398,11 +1413,6 @@ No Documentation Found
   | Parameter : name VARSTRING --- The name of the logical file to
   |                  monitor. This may contain wildcard characters ( *
   |                  and ?)
-  | 
-  | Parameter : shotCount INTEGER4 --- The number of times to generate the
-  |                       event before the monitoring job completes. A value
-  |                       of -1 indicates the monitoring job continues until
-  |                       manually aborted. The default is 1.
   | 
   | Return : VARSTRING The DFU workunit id for the job.
   | 
@@ -1413,13 +1423,13 @@ No Documentation Found
   | 
   | Same as fMonitorLogicalFileName, but does not return the DFU Workunit ID.
   | 
+  | Parameter : espserveripport VARSTRING --- No Doc
+  | 
   | Parameter : shotcount INTEGER4 --- No Doc
   | 
   | Parameter : eventtofire VARSTRING --- No Doc
   | 
   | Parameter : name VARSTRING --- No Doc
-  | 
-  | Parameter : espserveripport VARSTRING --- No Doc
   | 
   | Return : 
   | 
@@ -1438,22 +1448,22 @@ No Documentation Found
   |                      monitor. This may contain wildcard characters ( *
   |                      and ?)
   | 
-  | Parameter : subDirs BOOLEAN --- Whether to include files in sub-
-  |                     directories (when the filename contains
-  |                     wildcards). Defaults to FALSE.
+  | Parameter : ip VARSTRING --- The the IP address for the file to
+  |                monitor. This may be omitted if the filename
+  |                parameter contains a complete URL.
   | 
   | Parameter : espServerIpPort VARSTRING --- The url of the ESP file copying
   |                             service. Defaults to the value of ws_fs_server in
   |                             the environment.
   | 
+  | Parameter : subDirs BOOLEAN --- Whether to include files in sub-
+  |                     directories (when the filename contains
+  |                     wildcards). Defaults to FALSE.
+  | 
   | Parameter : shotCount INTEGER4 --- The number of times to generate the
   |                       event before the monitoring job completes. A value
   |                       of -1 indicates the monitoring job continues until
   |                       manually aborted. The default is 1.
-  | 
-  | Parameter : ip VARSTRING --- The the IP address for the file to
-  |                monitor. This may be omitted if the filename
-  |                parameter contains a complete URL.
   | 
   | Parameter : eventToFire VARSTRING --- The user-defined name of the event
   |                         to fire when the filename appears. This value is
@@ -1472,13 +1482,13 @@ No Documentation Found
   | 
   | Parameter : shotcount INTEGER4 --- No Doc
   | 
-  | Parameter : subdirs BOOLEAN --- No Doc
-  | 
   | Parameter : ip VARSTRING --- No Doc
   | 
   | Parameter : espserveripport VARSTRING --- No Doc
   | 
   | Parameter : eventtofire VARSTRING --- No Doc
+  | 
+  | Parameter : subdirs BOOLEAN --- No Doc
   | 
   | Return : 
   | 
@@ -1491,16 +1501,16 @@ No Documentation Found
   | 
   | Waits for the specified DFU workunit to finish.
   | 
-  | Parameter : timeOut INTEGER4 --- The time in ms to wait for the
-  |                     operation to complete. A value of 0 causes the
-  |                     call to return immediately. Defaults to no timeout
-  |                     (-1).
-  | 
   | Parameter : wuid VARSTRING --- The dfu wfid to wait for.
   | 
   | Parameter : espServerIpPort VARSTRING --- The url of the ESP file copying
   |                             service. Defaults to the value of ws_fs_server in
   |                             the environment.
+  | 
+  | Parameter : timeOut INTEGER4 --- The time in ms to wait for the
+  |                     operation to complete. A value of 0 causes the
+  |                     call to return immediately. Defaults to no timeout
+  |                     (-1).
   | 
   | Return : VARSTRING A string containing the final status
   |          string of the DFU workunit.
@@ -1527,14 +1537,14 @@ No Documentation Found
   | Creates an empty superfile. This function is not included in a superfile
   | transaction.
   | 
-  | Parameter : superName VARSTRING --- The logical name of the superfile.
-  | 
   | Parameter : sequentialParts BOOLEAN --- Whether the sub-files must be
   |                             sequentially ordered. Default to FALSE.
   | 
   | Parameter : allowExist BOOLEAN --- Indicating whether to post an error if
   |                        the superfile already exists. If TRUE, no error is
   |                        posted. Defaults to FALSE.
+  | 
+  | Parameter : superName VARSTRING --- The logical name of the superfile.
   | 
   | Return : 
   | 
@@ -1583,13 +1593,13 @@ No Documentation Found
   | 
   | Returns the name of the Nth sub-file within a superfile.
   | 
+  | Parameter : fileNum UNSIGNED4 --- The 1-based position of the sub-file
+  |                     to return the name of.
+  | 
   | Parameter : superName VARSTRING --- The logical name of the superfile.
   | 
   | Parameter : absPath BOOLEAN --- Whether to prepend '~' to the name of
   |                     the resulting logical file name.
-  | 
-  | Parameter : fileNum UNSIGNED4 --- The 1-based position of the sub-file
-  |                     to return the name of.
   | 
   | Return : VARSTRING The logical name of the selected sub-
   |          file.
@@ -1624,19 +1634,19 @@ No Documentation Found
   | 
   | Adds a file to a superfile.
   | 
-  | Parameter : superName VARSTRING --- The logical name of the superfile.
-  | 
-  | Parameter : strict BOOLEAN --- Check addContents only if subName is a
-  |                    superfile, and ensure superfiles exist.
-  | 
   | Parameter : addContents BOOLEAN --- Controls whether adding a superfile
   |                         adds the superfile, or its contents. Defaults to
   |                         FALSE (do not expand).
   | 
-  | Parameter : subName VARSTRING --- The name of the logical file to add.
+  | Parameter : strict BOOLEAN --- Check addContents only if subName is a
+  |                    superfile, and ensure superfiles exist.
+  | 
+  | Parameter : superName VARSTRING --- The logical name of the superfile.
   | 
   | Parameter : atPos UNSIGNED4 --- The position to add the sub-file, or
   |                   0 to append. Defaults to 0.
+  | 
+  | Parameter : subName VARSTRING --- The name of the logical file to add.
   | 
   | Return : 
   | 
@@ -1647,14 +1657,14 @@ No Documentation Found
   | 
   | Removes a sub-file from a superfile.
   | 
+  | Parameter : del BOOLEAN --- Indicates whether the sub-file should
+  |                 also be removed from the disk. Defaults to FALSE.
+  | 
   | Parameter : superName VARSTRING --- The logical name of the superfile.
   | 
   | Parameter : removeContents BOOLEAN --- Controls whether the contents of a
   |                            sub-file which is a superfile should be
   |                            recursively removed. Defaults to FALSE.
-  | 
-  | Parameter : del BOOLEAN --- Indicates whether the sub-file should
-  |                 also be removed from the disk. Defaults to FALSE.
   | 
   | Parameter : subName VARSTRING --- The name of the sub-file to remove.
   | 
@@ -1666,10 +1676,10 @@ No Documentation Found
   | 
   | Removes all sub-files from a superfile.
   | 
-  | Parameter : superName VARSTRING --- The logical name of the superfile.
-  | 
   | Parameter : del BOOLEAN --- Indicates whether the sub-files should
   |                 also be removed from the disk. Defaults to FALSE.
+  | 
+  | Parameter : superName VARSTRING --- The logical name of the superfile.
   | 
   | Return : 
   | 
@@ -1748,10 +1758,10 @@ No Documentation Found
   | 
   | Returns the list of sub-files contained within a superfile.
   | 
-  | Parameter : superName VARSTRING --- The logical name of the superfile.
-  | 
   | Parameter : recurse BOOLEAN --- Should the contents of child-
   |                     superfiles be expanded. Default is FALSE.
+  | 
+  | Parameter : superName VARSTRING --- The logical name of the superfile.
   | 
   | Return : TABLE ( FsLogicalFileNameRecord ) A dataset
   |          containing the names of the sub-files.
@@ -1786,27 +1796,27 @@ No Documentation Found
   | Moves the sub-files from the first entry in the list of superfiles to the
   | next in the list, repeating the process through the list of superfiles.
   | 
-  | Parameter : superNames SET ( VARSTRING ) --- A set of the names of the
-  |                        superfiles to act on. Any that do not exist will
-  |                        be created. The contents of each superfile will be
-  |                        moved to the next in the list.
+  | Parameter : reverse BOOLEAN --- Reverse the order of processing the
+  |                     superfiles list, effectively 'demoting' instead of
+  |                     'promoting' the sub-files. The default is FALSE.
   | 
   | Parameter : createOnlyOne BOOLEAN --- Specifies whether to only create a
   |                           single superfile (truncate the list at the first
   |                           non-existent superfile). The default is FALSE.
-  | 
-  | Parameter : delTail BOOLEAN --- Indicates whether to physically delete
-  |                     the contents moved out of the last superfile. The
-  |                     default is FALSE.
   | 
   | Parameter : addHead VARSTRING --- A string containing a comma-
   |                     delimited list of logical file names to add to the
   |                     first superfile after the promotion process is
   |                     complete. Defaults to ''.
   | 
-  | Parameter : reverse BOOLEAN --- Reverse the order of processing the
-  |                     superfiles list, effectively 'demoting' instead of
-  |                     'promoting' the sub-files. The default is FALSE.
+  | Parameter : superNames SET ( VARSTRING ) --- A set of the names of the
+  |                        superfiles to act on. Any that do not exist will
+  |                        be created. The contents of each superfile will be
+  |                        moved to the next in the list.
+  | 
+  | Parameter : delTail BOOLEAN --- Indicates whether to physically delete
+  |                     the contents moved out of the last superfile. The
+  |                     default is FALSE.
   | 
   | Return : VARSTRING A string containing a comma separated
   |          list of the previous sub-file contents of the
@@ -1819,15 +1829,15 @@ No Documentation Found
   | 
   | Same as fPromoteSuperFileList, but does not return the DFU Workunit ID.
   | 
-  | Parameter : deltail BOOLEAN --- No Doc
-  | 
-  | Parameter : reverse BOOLEAN --- No Doc
-  | 
-  | Parameter : supernames SET ( VARSTRING ) --- No Doc
+  | Parameter : addhead VARSTRING --- No Doc
   | 
   | Parameter : createonlyone BOOLEAN --- No Doc
   | 
-  | Parameter : addhead VARSTRING --- No Doc
+  | Parameter : supernames SET ( VARSTRING ) --- No Doc
+  | 
+  | Parameter : reverse BOOLEAN --- No Doc
+  | 
+  | Parameter : deltail BOOLEAN --- No Doc
   | 
   | Return : 
   | 

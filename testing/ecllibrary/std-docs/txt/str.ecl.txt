@@ -21,9 +21,9 @@ No Documentation Found
   | zero, or a positive integer according to whether the first string is less
   | than, equal to, or greater than the second.
   | 
-  | Parameter : src2 STRING --- The second string to be compared.
-  | 
   | Parameter : src1 STRING --- The first string to be compared.
+  | 
+  | Parameter : src2 STRING --- The second string to be compared.
   | 
   | Return : INTEGER4
   | 
@@ -35,9 +35,9 @@ No Documentation Found
   | 
   | Tests whether the two strings are identical ignoring differences in case.
   | 
-  | Parameter : src2 STRING --- The second string to be compared.
-  | 
   | Parameter : src1 STRING --- The first string to be compared.
+  | 
+  | Parameter : src2 STRING --- The second string to be compared.
   | 
   | Return : BOOLEAN
   | 
@@ -80,9 +80,9 @@ No Documentation Found
   | Tests if the search string matches the pattern. The pattern can contain
   | wildcards '?' (single character) and '*' (multiple character).
   | 
-  | Parameter : pattern  --- The pattern to match against.
-  | 
   | Parameter : src STRING --- The string that is being tested.
+  | 
+  | Parameter : pattern  --- The pattern to match against.
   | 
   | Parameter : ignore_case BOOLEAN --- Whether to ignore differences in case
   |                         between characters
@@ -99,9 +99,9 @@ No Documentation Found
   | If the pattern contains duplicate characters those characters will match
   | once for each occurence in the pattern.
   | 
-  | Parameter : pattern  --- The pattern to match against.
-  | 
   | Parameter : src STRING --- The string that is being tested.
+  | 
+  | Parameter : pattern  --- The pattern to match against.
   | 
   | Parameter : ignore_case BOOLEAN --- Whether to ignore differences in case
   |                         between characters
@@ -117,10 +117,10 @@ No Documentation Found
   | Returns the first string with all characters within the second string
   | removed.
   | 
+  | Parameter : src STRING --- The string that is being tested.
+  | 
   | Parameter : filter STRING --- The string containing the set of
   |                    characters to be excluded.
-  | 
-  | Parameter : src STRING --- The string that is being tested.
   | 
   | Return : STRING
   | 
@@ -133,10 +133,10 @@ No Documentation Found
   | Returns the first string with all characters not within the second string
   | removed.
   | 
+  | Parameter : src STRING --- The string that is being tested.
+  | 
   | Parameter : filter STRING --- The string containing the set of
   |                    characters to be included.
-  | 
-  | Parameter : src STRING --- The string that is being tested.
   | 
   | Return : STRING
   | 
@@ -150,10 +150,10 @@ No Documentation Found
   | all characters included in the filter string. MORE: Should this be a
   | general string substitution?
   | 
+  | Parameter : src STRING --- The string that is being tested.
+  | 
   | Parameter : filter STRING --- The string containing the set of
   |                    characters to be included.
-  | 
-  | Parameter : src STRING --- The string that is being tested.
   | 
   | Parameter : replace_char STRING1 --- The character to be substituted into
   |                          the result.
@@ -170,10 +170,10 @@ No Documentation Found
   | all characters not included in the filter string. MORE: Should this be a
   | general string substitution?
   | 
+  | Parameter : src STRING --- The string that is being tested.
+  | 
   | Parameter : filter STRING --- The string containing the set of
   |                    characters to be included.
-  | 
-  | Parameter : src STRING --- The string that is being tested.
   | 
   | Parameter : replace_char STRING1 --- The character to be substituted into
   |                          the result.
@@ -193,10 +193,10 @@ No Documentation Found
   | Parameter : search STRING --- The string containing the set of
   |                    characters to be included.
   | 
+  | Parameter : src STRING --- The string that is being tested.
+  | 
   | Parameter : replacement STRING --- The string containing the characters to
   |                         act as replacements.
-  | 
-  | Parameter : src STRING --- The string that is being tested.
   | 
   | Return : STRING
   | 
@@ -268,10 +268,10 @@ No Documentation Found
   | 
   | Parameter : sought STRING --- The string to be replaced.
   | 
+  | Parameter : src STRING --- The string that is being transformed.
+  | 
   | Parameter : replacement STRING --- The string to be substituted into the
   |                         result.
-  | 
-  | Parameter : src STRING --- The string that is being transformed.
   | 
   | Return : STRING
   | 
@@ -324,9 +324,9 @@ No Documentation Found
   | source string. Trailing spaces are stripped from both strings before
   | matching.
   | 
-  | Parameter : suffix STRING --- The prefix to search for.
-  | 
   | Parameter : src STRING --- The string being searched in.
+  | 
+  | Parameter : suffix STRING --- The prefix to search for.
   | 
   | Return : BOOLEAN
   | 
@@ -337,9 +337,9 @@ No Documentation Found
   | Removes the suffix from the search string, if present, and returns the
   | result. Trailing spaces are stripped from both strings before matching.
   | 
-  | Parameter : suffix STRING --- The prefix to search for.
-  | 
   | Parameter : src STRING --- The string being searched in.
+  | 
+  | Parameter : suffix STRING --- The prefix to search for.
   | 
   | Return : STRING
   | 
@@ -350,11 +350,11 @@ No Documentation Found
   | Returns a string containing a list of elements from a comma separated
   | string.
   | 
-  | Parameter : mask UNSIGNED8 --- A bitmask of which elements should
-  |                  be included. Bit 0 is item1, bit1 item 2 etc.
-  | 
   | Parameter : src STRING --- The string containing the comma
   |                 separated list.
+  | 
+  | Parameter : mask UNSIGNED8 --- A bitmask of which elements should
+  |                  be included. Bit 0 is item1, bit1 item 2 etc.
   | 
   | Return : STRING
   | 
@@ -366,10 +366,10 @@ No Documentation Found
   | by one or more separator strings. No spaces are stripped from either string
   | before matching.
   | 
+  | Parameter : src STRING --- The string being searched in.
+  | 
   | Parameter : allow_blank BOOLEAN --- Indicates if empty/blank string items
   |                         are included in the results.
-  | 
-  | Parameter : src STRING --- The string being searched in.
   | 
   | Parameter : separator STRING --- The string used to separate words
   | 
@@ -383,10 +383,10 @@ No Documentation Found
   | one or more separator strings. No spaces are stripped from either string
   | before matching.
   | 
+  | Parameter : src STRING --- The string being searched in.
+  | 
   | Parameter : allow_blank BOOLEAN --- Indicates if empty/blank string items
   |                         are included in the results.
-  | 
-  | Parameter : src STRING --- The string being searched in.
   | 
   | Parameter : separator STRING --- The string used to separate words
   | 
@@ -400,10 +400,10 @@ No Documentation Found
   | one or more separator strings. No spaces are stripped from either string
   | before matching.
   | 
+  | Parameter : separator STRING --- The string used to separate words.
+  | 
   | Parameter : words SET ( STRING ) --- The set of strings to be
   |                   combined.
-  | 
-  | Parameter : separator STRING --- The string used to separate words.
   | 
   | Return : STRING
   | 
@@ -429,12 +429,12 @@ No Documentation Found
   | Returns true if the minimum edit distance between the two strings is with a
   | specific range. The two strings are trimmed before comparing.
   | 
-  | Parameter : radius UNSIGNED4 --- The maximum edit distance that is
-  |                    accepable.
-  | 
   | Parameter : _right STRING --- The second string to be compared.
   | 
   | Parameter : _left STRING --- The first string to be compared.
+  | 
+  | Parameter : radius UNSIGNED4 --- The maximum edit distance that is
+  |                    accepable.
   | 
   | Return : BOOLEAN Whether or not the two strings are within
   |          the given specified edit distance.
@@ -510,9 +510,9 @@ No Documentation Found
   | 
   | Tests if the search string contains the supplied word as a whole word.
   | 
-  | Parameter : word STRING --- The word to be searched for.
-  | 
   | Parameter : src STRING --- The string that is being tested.
+  | 
+  | Parameter : word STRING --- The word to be searched for.
   | 
   | Parameter : ignore_case BOOLEAN --- Whether to ignore differences in case
   |                         between characters.
