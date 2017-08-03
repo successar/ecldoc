@@ -172,6 +172,6 @@ class GenTXT(object) :
 
             return file
 
-
     def run(self) :
+        print("\nGenerating TEXT Documentation ... ")
         self.gen('root', self.ecl_file_tree, self.txt_root)

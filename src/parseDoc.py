@@ -124,17 +124,30 @@ def construct_type(ele) :
 
 ##########################################################
 
-def breaksign(name, string) :
+def cleansign(text) :
+    text = re.sub(r'^export', '', text, flags=re.I)
+    text = re.sub(r'^shared', '', text, flags=re.I)
+    text = re.sub(r':=$', '', text, flags=re.I)
+    text = re.sub(r';$', '', text, flags=re.I)
+    text = re.sub(r'\s+', ' ', text.strip())
+    return text
+
+def breaksign(name, text) :
     '''
     Heuristically break signature of ECL Definition
     recovered from ecl file into "return name (Paramters)"
     '''
     name = name.lower()
-    string = ' ' + string.lower() + ' '
+    string = ' ' + text.lower() + ' '
     pos = 1
     open_bracks = ['{', '(', '[']
     close_bracks = ['}', ')', ']']
     stack = []
+
+    ret, param = '', ''
+    indent_len = 0
+    name_len = len(name)
+
     for i in range(1, len(string)) :
         c = string[i]
         if c in open_bracks :
@@ -142,18 +155,19 @@ def breaksign(name, string) :
         elif c in close_bracks :
             if stack[-1] == open_bracks[close_bracks.index(c)] :
                 stack = stack[:-1]
-            else :
-                raise
-
         else :
             if len(stack) == 0 :
                 m = re.match(r'[\s\)]' + name + r'([^0-9A-Za-z_])', string[pos-1:])
                 if m :
-                    return pos-1
+                    pos = pos - 1
+                    ret = text[:pos]
+                    param = text[pos + name_len:]
+                    indent_len = pos + name_len
+                    break
 
         pos += 1
 
-    return -1
+    return ret.strip(), param.strip(), indent_len
 
 ##########################################################
 

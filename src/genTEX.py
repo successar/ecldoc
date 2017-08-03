@@ -215,8 +215,8 @@ class GenTEX(object) :
 
             return file
 
-
     def run(self) :
+        print("\nGenerating PDF Documentation ... ")
         self.gen('root', self.ecl_file_tree, self.tex_root)
 
         render_path = joinpath(self.tex_root, 'pkg.toc.tex')

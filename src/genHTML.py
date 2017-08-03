@@ -183,9 +183,8 @@ class GenHTML(object) :
 
             return file
 
-
-
     def run(self) :
+        print("\nGenerating HTML Documentation ... ")
         self.gen('root', self.ecl_file_tree, self.html_root)
 
         if os.path.exists(joinpath(self.output_root, 'css')) :

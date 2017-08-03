@@ -11,7 +11,7 @@ from Utils import genPathTree
 from Utils import joinpath, relpath, dirname, realpath
 from Utils import read_file
 
-from parseDoc import parseDocstring, breaksign
+from parseDoc import parseDocstring, cleansign, breaksign
 
 
 class ParseXML(object):
@@ -41,7 +41,7 @@ class ParseXML(object):
         p = subprocess.call(['eclcc -M ' + eclcc_options +
                              ' -o ' + self.xml_orig_file + ' ' +
                              self.input_file], shell=True, cwd=self.input_root)
-        print("File : ", self.input_file, "Output Code : ", p)
+        print("ECLCC ||| File : ", self.ecl_file, " ||| Output Code : ", p)
 
         tree = etree.parse(self.xml_orig_file)
         root = tree.getroot()
@@ -119,8 +119,7 @@ class ParseXML(object):
 
     def parseDefinition(self, defn):
         attribs = defn.attrib
-        if 'start' in attribs and 'body' in attribs:
-            self.generateSignature(defn)
+        self.generateSignature(defn)
 
         if 'fullname' in attribs:
             fullname = attribs['fullname']
@@ -138,8 +137,7 @@ class ParseXML(object):
 
         parents = defn.find('Parents')
         if parents is not None:
-            for parent in parents.findall('Parent'):
-                self.parseParent(parent)
+            self.parseParents(parents)
 
         attribs.pop('body', None)
         attribs.pop('start', None)
@@ -150,45 +148,35 @@ class ParseXML(object):
         name = attribs['name']
         is_scope = 'type' in attribs and attribs['type'] in ['module', 'interface']
         has_params = defn.find('Params') is not None
-        genSign = False
 
-        text = self.text
+        ecl_text = self.text
+        gen_sign = False
+
         if 'fullname' in attribs:
-            genSign = True
+            gen_sign = True
             if is_scope and (not has_params) :
-                genSign = False
+                gen_sign = False
             else :
                 best_depend = self.matchPath(attribs['fullname'])
                 if best_depend is not None and best_depend != self.src:
-                    text = read_file(best_depend.attrib['sourcePath'])
+                    ecl_text = read_file(best_depend.attrib['sourcePath'])
 
         sign = etree.Element('Signature')
         sign.text = name
-        if genSign :
-            sign.text = text[int(attribs['start']):int(attribs['body'])]
-            sign.text = re.sub(r'^export', '', sign.text, flags=re.I)
-            sign.text = re.sub(r'^shared', '', sign.text, flags=re.I)
-            sign.text = re.sub(r':=$', '', sign.text, flags=re.I)
-            sign.text = re.sub(r';$', '', sign.text, flags=re.I)
-            sign.text = re.sub(r'\s+', ' ', sign.text.strip())
+        if gen_sign and ('start' in attribs) and ('body' in attribs) :
+            sign.text = ecl_text[int(attribs['start']):int(attribs['body'])]
+            sign.text = cleansign(sign.text)
 
-        name_len = len(name)
-        pos = breaksign(name, sign.text)
-        ret, param = '', ''
-        indent_len = 0
-        if pos != -1:
-            ret = sign.text[:pos]
-            param = sign.text[pos + name_len:]
-            indent_len = pos + name_len
+        ret, param, indent_len = breaksign(name, sign.text)
 
         sign.attrib['name'] = name
-        sign.attrib['ret'] = ret.strip()
-        sign.attrib['param'] = param.strip()
+        sign.attrib['ret'] = ret
+        sign.attrib['param'] = param
         sign.attrib['hlen'] = str(indent_len)
         defn.insert(-1, sign)
 
     def parseDocumentation(self, doc):
-        content = doc.find('./content')
+        content = doc.find('content')
         elements = parseDocstring(content.text)
         doc.remove(content)
         for tag in elements:
@@ -209,10 +197,11 @@ class ParseXML(object):
         if imp.find('Documentation') is not None :
             imp.remove(imp.find('Documentation'))
 
-    def parseParent(self, parent):
-        attribs = parent.attrib
-        if 'ref' in attribs:
-            attribs['target'] = self.matchReference(attribs['ref'])
+    def parseParents(self, parents):
+        for parent in parents.findall('Parent'):
+            attribs = parent.attrib
+            if 'ref' in attribs:
+                attribs['target'] = self.matchReference(attribs['ref'])
 
     def matchReference(self, refpath):
         target = ''
@@ -224,8 +213,7 @@ class ParseXML(object):
             if matched is not None:
                 target = matched + '.xml'
             else:
-                refpath = refpath.split('.')
-                refpath.append('pkg.toc.xml')
+                refpath = refpath.split('.') + ['pkg.toc.xml']
                 target = joinpath(self.xml_root, *refpath)
                 target = relpath(target, self.xml_dir)
         return target
@@ -326,6 +314,7 @@ class GenXML(object):
             self.genJsonTree(child, content_root)
 
     def run(self):
+        print("\nGenerating XML Documentation ... ")
         self.processExternalDoc()
         root = etree.Element('Root')
         self.gen('root', self.ecl_file_tree, root, self.xml_root)
