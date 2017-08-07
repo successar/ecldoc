@@ -321,7 +321,7 @@ def parseBundle(generator, ecl_file):
 
     os.makedirs(dirpath_xml_orig, exist_ok=True)
     p = subprocess.call(['ecl-bundle info ' + dirpath + ' > ' + bundle_orig_path], shell=True)
-    print("Output Code : ", p, "Bundle File : ", dirpath)
+    print("ECL-BUNDLE ||| ", "Bundle File : ", dirpath, "Output Code : ", p)
 
     data = read_file(bundle_orig_path).split('\n')
     data = [x.split(':', 1) for x in data]

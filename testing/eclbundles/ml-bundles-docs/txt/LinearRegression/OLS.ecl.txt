@@ -40,19 +40,19 @@ Analysis of Variance (ANOVA) - R-squared - Adjusted R-squared - F-Test -
 Akaike Information Criterion (AIC) For each coefficient: - Standard Error
 (SE) - T-statistic - P-value - Confidence Interval
 
-Parameter : X TABLE ( NumericField ) --- The independent
-              variable training data in DATASET(NumericField)
-              format. Each observation (e.g. record) is
-              identified by 'id', and each feature is identified
-              by field number (i.e. 'number'). Omit this
-              parameter when predicting from a persisted model.
-
 Parameter : Y TABLE ( NumericField ) --- The dependent variable
               training data in DATASET(NumericField) format.
               Each observation (e.g. record) is identified by
               'id', and each feature is identified by field
               number. Omit this parameter when predicting from a
               persisted model.
+
+Parameter : X TABLE ( NumericField ) --- The independent
+              variable training data in DATASET(NumericField)
+              format. Each observation (e.g. record) is
+              identified by 'id', and each feature is identified
+              by field number (i.e. 'number'). Omit this
+              parameter when predicting from a persisted model.
 
 Parent : ML_Core.Interfaces.IRegression
          <../ML_Core/Interfaces/IRegression.ecl.txt>
@@ -184,29 +184,29 @@ Parent : ML_Core.Interfaces.IRegression
   | 
   | No Documentation Found
   | 
-  | Field : error_df UNSIGNED8 --- No Doc
+  | Field : model_f REAL8 --- No Doc
   | 
-  | Field : model_df UNSIGNED8 --- No Doc
+  | Field : error_ss REAL8 --- No Doc
+  | 
+  | Field : total_ss REAL8 --- No Doc
+  | 
+  | Field : wi UNSIGNED2 --- No Doc
   | 
   | Field : error_ms REAL8 --- No Doc
   | 
+  | Field : error_df UNSIGNED8 --- No Doc
+  | 
   | Field : model_ms REAL8 --- No Doc
   | 
-  | Field : total_ss REAL8 --- No Doc
+  | Field : total_df UNSIGNED8 --- No Doc
+  | 
+  | Field : model_ss REAL8 --- No Doc
+  | 
+  | Field : model_df UNSIGNED8 --- No Doc
   | 
   | Field : total_ms REAL8 --- No Doc
   | 
   | Field : number UNSIGNED4 --- No Doc
-  | 
-  | Field : wi UNSIGNED2 --- No Doc
-  | 
-  | Field : error_ss REAL8 --- No Doc
-  | 
-  | Field : total_df UNSIGNED8 --- No Doc
-  | 
-  | Field : model_f REAL8 --- No Doc
-  | 
-  | Field : model_ss REAL8 --- No Doc
   | 
   | ----------------------------------------------------------------------------------------------------------------------------------
   | TRANSFORM : AnovaRec calcAnova(tmpRec le)
@@ -310,9 +310,9 @@ Parent : ML_Core.Interfaces.IRegression
   | 
   | Field : aic REAL8 --- No Doc
   | 
-  | Field : number UNSIGNED4 --- No Doc
-  | 
   | Field : wi UNSIGNED2 --- No Doc
+  | 
+  | Field : number UNSIGNED4 --- No Doc
   | 
   | ----------------------------------------------------------------------------------------------------------------------------------
   | ATTRIBUTE : DATASET(AICRec) AIC
@@ -446,9 +446,9 @@ Parent : ML_Core.Interfaces.IRegression
   | 
   | No Documentation Found
   | 
-  | Parameter : nranges UNSIGNED8 --- No Doc
-  | 
   | Parameter : v_in INTEGER4 --- No Doc
+  | 
+  | Parameter : nranges UNSIGNED8 --- No Doc
   | 
   | Parent : linearregression.ols.distributionbase
   |          <OLS.ecl.txt>
@@ -549,11 +549,11 @@ Parent : ML_Core.Interfaces.IRegression
   | 
   | No Documentation Found
   | 
-  | Parameter : d2_in INTEGER4 --- No Doc
-  | 
   | Parameter : d1_in INTEGER4 --- No Doc
   | 
   | Parameter : nranges UNSIGNED8 --- No Doc
+  | 
+  | Parameter : d2_in INTEGER4 --- No Doc
   | 
   | Parent : linearregression.ols.distributionbase
   |          <OLS.ecl.txt>
@@ -781,11 +781,11 @@ Parent : ML_Core.Interfaces.IRegression
   | 
   | Field : upperint REAL8 --- No Doc
   | 
-  | Field : number UNSIGNED4 --- No Doc
+  | Field : id UNSIGNED8 --- No Doc
   | 
   | Field : wi UNSIGNED2 --- No Doc
   | 
-  | Field : id UNSIGNED8 --- No Doc
+  | Field : number UNSIGNED4 --- No Doc
   | 
   | ----------------------------------------------------------------------------------------------------------------------------------
   | FUNCTION : ConfInt(Types.t_fieldReal level)
@@ -819,13 +819,13 @@ Parent : ML_Core.Interfaces.IRegression
   | 
   | No Documentation Found
   | 
-  | Field : number UNSIGNED4 --- No Doc
-  | 
-  | Field : wi UNSIGNED2 --- No Doc
-  | 
   | Field : model_f REAL8 --- No Doc
   | 
   | Field : pvalue REAL8 --- No Doc
+  | 
+  | Field : wi UNSIGNED2 --- No Doc
+  | 
+  | Field : number UNSIGNED4 --- No Doc
   | 
   | ----------------------------------------------------------------------------------------------------------------------------------
   | ATTRIBUTE : DATASET(FTestRec) FTest

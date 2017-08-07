@@ -50,8 +50,8 @@ Ordinary Least Squares (OLS) Linear Regression aka Ordinary Linear Regression Re
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{X}} ||| TABLE ( NumericField ) --- The independent variable training data in DATASET(NumericField) format. Each observation (e.g. record) is identified by 'id', and each feature is identified by field number (i.e. 'number'). Omit this parameter when predicting from a persisted model.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{Y}} ||| TABLE ( NumericField ) --- The dependent variable training data in DATASET(NumericField) format. Each observation (e.g. record) is identified by 'id', and each feature is identified by field number. Omit this parameter when predicting from a persisted model.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{X}} ||| TABLE ( NumericField ) --- The independent variable training data in DATASET(NumericField) format. Each observation (e.g. record) is identified by 'id', and each feature is identified by field number (i.e. 'number'). Omit this parameter when predicting from a persisted model.
 \end{description}
 
 
@@ -161,7 +161,7 @@ GetModel Returns the learned model that maps X's to Y's. In the case of OLS, the
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{OVERRIDE}}}] 
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{SEE}}}] ML\_core/Types.Layout\_Model
 \end{description}
 
 
@@ -171,7 +171,7 @@ GetModel Returns the learned model that maps X's to Y's. In the case of OLS, the
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{SEE}}}] ML\_core/Types.Layout\_Model
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{OVERRIDE}}}] 
 \end{description}
 
 
@@ -402,18 +402,18 @@ No Documentation Found
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{error\_df}} ||| UNSIGNED8 --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{model\_df}} ||| UNSIGNED8 --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{error\_ms}} ||| REAL8 --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{model\_ms}} ||| REAL8 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{model\_f}} ||| REAL8 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{error\_ss}} ||| REAL8 --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{total\_ss}} ||| REAL8 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{wi}} ||| UNSIGNED2 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{error\_ms}} ||| REAL8 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{error\_df}} ||| UNSIGNED8 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{model\_ms}} ||| REAL8 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{total\_df}} ||| UNSIGNED8 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{model\_ss}} ||| REAL8 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{model\_df}} ||| UNSIGNED8 --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{total\_ms}} ||| REAL8 --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{number}} ||| UNSIGNED4 --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{wi}} ||| UNSIGNED2 --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{error\_ss}} ||| REAL8 --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{total\_df}} ||| UNSIGNED8 --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{model\_f}} ||| REAL8 --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{model\_ss}} ||| REAL8 --- No Doc
 \end{description}
 
 
@@ -653,8 +653,8 @@ No Documentation Found
 \par
 \begin{description}
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{aic}} ||| REAL8 --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{number}} ||| UNSIGNED4 --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{wi}} ||| UNSIGNED2 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{number}} ||| UNSIGNED4 --- No Doc
 \end{description}
 
 
@@ -1277,8 +1277,8 @@ No Documentation Found
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{nranges}} ||| UNSIGNED8 --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{v\_in}} ||| INTEGER4 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{nranges}} ||| UNSIGNED8 --- No Doc
 \end{description}
 
 
@@ -1882,9 +1882,9 @@ No Documentation Found
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{d2\_in}} ||| INTEGER4 --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{d1\_in}} ||| INTEGER4 --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{nranges}} ||| UNSIGNED8 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{d2\_in}} ||| INTEGER4 --- No Doc
 \end{description}
 
 
@@ -3131,9 +3131,9 @@ No Documentation Found
 \begin{description}
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{lowerint}} ||| REAL8 --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{upperint}} ||| REAL8 --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{number}} ||| UNSIGNED4 --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{wi}} ||| UNSIGNED2 --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{id}} ||| UNSIGNED8 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{wi}} ||| UNSIGNED2 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{number}} ||| UNSIGNED4 --- No Doc
 \end{description}
 
 
@@ -3220,10 +3220,10 @@ No Documentation Found
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{number}} ||| UNSIGNED4 --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{wi}} ||| UNSIGNED2 --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{model\_f}} ||| REAL8 --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{pvalue}} ||| REAL8 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{wi}} ||| UNSIGNED2 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{number}} ||| UNSIGNED4 --- No Doc
 \end{description}
 
 

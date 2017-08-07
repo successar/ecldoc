@@ -179,28 +179,20 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>diagonalA</b></td>
-				<td><b>BOOLEAN</b> -- true when A is the diagonal matrix</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>B</b></td>
-				<td><b>SET ( REAL8 )</b> -- matrix B</td>
+				<td width="20%"><b>diagonalB</b></td>
+				<td><b>BOOLEAN</b> -- true when B is the diagonal matrix</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>transposeA</b></td>
 				<td><b>BOOLEAN</b> -- true when transpose of A is used</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>C</b></td>
-				<td><b>SET ( REAL8 )</b> -- matrix C or empty</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>transposeB</b></td>
-				<td><b>BOOLEAN</b> -- true when transpose of B is used</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>alpha</b></td>
 				<td><b>REAL8</b> -- scalar used on A</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>n</b></td>
+				<td><b>UNSIGNED4</b> -- number of columns in product</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>beta</b></td>
@@ -211,20 +203,28 @@
 				<td><b>UNSIGNED4</b> -- number of rows in product</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>n</b></td>
-				<td><b>UNSIGNED4</b> -- number of columns in product</td>
+				<td width="20%"><b>k</b></td>
+				<td><b>UNSIGNED4</b> -- number of columns/rows for the multiplier/multiplicand</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>C</b></td>
+				<td><b>SET ( REAL8 )</b> -- matrix C or empty</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>A</b></td>
 				<td><b>SET ( REAL8 )</b> -- matrix A</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>k</b></td>
-				<td><b>UNSIGNED4</b> -- number of columns/rows for the multiplier/multiplicand</td>
+				<td width="20%"><b>transposeB</b></td>
+				<td><b>BOOLEAN</b> -- true when transpose of B is used</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>diagonalB</b></td>
-				<td><b>BOOLEAN</b> -- true when B is the diagonal matrix</td>
+				<td width="20%"><b>diagonalA</b></td>
+				<td><b>BOOLEAN</b> -- true when A is the diagonal matrix</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>B</b></td>
+				<td><b>SET ( REAL8 )</b> -- matrix B</td>
 			</tr>
 		</table>
 	</div>

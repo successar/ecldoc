@@ -302,12 +302,12 @@
 				<td><b>UNSIGNED4</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>number</b></td>
-				<td><b>UNSIGNED4</b> -- No Doc</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>min_value</b></td>
 				<td><b>REAL8</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>number</b></td>
+				<td><b>UNSIGNED4</b> -- No Doc</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>max_value</b></td>
@@ -381,7 +381,11 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>independent_stats</b></td>
+				<td width="20%"><b>dependent_count</b></td>
+				<td><b>UNSIGNED4</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>dependent_stats</b></td>
 				<td><b>TABLE ( logisticregression.types.field_desc )</b> -- No Doc</td>
 			</tr>
 			<tr>
@@ -389,15 +393,11 @@
 				<td><b>UNSIGNED2</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>dependent_stats</b></td>
-				<td><b>TABLE ( logisticregression.types.field_desc )</b> -- No Doc</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>independent_fields</b></td>
 				<td><b>UNSIGNED4</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>dependent_count</b></td>
+				<td width="20%"><b>independent_count</b></td>
 				<td><b>UNSIGNED4</b> -- No Doc</td>
 			</tr>
 			<tr>
@@ -405,15 +405,15 @@
 				<td><b>UNSIGNED4</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>dependent_fields</b></td>
-				<td><b>UNSIGNED4</b> -- No Doc</td>
+				<td width="20%"><b>independent_stats</b></td>
+				<td><b>TABLE ( logisticregression.types.field_desc )</b> -- No Doc</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>independent_records</b></td>
 				<td><b>UNSIGNED4</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>independent_count</b></td>
+				<td width="20%"><b>dependent_fields</b></td>
 				<td><b>UNSIGNED4</b> -- No Doc</td>
 			</tr>
 		</table>
@@ -484,14 +484,6 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>number</b></td>
-				<td><b>UNSIGNED4</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>wi</b></td>
-				<td><b>UNSIGNED2</b> -- No Doc</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>id</b></td>
 				<td><b>UNSIGNED8</b> -- No Doc</td>
 			</tr>
@@ -500,8 +492,16 @@
 				<td><b>REAL8</b> -- No Doc</td>
 			</tr>
 			<tr>
+				<td width="20%"><b>wi</b></td>
+				<td><b>UNSIGNED2</b> -- No Doc</td>
+			</tr>
+			<tr>
 				<td width="20%"><b>u</b></td>
 				<td><b>UNSIGNED1</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>number</b></td>
+				<td><b>UNSIGNED4</b> -- No Doc</td>
 			</tr>
 		</table>
 	</div>
@@ -571,14 +571,6 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>number</b></td>
-				<td><b>UNSIGNED4</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>wi</b></td>
-				<td><b>UNSIGNED2</b> -- No Doc</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>id</b></td>
 				<td><b>UNSIGNED8</b> -- No Doc</td>
 			</tr>
@@ -587,8 +579,16 @@
 				<td><b>INTEGER4</b> -- No Doc</td>
 			</tr>
 			<tr>
+				<td width="20%"><b>wi</b></td>
+				<td><b>UNSIGNED2</b> -- No Doc</td>
+			</tr>
+			<tr>
 				<td width="20%"><b>u</b></td>
 				<td><b>UNSIGNED1</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>number</b></td>
+				<td><b>UNSIGNED4</b> -- No Doc</td>
 			</tr>
 		</table>
 	</div>
@@ -658,16 +658,16 @@
 		<table class="table">
 			
 			<tr>
+				<td width="20%"><b>orig_number</b></td>
+				<td><b>UNSIGNED4</b> -- No Doc</td>
+			</tr>
+			<tr>
 				<td width="20%"><b>remap_number</b></td>
 				<td><b>UNSIGNED4</b> -- No Doc</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>wi</b></td>
 				<td><b>UNSIGNED2</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>orig_number</b></td>
-				<td><b>UNSIGNED4</b> -- No Doc</td>
 			</tr>
 		</table>
 	</div>
@@ -741,12 +741,12 @@
 				<td><b>UNSIGNED4</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>max_delta</b></td>
-				<td><b>REAL8</b> -- No Doc</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>iterations</b></td>
 				<td><b>UNSIGNED4</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>max_delta</b></td>
+				<td><b>REAL8</b> -- No Doc</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>correct</b></td>
@@ -824,7 +824,11 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>ind_vars</b></td>
+				<td width="20%"><b>obs</b></td>
+				<td><b>UNSIGNED8</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>max_iterations</b></td>
 				<td><b>UNSIGNED4</b> -- No Doc</td>
 			</tr>
 			<tr>
@@ -832,28 +836,24 @@
 				<td><b>UNSIGNED2</b> -- No Doc</td>
 			</tr>
 			<tr>
+				<td width="20%"><b>dep_vars</b></td>
+				<td><b>UNSIGNED4</b> -- No Doc</td>
+			</tr>
+			<tr>
 				<td width="20%"><b>stats</b></td>
 				<td><b>TABLE ( logisticregression.types.classifier_stats )</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>ind_vars</b></td>
+				<td><b>UNSIGNED4</b> -- No Doc</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>builder</b></td>
 				<td><b>UNSIGNED2</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>max_iterations</b></td>
-				<td><b>UNSIGNED4</b> -- No Doc</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>epsilon</b></td>
 				<td><b>REAL8</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>obs</b></td>
-				<td><b>UNSIGNED8</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>dep_vars</b></td>
-				<td><b>UNSIGNED4</b> -- No Doc</td>
 			</tr>
 		</table>
 	</div>
@@ -923,32 +923,8 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>false_omit_rate</b></td>
-				<td><b>REAL8</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>wi</b></td>
-				<td><b>UNSIGNED2</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>false_positive</b></td>
-				<td><b>UNSIGNED8</b> -- No Doc</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>true_neg_rate</b></td>
 				<td><b>REAL8</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>pos_pred_val</b></td>
-				<td><b>REAL8</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>cond_neg</b></td>
-				<td><b>UNSIGNED8</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>true_negative</b></td>
-				<td><b>UNSIGNED8</b> -- No Doc</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>neg_pred_val</b></td>
@@ -959,7 +935,63 @@
 				<td><b>UNSIGNED8</b> -- No Doc</td>
 			</tr>
 			<tr>
+				<td width="20%"><b>wi</b></td>
+				<td><b>UNSIGNED2</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>accuracy</b></td>
+				<td><b>REAL8</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>false_positive</b></td>
+				<td><b>UNSIGNED8</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>cond_pos</b></td>
+				<td><b>UNSIGNED8</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>true_negative</b></td>
+				<td><b>UNSIGNED8</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>pred_neg</b></td>
+				<td><b>UNSIGNED8</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>false_disc_rate</b></td>
+				<td><b>REAL8</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>true_positive</b></td>
+				<td><b>UNSIGNED8</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>false_pos_rate</b></td>
+				<td><b>REAL8</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>false_omit_rate</b></td>
+				<td><b>REAL8</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>false_neg_rate</b></td>
+				<td><b>REAL8</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>cond_neg</b></td>
+				<td><b>UNSIGNED8</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>pos_pred_val</b></td>
+				<td><b>REAL8</b> -- No Doc</td>
+			</tr>
+			<tr>
 				<td width="20%"><b>true_pos_rate</b></td>
+				<td><b>REAL8</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>prevalence</b></td>
 				<td><b>REAL8</b> -- No Doc</td>
 			</tr>
 			<tr>
@@ -967,40 +999,8 @@
 				<td><b>UNSIGNED4</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>false_disc_rate</b></td>
-				<td><b>REAL8</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>accuracy</b></td>
-				<td><b>REAL8</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>pred_neg</b></td>
-				<td><b>UNSIGNED8</b> -- No Doc</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>pred_pos</b></td>
 				<td><b>UNSIGNED8</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>true_positive</b></td>
-				<td><b>UNSIGNED8</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>false_neg_rate</b></td>
-				<td><b>REAL8</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>false_pos_rate</b></td>
-				<td><b>REAL8</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>cond_pos</b></td>
-				<td><b>UNSIGNED8</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>prevalence</b></td>
-				<td><b>REAL8</b> -- No Doc</td>
 			</tr>
 		</table>
 	</div>
@@ -1074,8 +1074,8 @@
 				<td><b>REAL8</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>dep_nom</b></td>
-				<td><b>UNSIGNED4</b> -- No Doc</td>
+				<td width="20%"><b>w</b></td>
+				<td><b>REAL8</b> -- No Doc</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>wi</b></td>
@@ -1086,8 +1086,8 @@
 				<td><b>UNSIGNED4</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>w</b></td>
-				<td><b>REAL8</b> -- No Doc</td>
+				<td width="20%"><b>dep_nom</b></td>
+				<td><b>UNSIGNED4</b> -- No Doc</td>
 			</tr>
 		</table>
 	</div>
@@ -1157,20 +1157,12 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>se</b></td>
-				<td><b>REAL8</b> -- No Doc</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>dep_nom</b></td>
 				<td><b>UNSIGNED4</b> -- No Doc</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>wi</b></td>
 				<td><b>UNSIGNED2</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>w</b></td>
-				<td><b>REAL8</b> -- No Doc</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>ind_col</b></td>
@@ -1181,7 +1173,15 @@
 				<td><b>REAL8</b> -- No Doc</td>
 			</tr>
 			<tr>
+				<td width="20%"><b>se</b></td>
+				<td><b>REAL8</b> -- No Doc</td>
+			</tr>
+			<tr>
 				<td width="20%"><b>upper</b></td>
+				<td><b>REAL8</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>w</b></td>
 				<td><b>REAL8</b> -- No Doc</td>
 			</tr>
 		</table>
@@ -1252,7 +1252,11 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>se</b></td>
+				<td width="20%"><b>z</b></td>
+				<td><b>REAL8</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>p_value</b></td>
 				<td><b>REAL8</b> -- No Doc</td>
 			</tr>
 			<tr>
@@ -1264,20 +1268,16 @@
 				<td><b>UNSIGNED2</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>w</b></td>
-				<td><b>REAL8</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>p_value</b></td>
-				<td><b>REAL8</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>z</b></td>
-				<td><b>REAL8</b> -- No Doc</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>ind_col</b></td>
 				<td><b>UNSIGNED4</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>se</b></td>
+				<td><b>REAL8</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>w</b></td>
+				<td><b>REAL8</b> -- No Doc</td>
 			</tr>
 		</table>
 	</div>
@@ -1347,20 +1347,20 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>number</b></td>
-				<td><b>UNSIGNED4</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>wi</b></td>
-				<td><b>UNSIGNED2</b> -- No Doc</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>id</b></td>
 				<td><b>UNSIGNED8</b> -- No Doc</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>raw</b></td>
 				<td><b>REAL8</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>wi</b></td>
+				<td><b>UNSIGNED2</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>number</b></td>
+				<td><b>UNSIGNED4</b> -- No Doc</td>
 			</tr>
 		</table>
 	</div>
@@ -1430,11 +1430,19 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>nil_ll</b></td>
+				<td width="20%"><b>actual</b></td>
+				<td><b>INTEGER4</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>nil_dev_component</b></td>
 				<td><b>REAL8</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>nil_dev_residual</b></td>
+				<td width="20%"><b>id</b></td>
+				<td><b>UNSIGNED8</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>mod_ll</b></td>
 				<td><b>REAL8</b> -- No Doc</td>
 			</tr>
 			<tr>
@@ -1442,19 +1450,15 @@
 				<td><b>UNSIGNED2</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>id</b></td>
-				<td><b>UNSIGNED8</b> -- No Doc</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>predicted</b></td>
 				<td><b>INTEGER4</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>mod_dev_residual</b></td>
+				<td width="20%"><b>nil_dev_residual</b></td>
 				<td><b>REAL8</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>nil_dev_component</b></td>
+				<td width="20%"><b>nil_ll</b></td>
 				<td><b>REAL8</b> -- No Doc</td>
 			</tr>
 			<tr>
@@ -1462,15 +1466,11 @@
 				<td><b>REAL8</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>actual</b></td>
-				<td><b>INTEGER4</b> -- No Doc</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>classifier</b></td>
 				<td><b>UNSIGNED4</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>mod_ll</b></td>
+				<td width="20%"><b>mod_dev_residual</b></td>
 				<td><b>REAL8</b> -- No Doc</td>
 			</tr>
 		</table>
@@ -1545,12 +1545,12 @@
 				<td><b>REAL8</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>wi</b></td>
-				<td><b>UNSIGNED2</b> -- No Doc</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>df</b></td>
 				<td><b>UNSIGNED8</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>wi</b></td>
+				<td><b>UNSIGNED2</b> -- No Doc</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>classifier</b></td>
@@ -1628,12 +1628,24 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>deviance</b></td>
+				<td width="20%"><b>residual_df</b></td>
+				<td><b>UNSIGNED8</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>p_value</b></td>
+				<td><b>REAL8</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>residual_dev</b></td>
 				<td><b>REAL8</b> -- No Doc</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>wi</b></td>
 				<td><b>UNSIGNED2</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>deviance</b></td>
+				<td><b>REAL8</b> -- No Doc</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>df</b></td>
@@ -1642,18 +1654,6 @@
 			<tr>
 				<td width="20%"><b>classifier</b></td>
 				<td><b>UNSIGNED4</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>residual_dev</b></td>
-				<td><b>REAL8</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>p_value</b></td>
-				<td><b>REAL8</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>residual_df</b></td>
-				<td><b>UNSIGNED8</b> -- No Doc</td>
 			</tr>
 		</table>
 	</div>

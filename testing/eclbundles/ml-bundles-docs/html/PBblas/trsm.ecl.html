@@ -176,8 +176,8 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>alpha</b></td>
-				<td><b>REAL8</b> -- Multiplier to scale A</td>
+				<td width="20%"><b>s</b></td>
+				<td><b>UNSIGNED1</b> -- Types.Side enumeration indicating whether we are solving AX = B or XA = B</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>A_in</b></td>
@@ -188,20 +188,20 @@
 				<td><b>UNSIGNED1</b> -- Types.Diagonal enumeration indicating whether A is a unit matrix or not. This is primarily used after factoring matrixes using getrf (LU factorization). That module produces a factored matrix stored within the same space as the original matrix. Since the diagonal is used by both factors, by convention, the Lower triangle has a unit matrix (diagonal all 1's) while the Upper triangle uses the diagonal cells. Setting this to UnitTri, causes the contents of the diagonal to be ignored, and assumed to be 1. NotUnitTri should be used for most other cases.</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>B_in</b></td>
-				<td><b>TABLE ( pbblas.layout_cell )</b> -- The B matrix in Layout_Cell format</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>transposeA</b></td>
 				<td><b>BOOLEAN</b> -- Boolean indicating whether or not to transpose the A matrix before solving</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>tri</b></td>
-				<td><b>UNSIGNED1</b> -- Types.Triangle enumeration indicating whether we are solving an Upper or Lower triangle.</td>
+				<td width="20%"><b>B_in</b></td>
+				<td><b>TABLE ( pbblas.layout_cell )</b> -- The B matrix in Layout_Cell format</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>s</b></td>
-				<td><b>UNSIGNED1</b> -- Types.Side enumeration indicating whether we are solving AX = B or XA = B</td>
+				<td width="20%"><b>alpha</b></td>
+				<td><b>REAL8</b> -- Multiplier to scale A</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>tri</b></td>
+				<td><b>UNSIGNED1</b> -- Types.Triangle enumeration indicating whether we are solving an Upper or Lower triangle.</td>
 			</tr>
 		</table>
 	</div>

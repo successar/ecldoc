@@ -174,8 +174,8 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>alpha</b></td>
-				<td><b>REAL8</b> -- Scalar multiplier for alpha * A * B</td>
+				<td width="20%"><b>transposeA</b></td>
+				<td><b>BOOLEAN</b> -- Boolean indicating whether matrix A should be transposed before multiplying</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>A_in</b></td>
@@ -186,20 +186,20 @@
 				<td><b>REAL8</b> -- A scalar multiplier for beta * C, scales the C matrix before addition. May be omitted.</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>B_in</b></td>
-				<td><b>TABLE ( pbblas.layout_cell )</b> -- Same as above for the 'B' matrix (multiplicand)</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>transposeA</b></td>
-				<td><b>BOOLEAN</b> -- Boolean indicating whether matrix A should be transposed before multiplying</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>C_in</b></td>
 				<td><b>TABLE ( pbblas.layout_cell )</b> -- Same as above for the 'C' matrix (addend). May be omitted.</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>transposeB</b></td>
 				<td><b>BOOLEAN</b> -- Same as above but for matrix B</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>B_in</b></td>
+				<td><b>TABLE ( pbblas.layout_cell )</b> -- Same as above for the 'B' matrix (multiplicand)</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>alpha</b></td>
+				<td><b>REAL8</b> -- Scalar multiplier for alpha * A * B</td>
 			</tr>
 		</table>
 	</div>

@@ -15,10 +15,10 @@ FUNCTION : DATASET(Types.Deviance_Record) Model_Deviance(DATASET(Types.Observati
 
 Model Deviance.
 
+Parameter : mod TABLE ( Model_Coef ) --- model co-efficients
+
 Parameter : od TABLE ( Observation_Deviance ) --- observation
                deviance record
-
-Parameter : mod TABLE ( Model_Coef ) --- model co-efficients
 
 Return : TABLE ( { UNSIGNED2 wi , UNSIGNED4 classifier ,
          UNSIGNED8 df , REAL8 deviance , REAL8 AIC } )

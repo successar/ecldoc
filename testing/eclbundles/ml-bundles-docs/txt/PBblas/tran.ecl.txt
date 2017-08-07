@@ -22,12 +22,12 @@ FUNCTION : DATASET(Layout_Cell) tran(value_t alpha, DATASET(Layout_Cell) A, valu
 Transpose a matrix and sum into base matrix result <== alpha * A**t + beta
 * C, A is n by m, C is m by n A**T (A Transpose) and C must have same shape
 
+Parameter : beta REAL8 --- Scalar multiplier for the C matrix
+
 Parameter : alpha REAL8 --- Scalar multiplier for the A**T matrix
 
 Parameter : C TABLE ( Layout_Cell ) --- C matrix in
               DATASET(Layout_Call) form
-
-Parameter : beta REAL8 --- Scalar multiplier for the C matrix
 
 Parameter : A TABLE ( Layout_Cell ) --- A matrix in
               DATASET(Layout_Cell) form

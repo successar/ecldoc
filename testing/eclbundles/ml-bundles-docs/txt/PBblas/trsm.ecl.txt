@@ -33,7 +33,8 @@ common work-item identifier (wi_id) within each cell of the matrix. The
 returned X matrix will contain cells for the same set of work-items as
 specified for the A and B matrices.
 
-Parameter : alpha REAL8 --- Multiplier to scale A
+Parameter : s UNSIGNED1 --- Types.Side enumeration indicating
+              whether we are solving AX = B or XA = B
 
 Parameter : A_in TABLE ( Layout_Cell ) --- The A matrix in
                  Layout_Cell format
@@ -51,18 +52,17 @@ Parameter : diag UNSIGNED1 --- Types.Diagonal enumeration
                  diagonal to be ignored, and assumed to be 1.
                  NotUnitTri should be used for most other cases.
 
+Parameter : transposeA BOOLEAN --- Boolean indicating whether or not to
+                       transpose the A matrix before solving
+
 Parameter : B_in TABLE ( Layout_Cell ) --- The B matrix in
                  Layout_Cell format
 
-Parameter : transposeA BOOLEAN --- Boolean indicating whether or not to
-                       transpose the A matrix before solving
+Parameter : alpha REAL8 --- Multiplier to scale A
 
 Parameter : tri UNSIGNED1 --- Types.Triangle enumeration
                 indicating whether we are solving an Upper or
                 Lower triangle.
-
-Parameter : s UNSIGNED1 --- Types.Side enumeration indicating
-              whether we are solving AX = B or XA = B
 
 Return : TABLE ( { UNSIGNED2 wi_id , UNSIGNED4 x ,
          UNSIGNED4 y , REAL8 v } ) X solution matrix in

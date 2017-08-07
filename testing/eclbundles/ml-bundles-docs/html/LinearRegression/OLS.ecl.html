@@ -126,12 +126,12 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>X</b></td>
-				<td><b>TABLE ( linearregression.numericfield )</b> -- The independent variable training data in DATASET(NumericField) format. Each observation (e.g. record) is identified by 'id', and each feature is identified by field number (i.e. 'number'). Omit this parameter when predicting from a persisted model.</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>Y</b></td>
 				<td><b>TABLE ( linearregression.numericfield )</b> -- The dependent variable training data in DATASET(NumericField) format. Each observation (e.g. record) is identified by 'id', and each feature is identified by field number. Omit this parameter when predicting from a persisted model.</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>X</b></td>
+				<td><b>TABLE ( linearregression.numericfield )</b> -- The independent variable training data in DATASET(NumericField) format. Each observation (e.g. record) is identified by 'id', and each feature is identified by field number (i.e. 'number'). Omit this parameter when predicting from a persisted model.</td>
 			</tr>
 		</table>
 	</div>
@@ -648,24 +648,44 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>error_df</b></td>
-				<td><b>UNSIGNED8</b> -- No Doc</td>
+				<td width="20%"><b>model_f</b></td>
+				<td><b>REAL8</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>model_df</b></td>
-				<td><b>UNSIGNED8</b> -- No Doc</td>
+				<td width="20%"><b>error_ss</b></td>
+				<td><b>REAL8</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>total_ss</b></td>
+				<td><b>REAL8</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>wi</b></td>
+				<td><b>UNSIGNED2</b> -- No Doc</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>error_ms</b></td>
 				<td><b>REAL8</b> -- No Doc</td>
 			</tr>
 			<tr>
+				<td width="20%"><b>error_df</b></td>
+				<td><b>UNSIGNED8</b> -- No Doc</td>
+			</tr>
+			<tr>
 				<td width="20%"><b>model_ms</b></td>
 				<td><b>REAL8</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>total_ss</b></td>
+				<td width="20%"><b>total_df</b></td>
+				<td><b>UNSIGNED8</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>model_ss</b></td>
 				<td><b>REAL8</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>model_df</b></td>
+				<td><b>UNSIGNED8</b> -- No Doc</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>total_ms</b></td>
@@ -674,26 +694,6 @@
 			<tr>
 				<td width="20%"><b>number</b></td>
 				<td><b>UNSIGNED4</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>wi</b></td>
-				<td><b>UNSIGNED2</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>error_ss</b></td>
-				<td><b>REAL8</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>total_df</b></td>
-				<td><b>UNSIGNED8</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>model_f</b></td>
-				<td><b>REAL8</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>model_ss</b></td>
-				<td><b>REAL8</b> -- No Doc</td>
 			</tr>
 		</table>
 	</div>
@@ -1140,12 +1140,12 @@
 				<td><b>REAL8</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>number</b></td>
-				<td><b>UNSIGNED4</b> -- No Doc</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>wi</b></td>
 				<td><b>UNSIGNED2</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>number</b></td>
+				<td><b>UNSIGNED4</b> -- No Doc</td>
 			</tr>
 		</table>
 	</div>
@@ -2221,12 +2221,12 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>nranges</b></td>
-				<td><b>UNSIGNED8</b> -- No Doc</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>v_in</b></td>
 				<td><b>INTEGER4</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>nranges</b></td>
+				<td><b>UNSIGNED8</b> -- No Doc</td>
 			</tr>
 		</table>
 	</div>
@@ -3105,16 +3105,16 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>d2_in</b></td>
-				<td><b>INTEGER4</b> -- No Doc</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>d1_in</b></td>
 				<td><b>INTEGER4</b> -- No Doc</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>nranges</b></td>
 				<td><b>UNSIGNED8</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>d2_in</b></td>
+				<td><b>INTEGER4</b> -- No Doc</td>
 			</tr>
 		</table>
 	</div>
@@ -4953,16 +4953,16 @@
 				<td><b>REAL8</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>number</b></td>
-				<td><b>UNSIGNED4</b> -- No Doc</td>
+				<td width="20%"><b>id</b></td>
+				<td><b>UNSIGNED8</b> -- No Doc</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>wi</b></td>
 				<td><b>UNSIGNED2</b> -- No Doc</td>
 			</tr>
 			<tr>
-				<td width="20%"><b>id</b></td>
-				<td><b>UNSIGNED8</b> -- No Doc</td>
+				<td width="20%"><b>number</b></td>
+				<td><b>UNSIGNED4</b> -- No Doc</td>
 			</tr>
 		</table>
 	</div>
@@ -5121,20 +5121,20 @@
 		<table class="table">
 			
 			<tr>
-				<td width="20%"><b>number</b></td>
-				<td><b>UNSIGNED4</b> -- No Doc</td>
-			</tr>
-			<tr>
-				<td width="20%"><b>wi</b></td>
-				<td><b>UNSIGNED2</b> -- No Doc</td>
-			</tr>
-			<tr>
 				<td width="20%"><b>model_f</b></td>
 				<td><b>REAL8</b> -- No Doc</td>
 			</tr>
 			<tr>
 				<td width="20%"><b>pvalue</b></td>
 				<td><b>REAL8</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>wi</b></td>
+				<td><b>UNSIGNED2</b> -- No Doc</td>
+			</tr>
+			<tr>
+				<td width="20%"><b>number</b></td>
+				<td><b>UNSIGNED4</b> -- No Doc</td>
 			</tr>
 		</table>
 	</div>

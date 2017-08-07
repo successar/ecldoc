@@ -50,13 +50,13 @@ Extended Parallel Block Matrix Multiplication Module Implements: Result = alpha 
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{alpha}} ||| REAL8 --- Scalar multiplier for alpha * A * B
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{transposeA}} ||| BOOLEAN --- Boolean indicating whether matrix A should be transposed before multiplying
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{A\_in}} ||| TABLE ( Layout\_Cell ) --- 'A' matrix (multiplier) in Layout\_Cell format
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{beta}} ||| REAL8 --- A scalar multiplier for beta * C, scales the C matrix before addition. May be omitted.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{B\_in}} ||| TABLE ( Layout\_Cell ) --- Same as above for the 'B' matrix (multiplicand)
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{transposeA}} ||| BOOLEAN --- Boolean indicating whether matrix A should be transposed before multiplying
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{C\_in}} ||| TABLE ( Layout\_Cell ) --- Same as above for the 'C' matrix (addend). May be omitted.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{transposeB}} ||| BOOLEAN --- Same as above but for matrix B
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{B\_in}} ||| TABLE ( Layout\_Cell ) --- Same as above for the 'B' matrix (multiplicand)
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{alpha}} ||| REAL8 --- Scalar multiplier for alpha * A * B
 \end{description}
 
 
@@ -75,11 +75,11 @@ Extended Parallel Block Matrix Multiplication Module Implements: Result = alpha 
 
 
 
-
 \par
 \begin{description}
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{SEE}}}] PBblas/Types.Layout\_Cell
 \end{description}
+
 
 
 
