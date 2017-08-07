@@ -39,7 +39,7 @@ ECL Files : [A1.ecl, A2.ecl, B/B1.ecl, C/C1.ecl, B/D/D1.ecl]
 
 Ecl File Tree :
 
-```javascript
+..code:: json
 { root :
   { A1.ecl : 'A1.ecl' ,
     A2.ecl : 'A2.ecl' ,
