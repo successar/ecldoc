@@ -39,19 +39,20 @@ ECL Files : [A1.ecl, A2.ecl, B/B1.ecl, C/C1.ecl, B/D/D1.ecl]
 
 Ecl File Tree :
 
-.. code:: json
-{ root :
-  { A1.ecl : 'A1.ecl' ,
-    A2.ecl : 'A2.ecl' ,
-    C :
-      { C1.ecl : 'C/C1.ecl' } ,
-	B :
-      { B1.ecl : 'B/B1.ecl',
-        D :
-       	  { D1.ecl : 'B/D/D1.ecl' }
-	  },
-  }
-}
+.. code:: javascript
+
+    { root :
+      { A1.ecl : 'A1.ecl' ,
+        A2.ecl : 'A2.ecl' ,
+        C :
+          { C1.ecl : 'C/C1.ecl' } ,
+        B :
+          { B1.ecl : 'B/B1.ecl',
+            D :
+              { D1.ecl : 'B/D/D1.ecl' }
+          },
+      }
+    }
 
 For each file in ecl file tree, ``GenXML`` creates a ``ParseXML`` object to parse that file.
 Major Steps during conversion from xmlOriginal to XML in ``ParseXML`` are
