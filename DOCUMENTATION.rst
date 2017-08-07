@@ -20,13 +20,15 @@ User can specify these options on either the command line or in the configuratio
 Major Steps
 ===========
 Documentation is generated in 3 major steps
-1. Call ECLCC -M for each ecl file to generate XML Output (Called xmlOriginal)
-2. Parse xmlOriginal for all file to generate Processed XML (Called XML)
-3. Convert XML into required Output Formats
+
+#. Call ECLCC -M for each ecl file to generate XML Output (Called xmlOriginal)
+#. Parse xmlOriginal for all file to generate Processed XML (Called XML)
+#. Convert XML into required Output Formats
 
 Parsing xmlOriginal to XML
 ==========================
 The XML Documentation generator `GenXML` takes in 4 variables :
+
 #. Input Root
 #. Output Root
 #. Ecl files - list of ecl files to be parsed
@@ -54,10 +56,12 @@ Major Steps during conversion from xmlOriginal to XML in `ParseXML` are
 #. Keep only Source Tag corresponding to given file
 #. Convert all other SOurce Tags into Depend Tags, keeping only name and sourcepath
 #. Process All Definitions in Source
+
    #. Check if definitions should be kept (internal, no docstring, etc) or removed
    #. Generate Signature by reading ecl source file
    #. Break docstring into individual tags
    #. Link References (Imports, Parents, External Attributes)
+
 #. Remove Source from ecl file tree if no Definitions present
 
 
@@ -65,10 +69,11 @@ Parsing XML to Formats
 ======================
 Each format is specified in terms of a generator class of form - Gen<FORMAT>.
 Each generator class object takes in 4 variables during init :
-* Input Root Path
-* Output Root Path
-* ECL File Tree (Source Tree) returned by XML generator after processing
-* Options - Other ecldoc options
+
+- Input Root Path
+- Output Root Path
+- ECL File Tree (Source Tree) returned by XML generator after processing
+- Options - Other ecldoc options
 
 Each generator should have a `run()` method that is called by ecldoc to generate its documentation. These are the only requirements for the generator class.
 
@@ -84,6 +89,7 @@ Taglet API
 Each Tag type in Documentation can have a corresponding Taglet class which extracts necessary information from its XML Representation into Python object. This information can be used to easily render that tag in any format. Other processing can also occur in taglets-
 e.g. Parameter docstrings are linked with parameter types, etc.
 Each taglets class takes in 3 variables :
-* Name of that tag in docstring
-* All tag strings in given docstring for that tag
-* Corresponding Definition Element for that docstring
+
+- Name of that tag in docstring
+- All tag strings in given docstring for that tag
+- Corresponding Definition Element for that docstring
