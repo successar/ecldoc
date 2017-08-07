@@ -4,7 +4,7 @@ ECLDOC
 
 Purpose
 =======
-Ecldoc is a tool for generating API Documentation for ECL Project based on their docstrings. The executable `ecldoc` is the main program that parses the sources and generate Documentation.
+Ecldoc is a tool for generating API Documentation for ECL Project based on their docstrings. The executable ``ecldoc`` is the main program that parses the sources and generate Documentation.
 
 Usage
 =====
@@ -27,31 +27,34 @@ Documentation is generated in 3 major steps
 
 Parsing xmlOriginal to XML
 ==========================
-The XML Documentation generator `GenXML` takes in 4 variables :
+The XML Documentation generator ``GenXML`` takes in 4 variables :
 
 #. Input Root
 #. Output Root
 #. Ecl files - list of ecl files to be parsed
 #. Options - Other ecldoc options
 
-`GenXML` recreates path tree from ecl files.
+``GenXML`` recreates path tree from ecl files.
 E.g.
 ECL Files : [A1.ecl, A2.ecl, B/B1.ecl, C/C1.ecl, B/D/D1.ecl]
-Ecl File Tree : { root :
-				  { A1.ecl : A1.ecl ,
-				    A2.ecl : A2.ecl ,
-				    C :
-				      { C1.ecl : C1.ecl } ,
-				    B :
-				      { B1.ecl : B/B1.ecl,
-				        D :
-				       	  { D1.ecl : B/D/D1.ecl }
-					  },
-				  }
-				}
+Ecl File Tree :
 
-For each file in ecl file tree, `GenXML` creates a `ParseXML` object to parse that file.
-Major Steps during conversion from xmlOriginal to XML in `ParseXML` are
+::
+    { root :
+	  { A1.ecl : 'A1.ecl' ,
+	    A2.ecl : 'A2.ecl' ,
+	    C :
+	      { C1.ecl : 'C/C1.ecl' } ,
+		B :
+	      { B1.ecl : 'B/B1.ecl',
+	        D :
+	       	  { D1.ecl : 'B/D/D1.ecl' }
+		  },
+	  }
+	}
+
+For each file in ecl file tree, ``GenXML`` creates a ``ParseXML`` object to parse that file.
+Major Steps during conversion from xmlOriginal to XML in ``ParseXML`` are
 
 #. Keep only Source Tag corresponding to given file
 #. Convert all other SOurce Tags into Depend Tags, keeping only name and sourcepath
@@ -75,11 +78,11 @@ Each generator class object takes in 4 variables during init :
 - ECL File Tree (Source Tree) returned by XML generator after processing
 - Options - Other ecldoc options
 
-Each generator should have a `run()` method that is called by ecldoc to generate its documentation. These are the only requirements for the generator class.
+Each generator should have a ``run()`` method that is called by ecldoc to generate its documentation. These are the only requirements for the generator class.
 
 Common Structure of Generator is as follows :
-For each file in ecl file tree, `Gen<FORMAT>` creates a `Parse<FORMAT>` object to parse corresponding xml file.
-There are no restrictions on how `Parse<FORMAT>` object works, but common steps are :
+For each file in ecl file tree, ``Gen<FORMAT>`` creates a ``Parse<FORMAT>`` object to parse corresponding xml file.
+There are no restrictions on how ``Parse<FORMAT>`` object works, but common steps are :
 
 #. Convert all links to correspond to given format
 #. Convert all Documentations into given Format (using Taglet API if needed)
