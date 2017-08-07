@@ -35,21 +35,26 @@ The XML Documentation generator ``GenXML`` takes in 4 variables :
 
 ``GenXML`` recreates path tree from ecl files.
 E.g.
-ECL Files : [A1.ecl, A2.ecl, B/B1.ecl, C/C1.ecl, B/D/D1.ecl]
+
+ECL Files :
+
+.. code:: python
+
+    ['A1.ecl', 'A2.ecl', 'B/B1.ecl', 'C/C1.ecl', 'B/D/D1.ecl']
 
 Ecl File Tree :
 
-.. code:: javascript
+.. code:: python
 
-    { root :
-      { A1.ecl : 'A1.ecl' ,
-        A2.ecl : 'A2.ecl' ,
-        C :
-          { C1.ecl : 'C/C1.ecl' } ,
-        B :
-          { B1.ecl : 'B/B1.ecl',
-            D :
-              { D1.ecl : 'B/D/D1.ecl' }
+    { 'root' :
+      { 'A1.ecl' : 'A1.ecl' ,
+        'A2.ecl' : 'A2.ecl' ,
+        'C' :
+          { 'C1.ecl' : 'C/C1.ecl' } ,
+        'B' :
+          { 'B1.ecl' : 'B/B1.ecl',
+            'D' :
+              { 'D1.ecl' : 'B/D/D1.ecl' }
           },
       }
     }
