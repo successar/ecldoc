@@ -20,8 +20,7 @@ User can specify these options on either the command line or in the configuratio
 Major Steps
 ===========
 Documentation is generated in 3 major steps
-
-#. Call ECLCC -M for each ecl file to generate XML Output (Called xmlOriginal)
+ Call ECLCC -M for each ecl file to generate XML Output (Called xmlOriginal)
 #. Parse xmlOriginal for all file to generate Processed XML (Called XML)
 #. Convert XML into required Output Formats
 
@@ -39,19 +38,18 @@ E.g.
 ECL Files : [A1.ecl, A2.ecl, B/B1.ecl, C/C1.ecl, B/D/D1.ecl]
 Ecl File Tree :
 
-::
-    { root :
-	  { A1.ecl : 'A1.ecl' ,
-	    A2.ecl : 'A2.ecl' ,
-	    C :
-	      { C1.ecl : 'C/C1.ecl' } ,
-		B :
-	      { B1.ecl : 'B/B1.ecl',
-	        D :
-	       	  { D1.ecl : 'B/D/D1.ecl' }
-		  },
-	  }
-	}
+|    { root :
+|	  { A1.ecl : 'A1.ecl' ,
+|	    A2.ecl : 'A2.ecl' ,
+|	    C :
+|	      { C1.ecl : 'C/C1.ecl' } ,
+|		B :
+|	      { B1.ecl : 'B/B1.ecl',
+|	        D :
+|	       	  { D1.ecl : 'B/D/D1.ecl' }
+|		  },
+|	  }
+|	}
 
 For each file in ecl file tree, ``GenXML`` creates a ``ParseXML`` object to parse that file.
 Major Steps during conversion from xmlOriginal to XML in ``ParseXML`` are
