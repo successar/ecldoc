@@ -67,7 +67,7 @@
 				<section id="ecldoc-section-desc">
 					<h3 class="page-header">CONTENTS</h3>
 					<div class="panel-group desc-panel-group">
-						{%- for def in render_dict recursive -%}
+						{%- for def in defn_tree recursive -%}
 						<div class="panel panel-info desc-panel" id="d{{ def.tag.attrib['fullname'] }}">
 							<a href=".desc-{{ def.tag.attrib['fullname'] }}" data-toggle="collapse">
 								<div class="panel-heading clearfix desc-panel-heading">

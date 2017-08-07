@@ -23,11 +23,17 @@ from Taglets import taglets
 from tagHTML import tag_renders
 
 class ParseHTML(object) :
+    '''
+    Main class to generate HTML Documentation for given ecl file
+    from its XML Repr
+    '''
     def __init__(self, generator, ecl_file) :
         self.output_root = generator.output_root
         self.xml_file = joinpath(generator.xml_root, (ecl_file + '.xml'))
         self.html_file = joinpath(generator.html_root, (ecl_file + '.html'))
         self.template = generator.content_template
+
+        ### Parent node of given file in path tree
         self.parent = getRoot(generator.ecl_file_tree, ecl_file)
         self.options = generator.options
 
@@ -42,10 +48,13 @@ class ParseHTML(object) :
 
         for child in root.iter() :
             attribs = child.attrib
+            ### Convert links from XML FOrmat to HTML Format
             if 'target' in attribs :
                 attribs['target'] = re.sub(r'\$\$_ECLDOC-FORM_\$\$', 'html', attribs['target'])
                 attribs['target'] = re.sub(r'\.xml$', '.html', attribs['target'])
 
+            ### Fullname act as HTML Id for Definitions
+            ### '.' is invalid char in HTML Id so replaced by '-'
             if 'fullname' in attribs :
                 attribs['origfn'] = attribs['fullname']
                 attribs['fullname'] = re.sub(r'\.', '-', attribs['fullname'])
@@ -74,7 +83,7 @@ class ParseHTML(object) :
                                       files=files,
                                       parent=parent,
                                       output_root=output_relpath,
-                                      render_dict=self.render_dict)
+                                      defn_tree=self.defn_tree)
         write_to_file(self.html_file, render)
 
     def docstring(self) :
@@ -86,20 +95,23 @@ class ParseHTML(object) :
         return text
 
     def parseSource(self) :
-        self.render_dict = []
+        self.defn_tree = []
         for defn in self.src.findall('Definition') :
-            self.parseDefinition(defn, self.render_dict)
+            self.parseDefinition(defn, self.defn_tree)
 
-    def parseDefinition(self, defn, render_dict) :
+    def parseDefinition(self, defn, defn_tree) :
         doc = self.parseDocs(defn)
         defn_dict = { 'tag' : defn, 'doc' : doc, 'defns' : [] }
 
         for childdefn in defn.findall('Definition') :
             self.parseDefinition(childdefn, defn_dict['defns'])
 
-        render_dict.append(defn_dict)
+        defn_tree.append(defn_dict)
 
     def parseDocs(self, defn) :
+        '''
+        Convert Doctags into HTML Format
+        '''
         renders = {}
         tags = getTags(defn.find('Documentation'))
         always = ['param', 'field', 'return', 'parent', 'content', 'firstline']
@@ -120,6 +132,9 @@ class ParseHTML(object) :
 
 
 class GenHTML(object) :
+    '''
+    Generate HTML Documentation for all ecl files from XML Format
+    '''
     def __init__(self, input_root, output_root, ecl_file_tree, options) :
         self.input_root = input_root
         self.output_root = output_root
@@ -129,11 +144,22 @@ class GenHTML(object) :
         self.template_dir = HTML_TEMPLATE_DIR
         self.content_template = html_jinja_env.get_template(joinpath(self.template_dir, 'content.tpl.html'))
         self.toc_template = html_jinja_env.get_template(joinpath(self.template_dir, 'toc.tpl.html'))
+
         self.ecl_file_tree = ecl_file_tree
         self.options = options
 
     def gen(self, key, node, content_root) :
-        if type(node[key]) != dict:
+        '''
+        Recursively parse source tree dictionary.
+        If current_node is file : parse file using parseHTML
+        Else If : current_node is directory : recurse and generate pkg.toc.html for that dir
+                                              (optionally generate bundle info if present)
+        :param key: string | the name of current_node in path tree
+        :param node: dict | the parent tree of current_node
+        :param content_root: string | real path to current node in html doc dir
+        '''
+        current_node = node[key]
+        if type(current_node) != dict:
             if key == 'bundle.ecl' :
                 return None
             parser = ParseHTML(self, node[key])
@@ -144,25 +170,24 @@ class GenHTML(object) :
                     'doc' : parser.docstring() }
             return file
         else :
-            child = node[key]
             file = {'name' : key,
                     'target': joinpath(key, 'pkg.toc.html'),
                     'type': 'dir',
                     'doc' : '' }
 
             bundle = None
-            if 'bundle.ecl' in child :
-                bundle_xml_path = joinpath(self.xml_root, dirname(child['bundle.ecl']), 'bundle.xml')
+            if 'bundle.ecl' in current_node :
+                bundle_xml_path = joinpath(self.xml_root, dirname(current_node['bundle.ecl']), 'bundle.xml')
                 bundle = etree.parse(bundle_xml_path).getroot()
                 license = bundle.find('License')
                 license.text = '<a href="' + license.text + '">' + license.text + '</a>'
                 file['type'] = 'bundle'
 
             childfiles = []
-            keys = sorted(child.keys(), key=str.lower)
+            keys = sorted(current_node.keys(), key=str.lower)
             for chkey in keys :
                 child_root = joinpath(content_root, chkey)
-                child_dict = self.gen(chkey, child, child_root)
+                child_dict = self.gen(chkey, current_node, child_root)
                 if child_dict is not None : childfiles.append(child_dict)
 
             childfiles = sorted(childfiles, key=lambda x : x['type'])
@@ -173,10 +198,10 @@ class GenHTML(object) :
                 parent_relpath = relpath(dirname(content_root), content_root)
 
             render = self.toc_template.render(name=key,
-                                                files=childfiles,
-                                                parent=joinpath(parent_relpath, 'pkg.toc.html'),
-                                                output_root=root_relpath,
-                                                bundle=bundle)
+                                              files=childfiles,
+                                              parent=joinpath(parent_relpath, 'pkg.toc.html'),
+                                              output_root=root_relpath,
+                                              bundle=bundle)
             os.makedirs(content_root, exist_ok=True)
             render_path = joinpath(content_root, 'pkg.toc.html')
             write_to_file(render_path, render)
@@ -184,6 +209,9 @@ class GenHTML(object) :
             return file
 
     def run(self) :
+        '''
+        Main function called by ecldoc
+        '''
         print("\nGenerating HTML Documentation ... ")
         self.gen('root', self.ecl_file_tree, self.html_root)
 

@@ -15,27 +15,47 @@ from parseDoc import parseDocstring, cleansign, breaksign
 
 
 class ParseXML(object):
+    '''
+    ParseXML is main class to generate XML Documentation for a single ecl file
+    '''
     def __init__(self, generator, ecl_file):
+        '''
+        :param generator: GenXML object creating this object
+        :param ecl_file: path to ecl_file to parse
+        '''
         self.input_root = generator.input_root
         self.output_root = generator.output_root
         self.ecl_file = ecl_file
-        self.xml_root = generator.xml_root
-        self.xml_orig_root = generator.xml_orig_root
 
+        ### complete path to ecl file
         self.input_file = joinpath(self.input_root, ecl_file)
+
+        ### Path to file where output from eclcc -M will be stored (called xmlOriginal)
+        self.xml_orig_root = generator.xml_orig_root
         self.xml_orig_file = joinpath(self.xml_orig_root, ecl_file + '.xml')
+
+        ### Path to file where processed xml from xmlOriginal will be stored
+        self.xml_root = generator.xml_root
         self.xml_file = joinpath(self.xml_root, ecl_file + '.xml')
         self.xml_dir = dirname(self.xml_file)
 
-        self.options = generator.options
-        self.internal = False
         self.generator = generator
+        self.options = generator.options
+
+        ### Check if any definitions remaining in xml tree after processing
+        self.internal = False
 
         #local
         self.depends = {}
         self.src = None
 
     def parse(self):
+        '''
+        Main function called by generator on this object
+        Generates both XMLOriginal and processed XML Doc
+        '''
+
+        ### Run eclcc -M on input_file to generate xmlOriginal doc
         os.makedirs(dirname(self.xml_orig_file), exist_ok=True)
         eclcc_options = ' '.join(self.options['eclcc'])
         p = subprocess.call(['eclcc -M ' + eclcc_options +
@@ -46,9 +66,15 @@ class ParseXML(object):
         tree = etree.parse(self.xml_orig_file)
         root = tree.getroot()
 
+        ### Main loop of this function
+        ### Loops over all Source Tags in xmlOriginal
+
         for src in root.iter('Source'):
             attribs = src.attrib
             srcpath = realpath(attribs['sourcePath'])
+
+            ### Check each Source Tag in xmlOriginal to see if it match input_file
+            ### If yes, keep it, else replace that Source Tag with Depend Tag
 
             if os.path.exists(srcpath) and srcpath.startswith(self.input_root):
                 attribs['sourcePath'] = srcpath
@@ -65,8 +91,13 @@ class ParseXML(object):
 
             if 'name' in attribs:
                 depend.set('name', attribs['name'])
+
+                ### Create a entry in depend dictionary for current Source
+                ### Used to map Imports and other targets to correct file
                 self.depends[tuple(attribs['name'].lower().split('.'))] = depend
 
+            ### Set Target Path to processed XML for given Dependency
+            ### Match its source path to current source tree and external documentation (if any)
             if 'target' in attribs:
                 depend.set('target', attribs['target'])
             else:
@@ -81,11 +112,15 @@ class ParseXML(object):
 
             root.insert(-1, depend)
 
+        ### Only Source Tag corresponding to input_file is left and is processed
         self.src = root.find('Source')
         self.parseSource()
+
+        ### If no definitions left, set internal to True
         if len(self.src.findall('Definition')) == 0:
             self.internal = True
 
+        ### write processed XML to xml_file if not internal
         if self.internal is False:
             os.makedirs(dirname(self.xml_file), exist_ok=True)
             tree.write(self.xml_file, xml_declaration=True, encoding='utf-8')
@@ -95,6 +130,8 @@ class ParseXML(object):
         srcpath = realpath(attribs['sourcePath'])
         self.text = read_file(srcpath)
 
+        ### Append to depend dictionary entry correspong to given file
+        ###        for self referential targets
         if 'name' in attribs:
             self.depends[tuple(attribs['name'].lower().split('.'))] = self.src
 
@@ -110,6 +147,8 @@ class ParseXML(object):
             else:
                 self.parseDefinition(defn)
 
+        ### Documentation for first Definition in Source become Documentation
+        ###     for the source. Useful in displaying documentation in TOCs
         maindefn = self.src.find("Definition")
         if maindefn is not None and maindefn.find('Documentation') is not None:
             docstring = deepcopy(maindefn.find('Documentation'))
@@ -130,6 +169,7 @@ class ParseXML(object):
             attribs['fullname'] = 'ecldoc-' + attribs['name']
 
         for childdefn in defn.findall('Definition'):
+            ### Do not parse children of inherited attributes, in addition to normal checks
             if attribs['inherittype'] == 'inherited' or self.checkDefinition(childdefn):
                 defn.remove(childdefn)
             else:
@@ -139,11 +179,17 @@ class ParseXML(object):
         if parents is not None:
             self.parseParents(parents)
 
+        ### Remove unnecessary attributes
         attribs.pop('body', None)
         attribs.pop('start', None)
         attribs.pop('end', None)
 
     def generateSignature(self, defn):
+        '''
+        Generate attribute signature by reading the ecl source file where
+        given Definition is present.
+        Signature is text between EXPORT and :=
+        '''
         attribs = defn.attrib
         name = attribs['name']
         is_scope = 'type' in attribs and attribs['type'] in ['module', 'interface']
@@ -154,9 +200,13 @@ class ParseXML(object):
 
         if 'fullname' in attribs:
             gen_sign = True
+            ### MORE : if definition is scope without params, do not read file for it.
+            ###        Problem in fullname resolution
             if is_scope and (not has_params) :
                 gen_sign = False
             else :
+                ### If definition signature in external file (eg inherited attributes)
+                ### based on fullname, Find that file
                 best_depend = self.matchPath(attribs['fullname'])
                 if best_depend is not None and best_depend != self.src:
                     ecl_text = read_file(best_depend.attrib['sourcePath'])
@@ -167,6 +217,8 @@ class ParseXML(object):
             sign.text = ecl_text[int(attribs['start']):int(attribs['body'])]
             sign.text = cleansign(sign.text)
 
+        ### break sign text into return type, name and parameter segments (Heuristic only)
+        ### Indent len = strlen(ret) + strlen(name)
         ret, param, indent_len = breaksign(name, sign.text)
 
         sign.attrib['name'] = name
@@ -179,12 +231,14 @@ class ParseXML(object):
         content = doc.find('content')
         elements = parseDocstring(content.text)
         doc.remove(content)
+        ### Append all parsed doctags from docstring as XML Tags
         for tag in elements:
             for desc in elements[tag]:
                 doc.append(desc)
 
     def parseImport(self, imp):
         attribs = imp.attrib
+        ### Match Reference of Import to correct File/Directory Path for Linking
         if 'ref' in attribs:
             attribs['target'] = self.matchReference(attribs['ref'])
 
@@ -200,25 +254,35 @@ class ParseXML(object):
     def parseParents(self, parents):
         for parent in parents.findall('Parent'):
             attribs = parent.attrib
+            ### Match Reference (Fullname) of parent to correct File/Directory Path for Linking
             if 'ref' in attribs:
                 attribs['target'] = self.matchReference(attribs['ref'])
 
     def matchReference(self, refpath):
+        '''
+        Match reference/fullname to correct file/dir path
+        '''
         target = ''
+        ### First search among Dependency Files
         best_depend = self.matchPath(refpath)
         if best_depend is not None:
             target = best_depend.attrib['target']
         else:
+            ### Then search in External Documentation (assumption : only directory paths left)
             matched = self.generator.matchExdoc(refpath)
             if matched is not None:
                 target = matched + '.xml'
             else:
+                ### Simply Convert reference to path (assumption : only directory paths left)
                 refpath = refpath.split('.') + ['pkg.toc.xml']
                 target = joinpath(self.xml_root, *refpath)
                 target = relpath(target, self.xml_dir)
         return target
 
     def matchPath(self, path):
+        '''
+        Find best prefix match for given fullname/reference in Depend Dictionary
+        '''
         path = tuple(path.lower().split('.'))
         current_prefix = ()
         for depend_path in self.depends:
@@ -232,6 +296,10 @@ class ParseXML(object):
         return None
 
     def checkDefinition(self, defn):
+        '''
+        Check if definition should be expanded or removed
+        True : Definition should be removed
+        '''
         test_1 = 'exported' not in defn.attrib
         test_2 = self.options['nodoc'] and (defn.find('Documentation') is None)
         test_3 = (self.options['nointernal'] and
@@ -270,24 +338,42 @@ def parseBundle(generator, ecl_file):
 ###########################################################################################
 
 class GenXML(object):
+    '''
+    Generate XML Doc all files in ecl_files.
+    Two types of XML Docs : xmlOriginal (eclcc output) and XML (after processing)
+    '''
     def __init__(self, input_root, output_root, ecl_files, options):
         self.input_root = input_root
         self.output_root = output_root
+        ### Recreate Source Tree as dictionary from ecl file paths
         self.ecl_file_tree = genPathTree(ecl_files)
         self.options = options
 
+        ### Folder where xmlOriginal files are stored
         self.xml_orig_root = joinpath(output_root, 'xmlOriginal')
         os.makedirs(self.xml_orig_root, exist_ok=True)
 
+        ### Folder where processed XML files are stored
         self.xml_root = joinpath(output_root, 'xml')
         os.makedirs(self.xml_root, exist_ok=True)
 
     def gen(self, key, node, xml_root, content_root):
-        if type(node[key]) != dict:
+        '''
+        Recursively parse source tree dictionary.
+        If current_node is file : parse file using parseXML or parseBundle
+        Else If : current_node is directory : recurse and generate pkg.toc.xml for that dir
+        :param key: string | the name of current_node in path tree
+        :param node: dict | the parent of current_node (parent is passed so that current_node
+        					can be deleted if it is internal file)
+        :param content_root: string | real path to current node
+        :param xml_root: lxml.Element | current node in xml repr of path tree for TOCs
+        '''
+        current_node = node[key]
+        if type(current_node) != dict:
             if key == 'bundle.ecl':
-                parseBundle(self, node[key])
+                parseBundle(self, current_node)
                 return
-            ecl_file = node[key]
+            ecl_file = current_node
             parser = ParseXML(self, ecl_file)
             parser.parse()
             if parser.internal:
@@ -295,25 +381,27 @@ class GenXML(object):
             else:
                 file = etree.Element('file')
                 file.attrib['name'] = key + '.xml'
-                file.text = node[key]
+                file.text = current_node
                 xml_root.append(file)
         else:
-            child = node[key]
             folder = etree.Element('folder')
             xml_root.append(folder)
             folder.attrib['name'] = key
 
-            keys = list(child.keys())
-            for chkey in keys:
+            child_keys = list(current_node.keys())
+            for chkey in child_keys:
                 child_root = joinpath(content_root, chkey)
-                self.gen(chkey, child, folder, child_root)
+                self.gen(chkey, current_node, folder, child_root)
 
             os.makedirs(content_root, exist_ok=True)
             toc_file = joinpath(content_root, 'pkg.toc.xml')
             etree.ElementTree(folder).write(toc_file, pretty_print=True, xml_declaration=True, encoding='utf-8')
-            self.genJsonTree(child, content_root)
+            self.genJsonTree(current_node, content_root)
 
     def run(self):
+        '''
+        Main function called by ecldoc
+        '''
         print("\nGenerating XML Documentation ... ")
         self.processExternalDoc()
         root = etree.Element('Root')

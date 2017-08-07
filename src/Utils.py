@@ -2,6 +2,11 @@ import os
 
 ########################################################################
 
+def split(arg, sep, apply=lambda x : x) :
+    return [apply(x.strip()) for x in arg.split(sep) if len(x) != 0]
+
+########################################################################
+
 from jinja2 import contextfilter
 
 @contextfilter

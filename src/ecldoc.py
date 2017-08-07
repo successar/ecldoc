@@ -5,10 +5,8 @@ import glob
 import argparse
 import configparser
 from Utils import joinpath, relpath, realpath
+from Utils import split
 import genXML, genHTML, genTXT, genTEX
-
-def split(arg, sep, apply=lambda x : x) :
-    return [apply(x.strip()) for x in arg.split(sep) if len(x) != 0]
 
 generators = {
     'html' : genHTML.GenHTML,
@@ -16,7 +14,15 @@ generators = {
     'pdf'  : genTEX.GenTEX
 }
 
-def configParser(configfile, options) :
+def configParser(configfile) :
+    '''
+    Parse ecldoc options from configuration file (in INI Format) and append
+    them to options dictionary
+
+    :param configfile: path to configuration file
+    '''
+    options = {}
+
     cfgparser = configparser.ConfigParser()
     cfgparser.optionxform = str
     cfgparser.read(configfile)
@@ -55,9 +61,16 @@ def configParser(configfile, options) :
         paths = split(cfgparser['EXDOC']['paths'], sep=',')
         options['exdoc_paths'] = paths
 
-def argsParserEcldoc(args, options) :
+    return options
+
+def argsParserEcldoc(args) :
+    '''
+    Parse command line options and return as dictionary
+    :param args: command line args returned by builtin ArgumentParser
+    '''
+    options = {}
     if args.config is not None :
-        configParser(args.config, options)
+        options = configParser(args.config)
     else :
         options['input_root'] = args.iroot
         options['output_root'] = args.oroot
@@ -68,28 +81,34 @@ def argsParserEcldoc(args, options) :
         options['nointernal'] = args.hideInternal
         options['exdoc_paths'] = split(args.exdocpaths, ',', apply=lambda x : realpath(x))
         options['formats'] = split(args.format, ',', apply=lambda x : x.lower())
+    return options
 
 def doMain() :
+    '''
+    Main Function (Entry point for ECLDOC)
+    '''
     parser = argparse.ArgumentParser(description='Parser for ECLDOC')
     parser.add_argument('--config', help="Specify configuration file")
     parser.add_argument('-i', '--iroot', help="Specify input root")
     parser.add_argument('-o', '--oroot', help="Specify output root")
     parser.add_argument('-f', '--format', help="Specify output formats separated by , (eg html,text,pdf)", default='text')
-    parser.add_argument('--include', help="Specify include paths", default='**/*.ecl')
-    parser.add_argument('--exclude', help="Specify exclude paths", default='')
-    parser.add_argument('--eclcc', help="Specify eclcc Options", default='')
-    parser.add_argument('--exdocpaths', help="Specify External Documentation paths", default='')
+    parser.add_argument('--include', help="Specify include paths seprated by ','", default='**/*.ecl')
+    parser.add_argument('--exclude', help="Specify exclude paths seprataed by ','", default='')
+    parser.add_argument('--eclcc', help="Specify eclcc Options separated by ';'", default='')
+    parser.add_argument('--exdocpaths', help="Specify External Documentation paths separated by ','", default='')
     parser.add_argument('--hideNoDoc', help="Hide Definitions with No Documentation", action='store_true', default=False)
     parser.add_argument('--hideInternal', help="Hide Definitions with @internal tag", action='store_true', default=False)
     args = parser.parse_args()
     print(args)
 
-    options = {}
-    argsParserEcldoc(args, options)
+    options = argsParserEcldoc(args)
 
     assert options['input_root'] is not None
     assert options['output_root'] is not None
     print(options)
+
+    ### Apply include and exclude glob pattern to filter files in input root source tree
+    ### ecl_files : Paths to filtered files stored in ecl_files list
 
     ecl_files = []
     input_root = realpath(options['input_root'])
@@ -106,14 +125,21 @@ def doMain() :
         filenames = [relpath(f, input_root) for f in filenames]
         ecl_files = list(set(ecl_files) - set(filenames))
 
+    ### Check if output root present and create it if not
 
     output_root = realpath(options['output_root'])
     if not os.path.exists(output_root) :
         os.makedirs(output_root, exist_ok=True)
 
+    ### XML Intermediate format generator
+    ### ecl_file_tree : Source tree is recreated from paths in ecl_files by XML Generator
+    ###                 and filtered on basis of hideInternal and hideNoDoc
+
     xmlgenerator = genXML.GenXML(input_root, output_root, ecl_files, options)
     xmlgenerator.run()
     ecl_file_tree = xmlgenerator.ecl_file_tree
+
+    ### Generator is run for each format that is present in format option by user
 
     for f in options['formats'] :
         if f in generators :

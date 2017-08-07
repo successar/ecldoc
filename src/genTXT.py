@@ -46,6 +46,10 @@ from Taglets import taglets
 from tagTXT import tag_renders
 
 class ParseTXT(object) :
+    '''
+    Main class to generate TEXT Documentation for given ecl file
+    from its XML Repr
+    '''
     def __init__(self, generator, ecl_file) :
         self.xml_file = joinpath(generator.xml_root, ecl_file + '.xml')
         self.txt_file = joinpath(generator.txt_root, ecl_file + '.txt')
@@ -62,13 +66,14 @@ class ParseTXT(object) :
 
         for child in root.iter() :
             attribs = child.attrib
+            ### Convert links from XML FOrmat to TXT Format
             if 'target' in attribs :
                 attribs['target'] = re.sub(r'\$\$_ECLDOC-FORM_\$\$', 'txt', attribs['target'])
                 attribs['target'] = re.sub(r'\.xml$', '.txt', attribs['target'])
 
         self.parseSource()
 
-        render = self.template.render(src=src, render_dict=self.render_dict)
+        render = self.template.render(src=src, defn_tree=self.defn_tree)
         write_to_file(self.txt_file, render)
 
     def docstring(self) :
@@ -80,11 +85,11 @@ class ParseTXT(object) :
         return text
 
     def parseSource(self) :
-        self.render_dict = []
+        self.defn_tree = []
         for defn in self.src.findall('Definition') :
-            self.parseDefinition(defn, self.render_dict)
+            self.parseDefinition(defn, self.defn_tree)
 
-    def parseDefinition(self, defn, render_dict) :
+    def parseDefinition(self, defn, defn_tree) :
         headers = self.parseSign(defn)
         doc = self.parseDocs(defn)
         defn_dict = { 'headers' : headers, 'doc' : doc, 'defns' : [] }
@@ -92,7 +97,7 @@ class ParseTXT(object) :
         for childdefn in defn.findall('Definition') :
             self.parseDefinition(childdefn, defn_dict['defns'])
 
-        render_dict.append(defn_dict)
+        defn_tree.append(defn_dict)
 
     def parseSign(self, defn) :
         defn_type = defn.attrib['type']
@@ -128,6 +133,9 @@ class ParseTXT(object) :
 ############################################################################
 
 class GenTXT(object) :
+    '''
+    Generate TXT Documentation for all ecl files from XML Format
+    '''
     def __init__(self, input_root, output_root, ecl_file_tree, options) :
         self.input_root = input_root
         self.output_root = output_root
@@ -140,28 +148,37 @@ class GenTXT(object) :
         self.options = options
 
     def gen(self, key, node, content_root) :
-        if type(node[key]) != dict:
+        '''
+        Recursively parse source tree dictionary.
+        If current_node is file : parse file using parseTXT
+        Else If : current_node is directory : recurse and generate pkg.toc.txt for that dir
+                                              (optionally generate bundle info if present)
+        :param key: string | the name of current_node in path tree
+        :param node: dict | the parent tree of current_node
+        :param content_root: string | real path to current node in txt doc dir
+        '''
+        current_node = node[key]
+        if type(current_node) != dict:
             if key == 'bundle.ecl' :
                 return None
-            parser = ParseTXT(self, node[key])
+            parser = ParseTXT(self, current_node)
             parser.parse()
             file = { 'name' : key, 'target' : key + '.txt', 'type' : 'file', 'doc' : parser.docstring() }
             return file
         else :
-            child = node[key]
             file = { 'name' : key,'target': joinpath(key, 'pkg.toc.txt'), 'type': 'dir', 'doc' : '' }
 
             bundle = None
-            if 'bundle.ecl' in child :
-                bundle_xml_path = joinpath(self.xml_root, dirname(child['bundle.ecl']), 'bundle.xml')
+            if 'bundle.ecl' in current_node :
+                bundle_xml_path = joinpath(self.xml_root, dirname(current_node['bundle.ecl']), 'bundle.xml')
                 bundle = etree.parse(bundle_xml_path).getroot()
                 file['type'] = 'bundle'
 
             childfiles = []
-            keys = sorted(list(child.keys()), key=str.lower)
-            for chkey in keys :
+            child_keys = sorted(current_node.keys(), key=str.lower)
+            for chkey in child_keys :
                 child_root = joinpath(content_root, chkey)
-                child_dict = self.gen(chkey, child, child_root)
+                child_dict = self.gen(chkey, current_node, child_root)
                 if child_dict is not None : childfiles.append(child_dict)
 
             childfiles = sorted(childfiles, key=lambda x : x['type'])
@@ -173,5 +190,8 @@ class GenTXT(object) :
             return file
 
     def run(self) :
+        '''
+        Main function called by ecldoc
+        '''
         print("\nGenerating TEXT Documentation ... ")
         self.gen('root', self.ecl_file_tree, self.txt_root)

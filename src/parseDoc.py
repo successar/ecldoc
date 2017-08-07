@@ -125,6 +125,9 @@ def construct_type(ele) :
 ##########################################################
 
 def cleansign(text) :
+    '''
+    Remove irrelevant prefix and suffixes from signature
+    '''
     text = re.sub(r'^export', '', text, flags=re.I)
     text = re.sub(r'^shared', '', text, flags=re.I)
     text = re.sub(r':=$', '', text, flags=re.I)

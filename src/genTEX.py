@@ -52,16 +52,19 @@ from Taglets import taglets
 from tagTEX import tag_renders
 
 class ParseTEX(object) :
+    '''
+    Main class to generate TEX & PDF Documentation for given ecl file
+    from its XML Repr
+    '''
     def __init__(self, generator, ecl_file) :
-        self.tex_path = generator.tex_path
-        self.index_template = generator.index_template
         self.xml_file = joinpath(generator.xml_root, ecl_file + '.xml')
         self.tex_file = joinpath(generator.tex_root, ecl_file + '.tex')
-        self.template = generator.content_template
-        self.options = generator.options
+
         tex_relpath = relpath(self.tex_file, generator.tex_path)
         self.dirname = dirname(tex_relpath)
-        self.index_render_path = joinpath(generator.tex_root, ecl_file + '.tmp.tex')
+
+        self.template = generator.content_template
+        self.options = generator.options
 
         os.makedirs(dirname(self.tex_file), exist_ok=True)
 
@@ -80,17 +83,8 @@ class ParseTEX(object) :
         name = src.attrib['name'].split('.')
         self.parseSource()
 
-        render = self.template.render(name=name, src=src, render_dict=self.render_dict, up=('toc:'+self.dirname))
+        render = self.template.render(name=name, src=src, defn_tree=self.defn_tree, up=('toc:'+self.dirname))
         write_to_file(self.tex_file, render)
-
-        # start_path = relpath(self.tex_file, self.tex_path)
-        # render = self.index_template.render(root=start_path)
-        # write_to_file(self.index_render_path, render)
-
-        # subprocess.run(['pdflatex ' +
-        #               '-output-directory ' + self.dirname + ' ' +
-        #               relpath(self.index_render_path, self.tex_path)],
-        #               cwd=self.tex_path, shell=True)
 
     def docstring(self) :
         text = ''
@@ -101,17 +95,24 @@ class ParseTEX(object) :
         return text
 
     def parseSource(self) :
-        self.render_dict = []
+        '''
+        Append all Definitions under source tag into defn_tree
+        '''
+        self.defn_tree = []
         for defn in self.src.findall('Definition') :
             defn_dict = self.parseDefinition(defn)
-            self.render_dict.append(defn_dict)
+            self.defn_tree.append(defn_dict)
 
     def parseDefinition(self, defn) :
+        '''
+        Generate Dict representation of Definition for appending into defn_tree
+        '''
         sign = defn.find('Signature')
         doc = self.parseDocs(defn)
 
-        defn_dict = {'sign' : sign, 'doc' : doc, 'defns' : [], 'tag' : defn }
+        defn_dict = { 'tag' : defn, 'sign' : sign, 'doc' : doc, 'defns' : [] }
 
+        ### Append all Children of current Definition to defn_tree
         for childdefn in defn.findall('Definition') :
             child_dict = self.parseDefinition(childdefn)
             defn_dict['defns'].append(child_dict)
@@ -140,6 +141,9 @@ class ParseTEX(object) :
         return renders
 
 class GenTEX(object) :
+    '''
+    Generate TEX & PDF Documentation for all ecl files from XML Format
+    '''
     def __init__(self, input_root, output_root, ecl_file_tree, options) :
         self.input_root = input_root
         self.output_root = output_root
@@ -158,18 +162,26 @@ class GenTEX(object) :
         self.options = options
 
     def gen(self, key, node, content_root) :
-        if type(node[key]) != dict:
+        '''
+        Recursively parse source tree dictionary.
+        If current_node is file : parse file using parseTEX
+        Else If : current_node is directory : recurse and generate pkg.toc.tex for that dir
+                                              (optionally generate bundle info if present)
+        :param key: string | the name of current_node in path tree
+        :param node: dict | the parent tree of current_node
+        :param content_root: string | real path to current node in tex doc dir
+        '''
+        current_node = node[key]
+        if type(current_node) != dict:
             if key == 'bundle.ecl' :
                 return
-            parser = ParseTEX(self, node[key])
+            parser = ParseTEX(self, current_node)
             parser.parse()
             file = { 'name' : key, 'type' : 'file', 'doc' : parser.docstring() }
             file['target'] = relpath(parser.tex_file, self.tex_path)
             file['label'] = parser.src.attrib['name']
             return file
         else :
-            child = node[key]
-
             os.makedirs(content_root, exist_ok=True)
             render_path = joinpath(content_root, 'pkg.toc.tex')
             temptoc_render_path = joinpath(content_root, 'pkg.tmp.tex')
@@ -181,16 +193,16 @@ class GenTEX(object) :
             file = { 'name' : key, 'type': 'dir', 'doc' : '' , 'target' : target_relpath, 'label' : tex_relpath }
 
             bundle = None
-            if 'bundle.ecl' in child :
-                bundle_xml_path = joinpath(self.xml_root, dirname(child['bundle.ecl']), 'bundle.xml')
+            if 'bundle.ecl' in current_node :
+                bundle_xml_path = joinpath(self.xml_root, dirname(current_node['bundle.ecl']), 'bundle.xml')
                 bundle = etree.parse(bundle_xml_path).getroot()
                 file['type'] = 'bundle'
 
             childfiles = []
-            keys = sorted(child.keys(), key=str.lower)
-            for chkey in keys :
+            child_keys = sorted(current_node.keys(), key=str.lower)
+            for chkey in child_keys :
                 child_root = joinpath(content_root, chkey)
-                child_dict = self.gen(chkey, child, child_root)
+                child_dict = self.gen(chkey, current_node, child_root)
                 if child_dict is not None : childfiles.append(child_dict)
 
             childfiles = sorted(childfiles, key=lambda x : x['type'], reverse=True)
@@ -216,6 +228,9 @@ class GenTEX(object) :
             return file
 
     def run(self) :
+        '''
+        Main Function called by ECLDOC
+        '''
         print("\nGenerating PDF Documentation ... ")
         self.gen('root', self.ecl_file_tree, self.tex_root)
 

@@ -40,7 +40,7 @@ IMPORTS
 DESCRIPTIONS
 ============
 {{ '\n' }}
-{%- for def in render_dict recursive -%}
+{%- for def in defn_tree recursive -%}
 {{ desc(def)|indent_doc(loop.depth0, 3) }}
 {{ loop(def.defns) }}
 {%- endfor -%}

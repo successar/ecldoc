@@ -23,7 +23,7 @@
 \BLOCK{ endif }
 
 \section*{\underline{\textsf{DESCRIPTIONS}}}
-\BLOCK{ for def in render_dict recursive }
+\BLOCK{ for def in defn_tree recursive }
 \subsection*{\textsf{\colorbox{headtoc}{\color{white} \VAR{def.tag.attrib['type'].upper()}}
 \VAR{def.tag.attrib.name|escape_tex}}}
 
