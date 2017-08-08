@@ -43,7 +43,7 @@ def _break(text, CPL_E) :
 
 from parseDoc import getTags
 from Taglets import taglets
-from tagTXT import tag_renders
+from .tagTXT import tag_renders
 
 class ParseTXT(object) :
     '''

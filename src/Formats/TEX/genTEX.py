@@ -49,7 +49,7 @@ latex_jinja_env.filters['escape_tex'] = escape_tex
 
 from parseDoc import getTags
 from Taglets import taglets
-from tagTEX import tag_renders
+from .tagTEX import tag_renders
 
 class ParseTEX(object) :
     '''

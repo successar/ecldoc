@@ -20,7 +20,7 @@ html_jinja_env = jinja2.Environment(
 
 from parseDoc import getTags
 from Taglets import taglets
-from tagHTML import tag_renders
+from .tagHTML import tag_renders
 
 class ParseHTML(object) :
     '''

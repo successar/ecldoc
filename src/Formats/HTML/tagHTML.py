@@ -1,4 +1,4 @@
-from genHTML import html_jinja_env, HTML_TEMPLATE_DIR
+from .genHTML import html_jinja_env, HTML_TEMPLATE_DIR
 from Utils import call_macro_by_name, joinpath
 from parseDoc import construct_type
 

@@ -4,15 +4,12 @@ import os
 import glob
 import argparse
 import configparser
+
 from Utils import joinpath, relpath, realpath
 from Utils import split
-import genXML, genHTML, genTXT, genTEX
 
-generators = {
-    'html' : genHTML.GenHTML,
-    'text' : genTXT.GenTXT,
-    'pdf'  : genTEX.GenTEX
-}
+import genXML
+from Formats.generators import generators
 
 def configParser(configfile) :
     '''

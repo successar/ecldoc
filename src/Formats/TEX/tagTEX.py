@@ -1,4 +1,4 @@
-from genTEX import latex_jinja_env, TEX_TEMPLATE_DIR, escape_tex
+from .genTEX import latex_jinja_env, TEX_TEMPLATE_DIR, escape_tex
 from Utils import call_macro_by_name, joinpath
 from parseDoc import construct_type
 import lxml.html as H

@@ -1,5 +1,5 @@
 from parseDoc import construct_type
-from genTXT import CPL, _break
+from .genTXT import CPL, _break
 import lxml.html as H
 
 ##########################################################
