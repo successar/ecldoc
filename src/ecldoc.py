@@ -95,14 +95,19 @@ def doMain() :
     parser.add_argument('--exdocpaths', help="Specify External Documentation paths separated by ','", default='')
     parser.add_argument('--hideNoDoc', help="Hide Definitions with No Documentation", action='store_true', default=False)
     parser.add_argument('--hideInternal', help="Hide Definitions with @internal tag", action='store_true', default=False)
+
     args = parser.parse_args()
     print(args)
 
     options = argsParserEcldoc(args)
-
-    assert options['input_root'] is not None
-    assert options['output_root'] is not None
     print(options)
+
+    if options['input_root'] is None :
+        print("Input Root Not Found")
+        exit(1)
+    if options['output_root'] is None :
+        print("Output Root Not Found")
+        exit(1)
 
     ### Apply include and exclude glob pattern to filter files in input root source tree
     ### ecl_files : Paths to filtered files stored in ecl_files list

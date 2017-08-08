@@ -63,6 +63,11 @@ class ParseXML(object):
                              self.input_file], shell=True, cwd=self.input_root)
         print("ECLCC ||| File : ", self.ecl_file, " ||| Output Code : ", p)
 
+        if p > 0 :
+            print("ECLCC Error : Removing file from documentation source tree")
+            self.internal = True
+            return
+
         tree = etree.parse(self.xml_orig_file)
         root = tree.getroot()
 
