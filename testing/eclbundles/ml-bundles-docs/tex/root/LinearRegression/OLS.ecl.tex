@@ -257,8 +257,8 @@ Predict the dependent variable values (Y) for any set of independent variables (
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{newX}} ||| TABLE ( NumericField ) --- The set of observations of independent variables in DATASET(NumericField) format.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{model}} ||| TABLE ( Layout\_Model ) --- Optional. A model that was previously returned from GetModel (above). Note that a model from a previous run will only be valid if the field numbers in X are the same as when the model was learned. If this parameter is omitted, the current model will be used.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{newX}} ||| TABLE ( NumericField ) --- The set of observations of independent variables in DATASET(NumericField) format.
 \end{description}
 
 
@@ -402,18 +402,18 @@ No Documentation Found
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{model\_f}} ||| REAL8 --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{error\_ss}} ||| REAL8 --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{total\_ss}} ||| REAL8 --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{wi}} ||| UNSIGNED2 --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{error\_ms}} ||| REAL8 --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{error\_df}} ||| UNSIGNED8 --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{model\_ms}} ||| REAL8 --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{total\_df}} ||| UNSIGNED8 --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{model\_ss}} ||| REAL8 --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{model\_df}} ||| UNSIGNED8 --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{total\_ms}} ||| REAL8 --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{number}} ||| UNSIGNED4 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{error\_ss}} ||| REAL8 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{total\_df}} ||| UNSIGNED8 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{total\_ms}} ||| REAL8 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{error\_df}} ||| UNSIGNED8 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{error\_ms}} ||| REAL8 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{model\_ms}} ||| REAL8 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{model\_ss}} ||| REAL8 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{wi}} ||| UNSIGNED2 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{model\_f}} ||| REAL8 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{total\_ss}} ||| REAL8 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{model\_df}} ||| UNSIGNED8 --- No Doc
 \end{description}
 
 
@@ -652,9 +652,9 @@ No Documentation Found
 
 \par
 \begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{number}} ||| UNSIGNED4 --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{aic}} ||| REAL8 --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{wi}} ||| UNSIGNED2 --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{number}} ||| UNSIGNED4 --- No Doc
 \end{description}
 
 
@@ -731,9 +731,9 @@ No Documentation Found
 \par
 \begin{description}
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{p}} ||| REAL8 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{rangenumber}} ||| UNSIGNED8 --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{rangehigh}} ||| REAL8 --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{rangelow}} ||| REAL8 --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{rangenumber}} ||| UNSIGNED8 --- No Doc
 \end{description}
 
 
@@ -1277,8 +1277,8 @@ No Documentation Found
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{v\_in}} ||| INTEGER4 --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{nranges}} ||| UNSIGNED8 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{v\_in}} ||| INTEGER4 --- No Doc
 \end{description}
 
 
@@ -1883,8 +1883,8 @@ No Documentation Found
 \par
 \begin{description}
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{d1\_in}} ||| INTEGER4 --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{nranges}} ||| UNSIGNED8 --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{d2\_in}} ||| INTEGER4 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{nranges}} ||| UNSIGNED8 --- No Doc
 \end{description}
 
 
@@ -3129,11 +3129,11 @@ No Documentation Found
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{lowerint}} ||| REAL8 --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{upperint}} ||| REAL8 --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{id}} ||| UNSIGNED8 --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{wi}} ||| UNSIGNED2 --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{number}} ||| UNSIGNED4 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{upperint}} ||| REAL8 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{wi}} ||| UNSIGNED2 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{lowerint}} ||| REAL8 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{id}} ||| UNSIGNED8 --- No Doc
 \end{description}
 
 
@@ -3220,10 +3220,10 @@ No Documentation Found
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{model\_f}} ||| REAL8 --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{pvalue}} ||| REAL8 --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{wi}} ||| UNSIGNED2 --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{number}} ||| UNSIGNED4 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{wi}} ||| UNSIGNED2 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{pvalue}} ||| REAL8 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{model\_f}} ||| REAL8 --- No Doc
 \end{description}
 
 

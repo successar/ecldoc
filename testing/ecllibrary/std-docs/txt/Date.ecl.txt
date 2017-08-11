@@ -74,15 +74,15 @@ No Documentation Found
   | 
   | No Documentation Found
   | 
-  | Field : month UNSIGNED1 --- No Doc
-  | 
   | Field : day UNSIGNED1 --- No Doc
   | 
   | Field : second UNSIGNED1 --- No Doc
   | 
-  | Field : year INTEGER2 --- No Doc
-  | 
   | Field : minute UNSIGNED1 --- No Doc
+  | 
+  | Field : month UNSIGNED1 --- No Doc
+  | 
+  | Field : year INTEGER2 --- No Doc
   | 
   | Field : hour UNSIGNED1 --- No Doc
   | 
@@ -190,20 +190,20 @@ No Documentation Found
   | Combines date and time components to create a seconds type. The date must
   | be represented within the Gregorian calendar after the year 1600.
   | 
+  | Parameter : day UNSIGNED1 --- The day (1..daysInMonth).
+  | 
+  | Parameter : second UNSIGNED1 --- The second (0-59).
+  | 
   | Parameter : is_local_time BOOLEAN --- TRUE if the datetime components are
   |                           expressed in local time rather than UTC, FALSE if
   |                           the components are expressed in UTC. Optional,
   |                           defaults to FALSE.
   | 
+  | Parameter : minute UNSIGNED1 --- The minute (0-59).
+  | 
   | Parameter : month UNSIGNED1 --- The month (1-12).
   | 
-  | Parameter : day UNSIGNED1 --- The day (1..daysInMonth).
-  | 
-  | Parameter : second UNSIGNED1 --- The second (0-59).
-  | 
   | Parameter : year INTEGER2 --- The year (1601-30827).
-  | 
-  | Parameter : minute UNSIGNED1 --- The minute (0-59).
   | 
   | Parameter : hour UNSIGNED1 --- The hour (0-23).
   | 
@@ -672,13 +672,13 @@ No Documentation Found
   | 
   | Combines the date and time fields from a DateTime_rec to create a Seconds_t
   | 
+  | Parameter : datetime ROW ( DateTime_rec ) --- The row containing the
+  |                      datetime.
+  | 
   | Parameter : is_local_time BOOLEAN --- TRUE if the datetime components are
   |                           expressed in local time rather than UTC, FALSE if
   |                           the components are expressed in UTC. Optional,
   |                           defaults to FALSE.
-  | 
-  | Parameter : datetime ROW ( DateTime_rec ) --- The row containing the
-  |                      datetime.
   | 
   | Return : INTEGER8 A Seconds_t representing the combined
   |          values.
@@ -691,10 +691,10 @@ No Documentation Found
   | resulting date must be representable within the Gregorian calendar after
   | the year 1600.
   | 
+  | Parameter : date_text STRING --- The string to be converted.
+  | 
   | Parameter : format VARSTRING --- The format of the input string. (See
   |                    documentation for strftime)
-  | 
-  | Parameter : date_text STRING --- The string to be converted.
   | 
   | Return : UNSIGNED4 The date that was matched in the string.
   |          Returns 0 if failed to match or if the date
@@ -716,10 +716,10 @@ No Documentation Found
   | 
   | Converts a string to a date using the relevant string format.
   | 
+  | Parameter : date_text STRING --- The string to be converted.
+  | 
   | Parameter : format VARSTRING --- The format of the input string. (See
   |                    documentation for strftime)
-  | 
-  | Parameter : date_text STRING --- The string to be converted.
   | 
   | Return : UNSIGNED4 The date that was matched in the string.
   |          Returns 0 if failed to match.
@@ -730,10 +730,10 @@ No Documentation Found
   | 
   | Converts a string to a Time_t using the relevant string format.
   | 
+  | Parameter : date_text  --- The string to be converted.
+  | 
   | Parameter : format VARSTRING --- The format of the input string. (See
   |                    documentation for strftime)
-  | 
-  | Parameter : date_text  --- The string to be converted.
   | 
   | Parameter : time_text STRING --- No Doc
   | 
@@ -750,11 +750,11 @@ No Documentation Found
   | Matches a string against a set of date string formats and returns a valid
   | Date_t object from the first format that successfully parses the string.
   | 
+  | Parameter : date_text STRING --- The string to be converted.
+  | 
   | Parameter : formats SET ( VARSTRING ) --- A set of formats to check
   |                     against the string. (See documentation for
   |                     strftime)
-  | 
-  | Parameter : date_text STRING --- The string to be converted.
   | 
   | Return : UNSIGNED4 The date that was matched in the string.
   |          Returns 0 if failed to match.
@@ -766,11 +766,11 @@ No Documentation Found
   | Matches a string against a set of time string formats and returns a valid
   | Time_t object from the first format that successfully parses the string.
   | 
+  | Parameter : time_text STRING --- The string to be converted.
+  | 
   | Parameter : formats SET ( VARSTRING ) --- A set of formats to check
   |                     against the string. (See documentation for
   |                     strftime)
-  | 
-  | Parameter : time_text STRING --- The string to be converted.
   | 
   | Return : UNSIGNED3 The time that was matched in the string.
   |          Returns 0 if failed to match.
@@ -781,13 +781,13 @@ No Documentation Found
   | 
   | Formats a date as a string.
   | 
+  | Parameter : date UNSIGNED4 --- The date to be converted.
+  | 
   | Parameter : format VARSTRING --- The format template to use for the
   |                    conversion; see strftime() for appropriate values.
   |                    The maximum length of the resulting string is 255
   |                    characters. Optional; defaults to '%Y-%m-%d' which
   |                    is YYYY-MM-DD.
-  | 
-  | Parameter : date UNSIGNED4 --- The date to be converted.
   | 
   | Return : STRING Blank if date cannot be formatted, or the
   |          date in the requested format.
@@ -816,13 +816,13 @@ No Documentation Found
   | Converts a Seconds_t value into a human-readable string using a format
   | template.
   | 
+  | Parameter : seconds INTEGER8 --- The seconds since epoch.
+  | 
   | Parameter : format VARSTRING --- The format template to use for the
   |                    conversion; see strftime() for appropriate values.
   |                    The maximum length of the resulting string is 255
   |                    characters. Optional; defaults to
   |                    '%Y-%m-%dT%H:%M:%S' which is YYYY-MM-DDTHH:MM:SS.
-  | 
-  | Parameter : seconds INTEGER8 --- The seconds since epoch.
   | 
   | Return : STRING The converted seconds as a string.
   | 
@@ -832,10 +832,10 @@ No Documentation Found
   | 
   | Formats a date as a string.
   | 
+  | Parameter : date UNSIGNED4 --- The date to be converted.
+  | 
   | Parameter : format VARSTRING --- The format the date is output in.
   |                    (See documentation for strftime)
-  | 
-  | Parameter : date UNSIGNED4 --- The date to be converted.
   | 
   | Return : STRING Blank if date cannot be formatted, or the
   |          date in the requested format.
@@ -847,14 +847,14 @@ No Documentation Found
   | 
   | Converts a date from one format to another
   | 
-  | Parameter : to_format VARSTRING --- The format the date is to be
-  |                       converted to.
-  | 
   | Parameter : from_format VARSTRING --- The format the date is to be
   |                         converted from.
   | 
   | Parameter : date_text STRING --- The string containing the date to be
   |                       converted.
+  | 
+  | Parameter : to_format VARSTRING --- The format the date is to be
+  |                       converted to.
   | 
   | Return : STRING The converted string, or blank if it failed
   |          to match the format.
@@ -866,14 +866,14 @@ No Documentation Found
   | 
   | Converts a date from one format to another
   | 
-  | Parameter : to_format VARSTRING --- The format the date is to be
-  |                       converted to.
-  | 
   | Parameter : from_format VARSTRING --- The format the date is to be
   |                         converted from.
   | 
   | Parameter : date_text STRING --- The string containing the date to be
   |                       converted.
+  | 
+  | Parameter : to_format VARSTRING --- The format the date is to be
+  |                       converted to.
   | 
   | Return : STRING The converted string, or blank if it failed
   |          to match the format.
@@ -885,14 +885,14 @@ No Documentation Found
   | 
   | Converts a time from one format to another
   | 
-  | Parameter : to_format VARSTRING --- The format the time is to be
-  |                       converted to.
+  | Parameter : time_text STRING --- The string containing the time to be
+  |                       converted.
   | 
   | Parameter : from_format VARSTRING --- The format the time is to be
   |                         converted from.
   | 
-  | Parameter : time_text STRING --- The string containing the time to be
-  |                       converted.
+  | Parameter : to_format VARSTRING --- The format the time is to be
+  |                       converted to.
   | 
   | Return : STRING The converted string, or blank if it failed
   |          to match the format.
@@ -907,11 +907,11 @@ No Documentation Found
   | Parameter : to_format VARSTRING --- The format the date is to be
   |                       converted to.
   | 
-  | Parameter : from_formats SET ( VARSTRING ) --- The list of formats the date
-  |                          is to be converted from.
-  | 
   | Parameter : date_text STRING --- The string containing the date to be
   |                       converted.
+  | 
+  | Parameter : from_formats SET ( VARSTRING ) --- The list of formats the date
+  |                          is to be converted from.
   | 
   | Return : STRING The converted string, or blank if it failed
   |          to match the format.
@@ -926,11 +926,11 @@ No Documentation Found
   | Parameter : to_format VARSTRING --- The format the date is to be
   |                       converted to.
   | 
-  | Parameter : from_formats SET ( VARSTRING ) --- The list of formats the date
-  |                          is to be converted from.
-  | 
   | Parameter : date_text STRING --- The string containing the date to be
   |                       converted.
+  | 
+  | Parameter : from_formats SET ( VARSTRING ) --- The list of formats the date
+  |                          is to be converted from.
   | 
   | Return : STRING The converted string, or blank if it failed
   |          to match the format.
@@ -942,14 +942,14 @@ No Documentation Found
   | 
   | Converts a time that matches one of a set of formats to another.
   | 
+  | Parameter : time_text STRING --- The string containing the time to be
+  |                       converted.
+  | 
   | Parameter : to_format VARSTRING --- The format the time is to be
   |                       converted to.
   | 
   | Parameter : from_formats SET ( VARSTRING ) --- The list of formats the time
   |                          is to be converted from.
-  | 
-  | Parameter : time_text STRING --- The string containing the time to be
-  |                       converted.
   | 
   | Return : STRING The converted string, or blank if it failed
   |          to match the format.
@@ -964,16 +964,16 @@ No Documentation Found
   | the new calculated date is invalid then it will be normalized according to
   | mktime() rules. Example: 20140130 + 1 month = 20140302.
   | 
+  | Parameter : date UNSIGNED4 --- The date to adjust.
+  | 
   | Parameter : year_delta INTEGER2 --- The requested change to the year
   |                        value; optional, defaults to zero.
   | 
-  | Parameter : date UNSIGNED4 --- The date to adjust.
+  | Parameter : month_delta INTEGER4 --- The requested change to the month
+  |                         value; optional, defaults to zero.
   | 
   | Parameter : day_delta INTEGER4 --- The requested change to the day of
   |                       month value; optional, defaults to zero.
-  | 
-  | Parameter : month_delta INTEGER4 --- The requested change to the month
-  |                         value; optional, defaults to zero.
   | 
   | Return : UNSIGNED4 The adjusted Date_t value.
   | 
@@ -1002,16 +1002,16 @@ No Documentation Found
   | values. If the new calculated time is invalid then it will be normalized
   | according to mktime() rules.
   | 
-  | Parameter : time UNSIGNED3 --- The time to adjust.
+  | Parameter : second_delta INTEGER4 --- The requested change to the second of
+  |                          month value; optional, defaults to zero.
   | 
-  | Parameter : hour_delta INTEGER2 --- The requested change to the hour
-  |                        value; optional, defaults to zero.
+  | Parameter : time UNSIGNED3 --- The time to adjust.
   | 
   | Parameter : minute_delta INTEGER4 --- The requested change to the minute
   |                          value; optional, defaults to zero.
   | 
-  | Parameter : second_delta INTEGER4 --- The requested change to the second of
-  |                          month value; optional, defaults to zero.
+  | Parameter : hour_delta INTEGER2 --- The requested change to the hour
+  |                        value; optional, defaults to zero.
   | 
   | Return : UNSIGNED3 The adjusted Time_t value.
   | 
@@ -1048,10 +1048,13 @@ No Documentation Found
   | Parameter : hour_delta INTEGER4 --- The requested change to the hour
   |                        value; optional, defaults to zero.
   | 
+  | Parameter : seconds INTEGER8 --- The number of seconds to adjust.
+  | 
   | Parameter : year_delta INTEGER2 --- The requested change to the year
   |                        value; optional, defaults to zero.
   | 
-  | Parameter : seconds INTEGER8 --- The number of seconds to adjust.
+  | Parameter : second_delta INTEGER4 --- The requested change to the second of
+  |                          month value; optional, defaults to zero.
   | 
   | Parameter : minute_delta INTEGER4 --- The requested change to the minute
   |                          value; optional, defaults to zero.
@@ -1061,9 +1064,6 @@ No Documentation Found
   | 
   | Parameter : day_delta INTEGER4 --- The requested change to the day of
   |                       month value; optional, defaults to zero.
-  | 
-  | Parameter : second_delta INTEGER4 --- The requested change to the second of
-  |                          month value; optional, defaults to zero.
   | 
   | Return : INTEGER8 The adjusted Seconds_t value.
   | 
@@ -1085,17 +1085,17 @@ No Documentation Found
   | 31, 2014 + 1 month will result in Feb. 28, 2014; Jan. 31, 2014 + 1 month +
   | 1 day will result in Mar. 1, 2014.
   | 
-  | Parameter : year_delta INTEGER2 --- The requested change to the year
-  |                        value; optional, defaults to zero.
-  | 
   | Parameter : date UNSIGNED4 --- The date to adjust, in the Gregorian
   |                  calendar after 1600.
   | 
-  | Parameter : day_delta INTEGER4 --- The requested change to the day
-  |                       value; optional, defaults to zero.
+  | Parameter : year_delta INTEGER2 --- The requested change to the year
+  |                        value; optional, defaults to zero.
   | 
   | Parameter : month_delta INTEGER4 --- The requested change to the month
   |                         value; optional, defaults to zero.
+  | 
+  | Parameter : day_delta INTEGER4 --- The requested change to the day
+  |                       value; optional, defaults to zero.
   | 
   | Return : UNSIGNED4 The adjusted Date_t value.
   | 
@@ -1251,13 +1251,13 @@ No Documentation Found
   | Tests whether a date is valid, both by range-checking the year and by
   | validating each of the other individual components.
   | 
-  | Parameter : yearUpperBound INTEGER2 --- The maximum acceptable year.
-  |                            Optional; defaults to 2100.
-  | 
   | Parameter : date UNSIGNED4 --- The date to validate.
   | 
   | Parameter : yearLowerBound INTEGER2 --- The minimum acceptable year.
   |                            Optional; defaults to 1800.
+  | 
+  | Parameter : yearUpperBound INTEGER2 --- The maximum acceptable year.
+  |                            Optional; defaults to 2100.
   | 
   | Return : BOOLEAN TRUE if the date is valid, FALSE
   |          otherwise.
@@ -1344,15 +1344,15 @@ No Documentation Found
   | 
   | A transform to create a DateTime_rec from the individual elements
   | 
-  | Parameter : month UNSIGNED1 --- The month (1-12).
-  | 
   | Parameter : day UNSIGNED1 --- The day (1..daysInMonth).
   | 
   | Parameter : second UNSIGNED1 --- The second (0-59).
   | 
-  | Parameter : year INTEGER2 --- The year
-  | 
   | Parameter : minute UNSIGNED1 --- The minute (0-59).
+  | 
+  | Parameter : month UNSIGNED1 --- The month (1-12).
+  | 
+  | Parameter : year INTEGER2 --- The year
   | 
   | Parameter : hour UNSIGNED1 --- The hour (0-23).
   | 

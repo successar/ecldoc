@@ -229,9 +229,9 @@ A record containing information about filename. Includes name, size and when las
 
 \par
 \begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{name}} ||| STRING --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{size}} ||| INTEGER8 --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{modified}} ||| STRING19 --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{name}} ||| STRING --- No Doc
 \end{description}
 
 
@@ -345,15 +345,25 @@ A record containing information about a logical file.
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{size}} ||| INTEGER8 --- Number of bytes in the file (before compression)
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{rowcount}} ||| INTEGER8 --- Number of rows in the file.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{size}} ||| INTEGER8 --- Number of bytes in the file (before compression)
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{superfile}} ||| BOOLEAN --- Is this a superfile?
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{cluster}} ||| STRING --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{modified}} ||| STRING19 --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{owner}} ||| STRING --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{name}} ||| STRING --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{modified}} ||| STRING19 --- No Doc
 \end{description}
 
+
+
+
+
+
+
+\par
+\begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{OWNER}}}] The username of the owner who ran the job to create this file.
+\end{description}
 
 
 
@@ -370,21 +380,11 @@ A record containing information about a logical file.
 
 
 
+
 \par
 \begin{description}
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{MODIFIED}}}] Timestamp when the file was last modified;
 \end{description}
-
-
-
-
-
-
-\par
-\begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{OWNER}}}] The username of the owner who ran the job to create this file.
-\end{description}
-
 
 
 
@@ -468,14 +468,14 @@ A record containing information about the relationship between two files.
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{secondaryfile}} ||| STRING --- The logical filename of the secondary file.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{secondaryflds}} ||| STRING --- The name of the foreign key field relating to the primary file.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{payload}} ||| BOOLEAN --- Indicates whether the primary or secondary are payload INDEXes.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{primaryflds}} ||| STRING --- The name of the primary key field for the primary file. The value ''\_\_fileposition\_\_'' indicates the secondary is an INDEX that must use FETCH to access non-keyed fields.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{kind}} ||| STRING --- The type of relationship between the primary and secondary files. Containing either 'link' or 'view'.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{secondaryfile}} ||| STRING --- The logical filename of the secondary file.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{primaryfile}} ||| STRING --- The logical filename of the primary file
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{cardinality}} ||| STRING --- The cardinality of the relationship. The format is <primary>:<secondary>. Valid values are ''1'' or ''M''.</secondary></primary>
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{primaryflds}} ||| STRING --- The name of the primary key field for the primary file. The value ''\_\_fileposition\_\_'' indicates the secondary is an INDEX that must use FETCH to access non-keyed fields.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{description}} ||| STRING --- The description of the relationship.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{kind}} ||| STRING --- The type of relationship between the primary and secondary files. Containing either 'link' or 'view'.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{cardinality}} ||| STRING --- The cardinality of the relationship. The format is <primary>:<secondary>. Valid values are ''1'' or ''M''.</secondary></primary>
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{FIELD}}}] \textbf{\underline{payload}} ||| BOOLEAN --- Indicates whether the primary or secondary are payload INDEXes.
 \end{description}
 
 
@@ -816,8 +816,8 @@ Changes the name of a logical file.
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{newname}} ||| VARSTRING --- The new logical name of the file.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{oldname}} ||| VARSTRING --- The current name of the file to be renamed.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{newname}} ||| VARSTRING --- The new logical name of the file.
 \end{description}
 
 
@@ -866,9 +866,9 @@ Returns a logical filename that can be used to refer to a logical file in a loca
 
 \par
 \begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{name}} ||| VARSTRING --- The logical name of the file.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{abspath}} ||| BOOLEAN --- Should a tilde (\~{}) be prepended to the resulting logical file name. Defaults to FALSE.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{foreigndali}} ||| VARSTRING --- The IP address of the foreign dali used to resolve the file. If blank then the file is resolved locally. Defaults to blank.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{name}} ||| VARSTRING --- The logical name of the file.
 \end{description}
 
 
@@ -917,9 +917,9 @@ Returns an encoded logical filename that can be used to refer to a external file
 
 \par
 \begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{location}} ||| VARSTRING --- The IP address of the remote machine. '.' can be used for the local machine.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{abspath}} ||| BOOLEAN --- Should a tilde (\~{}) be prepended to the resulting logical file name. Defaults to TRUE.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{path}} ||| VARSTRING --- The path/name of the file on the remote machine.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{location}} ||| VARSTRING --- The IP address of the remote machine. '.' can be used for the local machine.
 \end{description}
 
 
@@ -1067,10 +1067,10 @@ Returns a dataset containing a list of files from the specified machineIP and di
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{directory}} |||  --- The path to the directory to read. This must be in the appropriate format for the operating system running on the remote machine.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{recurse}} ||| BOOLEAN --- Whether to include files from subdirectories under the directory. Defaults to FALSE.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{machineIP}} ||| VARSTRING --- The IP address of the remote machine.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{mask}} ||| VARSTRING --- The filemask specifying which files to include in the result. Defaults to '*' (all files).
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{recurse}} ||| BOOLEAN --- Whether to include files from subdirectories under the directory. Defaults to FALSE.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{directory}} |||  --- The path to the directory to read. This must be in the appropriate format for the operating system running on the remote machine.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{dir}} ||| VARSTRING --- No Doc
 \end{description}
 
@@ -1120,11 +1120,11 @@ Returns a dataset of information about the logical files known to the system.
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{namepattern}} ||| VARSTRING --- The mask of the files to list. Defaults to '*' (all files).
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{includesuper}} ||| BOOLEAN --- Whether to include SuperFiles. Defaults to FALSE.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{unknownszero}} ||| BOOLEAN --- Whether to set file sizes that are unknown to zero(0) instead of minus-one (-1). Defaults to FALSE.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{namepattern}} ||| VARSTRING --- The mask of the files to list. Defaults to '*' (all files).
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{includenormal}} ||| BOOLEAN --- Whether to include 'normal' files. Defaults to TRUE.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{foreigndali}} ||| VARSTRING --- The IP address of the foreign dali used to resolve the file. If blank then the file is resolved locally. Defaults to blank.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{unknownszero}} ||| BOOLEAN --- Whether to set file sizes that are unknown to zero(0) instead of minus-one (-1). Defaults to FALSE.
 \end{description}
 
 
@@ -1173,12 +1173,12 @@ Compares two files, and returns a result indicating how well they match.
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{logical\_only}} ||| BOOLEAN --- Whether to only compare logical information in the system datastore (Dali), and ignore physical information on disk. [Default TRUE]
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{use\_crcs}} ||| BOOLEAN --- Whether to compare physical CRCs of all the parts on disk. This may be slow on large files. Defaults to FALSE.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{file2}} |||  --- The logical name of the second file.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{file1}} |||  --- The logical name of the first file.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{lfn2}} ||| VARSTRING --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{file2}} |||  --- The logical name of the second file.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{logical\_only}} ||| BOOLEAN --- Whether to only compare logical information in the system datastore (Dali), and ignore physical information on disk. [Default TRUE]
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{lfn1}} ||| VARSTRING --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{lfn2}} ||| VARSTRING --- No Doc
 \end{description}
 
 
@@ -1227,8 +1227,8 @@ Checks the system datastore (Dali) information for the file against the physical
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{use\_crcs}} |||  --- Whether to compare physical CRCs of all the parts on disk. This may be slow on large files.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{lfn}} ||| VARSTRING --- The name of the file to check.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{use\_crcs}} |||  --- Whether to compare physical CRCs of all the parts on disk. This may be slow on large files.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{usecrcs}} ||| BOOLEAN --- No Doc
 \end{description}
 
@@ -1278,17 +1278,17 @@ Defines the relationship between two files. These may be DATASETs or INDEXes. Ea
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{primaryfields}} |||  --- The name of the primary key field for the primary file. The value ''\_\_fileposition\_\_'' indicates the secondary is an INDEX that must use FETCH to access non-keyed fields.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{relationship}} |||  --- The type of relationship between the primary and secondary files. Containing either 'link' or 'view'. Default is ''link''.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{primary}} ||| VARSTRING --- The logical filename of the primary file.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{secondaryfields}} |||  --- The name of the foreign key field relating to the primary file.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{secondary}} ||| VARSTRING --- The logical filename of the secondary file.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{cardinality}} ||| VARSTRING --- The cardinality of the relationship. The format is <primary>:<secondary>. Valid values are ''1'' or ''M''.</secondary></primary>
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{primary}} ||| VARSTRING --- The logical filename of the primary file.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{relationship}} |||  --- The type of relationship between the primary and secondary files. Containing either 'link' or 'view'. Default is ''link''.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{payload}} ||| BOOLEAN --- Indicates whether the primary or secondary are payload INDEXes.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{primaryfields}} |||  --- The name of the primary key field for the primary file. The value ''\_\_fileposition\_\_'' indicates the secondary is an INDEX that must use FETCH to access non-keyed fields.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{description}} ||| VARSTRING --- The description of the relationship.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{cardinality}} ||| VARSTRING --- The cardinality of the relationship. The format is <primary>:<secondary>. Valid values are ''1'' or ''M''.</secondary></primary>
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{payload}} ||| BOOLEAN --- Indicates whether the primary or secondary are payload INDEXes.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{secondaryflds}} ||| VARSTRING --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{kind}} ||| VARSTRING --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{primaryflds}} ||| VARSTRING --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{kind}} ||| VARSTRING --- No Doc
 \end{description}
 
 
@@ -1337,11 +1337,11 @@ Returns a dataset of relationships. The return records are structured in the FsF
 
 \par
 \begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{primaryfields}} |||  --- The name of the primary key field for the primary file.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{relationship}} |||  --- The type of relationship between the primary and secondary files. Containing either 'link' or 'view'. Default is ''link''.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{primary}} ||| VARSTRING --- The logical filename of the primary file.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{secondaryfields}} |||  --- The name of the foreign key field relating to the primary file.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{relationship}} |||  --- The type of relationship between the primary and secondary files. Containing either 'link' or 'view'. Default is ''link''.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{secondary}} ||| VARSTRING --- The logical filename of the secondary file.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{primaryfields}} |||  --- The name of the primary key field for the primary file.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{secondaryflds}} ||| VARSTRING --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{kind}} ||| VARSTRING --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{primflds}} ||| VARSTRING --- No Doc
@@ -1393,11 +1393,11 @@ Removes a relationship between two files.
 
 \par
 \begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{primaryfields}} |||  --- The name of the primary key field for the primary file.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{relationship}} |||  --- The type of relationship between the primary and secondary files. Containing either 'link' or 'view'. Default is ''link''.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{primary}} ||| VARSTRING --- The logical filename of the primary file.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{secondaryfields}} |||  --- The name of the foreign key field relating to the primary file.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{relationship}} |||  --- The type of relationship between the primary and secondary files. Containing either 'link' or 'view'. Default is ''link''.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{secondary}} ||| VARSTRING --- The logical filename of the secondary file.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{primaryfields}} |||  --- The name of the primary key field for the primary file.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{secondaryflds}} ||| VARSTRING --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{kind}} ||| VARSTRING --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{primaryflds}} ||| VARSTRING --- No Doc
@@ -1548,8 +1548,8 @@ Returns a string that can be used in a DATASET declaration to read data from an 
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{query}} ||| VARSTRING --- The text of the query to send to the server
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{server}} ||| VARSTRING --- A string containing the ip:port address for the remote file server.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{query}} ||| VARSTRING --- The text of the query to send to the server
 \end{description}
 
 
@@ -1598,8 +1598,8 @@ Sends the query to the rfs server.
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{query}} ||| VARSTRING --- The text of the query to send to the server
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{server}} ||| VARSTRING --- A string containing the ip:port address for the remote file server.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{query}} ||| VARSTRING --- The text of the query to send to the server
 \end{description}
 
 
@@ -1699,8 +1699,8 @@ Removes a single physical file from a remote machine. The dafileserv utility pro
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{path}} ||| VARSTRING --- The path/name of the file to remove.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{location}} ||| VARSTRING --- The IP address of the remote machine.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{path}} ||| VARSTRING --- The path/name of the file to remove.
 \end{description}
 
 
@@ -1749,8 +1749,8 @@ Creates the path on the location (if it does not already exist). The dafileserv 
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{path}} ||| VARSTRING --- The path/name of the file to remove.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{location}} ||| VARSTRING --- The IP address of the remote machine.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{path}} ||| VARSTRING --- The path/name of the file to remove.
 \end{description}
 
 
@@ -1799,8 +1799,8 @@ Returns the value of the given attribute for the specified logicalfilename.
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{attrname}} ||| VARSTRING --- The name of the file attribute to return.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{lfn}} ||| VARSTRING --- The name of the logical file.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{attrname}} ||| VARSTRING --- The name of the file attribute to return.
 \end{description}
 
 
@@ -1849,8 +1849,8 @@ Toggles protection on and off for the specified logicalfilename.
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{value}} ||| BOOLEAN --- TRUE to enable protection, FALSE to disable.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{lfn}} ||| VARSTRING --- The name of the logical file.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{value}} ||| BOOLEAN --- TRUE to enable protection, FALSE to disable.
 \end{description}
 
 
@@ -1948,19 +1948,19 @@ Sprays a file of fixed length records from a single machine and distributes it a
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{expireDays}} ||| INTEGER4 --- Number of days to auto-remove file. Default is -1, not expire.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{failIfNoSourceFile}} ||| BOOLEAN --- If TRUE it causes a missing source file to trigger a failure. Defaults to FALSE.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{recordsize}} ||| INTEGER4 --- The size (in bytes) of the records in the file.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{compress}} ||| BOOLEAN --- Whether to compress the new file. Defaults to FALSE.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{destinationGroup}} ||| VARSTRING --- The name of the group to distribute the file across.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{timeOut}} ||| INTEGER4 --- The time in ms to wait for the operation to complete. A value of 0 causes the call to return immediately. Defaults to no timeout (-1).
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{replicate}} ||| BOOLEAN --- Whether to replicate the new file. Defaults to FALSE.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourceIP}} ||| VARSTRING --- The IP address of the file.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourcePath}} ||| VARSTRING --- The path and name of the file.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{destinationLogicalName}} ||| VARSTRING --- The logical name of the file to create.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{maxConnections}} ||| INTEGER4 --- The maximum number of target nodes to write to concurrently. Defaults to 1.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{expireDays}} ||| INTEGER4 --- Number of days to auto-remove file. Default is -1, not expire.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{failIfNoSourceFile}} ||| BOOLEAN --- If TRUE it causes a missing source file to trigger a failure. Defaults to FALSE.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourcePath}} ||| VARSTRING --- The path and name of the file.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{compress}} ||| BOOLEAN --- Whether to compress the new file. Defaults to FALSE.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{espServerIpPort}} ||| VARSTRING --- The url of the ESP file copying service. Defaults to the value of ws\_fs\_server in the environment.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourceIP}} ||| VARSTRING --- The IP address of the file.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{destinationLogicalName}} ||| VARSTRING --- The logical name of the file to create.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{allowOverwrite}} ||| BOOLEAN --- Is it valid to overwrite an existing file of the same name? Defaults to FALSE
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{recordsize}} ||| INTEGER4 --- The size (in bytes) of the records in the file.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{replicate}} ||| BOOLEAN --- Whether to replicate the new file. Defaults to FALSE.
 \end{description}
 
 
@@ -2009,19 +2009,19 @@ Same as fSprayFixed, but does not return the DFU Workunit ID.
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{espserveripport}} ||| VARSTRING --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{recordsize}} ||| INTEGER4 --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{compress}} ||| BOOLEAN --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{replicate}} ||| BOOLEAN --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{failifnosourcefile}} ||| BOOLEAN --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{allowoverwrite}} ||| BOOLEAN --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourceip}} ||| VARSTRING --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{timeout}} ||| INTEGER4 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{compress}} ||| BOOLEAN --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{maxconnections}} ||| INTEGER4 --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{expiredays}} ||| INTEGER4 --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{destinationgroup}} ||| VARSTRING --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{destinationlogicalname}} ||| VARSTRING --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{timeout}} ||| INTEGER4 --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourcepath}} ||| VARSTRING --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{destinationgroup}} ||| VARSTRING --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{espserveripport}} ||| VARSTRING --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourceip}} ||| VARSTRING --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{expiredays}} ||| INTEGER4 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{replicate}} ||| BOOLEAN --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{allowoverwrite}} ||| BOOLEAN --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{recordsize}} ||| INTEGER4 --- No Doc
 \end{description}
 
 
@@ -2080,25 +2080,25 @@ No Documentation Found
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{espserveripport}} ||| VARSTRING --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourcecsvquote}} ||| VARSTRING --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{timeout}} ||| INTEGER4 --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{destinationgroup}} ||| VARSTRING --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{replicate}} ||| BOOLEAN --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{failifnosourcefile}} ||| BOOLEAN --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{recordstructurepresent}} ||| BOOLEAN --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{allowoverwrite}} ||| BOOLEAN --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourceip}} ||| VARSTRING --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourcemaxrecordsize}} ||| INTEGER4 --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourcecsvterminate}} ||| VARSTRING --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{quotedterminator}} ||| BOOLEAN --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{maxconnections}} ||| INTEGER4 --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourcecsvescape}} ||| VARSTRING --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{expiredays}} ||| INTEGER4 --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{compress}} ||| BOOLEAN --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourcecsvseparate}} ||| VARSTRING --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{destinationlogicalname}} ||| VARSTRING --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{maxconnections}} ||| INTEGER4 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{recordstructurepresent}} ||| BOOLEAN --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourcepath}} ||| VARSTRING --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{timeout}} ||| INTEGER4 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourcecsvterminate}} ||| VARSTRING --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{destinationlogicalname}} ||| VARSTRING --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{destinationgroup}} ||| VARSTRING --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourcemaxrecordsize}} ||| INTEGER4 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourceip}} ||| VARSTRING --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{espserveripport}} ||| VARSTRING --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{quotedterminator}} ||| BOOLEAN --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourcecsvseparate}} ||| VARSTRING --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{replicate}} ||| BOOLEAN --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourcecsvquote}} ||| VARSTRING --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourcecsvescape}} ||| VARSTRING --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{allowoverwrite}} ||| BOOLEAN --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{encoding}} ||| VARSTRING --- No Doc
 \end{description}
 
@@ -2148,25 +2148,25 @@ No Documentation Found
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{espserveripport}} ||| VARSTRING --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourcecsvquote}} ||| VARSTRING --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{timeout}} ||| INTEGER4 --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{destinationgroup}} ||| VARSTRING --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{replicate}} ||| BOOLEAN --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{failifnosourcefile}} ||| BOOLEAN --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{recordstructurepresent}} ||| BOOLEAN --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{allowoverwrite}} ||| BOOLEAN --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourceip}} ||| VARSTRING --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourcemaxrecordsize}} ||| INTEGER4 --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourcecsvterminate}} ||| VARSTRING --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{quotedterminator}} ||| BOOLEAN --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{maxconnections}} ||| INTEGER4 --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourcecsvescape}} ||| VARSTRING --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{expiredays}} ||| INTEGER4 --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{compress}} ||| BOOLEAN --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourcecsvseparate}} ||| VARSTRING --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{destinationlogicalname}} ||| VARSTRING --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{maxconnections}} ||| INTEGER4 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{recordstructurepresent}} ||| BOOLEAN --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourcepath}} ||| VARSTRING --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{timeout}} ||| INTEGER4 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourcecsvterminate}} ||| VARSTRING --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{destinationlogicalname}} ||| VARSTRING --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{destinationgroup}} ||| VARSTRING --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourcemaxrecordsize}} ||| INTEGER4 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourceip}} ||| VARSTRING --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{espserveripport}} ||| VARSTRING --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{quotedterminator}} ||| BOOLEAN --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourcecsvseparate}} ||| VARSTRING --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{replicate}} ||| BOOLEAN --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourcecsvquote}} ||| VARSTRING --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourcecsvescape}} ||| VARSTRING --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{allowoverwrite}} ||| BOOLEAN --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{encoding}} ||| VARSTRING --- No Doc
 \end{description}
 
@@ -2216,25 +2216,25 @@ Sprays a file of fixed delimited records from a single machine and distributes i
 
 \par
 \begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{destinationGroup}} ||| VARSTRING --- The name of the group to distribute the file across.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{timeOut}} ||| INTEGER4 --- The time in ms to wait for the operation to complete. A value of 0 causes the call to return immediately. Defaults to no timeout (-1).
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourceCsvTerminate}} ||| VARSTRING --- The character sequence which separates records in the file.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{expireDays}} ||| INTEGER4 --- Number of days to auto-remove file. Default is -1, not expire.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{failIfNoSourceFile}} ||| BOOLEAN --- If TRUE it causes a missing source file to trigger a failure. Defaults to FALSE.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourceCsvEscape}} ||| VARSTRING --- A character that is used to escape quote characters. Defaults to none.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourceCsvSeparate}} ||| VARSTRING --- The character sequence which separates fields in the file.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{quotedTerminator}} ||| BOOLEAN --- Can the terminator character be included in a quoted field. Defaults to TRUE. If FALSE it allows quicker partitioning of the file (avoiding a complete file scan).
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{compress}} ||| BOOLEAN --- Whether to compress the new file. Defaults to FALSE.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourceCsvTerminate}} ||| VARSTRING --- The character sequence which separates records in the file.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{timeOut}} ||| INTEGER4 --- The time in ms to wait for the operation to complete. A value of 0 causes the call to return immediately. Defaults to no timeout (-1).
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{allowOverwrite}} ||| BOOLEAN --- Is it valid to overwrite an existing file of the same name? Defaults to FALSE
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{recordStructurePresent}} ||| BOOLEAN --- If TRUE derives the record structure from the header of the file.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourceCsvQuote}} ||| VARSTRING --- A string which can be used to delimit fields in the file.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{replicate}} ||| BOOLEAN --- Whether to replicate the new file. Defaults to FALSE.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourceIP}} ||| VARSTRING --- The IP address of the file.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourcePath}} ||| VARSTRING --- The path and name of the file.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{maxConnections}} ||| INTEGER4 --- The maximum number of target nodes to write to concurrently. Defaults to 1.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{compress}} ||| BOOLEAN --- Whether to compress the new file. Defaults to FALSE.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourceCsvEscape}} ||| VARSTRING --- A character that is used to escape quote characters. Defaults to none.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourceIP}} ||| VARSTRING --- The IP address of the file.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{recordStructurePresent}} ||| BOOLEAN --- If TRUE derives the record structure from the header of the file.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{destinationLogicalName}} ||| VARSTRING --- The logical name of the file to create.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourceCsvSeparate}} ||| VARSTRING --- The character sequence which separates fields in the file.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{allowOverwrite}} ||| BOOLEAN --- Is it valid to overwrite an existing file of the same name? Defaults to FALSE
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{maxConnections}} ||| INTEGER4 --- The maximum number of target nodes to write to concurrently. Defaults to 1.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourceMaxRecordSize}} ||| INTEGER4 --- The maximum size (in bytes) of the records in the file.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourceCsvQuote}} ||| VARSTRING --- A string which can be used to delimit fields in the file.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{espServerIpPort}} ||| VARSTRING --- The url of the ESP file copying service. Defaults to the value of ws\_fs\_server in the environment.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{destinationGroup}} ||| VARSTRING --- The name of the group to distribute the file across.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{replicate}} ||| BOOLEAN --- Whether to replicate the new file. Defaults to FALSE.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{encoding}} ||| VARSTRING --- No Doc
 \end{description}
 
@@ -2284,25 +2284,25 @@ Same as fSprayDelimited, but does not return the DFU Workunit ID.
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{espserveripport}} ||| VARSTRING --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourcecsvquote}} ||| VARSTRING --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{timeout}} ||| INTEGER4 --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{destinationgroup}} ||| VARSTRING --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{replicate}} ||| BOOLEAN --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{failifnosourcefile}} ||| BOOLEAN --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{recordstructurepresent}} ||| BOOLEAN --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{allowoverwrite}} ||| BOOLEAN --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourceip}} ||| VARSTRING --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourcemaxrecordsize}} ||| INTEGER4 --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourcecsvterminate}} ||| VARSTRING --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{quotedterminator}} ||| BOOLEAN --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{maxconnections}} ||| INTEGER4 --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourcecsvescape}} ||| VARSTRING --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{expiredays}} ||| INTEGER4 --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{compress}} ||| BOOLEAN --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourcecsvseparate}} ||| VARSTRING --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{destinationlogicalname}} ||| VARSTRING --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{maxconnections}} ||| INTEGER4 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{recordstructurepresent}} ||| BOOLEAN --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourcepath}} ||| VARSTRING --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{timeout}} ||| INTEGER4 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourcecsvterminate}} ||| VARSTRING --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{destinationlogicalname}} ||| VARSTRING --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{destinationgroup}} ||| VARSTRING --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourcemaxrecordsize}} ||| INTEGER4 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourceip}} ||| VARSTRING --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{espserveripport}} ||| VARSTRING --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{quotedterminator}} ||| BOOLEAN --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourcecsvseparate}} ||| VARSTRING --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{replicate}} ||| BOOLEAN --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourcecsvquote}} ||| VARSTRING --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourcecsvescape}} ||| VARSTRING --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{allowoverwrite}} ||| BOOLEAN --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{encoding}} ||| VARSTRING --- No Doc
 \end{description}
 
@@ -2362,21 +2362,21 @@ Sprays an xml file from a single machine and distributes it across the nodes of 
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{expireDays}} ||| INTEGER4 --- Number of days to auto-remove file. Default is -1, not expire.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{failIfNoSourceFile}} ||| BOOLEAN --- If TRUE it causes a missing source file to trigger a failure. Defaults to FALSE.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourceMaxRecordSize}} ||| INTEGER4 --- The maximum size (in bytes) of the records in the file.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{compress}} ||| BOOLEAN --- Whether to compress the new file. Defaults to FALSE.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{destinationGroup}} ||| VARSTRING --- The name of the group to distribute the file across.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourceRowTag}} ||| VARSTRING --- The xml tag that is used to delimit records in the source file. (This tag cannot recursivly nest.)
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourceEncoding}} ||| VARSTRING --- The unicode encoding of the file. (utf8,utf8n,utf16be,utf16le,utf32be,utf32le)
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{replicate}} ||| BOOLEAN --- Whether to replicate the new file. Defaults to FALSE.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{timeOut}} ||| INTEGER4 --- The time in ms to wait for the operation to complete. A value of 0 causes the call to return immediately. Defaults to no timeout (-1).
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourcePath}} ||| VARSTRING --- The path and name of the file.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{destinationLogicalName}} ||| VARSTRING --- The logical name of the file to create.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{maxConnections}} ||| INTEGER4 --- The maximum number of target nodes to write to concurrently. Defaults to 1.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{espServerIpPort}} ||| VARSTRING --- The url of the ESP file copying service. Defaults to the value of ws\_fs\_server in the environment.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{allowOverwrite}} ||| BOOLEAN --- Is it valid to overwrite an existing file of the same name? Defaults to FALSE
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{expireDays}} ||| INTEGER4 --- Number of days to auto-remove file. Default is -1, not expire.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourcePath}} ||| VARSTRING --- The path and name of the file.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{compress}} ||| BOOLEAN --- Whether to compress the new file. Defaults to FALSE.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourceEncoding}} ||| VARSTRING --- The unicode encoding of the file. (utf8,utf8n,utf16be,utf16le,utf32be,utf32le)
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{failIfNoSourceFile}} ||| BOOLEAN --- If TRUE it causes a missing source file to trigger a failure. Defaults to FALSE.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourceIP}} ||| VARSTRING --- The IP address of the file.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{destinationLogicalName}} ||| VARSTRING --- The logical name of the file to create.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{allowOverwrite}} ||| BOOLEAN --- Is it valid to overwrite an existing file of the same name? Defaults to FALSE
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourceMaxRecordSize}} ||| INTEGER4 --- The maximum size (in bytes) of the records in the file.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourceRowTag}} ||| VARSTRING --- The xml tag that is used to delimit records in the source file. (This tag cannot recursivly nest.)
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{espServerIpPort}} ||| VARSTRING --- The url of the ESP file copying service. Defaults to the value of ws\_fs\_server in the environment.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{replicate}} ||| BOOLEAN --- Whether to replicate the new file. Defaults to FALSE.
 \end{description}
 
 
@@ -2425,21 +2425,21 @@ Same as fSprayXml, but does not return the DFU Workunit ID.
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{timeout}} ||| INTEGER4 --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{replicate}} ||| BOOLEAN --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{espserveripport}} ||| VARSTRING --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{failifnosourcefile}} ||| BOOLEAN --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{allowoverwrite}} ||| BOOLEAN --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourceip}} ||| VARSTRING --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourcemaxrecordsize}} ||| INTEGER4 --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{compress}} ||| BOOLEAN --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{maxconnections}} ||| INTEGER4 --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourceencoding}} ||| VARSTRING --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{expiredays}} ||| INTEGER4 --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourcerowtag}} ||| VARSTRING --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{destinationgroup}} ||| VARSTRING --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{destinationlogicalname}} ||| VARSTRING --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{timeout}} ||| INTEGER4 --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourcepath}} ||| VARSTRING --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{destinationgroup}} ||| VARSTRING --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourcemaxrecordsize}} ||| INTEGER4 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourceip}} ||| VARSTRING --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{espserveripport}} ||| VARSTRING --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{expiredays}} ||| INTEGER4 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{replicate}} ||| BOOLEAN --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourceencoding}} ||| VARSTRING --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{allowoverwrite}} ||| BOOLEAN --- No Doc
 \end{description}
 
 
@@ -2498,13 +2498,13 @@ Copies a distributed file from multiple machines, and desprays it to a single fi
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{logicalName}} ||| VARSTRING --- The name of the file to despray.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{destinationPath}} ||| VARSTRING --- The path of the file to create on the destination machine.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{maxConnections}} ||| INTEGER4 --- The maximum number of target nodes to write to concurrently. Defaults to 1.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{espServerIpPort}} ||| VARSTRING --- The url of the ESP file copying service. Defaults to the value of ws\_fs\_server in the environment.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{destinationIP}} ||| VARSTRING --- The IP of the target machine.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{allowOverwrite}} ||| BOOLEAN --- Is it valid to overwrite an existing file of the same name? Defaults to FALSE
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{timeOut}} ||| INTEGER4 --- The time in ms to wait for the operation to complete. A value of 0 causes the call to return immediately. Defaults to no timeout (-1).
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{maxConnections}} ||| INTEGER4 --- The maximum number of target nodes to write to concurrently. Defaults to 1.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{allowOverwrite}} ||| BOOLEAN --- Is it valid to overwrite an existing file of the same name? Defaults to FALSE
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{destinationIP}} ||| VARSTRING --- The IP of the target machine.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{destinationPath}} ||| VARSTRING --- The path of the file to create on the destination machine.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{logicalName}} ||| VARSTRING --- The name of the file to despray.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{espServerIpPort}} ||| VARSTRING --- The url of the ESP file copying service. Defaults to the value of ws\_fs\_server in the environment.
 \end{description}
 
 
@@ -2553,13 +2553,13 @@ Same as fDespray, but does not return the DFU Workunit ID.
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{timeout}} ||| INTEGER4 --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{espserveripport}} ||| VARSTRING --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{maxconnections}} ||| INTEGER4 --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{destinationpath}} ||| VARSTRING --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{destinationip}} ||| VARSTRING --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{maxconnections}} ||| INTEGER4 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{timeout}} ||| INTEGER4 --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{logicalname}} ||| VARSTRING --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{allowoverwrite}} ||| BOOLEAN --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{destinationip}} ||| VARSTRING --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{espserveripport}} ||| VARSTRING --- No Doc
 \end{description}
 
 
@@ -2618,19 +2618,19 @@ Copies a distributed file to another distributed file.
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{replicate}} ||| BOOLEAN --- Should the copied file also be replicated on the destination? Defaults to FALSE
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{transferBufferSize}} ||| INTEGER4 --- Overrides the size (in bytes) of the internal buffer used to copy the file. Default is 64k.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{compress}} ||| BOOLEAN --- Whether to compress the new file. Defaults to FALSE.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{destinationGroup}} ||| VARSTRING --- The name of the group to distribute the file across.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{timeOut}} ||| INTEGER4 --- The time in ms to wait for the operation to complete. A value of 0 causes the call to return immediately. Defaults to no timeout (-1).
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{allowOverwrite}} ||| BOOLEAN --- Is it valid to overwrite an existing file of the same name? Defaults to FALSE
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{asSuperfile}} ||| BOOLEAN --- Should the file be copied as a superfile? If TRUE and source is a superfile, then the operation creates a superfile on the target, creating sub-files as needed and only overwriting existing sub-files whose content has changed. If FALSE, a single file is created. Defaults to FALSE.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourceDali}} ||| VARSTRING --- The dali that contains the source file (blank implies same dali). Defaults to same dali.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{destinationLogicalName}} ||| VARSTRING --- The logical name of the file to create.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{compress}} ||| BOOLEAN --- Whether to compress the new file. Defaults to FALSE.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{maxConnections}} ||| INTEGER4 --- The maximum number of target nodes to write to concurrently. Defaults to 1.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourceLogicalName}} ||| VARSTRING --- The name of the file to despray.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{espServerIpPort}} ||| VARSTRING --- The url of the ESP file copying service. Defaults to the value of ws\_fs\_server in the environment.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{allowOverwrite}} ||| BOOLEAN --- Is it valid to overwrite an existing file of the same name? Defaults to FALSE
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{timeOut}} ||| INTEGER4 --- The time in ms to wait for the operation to complete. A value of 0 causes the call to return immediately. Defaults to no timeout (-1).
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{forcePush}} ||| BOOLEAN --- Should the copy process be executed on the source nodes (push) or on the destination nodes (pull)? Default is to pull.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{destinationLogicalName}} ||| VARSTRING --- The logical name of the file to create.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{asSuperfile}} ||| BOOLEAN --- Should the file be copied as a superfile? If TRUE and source is a superfile, then the operation creates a superfile on the target, creating sub-files as needed and only overwriting existing sub-files whose content has changed. If FALSE, a single file is created. Defaults to FALSE.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{replicate}} ||| BOOLEAN --- Should the copied file also be replicated on the destination? Defaults to FALSE
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourceLogicalName}} ||| VARSTRING --- The name of the file to despray.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{transferBufferSize}} ||| INTEGER4 --- Overrides the size (in bytes) of the internal buffer used to copy the file. Default is 64k.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{espServerIpPort}} ||| VARSTRING --- The url of the ESP file copying service. Defaults to the value of ws\_fs\_server in the environment.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourceDali}} ||| VARSTRING --- The dali that contains the source file (blank implies same dali). Defaults to same dali.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{preservecompression}} ||| BOOLEAN --- No Doc
 \end{description}
 
@@ -2680,20 +2680,20 @@ Same as fCopy, but does not return the DFU Workunit ID.
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{espserveripport}} ||| VARSTRING --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{replicate}} ||| BOOLEAN --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{forcepush}} ||| BOOLEAN --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{compress}} ||| BOOLEAN --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourcelogicalname}} ||| VARSTRING --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{preservecompression}} ||| BOOLEAN --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{allowoverwrite}} ||| BOOLEAN --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{timeout}} ||| INTEGER4 --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{assuperfile}} ||| BOOLEAN --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{compress}} ||| BOOLEAN --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{maxconnections}} ||| INTEGER4 --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{destinationgroup}} ||| VARSTRING --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourcelogicalname}} ||| VARSTRING --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{destinationlogicalname}} ||| VARSTRING --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{timeout}} ||| INTEGER4 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{preservecompression}} ||| BOOLEAN --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourcedali}} ||| VARSTRING --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{destinationgroup}} ||| VARSTRING --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{espserveripport}} ||| VARSTRING --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{transferbuffersize}} ||| INTEGER4 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{replicate}} ||| BOOLEAN --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{allowoverwrite}} ||| BOOLEAN --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{forcepush}} ||| BOOLEAN --- No Doc
 \end{description}
 
 
@@ -2752,9 +2752,9 @@ Ensures the specified file is replicated to its mirror copies.
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{espServerIpPort}} ||| VARSTRING --- The url of the ESP file copying service. Defaults to the value of ws\_fs\_server in the environment.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{timeOut}} ||| INTEGER4 --- The time in ms to wait for the operation to complete. A value of 0 causes the call to return immediately. Defaults to no timeout (-1).
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{logicalName}} ||| VARSTRING --- The name of the file to replicate.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{espServerIpPort}} ||| VARSTRING --- The url of the ESP file copying service. Defaults to the value of ws\_fs\_server in the environment.
 \end{description}
 
 
@@ -2804,8 +2804,8 @@ Same as fReplicated, but does not return the DFU Workunit ID.
 \par
 \begin{description}
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{timeout}} ||| INTEGER4 --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{espserveripport}} ||| VARSTRING --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{logicalname}} ||| VARSTRING --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{espserveripport}} ||| VARSTRING --- No Doc
 \end{description}
 
 
@@ -2864,19 +2864,19 @@ Copies a distributed file to a distributed file on remote system. Similar to fCo
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{remoteEspFsURL}} ||| VARSTRING --- The url of the remote ESP file copying service.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{replicate}} ||| BOOLEAN --- Should the copied file also be replicated on the destination? Defaults to FALSE
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{transferBufferSize}} ||| INTEGER4 --- Overrides the size (in bytes) of the internal buffer used to copy the file. Default is 64k.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{compress}} ||| BOOLEAN --- Whether to compress the new file. Defaults to FALSE.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{destinationGroup}} ||| VARSTRING --- The name of the group to distribute the file across.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{wrap}} ||| BOOLEAN --- Should the fileparts be wrapped when copying to a smaller sized cluster? The default is FALSE.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{timeOut}} ||| INTEGER4 --- The time in ms to wait for the operation to complete. A value of 0 causes the call to return immediately. Defaults to no timeout (-1).
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{asSuperfile}} ||| BOOLEAN --- Should the file be copied as a superfile? If TRUE and source is a superfile, then the operation creates a superfile on the target, creating sub-files as needed and only overwriting existing sub-files whose content has changed. If FALSE a single file is created. Defaults to FALSE.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{destinationLogicalName}} ||| VARSTRING --- The logical name of the file to create.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{compress}} ||| BOOLEAN --- Whether to compress the new file. Defaults to FALSE.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{maxConnections}} ||| INTEGER4 --- The maximum number of target nodes to write to concurrently. Defaults to 1.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{remoteEspFsURL}} ||| VARSTRING --- The url of the remote ESP file copying service.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{timeOut}} ||| INTEGER4 --- The time in ms to wait for the operation to complete. A value of 0 causes the call to return immediately. Defaults to no timeout (-1).
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{destinationLogicalName}} ||| VARSTRING --- The logical name of the file to create.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{asSuperfile}} ||| BOOLEAN --- Should the file be copied as a superfile? If TRUE and source is a superfile, then the operation creates a superfile on the target, creating sub-files as needed and only overwriting existing sub-files whose content has changed. If FALSE a single file is created. Defaults to FALSE.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{wrap}} ||| BOOLEAN --- Should the fileparts be wrapped when copying to a smaller sized cluster? The default is FALSE.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{replicate}} ||| BOOLEAN --- Should the copied file also be replicated on the destination? Defaults to FALSE
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourceLogicalName}} ||| VARSTRING --- The name of the file to despray.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{allowOverwrite}} ||| BOOLEAN --- Is it valid to overwrite an existing file of the same name? Defaults to FALSE
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{transferBufferSize}} ||| INTEGER4 --- Overrides the size (in bytes) of the internal buffer used to copy the file. Default is 64k.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{forcePush}} ||| BOOLEAN --- Should the copy process should be executed on the source nodes (push) or on the destination nodes (pull)? Default is to pull.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{allowOverwrite}} ||| BOOLEAN --- Is it valid to overwrite an existing file of the same name? Defaults to FALSE
 \end{description}
 
 
@@ -2925,19 +2925,19 @@ Same as fRemotePull, but does not return the DFU Workunit ID.
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{forcepush}} ||| BOOLEAN --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{replicate}} ||| BOOLEAN --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{transferbuffersize}} ||| INTEGER4 --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{destinationgroup}} ||| VARSTRING --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourcelogicalname}} ||| VARSTRING --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{wrap}} ||| BOOLEAN --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{allowoverwrite}} ||| BOOLEAN --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{timeout}} ||| INTEGER4 --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{assuperfile}} ||| BOOLEAN --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{maxconnections}} ||| INTEGER4 --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{compress}} ||| BOOLEAN --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{maxconnections}} ||| INTEGER4 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sourcelogicalname}} ||| VARSTRING --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{destinationlogicalname}} ||| VARSTRING --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{timeout}} ||| INTEGER4 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{destinationgroup}} ||| VARSTRING --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{transferbuffersize}} ||| INTEGER4 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{wrap}} ||| BOOLEAN --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{replicate}} ||| BOOLEAN --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{allowoverwrite}} ||| BOOLEAN --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{remoteespfsurl}} ||| VARSTRING --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{forcepush}} ||| BOOLEAN --- No Doc
 \end{description}
 
 
@@ -2996,10 +2996,10 @@ Creates a file monitor job in the DFU Server. If an appropriately named file arr
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{espServerIpPort}} ||| VARSTRING --- The url of the ESP file copying service. Defaults to the value of ws\_fs\_server in the environment.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{shotCount}} ||| INTEGER4 --- The number of times to generate the event before the monitoring job completes. A value of -1 indicates the monitoring job continues until manually aborted. The default is 1.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{eventToFire}} ||| VARSTRING --- The user-defined name of the event to fire when the filename appears. This value is used as the first parameter to the EVENT function.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{name}} ||| VARSTRING --- The name of the logical file to monitor. This may contain wildcard characters ( * and ?)
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{shotCount}} ||| INTEGER4 --- The number of times to generate the event before the monitoring job completes. A value of -1 indicates the monitoring job continues until manually aborted. The default is 1.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{espServerIpPort}} ||| VARSTRING --- The url of the ESP file copying service. Defaults to the value of ws\_fs\_server in the environment.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{eventToFire}} ||| VARSTRING --- The user-defined name of the event to fire when the filename appears. This value is used as the first parameter to the EVENT function.
 \end{description}
 
 
@@ -3048,10 +3048,10 @@ Same as fMonitorLogicalFileName, but does not return the DFU Workunit ID.
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{espserveripport}} ||| VARSTRING --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{shotcount}} ||| INTEGER4 --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{eventtofire}} ||| VARSTRING --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{name}} ||| VARSTRING --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{shotcount}} ||| INTEGER4 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{espserveripport}} ||| VARSTRING --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{eventtofire}} ||| VARSTRING --- No Doc
 \end{description}
 
 
@@ -3110,12 +3110,12 @@ Creates a file monitor job in the DFU Server. If an appropriately named file arr
 
 \par
 \begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{subDirs}} ||| BOOLEAN --- Whether to include files in sub-directories (when the filename contains wildcards). Defaults to FALSE.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{filename}} ||| VARSTRING --- The full path of the file(s) to monitor. This may contain wildcard characters ( * and ?)
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{ip}} ||| VARSTRING --- The the IP address for the file to monitor. This may be omitted if the filename parameter contains a complete URL.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{espServerIpPort}} ||| VARSTRING --- The url of the ESP file copying service. Defaults to the value of ws\_fs\_server in the environment.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{subDirs}} ||| BOOLEAN --- Whether to include files in sub-directories (when the filename contains wildcards). Defaults to FALSE.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{shotCount}} ||| INTEGER4 --- The number of times to generate the event before the monitoring job completes. A value of -1 indicates the monitoring job continues until manually aborted. The default is 1.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{eventToFire}} ||| VARSTRING --- The user-defined name of the event to fire when the filename appears. This value is used as the first parameter to the EVENT function.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{espServerIpPort}} ||| VARSTRING --- The url of the ESP file copying service. Defaults to the value of ws\_fs\_server in the environment.
 \end{description}
 
 
@@ -3165,11 +3165,11 @@ Same as fMonitorFile, but does not return the DFU Workunit ID.
 \par
 \begin{description}
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{filename}} ||| VARSTRING --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{shotcount}} ||| INTEGER4 --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{ip}} ||| VARSTRING --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{espserveripport}} ||| VARSTRING --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{eventtofire}} ||| VARSTRING --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{subdirs}} ||| BOOLEAN --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{eventtofire}} ||| VARSTRING --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{ip}} ||| VARSTRING --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{shotcount}} ||| INTEGER4 --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{espserveripport}} ||| VARSTRING --- No Doc
 \end{description}
 
 
@@ -3228,9 +3228,9 @@ Waits for the specified DFU workunit to finish.
 
 \par
 \begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{timeOut}} ||| INTEGER4 --- The time in ms to wait for the operation to complete. A value of 0 causes the call to return immediately. Defaults to no timeout (-1).
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{wuid}} ||| VARSTRING --- The dfu wfid to wait for.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{espServerIpPort}} ||| VARSTRING --- The url of the ESP file copying service. Defaults to the value of ws\_fs\_server in the environment.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{timeOut}} ||| INTEGER4 --- The time in ms to wait for the operation to complete. A value of 0 causes the call to return immediately. Defaults to no timeout (-1).
 \end{description}
 
 
@@ -3330,8 +3330,8 @@ Creates an empty superfile. This function is not included in a superfile transac
 \par
 \begin{description}
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{sequentialParts}} ||| BOOLEAN --- Whether the sub-files must be sequentially ordered. Default to FALSE.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{allowExist}} ||| BOOLEAN --- Indicating whether to post an error if the superfile already exists. If TRUE, no error is posted. Defaults to FALSE.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{superName}} ||| VARSTRING --- The logical name of the superfile.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{allowExist}} ||| BOOLEAN --- Indicating whether to post an error if the superfile already exists. If TRUE, no error is posted. Defaults to FALSE.
 \end{description}
 
 
@@ -3548,9 +3548,9 @@ Returns the name of the Nth sub-file within a superfile.
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{fileNum}} ||| UNSIGNED4 --- The 1-based position of the sub-file to return the name of.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{superName}} ||| VARSTRING --- The logical name of the superfile.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{absPath}} ||| BOOLEAN --- Whether to prepend '\~{}' to the name of the resulting logical file name.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{fileNum}} ||| UNSIGNED4 --- The 1-based position of the sub-file to return the name of.
 \end{description}
 
 
@@ -3689,11 +3689,11 @@ Adds a file to a superfile.
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{addContents}} ||| BOOLEAN --- Controls whether adding a superfile adds the superfile, or its contents. Defaults to FALSE (do not expand).
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{strict}} ||| BOOLEAN --- Check addContents only if subName is a superfile, and ensure superfiles exist.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{superName}} ||| VARSTRING --- The logical name of the superfile.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{atPos}} ||| UNSIGNED4 --- The position to add the sub-file, or 0 to append. Defaults to 0.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{subName}} ||| VARSTRING --- The name of the logical file to add.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{addContents}} ||| BOOLEAN --- Controls whether adding a superfile adds the superfile, or its contents. Defaults to FALSE (do not expand).
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{atPos}} ||| UNSIGNED4 --- The position to add the sub-file, or 0 to append. Defaults to 0.
 \end{description}
 
 
@@ -3742,10 +3742,10 @@ Removes a sub-file from a superfile.
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{del}} ||| BOOLEAN --- Indicates whether the sub-file should also be removed from the disk. Defaults to FALSE.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{superName}} ||| VARSTRING --- The logical name of the superfile.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{removeContents}} ||| BOOLEAN --- Controls whether the contents of a sub-file which is a superfile should be recursively removed. Defaults to FALSE.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{superName}} ||| VARSTRING --- The logical name of the superfile.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{subName}} ||| VARSTRING --- The name of the sub-file to remove.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{del}} ||| BOOLEAN --- Indicates whether the sub-file should also be removed from the disk. Defaults to FALSE.
 \end{description}
 
 
@@ -3794,8 +3794,8 @@ Removes all sub-files from a superfile.
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{del}} ||| BOOLEAN --- Indicates whether the sub-files should also be removed from the disk. Defaults to FALSE.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{superName}} ||| VARSTRING --- The logical name of the superfile.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{del}} ||| BOOLEAN --- Indicates whether the sub-files should also be removed from the disk. Defaults to FALSE.
 \end{description}
 
 
@@ -4003,9 +4003,9 @@ Removes a sub-file from a superfile and replaces it with another.
 
 \par
 \begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{newSubFile}} ||| VARSTRING --- The logical name of the sub-file to replace within the superfile.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{superName}} ||| VARSTRING --- The logical name of the superfile.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{oldSubFile}} ||| VARSTRING --- The logical name of the sub-file to remove.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{newSubFile}} ||| VARSTRING --- The logical name of the sub-file to replace within the superfile.
 \end{description}
 
 
@@ -4103,8 +4103,8 @@ Returns the list of sub-files contained within a superfile.
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{recurse}} ||| BOOLEAN --- Should the contents of child-superfiles be expanded. Default is FALSE.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{superName}} ||| VARSTRING --- The logical name of the superfile.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{recurse}} ||| BOOLEAN --- Should the contents of child-superfiles be expanded. Default is FALSE.
 \end{description}
 
 
@@ -4242,11 +4242,11 @@ Moves the sub-files from the first entry in the list of superfiles to the next i
 
 \par
 \begin{description}
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{delTail}} ||| BOOLEAN --- Indicates whether to physically delete the contents moved out of the last superfile. The default is FALSE.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{superNames}} ||| SET ( VARSTRING ) --- A set of the names of the superfiles to act on. Any that do not exist will be created. The contents of each superfile will be moved to the next in the list.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{addHead}} ||| VARSTRING --- A string containing a comma-delimited list of logical file names to add to the first superfile after the promotion process is complete. Defaults to ''.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{reverse}} ||| BOOLEAN --- Reverse the order of processing the superfiles list, effectively 'demoting' instead of 'promoting' the sub-files. The default is FALSE.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{createOnlyOne}} ||| BOOLEAN --- Specifies whether to only create a single superfile (truncate the list at the first non-existent superfile). The default is FALSE.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{addHead}} ||| VARSTRING --- A string containing a comma-delimited list of logical file names to add to the first superfile after the promotion process is complete. Defaults to ''.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{superNames}} ||| SET ( VARSTRING ) --- A set of the names of the superfiles to act on. Any that do not exist will be created. The contents of each superfile will be moved to the next in the list.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{delTail}} ||| BOOLEAN --- Indicates whether to physically delete the contents moved out of the last superfile. The default is FALSE.
 \end{description}
 
 
@@ -4295,10 +4295,10 @@ Same as fPromoteSuperFileList, but does not return the DFU Workunit ID.
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{addhead}} ||| VARSTRING --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{createonlyone}} ||| BOOLEAN --- No Doc
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{supernames}} ||| SET ( VARSTRING ) --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{addhead}} ||| VARSTRING --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{reverse}} ||| BOOLEAN --- No Doc
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{supernames}} ||| SET ( VARSTRING ) --- No Doc
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{deltail}} ||| BOOLEAN --- No Doc
 \end{description}
 

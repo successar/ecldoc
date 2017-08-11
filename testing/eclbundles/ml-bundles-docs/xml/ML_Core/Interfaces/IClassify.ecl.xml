@@ -20,7 +20,7 @@
      </Type>
     </Type>
     <Documentation>
-     <return>the encoded model</return><content>Calculate the model to fit the observation data to the observed classes.</content><firstline>Calculate the model to fit the observation data to the observed classes</firstline><param>observations the observed explanatory values</param><param>classifications the observed classification used to build the model</param></Documentation>
+     <content>Calculate the model to fit the observation data to the observed classes.</content><return>the encoded model</return><param>observations the observed explanatory values</param><param>classifications the observed classification used to build the model</param><firstline>Calculate the model to fit the observation data to the observed classes</firstline></Documentation>
     <Signature name="GetModel" ret="DATASET(Types.Layout_Model)" param="(DATASET(Types.NumericField) observations, DATASET(Types.DiscreteField) classifications)" hlen="36">DATASET(Types.Layout_Model) GetModel(DATASET(Types.NumericField) observations, DATASET(Types.DiscreteField) classifications)</Signature><Params>
      <Param name="observations">
       <Type type="table">
@@ -55,7 +55,7 @@
      </Type>
     </Type>
     <Documentation>
-     <return>Classification with a confidence value</return><content>Classify the observations using a model.</content><firstline>Classify the observations using a model</firstline><param>model The model, which must be produced by a corresponding getModel function.</param><param>new_observations observations to be classified</param></Documentation>
+     <content>Classify the observations using a model.</content><return>Classification with a confidence value</return><param>model The model, which must be produced by a corresponding getModel function.</param><param>new_observations observations to be classified</param><firstline>Classify the observations using a model</firstline></Documentation>
     <Signature name="Classify" ret="DATASET(Types.Classify_Result)" param="(DATASET(Types.Layout_Model) model, DATASET(Types.NumericField) new_observations)" hlen="39">DATASET(Types.Classify_Result) Classify(DATASET(Types.Layout_Model) model, DATASET(Types.NumericField) new_observations)</Signature><Params>
      <Param name="model">
       <Type type="table">
@@ -93,7 +93,7 @@
      </Type>
     </Type>
     <Documentation>
-     <return>the confusion matrix showing correct and incorrect results</return><content>Report the confusion matrix for the classifier and training data.</content><firstline>Report the confusion matrix for the classifier and training data</firstline><param>model the encoded model</param><param>observations the explanatory values.</param><param>classifications the classifications associated with the observations</param></Documentation>
+     <content>Report the confusion matrix for the classifier and training data.</content><return>the confusion matrix showing correct and incorrect results</return><param>model the encoded model</param><param>observations the explanatory values.</param><param>classifications the classifications associated with the observations</param><firstline>Report the confusion matrix for the classifier and training data</firstline></Documentation>
     <Signature name="Report" ret="DATASET(Types.Confusion_Detail)" param="(DATASET(Types.Layout_Model) model, DATASET(Types.NumericField) observations, DATASET(Types.DiscreteField) classifications)" hlen="38">DATASET(Types.Confusion_Detail) Report(DATASET(Types.Layout_Model) model, DATASET(Types.NumericField) observations, DATASET(Types.DiscreteField) classifications)</Signature><Params>
      <Param name="model">
       <Type type="table">

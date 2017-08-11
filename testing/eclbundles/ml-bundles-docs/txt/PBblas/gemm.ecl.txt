@@ -40,24 +40,24 @@ work-items. Result has same shape as C if provided. Note that matrixes are
 not explicitly dimensioned. The shape is determined by the highest value of
 x and y for each work-item.
 
-Parameter : transposeA BOOLEAN --- Boolean indicating whether matrix A
-                       should be transposed before multiplying
-
-Parameter : A_in TABLE ( Layout_Cell ) --- 'A' matrix (multiplier)
-                 in Layout_Cell format
+Parameter : alpha REAL8 --- Scalar multiplier for alpha * A * B
 
 Parameter : beta REAL8 --- A scalar multiplier for beta * C, scales
                  the C matrix before addition. May be omitted.
 
+Parameter : A_in TABLE ( Layout_Cell ) --- 'A' matrix (multiplier)
+                 in Layout_Cell format
+
 Parameter : C_in TABLE ( Layout_Cell ) --- Same as above for the
                  'C' matrix (addend). May be omitted.
-
-Parameter : transposeB BOOLEAN --- Same as above but for matrix B
 
 Parameter : B_in TABLE ( Layout_Cell ) --- Same as above for the
                  'B' matrix (multiplicand)
 
-Parameter : alpha REAL8 --- Scalar multiplier for alpha * A * B
+Parameter : transposeA BOOLEAN --- Boolean indicating whether matrix A
+                       should be transposed before multiplying
+
+Parameter : transposeB BOOLEAN --- Same as above but for matrix B
 
 Return : TABLE ( { UNSIGNED2 wi_id , UNSIGNED4 x ,
          UNSIGNED4 y , REAL8 v } ) Result matrix in

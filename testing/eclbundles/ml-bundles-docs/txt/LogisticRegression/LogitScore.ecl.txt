@@ -17,10 +17,10 @@ FUNCTION : DATASET(Raw_Prediction) LogitScore(DATASET(Model_Coef) coef, DATASET(
 Calculate the score using the logit function and the the supplied beta
 coefficients.
 
-Parameter : independents TABLE ( NumericField ) --- the observations
-
 Parameter : coef TABLE ( Model_Coef ) --- the model beta
                  coefficients
+
+Parameter : independents TABLE ( NumericField ) --- the observations
 
 Return : TABLE ( { UNSIGNED2 wi , UNSIGNED8 id , UNSIGNED4
          number , REAL8 raw } ) the raw prediction value

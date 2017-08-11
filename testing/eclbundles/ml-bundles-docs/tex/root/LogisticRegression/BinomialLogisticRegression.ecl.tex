@@ -47,9 +47,9 @@ Binomial logistic regression using iteratively re-weighted least squares.
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{ridge}} ||| REAL8 --- a value to populate a diagonal matrix that is added to a matrix help assure that the matrix is invertible.
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{max\_iter}} ||| UNSIGNED8 --- maximum number of iterations to try
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{epsilon}} ||| REAL8 --- the minimum change in the Beta value estimate to continue
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{max\_iter}} ||| UNSIGNED8 --- maximum number of iterations to try
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{ridge}} ||| REAL8 --- a value to populate a diagonal matrix that is added to a matrix help assure that the matrix is invertible.
 \end{description}
 
 
@@ -168,8 +168,8 @@ Classify the observations using a model.
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{new\_observations}} ||| TABLE ( NumericField ) --- observations to be classified
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{model}} ||| TABLE ( Layout\_Model ) --- The model, which must be produced by a corresponding getModel function.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{new\_observations}} ||| TABLE ( NumericField ) --- observations to be classified
 \end{description}
 
 
@@ -227,9 +227,9 @@ Report the confusion matrix for the classifier and training data.
 
 \par
 \begin{description}
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{classifications}} ||| TABLE ( DiscreteField ) --- the classifications associated with the observations
-\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{observations}} ||| TABLE ( NumericField ) --- the explanatory values.
 \item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{model}} ||| TABLE ( Layout\_Model ) --- the encoded model
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{observations}} ||| TABLE ( NumericField ) --- the explanatory values.
+\item [\colorbox{tagtype}{\color{white} \textbf{\textsf{PARAMETER}}}] \textbf{\underline{classifications}} ||| TABLE ( DiscreteField ) --- the classifications associated with the observations
 \end{description}
 
 

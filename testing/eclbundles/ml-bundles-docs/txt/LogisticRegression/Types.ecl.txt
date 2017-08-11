@@ -27,13 +27,13 @@ No Documentation Found
   | 
   | No Documentation Found
   | 
-  | Field : cardinality UNSIGNED4 --- No Doc
+  | Field : number UNSIGNED4 --- No Doc
   | 
   | Field : min_value REAL8 --- No Doc
   | 
-  | Field : number UNSIGNED4 --- No Doc
-  | 
   | Field : max_value REAL8 --- No Doc
+  | 
+  | Field : cardinality UNSIGNED4 --- No Doc
   | 
   | ----------------------------------------------------------------------------------------------------------------------------------
   | RECORD : Data_Info
@@ -41,23 +41,23 @@ No Documentation Found
   | 
   | No Documentation Found
   | 
-  | Field : dependent_count UNSIGNED4 --- No Doc
-  | 
-  | Field : dependent_stats TABLE ( Field_Desc ) --- No Doc
-  | 
-  | Field : wi UNSIGNED2 --- No Doc
-  | 
   | Field : independent_fields UNSIGNED4 --- No Doc
   | 
-  | Field : independent_count UNSIGNED4 --- No Doc
+  | Field : dependent_fields UNSIGNED4 --- No Doc
   | 
   | Field : dependent_records UNSIGNED4 --- No Doc
+  | 
+  | Field : wi UNSIGNED2 --- No Doc
   | 
   | Field : independent_stats TABLE ( Field_Desc ) --- No Doc
   | 
   | Field : independent_records UNSIGNED4 --- No Doc
   | 
-  | Field : dependent_fields UNSIGNED4 --- No Doc
+  | Field : dependent_stats TABLE ( Field_Desc ) --- No Doc
+  | 
+  | Field : dependent_count UNSIGNED4 --- No Doc
+  | 
+  | Field : independent_count UNSIGNED4 --- No Doc
   | 
   | ----------------------------------------------------------------------------------------------------------------------------------
   | RECORD : NumericField_U
@@ -65,7 +65,7 @@ No Documentation Found
   | 
   | No Documentation Found
   | 
-  | Field : id UNSIGNED8 --- No Doc
+  | Field : number UNSIGNED4 --- No Doc
   | 
   | Field : value REAL8 --- No Doc
   | 
@@ -73,7 +73,7 @@ No Documentation Found
   | 
   | Field : u UNSIGNED1 --- No Doc
   | 
-  | Field : number UNSIGNED4 --- No Doc
+  | Field : id UNSIGNED8 --- No Doc
   | 
   | ----------------------------------------------------------------------------------------------------------------------------------
   | RECORD : DiscreteField_U
@@ -81,7 +81,7 @@ No Documentation Found
   | 
   | No Documentation Found
   | 
-  | Field : id UNSIGNED8 --- No Doc
+  | Field : number UNSIGNED4 --- No Doc
   | 
   | Field : value INTEGER4 --- No Doc
   | 
@@ -89,7 +89,7 @@ No Documentation Found
   | 
   | Field : u UNSIGNED1 --- No Doc
   | 
-  | Field : number UNSIGNED4 --- No Doc
+  | Field : id UNSIGNED8 --- No Doc
   | 
   | ----------------------------------------------------------------------------------------------------------------------------------
   | RECORD : Layout_Column_Map
@@ -97,11 +97,11 @@ No Documentation Found
   | 
   | No Documentation Found
   | 
-  | Field : orig_number UNSIGNED4 --- No Doc
-  | 
   | Field : remap_number UNSIGNED4 --- No Doc
   | 
   | Field : wi UNSIGNED2 --- No Doc
+  | 
+  | Field : orig_number UNSIGNED4 --- No Doc
   | 
   | ----------------------------------------------------------------------------------------------------------------------------------
   | RECORD : Classifier_Stats
@@ -109,15 +109,15 @@ No Documentation Found
   | 
   | No Documentation Found
   | 
+  | Field : correct UNSIGNED4 --- No Doc
+  | 
+  | Field : column UNSIGNED4 --- No Doc
+  | 
   | Field : incorrect UNSIGNED4 --- No Doc
   | 
   | Field : iterations UNSIGNED4 --- No Doc
   | 
   | Field : max_delta REAL8 --- No Doc
-  | 
-  | Field : correct UNSIGNED4 --- No Doc
-  | 
-  | Field : column UNSIGNED4 --- No Doc
   | 
   | ----------------------------------------------------------------------------------------------------------------------------------
   | RECORD : Model_Report
@@ -125,21 +125,21 @@ No Documentation Found
   | 
   | No Documentation Found
   | 
-  | Field : obs UNSIGNED8 --- No Doc
-  | 
   | Field : max_iterations UNSIGNED4 --- No Doc
   | 
   | Field : wi UNSIGNED2 --- No Doc
   | 
   | Field : dep_vars UNSIGNED4 --- No Doc
   | 
-  | Field : stats TABLE ( Classifier_Stats ) --- No Doc
-  | 
   | Field : ind_vars UNSIGNED4 --- No Doc
   | 
-  | Field : builder UNSIGNED2 --- No Doc
+  | Field : stats TABLE ( Classifier_Stats ) --- No Doc
+  | 
+  | Field : obs UNSIGNED8 --- No Doc
   | 
   | Field : epsilon REAL8 --- No Doc
+  | 
+  | Field : builder UNSIGNED2 --- No Doc
   | 
   | ----------------------------------------------------------------------------------------------------------------------------------
   | RECORD : Binomial_Confusion_Summary
@@ -147,45 +147,45 @@ No Documentation Found
   | 
   | No Documentation Found
   | 
-  | Field : true_neg_rate REAL8 --- No Doc
-  | 
-  | Field : neg_pred_val REAL8 --- No Doc
-  | 
   | Field : false_negative UNSIGNED8 --- No Doc
-  | 
-  | Field : wi UNSIGNED2 --- No Doc
-  | 
-  | Field : accuracy REAL8 --- No Doc
-  | 
-  | Field : false_positive UNSIGNED8 --- No Doc
-  | 
-  | Field : cond_pos UNSIGNED8 --- No Doc
-  | 
-  | Field : true_negative UNSIGNED8 --- No Doc
-  | 
-  | Field : pred_neg UNSIGNED8 --- No Doc
-  | 
-  | Field : false_disc_rate REAL8 --- No Doc
-  | 
-  | Field : true_positive UNSIGNED8 --- No Doc
-  | 
-  | Field : false_pos_rate REAL8 --- No Doc
-  | 
-  | Field : false_omit_rate REAL8 --- No Doc
-  | 
-  | Field : false_neg_rate REAL8 --- No Doc
   | 
   | Field : cond_neg UNSIGNED8 --- No Doc
   | 
-  | Field : pos_pred_val REAL8 --- No Doc
+  | Field : false_omit_rate REAL8 --- No Doc
+  | 
+  | Field : false_pos_rate REAL8 --- No Doc
+  | 
+  | Field : cond_pos UNSIGNED8 --- No Doc
+  | 
+  | Field : wi UNSIGNED2 --- No Doc
   | 
   | Field : true_pos_rate REAL8 --- No Doc
+  | 
+  | Field : false_positive UNSIGNED8 --- No Doc
+  | 
+  | Field : pred_pos UNSIGNED8 --- No Doc
+  | 
+  | Field : neg_pred_val REAL8 --- No Doc
+  | 
+  | Field : pos_pred_val REAL8 --- No Doc
+  | 
+  | Field : true_neg_rate REAL8 --- No Doc
+  | 
+  | Field : true_positive UNSIGNED8 --- No Doc
+  | 
+  | Field : accuracy REAL8 --- No Doc
+  | 
+  | Field : false_disc_rate REAL8 --- No Doc
+  | 
+  | Field : true_negative UNSIGNED8 --- No Doc
+  | 
+  | Field : false_neg_rate REAL8 --- No Doc
   | 
   | Field : prevalence REAL8 --- No Doc
   | 
   | Field : classifier UNSIGNED4 --- No Doc
   | 
-  | Field : pred_pos UNSIGNED8 --- No Doc
+  | Field : pred_neg UNSIGNED8 --- No Doc
   | 
   | ----------------------------------------------------------------------------------------------------------------------------------
   | RECORD : Model_Coef
@@ -193,15 +193,15 @@ No Documentation Found
   | 
   | No Documentation Found
   | 
-  | Field : se REAL8 --- No Doc
+  | Field : dep_nom UNSIGNED4 --- No Doc
   | 
   | Field : w REAL8 --- No Doc
   | 
   | Field : wi UNSIGNED2 --- No Doc
   | 
-  | Field : ind_col UNSIGNED4 --- No Doc
+  | Field : se REAL8 --- No Doc
   | 
-  | Field : dep_nom UNSIGNED4 --- No Doc
+  | Field : ind_col UNSIGNED4 --- No Doc
   | 
   | ----------------------------------------------------------------------------------------------------------------------------------
   | RECORD : Confidence_Model_Coef
@@ -209,19 +209,19 @@ No Documentation Found
   | 
   | No Documentation Found
   | 
-  | Field : dep_nom UNSIGNED4 --- No Doc
+  | Field : lower REAL8 --- No Doc
   | 
   | Field : wi UNSIGNED2 --- No Doc
   | 
-  | Field : ind_col UNSIGNED4 --- No Doc
-  | 
-  | Field : lower REAL8 --- No Doc
-  | 
-  | Field : se REAL8 --- No Doc
-  | 
   | Field : upper REAL8 --- No Doc
   | 
+  | Field : ind_col UNSIGNED4 --- No Doc
+  | 
+  | Field : dep_nom UNSIGNED4 --- No Doc
+  | 
   | Field : w REAL8 --- No Doc
+  | 
+  | Field : se REAL8 --- No Doc
   | 
   | ----------------------------------------------------------------------------------------------------------------------------------
   | RECORD : pval_Model_Coef
@@ -229,19 +229,19 @@ No Documentation Found
   | 
   | No Documentation Found
   | 
-  | Field : z REAL8 --- No Doc
-  | 
   | Field : p_value REAL8 --- No Doc
-  | 
-  | Field : dep_nom UNSIGNED4 --- No Doc
   | 
   | Field : wi UNSIGNED2 --- No Doc
   | 
+  | Field : z REAL8 --- No Doc
+  | 
   | Field : ind_col UNSIGNED4 --- No Doc
   | 
-  | Field : se REAL8 --- No Doc
+  | Field : dep_nom UNSIGNED4 --- No Doc
   | 
   | Field : w REAL8 --- No Doc
+  | 
+  | Field : se REAL8 --- No Doc
   | 
   | ----------------------------------------------------------------------------------------------------------------------------------
   | RECORD : Raw_Prediction
@@ -249,13 +249,13 @@ No Documentation Found
   | 
   | No Documentation Found
   | 
-  | Field : id UNSIGNED8 --- No Doc
+  | Field : number UNSIGNED4 --- No Doc
   | 
   | Field : raw REAL8 --- No Doc
   | 
   | Field : wi UNSIGNED2 --- No Doc
   | 
-  | Field : number UNSIGNED4 --- No Doc
+  | Field : id UNSIGNED8 --- No Doc
   | 
   | ----------------------------------------------------------------------------------------------------------------------------------
   | RECORD : Observation_Deviance
@@ -263,27 +263,27 @@ No Documentation Found
   | 
   | No Documentation Found
   | 
-  | Field : actual INTEGER4 --- No Doc
-  | 
-  | Field : nil_dev_component REAL8 --- No Doc
-  | 
-  | Field : id UNSIGNED8 --- No Doc
-  | 
-  | Field : mod_ll REAL8 --- No Doc
-  | 
-  | Field : wi UNSIGNED2 --- No Doc
-  | 
   | Field : predicted INTEGER4 --- No Doc
   | 
   | Field : nil_dev_residual REAL8 --- No Doc
   | 
-  | Field : nil_ll REAL8 --- No Doc
+  | Field : wi UNSIGNED2 --- No Doc
+  | 
+  | Field : mod_ll REAL8 --- No Doc
+  | 
+  | Field : actual INTEGER4 --- No Doc
+  | 
+  | Field : nil_dev_component REAL8 --- No Doc
+  | 
+  | Field : mod_dev_residual REAL8 --- No Doc
   | 
   | Field : mod_dev_component REAL8 --- No Doc
   | 
+  | Field : nil_ll REAL8 --- No Doc
+  | 
   | Field : classifier UNSIGNED4 --- No Doc
   | 
-  | Field : mod_dev_residual REAL8 --- No Doc
+  | Field : id UNSIGNED8 --- No Doc
   | 
   | ----------------------------------------------------------------------------------------------------------------------------------
   | RECORD : Deviance_Record
@@ -293,13 +293,13 @@ No Documentation Found
   | 
   | Field : deviance REAL8 --- No Doc
   | 
-  | Field : df UNSIGNED8 --- No Doc
-  | 
   | Field : wi UNSIGNED2 --- No Doc
   | 
-  | Field : classifier UNSIGNED4 --- No Doc
+  | Field : df UNSIGNED8 --- No Doc
   | 
   | Field : aic REAL8 --- No Doc
+  | 
+  | Field : classifier UNSIGNED4 --- No Doc
   | 
   | ----------------------------------------------------------------------------------------------------------------------------------
   | RECORD : AOD_Record
@@ -309,13 +309,13 @@ No Documentation Found
   | 
   | Field : residual_df UNSIGNED8 --- No Doc
   | 
-  | Field : p_value REAL8 --- No Doc
-  | 
-  | Field : residual_dev REAL8 --- No Doc
+  | Field : deviance REAL8 --- No Doc
   | 
   | Field : wi UNSIGNED2 --- No Doc
   | 
-  | Field : deviance REAL8 --- No Doc
+  | Field : residual_dev REAL8 --- No Doc
+  | 
+  | Field : p_value REAL8 --- No Doc
   | 
   | Field : df UNSIGNED8 --- No Doc
   | 

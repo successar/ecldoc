@@ -102,3 +102,80 @@ Each taglets class takes in 3 variables :
 - Name of that tag in docstring
 - All tag strings in given docstring for that tag
 - Corresponding Definition Element for that docstring
+
+External Documentation Reference
+================================
+For a given run of ecldoc, we may want the generated documentation to link to other documentation residing elsewhere in the system. Examples of such situation are 'Imports to modules not present in given source tree'. For example, OLS.ecl in LinearRegression bundle imports modules from ML_Core bundle. Therefore, if we have already generated documentation to ML_Core, we can link it to documentation generated for Linear Regression code.
+
+There are 2 components to this system. Let us have 2 documentations A (importee) and F (importer) where F imports modules from A.
+
+IMPORTEE (A) SIDE
+-----------------
+
+During A's doc generation run, ecldoc generates a tree.json file for each folder within A's source tree. Tree.json file contains information necessary for generating links to that folder.
+
+For example, if A has source tree structure
+
+.. code:: python
+
+	{ 'root' :
+      { 'A1.ecl' : 'A1.ecl' ,
+        'A2.ecl' : 'A2.ecl' ,
+        'C' :
+          { 'C1.ecl' : 'C/C1.ecl' } ,
+        'B' :
+          { 'B1.ecl' : 'B/B1.ecl',
+            'D' :
+              { 'D1.ecl' : 'B/D/D1.ecl' }
+          },
+      }
+    }
+
+Then each folder in XML Documentation of A will have a tree.json file which contains source tree starting from that folder. For example,
+<path to A Doc>/xml/B will have a file <path to A Doc>/xml/B/tree.json with following content :
+
+.. code:: python
+
+	{ 'input_root' : '<path to A>',
+	  'output_root' : '<path to A Doc>',
+	  'include_path' : '<path to A>/B'
+      'tree' : { 'B' :
+		            { 'key' : 'B',
+		              'tree' :
+		                  { 'B1.ecl' :
+		                      { 'key' : 'B1.ecl',
+		              		    'tree' : B/B1.ecl'
+		              	      },
+		                     'D' :
+		                         { 'key' : 'D',
+		                           'D1.ecl' : 'B/D/D1.ecl'
+		                         }
+		                  },
+      		         }
+      		    }
+    }
+
+IMPORTER (F) SIDE
+-----------------
+
+We analyse multiple situations here :
+
+#. If ``-I<path to A>`` was present in eclcc search paths for F's run , then <path to A Doc>/xml needs to be passes as ``--exdocpaths`` parameters to ecldoc to perform correct links for statements like : ``IMPORT A.B.B1;`` or ``IMPORT A.C;`` .
+#. If ``-I<path to A>/B`` was present in eclcc search paths for F's run , then <path to A Doc>/xml/B needs to passed as ``--exdocpaths`` parameter to ecldoc to perform correct links for statements like : ``IMPORT B.B1;`` or ``IMPORT B.D;`` .
+#. If ``-I<path to A>/B/D`` was present in eclcc search paths for F's run , then ``<path to A Doc>/xml/B/D`` needs to passed as ``--exdocpaths`` parameter to ecldoc to perform correct links for statements like : ``IMPORT D;`` or ``IMPORT D.D1;`` .
+
+This type of structure for external documentation reference allws user to specify any of subpaths in the source tree of external documentation to eclcc include paths. Therefore, user doesn't need to generate separate documentations for A, B or D folders if they want to import them separately if different or same projects.
+
+INSTALL
+=======
+
+#. To install, ``cd`` to directory containing Makefile.
+#. Run : ``sudo make install`` (if root permissions)
+#. Else Run : ``make install`` (add default pip3 installation directory to $PATH env variable - most commonly $HOME/.local/bin)
+#. To Uninstall, Run : ``sudo make uninstall`` OR ``make uninstall``
+
+Installation Requirements
+-------------------------
+
+#. Python3
+#. pip3, setuptools

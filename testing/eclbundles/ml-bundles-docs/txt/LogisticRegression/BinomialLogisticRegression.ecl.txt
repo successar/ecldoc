@@ -17,14 +17,14 @@ MODULE : BinomialLogisticRegression(UNSIGNED max_iter=200, REAL8 epsilon=Constan
 
 Binomial logistic regression using iteratively re-weighted least squares.
 
-Parameter : ridge REAL8 --- a value to populate a diagonal matrix
-                  that is added to a matrix help assure that the
-                  matrix is invertible.
+Parameter : epsilon REAL8 --- the minimum change in the Beta value
+                    estimate to continue
 
 Parameter : max_iter UNSIGNED8 --- maximum number of iterations to try
 
-Parameter : epsilon REAL8 --- the minimum change in the Beta value
-                    estimate to continue
+Parameter : ridge REAL8 --- a value to populate a diagonal matrix
+                  that is added to a matrix help assure that the
+                  matrix is invertible.
 
 Parent : ML_Core.Interfaces.IClassify
          <../ML_Core/Interfaces/IClassify.ecl.txt>
@@ -52,11 +52,11 @@ Parent : ML_Core.Interfaces.IClassify
   | 
   | Classify the observations using a model.
   | 
-  | Parameter : new_observations TABLE ( NumericField ) --- observations to be
-  |                              classified
-  | 
   | Parameter : model TABLE ( Layout_Model ) --- The model, which must
   |                   be produced by a corresponding getModel function.
+  | 
+  | Parameter : new_observations TABLE ( NumericField ) --- observations to be
+  |                              classified
   | 
   | Return : TABLE ( { UNSIGNED2 wi , UNSIGNED8 id , UNSIGNED4
   |          number , INTEGER4 value , REAL8 conf } )
@@ -70,12 +70,12 @@ Parent : ML_Core.Interfaces.IClassify
   | 
   | Report the confusion matrix for the classifier and training data.
   | 
-  | Parameter : classifications TABLE ( DiscreteField ) --- the classifications
-  |                             associated with the observations
+  | Parameter : model TABLE ( Layout_Model ) --- the encoded model
   | 
   | Parameter : observations TABLE ( NumericField ) --- the explanatory values.
   | 
-  | Parameter : model TABLE ( Layout_Model ) --- the encoded model
+  | Parameter : classifications TABLE ( DiscreteField ) --- the classifications
+  |                             associated with the observations
   | 
   | Return : TABLE ( { UNSIGNED2 wi , UNSIGNED4 classifier ,
   |          INTEGER4 actual_class , INTEGER4 predict_class ,

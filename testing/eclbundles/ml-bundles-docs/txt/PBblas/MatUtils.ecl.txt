@@ -44,13 +44,13 @@ See : Std/PBblas/Types.Layout_Cell
   | inserted before the first original column. This attribute supports the
   | myriad interface. Multiple independent matrixes can be represented by M.
   | 
-  | Parameter : cols_to_insert UNSIGNED8 --- the number of columns to insert,
-  |                            default 1
+  | Parameter : M TABLE ( Layout_Cell ) --- the input matrix
   | 
   | Parameter : insert_val REAL8 --- the value for each cell of the new
   |                        column(s), default 0
   | 
-  | Parameter : M TABLE ( Layout_Cell ) --- the input matrix
+  | Parameter : cols_to_insert UNSIGNED8 --- the number of columns to insert,
+  |                            default 1
   | 
   | Return : TABLE ( { UNSIGNED2 wi_id , UNSIGNED4 x ,
   |          UNSIGNED4 y , REAL8 v } ) matrix in Layout_Cell

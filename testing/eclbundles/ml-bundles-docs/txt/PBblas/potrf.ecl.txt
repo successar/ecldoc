@@ -39,12 +39,12 @@ multiple matrixes to be factored, indicated by different values for work-
 item id (wi_id).
 
 
+Parameter : A_in TABLE ( Layout_Cell ) --- The matrix or matrixes
+                 to be factored in Types.Layout_Cell format
+
 Parameter : tri UNSIGNED1 --- Types.Triangle enumeration
                 indicating whether we are looking for the Upper or
                 the Lower factor
-
-Parameter : A_in TABLE ( Layout_Cell ) --- The matrix or matrixes
-                 to be factored in Types.Layout_Cell format
 
 Return : TABLE ( { UNSIGNED2 wi_id , UNSIGNED4 x ,
          UNSIGNED4 y , REAL8 v } ) Triangular matrix in

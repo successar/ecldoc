@@ -119,16 +119,16 @@ Parent : ML_Core.Interfaces.IRegression
   | models may be provided in 'model'. The resulting predicted values will also
   | be separable by work item (i.e. wi).
   | 
-  | Parameter : newX TABLE ( NumericField ) --- The set of observations
-  |                  of independent variables in DATASET(NumericField)
-  |                  format.
-  | 
   | Parameter : model TABLE ( Layout_Model ) --- Optional. A model that
   |                   was previously returned from GetModel (above).
   |                   Note that a model from a previous run will only be
   |                   valid if the field numbers in X are the same as
   |                   when the model was learned. If this parameter is
   |                   omitted, the current model will be used.
+  | 
+  | Parameter : newX TABLE ( NumericField ) --- The set of observations
+  |                  of independent variables in DATASET(NumericField)
+  |                  format.
   | 
   | Return : TABLE ( { UNSIGNED2 wi , UNSIGNED8 id , UNSIGNED4
   |          number , REAL8 value } ) An estimation of the
@@ -184,29 +184,29 @@ Parent : ML_Core.Interfaces.IRegression
   | 
   | No Documentation Found
   | 
-  | Field : model_f REAL8 --- No Doc
+  | Field : number UNSIGNED4 --- No Doc
   | 
   | Field : error_ss REAL8 --- No Doc
   | 
-  | Field : total_ss REAL8 --- No Doc
-  | 
-  | Field : wi UNSIGNED2 --- No Doc
-  | 
-  | Field : error_ms REAL8 --- No Doc
-  | 
-  | Field : error_df UNSIGNED8 --- No Doc
-  | 
-  | Field : model_ms REAL8 --- No Doc
-  | 
   | Field : total_df UNSIGNED8 --- No Doc
-  | 
-  | Field : model_ss REAL8 --- No Doc
-  | 
-  | Field : model_df UNSIGNED8 --- No Doc
   | 
   | Field : total_ms REAL8 --- No Doc
   | 
-  | Field : number UNSIGNED4 --- No Doc
+  | Field : error_df UNSIGNED8 --- No Doc
+  | 
+  | Field : error_ms REAL8 --- No Doc
+  | 
+  | Field : model_ms REAL8 --- No Doc
+  | 
+  | Field : model_ss REAL8 --- No Doc
+  | 
+  | Field : wi UNSIGNED2 --- No Doc
+  | 
+  | Field : model_f REAL8 --- No Doc
+  | 
+  | Field : total_ss REAL8 --- No Doc
+  | 
+  | Field : model_df UNSIGNED8 --- No Doc
   | 
   | ----------------------------------------------------------------------------------------------------------------------------------
   | TRANSFORM : AnovaRec calcAnova(tmpRec le)
@@ -308,11 +308,11 @@ Parent : ML_Core.Interfaces.IRegression
   | 
   | No Documentation Found
   | 
+  | Field : number UNSIGNED4 --- No Doc
+  | 
   | Field : aic REAL8 --- No Doc
   | 
   | Field : wi UNSIGNED2 --- No Doc
-  | 
-  | Field : number UNSIGNED4 --- No Doc
   | 
   | ----------------------------------------------------------------------------------------------------------------------------------
   | ATTRIBUTE : DATASET(AICRec) AIC
@@ -336,11 +336,11 @@ Parent : ML_Core.Interfaces.IRegression
   | 
   | Field : p REAL8 --- No Doc
   | 
+  | Field : rangenumber UNSIGNED8 --- No Doc
+  | 
   | Field : rangehigh REAL8 --- No Doc
   | 
   | Field : rangelow REAL8 --- No Doc
-  | 
-  | Field : rangenumber UNSIGNED8 --- No Doc
   | 
   | ----------------------------------------------------------------------------------------------------------------------------------
   | MODULE : DistributionBase(t_Count Nranges = 10000)
@@ -446,9 +446,9 @@ Parent : ML_Core.Interfaces.IRegression
   | 
   | No Documentation Found
   | 
-  | Parameter : v_in INTEGER4 --- No Doc
-  | 
   | Parameter : nranges UNSIGNED8 --- No Doc
+  | 
+  | Parameter : v_in INTEGER4 --- No Doc
   | 
   | Parent : linearregression.ols.distributionbase
   |          <OLS.ecl.txt>
@@ -551,9 +551,9 @@ Parent : ML_Core.Interfaces.IRegression
   | 
   | Parameter : d1_in INTEGER4 --- No Doc
   | 
-  | Parameter : nranges UNSIGNED8 --- No Doc
-  | 
   | Parameter : d2_in INTEGER4 --- No Doc
+  | 
+  | Parameter : nranges UNSIGNED8 --- No Doc
   | 
   | Parent : linearregression.ols.distributionbase
   |          <OLS.ecl.txt>
@@ -777,15 +777,15 @@ Parent : ML_Core.Interfaces.IRegression
   | 
   | No Documentation Found
   | 
-  | Field : lowerint REAL8 --- No Doc
+  | Field : number UNSIGNED4 --- No Doc
   | 
   | Field : upperint REAL8 --- No Doc
   | 
-  | Field : id UNSIGNED8 --- No Doc
-  | 
   | Field : wi UNSIGNED2 --- No Doc
   | 
-  | Field : number UNSIGNED4 --- No Doc
+  | Field : lowerint REAL8 --- No Doc
+  | 
+  | Field : id UNSIGNED8 --- No Doc
   | 
   | ----------------------------------------------------------------------------------------------------------------------------------
   | FUNCTION : ConfInt(Types.t_fieldReal level)
@@ -819,13 +819,13 @@ Parent : ML_Core.Interfaces.IRegression
   | 
   | No Documentation Found
   | 
-  | Field : model_f REAL8 --- No Doc
-  | 
-  | Field : pvalue REAL8 --- No Doc
+  | Field : number UNSIGNED4 --- No Doc
   | 
   | Field : wi UNSIGNED2 --- No Doc
   | 
-  | Field : number UNSIGNED4 --- No Doc
+  | Field : pvalue REAL8 --- No Doc
+  | 
+  | Field : model_f REAL8 --- No Doc
   | 
   | ----------------------------------------------------------------------------------------------------------------------------------
   | ATTRIBUTE : DATASET(FTestRec) FTest
