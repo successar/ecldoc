@@ -118,7 +118,7 @@ For example, if A has source tree structure
 
 .. code:: python
 
-	{ 'root' :
+    { 'root' :
       { 'A1.ecl' : 'A1.ecl' ,
         'A2.ecl' : 'A2.ecl' ,
         'C' :
@@ -136,23 +136,23 @@ Then each folder in XML Documentation of A will have a tree.json file which cont
 
 .. code:: python
 
-	{ 'input_root' : '<path to A>',
-	  'output_root' : '<path to A Doc>',
-	  'include_path' : '<path to A>/B'
+    { 'input_root' : '<path to A>',
+      'output_root' : '<path to A Doc>',
+      'include_path' : '<path to A>/B',
       'tree' : { 'B' :
-		            { 'key' : 'B',
-		              'tree' :
-		                  { 'B1.ecl' :
-		                      { 'key' : 'B1.ecl',
-		              		    'tree' : B/B1.ecl'
-		              	      },
-		                     'D' :
-		                         { 'key' : 'D',
-		                           'D1.ecl' : 'B/D/D1.ecl'
-		                         }
-		                  },
-      		         }
-      		    }
+                    { 'key' : 'B',
+                      'tree' :
+                          { 'B1.ecl' :
+                              { 'key' : 'B1.ecl',
+                                'tree' : B/B1.ecl'
+                              },
+                             'D' :
+                                 { 'key' : 'D',
+                                   'D1.ecl' : 'B/D/D1.ecl'
+                                 }
+                          },
+                     }
+                }
     }
 
 IMPORTER (F) SIDE
